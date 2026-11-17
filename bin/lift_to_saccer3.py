@@ -115,6 +115,7 @@ def main() -> None:
         return ca, ns, ne, status
 
     counts: dict[str, int] = {}
+    affected: set[str] = set()
     for filename in ('origins.tsv', 'evidence.tsv'):
         path = DATA / filename
         header, rows = read_tsv(path)
@@ -140,6 +141,8 @@ def main() -> None:
             src_chr = 'chr%d' % ROMAN_TO_NUM[r['chromosome']]
             new_chr, ns, ne, status = lift(r['chromosome'], int(r['start']), int(r['end']))
             counts[status] = counts.get(status, 0) + 1
+            if status not in ('identical', 'not-required'):
+                affected.add(r['accession'])
             r['source_assembly'] = 'sacCer1'
             r['source_chromosome'] = src_chr
             r['source_start'], r['source_end'] = r['start'], r['end']
@@ -178,16 +181,15 @@ def main() -> None:
                  'from the v2 build and are cited as such in the literature, so they stay '
                  'fixed; a name like X-212 therefore need not match the lifted midpoint.'),
     }
-    rel['known_issues'] = [
-        i for i in rel['known_issues'] if not i.startswith('Cerevisiae coordinates are sacCer1')
-    ]
     changed = counts.get('same-length-mismatch', 0) + counts.get('length-changed', 0)
-    rel['known_issues'].append(
-        f'{changed} lifted cerevisiae intervals do not have identical sequence in sacCer3 '
-        '(substitutions, or an indel that changes interval length). The mapping is correct '
-        'in each case - the 2003 assembly sequence was revised - but intervals whose length '
-        'changed are worth a curator review. See lift_status in origins.tsv and evidence.tsv.'
-    )
+    rel['known_issues'].append({
+        'text': f'{changed} lifted cerevisiae intervals do not have identical sequence in '
+                'sacCer3 - substitutions, or an indel that changes interval length. Each '
+                'mapping was checked and is correctly placed; it is the 2003 assembly '
+                'sequence that was revised. Intervals whose length changed are worth a '
+                'curator review. The origins affected are:',
+        'accessions': sorted(affected),
+    })
     for f in ('origins.tsv', 'evidence.tsv'):
         rel['files'][f]['md5'] = hashlib.md5((DATA / f).read_bytes()).hexdigest()
     (DATA / 'release.json').write_text(json.dumps(rel, indent=2) + '\n')

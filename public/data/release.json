@@ -44,9 +44,74 @@
     ]
   },
   "known_issues": [
-    "Non-Confirmed v2 origins that overlap direct evidence and need curator review: sc_ori 79 (Dubious), sc_ori 84 (Dubious), sc_ori 741 (Likely).",
-    "24 evidence records carry no PubMed ID in v2 and need a citation assigned.",
-    "51 lifted cerevisiae intervals do not have identical sequence in sacCer3 (substitutions, or an indel that changes interval length). The mapping is correct in each case - the 2003 assembly sequence was revised - but intervals whose length changed are worth a curator review. See lift_status in origins.tsv and evidence.tsv."
+    {
+      "text": "Non-Confirmed v2 origins that overlap direct evidence and need curator review: sc_ori 79 (Dubious), sc_ori 84 (Dubious), sc_ori 741 (Likely). They are Likely or Dubious in v2, so they are not in this release and cannot be linked here.",
+      "accessions": []
+    },
+    {
+      "text": "24 evidence records carry no PubMed ID in v2 and need a citation assigned. The origins they support are:",
+      "accessions": [
+        "ODB-SC-0087",
+        "ODB-SC-0088",
+        "ODB-SC-0089",
+        "ODB-SC-0090",
+        "ODB-SC-0091",
+        "ODB-SC-0092",
+        "ODB-SC-0144",
+        "ODB-SC-0211",
+        "ODB-SC-0212",
+        "ODB-SC-0213",
+        "ODB-SC-0237",
+        "ODB-SC-0239",
+        "ODB-SC-0241",
+        "ODB-SC-0244",
+        "ODB-SC-0284",
+        "ODB-SC-0332",
+        "ODB-SC-0335",
+        "ODB-SC-0723",
+        "ODB-SP-0069",
+        "ODB-SP-0075",
+        "ODB-SP-0231"
+      ]
+    },
+    {
+      "text": "Positions may not line up exactly with the ARS features UCSC shows for sacCer3. OriDB intervals are the experimentally mapped regions reported by the source studies, which are not the same objects as SGD/UCSC ARS annotations, and a systematic offset from a coordinate-convention difference has not been excluded. This needs checking against an independent sacCer3 annotation before the coordinates are relied on for base-level work.",
+      "accessions": []
+    },
+    {
+      "text": "51 lifted cerevisiae intervals do not have identical sequence in sacCer3 - substitutions, or an indel that changes interval length. Each mapping was checked and is correctly placed; it is the 2003 assembly sequence that was revised. Intervals whose length changed are worth a curator review. The origins affected are:",
+      "accessions": [
+        "ODB-SC-0002",
+        "ODB-SC-0007",
+        "ODB-SC-0025",
+        "ODB-SC-0029",
+        "ODB-SC-0040",
+        "ODB-SC-0054",
+        "ODB-SC-0070",
+        "ODB-SC-0080",
+        "ODB-SC-0081",
+        "ODB-SC-0082",
+        "ODB-SC-0095",
+        "ODB-SC-0112",
+        "ODB-SC-0144",
+        "ODB-SC-0206",
+        "ODB-SC-0213",
+        "ODB-SC-0255",
+        "ODB-SC-0258",
+        "ODB-SC-0261",
+        "ODB-SC-0263",
+        "ODB-SC-0283",
+        "ODB-SC-0326",
+        "ODB-SC-0340",
+        "ODB-SC-0421",
+        "ODB-SC-0422",
+        "ODB-SC-0427",
+        "ODB-SC-0473",
+        "ODB-SC-0488",
+        "ODB-SC-0652",
+        "ODB-SC-0690"
+      ]
+    }
   ],
   "lift": {
     "from": "sacCer1",

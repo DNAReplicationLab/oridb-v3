@@ -224,12 +224,23 @@ def main(dump_path: str) -> None:
                                  '(OriDB v2.1.0 cerevisiae / v1.0.0 pombe)',
                        'source_tables': sorted(tables)},
         'known_issues': [
-            'Non-Confirmed v2 origins that overlap direct evidence and need curator review: '
-            + ', '.join(exceptions) + '.',
-            str(sum(1 for e in evidence if not e['pmid']))
-            + ' evidence records carry no PubMed ID in v2 and need a citation assigned.',
-            'Cerevisiae coordinates are sacCer1 (2003). External links therefore use '
-            'db=sacCer1, not sacCer3.'],
+            {'text': 'Non-Confirmed v2 origins that overlap direct evidence and need curator '
+                     'review: ' + ', '.join(exceptions) + '. They are Likely or Dubious in v2, '
+                     'so they are not in this release and cannot be linked here.',
+             'accessions': []},
+            {'text': str(sum(1 for e in evidence if not e['pmid']))
+                     + ' evidence records carry no PubMed ID in v2 and need a citation '
+                       'assigned. The origins they support are:',
+             'accessions': sorted({e['accession'] for e in evidence if not e['pmid']})},
+            {'text': 'Positions may not line up exactly with the ARS features UCSC shows for '
+                     'sacCer3. OriDB intervals are the experimentally mapped regions reported '
+                     'by the source studies, which are not the same objects as SGD/UCSC ARS '
+                     'annotations, and a systematic offset from a coordinate-convention '
+                     'difference has not been excluded. This needs checking against an '
+                     'independent sacCer3 annotation before the coordinates are relied on for '
+                     'base-level work.',
+             'accessions': []},
+        ],
     }
     (data_dir / 'release.json').write_text(json.dumps(release, indent=2) + '\n', encoding='utf-8')
 

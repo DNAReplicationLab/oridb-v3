@@ -29,9 +29,31 @@ require ORIDB_APP_DIR . '/header.php';
 </ul>
 
 <h2>Known issues in this release</h2>
+<p class="lede">
+  Recorded openly rather than quietly: each entry below is a question a curator still has to
+  answer, and the records it affects are linked so they can be inspected directly.
+</p>
 <ul>
 <?php foreach ($release['known_issues'] as $issue): ?>
-  <li><?= h($issue) ?></li>
+  <?php
+  // Entries are objects carrying affected accessions; tolerate a plain string too.
+  $text = is_array($issue) ? ($issue['text'] ?? '') : $issue;
+  $accessions = is_array($issue) ? ($issue['accessions'] ?? []) : [];
+  ?>
+  <li>
+    <?= h($text) ?>
+    <?php if ($accessions !== []): ?>
+      <div class="small" style="margin-top:.35rem">
+        <?php foreach ($accessions as $i => $acc): ?>
+          <a class="mono" href="<?= h(u('origin.php', ['id' => $acc])) ?>"><?= h($acc) ?></a><?php
+          $o = Data::origin($acc);
+          if ($o !== null && $o['name'] !== '') { echo ' (' . h($o['name']) . ')'; }
+          echo $i < count($accessions) - 1 ? ', ' : '';
+        ?>
+        <?php endforeach; ?>
+      </div>
+    <?php endif; ?>
+  </li>
 <?php endforeach; ?>
 </ul>
 
