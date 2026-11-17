@@ -25,8 +25,21 @@ $title = $title ?? 'OriDB';
     </nav>
   </div>
 </header>
+<?php
+// Derived from the release metadata, never asserted: a hard-coded claim about the
+// assemblies went stale the moment the data was lifted.
+$assembly_summary = [];
+$builds = $release['assemblies'];
+uasort($builds, static fn (array $a, array $b): int => strcmp($a['species'], $b['species']));
+foreach ($builds as $build => $meta) {
+    $parts = explode(' ', $meta['species']);
+    $abbrev = count($parts) > 1 ? substr($parts[0], 0, 1) . '. ' . $parts[1] : $meta['species'];
+    $assembly_summary[] = '<em>' . h($abbrev) . '</em> on ' . h($build);
+}
+?>
 <div class="banner wrap">
   Trial release <strong><?= h($release['release']) ?></strong> &mdash; Confirmed origins only.
-  Coordinates are <strong>not</strong> lifted to current assemblies; see <a href="about.php">About</a>.
+  Coordinates: <?= implode(', ', $assembly_summary) ?>.
+  See <a href="about.php">About</a> for scope and known issues.
 </div>
 <main id="main" class="wrap">

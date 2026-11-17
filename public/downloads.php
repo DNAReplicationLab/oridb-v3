@@ -16,10 +16,15 @@ require ORIDB_APP_DIR . '/header.php';
 <table>
   <thead><tr><th>Format</th><th>Scope</th><th>Notes</th></tr></thead>
   <tbody>
-    <tr><td><a href="<?= h(u('export.php', ['format' => 'bed', 'species' => 'Saccharomyces cerevisiae'])) ?>">BED</a></td>
-        <td><em>S. cerevisiae</em>, sacCer1</td><td class="small">0-based half-open, accession as feature name</td></tr>
-    <tr><td><a href="<?= h(u('export.php', ['format' => 'bed', 'species' => 'Schizosaccharomyces pombe'])) ?>">BED</a></td>
-        <td><em>S. pombe</em>, ASM294v2</td><td class="small">0-based half-open, accession as feature name</td></tr>
+    <?php foreach (Data::speciesList() as $sp):
+        $rows = Data::query(species: $sp);
+        $build = $rows === [] ? '' : $rows[0]['assembly'];
+        $parts = explode(' ', $sp);
+        $abbrev = count($parts) > 1 ? substr($parts[0], 0, 1) . '. ' . $parts[1] : $sp; ?>
+    <tr><td><a href="<?= h(u('export.php', ['format' => 'bed', 'species' => $sp])) ?>">BED</a></td>
+        <td><em><?= h($abbrev) ?></em>, <?= h($build) ?></td>
+        <td class="small">0-based half-open, accession as feature name</td></tr>
+    <?php endforeach; ?>
     <tr><td><a href="<?= h(u('export.php', ['format' => 'tsv'])) ?>">TSV</a></td>
         <td>all origins</td><td class="small">as served, 1-based inclusive</td></tr>
     <tr><td><a href="<?= h(u('export.php', ['format' => 'json'])) ?>">JSON</a></td>

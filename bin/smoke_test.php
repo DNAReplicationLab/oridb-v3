@@ -63,6 +63,32 @@ foreach ($cases as [$page, $query]) {
     }
 }
 
+// Staleness check: a page must not assert an assembly name of its own. The banner
+// once claimed coordinates were "not lifted" and went silently wrong the day they
+// were. Anything assembly-specific belongs in data/release.json, which the pages read.
+$offenders = [];
+foreach (glob($root . '/public/*.php') as $file) {
+    $body = (string) file_get_contents($file);
+    if (preg_match('/\b(sacCer[123]|ASM294v2)\b/', $body) === 1) {
+        $offenders[] = basename($file);
+    }
+}
+foreach (glob($root . '/public/app/*.php') as $file) {
+    if (basename($file) === 'Data.php') {
+        continue; // the storage layer may branch on assembly; it states no facts
+    }
+    $body = (string) file_get_contents($file);
+    if (preg_match('/\b(sacCer[123]|ASM294v2)\b/', $body) === 1) {
+        $offenders[] = 'app/' . basename($file);
+    }
+}
+if ($offenders !== []) {
+    $failures++;
+    echo "FAIL  hard-coded assembly name in: " . implode(', ', $offenders) . "\n";
+} else {
+    echo "ok    no page hard-codes an assembly name\n";
+}
+
 // Jail check: many shared hosts confine PHP to the document root, where anything
 // above it does not exist at all. Simulating that with open_basedir catches a
 // reintroduced read from outside public/ before it reaches a server.
