@@ -11,6 +11,4 @@ deployment:
     - export DEPLOYPATH=/home/CPANELUSER/oridb-v3
     - /bin/mkdir -p $DEPLOYPATH
     - /bin/cp -R public $DEPLOYPATH/
-    - /bin/cp -R src $DEPLOYPATH/
-    - /bin/cp -R data $DEPLOYPATH/
     - /bin/find $DEPLOYPATH -type f -name '*.php' -exec chmod 644 {} +

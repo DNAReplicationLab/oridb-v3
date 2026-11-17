@@ -1,6 +1,6 @@
 <?php
 declare(strict_types=1);
-require_once dirname(__DIR__) . '/src/bootstrap.php';
+require_once __DIR__ . '/app/bootstrap.php';
 
 $q      = trim((string) ($_GET['q'] ?? ''));
 $region = trim((string) ($_GET['region'] ?? ''));
@@ -22,7 +22,7 @@ if ($region !== '') {
 }
 
 $title = 'Search';
-require ORIDB_ROOT . '/src/header.php';
+require ORIDB_APP_DIR . '/header.php';
 ?>
 <h1>Search</h1>
 
@@ -65,4 +65,4 @@ require ORIDB_ROOT . '/src/header.php';
   </table>
   <?php endif; ?>
 <?php endif; ?>
-<?php require ORIDB_ROOT . '/src/footer.php'; ?>
+<?php require ORIDB_APP_DIR . '/footer.php'; ?>

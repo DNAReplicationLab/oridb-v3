@@ -1,6 +1,6 @@
 <?php
 declare(strict_types=1);
-require_once dirname(__DIR__) . '/src/bootstrap.php';
+require_once __DIR__ . '/app/bootstrap.php';
 
 $accession = isset($_GET['id']) ? (string) $_GET['id'] : '';
 $origin = $accession !== '' ? Data::origin($accession) : null;
@@ -12,7 +12,7 @@ $evidence = Data::evidenceFor($accession);
 $width = (int) $origin['end'] - (int) $origin['start'] + 1;
 
 $title = $origin['name'] !== '' ? $origin['name'] : $origin['accession'];
-require ORIDB_ROOT . '/src/header.php';
+require ORIDB_APP_DIR . '/header.php';
 ?>
 <h1><?= h($origin['name'] !== '' ? $origin['name'] : $origin['accession']) ?>
     <span class="tag"><?= h($origin['status']) ?></span></h1>
@@ -66,4 +66,4 @@ require ORIDB_ROOT . '/src/header.php';
 <p class="small">
   <a href="<?= h(u('api/origin.php', ['id' => $accession])) ?>">JSON record</a> for this origin.
 </p>
-<?php require ORIDB_ROOT . '/src/footer.php'; ?>
+<?php require ORIDB_APP_DIR . '/footer.php'; ?>

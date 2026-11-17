@@ -1,6 +1,6 @@
 <?php
 declare(strict_types=1);
-require_once dirname(__DIR__) . '/src/bootstrap.php';
+require_once __DIR__ . '/app/bootstrap.php';
 
 $counts = [];
 foreach (Data::origins() as $o) {
@@ -13,7 +13,7 @@ $studies = Data::studies();
 usort($studies, static fn (array $a, array $b) => [$b['year'], $a['first_author']] <=> [$a['year'], $b['first_author']]);
 
 $title = 'Studies';
-require ORIDB_ROOT . '/src/header.php';
+require ORIDB_APP_DIR . '/header.php';
 ?>
 <h1>Source publications</h1>
 <p class="lede">Every Confirmed origin in this release traces to one or more of these studies.</p>
@@ -37,4 +37,4 @@ require ORIDB_ROOT . '/src/header.php';
   <?php endforeach; ?>
   </tbody>
 </table>
-<?php require ORIDB_ROOT . '/src/footer.php'; ?>
+<?php require ORIDB_APP_DIR . '/footer.php'; ?>

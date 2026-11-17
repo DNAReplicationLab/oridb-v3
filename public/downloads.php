@@ -1,10 +1,10 @@
 <?php
 declare(strict_types=1);
-require_once dirname(__DIR__) . '/src/bootstrap.php';
+require_once __DIR__ . '/app/bootstrap.php';
 
 $release = Data::release();
 $title = 'Downloads';
-require ORIDB_ROOT . '/src/header.php';
+require ORIDB_APP_DIR . '/header.php';
 ?>
 <h1>Downloads</h1>
 <p class="lede">
@@ -46,4 +46,4 @@ require ORIDB_ROOT . '/src/header.php';
   Cite the original OriDB papers plus this release identifier. A DOI will be minted when the
   trial release is deposited.
 </p>
-<?php require ORIDB_ROOT . '/src/footer.php'; ?>
+<?php require ORIDB_APP_DIR . '/footer.php'; ?>

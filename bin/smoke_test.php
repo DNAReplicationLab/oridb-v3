@@ -63,6 +63,24 @@ foreach ($cases as [$page, $query]) {
     }
 }
 
+// Jail check: many shared hosts confine PHP to the document root, where anything
+// above it does not exist at all. Simulating that with open_basedir catches a
+// reintroduced read from outside public/ before it reaches a server.
+$jail = $root . '/public';
+$cmd = sprintf(
+    'php -d display_errors=1 -d open_basedir=%s -r %s 2>&1',
+    escapeshellarg($jail . ':/tmp'),
+    escapeshellarg('$_GET=[];$_SERVER["REQUEST_METHOD"]="GET";'
+        . 'require ' . var_export($root . '/public/index.php', true) . ';')
+);
+$out = (string) shell_exec($cmd);
+if (str_contains($out, 'open_basedir') || !str_contains($out, '<!DOCTYPE html>')) {
+    $failures++;
+    echo "FAIL  index.php reads outside the web root (would 500 on a jailed host)\n";
+} else {
+    echo "ok    renders with PHP confined to the web root\n";
+}
+
 // Output-escaping check: hostile input must never appear unescaped.
 $cmd = sprintf(
     'php -r %s 2>&1',

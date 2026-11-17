@@ -11,8 +11,9 @@ Two choices to make before you start, because they appear in every command after
 OriDB needs to outlive any one person's account, and an organisation lets you add
 maintainers without transferring ownership. If the group has no organisation yet, create
 one first: github.com → your avatar → *Your organizations* → *New organization* → the free
-plan is sufficient. Below, `ORG` is the organisation (or your username) and `oridb-v3` is
-the repository name.
+plan is sufficient. The organisation for this work is **DNAReplicationLab**, and the repository
+below is `oridb-v3` — so the commands assume `github.com/DNAReplicationLab/oridb-v3`. Substitute your
+own username throughout if you would rather start it under a personal account.
 
 **Public or private.** Public from the start is defensible here: this repository contains
 no credentials, no unpublished data, and nothing from the v2 tree. The checks in step 4
@@ -55,9 +56,9 @@ ssh -T git@github.com
 You want `Hi USERNAME! You've successfully authenticated`. A warning about the host's
 authenticity on first connection is normal — answer `yes`.
 
-> This key is **yours**, for pushing from your Mac. It is a different key from the one
-> cPanel generates in `docs/deployment-ukhost4u.md` step 3, which is the server's key for
-> pulling. Do not use one for both.
+> This key is **yours**, for pushing from your Mac. If the repository is private, the
+> server needs its own separate key, generated inside cPanel — see
+> `docs/deployment-ukhost4u.md` step 1. Never use one key for both.
 
 ## 3. Put the files where you want them
 
@@ -89,14 +90,15 @@ find . -name '*.sql' -o -name '*.tar' -o -name 'ori_connect.php' | grep . || ech
 git status --porcelain --untracked-files=all | wc -l
 ```
 
-The first command is expected to return exactly seven hits, all harmless — read them and
+The first command is expected to return exactly nine hits, all harmless — read them and
 satisfy yourself:
 
-- `src/config.php.dist` (two hits) — a template naming the environment variable
+- `public/app/config.php.dist` (two hits) — a template naming the environment variable
   `ORIDB_DB_PASSWORD`, with no value in it
 - `bin/smoke_test.php` and `docs/page-structure.md` — the string `../../etc/passwd`, which
   is hostile input the test suite deliberately feeds to the pages
-- `docs/github-setup.md` (three hits) — this file, describing the check you are running
+- `docs/github-setup.md` (three hits) and `docs/deployment-ukhost4u.md` (one) — the
+  documentation describing the check you are running and when a key is needed
 
 Anything else is a real finding. Stop and read it before you continue.
 
@@ -119,14 +121,14 @@ Check what you committed:
 git log --stat --oneline | head -40
 ```
 
-35 files, under 300 KB in total. If you see hundreds, or a file of several megabytes, something
+37 files, under 300 KB in total. If you see hundreds, or a file of several megabytes, something
 unwanted was picked up — `git reset` and look at step 4 again.
 
 ## 6. Create the empty repository on GitHub
 
 On github.com → *+* (top right) → *New repository*.
 
-- Owner: `ORG`
+- Owner: `DNAReplicationLab`
 - Name: `oridb-v3`
 - Description: *OriDB v3.0 — rebuild of the DNA replication origin database*
 - Public or private, as decided above
@@ -138,7 +140,7 @@ your local history does not share, and the first push is then rejected.
 ## 7. Push
 
 ```bash
-git remote add origin git@github.com:ORG/oridb-v3.git
+git remote add origin git@github.com:DNAReplicationLab/oridb-v3.git
 git branch -M main
 git push -u origin main
 ```
@@ -160,7 +162,7 @@ disabled by an organisation policy, enable them at *Settings* → *Actions* → 
 `preview` workflow from the *Actions* tab, or push any commit. After a minute the site is at
 
 ```
-https://ORG.github.io/oridb-v3/
+https://dnareplicationlab.github.io/oridb-v3/
 ```
 
 That is the URL to circulate for comment while the PHP version is still being reviewed.
@@ -168,9 +170,14 @@ It is generated from the same templates as the live site, so it cannot drift fro
 
 ## 9. Connect the hosting account
 
-Now do steps 3–4 of `docs/deployment-ukhost4u.md`: generate a key **in cPanel**, and add
-its public half to this repository under *Settings* → *Deploy keys* → *Add deploy key*,
-with *Allow write access* left **off**. The server only ever reads.
+Now do steps 1–2 of `docs/deployment-ukhost4u.md`.
+
+If you made the repository **public**, there is nothing to do here: cPanel clones a public
+repository over HTTPS with no key at all.
+
+If you made it **private**, generate a key **in cPanel** and add its public half to this
+repository under *Settings* → *Deploy keys* → *Add deploy key*, with *Allow write access*
+left **off**. The server only ever reads.
 
 ## 10. Working on it from here
 
@@ -204,7 +211,7 @@ git push origin v3.0.0-trial.1
 ```
 
 Connect the repository to Zenodo (zenodo.org → *GitHub* → flip the switch for
-`ORG/oridb-v3`) **before** pushing the tag, and Zenodo archives that tag automatically and
+`DNAReplicationLab/oridb-v3`) **before** pushing the tag, and Zenodo archives that tag automatically and
 mints a DOI. The checksums in `data/release.json` are what tie the Zenodo copy to the
 served one.
 
@@ -216,6 +223,6 @@ served one.
 |---|---|---|
 | `Permission denied (publickey)` on push | Key not added, or agent not holding it | Re-run step 2; `ssh -T git@github.com` must greet you by name |
 | `Updates were rejected because the remote contains work that you do not have locally` | The GitHub repository was initialised with a README | Delete it and recreate it empty, or `git pull --rebase origin main` and push again |
-| `src/config.local.php` shows in `git status` | You created a local config | Correct — it is gitignored; if it appears, you added it with `git add -f` |
+| `public/app/config.local.php` shows in `git status` | You created a local config | Correct — it is gitignored; if it appears, you added it with `git add -f` |
 | Pages workflow succeeds but the URL 404s | Pages source still set to a branch | *Settings* → *Pages* → Source: GitHub Actions, then re-run |
-| Tests fail on `Verify released data checksums` | `data/*.tsv` edited by hand | Regenerate with `bin/build_from_v2.py`, which rewrites the checksums |
+| Tests fail on `Verify released data checksums` | `public/data/*.tsv` edited by hand | Regenerate with `bin/build_from_v2.py`, which rewrites the checksums |

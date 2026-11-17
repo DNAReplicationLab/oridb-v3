@@ -1,6 +1,6 @@
 <?php
 declare(strict_types=1);
-require_once dirname(dirname(__DIR__)) . '/src/bootstrap.php';
+require_once dirname(__DIR__) . '/app/bootstrap.php';
 
 header('Content-Type: application/json; charset=utf-8');
 header('Access-Control-Allow-Origin: *');

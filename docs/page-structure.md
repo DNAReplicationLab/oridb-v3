@@ -38,6 +38,15 @@ conclusion; the assay records are the data. Each evidence row carries its own in
 method, detail (plasmid result or restriction enzyme) and citation, so the status can be
 recomputed when the rule changes rather than re-curated by hand.
 
+**Application code and data live inside the web root, with HTTP access denied.**
+`public/app/` and `public/data/` carry a deny-all `.htaccess` rather than sitting one
+level above the document root. The tidier arrangement is to keep them outside it, but
+shared hosts commonly jail PHP to the document root — on the OriDB host, `scandir()` of
+the parent directory returns only `public`, so files above it do not exist for PHP at all,
+`open_basedir` notwithstanding. A layout that cannot be deployed is not the better layout.
+`bin/smoke_test.php` renders the home page with `open_basedir` confined to the web root so
+that a reintroduced outside-the-root read fails in CI rather than on the server.
+
 **One template set, two outputs.** `bin/build_static.php` renders the same PHP templates to
 flat HTML, so a GitHub Pages preview and the live PHP site cannot disagree.
 

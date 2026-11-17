@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
-require_once dirname(__DIR__) . '/src/bootstrap.php';
+require_once __DIR__ . '/app/bootstrap.php';
 $release = Data::release();
 $title = 'About';
-require ORIDB_ROOT . '/src/header.php';
+require ORIDB_APP_DIR . '/header.php';
 ?>
 <h1>About this trial release</h1>
 <p class="lede"><?= h($release['description']) ?></p>
@@ -40,4 +40,4 @@ require ORIDB_ROOT . '/src/header.php';
   Source: <?= h($release['provenance']['source']) ?>.
   Tables used: <span class="mono"><?= h(implode(', ', $release['provenance']['source_tables'])) ?></span>.
 </p>
-<?php require ORIDB_ROOT . '/src/footer.php'; ?>
+<?php require ORIDB_APP_DIR . '/footer.php'; ?>

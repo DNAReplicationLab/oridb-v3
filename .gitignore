@@ -1,5 +1,5 @@
 # Local overrides: never commit credentials.
-src/config.local.php
+public/app/config.local.php
 .env
 
 # Editor / OS noise

@@ -1,5 +1,7 @@
 # OriDB v3.0 — trial release
 
+`github.com/DNAReplicationLab/oridb-v3`
+
 A rebuild of [oridb.org](http://oridb.org). This repository holds the **first increment**:
 the *Confirmed* origin tier of *Saccharomyces cerevisiae* and *Schizosaccharomyces pombe*,
 served by a small, dependency-free PHP application.
@@ -24,16 +26,21 @@ thresholds are a much larger problem.
 ## Layout
 
 ```
-data/        released flat files — origins.tsv, evidence.tsv, studies.tsv, release.json
-src/         application code: bootstrap, Data accessor, page templates
-public/      web root — one PHP file per page, plus assets/ and api/
-bin/         build and test scripts
-docs/        page structure and deployment notes
-build/       generated; not committed
+public/           web root — one PHP file per page, plus assets/ and api/
+  app/            application code: bootstrap, Data accessor, page templates (HTTP-denied)
+  data/           released flat files: origins.tsv, evidence.tsv, studies.tsv, release.json (HTTP-denied)
+bin/              build and test scripts
+docs/             page structure and deployment notes
+build/            generated; not committed
 ```
 
-`src/Data.php` is the only file that knows where the data physically lives. When the
-MariaDB back end arrives, re-implement its methods against PDO; no page changes.
+`public/app/Data.php` is the only file that knows where the data physically lives. When
+the MariaDB back end arrives, re-implement its methods against PDO; no page changes.
+
+`app/` and `data/` sit *inside* the web root, each with a deny-all `.htaccess`. That is
+deliberate: shared hosts commonly jail PHP to the document root, where files above it do
+not merely fail a permission check but do not exist at all. Keeping everything inside the
+web root and blocking HTTP access to it works on every host.
 
 ## Running it locally
 
@@ -58,9 +65,9 @@ preview cannot drift from the live site.
 
 ## Rebuilding the data
 
-`bin/build_from_v2.py` regenerates `data/*.tsv` from the OriDB v2 MySQL dump. The dump
+`bin/build_from_v2.py` regenerates `public/data/*.tsv` from the OriDB v2 MySQL dump. The dump
 is not in this repository. Checksums of the generated files are recorded in
-`data/release.json` so a deposited copy can be proved identical to the served one.
+`public/data/release.json` so a deposited copy can be proved identical to the served one.
 
 ## What is deliberately not here yet
 

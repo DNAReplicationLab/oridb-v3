@@ -8,7 +8,14 @@ declare(strict_types=1);
  * replacing Data.php only; nothing in public/ touches storage directly.
  */
 
+/**
+ * ORIDB_ROOT is the web root. src/ and data/ live INSIDE it, as public/app and
+ * public/data, because shared hosts commonly jail PHP to the document root -
+ * files above it are not merely unreadable, they do not exist for PHP. Both
+ * directories carry a deny-all .htaccess, so they are on disk but not servable.
+ */
 define('ORIDB_ROOT', dirname(__DIR__));
+define('ORIDB_APP_DIR', ORIDB_ROOT . '/app');
 define('ORIDB_DATA_DIR', ORIDB_ROOT . '/data');
 
 require_once __DIR__ . '/Data.php';
@@ -35,8 +42,8 @@ function send_404(string $message = 'Not found'): never
 {
     http_response_code(404);
     $title = 'Not found';
-    require ORIDB_ROOT . '/src/header.php';
+    require ORIDB_APP_DIR . '/header.php';
     echo '<h1>Not found</h1><p>' . h($message) . '</p>';
-    require ORIDB_ROOT . '/src/footer.php';
+    require ORIDB_APP_DIR . '/footer.php';
     exit;
 }

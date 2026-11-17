@@ -1,6 +1,6 @@
 <?php
 declare(strict_types=1);
-require_once dirname(__DIR__) . '/src/bootstrap.php';
+require_once __DIR__ . '/app/bootstrap.php';
 
 $release  = Data::release();
 $origins  = Data::origins();
@@ -10,7 +10,7 @@ foreach ($origins as $o) {
 }
 
 $title = 'Home';
-require ORIDB_ROOT . '/src/header.php';
+require ORIDB_APP_DIR . '/header.php';
 ?>
 <h1>DNA replication origin database</h1>
 <p class="lede">
@@ -40,4 +40,4 @@ require ORIDB_ROOT . '/src/header.php';
   <li><a href="downloads.php">Download</a> the release as TSV, BED or JSON.</li>
   <li><a href="about.php">About</a> the rebuild, its scope and its known gaps.</li>
 </ul>
-<?php require ORIDB_ROOT . '/src/footer.php'; ?>
+<?php require ORIDB_APP_DIR . '/footer.php'; ?>

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Regenerate data/*.tsv and data/release.json from the OriDB v2 MySQL dump.
+"""Regenerate public/data/*.tsv and public/data/release.json from the OriDB v2 dump.
 
 The dump is not in this repository. Point this script at a copy:
 
@@ -119,7 +119,7 @@ def overlaps(rows, chrom: int, start: int, end: int):
 
 def main(dump_path: str) -> None:
     sql = read_dump(Path(dump_path))
-    data_dir = Path(__file__).resolve().parent.parent / 'data'
+    data_dir = Path(__file__).resolve().parent.parent / 'public' / 'data'
     data_dir.mkdir(exist_ok=True)
 
     tables = {name: load(sql, name) for name in

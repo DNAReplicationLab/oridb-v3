@@ -16,17 +16,17 @@ jobs:
         with:
           php-version: ${{ matrix.php }}
       - name: Lint
-        run: find src public bin -name '*.php' -print0 | xargs -0 -n1 php -l
+        run: find public bin -name '*.php' -print0 | xargs -0 -n1 php -l
       - name: Smoke test
         run: php bin/smoke_test.php
       - name: Verify released data checksums
         run: |
           php -r '
-            $r = json_decode(file_get_contents("data/release.json"), true);
+            $r = json_decode(file_get_contents("public/data/release.json"), true);
             $bad = 0;
             foreach ($r["files"] as $f => $m) {
-                $have = md5_file("data/$f");
-                $rows = count(file("data/$f")) - 1;
+                $have = md5_file("public/data/$f");
+                $rows = count(file("public/data/$f")) - 1;
                 if ($have !== $m["md5"] || $rows !== $m["rows"]) {
                     fwrite(STDERR, "$f: checksum or row count does not match release.json\n");
                     $bad++;

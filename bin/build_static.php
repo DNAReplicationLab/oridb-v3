@@ -12,7 +12,7 @@ declare(strict_types=1);
  */
 
 $root = dirname(__DIR__);
-require_once $root . '/src/bootstrap.php';
+require_once $root . '/public/app/bootstrap.php';
 
 $out = $root . '/build/static';
 if (!is_dir($out)) {

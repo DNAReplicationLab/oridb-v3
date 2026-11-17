@@ -1,6 +1,6 @@
 <?php
 declare(strict_types=1);
-require_once dirname(__DIR__) . '/src/bootstrap.php';
+require_once __DIR__ . '/app/bootstrap.php';
 
 $speciesList = Data::speciesList();
 $species = isset($_GET['species']) && in_array($_GET['species'], $speciesList, true)
@@ -17,7 +17,7 @@ $page    = min($page, $pages);
 $slice   = array_slice($rows, ($page - 1) * $perPage, $perPage);
 
 $title = 'Browse';
-require ORIDB_ROOT . '/src/header.php';
+require ORIDB_APP_DIR . '/header.php';
 ?>
 <h1>Browse origins</h1>
 
@@ -73,4 +73,4 @@ require ORIDB_ROOT . '/src/header.php';
     <a href="<?= h(u('browse.php', ['species' => $species, 'chr' => $chromosome, 'page' => $page + 1])) ?>">Next &rarr;</a>
   <?php endif; ?>
 </div>
-<?php require ORIDB_ROOT . '/src/footer.php'; ?>
+<?php require ORIDB_APP_DIR . '/footer.php'; ?>
