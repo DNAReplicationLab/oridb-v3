@@ -1,0 +1,36 @@
+name: test
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  php:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        php: ['8.1', '8.3', '8.4']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+      - name: Lint
+        run: find src public bin -name '*.php' -print0 | xargs -0 -n1 php -l
+      - name: Smoke test
+        run: php bin/smoke_test.php
+      - name: Verify released data checksums
+        run: |
+          php -r '
+            $r = json_decode(file_get_contents("data/release.json"), true);
+            $bad = 0;
+            foreach ($r["files"] as $f => $m) {
+                $have = md5_file("data/$f");
+                $rows = count(file("data/$f")) - 1;
+                if ($have !== $m["md5"] || $rows !== $m["rows"]) {
+                    fwrite(STDERR, "$f: checksum or row count does not match release.json\n");
+                    $bad++;
+                }
+            }
+            exit($bad === 0 ? 0 : 1);
+          '

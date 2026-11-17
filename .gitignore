@@ -1,0 +1,18 @@
+# Local overrides: never commit credentials.
+src/config.local.php
+.env
+
+# Editor / OS noise
+.DS_Store
+*.swp
+.idea/
+.vscode/
+
+# Build scratch
+/tmp/
+build/
+
+# Never commit the v2 dump or the v2 web tree: they contain live credentials.
+*.sql
+*.tar
+*.tar.gz

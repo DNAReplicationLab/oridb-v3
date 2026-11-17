@@ -1,0 +1,16 @@
+---
+# cPanel Git Version Control deployment.
+#
+# Only needed if the subdomain's document root CANNOT be pointed straight at
+# the repository's public/ directory. If it can (preferred), delete this file
+# and let "Update from Remote" serve the checkout in place.
+#
+# Replace CPANELUSER before first use.
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/CPANELUSER/oridb-v3
+    - /bin/mkdir -p $DEPLOYPATH
+    - /bin/cp -R public $DEPLOYPATH/
+    - /bin/cp -R src $DEPLOYPATH/
+    - /bin/cp -R data $DEPLOYPATH/
+    - /bin/find $DEPLOYPATH -type f -name '*.php' -exec chmod 644 {} +

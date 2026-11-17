@@ -1,0 +1,537 @@
+accession	method	chromosome	start	end	detail	pmid	source_table	source_id
+ODB-SC-0001	plasmid (ARS assay)	chrI	650	1791	+	17067396	sc_cloned_ori	1
+ODB-SC-0002	plasmid (ARS assay)	chrI	6136	7136	+	17067396	sc_cloned_ori	2
+ODB-SC-0003	plasmid (ARS assay)	chrI	7998	8548	+	17067396	sc_cloned_ori	3
+ODB-SC-0006	plasmid (ARS assay)	chrI	30946	31184	+	16847347	sc_cloned_ori	4
+ODB-SC-0007	plasmid (ARS assay)	chrI	40716	43300	+	17067396	sc_cloned_ori	5
+ODB-SC-0007	plasmid (ARS assay)	chrI	41795	42274	+	22767388	sc_cloned_ori	426
+ODB-SC-0008	plasmid (ARS assay)	chrI	70258	70491	+	16847347	sc_cloned_ori	6
+ODB-SC-0010	plasmid (ARS assay)	chrI	124350	124599	+	16847347	sc_cloned_ori	7
+ODB-SC-0011	plasmid (ARS assay)	chrI	136900	137900	+	17067396	sc_cloned_ori	8
+ODB-SC-0012	plasmid (ARS assay)	chrI	146703	147690	+	17067396	sc_cloned_ori	9
+ODB-SC-0012	plasmid (ARS assay)	chrI	147404	147807	+	22767388	sc_cloned_ori	427
+ODB-SC-0013	plasmid (ARS assay)	chrI	159906	160127	+	16847347	sc_cloned_ori	10
+ODB-SC-0015	plasmid (ARS assay)	chrI	176154	176402	+	16847347	sc_cloned_ori	11
+ODB-SC-0018	plasmid (ARS assay)	chrI	214879	215635	+	17067396	sc_cloned_ori	12
+ODB-SC-0019	plasmid (ARS assay)	chrI	222871	224037	+	17067396	sc_cloned_ori	13
+ODB-SC-0020	plasmid (ARS assay)	chrI	226100	227000	+	17067396	sc_cloned_ori	14
+ODB-SC-0022	plasmid (ARS assay)	chrII	39	686	+	17067396	sc_cloned_ori	15
+ODB-SC-0023	plasmid (ARS assay)	chrII	6123	7127	+	17067396	sc_cloned_ori	16
+ODB-SC-0024	plasmid (ARS assay)	chrII	28933	29152	+	16847347	sc_cloned_ori	17
+ODB-SC-0025	plasmid (ARS assay)	chrII	38623	39068	+	22767388	sc_cloned_ori	428
+ODB-SC-0026	plasmid (ARS assay)	chrII	63186	63421	+	16847347	sc_cloned_ori	18
+ODB-SC-0029	plasmid (ARS assay)	chrII	93410	93811	+	17067396	sc_cloned_ori	19
+ODB-SC-0033	plasmid (ARS assay)	chrII	142868	144016	+	17067396	sc_cloned_ori	20
+ODB-SC-0034	plasmid (ARS assay)	chrII	170049	170298	+	16847347	sc_cloned_ori	21
+ODB-SC-0035	plasmid (ARS assay)	chrII	177529	177877	+	16965179	sc_cloned_ori	22
+ODB-SC-0037	plasmid (ARS assay)	chrII	198193	198434	+	16847347	sc_cloned_ori	23
+ODB-SC-0038	plasmid (ARS assay)	chrII	209187	210063	+	17067396	sc_cloned_ori	24
+ODB-SC-0040	plasmid (ARS assay)	chrII	237644	237879	+	16847347	sc_cloned_ori	25
+ODB-SC-0042	plasmid (ARS assay)	chrII	254744	255118	+	3023929	sc_cloned_ori	0
+ODB-SC-0042	plasmid (ARS assay)	chrII	254890	255136	+	16847347	sc_cloned_ori	26
+ODB-SC-0046	plasmid (ARS assay)	chrII	283015	283913	+	17067396	sc_cloned_ori	27
+ODB-SC-0050	plasmid (ARS assay)	chrII	326099	326335	+	16847347	sc_cloned_ori	28
+ODB-SC-0053	plasmid (ARS assay)	chrII	378434	379194	+	17067396	sc_cloned_ori	29
+ODB-SC-0054	plasmid (ARS assay)	chrII	389245	390368	+	17067396	sc_cloned_ori	30
+ODB-SC-0055	plasmid (ARS assay)	chrII	407831	408064	+	16847347	sc_cloned_ori	31
+ODB-SC-0056	plasmid (ARS assay)	chrII	417739	418035	+	16847347	sc_cloned_ori	32
+ODB-SC-0057	plasmid (ARS assay)	chrII	440859	441697	+	17067396	sc_cloned_ori	33
+ODB-SC-0059	plasmid (ARS assay)	chrII	486661	486909	+	16847347	sc_cloned_ori	34
+ODB-SC-0062	plasmid (ARS assay)	chrII	516805	517805	+	17067396	sc_cloned_ori	35
+ODB-SC-0063	plasmid (ARS assay)	chrII	539137	539699	+	17067396	sc_cloned_ori	36
+ODB-SC-0066	plasmid (ARS assay)	chrII	591424	591713	+	17067396	sc_cloned_ori	37
+ODB-SC-0067	plasmid (ARS assay)	chrII	611269	613200	+	17067396	sc_cloned_ori	38
+ODB-SC-0067	plasmid (ARS assay)	chrII	611820	612299	+	22767388	sc_cloned_ori	429
+ODB-SC-0068	plasmid (ARS assay)	chrII	622625	622894	+	16847347	sc_cloned_ori	39
+ODB-SC-0070	plasmid (ARS assay)	chrII	631934	632246	+	17067396	sc_cloned_ori	40
+ODB-SC-0071	plasmid (ARS assay)	chrII	675947	676667	+	17067396	sc_cloned_ori	41
+ODB-SC-0073	plasmid (ARS assay)	chrII	704250	704521	+	16847347	sc_cloned_ori	42
+ODB-SC-0074	plasmid (ARS assay)	chrII	707158	708262	+	17067396	sc_cloned_ori	43
+ODB-SC-0075	plasmid (ARS assay)	chrII	720601	721038	+	17067396	sc_cloned_ori	44
+ODB-SC-0077	plasmid (ARS assay)	chrII	741512	741802	+	16847347	sc_cloned_ori	45
+ODB-SC-0078	plasmid (ARS assay)	chrII	757390	757621	+	16847347	sc_cloned_ori	46
+ODB-SC-0080	plasmid (ARS assay)	chrII	773918	774348	+	17067396	sc_cloned_ori	47
+ODB-SC-0081	plasmid (ARS assay)	chrII	792116	792340	+	16847347	sc_cloned_ori	48
+ODB-SC-0082	plasmid (ARS assay)	chrII	796259	797162	+	17067396	sc_cloned_ori	49
+ODB-SC-0083	plasmid (ARS assay)	chrII	801930	802617	+	17067396	sc_cloned_ori	50
+ODB-SC-0085	plasmid (ARS assay)	chrIII	837	1551	+	21351687	sc_cloned_ori	51
+ODB-SC-0087	plasmid (ARS assay)	chrIII	11145	11401	+		sc_cloned_ori	52
+ODB-SC-0087	plasmid (ARS assay)	chrIII	9675	11309	NULL	1683846	sc_cloned_ori	418
+ODB-SC-0087	plasmid (ARS assay)	chrIII	11303	14854	NULL	1683846	sc_cloned_ori	419
+ODB-SC-0088	plasmid (ARS assay)	chrIII	11145	11401	+		sc_cloned_ori	52
+ODB-SC-0088	plasmid (ARS assay)	chrIII	14574	14849	+		sc_cloned_ori	53
+ODB-SC-0088	plasmid (ARS assay)	chrIII	9675	11309	NULL	1683846	sc_cloned_ori	418
+ODB-SC-0088	plasmid (ARS assay)	chrIII	11303	14854	NULL	1683846	sc_cloned_ori	419
+ODB-SC-0088	plasmid (ARS assay)	chrIII	14848	16279	NULL	1683846	sc_cloned_ori	420
+ODB-SC-0089	plasmid (ARS assay)	chrIII	14574	14849	+		sc_cloned_ori	53
+ODB-SC-0089	plasmid (ARS assay)	chrIII	11303	14854	NULL	1683846	sc_cloned_ori	419
+ODB-SC-0089	plasmid (ARS assay)	chrIII	14848	16279	NULL	1683846	sc_cloned_ori	420
+ODB-SC-0090	plasmid (ARS assay)	chrIII	14870	15213	+		sc_cloned_ori	54
+ODB-SC-0090	plasmid (ARS assay)	chrIII	15213	16274	+		sc_cloned_ori	55
+ODB-SC-0090	plasmid (ARS assay)	chrIII	14848	16279	NULL	1683846	sc_cloned_ori	420
+ODB-SC-0091	plasmid (ARS assay)	chrIII	14870	15213	+		sc_cloned_ori	54
+ODB-SC-0091	plasmid (ARS assay)	chrIII	15213	16274	+		sc_cloned_ori	55
+ODB-SC-0091	plasmid (ARS assay)	chrIII	14848	16279	NULL	1683846	sc_cloned_ori	420
+ODB-SC-0092	plasmid (ARS assay)	chrIII	30199	30657	+		sc_cloned_ori	56
+ODB-SC-0092	2D gel electrophoresis	chrIII	27128	33342	ClaI & EcoRI	16137624	sc_2D_gel	46
+ODB-SC-0093	plasmid (ARS assay)	chrIII	39158	39706	+	3529036	sc_cloned_ori	57
+ODB-SC-0093	2D gel electrophoresis	chrIII	36595	42444	EcoRI	15542831	sc_2D_gel	25
+ODB-SC-0093	2D gel electrophoresis	chrIII	36595	42444	EcoRI	15143171	sc_2D_gel	31
+ODB-SC-0093	2D gel electrophoresis	chrIII	36595	42444	EcoRI	16137625	sc_2D_gel	38
+ODB-SC-0093	2D gel electrophoresis	chrIII	36595	42444	EcoRI	20972444	sc_2D_gel	42
+ODB-SC-0093	2D gel electrophoresis	chrIII	36595	42444	EcoRI	15956196	sc_2D_gel	47
+ODB-SC-0095	plasmid (ARS assay)	chrIII	74457	74677	+	1683846	sc_cloned_ori	58
+ODB-SC-0095	2D gel electrophoresis	chrIII	72852	77073	ClaI	16137624	sc_2D_gel	44
+ODB-SC-0097	plasmid (ARS assay)	chrIII	108775	109291	+	3529036	sc_cloned_ori	59
+ODB-SC-0098	plasmid (ARS assay)	chrIII	114314	114933	+	1683846	sc_cloned_ori	60
+ODB-SC-0099	plasmid (ARS assay)	chrIII	131978	132322	+	3529036	sc_cloned_ori	61
+ODB-SC-0103	plasmid (ARS assay)	chrIII	166494	167340	+	1683846	sc_cloned_ori	62
+ODB-SC-0105	plasmid (ARS assay)	chrIII	194256	194505	+	16847347	sc_cloned_ori	63
+ODB-SC-0105	plasmid (ARS assay)	chrIII	194252	195043	NULL	11694569	sc_cloned_ori	421
+ODB-SC-0105	2D gel electrophoresis	chrIII	192312	195908	EcoRI & HindIII	11694569	sc_2D_gel	6
+ODB-SC-0106	plasmid (ARS assay)	chrIII	197369	197601	+	16847347	sc_cloned_ori	64
+ODB-SC-0106	plasmid (ARS assay)	chrIII	195902	197712	NULL	11694569	sc_cloned_ori	422
+ODB-SC-0106	2D gel electrophoresis	chrIII	195138	198617	ClaI & EcoRV	11694569	sc_2D_gel	11
+ODB-SC-0108	2D gel electrophoresis	chrIII	203876	207534	XbaI	16429127	sc_2D_gel	1
+ODB-SC-0110	plasmid (ARS assay)	chrIII	224807	225053	+	16847347	sc_cloned_ori	65
+ODB-SC-0110	plasmid (ARS assay)	chrIII	224796	225360	NULL	11694569	sc_cloned_ori	423
+ODB-SC-0110	2D gel electrophoresis	chrIII	222368	226808	EcoRI	11694569	sc_2D_gel	7
+ODB-SC-0110	2D gel electrophoresis	chrIII	222374	226803	EcoRI	16137625	sc_2D_gel	39
+ODB-SC-0112	plasmid (ARS assay)	chrIII	272844	273088	+	16847347	sc_cloned_ori	66
+ODB-SC-0112	plasmid (ARS assay)	chrIII	272667	273858	NULL	11694569	sc_cloned_ori	424
+ODB-SC-0112	2D gel electrophoresis	chrIII	270021	275960	NheI & PstI	11694569	sc_2D_gel	8
+ODB-SC-0113	plasmid (ARS assay)	chrIII	292524	292826	+	16847347	sc_cloned_ori	67
+ODB-SC-0113	plasmid (ARS assay)	chrIII	292379	292917	NULL	11694569	sc_cloned_ori	425
+ODB-SC-0113	2D gel electrophoresis	chrIII	290914	294308	ClaI & BglII	11694569	sc_2D_gel	9
+ODB-SC-0114	plasmid (ARS assay)	chrIII	294396	295027	+	11694569	sc_cloned_ori	68
+ODB-SC-0114	2D gel electrophoresis	chrIII	293331	296698	XbaI & EcoRV	11694569	sc_2D_gel	10
+ODB-SC-0114	2D gel electrophoresis	chrIII	293331	296698	XbaI & EcoRV	18573888	sc_2D_gel	24
+ODB-SC-0116	plasmid (ARS assay)	chrIII	315346	316232	+	11694569	sc_cloned_ori	69
+ODB-SC-0116	2D gel electrophoresis	chrIII	313858	316613	XbaI	15143171	sc_2D_gel	32
+ODB-SC-0117	plasmid (ARS assay)	chrIV	137	1392	+	17067396	sc_cloned_ori	70
+ODB-SC-0119	plasmid (ARS assay)	chrIV	15492	15739	+	16847347	sc_cloned_ori	72
+ODB-SC-0120	plasmid (ARS assay)	chrIV	21265	22262	+	17067396	sc_cloned_ori	71
+ODB-SC-0121	plasmid (ARS assay)	chrIV	46181	46237	+	17067396	sc_cloned_ori	73
+ODB-SC-0123	plasmid (ARS assay)	chrIV	85945	86177	+	16847347	sc_cloned_ori	74
+ODB-SC-0125	plasmid (ARS assay)	chrIV	100380	101355	+	17067396	sc_cloned_ori	75
+ODB-SC-0126	plasmid (ARS assay)	chrIV	123617	123902	+	16847347	sc_cloned_ori	76
+ODB-SC-0127	plasmid (ARS assay)	chrIV	137445	137808	+	22767388	sc_cloned_ori	430
+ODB-SC-0128	plasmid (ARS assay)	chrIV	157744	158235	+	22767388	sc_cloned_ori	431
+ODB-SC-0130	plasmid (ARS assay)	chrIV	212420	212669	+	16847347	sc_cloned_ori	77
+ODB-SC-0132	plasmid (ARS assay)	chrIV	232140	232618	+	22767388	sc_cloned_ori	432
+ODB-SC-0133	plasmid (ARS assay)	chrIV	235935	236184	+	19997491	sc_cloned_ori	326
+ODB-SC-0134	plasmid (ARS assay)	chrIV	253789	254038	+	16847347	sc_cloned_ori	78
+ODB-SC-0136	plasmid (ARS assay)	chrIV	316719	317111	+	19997491	sc_cloned_ori	327
+ODB-SC-0137	plasmid (ARS assay)	chrIV	329564	329813	+	16847347	sc_cloned_ori	79
+ODB-SC-0138	plasmid (ARS assay)	chrIV	350835	351804	+	17067396	sc_cloned_ori	80
+ODB-SC-0141	plasmid (ARS assay)	chrIV	408070	408312	+	16847347	sc_cloned_ori	81
+ODB-SC-0141	2D gel electrophoresis	chrIV	404295	409192	EcoRI	20972444	sc_2D_gel	41
+ODB-SC-0142	plasmid (ARS assay)	chrIV	435056	435388	+	19997491	sc_cloned_ori	329
+ODB-SC-0144	plasmid (ARS assay)	chrIV	462430	462700	+		sc_cloned_ori	82
+ODB-SC-0144	2D gel electrophoresis	chrIV	459716	464389	NcoI	2018976	sc_2D_gel	23
+ODB-SC-0144	2D gel electrophoresis	chrIV	459716	464384	NcoI	15143171	sc_2D_gel	30
+ODB-SC-0146	plasmid (ARS assay)	chrIV	483846	484091	+	16847347	sc_cloned_ori	83
+ODB-SC-0147	plasmid (ARS assay)	chrIV	505336	505578	+	16847347	sc_cloned_ori	84
+ODB-SC-0148	plasmid (ARS assay)	chrIV	555224	555461	+	16847347	sc_cloned_ori	85
+ODB-SC-0149	plasmid (ARS assay)	chrIV	567490	567737	+	16847347	sc_cloned_ori	86
+ODB-SC-0151	plasmid (ARS assay)	chrIV	629072	629669	+	19997491	sc_cloned_ori	331
+ODB-SC-0152	plasmid (ARS assay)	chrIV	639859	640108	+	16847347	sc_cloned_ori	87
+ODB-SC-0155	plasmid (ARS assay)	chrIV	702879	703125	+	16847347	sc_cloned_ori	88
+ODB-SC-0158	plasmid (ARS assay)	chrIV	748384	748630	+	16847347	sc_cloned_ori	89
+ODB-SC-0159	plasmid (ARS assay)	chrIV	753159	753391	+	16847347	sc_cloned_ori	90
+ODB-SC-0163	plasmid (ARS assay)	chrIV	806044	806270	+	16847347	sc_cloned_ori	91
+ODB-SC-0166	plasmid (ARS assay)	chrIV	844597	845593	+	17067396	sc_cloned_ori	92
+ODB-SC-0170	plasmid (ARS assay)	chrIV	903824	904655	+	17067396	sc_cloned_ori	93
+ODB-SC-0171	plasmid (ARS assay)	chrIV	913780	914029	+	16847347	sc_cloned_ori	94
+ODB-SC-0172	plasmid (ARS assay)	chrIV	921682	921930	+	16847347	sc_cloned_ori	95
+ODB-SC-0173	plasmid (ARS assay)	chrIV	942983	943975	+	17067396	sc_cloned_ori	96
+ODB-SC-0177	plasmid (ARS assay)	chrIV	1016624	1016922	+	16847347	sc_cloned_ori	97
+ODB-SC-0179	plasmid (ARS assay)	chrIV	1033069	1034182	+	17067396	sc_cloned_ori	98
+ODB-SC-0180	plasmid (ARS assay)	chrIV	1057828	1058076	+	16847347	sc_cloned_ori	99
+ODB-SC-0181	plasmid (ARS assay)	chrIV	1109955	1110196	+	16847347	sc_cloned_ori	100
+ODB-SC-0182	plasmid (ARS assay)	chrIV	1130672	1131155	+	22767388	sc_cloned_ori	433
+ODB-SC-0184	plasmid (ARS assay)	chrIV	1159250	1159499	+	16847347	sc_cloned_ori	101
+ODB-SC-0185	plasmid (ARS assay)	chrIV	1165998	1166221	+	16847347	sc_cloned_ori	102
+ODB-SC-0187	plasmid (ARS assay)	chrIV	1240869	1241098	+	16847347	sc_cloned_ori	103
+ODB-SC-0189	plasmid (ARS assay)	chrIV	1276212	1276440	+	16847347	sc_cloned_ori	104
+ODB-SC-0190	plasmid (ARS assay)	chrIV	1302579	1302819	+	16847347	sc_cloned_ori	105
+ODB-SC-0193	plasmid (ARS assay)	chrIV	1353494	1353667	+	16965179	sc_cloned_ori	106
+ODB-SC-0196	plasmid (ARS assay)	chrIV	1385151	1385630	+	22767388	sc_cloned_ori	434
+ODB-SC-0197	plasmid (ARS assay)	chrIV	1404277	1404512	+	16847347	sc_cloned_ori	107
+ODB-SC-0199	plasmid (ARS assay)	chrIV	1447298	1448928	+	16965179	sc_cloned_ori	108
+ODB-SC-0201	plasmid (ARS assay)	chrIV	1461849	1462161	+	16847347	sc_cloned_ori	109
+ODB-SC-0204	plasmid (ARS assay)	chrIV	1486905	1487149	+	16847347	sc_cloned_ori	110
+ODB-SC-0206	plasmid (ARS assay)	chrIV	1502624	1503221	+	19997491	sc_cloned_ori	332
+ODB-SC-0211	plasmid (ARS assay)	chrV	4097	4185	+		sc_cloned_ori	111
+ODB-SC-0212	plasmid (ARS assay)	chrV	6464	7230	+		sc_cloned_ori	112
+ODB-SC-0213	plasmid (ARS assay)	chrV	8786	10019	+		sc_cloned_ori	113
+ODB-SC-0214	plasmid (ARS assay)	chrV	11713	12194	+	22767388	sc_cloned_ori	435
+ODB-SC-0216	plasmid (ARS assay)	chrV	59282	59516	+	16847347	sc_cloned_ori	114
+ODB-SC-0218	plasmid (ARS assay)	chrV	93977	94218	+	16847347	sc_cloned_ori	115
+ODB-SC-0220	plasmid (ARS assay)	chrV	145539	145782	+	16847347	sc_cloned_ori	116
+ODB-SC-0222	plasmid (ARS assay)	chrV	173636	173874	+	16847347	sc_cloned_ori	117
+ODB-SC-0224	plasmid (ARS assay)	chrV	192493	192926	+	20485513	sc_cloned_ori	370
+ODB-SC-0225	plasmid (ARS assay)	chrV	212381	212630	+	16847347	sc_cloned_ori	118
+ODB-SC-0227	plasmid (ARS assay)	chrV	276127	276526	+	19997491	sc_cloned_ori	333
+ODB-SC-0228	plasmid (ARS assay)	chrV	278073	278355	+	19997491	sc_cloned_ori	334
+ODB-SC-0229	plasmid (ARS assay)	chrV	287504	287750	+	16847347	sc_cloned_ori	119
+ODB-SC-0230	plasmid (ARS assay)	chrV	301565	302061	+	22767388	sc_cloned_ori	436
+ODB-SC-0232	plasmid (ARS assay)	chrV	353504	353751	+	16847347	sc_cloned_ori	120
+ODB-SC-0233	plasmid (ARS assay)	chrV	406747	406949	+	16847347	sc_cloned_ori	121
+ODB-SC-0236	plasmid (ARS assay)	chrV	438929	439178	+	16847347	sc_cloned_ori	122
+ODB-SC-0237	plasmid (ARS assay)	chrV	442412	442731	+		sc_cloned_ori	123
+ODB-SC-0239	plasmid (ARS assay)	chrV	498417	499343	+		sc_cloned_ori	124
+ODB-SC-0239	plasmid (ARS assay)	chrV	498746	499244	+	22767388	sc_cloned_ori	437
+ODB-SC-0241	plasmid (ARS assay)	chrV	520767	521025	+		sc_cloned_ori	125
+ODB-SC-0242	plasmid (ARS assay)	chrV	549560	549809	+	16847347	sc_cloned_ori	126
+ODB-SC-0242	2D gel electrophoresis	chrV	547713	550914	XbaI	2018976	sc_2D_gel	22
+ODB-SC-0244	plasmid (ARS assay)	chrV	569020	570085	+		sc_cloned_ori	127
+ODB-SC-0247	plasmid (ARS assay)	chrVI	5435	6155	+	3277180	sc_cloned_ori	128
+ODB-SC-0248	plasmid (ARS assay)	chrVI	12174	13028	+	11743203	sc_cloned_ori	129
+ODB-SC-0249	plasmid (ARS assay)	chrVI	18682	19864	+	11743203	sc_cloned_ori	130
+ODB-SC-0249	plasmid (ARS assay)	chrVI	19669	20826	+	11743203	sc_cloned_ori	131
+ODB-SC-0250	plasmid (ARS assay)	chrVI	18682	19864	+	11743203	sc_cloned_ori	130
+ODB-SC-0250	plasmid (ARS assay)	chrVI	19669	20826	+	11743203	sc_cloned_ori	131
+ODB-SC-0251	plasmid (ARS assay)	chrVI	32472	32995	+	8336734	sc_cloned_ori	132
+ODB-SC-0251	plasmid (ARS assay)	chrVI	32666	33247	+	8336734	sc_cloned_ori	133
+ODB-SC-0251	2D gel electrophoresis	chrVI	29727	34843	PstI & BamHI	9491800	sc_2D_gel	3
+ODB-SC-0252	plasmid (ARS assay)	chrVI	32472	32995	+	8336734	sc_cloned_ori	132
+ODB-SC-0252	plasmid (ARS assay)	chrVI	32666	33247	+	8336734	sc_cloned_ori	133
+ODB-SC-0252	2D gel electrophoresis	chrVI	29727	34843	PstI & BamHI	9491800	sc_2D_gel	3
+ODB-SC-0255	plasmid (ARS assay)	chrVI	68690	68869	+	8336734	sc_cloned_ori	134
+ODB-SC-0255	2D gel electrophoresis	chrVI	65833	70724	BamHI	9491800	sc_2D_gel	4
+ODB-SC-0255	2D gel electrophoresis	chrVI	67119	70719	NcoI & BamHI	15542831	sc_2D_gel	29
+ODB-SC-0255	2D gel electrophoresis	chrVI	67119	70719	NcoI & BamHI	15143171	sc_2D_gel	33
+ODB-SC-0255	2D gel electrophoresis	chrVI	67119	70719	NcoI & BamHI	15956196	sc_2D_gel	48
+ODB-SC-0257	plasmid (ARS assay)	chrVI	104456	104695	+	17067396	sc_cloned_ori	135
+ODB-SC-0258	plasmid (ARS assay)	chrVI	118631	118952	+	9491800	sc_cloned_ori	136
+ODB-SC-0258	2D gel electrophoresis	chrVI	117097	120042	EcoRV & BamHI	9491800	sc_2D_gel	5
+ODB-SC-0258	2D gel electrophoresis	chrVI	117436	120037	NcoI & BamHI	15542831	sc_2D_gel	28
+ODB-SC-0259	plasmid (ARS assay)	chrVI	127745	128066	+	8336734	sc_cloned_ori	137
+ODB-SC-0259	2D gel electrophoresis	chrVI	125914	132085	BamHI & BglI	9491800	sc_2D_gel	15
+ODB-SC-0260	plasmid (ARS assay)	chrVI	135979	136080	+	8336734	sc_cloned_ori	138
+ODB-SC-0260	2D gel electrophoresis	chrVI	133462	137882	BamHI & XhoI	9491800	sc_2D_gel	14
+ODB-SC-0261	plasmid (ARS assay)	chrVI	167606	168041	+	8336734	sc_cloned_ori	139
+ODB-SC-0261	2D gel electrophoresis	chrVI	164714	170944	PstI & BamHI	9491800	sc_2D_gel	13
+ODB-SC-0262	plasmid (ARS assay)	chrVI	199382	199493	+	8336734	sc_cloned_ori	140
+ODB-SC-0262	2D gel electrophoresis	chrVI	195811	202876	PstI	9491800	sc_2D_gel	12
+ODB-SC-0262	2D gel electrophoresis	chrVI	196969	202450	ClaI & EcoRI	16137624	sc_2D_gel	45
+ODB-SC-0263	plasmid (ARS assay)	chrVI	216344	216692	+	8336734	sc_cloned_ori	141
+ODB-SC-0263	2D gel electrophoresis	chrVI	211554	220142	XhoI	9491800	sc_2D_gel	16
+ODB-SC-0265	plasmid (ARS assay)	chrVI	253316	253800	+	17067396	sc_cloned_ori	142
+ODB-SC-0265	2D gel electrophoresis	chrVI	253670	259874	PvuII	9491800	sc_2D_gel	17
+ODB-SC-0266	plasmid (ARS assay)	chrVI	256263	256418	+	8336734	sc_cloned_ori	143
+ODB-SC-0266	2D gel electrophoresis	chrVI	253670	259874	PvuII	9491800	sc_2D_gel	17
+ODB-SC-0268	plasmid (ARS assay)	chrVI	269404	270022	+	11743203	sc_cloned_ori	325
+ODB-SC-0271	plasmid (ARS assay)	chrVII	17629	18112	+	22767388	sc_cloned_ori	438
+ODB-SC-0274	plasmid (ARS assay)	chrVII	64279	64528	+	16847347	sc_cloned_ori	144
+ODB-SC-0276	plasmid (ARS assay)	chrVII	112080	112319	+	16847347	sc_cloned_ori	145
+ODB-SC-0278	plasmid (ARS assay)	chrVII	117471	117955	+	9491083	sc_cloned_ori	146
+ODB-SC-0279	plasmid (ARS assay)	chrVII	163180	163447	+	16847347	sc_cloned_ori	147
+ODB-SC-0282	plasmid (ARS assay)	chrVII	187241	187651	+	22767388	sc_cloned_ori	439
+ODB-SC-0283	plasmid (ARS assay)	chrVII	203917	204159	+	16847347	sc_cloned_ori	148
+ODB-SC-0284	plasmid (ARS assay)	chrVII	231909	231984	+		sc_cloned_ori	149
+ODB-SC-0285	plasmid (ARS assay)	chrVII	240972	241441	+	22767388	sc_cloned_ori	440
+ODB-SC-0289	plasmid (ARS assay)	chrVII	285951	286246	+	16847347	sc_cloned_ori	150
+ODB-SC-0293	plasmid (ARS assay)	chrVII	352695	352917	+	16847347	sc_cloned_ori	151
+ODB-SC-0293	2D gel electrophoresis	chrVII	350378	355258	XbaI & EcoRI	15143171	sc_2D_gel	35
+ODB-SC-0294	plasmid (ARS assay)	chrVII	388658	388892	+	16847347	sc_cloned_ori	152
+ODB-SC-0295	plasmid (ARS assay)	chrVII	421093	421342	+	16847347	sc_cloned_ori	153
+ODB-SC-0298	plasmid (ARS assay)	chrVII	484932	485160	+	16847347	sc_cloned_ori	154
+ODB-SC-0299	plasmid (ARS assay)	chrVII	508729	508978	+	16847347	sc_cloned_ori	155
+ODB-SC-0302	plasmid (ARS assay)	chrVII	568490	568738	+	16847347	sc_cloned_ori	156
+ODB-SC-0303	plasmid (ARS assay)	chrVII	574622	574916	+	16847347	sc_cloned_ori	157
+ODB-SC-0307	plasmid (ARS assay)	chrVII	607176	607619	+	22767388	sc_cloned_ori	441
+ODB-SC-0310	plasmid (ARS assay)	chrVII	653611	654091	+	22767388	sc_cloned_ori	442
+ODB-SC-0311	plasmid (ARS assay)	chrVII	659809	660054	+	16847347	sc_cloned_ori	158
+ODB-SC-0312	plasmid (ARS assay)	chrVII	715273	715556	+	16847347	sc_cloned_ori	159
+ODB-SC-0315	plasmid (ARS assay)	chrVII	777967	778216	+	16847347	sc_cloned_ori	160
+ODB-SC-0318	plasmid (ARS assay)	chrVII	834492	834736	+	16847347	sc_cloned_ori	161
+ODB-SC-0322	plasmid (ARS assay)	chrVII	888350	888599	+	16847347	sc_cloned_ori	162
+ODB-SC-0323	plasmid (ARS assay)	chrVII	916675	917170	+	22767388	sc_cloned_ori	443
+ODB-SC-0325	plasmid (ARS assay)	chrVII	977730	977979	+	16847347	sc_cloned_ori	163
+ODB-SC-0326	plasmid (ARS assay)	chrVII	999448	999695	+	16847347	sc_cloned_ori	164
+ODB-SC-0327	plasmid (ARS assay)	chrVII	1002182	1002571	+	22767388	sc_cloned_ori	444
+ODB-SC-0330	plasmid (ARS assay)	chrVII	1063254	1063715	+	22767388	sc_cloned_ori	445
+ODB-SC-0332	plasmid (ARS assay)	chrVII	1082959	1084336	+		sc_cloned_ori	165
+ODB-SC-0335	plasmid (ARS assay)	chrVIII	5158	6168	+		sc_cloned_ori	166
+ODB-SC-0336	plasmid (ARS assay)	chrVIII	7534	7782	+	16847347	sc_cloned_ori	167
+ODB-SC-0338	plasmid (ARS assay)	chrVIII	45589	46076	+	22767388	sc_cloned_ori	446
+ODB-SC-0340	plasmid (ARS assay)	chrVIII	64255	64489	+	16847347	sc_cloned_ori	168
+ODB-SC-0343	plasmid (ARS assay)	chrVIII	94759	95192	+	20485513	sc_cloned_ori	371
+ODB-SC-0344	plasmid (ARS assay)	chrVIII	111293	111766	+	22767388	sc_cloned_ori	447
+ODB-SC-0346	plasmid (ARS assay)	chrVIII	133347	133591	+	16847347	sc_cloned_ori	169
+ODB-SC-0348	plasmid (ARS assay)	chrVIII	140340	141265	+	7028571	sc_cloned_ori	170
+ODB-SC-0349	plasmid (ARS assay)	chrVIII	168531	168773	+	16847347	sc_cloned_ori	171
+ODB-SC-0352	plasmid (ARS assay)	chrVIII	213179	213861	+	20485513	sc_cloned_ori	380
+ODB-SC-0355	plasmid (ARS assay)	chrVIII	245719	245968	+	16847347	sc_cloned_ori	172
+ODB-SC-0359	plasmid (ARS assay)	chrVIII	296882	297475	+	19997491	sc_cloned_ori	335
+ODB-SC-0361	plasmid (ARS assay)	chrVIII	359469	359928	+	22767388	sc_cloned_ori	448
+ODB-SC-0364	plasmid (ARS assay)	chrVIII	392148	392391	+	16847347	sc_cloned_ori	173
+ODB-SC-0365	plasmid (ARS assay)	chrVIII	406012	406508	+	22767388	sc_cloned_ori	449
+ODB-SC-0366	plasmid (ARS assay)	chrVIII	447619	447853	+	16847347	sc_cloned_ori	174
+ODB-SC-0368	plasmid (ARS assay)	chrVIII	474309	474793	+	22767388	sc_cloned_ori	450
+ODB-SC-0369	plasmid (ARS assay)	chrVIII	501751	501992	+	16847347	sc_cloned_ori	175
+ODB-SC-0371	plasmid (ARS assay)	chrVIII	520016	520630	+	20485513	sc_cloned_ori	379
+ODB-SC-0372	plasmid (ARS assay)	chrVIII	535403	535836	+	20485513	sc_cloned_ori	377
+ODB-SC-0375	plasmid (ARS assay)	chrVIII	555996	556327	+	15059255	sc_cloned_ori	176
+ODB-SC-0382	plasmid (ARS assay)	chrIX	33335	33803	+	22767388	sc_cloned_ori	451
+ODB-SC-0384	plasmid (ARS assay)	chrIX	73803	74220	+	19997491	sc_cloned_ori	336
+ODB-SC-0385	plasmid (ARS assay)	chrIX	80058	80557	+	22767388	sc_cloned_ori	452
+ODB-SC-0386	plasmid (ARS assay)	chrIX	105821	106048	+	16847347	sc_cloned_ori	177
+ODB-SC-0388	plasmid (ARS assay)	chrIX	136094	136335	+	16847347	sc_cloned_ori	178
+ODB-SC-0389	plasmid (ARS assay)	chrIX	162936	163302	+	15059255	sc_cloned_ori	179
+ODB-SC-0390	plasmid (ARS assay)	chrIX	175034	175355	+	15059255	sc_cloned_ori	180
+ODB-SC-0395	plasmid (ARS assay)	chrIX	214675	214826	+	16847347	sc_cloned_ori	181
+ODB-SC-0399	plasmid (ARS assay)	chrIX	245694	245932	+	16847347	sc_cloned_ori	182
+ODB-SC-0400	plasmid (ARS assay)	chrIX	247579	247800	+	16847347	sc_cloned_ori	183
+ODB-SC-0404	plasmid (ARS assay)	chrIX	310583	311070	+	19997491	sc_cloned_ori	337
+ODB-SC-0408	plasmid (ARS assay)	chrIX	341853	342096	+	16847347	sc_cloned_ori	184
+ODB-SC-0409	plasmid (ARS assay)	chrIX	357156	357393	+	16847347	sc_cloned_ori	185
+ODB-SC-0412	plasmid (ARS assay)	chrIX	411817	412053	+	16847347	sc_cloned_ori	186
+ODB-SC-0413	plasmid (ARS assay)	chrIX	432496	432994	+	22767388	sc_cloned_ori	453
+ODB-SC-0415	plasmid (ARS assay)	chrX	64	577	+	11743203	sc_cloned_ori	187
+ODB-SC-0416	plasmid (ARS assay)	chrX	7444	7943	+	11743203	sc_cloned_ori	188
+ODB-SC-0417	plasmid (ARS assay)	chrX	16123	16762	+	11743203	sc_cloned_ori	189
+ODB-SC-0418	plasmid (ARS assay)	chrX	23661	24158	+	11743203	sc_cloned_ori	190
+ODB-SC-0420	plasmid (ARS assay)	chrX	67467	67949	+	11743203	sc_cloned_ori	191
+ODB-SC-0421	plasmid (ARS assay)	chrX	99359	99796	+	11743203	sc_cloned_ori	192
+ODB-SC-0422	plasmid (ARS assay)	chrX	113226	113828	+	11743203	sc_cloned_ori	193
+ODB-SC-0422	2D gel electrophoresis	chrX	111113	116517	XbaI	15143171	sc_2D_gel	36
+ODB-SC-0425	plasmid (ARS assay)	chrX	161435	161860	+	17067396	sc_cloned_ori	194
+ODB-SC-0425	2D gel electrophoresis	chrX	159458	162730	NcoI	16429127	sc_2D_gel	2
+ODB-SC-0427	plasmid (ARS assay)	chrX	203729	204614	+	11743203	sc_cloned_ori	195
+ODB-SC-0429	plasmid (ARS assay)	chrX	228248	228740	+	11743203	sc_cloned_ori	196
+ODB-SC-0430	plasmid (ARS assay)	chrX	248600	249300	+	17067396	sc_cloned_ori	197
+ODB-SC-0432	plasmid (ARS assay)	chrX	298471	298952	+	11743203	sc_cloned_ori	198
+ODB-SC-0435	plasmid (ARS assay)	chrX	336976	337225	+	16847347	sc_cloned_ori	199
+ODB-SC-0435	2D gel electrophoresis	chrX	335824	338216	NcoI & BamHI	15542831	sc_2D_gel	27
+ODB-SC-0435	2D gel electrophoresis	chrX	335824	338216	NcoI & BamHI	15956196	sc_2D_gel	49
+ODB-SC-0437	plasmid (ARS assay)	chrX	374575	374818	+	16847347	sc_cloned_ori	200
+ODB-SC-0438	plasmid (ARS assay)	chrX	375401	375923	+	11743203	sc_cloned_ori	201
+ODB-SC-0440	plasmid (ARS assay)	chrX	416888	417134	+	16847347	sc_cloned_ori	202
+ODB-SC-0441	plasmid (ARS assay)	chrX	442248	442658	+	11743203	sc_cloned_ori	203
+ODB-SC-0442	plasmid (ARS assay)	chrX	454276	455248	+	11743203	sc_cloned_ori	204
+ODB-SC-0443	plasmid (ARS assay)	chrX	459029	459588	+	11743203	sc_cloned_ori	205
+ODB-SC-0445	plasmid (ARS assay)	chrX	501595	502525	+	17067396	sc_cloned_ori	206
+ODB-SC-0446	plasmid (ARS assay)	chrX	540239	540474	+	16847347	sc_cloned_ori	207
+ODB-SC-0447	plasmid (ARS assay)	chrX	609000	609750	+	17067396	sc_cloned_ori	208
+ODB-SC-0448	plasmid (ARS assay)	chrX	612542	612975	+	11743203	sc_cloned_ori	209
+ODB-SC-0451	plasmid (ARS assay)	chrX	654069	654309	+	16847347	sc_cloned_ori	210
+ODB-SC-0452	plasmid (ARS assay)	chrX	683328	683817	+	16847347	sc_cloned_ori	211
+ODB-SC-0454	plasmid (ARS assay)	chrX	711590	711837	+	16847347	sc_cloned_ori	212
+ODB-SC-0456	plasmid (ARS assay)	chrX	729677	730208	+	11743203	sc_cloned_ori	213
+ODB-SC-0457	plasmid (ARS assay)	chrX	736728	736970	+	16847347	sc_cloned_ori	214
+ODB-SC-0458	plasmid (ARS assay)	chrX	744102	744703	+	11743203	sc_cloned_ori	215
+ODB-SC-0463	plasmid (ARS assay)	chrXI	42110	42563	+	22767388	sc_cloned_ori	454
+ODB-SC-0464	plasmid (ARS assay)	chrXI	55670	55917	+	16847347	sc_cloned_ori	216
+ODB-SC-0466	plasmid (ARS assay)	chrXI	98329	98568	+	16847347	sc_cloned_ori	217
+ODB-SC-0468	plasmid (ARS assay)	chrXI	145433	145893	+	22767388	sc_cloned_ori	455
+ODB-SC-0469	plasmid (ARS assay)	chrXI	152934	153173	+	16847347	sc_cloned_ori	218
+ODB-SC-0472	plasmid (ARS assay)	chrXI	196038	196284	+	16847347	sc_cloned_ori	219
+ODB-SC-0473	plasmid (ARS assay)	chrXI	199886	200537	+	22767388	sc_cloned_ori	456
+ODB-SC-0474	plasmid (ARS assay)	chrXI	213080	213385	+	16847347	sc_cloned_ori	220
+ODB-SC-0476	plasmid (ARS assay)	chrXI	257390	257839	+	22767388	sc_cloned_ori	457
+ODB-SC-0477	plasmid (ARS assay)	chrXI	302152	302524	+	22767388	sc_cloned_ori	458
+ODB-SC-0480	plasmid (ARS assay)	chrXI	329322	329571	+	16847347	sc_cloned_ori	221
+ODB-SC-0484	plasmid (ARS assay)	chrXI	388607	388902	+	16847347	sc_cloned_ori	222
+ODB-SC-0485	plasmid (ARS assay)	chrXI	416822	417055	+	16847347	sc_cloned_ori	223
+ODB-SC-0486	plasmid (ARS assay)	chrXI	444561	445028	+	22767388	sc_cloned_ori	459
+ODB-SC-0487	plasmid (ARS assay)	chrXI	447657	447892	+	16847347	sc_cloned_ori	224
+ODB-SC-0488	plasmid (ARS assay)	chrXI	454453	459197	+	16965179	sc_cloned_ori	225
+ODB-SC-0492	plasmid (ARS assay)	chrXI	516653	516902	+	16847347	sc_cloned_ori	226
+ODB-SC-0494	plasmid (ARS assay)	chrXI	530070	530560	+	22767388	sc_cloned_ori	460
+ODB-SC-0496	plasmid (ARS assay)	chrXI	581468	581706	+	16847347	sc_cloned_ori	227
+ODB-SC-0498	plasmid (ARS assay)	chrXI	611874	612107	+	16847347	sc_cloned_ori	228
+ODB-SC-0501	plasmid (ARS assay)	chrXI	642355	642602	+	16847347	sc_cloned_ori	229
+ODB-SC-0507	plasmid (ARS assay)	chrXII	51860	52210	+	22767388	sc_cloned_ori	461
+ODB-SC-0509	plasmid (ARS assay)	chrXII	76711	77163	+	22767388	sc_cloned_ori	462
+ODB-SC-0510	plasmid (ARS assay)	chrXII	91417	91659	+	16847347	sc_cloned_ori	230
+ODB-SC-0511	plasmid (ARS assay)	chrXII	93166	93659	+	22767388	sc_cloned_ori	463
+ODB-SC-0513	plasmid (ARS assay)	chrXII	150914	151421	+	8593680	sc_cloned_ori	231
+ODB-SC-0514	plasmid (ARS assay)	chrXII	156646	156883	+	16847347	sc_cloned_ori	232
+ODB-SC-0518	plasmid (ARS assay)	chrXII	222410	222792	+	20485513	sc_cloned_ori	382
+ODB-SC-0519	plasmid (ARS assay)	chrXII	231179	231422	+	16847347	sc_cloned_ori	233
+ODB-SC-0520	plasmid (ARS assay)	chrXII	243527	243960	+	20485513	sc_cloned_ori	372
+ODB-SC-0522	plasmid (ARS assay)	chrXII	289220	289469	+	16847347	sc_cloned_ori	234
+ODB-SC-0522	2D gel electrophoresis	chrXII	286400	292326	EcoRI	15143171	sc_2D_gel	37
+ODB-SC-0522	2D gel electrophoresis	chrXII	286400	292326	EcoRI	16137625	sc_2D_gel	40
+ODB-SC-0522	2D gel electrophoresis	chrXII	286400	292326	EcoRI	20972444	sc_2D_gel	43
+ODB-SC-0525	plasmid (ARS assay)	chrXII	343577	344033	+	20485513	sc_cloned_ori	383
+ODB-SC-0526	plasmid (ARS assay)	chrXII	373156	373400	+	16847347	sc_cloned_ori	235
+ODB-SC-0528	plasmid (ARS assay)	chrXII	412668	412897	+	16847347	sc_cloned_ori	236
+ODB-SC-0531	plasmid (ARS assay)	chrXII	450485	450726	+	16847347	sc_cloned_ori	237
+ODB-SC-0532	plasmid (ARS assay)	chrXII	458826	459141	+	16847347	sc_cloned_ori	238
+ODB-SC-0536	plasmid (ARS assay)	chrXII	512868	513117	+	16847347	sc_cloned_ori	239
+ODB-SC-0538	plasmid (ARS assay)	chrXII	602938	603155	+	16847347	sc_cloned_ori	240
+ODB-SC-0541	plasmid (ARS assay)	chrXII	622672	623123	+	22767388	sc_cloned_ori	464
+ODB-SC-0543	plasmid (ARS assay)	chrXII	644937	645426	+	22767388	sc_cloned_ori	465
+ODB-SC-0544	plasmid (ARS assay)	chrXII	659823	660072	+	16847347	sc_cloned_ori	241
+ODB-SC-0545	plasmid (ARS assay)	chrXII	687249	687738	+	22767388	sc_cloned_ori	466
+ODB-SC-0547	plasmid (ARS assay)	chrXII	730275	730832	+	22767388	sc_cloned_ori	467
+ODB-SC-0548	plasmid (ARS assay)	chrXII	744942	745179	+	16847347	sc_cloned_ori	242
+ODB-SC-0552	plasmid (ARS assay)	chrXII	794020	794269	+	16847347	sc_cloned_ori	243
+ODB-SC-0554	plasmid (ARS assay)	chrXII	821907	822336	+	22767388	sc_cloned_ori	468
+ODB-SC-0558	plasmid (ARS assay)	chrXII	888569	888810	+	16847347	sc_cloned_ori	244
+ODB-SC-0560	plasmid (ARS assay)	chrXII	928051	928540	+	22767388	sc_cloned_ori	469
+ODB-SC-0562	plasmid (ARS assay)	chrXII	947908	948358	+	22767388	sc_cloned_ori	470
+ODB-SC-0564	plasmid (ARS assay)	chrXII	1007180	1007470	+	16847347	sc_cloned_ori	245
+ODB-SC-0565	plasmid (ARS assay)	chrXII	1013789	1014017	+	16847347	sc_cloned_ori	246
+ODB-SC-0567	plasmid (ARS assay)	chrXII	1023967	1024207	+	16847347	sc_cloned_ori	247
+ODB-SC-0570	plasmid (ARS assay)	chrXII	1059486	1059919	+	20485513	sc_cloned_ori	373
+ODB-SC-0578	plasmid (ARS assay)	chrXIII	31687	31935	+	16847347	sc_cloned_ori	248
+ODB-SC-0579	plasmid (ARS assay)	chrXIII	39922	40355	+	20485513	sc_cloned_ori	374
+ODB-SC-0581	plasmid (ARS assay)	chrXIII	49645	50141	+	22767388	sc_cloned_ori	471
+ODB-SC-0583	plasmid (ARS assay)	chrXIII	73874	74373	+	22767388	sc_cloned_ori	472
+ODB-SC-0584	plasmid (ARS assay)	chrXIII	94216	94463	+	16847347	sc_cloned_ori	249
+ODB-SC-0586	plasmid (ARS assay)	chrXIII	137299	137548	+	16847347	sc_cloned_ori	250
+ODB-SC-0587	plasmid (ARS assay)	chrXIII	158846	159279	+	20485513	sc_cloned_ori	375
+ODB-SC-0588	plasmid (ARS assay)	chrXIII	183793	184037	+	16847347	sc_cloned_ori	251
+ODB-SC-0591	plasmid (ARS assay)	chrXIII	263062	263296	+	16847347	sc_cloned_ori	252
+ODB-SC-0594	plasmid (ARS assay)	chrXIII	286782	287067	+	16847347	sc_cloned_ori	253
+ODB-SC-0599	plasmid (ARS assay)	chrXIII	370976	371221	+	16847347	sc_cloned_ori	254
+ODB-SC-0604	plasmid (ARS assay)	chrXIII	432851	433347	+	22767388	sc_cloned_ori	473
+ODB-SC-0605	plasmid (ARS assay)	chrXIII	468177	468468	+	16847347	sc_cloned_ori	255
+ODB-SC-0609	plasmid (ARS assay)	chrXIII	503346	504087	+	20485513	sc_cloned_ori	381
+ODB-SC-0610	plasmid (ARS assay)	chrXIII	535595	535843	+	16847347	sc_cloned_ori	256
+ODB-SC-0612	plasmid (ARS assay)	chrXIII	554392	554750	+	20485513	sc_cloned_ori	378
+ODB-SC-0615	plasmid (ARS assay)	chrXIII	611273	611488	+	16847347	sc_cloned_ori	257
+ODB-SC-0616	plasmid (ARS assay)	chrXIII	634479	634714	+	16847347	sc_cloned_ori	258
+ODB-SC-0617	plasmid (ARS assay)	chrXIII	649307	649551	+	16847347	sc_cloned_ori	259
+ODB-SC-0618	plasmid (ARS assay)	chrXIII	688766	689221	+	22767388	sc_cloned_ori	474
+ODB-SC-0620	plasmid (ARS assay)	chrXIII	758222	758470	+	16847347	sc_cloned_ori	260
+ODB-SC-0622	plasmid (ARS assay)	chrXIII	772629	772878	+	16847347	sc_cloned_ori	261
+ODB-SC-0624	plasmid (ARS assay)	chrXIII	805116	805338	+	16847347	sc_cloned_ori	262
+ODB-SC-0625	plasmid (ARS assay)	chrXIII	815341	815567	+	16847347	sc_cloned_ori	263
+ODB-SC-0627	plasmid (ARS assay)	chrXIII	865288	865683	+	15059255	sc_cloned_ori	264
+ODB-SC-0628	plasmid (ARS assay)	chrXIII	878619	879115	+	22767388	sc_cloned_ori	475
+ODB-SC-0629	plasmid (ARS assay)	chrXIII	897804	898040	+	16847347	sc_cloned_ori	265
+ODB-SC-0635	plasmid (ARS assay)	chrXIV	28467	28699	+	16847347	sc_cloned_ori	266
+ODB-SC-0637	plasmid (ARS assay)	chrXIV	61597	61894	+	16847347	sc_cloned_ori	267
+ODB-SC-0639	plasmid (ARS assay)	chrXIV	89528	89802	+	16847347	sc_cloned_ori	268
+ODB-SC-0643	plasmid (ARS assay)	chrXIV	126488	126981	+	22767388	sc_cloned_ori	476
+ODB-SC-0646	plasmid (ARS assay)	chrXIV	169566	169804	+	16847347	sc_cloned_ori	269
+ODB-SC-0646	2D gel electrophoresis	chrXIV	168204	172042	NheI & PstI	8682291	sc_2D_gel	18
+ODB-SC-0648	plasmid (ARS assay)	chrXIV	196055	196291	+	16847347	sc_cloned_ori	270
+ODB-SC-0648	2D gel electrophoresis	chrXIV	194901	197536	MscI	8682291	sc_2D_gel	19
+ODB-SC-0650	plasmid (ARS assay)	chrXIV	250259	250506	+	16847347	sc_cloned_ori	271
+ODB-SC-0650	2D gel electrophoresis	chrXIV	248811	251501	XbaI	8682291	sc_2D_gel	20
+ODB-SC-0650	2D gel electrophoresis	chrXIV	247554	252796	EcoRI	15542831	sc_2D_gel	26
+ODB-SC-0650	2D gel electrophoresis	chrXIV	247554	252796	EcoRI	15143171	sc_2D_gel	34
+ODB-SC-0652	plasmid (ARS assay)	chrXIV	279875	280108	+	16847347	sc_cloned_ori	272
+ODB-SC-0652	2D gel electrophoresis	chrXIV	277746	281725	EcoRV	8682291	sc_2D_gel	21
+ODB-SC-0653	plasmid (ARS assay)	chrXIV	321917	322210	+	16847347	sc_cloned_ori	273
+ODB-SC-0656	plasmid (ARS assay)	chrXIV	352509	352996	+	22767388	sc_cloned_ori	477
+ODB-SC-0659	plasmid (ARS assay)	chrXIV	412263	412493	+	16847347	sc_cloned_ori	274
+ODB-SC-0662	plasmid (ARS assay)	chrXIV	449343	449588	+	16847347	sc_cloned_ori	275
+ODB-SC-0664	plasmid (ARS assay)	chrXIV	498987	499232	+	16847347	sc_cloned_ori	276
+ODB-SC-0666	plasmid (ARS assay)	chrXIV	545966	546201	+	16847347	sc_cloned_ori	277
+ODB-SC-0668	plasmid (ARS assay)	chrXIV	561106	561384	+	16847347	sc_cloned_ori	278
+ODB-SC-0672	plasmid (ARS assay)	chrXIV	609458	609706	+	16847347	sc_cloned_ori	279
+ODB-SC-0674	plasmid (ARS assay)	chrXIV	635660	635901	+	16847347	sc_cloned_ori	280
+ODB-SC-0677	plasmid (ARS assay)	chrXIV	691482	691727	+	16847347	sc_cloned_ori	281
+ODB-SC-0679	plasmid (ARS assay)	chrXIV	713642	714136	+	22767388	sc_cloned_ori	478
+ODB-SC-0682	plasmid (ARS assay)	chrXIV	738550	738982	+	22767388	sc_cloned_ori	479
+ODB-SC-0683	plasmid (ARS assay)	chrXIV	764001	764500	+	22767388	sc_cloned_ori	480
+ODB-SC-0690	plasmid (ARS assay)	chrXV	35667	35903	+	16847347	sc_cloned_ori	282
+ODB-SC-0692	plasmid (ARS assay)	chrXV	72636	72872	+	16847347	sc_cloned_ori	283
+ODB-SC-0694	plasmid (ARS assay)	chrXV	85195	85444	+	16847347	sc_cloned_ori	284
+ODB-SC-0696	plasmid (ARS assay)	chrXV	113843	114084	+	16847347	sc_cloned_ori	285
+ODB-SC-0697	plasmid (ARS assay)	chrXV	128922	130182	+	20485513	sc_cloned_ori	417
+ODB-SC-0698	plasmid (ARS assay)	chrXV	154972	155462	+	15059255	sc_cloned_ori	286
+ODB-SC-0700	plasmid (ARS assay)	chrXV	166974	167220	+	16847347	sc_cloned_ori	287
+ODB-SC-0701	plasmid (ARS assay)	chrXV	227481	228117	+	19997491	sc_cloned_ori	338
+ODB-SC-0704	plasmid (ARS assay)	chrXV	277529	277778	+	16847347	sc_cloned_ori	288
+ODB-SC-0705	plasmid (ARS assay)	chrXV	308969	309462	+	22767388	sc_cloned_ori	481
+ODB-SC-0707	plasmid (ARS assay)	chrXV	337279	337528	+	16847347	sc_cloned_ori	289
+ODB-SC-0712	plasmid (ARS assay)	chrXV	436732	436966	+	16847347	sc_cloned_ori	290
+ODB-SC-0716	plasmid (ARS assay)	chrXV	489645	490129	+	15059255	sc_cloned_ori	291
+ODB-SC-0718	plasmid (ARS assay)	chrXV	497144	497603	+	22767388	sc_cloned_ori	482
+ODB-SC-0720	plasmid (ARS assay)	chrXV	520541	521040	+	22767388	sc_cloned_ori	483
+ODB-SC-0721	plasmid (ARS assay)	chrXV	566409	566643	+	16847347	sc_cloned_ori	292
+ODB-SC-0723	plasmid (ARS assay)	chrXV	600885	600960	+		sc_cloned_ori	293
+ODB-SC-0728	plasmid (ARS assay)	chrXV	656632	656876	+	16847347	sc_cloned_ori	294
+ODB-SC-0731	plasmid (ARS assay)	chrXV	681112	681611	+	22767388	sc_cloned_ori	484
+ODB-SC-0733	plasmid (ARS assay)	chrXV	729739	729969	+	16847347	sc_cloned_ori	295
+ODB-SC-0736	plasmid (ARS assay)	chrXV	766617	766862	+	16847347	sc_cloned_ori	296
+ODB-SC-0737	plasmid (ARS assay)	chrXV	783344	783563	+	16847347	sc_cloned_ori	297
+ODB-SC-0739	plasmid (ARS assay)	chrXV	854735	855228	+	22767388	sc_cloned_ori	485
+ODB-SC-0740	plasmid (ARS assay)	chrXV	874190	874434	+	16847347	sc_cloned_ori	298
+ODB-SC-0744	plasmid (ARS assay)	chrXV	908288	908537	+	16847347	sc_cloned_ori	299
+ODB-SC-0746	plasmid (ARS assay)	chrXV	981454	981690	+	16847347	sc_cloned_ori	300
+ODB-SC-0751	plasmid (ARS assay)	chrXV	1053490	1053901	+	15059255	sc_cloned_ori	301
+ODB-SC-0757	plasmid (ARS assay)	chrXVI	6778	8439	+	16965179	sc_cloned_ori	302
+ODB-SC-0758	plasmid (ARS assay)	chrXVI	12290	13227	+	16965179	sc_cloned_ori	303
+ODB-SC-0760	plasmid (ARS assay)	chrXVI	42976	43212	+	16847347	sc_cloned_ori	304
+ODB-SC-0762	plasmid (ARS assay)	chrXVI	73038	73283	+	16847347	sc_cloned_ori	305
+ODB-SC-0764	plasmid (ARS assay)	chrXVI	116505	116765	+	16847347	sc_cloned_ori	306
+ODB-SC-0770	plasmid (ARS assay)	chrXVI	210467	211723	+	20485513	sc_cloned_ori	416
+ODB-SC-0778	plasmid (ARS assay)	chrXVI	289483	289704	+	16847347	sc_cloned_ori	307
+ODB-SC-0783	plasmid (ARS assay)	chrXVI	331678	332074	+	22767388	sc_cloned_ori	486
+ODB-SC-0787	plasmid (ARS assay)	chrXVI	384536	384784	+	16847347	sc_cloned_ori	308
+ODB-SC-0788	plasmid (ARS assay)	chrXVI	414032	416072	+	16965179	sc_cloned_ori	309
+ODB-SC-0789	plasmid (ARS assay)	chrXVI	418132	418359	+	16847347	sc_cloned_ori	310
+ODB-SC-0794	plasmid (ARS assay)	chrXVI	456557	456805	+	16847347	sc_cloned_ori	311
+ODB-SC-0798	plasmid (ARS assay)	chrXVI	511619	511940	+	16847347	sc_cloned_ori	312
+ODB-SC-0801	plasmid (ARS assay)	chrXVI	563822	564061	+	16847347	sc_cloned_ori	313
+ODB-SC-0802	plasmid (ARS assay)	chrXVI	565046	565289	+	16847347	sc_cloned_ori	314
+ODB-SC-0804	plasmid (ARS assay)	chrXVI	584037	584486	+	22767388	sc_cloned_ori	487
+ODB-SC-0809	plasmid (ARS assay)	chrXVI	633868	634117	+	16847347	sc_cloned_ori	315
+ODB-SC-0811	plasmid (ARS assay)	chrXVI	684383	684632	+	16847347	sc_cloned_ori	316
+ODB-SC-0813	plasmid (ARS assay)	chrXVI	695432	695681	+	16847347	sc_cloned_ori	317
+ODB-SC-0816	plasmid (ARS assay)	chrXVI	749094	749341	+	16847347	sc_cloned_ori	318
+ODB-SC-0817	plasmid (ARS assay)	chrXVI	776921	777152	+	16847347	sc_cloned_ori	319
+ODB-SC-0818	plasmid (ARS assay)	chrXVI	819153	819393	+	16847347	sc_cloned_ori	320
+ODB-SC-0820	plasmid (ARS assay)	chrXVI	842646	842894	+	16847347	sc_cloned_ori	321
+ODB-SC-0824	plasmid (ARS assay)	chrXVI	880854	881102	+	16847347	sc_cloned_ori	322
+ODB-SC-0827	plasmid (ARS assay)	chrXVI	932976	933223	+	16847347	sc_cloned_ori	323
+ODB-SP-0014	2D gel electrophoresis	I	112209	114006		14566325	sp_2D_gel	1
+ODB-SP-0028	2D gel electrophoresis	I	325664	328495		14566325	sp_2D_gel	2
+ODB-SP-0044	2D gel electrophoresis	I	706822	718108		12419233	sp_2D_gel	10
+ODB-SP-0061	2D gel electrophoresis	I	1025540	1030460		14566325	sp_2D_gel	11
+ODB-SP-0066	2D gel electrophoresis	I	1093083	1096822	BamHI	10523311	sp_2D_gel	12
+ODB-SP-0069	2D gel electrophoresis	I	1148620	1150990			sp_2D_gel	13
+ODB-SP-0075	2D gel electrophoresis	I	1247560	1256790			sp_2D_gel	14
+ODB-SP-0122	2D gel electrophoresis	I	2220620	2230490		12419233	sp_2D_gel	15
+ODB-SP-0140	2D gel electrophoresis	I	2436076	2441085	EcoRV	10523311	sp_2D_gel	16
+ODB-SP-0180	2D gel electrophoresis	I	3054950	3064070		12419233	sp_2D_gel	17
+ODB-SP-0189	2D gel electrophoresis	I	3244954	3249692	SalI-PstI	10523311	sp_2D_gel	18
+ODB-SP-0198	2D gel electrophoresis	I	3497610	3503770		10523311	sp_2D_gel	19
+ODB-SP-0231	2D gel electrophoresis	I	3951650	3956920			sp_2D_gel	20
+ODB-SP-0236	2D gel electrophoresis	I	4071120	4074730		12419233	sp_2D_gel	21
+ODB-SP-0248	2D gel electrophoresis	I	4253570	4256090		10523311	sp_2D_gel	22
+ODB-SP-0289	2D gel electrophoresis	I	5024390	5026500		12419233	sp_2D_gel	23
+ODB-SP-0290	2D gel electrophoresis	I	5044910	5047970		14566325	sp_2D_gel	24
+ODB-SP-0328	2D gel electrophoresis	II	22816	25265		14566325	sp_2D_gel	25
+ODB-SP-0329	2D gel electrophoresis	II	31591	31591		14566325	sp_2D_gel	26
+ODB-SP-0372	2D gel electrophoresis	II	446642	450040		14566325	sp_2D_gel	27
+ODB-SP-0384	2D gel electrophoresis	II	602618	604826		14566325	sp_2D_gel	28
+ODB-SP-0422	2D gel electrophoresis	II	1251520	1256880		14566325	sp_2D_gel	29
+ODB-SP-0426	2D gel electrophoresis	II	1276310	1279810		14566325	sp_2D_gel	30
+ODB-SP-0438	2D gel electrophoresis	II	1545160	1549690		9016592	sp_2D_gel	31
+ODB-SP-0443	2D gel electrophoresis	II	1605970	1644600		14566325	sp_2D_gel	32
+ODB-SP-0468	2D gel electrophoresis	II	2103790	2107820		14566325	sp_2D_gel	33
+ODB-SP-0470	2D gel electrophoresis	II	2116510	2120490		12419233	sp_2D_gel	34
+ODB-SP-0476	2D gel electrophoresis	II	2184460	2190480		14566325	sp_2D_gel	35
+ODB-SP-0493	2D gel electrophoresis	II	2580450	2584420		14566325	sp_2D_gel	36
+ODB-SP-0505	2D gel electrophoresis	II	2789090	2792428	EcoRV	10523311	sp_2D_gel	37
+ODB-SP-0506	2D gel electrophoresis	II	2797803	2802471	XbaI	10523311	sp_2D_gel	38
+ODB-SP-0521	2D gel electrophoresis	II	3153350	3155500		14566325	sp_2D_gel	39
+ODB-SP-0530	2D gel electrophoresis	II	3333930	3335780		20002499	sp_2D_gel	40
+ODB-SP-0532	2D gel electrophoresis	II	3342830	3346970		20002499	sp_2D_gel	41
+ODB-SP-0533	2D gel electrophoresis	II	3355220	3360100		20002499	sp_2D_gel	42
+ODB-SP-0534	2D gel electrophoresis	II	3361380	3363940		20002499	sp_2D_gel	43
+ODB-SP-0535	2D gel electrophoresis	II	3371880	3376410		20002499	sp_2D_gel	44
+ODB-SP-0537	2D gel electrophoresis	II	3396620	3400300		20002499	sp_2D_gel	45
+ODB-SP-0583	2D gel electrophoresis	II	4138290	4144110		11689451	sp_2D_gel	46
+ODB-SP-0605	2D gel electrophoresis	III	3479	3479		9457075	sp_2D_gel	47
+ODB-SP-0614	2D gel electrophoresis	III	118706	121296		8062838	sp_2D_gel	48
+ODB-SP-0614	2D gel electrophoresis	III	121296	125512		8062838	sp_2D_gel	49
+ODB-SP-0615	2D gel electrophoresis	III	118706	121296		8062838	sp_2D_gel	48
+ODB-SP-0615	2D gel electrophoresis	III	121296	125512		8062838	sp_2D_gel	49
+ODB-SP-0679	2D gel electrophoresis	III	1410590	1412630		14566325	sp_2D_gel	50
+ODB-SP-0680	2D gel electrophoresis	III	1414850	1419450		14566325	sp_2D_gel	51
+ODB-SP-0698	2D gel electrophoresis	III	1717810	1720480		14566325	sp_2D_gel	52
+ODB-SP-0703	2D gel electrophoresis	III	1820370	1827480		10523311	sp_2D_gel	53
+ODB-SP-0704	2D gel electrophoresis	III	1837380	1839930		10523311	sp_2D_gel	54
+ODB-SP-0705	2D gel electrophoresis	III	1842090	1846360		14566325	sp_2D_gel	55

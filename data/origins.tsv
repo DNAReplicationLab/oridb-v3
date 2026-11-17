@@ -1,0 +1,459 @@
+accession	species	assembly	chromosome	start	end	name	systematic	other_names	status	evidence	legacy_id
+ODB-SC-0001	Saccharomyces cerevisiae	sacCer1	chrI	650	1791	ARS102	I-1	proARS102	Confirmed	plasmid (ARS assay)	sc_ori:1
+ODB-SC-0002	Saccharomyces cerevisiae	sacCer1	chrI	6136	7136	ARS102.5	I-7	proARS103	Confirmed	plasmid (ARS assay)	sc_ori:2
+ODB-SC-0003	Saccharomyces cerevisiae	sacCer1	chrI	7998	8548	ARS103	I-8	proARS103	Confirmed	plasmid (ARS assay)	sc_ori:652
+ODB-SC-0006	Saccharomyces cerevisiae	sacCer1	chrI	30946	31184	ARS104	I-31	proARS104	Confirmed	plasmid (ARS assay)	sc_ori:3
+ODB-SC-0007	Saccharomyces cerevisiae	sacCer1	chrI	40716	43300	ARS105	I-42	proARS105	Confirmed	plasmid (ARS assay)	sc_ori:4
+ODB-SC-0008	Saccharomyces cerevisiae	sacCer1	chrI	70258	70491	ARS106	I-70	proARS106	Confirmed	plasmid (ARS assay)	sc_ori:5
+ODB-SC-0010	Saccharomyces cerevisiae	sacCer1	chrI	124350	124599	ARS107	I-124	proARS107	Confirmed	plasmid (ARS assay)	sc_ori:9
+ODB-SC-0011	Saccharomyces cerevisiae	sacCer1	chrI	136900	137900	ARS107.5	I-137		Confirmed	plasmid (ARS assay)	sc_ori:653
+ODB-SC-0012	Saccharomyces cerevisiae	sacCer1	chrI	146703	147690	ARS108	I-147	proARS108	Confirmed	plasmid (ARS assay)	sc_ori:10
+ODB-SC-0013	Saccharomyces cerevisiae	sacCer1	chrI	159906	160127	ARS109	I-160	ARS101, proARS109	Confirmed	plasmid (ARS assay)	sc_ori:11
+ODB-SC-0015	Saccharomyces cerevisiae	sacCer1	chrI	176154	176402	ARS110	I-176	ADE1	Confirmed	plasmid (ARS assay)	sc_ori:14
+ODB-SC-0018	Saccharomyces cerevisiae	sacCer1	chrI	214879	215635	ARS111	I-215	proARS111	Confirmed	plasmid (ARS assay)	sc_ori:17
+ODB-SC-0019	Saccharomyces cerevisiae	sacCer1	chrI	222871	224037	ARS112	I-223		Confirmed	plasmid (ARS assay)	sc_ori:18
+ODB-SC-0020	Saccharomyces cerevisiae	sacCer1	chrI	226100	227000	ARS113	I-227		Confirmed	plasmid (ARS assay)	sc_ori:654
+ODB-SC-0022	Saccharomyces cerevisiae	sacCer1	chrII	39	686	ARS200	II-0		Confirmed	plasmid (ARS assay)	sc_ori:655
+ODB-SC-0023	Saccharomyces cerevisiae	sacCer1	chrII	6123	7127	ARS201	II-7	proARS201	Confirmed	plasmid (ARS assay)	sc_ori:19
+ODB-SC-0024	Saccharomyces cerevisiae	sacCer1	chrII	28933	29152	ARS201.5	II-29	ARS230	Confirmed	plasmid (ARS assay)	sc_ori:20
+ODB-SC-0025	Saccharomyces cerevisiae	sacCer1	chrII	38623	39068	ARS201.7	II-39		Confirmed	plasmid (ARS assay)	sc_ori:21
+ODB-SC-0026	Saccharomyces cerevisiae	sacCer1	chrII	63186	63421	ARS202	II-63	proARS202	Confirmed	plasmid (ARS assay)	sc_ori:22
+ODB-SC-0029	Saccharomyces cerevisiae	sacCer1	chrII	93410	93811	ARS203	II-94	proARS203	Confirmed	plasmid (ARS assay)	sc_ori:24
+ODB-SC-0033	Saccharomyces cerevisiae	sacCer1	chrII	142868	144016	ARS206	II-143	proARS206	Confirmed	plasmid (ARS assay)	sc_ori:28
+ODB-SC-0034	Saccharomyces cerevisiae	sacCer1	chrII	170049	170298	ARS207	II-170	proARS207	Confirmed	plasmid (ARS assay)	sc_ori:29
+ODB-SC-0035	Saccharomyces cerevisiae	sacCer1	chrII	177529	177877	ARS207.1	II-178	ARS207.3	Confirmed	plasmid (ARS assay)	sc_ori:640
+ODB-SC-0037	Saccharomyces cerevisiae	sacCer1	chrII	198193	198434	ARS207.5	II-198	ARS231	Confirmed	plasmid (ARS assay)	sc_ori:30
+ODB-SC-0038	Saccharomyces cerevisiae	sacCer1	chrII	209187	210063	ARS207.8	II-210		Confirmed	plasmid (ARS assay)	sc_ori:656
+ODB-SC-0040	Saccharomyces cerevisiae	sacCer1	chrII	237644	237879	ARS208	II-238	proARS208	Confirmed	plasmid (ARS assay)	sc_ori:32
+ODB-SC-0042	Saccharomyces cerevisiae	sacCer1	chrII	254890	255136	ARS209	II-255	ARSH4, proARS209	Confirmed	plasmid (ARS assay)	sc_ori:34
+ODB-SC-0046	Saccharomyces cerevisiae	sacCer1	chrII	283015	283913	ARS210.5	II-283		Confirmed	plasmid (ARS assay)	sc_ori:658
+ODB-SC-0050	Saccharomyces cerevisiae	sacCer1	chrII	326099	326335	ARS211	II-326	proARS211	Confirmed	plasmid (ARS assay)	sc_ori:37
+ODB-SC-0053	Saccharomyces cerevisiae	sacCer1	chrII	378434	379194	ARS212	II-379	proARS212	Confirmed	plasmid (ARS assay)	sc_ori:39
+ODB-SC-0054	Saccharomyces cerevisiae	sacCer1	chrII	389245	390368	ARS213	II-390	proARS213	Confirmed	plasmid (ARS assay)	sc_ori:40
+ODB-SC-0055	Saccharomyces cerevisiae	sacCer1	chrII	407831	408064	ARS214	II-408	proARS214	Confirmed	plasmid (ARS assay)	sc_ori:41
+ODB-SC-0056	Saccharomyces cerevisiae	sacCer1	chrII	417739	418035	ARS215	II-418	proARS215	Confirmed	plasmid (ARS assay)	sc_ori:42
+ODB-SC-0057	Saccharomyces cerevisiae	sacCer1	chrII	440859	441697	ARS215.5	II-441		Confirmed	plasmid (ARS assay)	sc_ori:43
+ODB-SC-0059	Saccharomyces cerevisiae	sacCer1	chrII	486661	486909	ARS216	II-487	proARS216	Confirmed	plasmid (ARS assay)	sc_ori:44
+ODB-SC-0062	Saccharomyces cerevisiae	sacCer1	chrII	516805	517805	ARS217	II-517		Confirmed	plasmid (ARS assay)	sc_ori:46
+ODB-SC-0063	Saccharomyces cerevisiae	sacCer1	chrII	539137	539699	ARS218	II-539	proARS218	Confirmed	plasmid (ARS assay)	sc_ori:47
+ODB-SC-0066	Saccharomyces cerevisiae	sacCer1	chrII	591424	591713	ARS219	II-592	proARS219	Confirmed	plasmid (ARS assay)	sc_ori:49
+ODB-SC-0067	Saccharomyces cerevisiae	sacCer1	chrII	611269	613200	ARS219.5	II-612		Confirmed	plasmid (ARS assay)	sc_ori:661
+ODB-SC-0068	Saccharomyces cerevisiae	sacCer1	chrII	622625	622894	ARS220	II-623	proARS220	Confirmed	plasmid (ARS assay)	sc_ori:50
+ODB-SC-0070	Saccharomyces cerevisiae	sacCer1	chrII	631934	632246	ARS221	II-632	proARS221	Confirmed	plasmid (ARS assay)	sc_ori:51
+ODB-SC-0071	Saccharomyces cerevisiae	sacCer1	chrII	675947	676667	ARS221.5	II-676		Confirmed	plasmid (ARS assay)	sc_ori:52
+ODB-SC-0073	Saccharomyces cerevisiae	sacCer1	chrII	704250	704521	ARS222	II-704	proARS222	Confirmed	plasmid (ARS assay)	sc_ori:54
+ODB-SC-0074	Saccharomyces cerevisiae	sacCer1	chrII	707158	708262	ARS222.5	II-708		Confirmed	plasmid (ARS assay)	sc_ori:662
+ODB-SC-0075	Saccharomyces cerevisiae	sacCer1	chrII	720601	721038	ARS223	II-721	proARS223	Confirmed	plasmid (ARS assay)	sc_ori:55
+ODB-SC-0077	Saccharomyces cerevisiae	sacCer1	chrII	741512	741802	ARS224	II-742	proARS224	Confirmed	plasmid (ARS assay)	sc_ori:57
+ODB-SC-0078	Saccharomyces cerevisiae	sacCer1	chrII	757390	757621	ARS225	II-758	proARS225	Confirmed	plasmid (ARS assay)	sc_ori:58
+ODB-SC-0080	Saccharomyces cerevisiae	sacCer1	chrII	773918	774348	ARS227	II-774	proARS227	Confirmed	plasmid (ARS assay)	sc_ori:60
+ODB-SC-0081	Saccharomyces cerevisiae	sacCer1	chrII	792116	792340	ARS228	II-792	proARS228	Confirmed	plasmid (ARS assay)	sc_ori:61
+ODB-SC-0082	Saccharomyces cerevisiae	sacCer1	chrII	796259	797162	ARS228.5	II-797		Confirmed	plasmid (ARS assay)	sc_ori:663
+ODB-SC-0083	Saccharomyces cerevisiae	sacCer1	chrII	801930	802617	ARS229	II-802	proARS229	Confirmed	plasmid (ARS assay)	sc_ori:62
+ODB-SC-0085	Saccharomyces cerevisiae	sacCer1	chrIII	837	1551	ARS300	III-1	X-ARS, proARS300	Confirmed	plasmid (ARS assay)	sc_ori:63
+ODB-SC-0087	Saccharomyces cerevisiae	sacCer1	chrIII	11145	11401	ARS301	III-11	proARS301	Confirmed	plasmid (ARS assay)	sc_ori:65
+ODB-SC-0088	Saccharomyces cerevisiae	sacCer1	chrIII	11303	14854	ARS302	III-13	proARS301, proARS302, proARS303/proARS320	Confirmed	plasmid (ARS assay)	sc_ori:791
+ODB-SC-0089	Saccharomyces cerevisiae	sacCer1	chrIII	14574	14849	ARS302	III-15	proARS302, proARS303/proARS320	Confirmed	plasmid (ARS assay)	sc_ori:66
+ODB-SC-0090	Saccharomyces cerevisiae	sacCer1	chrIII	14870	15213	ARS303	III-15	proARS302, proARS303/proARS320	Confirmed	plasmid (ARS assay)	sc_ori:67
+ODB-SC-0091	Saccharomyces cerevisiae	sacCer1	chrIII	15213	16274	ARS320	III-16	proARS302, proARS303/proARS320	Confirmed	plasmid (ARS assay)	sc_ori:68
+ODB-SC-0092	Saccharomyces cerevisiae	sacCer1	chrIII	30199	30657	ARS304	III-30		Confirmed	plasmid (ARS assay);2D gel electrophoresis	sc_ori:69
+ODB-SC-0093	Saccharomyces cerevisiae	sacCer1	chrIII	39158	39706	ARS305	III-39	ARS A6C, proARS305	Confirmed	plasmid (ARS assay);2D gel electrophoresis	sc_ori:70
+ODB-SC-0095	Saccharomyces cerevisiae	sacCer1	chrIII	74457	74677	ARS306	III-75		Confirmed	plasmid (ARS assay);2D gel electrophoresis	sc_ori:71
+ODB-SC-0097	Saccharomyces cerevisiae	sacCer1	chrIII	108775	109291	ARS307	III-109	ARS C2G1, proARS307	Confirmed	plasmid (ARS assay)	sc_ori:73
+ODB-SC-0098	Saccharomyces cerevisiae	sacCer1	chrIII	114314	114933	ARS308	III-115		Confirmed	plasmid (ARS assay)	sc_ori:74
+ODB-SC-0099	Saccharomyces cerevisiae	sacCer1	chrIII	131978	132322	ARS309	III-132	ARS J11D1, proARS309	Confirmed	plasmid (ARS assay)	sc_ori:75
+ODB-SC-0103	Saccharomyces cerevisiae	sacCer1	chrIII	166494	167340	ARS310	III-167	proARS310	Confirmed	plasmid (ARS assay)	sc_ori:78
+ODB-SC-0105	Saccharomyces cerevisiae	sacCer1	chrIII	194256	194505	ARS313	III-194		Confirmed	plasmid (ARS assay);2D gel electrophoresis	sc_ori:80
+ODB-SC-0106	Saccharomyces cerevisiae	sacCer1	chrIII	197369	197601	ARS314	III-197	proARS314	Confirmed	plasmid (ARS assay);2D gel electrophoresis	sc_ori:81
+ODB-SC-0108	Saccharomyces cerevisiae	sacCer1	chrIII	203876	207534	ARS314.5	III-206		Confirmed	2D gel electrophoresis	sc_ori:83
+ODB-SC-0110	Saccharomyces cerevisiae	sacCer1	chrIII	224807	225053	ARS315	III-225		Confirmed	plasmid (ARS assay);2D gel electrophoresis	sc_ori:85
+ODB-SC-0112	Saccharomyces cerevisiae	sacCer1	chrIII	272844	273088	ARS316	III-273	proARS316	Confirmed	plasmid (ARS assay);2D gel electrophoresis	sc_ori:86
+ODB-SC-0113	Saccharomyces cerevisiae	sacCer1	chrIII	292524	292826	ARS317	III-293	proARS317, proARS318	Confirmed	plasmid (ARS assay);2D gel electrophoresis	sc_ori:87
+ODB-SC-0114	Saccharomyces cerevisiae	sacCer1	chrIII	294396	295027	ARS318	III-295		Confirmed	plasmid (ARS assay);2D gel electrophoresis	sc_ori:88
+ODB-SC-0116	Saccharomyces cerevisiae	sacCer1	chrIII	315346	316232	ARS319	III-316	X-ARS	Confirmed	plasmid (ARS assay);2D gel electrophoresis	sc_ori:90
+ODB-SC-0117	Saccharomyces cerevisiae	sacCer1	chrIV	137	1392	ARS400	IV-1		Confirmed	plasmid (ARS assay)	sc_ori:666
+ODB-SC-0119	Saccharomyces cerevisiae	sacCer1	chrIV	15492	15739	ARS403	IV-16	proARS403	Confirmed	plasmid (ARS assay)	sc_ori:93
+ODB-SC-0120	Saccharomyces cerevisiae	sacCer1	chrIV	21265	22262	ARS402.5	IV-22		Confirmed	plasmid (ARS assay)	sc_ori:667
+ODB-SC-0121	Saccharomyces cerevisiae	sacCer1	chrIV	46181	46237	ARS404	IV-46	HO, proARS404	Confirmed	plasmid (ARS assay)	sc_ori:94
+ODB-SC-0123	Saccharomyces cerevisiae	sacCer1	chrIV	85945	86177	ARS405	IV-86	proARS405	Confirmed	plasmid (ARS assay)	sc_ori:95
+ODB-SC-0125	Saccharomyces cerevisiae	sacCer1	chrIV	100380	101355	ARS405.5	IV-101		Confirmed	plasmid (ARS assay)	sc_ori:668
+ODB-SC-0126	Saccharomyces cerevisiae	sacCer1	chrIV	123617	123902	ARS406	IV-124	proARS406	Confirmed	plasmid (ARS assay)	sc_ori:97
+ODB-SC-0127	Saccharomyces cerevisiae	sacCer1	chrIV	137445	137808	ARS407	IV-138	proARS407	Confirmed	plasmid (ARS assay)	sc_ori:98
+ODB-SC-0128	Saccharomyces cerevisiae	sacCer1	chrIV	157744	158235	ARS408	IV-158	proARS408	Confirmed	plasmid (ARS assay)	sc_ori:99
+ODB-SC-0130	Saccharomyces cerevisiae	sacCer1	chrIV	212420	212669	ARS409	IV-213	proARS409	Confirmed	plasmid (ARS assay)	sc_ori:101
+ODB-SC-0132	Saccharomyces cerevisiae	sacCer1	chrIV	232140	232618	ARS409.3	IV-232		Confirmed	plasmid (ARS assay)	sc_ori:795
+ODB-SC-0133	Saccharomyces cerevisiae	sacCer1	chrIV	235935	236184	ARS409.5	IV-236		Confirmed	plasmid (ARS assay)	sc_ori:103
+ODB-SC-0134	Saccharomyces cerevisiae	sacCer1	chrIV	253789	254038	ARS410	IV-254	proARS410	Confirmed	plasmid (ARS assay)	sc_ori:104
+ODB-SC-0136	Saccharomyces cerevisiae	sacCer1	chrIV	316719	317111	ARS412	IV-317	proARS412	Confirmed	plasmid (ARS assay)	sc_ori:106
+ODB-SC-0137	Saccharomyces cerevisiae	sacCer1	chrIV	329564	329813	ARS413	IV-330	proARS413	Confirmed	plasmid (ARS assay)	sc_ori:107
+ODB-SC-0138	Saccharomyces cerevisiae	sacCer1	chrIV	350835	351804	ARS413.5	IV-351		Confirmed	plasmid (ARS assay)	sc_ori:669
+ODB-SC-0141	Saccharomyces cerevisiae	sacCer1	chrIV	408070	408312	ARS414	IV-408	proARS414	Confirmed	plasmid (ARS assay);2D gel electrophoresis	sc_ori:108
+ODB-SC-0142	Saccharomyces cerevisiae	sacCer1	chrIV	435056	435388	ARS415	IV-435	proARS415	Confirmed	plasmid (ARS assay)	sc_ori:109
+ODB-SC-0144	Saccharomyces cerevisiae	sacCer1	chrIV	462430	462700	ARS416	IV-463	ARS1, proARS416	Confirmed	plasmid (ARS assay);2D gel electrophoresis	sc_ori:110
+ODB-SC-0146	Saccharomyces cerevisiae	sacCer1	chrIV	483846	484091	ARS417	IV-484	proARS417	Confirmed	plasmid (ARS assay)	sc_ori:112
+ODB-SC-0147	Saccharomyces cerevisiae	sacCer1	chrIV	505336	505578	ARS417.5	IV-505	ARS450	Confirmed	plasmid (ARS assay)	sc_ori:113
+ODB-SC-0148	Saccharomyces cerevisiae	sacCer1	chrIV	555224	555461	ARS418	IV-555	proARS418	Confirmed	plasmid (ARS assay)	sc_ori:114
+ODB-SC-0149	Saccharomyces cerevisiae	sacCer1	chrIV	567490	567737	ARS419	IV-568	proARS419	Confirmed	plasmid (ARS assay)	sc_ori:115
+ODB-SC-0151	Saccharomyces cerevisiae	sacCer1	chrIV	629072	629669	ARS420	IV-629	proARS420	Confirmed	plasmid (ARS assay)	sc_ori:117
+ODB-SC-0152	Saccharomyces cerevisiae	sacCer1	chrIV	639859	640108	ARS421	IV-640	proARS421	Confirmed	plasmid (ARS assay)	sc_ori:118
+ODB-SC-0155	Saccharomyces cerevisiae	sacCer1	chrIV	702879	703125	ARS422	IV-703	ARO1, proARS422	Confirmed	plasmid (ARS assay)	sc_ori:120
+ODB-SC-0158	Saccharomyces cerevisiae	sacCer1	chrIV	748384	748630	ARS422.5	IV-749	ARS451	Confirmed	plasmid (ARS assay)	sc_ori:123
+ODB-SC-0159	Saccharomyces cerevisiae	sacCer1	chrIV	753159	753391	ARS423	IV-753	proARS423	Confirmed	plasmid (ARS assay)	sc_ori:124
+ODB-SC-0163	Saccharomyces cerevisiae	sacCer1	chrIV	806044	806270	ARS425	IV-806	proARS425	Confirmed	plasmid (ARS assay)	sc_ori:128
+ODB-SC-0166	Saccharomyces cerevisiae	sacCer1	chrIV	844597	845593	ARS426.5	IV-845		Confirmed	plasmid (ARS assay)	sc_ori:671
+ODB-SC-0170	Saccharomyces cerevisiae	sacCer1	chrIV	903824	904655	ARS427.5	IV-904		Confirmed	plasmid (ARS assay)	sc_ori:672
+ODB-SC-0171	Saccharomyces cerevisiae	sacCer1	chrIV	913780	914029	ARS428	IV-914	proARS428	Confirmed	plasmid (ARS assay)	sc_ori:134
+ODB-SC-0172	Saccharomyces cerevisiae	sacCer1	chrIV	921682	921930	ARS429	IV-922	proARS429	Confirmed	plasmid (ARS assay)	sc_ori:135
+ODB-SC-0173	Saccharomyces cerevisiae	sacCer1	chrIV	942983	943975	ARS429.5	IV-943		Confirmed	plasmid (ARS assay)	sc_ori:673
+ODB-SC-0177	Saccharomyces cerevisiae	sacCer1	chrIV	1016624	1016922	ARS430	IV-1017	proARS430	Confirmed	plasmid (ARS assay)	sc_ori:138
+ODB-SC-0179	Saccharomyces cerevisiae	sacCer1	chrIV	1033069	1034182	ARS430.5	IV-1034		Confirmed	plasmid (ARS assay)	sc_ori:674
+ODB-SC-0180	Saccharomyces cerevisiae	sacCer1	chrIV	1057828	1058076	ARS431	IV-1058	proARS431	Confirmed	plasmid (ARS assay)	sc_ori:139
+ODB-SC-0181	Saccharomyces cerevisiae	sacCer1	chrIV	1109955	1110196	ARS431.5	IV-1110	ARS452	Confirmed	plasmid (ARS assay)	sc_ori:140
+ODB-SC-0182	Saccharomyces cerevisiae	sacCer1	chrIV	1130672	1131155	ARS431.7	IV-1131		Confirmed	plasmid (ARS assay)	sc_ori:872
+ODB-SC-0184	Saccharomyces cerevisiae	sacCer1	chrIV	1159250	1159499	ARS432	IV-1159	proARS432	Confirmed	plasmid (ARS assay)	sc_ori:142
+ODB-SC-0185	Saccharomyces cerevisiae	sacCer1	chrIV	1165998	1166221	ARS432.5	IV-1166	ARS453	Confirmed	plasmid (ARS assay)	sc_ori:144
+ODB-SC-0187	Saccharomyces cerevisiae	sacCer1	chrIV	1240869	1241098	ARS433	IV-1241	proARS433	Confirmed	plasmid (ARS assay)	sc_ori:146
+ODB-SC-0189	Saccharomyces cerevisiae	sacCer1	chrIV	1276212	1276440	ARS434	IV-1276	proARS434	Confirmed	plasmid (ARS assay)	sc_ori:148
+ODB-SC-0190	Saccharomyces cerevisiae	sacCer1	chrIV	1302579	1302819	ARS435	IV-1303	proARS435	Confirmed	plasmid (ARS assay)	sc_ori:150
+ODB-SC-0193	Saccharomyces cerevisiae	sacCer1	chrIV	1353494	1353667	ARS437	IV-1354	proARS437	Confirmed	plasmid (ARS assay)	sc_ori:152
+ODB-SC-0196	Saccharomyces cerevisiae	sacCer1	chrIV	1385151	1385630	ARS439.5	IV-1385		Confirmed	plasmid (ARS assay)	sc_ori:155
+ODB-SC-0197	Saccharomyces cerevisiae	sacCer1	chrIV	1404277	1404512	ARS440	IV-1404	proARS440	Confirmed	plasmid (ARS assay)	sc_ori:156
+ODB-SC-0199	Saccharomyces cerevisiae	sacCer1	chrIV	1447298	1448928	ARS441	IV-1448	proARS441	Confirmed	plasmid (ARS assay)	sc_ori:157
+ODB-SC-0201	Saccharomyces cerevisiae	sacCer1	chrIV	1461849	1462161	ARS442	IV-1462	proARS443	Confirmed	plasmid (ARS assay)	sc_ori:159
+ODB-SC-0204	Saccharomyces cerevisiae	sacCer1	chrIV	1486905	1487149	ARS446	IV-1487	proARS446	Confirmed	plasmid (ARS assay)	sc_ori:162
+ODB-SC-0206	Saccharomyces cerevisiae	sacCer1	chrIV	1502624	1503221	ARS447	IV-1503	proARS447	Confirmed	plasmid (ARS assay)	sc_ori:165
+ODB-SC-0211	Saccharomyces cerevisiae	sacCer1	chrV	4097	4185	ARS502	V-4	Y'-ARS, proARS502	Confirmed	plasmid (ARS assay)	sc_ori:168
+ODB-SC-0212	Saccharomyces cerevisiae	sacCer1	chrV	6464	7230	ARS503	V-7	proARS503	Confirmed	plasmid (ARS assay)	sc_ori:169
+ODB-SC-0213	Saccharomyces cerevisiae	sacCer1	chrV	8786	10019	ARS504	V-9	proARS504	Confirmed	plasmid (ARS assay)	sc_ori:170
+ODB-SC-0214	Saccharomyces cerevisiae	sacCer1	chrV	11713	12194	ARS504.2	V-12	proARS505	Confirmed	plasmid (ARS assay)	sc_ori:171
+ODB-SC-0216	Saccharomyces cerevisiae	sacCer1	chrV	59282	59516	ARS507	V-59	proARS507	Confirmed	plasmid (ARS assay)	sc_ori:173
+ODB-SC-0218	Saccharomyces cerevisiae	sacCer1	chrV	93977	94218	ARS508	V-94	proARS508	Confirmed	plasmid (ARS assay)	sc_ori:174
+ODB-SC-0220	Saccharomyces cerevisiae	sacCer1	chrV	145539	145782	ARS510	V-146	proARS510	Confirmed	plasmid (ARS assay)	sc_ori:176
+ODB-SC-0222	Saccharomyces cerevisiae	sacCer1	chrV	173636	173874	ARS511	V-174	proARS511	Confirmed	plasmid (ARS assay)	sc_ori:177
+ODB-SC-0224	Saccharomyces cerevisiae	sacCer1	chrV	192493	192926	ARS511.5	V-193		Confirmed	plasmid (ARS assay)	sc_ori:781
+ODB-SC-0225	Saccharomyces cerevisiae	sacCer1	chrV	212381	212630	ARS512	V-213	proARS512	Confirmed	plasmid (ARS assay)	sc_ori:178
+ODB-SC-0227	Saccharomyces cerevisiae	sacCer1	chrV	276127	276526	ARS513.5	V-276		Confirmed	plasmid (ARS assay)	sc_ori:180
+ODB-SC-0228	Saccharomyces cerevisiae	sacCer1	chrV	278073	278355	ARS513.7	V-278		Confirmed	plasmid (ARS assay)	sc_ori:779
+ODB-SC-0229	Saccharomyces cerevisiae	sacCer1	chrV	287504	287750	ARS514	V-288	proARS514	Confirmed	plasmid (ARS assay)	sc_ori:181
+ODB-SC-0230	Saccharomyces cerevisiae	sacCer1	chrV	301565	302061	ARS514.5	V-302		Confirmed	plasmid (ARS assay)	sc_ori:182
+ODB-SC-0232	Saccharomyces cerevisiae	sacCer1	chrV	353504	353751	ARS516	V-354	tRNAgluARS, proARS516	Confirmed	plasmid (ARS assay)	sc_ori:184
+ODB-SC-0233	Saccharomyces cerevisiae	sacCer1	chrV	406747	406949	ARS517	V-407	proARS517	Confirmed	plasmid (ARS assay)	sc_ori:185
+ODB-SC-0236	Saccharomyces cerevisiae	sacCer1	chrV	438929	439178	ARS518	V-439	proARS518	Confirmed	plasmid (ARS assay)	sc_ori:186
+ODB-SC-0237	Saccharomyces cerevisiae	sacCer1	chrV	442412	442731	ARS519	V-443	proARS519	Confirmed	plasmid (ARS assay)	sc_ori:187
+ODB-SC-0239	Saccharomyces cerevisiae	sacCer1	chrV	498417	499343	ARS520	V-499	proARS520	Confirmed	plasmid (ARS assay)	sc_ori:189
+ODB-SC-0241	Saccharomyces cerevisiae	sacCer1	chrV	520767	521025	ARS521	V-521		Confirmed	plasmid (ARS assay)	sc_ori:191
+ODB-SC-0242	Saccharomyces cerevisiae	sacCer1	chrV	549560	549809	ARS522	V-550	ARS501, proARS522	Confirmed	plasmid (ARS assay);2D gel electrophoresis	sc_ori:192
+ODB-SC-0244	Saccharomyces cerevisiae	sacCer1	chrV	569020	570085	ARS523	V-570	proARS523	Confirmed	plasmid (ARS assay)	sc_ori:194
+ODB-SC-0247	Saccharomyces cerevisiae	sacCer1	chrVI	5435	6155	ARS600.1	VI-6	ARS120; X-ARS, proARS600.1	Confirmed	plasmid (ARS assay)	sc_ori:195
+ODB-SC-0248	Saccharomyces cerevisiae	sacCer1	chrVI	12174	13028	ARS600.2	VI-13	proARS600.2	Confirmed	plasmid (ARS assay)	sc_ori:196
+ODB-SC-0249	Saccharomyces cerevisiae	sacCer1	chrVI	18682	19864	ARS600.3	VI-19	proARS600.3, proARS600.4	Confirmed	plasmid (ARS assay)	sc_ori:197
+ODB-SC-0250	Saccharomyces cerevisiae	sacCer1	chrVI	19669	20826	ARS600.4	VI-20	proARS600.3, proARS600.4	Confirmed	plasmid (ARS assay)	sc_ori:198
+ODB-SC-0251	Saccharomyces cerevisiae	sacCer1	chrVI	32472	32995	ARS601	VI-33	proARS601/proARS602	Confirmed	plasmid (ARS assay);2D gel electrophoresis	sc_ori:200
+ODB-SC-0252	Saccharomyces cerevisiae	sacCer1	chrVI	32666	33247	ARS602	VI-33	proARS601/proARS602	Confirmed	plasmid (ARS assay);2D gel electrophoresis	sc_ori:650
+ODB-SC-0255	Saccharomyces cerevisiae	sacCer1	chrVI	68690	68869	ARS603	VI-69	proARS603	Confirmed	plasmid (ARS assay);2D gel electrophoresis	sc_ori:202
+ODB-SC-0257	Saccharomyces cerevisiae	sacCer1	chrVI	104456	104695	ARS603.1	VI-105		Confirmed	plasmid (ARS assay)	sc_ori:682
+ODB-SC-0258	Saccharomyces cerevisiae	sacCer1	chrVI	118631	118952	ARS603.5	VI-119	proARS603.5	Confirmed	plasmid (ARS assay);2D gel electrophoresis	sc_ori:204
+ODB-SC-0259	Saccharomyces cerevisiae	sacCer1	chrVI	127745	128066	ARS604	VI-128		Confirmed	plasmid (ARS assay);2D gel electrophoresis	sc_ori:205
+ODB-SC-0260	Saccharomyces cerevisiae	sacCer1	chrVI	135979	136080	ARS605	VI-136	proARS605	Confirmed	plasmid (ARS assay);2D gel electrophoresis	sc_ori:206
+ODB-SC-0261	Saccharomyces cerevisiae	sacCer1	chrVI	167606	168041	ARS606	VI-168	proARS606	Confirmed	plasmid (ARS assay);2D gel electrophoresis	sc_ori:207
+ODB-SC-0262	Saccharomyces cerevisiae	sacCer1	chrVI	199382	199493	ARS607	VI-199	proARS607	Confirmed	plasmid (ARS assay);2D gel electrophoresis	sc_ori:208
+ODB-SC-0263	Saccharomyces cerevisiae	sacCer1	chrVI	216344	216692	ARS608	VI-217		Confirmed	plasmid (ARS assay);2D gel electrophoresis	sc_ori:209
+ODB-SC-0265	Saccharomyces cerevisiae	sacCer1	chrVI	253316	253800	ARS608.5	VI-254		Confirmed	plasmid (ARS assay);2D gel electrophoresis	sc_ori:683
+ODB-SC-0266	Saccharomyces cerevisiae	sacCer1	chrVI	256263	256418	ARS609	VI-256	proARS609	Confirmed	plasmid (ARS assay);2D gel electrophoresis	sc_ori:211
+ODB-SC-0268	Saccharomyces cerevisiae	sacCer1	chrVI	269404	270022	ARS610	VI-270	proARS610	Confirmed	plasmid (ARS assay)	sc_ori:212
+ODB-SC-0271	Saccharomyces cerevisiae	sacCer1	chrVII	17629	18112	ARS700.5	VII-18		Confirmed	plasmid (ARS assay)	sc_ori:214
+ODB-SC-0274	Saccharomyces cerevisiae	sacCer1	chrVII	64279	64528	ARS702	VII-64	proARS702	Confirmed	plasmid (ARS assay)	sc_ori:217
+ODB-SC-0276	Saccharomyces cerevisiae	sacCer1	chrVII	112080	112319	ARS704	VII-112	proARS704	Confirmed	plasmid (ARS assay)	sc_ori:219
+ODB-SC-0278	Saccharomyces cerevisiae	sacCer1	chrVII	117471	117955	ARS706	VII-118	ARO8, proARS706	Confirmed	plasmid (ARS assay)	sc_ori:221
+ODB-SC-0279	Saccharomyces cerevisiae	sacCer1	chrVII	163180	163447	ARS707	VII-163	proARS707	Confirmed	plasmid (ARS assay)	sc_ori:222
+ODB-SC-0282	Saccharomyces cerevisiae	sacCer1	chrVII	187241	187651	ARS709	VII-187	proARS709	Confirmed	plasmid (ARS assay)	sc_ori:224
+ODB-SC-0283	Saccharomyces cerevisiae	sacCer1	chrVII	203917	204159	ARS710	VII-204	proARS710	Confirmed	plasmid (ARS assay)	sc_ori:225
+ODB-SC-0284	Saccharomyces cerevisiae	sacCer1	chrVII	231909	231984	ARS711	VII-232	ARS701; ARS137	Confirmed	plasmid (ARS assay)	sc_ori:226
+ODB-SC-0285	Saccharomyces cerevisiae	sacCer1	chrVII	240972	241441	ARS712	VII-241	proARS712	Confirmed	plasmid (ARS assay)	sc_ori:227
+ODB-SC-0289	Saccharomyces cerevisiae	sacCer1	chrVII	285951	286246	ARS714	VII-286	proARS714	Confirmed	plasmid (ARS assay)	sc_ori:229
+ODB-SC-0293	Saccharomyces cerevisiae	sacCer1	chrVII	352695	352917	ARS716	VII-353	proARS716	Confirmed	plasmid (ARS assay);2D gel electrophoresis	sc_ori:232
+ODB-SC-0294	Saccharomyces cerevisiae	sacCer1	chrVII	388658	388892	ARS717	VII-389	proARS717	Confirmed	plasmid (ARS assay)	sc_ori:233
+ODB-SC-0295	Saccharomyces cerevisiae	sacCer1	chrVII	421093	421342	ARS718	VII-421	proARS718	Confirmed	plasmid (ARS assay)	sc_ori:234
+ODB-SC-0298	Saccharomyces cerevisiae	sacCer1	chrVII	484932	485160	ARS719	VII-485	proARS719	Confirmed	plasmid (ARS assay)	sc_ori:235
+ODB-SC-0299	Saccharomyces cerevisiae	sacCer1	chrVII	508729	508978	ARS720	VII-509	proARS720	Confirmed	plasmid (ARS assay)	sc_ori:236
+ODB-SC-0302	Saccharomyces cerevisiae	sacCer1	chrVII	568490	568738	ARS721	VII-569	proARS721	Confirmed	plasmid (ARS assay)	sc_ori:238
+ODB-SC-0303	Saccharomyces cerevisiae	sacCer1	chrVII	574622	574916	ARS722	VII-575	proARS722	Confirmed	plasmid (ARS assay)	sc_ori:239
+ODB-SC-0307	Saccharomyces cerevisiae	sacCer1	chrVII	607176	607619	ARS724.5	VII-607		Confirmed	plasmid (ARS assay)	sc_ori:690
+ODB-SC-0310	Saccharomyces cerevisiae	sacCer1	chrVII	653611	654091	ARS726	VII-654	proARS726	Confirmed	plasmid (ARS assay)	sc_ori:243
+ODB-SC-0311	Saccharomyces cerevisiae	sacCer1	chrVII	659809	660054	ARS727	VII-660	proARS727	Confirmed	plasmid (ARS assay)	sc_ori:244
+ODB-SC-0312	Saccharomyces cerevisiae	sacCer1	chrVII	715273	715556	ARS728	VII-715	proARS728	Confirmed	plasmid (ARS assay)	sc_ori:245
+ODB-SC-0315	Saccharomyces cerevisiae	sacCer1	chrVII	777967	778216	ARS729	VII-778	proARS729	Confirmed	plasmid (ARS assay)	sc_ori:247
+ODB-SC-0318	Saccharomyces cerevisiae	sacCer1	chrVII	834492	834736	ARS731	VII-835	proARS731	Confirmed	plasmid (ARS assay)	sc_ori:250
+ODB-SC-0322	Saccharomyces cerevisiae	sacCer1	chrVII	888350	888599	ARS731.5	VII-888	ARS737	Confirmed	plasmid (ARS assay)	sc_ori:253
+ODB-SC-0323	Saccharomyces cerevisiae	sacCer1	chrVII	916675	917170	ARS732	VII-917	proARS732	Confirmed	plasmid (ARS assay)	sc_ori:254
+ODB-SC-0325	Saccharomyces cerevisiae	sacCer1	chrVII	977730	977979	ARS733	VII-978	proARS733	Confirmed	plasmid (ARS assay)	sc_ori:255
+ODB-SC-0326	Saccharomyces cerevisiae	sacCer1	chrVII	999448	999695	ARS734	VII-1000	proARS734	Confirmed	plasmid (ARS assay)	sc_ori:256
+ODB-SC-0327	Saccharomyces cerevisiae	sacCer1	chrVII	1002182	1002571	ARS735	VII-1002	proARS735	Confirmed	plasmid (ARS assay)	sc_ori:257
+ODB-SC-0330	Saccharomyces cerevisiae	sacCer1	chrVII	1063254	1063715	ARS735.5	VII-1063		Confirmed	plasmid (ARS assay)	sc_ori:259
+ODB-SC-0332	Saccharomyces cerevisiae	sacCer1	chrVII	1082959	1084336	ARS131a	VII-1084	X-ARS, proARS736	Confirmed	plasmid (ARS assay)	sc_ori:261
+ODB-SC-0335	Saccharomyces cerevisiae	sacCer1	chrVIII	5158	6168	ARS131n	VIII-6	X-ARS, proARS801	Confirmed	plasmid (ARS assay)	sc_ori:263
+ODB-SC-0336	Saccharomyces cerevisiae	sacCer1	chrVIII	7534	7782	ARS802	VIII-8	proARS802	Confirmed	plasmid (ARS assay)	sc_ori:264
+ODB-SC-0338	Saccharomyces cerevisiae	sacCer1	chrVIII	45589	46076	ARS804	VIII-46	proARS804	Confirmed	plasmid (ARS assay)	sc_ori:266
+ODB-SC-0340	Saccharomyces cerevisiae	sacCer1	chrVIII	64255	64489	ARS805	VIII-64	SPO11, proARS805	Confirmed	plasmid (ARS assay)	sc_ori:267
+ODB-SC-0343	Saccharomyces cerevisiae	sacCer1	chrVIII	94759	95192	ARS805.5	VIII-95		Confirmed	plasmid (ARS assay)	sc_ori:782
+ODB-SC-0344	Saccharomyces cerevisiae	sacCer1	chrVIII	111293	111766	ARS805.7	VIII-112		Confirmed	plasmid (ARS assay)	sc_ori:699
+ODB-SC-0346	Saccharomyces cerevisiae	sacCer1	chrVIII	133347	133591	ARS807	VIII-133		Confirmed	plasmid (ARS assay)	sc_ori:269
+ODB-SC-0348	Saccharomyces cerevisiae	sacCer1	chrVIII	140340	141265	ARS808	VIII-141	ARS2, ARS808	Confirmed	plasmid (ARS assay)	sc_ori:647
+ODB-SC-0349	Saccharomyces cerevisiae	sacCer1	chrVIII	168531	168773	ARS809	VIII-169	proARS809	Confirmed	plasmid (ARS assay)	sc_ori:271
+ODB-SC-0352	Saccharomyces cerevisiae	sacCer1	chrVIII	213179	213861	ARS810	VIII-214	proARS810	Confirmed	plasmid (ARS assay)	sc_ori:274
+ODB-SC-0355	Saccharomyces cerevisiae	sacCer1	chrVIII	245719	245968	ARS813	VIII-246	proARS813	Confirmed	plasmid (ARS assay)	sc_ori:276
+ODB-SC-0359	Saccharomyces cerevisiae	sacCer1	chrVIII	296882	297475	ARS815	VIII-297	proARS815	Confirmed	plasmid (ARS assay)	sc_ori:279
+ODB-SC-0361	Saccharomyces cerevisiae	sacCer1	chrVIII	359469	359928	ARS816	VIII-360	proARS816	Confirmed	plasmid (ARS assay)	sc_ori:281
+ODB-SC-0364	Saccharomyces cerevisiae	sacCer1	chrVIII	392148	392391	ARS818	VIII-392	proARS818, proARS819	Confirmed	plasmid (ARS assay)	sc_ori:285
+ODB-SC-0365	Saccharomyces cerevisiae	sacCer1	chrVIII	406012	406508	ARS818.5	VIII-406		Confirmed	plasmid (ARS assay)	sc_ori:286
+ODB-SC-0366	Saccharomyces cerevisiae	sacCer1	chrVIII	447619	447853	ARS820	VIII-448	proARS820	Confirmed	plasmid (ARS assay)	sc_ori:287
+ODB-SC-0368	Saccharomyces cerevisiae	sacCer1	chrVIII	474309	474793	ARS821	VIII-475	proARS821	Confirmed	plasmid (ARS assay)	sc_ori:288
+ODB-SC-0369	Saccharomyces cerevisiae	sacCer1	chrVIII	501751	501992	ARS822	VIII-502	proARS822	Confirmed	plasmid (ARS assay)	sc_ori:289
+ODB-SC-0371	Saccharomyces cerevisiae	sacCer1	chrVIII	520016	520630	ARS823	VIII-520	proARS823	Confirmed	plasmid (ARS assay)	sc_ori:291
+ODB-SC-0372	Saccharomyces cerevisiae	sacCer1	chrVIII	535403	535836	ARS823.5	VIII-536		Confirmed	plasmid (ARS assay)	sc_ori:292
+ODB-SC-0375	Saccharomyces cerevisiae	sacCer1	chrVIII	555996	556327	ARS824	VIII-556	X-ARS, proARS824	Confirmed	plasmid (ARS assay)	sc_ori:293
+ODB-SC-0382	Saccharomyces cerevisiae	sacCer1	chrIX	33335	33803	ARS905	IX-34	proARS905	Confirmed	plasmid (ARS assay)	sc_ori:297
+ODB-SC-0384	Saccharomyces cerevisiae	sacCer1	chrIX	73803	74220	ARS907	IX-74	proARS907	Confirmed	plasmid (ARS assay)	sc_ori:299
+ODB-SC-0385	Saccharomyces cerevisiae	sacCer1	chrIX	80058	80557	ARS908	IX-80	proARS908	Confirmed	plasmid (ARS assay)	sc_ori:300
+ODB-SC-0386	Saccharomyces cerevisiae	sacCer1	chrIX	105821	106048	ARS909	IX-106	proARS909	Confirmed	plasmid (ARS assay)	sc_ori:301
+ODB-SC-0388	Saccharomyces cerevisiae	sacCer1	chrIX	136094	136335	ARS911	IX-136	proARS911	Confirmed	plasmid (ARS assay)	sc_ori:303
+ODB-SC-0389	Saccharomyces cerevisiae	sacCer1	chrIX	162936	163302	ARS911.5	IX-163		Confirmed	plasmid (ARS assay)	sc_ori:304
+ODB-SC-0390	Saccharomyces cerevisiae	sacCer1	chrIX	175034	175355	ARS912	IX-175	proARS912	Confirmed	plasmid (ARS assay)	sc_ori:305
+ODB-SC-0395	Saccharomyces cerevisiae	sacCer1	chrIX	214675	214826	ARS913	IX-215	ARS901, proARS913	Confirmed	plasmid (ARS assay)	sc_ori:310
+ODB-SC-0399	Saccharomyces cerevisiae	sacCer1	chrIX	245694	245932	ARS913.5	IX-246	ARS923	Confirmed	plasmid (ARS assay)	sc_ori:313
+ODB-SC-0400	Saccharomyces cerevisiae	sacCer1	chrIX	247579	247800	ARS914	IX-248	proARS914	Confirmed	plasmid (ARS assay)	sc_ori:314
+ODB-SC-0404	Saccharomyces cerevisiae	sacCer1	chrIX	310583	311070	ARS916	IX-311	proARS917	Confirmed	plasmid (ARS assay)	sc_ori:318
+ODB-SC-0408	Saccharomyces cerevisiae	sacCer1	chrIX	341853	342096	ARS919	IX-342	proARS919	Confirmed	plasmid (ARS assay)	sc_ori:321
+ODB-SC-0409	Saccharomyces cerevisiae	sacCer1	chrIX	357156	357393	ARS920	IX-357	proARS920	Confirmed	plasmid (ARS assay)	sc_ori:322
+ODB-SC-0412	Saccharomyces cerevisiae	sacCer1	chrIX	411817	412053	ARS922	IX-412	proARS922	Confirmed	plasmid (ARS assay)	sc_ori:324
+ODB-SC-0413	Saccharomyces cerevisiae	sacCer1	chrIX	432496	432994	ARS922.5	IX-433		Confirmed	plasmid (ARS assay)	sc_ori:325
+ODB-SC-0415	Saccharomyces cerevisiae	sacCer1	chrX	64	577	ARS1001	X-0	Y'-ARS, proARS1001	Confirmed	plasmid (ARS assay)	sc_ori:326
+ODB-SC-0416	Saccharomyces cerevisiae	sacCer1	chrX	7444	7943	ARS1002	X-8	X-ARS, proARS1002	Confirmed	plasmid (ARS assay)	sc_ori:327
+ODB-SC-0417	Saccharomyces cerevisiae	sacCer1	chrX	16123	16762	ARS1003	X-16	proARS1003	Confirmed	plasmid (ARS assay)	sc_ori:328
+ODB-SC-0418	Saccharomyces cerevisiae	sacCer1	chrX	23661	24158	ARS1004	X-24	proARS1004	Confirmed	plasmid (ARS assay)	sc_ori:329
+ODB-SC-0420	Saccharomyces cerevisiae	sacCer1	chrX	67467	67949	ARS1005	X-68	proARS1005	Confirmed	plasmid (ARS assay)	sc_ori:331
+ODB-SC-0421	Saccharomyces cerevisiae	sacCer1	chrX	99359	99796	ARS1006	X-100	proARS1006	Confirmed	plasmid (ARS assay)	sc_ori:332
+ODB-SC-0422	Saccharomyces cerevisiae	sacCer1	chrX	113226	113828	ARS1007	X-114	proARS1007	Confirmed	plasmid (ARS assay);2D gel electrophoresis	sc_ori:333
+ODB-SC-0425	Saccharomyces cerevisiae	sacCer1	chrX	161435	161860	ARS1007.5	X-162		Confirmed	plasmid (ARS assay);2D gel electrophoresis	sc_ori:334
+ODB-SC-0427	Saccharomyces cerevisiae	sacCer1	chrX	203729	204614	ARS1008	X-204	proARS1008	Confirmed	plasmid (ARS assay)	sc_ori:336
+ODB-SC-0429	Saccharomyces cerevisiae	sacCer1	chrX	228248	228740	ARS1009	X-228	proARS1009	Confirmed	plasmid (ARS assay)	sc_ori:338
+ODB-SC-0430	Saccharomyces cerevisiae	sacCer1	chrX	248600	249300	ARS1009.5	X-249		Confirmed	plasmid (ARS assay)	sc_ori:710
+ODB-SC-0432	Saccharomyces cerevisiae	sacCer1	chrX	298471	298952	ARS1010	X-299	proARS1010	Confirmed	plasmid (ARS assay)	sc_ori:340
+ODB-SC-0435	Saccharomyces cerevisiae	sacCer1	chrX	336976	337225	ARS1011	X-337	proARS1011	Confirmed	plasmid (ARS assay);2D gel electrophoresis	sc_ori:342
+ODB-SC-0437	Saccharomyces cerevisiae	sacCer1	chrX	374575	374818	ARS1012	X-375	proARS1012	Confirmed	plasmid (ARS assay)	sc_ori:343
+ODB-SC-0438	Saccharomyces cerevisiae	sacCer1	chrX	375401	375923	ARS1013	X-376	proARS1013	Confirmed	plasmid (ARS assay)	sc_ori:344
+ODB-SC-0440	Saccharomyces cerevisiae	sacCer1	chrX	416888	417134	ARS1014	X-417	proARS1014	Confirmed	plasmid (ARS assay)	sc_ori:345
+ODB-SC-0441	Saccharomyces cerevisiae	sacCer1	chrX	442248	442658	ARS1015	X-442	proARS1015	Confirmed	plasmid (ARS assay)	sc_ori:346
+ODB-SC-0442	Saccharomyces cerevisiae	sacCer1	chrX	454276	455248	ARS1016	X-455		Confirmed	plasmid (ARS assay)	sc_ori:347
+ODB-SC-0443	Saccharomyces cerevisiae	sacCer1	chrX	459029	459588	ARS1017	X-459		Confirmed	plasmid (ARS assay)	sc_ori:348
+ODB-SC-0445	Saccharomyces cerevisiae	sacCer1	chrX	501595	502525	ARS1017.5	X-502		Confirmed	plasmid (ARS assay)	sc_ori:350
+ODB-SC-0446	Saccharomyces cerevisiae	sacCer1	chrX	540239	540474	ARS1018	X-540	proARS1018	Confirmed	plasmid (ARS assay)	sc_ori:351
+ODB-SC-0447	Saccharomyces cerevisiae	sacCer1	chrX	609000	609750	ARS1018.5	X-609		Confirmed	plasmid (ARS assay)	sc_ori:712
+ODB-SC-0448	Saccharomyces cerevisiae	sacCer1	chrX	612542	612975	ARS1019	X-613	proARS1019	Confirmed	plasmid (ARS assay)	sc_ori:352
+ODB-SC-0451	Saccharomyces cerevisiae	sacCer1	chrX	654069	654309	ARS1020	X-654	proARS1020	Confirmed	plasmid (ARS assay)	sc_ori:353
+ODB-SC-0452	Saccharomyces cerevisiae	sacCer1	chrX	683328	683817	ARS1021	X-684	ARS121, proARS1021	Confirmed	plasmid (ARS assay)	sc_ori:354
+ODB-SC-0454	Saccharomyces cerevisiae	sacCer1	chrX	711590	711837	ARS1022	X-712	proARS1022	Confirmed	plasmid (ARS assay)	sc_ori:355
+ODB-SC-0456	Saccharomyces cerevisiae	sacCer1	chrX	729677	730208	ARS1023	X-730	proARS1023	Confirmed	plasmid (ARS assay)	sc_ori:356
+ODB-SC-0457	Saccharomyces cerevisiae	sacCer1	chrX	736728	736970	ARS1024	X-737	proARS1024	Confirmed	plasmid (ARS assay)	sc_ori:358
+ODB-SC-0458	Saccharomyces cerevisiae	sacCer1	chrX	744102	744703	ARS1025	X-744	proARS1025	Confirmed	plasmid (ARS assay)	sc_ori:359
+ODB-SC-0463	Saccharomyces cerevisiae	sacCer1	chrXI	42110	42563	ARS1102.5	XI-42		Confirmed	plasmid (ARS assay)	sc_ori:364
+ODB-SC-0464	Saccharomyces cerevisiae	sacCer1	chrXI	55670	55917	ARS1103	XI-56	proARS1103	Confirmed	plasmid (ARS assay)	sc_ori:365
+ODB-SC-0466	Saccharomyces cerevisiae	sacCer1	chrXI	98329	98568	ARS1104.5	XI-98	ARS1125	Confirmed	plasmid (ARS assay)	sc_ori:367
+ODB-SC-0468	Saccharomyces cerevisiae	sacCer1	chrXI	145433	145893	ARS1105.5	XI-146		Confirmed	plasmid (ARS assay)	sc_ori:370
+ODB-SC-0469	Saccharomyces cerevisiae	sacCer1	chrXI	152934	153173	ARS1106	XI-153	proARS1106	Confirmed	plasmid (ARS assay)	sc_ori:371
+ODB-SC-0472	Saccharomyces cerevisiae	sacCer1	chrXI	196038	196284	ARS1106.3	XI-196	ARS1126	Confirmed	plasmid (ARS assay)	sc_ori:372
+ODB-SC-0473	Saccharomyces cerevisiae	sacCer1	chrXI	199886	200537	ARS1106.5	XI-200		Confirmed	plasmid (ARS assay)	sc_ori:716
+ODB-SC-0474	Saccharomyces cerevisiae	sacCer1	chrXI	213080	213385	ARS1106.7	XI-213	ARS1127	Confirmed	plasmid (ARS assay)	sc_ori:373
+ODB-SC-0476	Saccharomyces cerevisiae	sacCer1	chrXI	257390	257839	ARS1107	XI-258	proARS1107	Confirmed	plasmid (ARS assay)	sc_ori:374
+ODB-SC-0477	Saccharomyces cerevisiae	sacCer1	chrXI	302152	302524	ARS1107.5	XI-302		Confirmed	plasmid (ARS assay)	sc_ori:375
+ODB-SC-0480	Saccharomyces cerevisiae	sacCer1	chrXI	329322	329571	ARS1109	XI-329	proARS1109	Confirmed	plasmid (ARS assay)	sc_ori:377
+ODB-SC-0484	Saccharomyces cerevisiae	sacCer1	chrXI	388607	388902	ARS1112	XI-389	proARS1112	Confirmed	plasmid (ARS assay)	sc_ori:380
+ODB-SC-0485	Saccharomyces cerevisiae	sacCer1	chrXI	416822	417055	ARS1113	XI-417	proARS1113	Confirmed	plasmid (ARS assay)	sc_ori:381
+ODB-SC-0486	Saccharomyces cerevisiae	sacCer1	chrXI	444561	445028	ARS1113.5	XI-445		Confirmed	plasmid (ARS assay)	sc_ori:873
+ODB-SC-0487	Saccharomyces cerevisiae	sacCer1	chrXI	447657	447892	ARS1114	XI-448	proARS1114	Confirmed	plasmid (ARS assay)	sc_ori:382
+ODB-SC-0488	Saccharomyces cerevisiae	sacCer1	chrXI	454453	459197	ARS1114.5	XI-457		Confirmed	plasmid (ARS assay)	sc_ori:643
+ODB-SC-0492	Saccharomyces cerevisiae	sacCer1	chrXI	516653	516902	ARS1116	XI-517	proARS1116	Confirmed	plasmid (ARS assay)	sc_ori:384
+ODB-SC-0494	Saccharomyces cerevisiae	sacCer1	chrXI	530070	530560	ARS1117	XI-530	proARS1117	Confirmed	plasmid (ARS assay)	sc_ori:385
+ODB-SC-0496	Saccharomyces cerevisiae	sacCer1	chrXI	581468	581706	ARS1118	XI-582	proARS1118	Confirmed	plasmid (ARS assay)	sc_ori:386
+ODB-SC-0498	Saccharomyces cerevisiae	sacCer1	chrXI	611874	612107	ARS1120	XI-612	proARS1120	Confirmed	plasmid (ARS assay)	sc_ori:388
+ODB-SC-0501	Saccharomyces cerevisiae	sacCer1	chrXI	642355	642602	ARS1123	XI-642	proARS1123	Confirmed	plasmid (ARS assay)	sc_ori:391
+ODB-SC-0507	Saccharomyces cerevisiae	sacCer1	chrXII	51860	52210	ARS1203	XII-52	proARS1203	Confirmed	plasmid (ARS assay)	sc_ori:396
+ODB-SC-0509	Saccharomyces cerevisiae	sacCer1	chrXII	76711	77163	ARS1205	XII-77	proARS1205	Confirmed	plasmid (ARS assay)	sc_ori:398
+ODB-SC-0510	Saccharomyces cerevisiae	sacCer1	chrXII	91417	91659	ARS1206	XII-92	proARS1206	Confirmed	plasmid (ARS assay)	sc_ori:399
+ODB-SC-0511	Saccharomyces cerevisiae	sacCer1	chrXII	93166	93659	ARS1206.5	XII-93		Confirmed	plasmid (ARS assay)	sc_ori:807
+ODB-SC-0513	Saccharomyces cerevisiae	sacCer1	chrXII	150914	151421	ARS1208	XII-151	CEN12 ARS	Confirmed	plasmid (ARS assay)	sc_ori:401
+ODB-SC-0514	Saccharomyces cerevisiae	sacCer1	chrXII	156646	156883	ARS1209	XII-157	proARS1209	Confirmed	plasmid (ARS assay)	sc_ori:402
+ODB-SC-0518	Saccharomyces cerevisiae	sacCer1	chrXII	222410	222792	ARS1210	XII-223	proARS1210	Confirmed	plasmid (ARS assay)	sc_ori:404
+ODB-SC-0519	Saccharomyces cerevisiae	sacCer1	chrXII	231179	231422	ARS1211	XII-231	proARS1211	Confirmed	plasmid (ARS assay)	sc_ori:405
+ODB-SC-0520	Saccharomyces cerevisiae	sacCer1	chrXII	243527	243960	ARS1211.5	XII-244		Confirmed	plasmid (ARS assay)	sc_ori:406
+ODB-SC-0522	Saccharomyces cerevisiae	sacCer1	chrXII	289220	289469	ARS1212	XII-289	proARS1212	Confirmed	plasmid (ARS assay);2D gel electrophoresis	sc_ori:408
+ODB-SC-0525	Saccharomyces cerevisiae	sacCer1	chrXII	343577	344033	ARS1212.5	XII-344		Confirmed	plasmid (ARS assay)	sc_ori:411
+ODB-SC-0526	Saccharomyces cerevisiae	sacCer1	chrXII	373156	373400	ARS1213	XII-373	proARS1213	Confirmed	plasmid (ARS assay)	sc_ori:412
+ODB-SC-0528	Saccharomyces cerevisiae	sacCer1	chrXII	412668	412897	ARS1215	XII-413	proARS1215	Confirmed	plasmid (ARS assay)	sc_ori:414
+ODB-SC-0531	Saccharomyces cerevisiae	sacCer1	chrXII	450485	450726	ARS1216	XII-451	proARS1216	Confirmed	plasmid (ARS assay)	sc_ori:416
+ODB-SC-0532	Saccharomyces cerevisiae	sacCer1	chrXII	458826	459141	ARS1216.5	XII-459	rDNA ARS	Confirmed	plasmid (ARS assay)	sc_ori:417
+ODB-SC-0536	Saccharomyces cerevisiae	sacCer1	chrXII	512868	513117	ARS1217	XII-513	proARS1217	Confirmed	plasmid (ARS assay)	sc_ori:418
+ODB-SC-0538	Saccharomyces cerevisiae	sacCer1	chrXII	602938	603155	ARS1218	XII-603	proARS1218	Confirmed	plasmid (ARS assay)	sc_ori:420
+ODB-SC-0541	Saccharomyces cerevisiae	sacCer1	chrXII	622672	623123	ARS1219	XII-623	proARS1219	Confirmed	plasmid (ARS assay)	sc_ori:422
+ODB-SC-0543	Saccharomyces cerevisiae	sacCer1	chrXII	644937	645426	ARS1219.7	XII-645		Confirmed	plasmid (ARS assay)	sc_ori:726
+ODB-SC-0544	Saccharomyces cerevisiae	sacCer1	chrXII	659823	660072	ARS1220	XII-660	proARS1220	Confirmed	plasmid (ARS assay)	sc_ori:425
+ODB-SC-0545	Saccharomyces cerevisiae	sacCer1	chrXII	687249	687738	ARS1220.5	XII-687		Confirmed	plasmid (ARS assay)	sc_ori:426
+ODB-SC-0547	Saccharomyces cerevisiae	sacCer1	chrXII	730275	730832	ARS1222	XII-731	proARS1222	Confirmed	plasmid (ARS assay)	sc_ori:428
+ODB-SC-0548	Saccharomyces cerevisiae	sacCer1	chrXII	744942	745179	ARS1223	XII-745	proARS1223	Confirmed	plasmid (ARS assay)	sc_ori:429
+ODB-SC-0552	Saccharomyces cerevisiae	sacCer1	chrXII	794020	794269	ARS1226	XII-794	proARS1226	Confirmed	plasmid (ARS assay)	sc_ori:432
+ODB-SC-0554	Saccharomyces cerevisiae	sacCer1	chrXII	821907	822336	ARS1227	XII-822	proARS1227	Confirmed	plasmid (ARS assay)	sc_ori:433
+ODB-SC-0558	Saccharomyces cerevisiae	sacCer1	chrXII	888569	888810	ARS1227.5	XII-889	ARS1238	Confirmed	plasmid (ARS assay)	sc_ori:437
+ODB-SC-0560	Saccharomyces cerevisiae	sacCer1	chrXII	928051	928540	ARS1229	XII-928	proARS1229	Confirmed	plasmid (ARS assay)	sc_ori:439
+ODB-SC-0562	Saccharomyces cerevisiae	sacCer1	chrXII	947908	948358	ARS1231	XII-948	proARS1231	Confirmed	plasmid (ARS assay)	sc_ori:442
+ODB-SC-0564	Saccharomyces cerevisiae	sacCer1	chrXII	1007180	1007470	ARS1232	XII-1007	proARS1232	Confirmed	plasmid (ARS assay)	sc_ori:444
+ODB-SC-0565	Saccharomyces cerevisiae	sacCer1	chrXII	1013789	1014017	ARS1233	XII-1014	proARS1233	Confirmed	plasmid (ARS assay)	sc_ori:445
+ODB-SC-0567	Saccharomyces cerevisiae	sacCer1	chrXII	1023967	1024207	ARS1234	XII-1024	proARS1234	Confirmed	plasmid (ARS assay)	sc_ori:447
+ODB-SC-0570	Saccharomyces cerevisiae	sacCer1	chrXII	1059486	1059919	ARS1235	XII-1060	proARS1235	Confirmed	plasmid (ARS assay)	sc_ori:449
+ODB-SC-0578	Saccharomyces cerevisiae	sacCer1	chrXIII	31687	31935	ARS1303	XIII-32	proARS1303	Confirmed	plasmid (ARS assay)	sc_ori:454
+ODB-SC-0579	Saccharomyces cerevisiae	sacCer1	chrXIII	39922	40355	ARS1304	XIII-40	proARS1304	Confirmed	plasmid (ARS assay)	sc_ori:455
+ODB-SC-0581	Saccharomyces cerevisiae	sacCer1	chrXIII	49645	50141	ARS1304.5	XIII-50		Confirmed	plasmid (ARS assay)	sc_ori:456
+ODB-SC-0583	Saccharomyces cerevisiae	sacCer1	chrXIII	73874	74373	ARS1304.7	XIII-74		Confirmed	plasmid (ARS assay)	sc_ori:734
+ODB-SC-0584	Saccharomyces cerevisiae	sacCer1	chrXIII	94216	94463	ARS1305	XIII-94	proARS1305	Confirmed	plasmid (ARS assay)	sc_ori:457
+ODB-SC-0586	Saccharomyces cerevisiae	sacCer1	chrXIII	137299	137548	ARS1307	XIII-137	proARS1307	Confirmed	plasmid (ARS assay)	sc_ori:459
+ODB-SC-0587	Saccharomyces cerevisiae	sacCer1	chrXIII	158846	159279	ARS1307.5	XIII-159		Confirmed	plasmid (ARS assay)	sc_ori:460
+ODB-SC-0588	Saccharomyces cerevisiae	sacCer1	chrXIII	183793	184037	ARS1308	XIII-184	proARS1308	Confirmed	plasmid (ARS assay)	sc_ori:461
+ODB-SC-0591	Saccharomyces cerevisiae	sacCer1	chrXIII	263062	263296	ARS1309	XIII-263	proARS1309	Confirmed	plasmid (ARS assay)	sc_ori:463
+ODB-SC-0594	Saccharomyces cerevisiae	sacCer1	chrXIII	286782	287067	ARS1310	XIII-287	proARS1310	Confirmed	plasmid (ARS assay)	sc_ori:464
+ODB-SC-0599	Saccharomyces cerevisiae	sacCer1	chrXIII	370976	371221	ARS1312	XIII-371	proARS1312	Confirmed	plasmid (ARS assay)	sc_ori:467
+ODB-SC-0604	Saccharomyces cerevisiae	sacCer1	chrXIII	432851	433347	ARS1315	XIII-433	proARS1315	Confirmed	plasmid (ARS assay)	sc_ori:470
+ODB-SC-0605	Saccharomyces cerevisiae	sacCer1	chrXIII	468177	468468	ARS1316	XIII-468	proARS1316	Confirmed	plasmid (ARS assay)	sc_ori:471
+ODB-SC-0609	Saccharomyces cerevisiae	sacCer1	chrXIII	503346	504087	ARS1319	XIII-504	proARS1319	Confirmed	plasmid (ARS assay)	sc_ori:475
+ODB-SC-0610	Saccharomyces cerevisiae	sacCer1	chrXIII	535595	535843	ARS1320	XIII-536	proARS1320	Confirmed	plasmid (ARS assay)	sc_ori:476
+ODB-SC-0612	Saccharomyces cerevisiae	sacCer1	chrXIII	554392	554750	ARS1322	XIII-555	proARS1322	Confirmed	plasmid (ARS assay)	sc_ori:478
+ODB-SC-0615	Saccharomyces cerevisiae	sacCer1	chrXIII	611273	611488	ARS1323	XIII-611	proARS1323	Confirmed	plasmid (ARS assay)	sc_ori:480
+ODB-SC-0616	Saccharomyces cerevisiae	sacCer1	chrXIII	634479	634714	ARS1324	XIII-635	proARS1324	Confirmed	plasmid (ARS assay)	sc_ori:481
+ODB-SC-0617	Saccharomyces cerevisiae	sacCer1	chrXIII	649307	649551	ARS1325	XIII-649	proARS1325	Confirmed	plasmid (ARS assay)	sc_ori:482
+ODB-SC-0618	Saccharomyces cerevisiae	sacCer1	chrXIII	688766	689221	ARS1326	XIII-689	proARS1326	Confirmed	plasmid (ARS assay)	sc_ori:483
+ODB-SC-0620	Saccharomyces cerevisiae	sacCer1	chrXIII	758222	758470	ARS1327	XIII-758	proARS1327	Confirmed	plasmid (ARS assay)	sc_ori:485
+ODB-SC-0622	Saccharomyces cerevisiae	sacCer1	chrXIII	772629	772878	ARS1328	XIII-773	proARS1328	Confirmed	plasmid (ARS assay)	sc_ori:487
+ODB-SC-0624	Saccharomyces cerevisiae	sacCer1	chrXIII	805116	805338	ARS1329	XIII-805	proARS1329	Confirmed	plasmid (ARS assay)	sc_ori:489
+ODB-SC-0625	Saccharomyces cerevisiae	sacCer1	chrXIII	815341	815567	ARS1330	XIII-815	proARS1330	Confirmed	plasmid (ARS assay)	sc_ori:490
+ODB-SC-0627	Saccharomyces cerevisiae	sacCer1	chrXIII	865288	865683	ARS1331.5	XIII-865		Confirmed	plasmid (ARS assay)	sc_ori:492
+ODB-SC-0628	Saccharomyces cerevisiae	sacCer1	chrXIII	878619	879115	ARS1331.7	XIII-879		Confirmed	plasmid (ARS assay)	sc_ori:493
+ODB-SC-0629	Saccharomyces cerevisiae	sacCer1	chrXIII	897804	898040	ARS1332	XIII-898	proARS1332	Confirmed	plasmid (ARS assay)	sc_ori:494
+ODB-SC-0635	Saccharomyces cerevisiae	sacCer1	chrXIV	28467	28699	ARS1405	XIV-29	proARS1405	Confirmed	plasmid (ARS assay)	sc_ori:501
+ODB-SC-0637	Saccharomyces cerevisiae	sacCer1	chrXIV	61597	61894	ARS1406	XIV-62	proARS1406	Confirmed	plasmid (ARS assay)	sc_ori:503
+ODB-SC-0639	Saccharomyces cerevisiae	sacCer1	chrXIV	89528	89802	ARS1407	XIV-90	proARS1407	Confirmed	plasmid (ARS assay)	sc_ori:504
+ODB-SC-0643	Saccharomyces cerevisiae	sacCer1	chrXIV	126488	126981	ARS1410	XIV-127	proARS1410	Confirmed	plasmid (ARS assay)	sc_ori:508
+ODB-SC-0646	Saccharomyces cerevisiae	sacCer1	chrXIV	169566	169804	ARS1411	XIV-170	proARS1411	Confirmed	plasmid (ARS assay);2D gel electrophoresis	sc_ori:510
+ODB-SC-0648	Saccharomyces cerevisiae	sacCer1	chrXIV	196055	196291	ARS1412	XIV-196	proARS1412	Confirmed	plasmid (ARS assay);2D gel electrophoresis	sc_ori:512
+ODB-SC-0650	Saccharomyces cerevisiae	sacCer1	chrXIV	250259	250506	ARS1413	XIV-250	proARS1413	Confirmed	plasmid (ARS assay);2D gel electrophoresis	sc_ori:514
+ODB-SC-0652	Saccharomyces cerevisiae	sacCer1	chrXIV	279875	280108	ARS1414	XIV-280	proARS1414	Confirmed	plasmid (ARS assay);2D gel electrophoresis	sc_ori:515
+ODB-SC-0653	Saccharomyces cerevisiae	sacCer1	chrXIV	321917	322210	ARS1415	XIV-322	proARS1415	Confirmed	plasmid (ARS assay)	sc_ori:516
+ODB-SC-0656	Saccharomyces cerevisiae	sacCer1	chrXIV	352509	352996	ARS1311.7	XIV-353		Confirmed	plasmid (ARS assay)	sc_ori:518
+ODB-SC-0659	Saccharomyces cerevisiae	sacCer1	chrXIV	412263	412493	ARS1417	XIV-412	proARS1417	Confirmed	plasmid (ARS assay)	sc_ori:519
+ODB-SC-0662	Saccharomyces cerevisiae	sacCer1	chrXIV	449343	449588	ARS1419	XIV-449	proARS1419	Confirmed	plasmid (ARS assay)	sc_ori:522
+ODB-SC-0664	Saccharomyces cerevisiae	sacCer1	chrXIV	498987	499232	ARS1420	XIV-499	proARS1420	Confirmed	plasmid (ARS assay)	sc_ori:524
+ODB-SC-0666	Saccharomyces cerevisiae	sacCer1	chrXIV	545966	546201	ARS1421	XIV-546	proARS1421	Confirmed	plasmid (ARS assay)	sc_ori:526
+ODB-SC-0668	Saccharomyces cerevisiae	sacCer1	chrXIV	561106	561384	ARS1422	XIV-561	proARS1422	Confirmed	plasmid (ARS assay)	sc_ori:527
+ODB-SC-0672	Saccharomyces cerevisiae	sacCer1	chrXIV	609458	609706	ARS1424	XIV-610	proARS1424	Confirmed	plasmid (ARS assay)	sc_ori:530
+ODB-SC-0674	Saccharomyces cerevisiae	sacCer1	chrXIV	635660	635901	ARS1426	XIV-636	proARS1426	Confirmed	plasmid (ARS assay)	sc_ori:532
+ODB-SC-0677	Saccharomyces cerevisiae	sacCer1	chrXIV	691482	691727	ARS1427	XIV-692	proARS1427	Confirmed	plasmid (ARS assay)	sc_ori:534
+ODB-SC-0679	Saccharomyces cerevisiae	sacCer1	chrXIV	713642	714136	ARS1428	XIV-714	proARS1428	Confirmed	plasmid (ARS assay)	sc_ori:535
+ODB-SC-0682	Saccharomyces cerevisiae	sacCer1	chrXIV	738550	738982	ARS1428.5	XIV-739		Confirmed	plasmid (ARS assay)	sc_ori:537
+ODB-SC-0683	Saccharomyces cerevisiae	sacCer1	chrXIV	764001	764500	ARS1429	XIV-764	proARS1429	Confirmed	plasmid (ARS assay)	sc_ori:538
+ODB-SC-0690	Saccharomyces cerevisiae	sacCer1	chrXV	35667	35903	ARS1506.5	XV-36	ARS1531	Confirmed	plasmid (ARS assay)	sc_ori:545
+ODB-SC-0692	Saccharomyces cerevisiae	sacCer1	chrXV	72636	72872	ARS1507	XV-73	proARS1507	Confirmed	plasmid (ARS assay)	sc_ori:547
+ODB-SC-0694	Saccharomyces cerevisiae	sacCer1	chrXV	85195	85444	ARS1508	XV-85	proARS1508	Confirmed	plasmid (ARS assay)	sc_ori:548
+ODB-SC-0696	Saccharomyces cerevisiae	sacCer1	chrXV	113843	114084	ARS1509	XV-114	proARS1509	Confirmed	plasmid (ARS assay)	sc_ori:549
+ODB-SC-0697	Saccharomyces cerevisiae	sacCer1	chrXV	128922	130182	ARS1509.3	XV-130		Confirmed	plasmid (ARS assay)	sc_ori:784
+ODB-SC-0698	Saccharomyces cerevisiae	sacCer1	chrXV	154972	155462	ARS1509.5	XV-155		Confirmed	plasmid (ARS assay)	sc_ori:550
+ODB-SC-0700	Saccharomyces cerevisiae	sacCer1	chrXV	166974	167220	ARS1510	XV-167	proARS1510	Confirmed	plasmid (ARS assay)	sc_ori:551
+ODB-SC-0701	Saccharomyces cerevisiae	sacCer1	chrXV	227481	228117	ARS1510.5	XV-228		Confirmed	plasmid (ARS assay)	sc_ori:552
+ODB-SC-0704	Saccharomyces cerevisiae	sacCer1	chrXV	277529	277778	ARS1511	XV-278	proARS1511	Confirmed	plasmid (ARS assay)	sc_ori:554
+ODB-SC-0705	Saccharomyces cerevisiae	sacCer1	chrXV	308969	309462	ARS1512	XV-309	proARS1512	Confirmed	plasmid (ARS assay)	sc_ori:555
+ODB-SC-0707	Saccharomyces cerevisiae	sacCer1	chrXV	337279	337528	ARS1513	XV-337	proARS1513	Confirmed	plasmid (ARS assay)	sc_ori:556
+ODB-SC-0712	Saccharomyces cerevisiae	sacCer1	chrXV	436732	436966	ARS1513.5	XV-437	ARS1501	Confirmed	plasmid (ARS assay)	sc_ori:558
+ODB-SC-0716	Saccharomyces cerevisiae	sacCer1	chrXV	489645	490129	ARS1514	XV-490		Confirmed	plasmid (ARS assay)	sc_ori:561
+ODB-SC-0718	Saccharomyces cerevisiae	sacCer1	chrXV	497144	497603	ARS1515.5	XV-497		Confirmed	plasmid (ARS assay)	sc_ori:752
+ODB-SC-0720	Saccharomyces cerevisiae	sacCer1	chrXV	520541	521040	ARS1515.7	XV-521		Confirmed	plasmid (ARS assay)	sc_ori:563
+ODB-SC-0721	Saccharomyces cerevisiae	sacCer1	chrXV	566409	566643	ARS1516	XV-567	ADE2, proARS1516	Confirmed	plasmid (ARS assay)	sc_ori:564
+ODB-SC-0723	Saccharomyces cerevisiae	sacCer1	chrXV	600885	600960	ARS1517	XV-601	ARS1502, proARS1517	Confirmed	plasmid (ARS assay)	sc_ori:566
+ODB-SC-0728	Saccharomyces cerevisiae	sacCer1	chrXV	656632	656876	ARS1519	XV-657	proARS1519	Confirmed	plasmid (ARS assay)	sc_ori:569
+ODB-SC-0731	Saccharomyces cerevisiae	sacCer1	chrXV	681112	681611	ARS1520	XV-681	proARS1520	Confirmed	plasmid (ARS assay)	sc_ori:570
+ODB-SC-0733	Saccharomyces cerevisiae	sacCer1	chrXV	729739	729969	ARS1521	XV-730	proARS1521	Confirmed	plasmid (ARS assay)	sc_ori:572
+ODB-SC-0736	Saccharomyces cerevisiae	sacCer1	chrXV	766617	766862	ARS1523	XV-767	proARS1522, proARS1523	Confirmed	plasmid (ARS assay)	sc_ori:575
+ODB-SC-0737	Saccharomyces cerevisiae	sacCer1	chrXV	783344	783563	ARS1524	XV-783	proARS1524	Confirmed	plasmid (ARS assay)	sc_ori:576
+ODB-SC-0739	Saccharomyces cerevisiae	sacCer1	chrXV	854735	855228	ARS1525	XV-855	proARS1525	Confirmed	plasmid (ARS assay)	sc_ori:577
+ODB-SC-0740	Saccharomyces cerevisiae	sacCer1	chrXV	874190	874434	ARS1526	XV-874	proARS1526	Confirmed	plasmid (ARS assay)	sc_ori:578
+ODB-SC-0744	Saccharomyces cerevisiae	sacCer1	chrXV	908288	908537	ARS1528	XV-908	proARS1528	Confirmed	plasmid (ARS assay)	sc_ori:580
+ODB-SC-0746	Saccharomyces cerevisiae	sacCer1	chrXV	981454	981690	ARS1529	XV-982	proARS1529	Confirmed	plasmid (ARS assay)	sc_ori:583
+ODB-SC-0751	Saccharomyces cerevisiae	sacCer1	chrXV	1053490	1053901	ARS1529.5	XV-1054		Confirmed	plasmid (ARS assay)	sc_ori:585
+ODB-SC-0757	Saccharomyces cerevisiae	sacCer1	chrXVI	6778	8439	ARS1601	XVI-8	proARS1601	Confirmed	plasmid (ARS assay)	sc_ori:588
+ODB-SC-0758	Saccharomyces cerevisiae	sacCer1	chrXVI	12290	13227	ARS1602	XVI-13	proARS1602	Confirmed	plasmid (ARS assay)	sc_ori:589
+ODB-SC-0760	Saccharomyces cerevisiae	sacCer1	chrXVI	42976	43212	ARS1604	XVI-43	proARS1604	Confirmed	plasmid (ARS assay)	sc_ori:591
+ODB-SC-0762	Saccharomyces cerevisiae	sacCer1	chrXVI	73038	73283	ARS1605	XVI-73	proARS1605	Confirmed	plasmid (ARS assay)	sc_ori:593
+ODB-SC-0764	Saccharomyces cerevisiae	sacCer1	chrXVI	116505	116765	ARS1607	XVI-117	proARS1607	Confirmed	plasmid (ARS assay)	sc_ori:595
+ODB-SC-0770	Saccharomyces cerevisiae	sacCer1	chrXVI	210467	211723	ARS1609	XVI-211	proARS1609	Confirmed	plasmid (ARS assay)	sc_ori:601
+ODB-SC-0778	Saccharomyces cerevisiae	sacCer1	chrXVI	289483	289704	ARS1614	XVI-290	proARS1614	Confirmed	plasmid (ARS assay)	sc_ori:606
+ODB-SC-0783	Saccharomyces cerevisiae	sacCer1	chrXVI	331678	332074	ARS1617	XVI-332	proARS1617	Confirmed	plasmid (ARS assay)	sc_ori:609
+ODB-SC-0787	Saccharomyces cerevisiae	sacCer1	chrXVI	384536	384784	ARS1618	XVI-385	proARS1618	Confirmed	plasmid (ARS assay)	sc_ori:611
+ODB-SC-0788	Saccharomyces cerevisiae	sacCer1	chrXVI	414032	416072	ARS1618.5	XVI-415		Confirmed	plasmid (ARS assay)	sc_ori:645
+ODB-SC-0789	Saccharomyces cerevisiae	sacCer1	chrXVI	418132	418359	ARS1619	XVI-418	proARS1619	Confirmed	plasmid (ARS assay)	sc_ori:612
+ODB-SC-0794	Saccharomyces cerevisiae	sacCer1	chrXVI	456557	456805	ARS1620.5	XVI-457	ARS1633	Confirmed	plasmid (ARS assay)	sc_ori:615
+ODB-SC-0798	Saccharomyces cerevisiae	sacCer1	chrXVI	511619	511940	ARS1621	XVI-512	proARS1621	Confirmed	plasmid (ARS assay)	sc_ori:618
+ODB-SC-0801	Saccharomyces cerevisiae	sacCer1	chrXVI	563822	564061	ARS1622	XVI-564	proARS1622	Confirmed	plasmid (ARS assay)	sc_ori:621
+ODB-SC-0802	Saccharomyces cerevisiae	sacCer1	chrXVI	565046	565289	ARS1622.5	XVI-565	ARS1634	Confirmed	plasmid (ARS assay)	sc_ori:622
+ODB-SC-0804	Saccharomyces cerevisiae	sacCer1	chrXVI	584037	584486	ARS1622.7	XVI-584		Confirmed	plasmid (ARS assay)	sc_ori:623
+ODB-SC-0809	Saccharomyces cerevisiae	sacCer1	chrXVI	633868	634117	ARS1623	XVI-634	proARS1623	Confirmed	plasmid (ARS assay)	sc_ori:624
+ODB-SC-0811	Saccharomyces cerevisiae	sacCer1	chrXVI	684383	684632	ARS1624	XVI-685	proARS1624	Confirmed	plasmid (ARS assay)	sc_ori:626
+ODB-SC-0813	Saccharomyces cerevisiae	sacCer1	chrXVI	695432	695681	ARS1625	XVI-696	proARS1625	Confirmed	plasmid (ARS assay)	sc_ori:628
+ODB-SC-0816	Saccharomyces cerevisiae	sacCer1	chrXVI	749094	749341	ARS1626	XVI-749	proARS1626	Confirmed	plasmid (ARS assay)	sc_ori:629
+ODB-SC-0817	Saccharomyces cerevisiae	sacCer1	chrXVI	776921	777152	ARS1626.5	XVI-777	ARS1635	Confirmed	plasmid (ARS assay)	sc_ori:630
+ODB-SC-0818	Saccharomyces cerevisiae	sacCer1	chrXVI	819153	819393	ARS1627	XVI-819	proARS1627	Confirmed	plasmid (ARS assay)	sc_ori:631
+ODB-SC-0820	Saccharomyces cerevisiae	sacCer1	chrXVI	842646	842894	ARS1628	XVI-843	proARS1628	Confirmed	plasmid (ARS assay)	sc_ori:632
+ODB-SC-0824	Saccharomyces cerevisiae	sacCer1	chrXVI	880854	881102	ARS1630	XVI-881	proARS1630	Confirmed	plasmid (ARS assay)	sc_ori:635
+ODB-SC-0827	Saccharomyces cerevisiae	sacCer1	chrXVI	932976	933223	ARS1631	XVI-933	proARS1631	Confirmed	plasmid (ARS assay)	sc_ori:637
+ODB-SP-0014	Schizosaccharomyces pombe	ASM294v2	I	112209	114006	I-113	I-113		Confirmed	2D gel electrophoresis	sp_ori:14
+ODB-SP-0028	Schizosaccharomyces pombe	ASM294v2	I	325664	328495	I-327	I-327		Confirmed	2D gel electrophoresis	sp_ori:28
+ODB-SP-0044	Schizosaccharomyces pombe	ASM294v2	I	706822	718108	I-712	I-712		Confirmed	2D gel electrophoresis	sp_ori:44
+ODB-SP-0061	Schizosaccharomyces pombe	ASM294v2	I	1025540	1030460	I-1028	I-1028		Confirmed	2D gel electrophoresis	sp_ori:61
+ODB-SP-0066	Schizosaccharomyces pombe	ASM294v2	I	1093083	1096822	I-1095	I-1095		Confirmed	2D gel electrophoresis	sp_ori:66
+ODB-SP-0069	Schizosaccharomyces pombe	ASM294v2	I	1148620	1150990	I-1150	I-1150		Confirmed	2D gel electrophoresis	sp_ori:69
+ODB-SP-0075	Schizosaccharomyces pombe	ASM294v2	I	1247560	1256790	I-1252	I-1252		Confirmed	2D gel electrophoresis	sp_ori:75
+ODB-SP-0122	Schizosaccharomyces pombe	ASM294v2	I	2220620	2230490	I-2226	I-2226		Confirmed	2D gel electrophoresis	sp_ori:122
+ODB-SP-0140	Schizosaccharomyces pombe	ASM294v2	I	2436076	2441085	I-2439	I-2439		Confirmed	2D gel electrophoresis	sp_ori:140
+ODB-SP-0180	Schizosaccharomyces pombe	ASM294v2	I	3054950	3064070	I-3060	I-3060	ars766, ars1119, ori1095, AT1098	Confirmed	2D gel electrophoresis	sp_ori:180
+ODB-SP-0189	Schizosaccharomyces pombe	ASM294v2	I	3244954	3249692	I-3247	I-3247		Confirmed	2D gel electrophoresis	sp_ori:189
+ODB-SP-0198	Schizosaccharomyces pombe	ASM294v2	I	3497610	3503770	I-3501	I-3501		Confirmed	2D gel electrophoresis	sp_ori:198
+ODB-SP-0231	Schizosaccharomyces pombe	ASM294v2	I	3951650	3956920	I-3954	I-3954		Confirmed	2D gel electrophoresis	sp_ori:231
+ODB-SP-0236	Schizosaccharomyces pombe	ASM294v2	I	4071120	4074730	I-4073	I-4073		Confirmed	2D gel electrophoresis	sp_ori:236
+ODB-SP-0248	Schizosaccharomyces pombe	ASM294v2	I	4253570	4256090	I-4255	I-4255		Confirmed	2D gel electrophoresis	sp_ori:248
+ODB-SP-0289	Schizosaccharomyces pombe	ASM294v2	I	5024390	5026500	I-5025	I-5025		Confirmed	2D gel electrophoresis	sp_ori:289
+ODB-SP-0290	Schizosaccharomyces pombe	ASM294v2	I	5044910	5047970	I-5046	I-5046		Confirmed	2D gel electrophoresis	sp_ori:290
+ODB-SP-0328	Schizosaccharomyces pombe	ASM294v2	II	22816	25265	II-24	II-24		Confirmed	2D gel electrophoresis	sp_ori:328
+ODB-SP-0329	Schizosaccharomyces pombe	ASM294v2	II	31591	31591	II-32	II-32		Confirmed	2D gel electrophoresis	sp_ori:329
+ODB-SP-0372	Schizosaccharomyces pombe	ASM294v2	II	446642	450040	II-448	II-448		Confirmed	2D gel electrophoresis	sp_ori:372
+ODB-SP-0384	Schizosaccharomyces pombe	ASM294v2	II	602618	604826	II-604	II-604		Confirmed	2D gel electrophoresis	sp_ori:384
+ODB-SP-0422	Schizosaccharomyces pombe	ASM294v2	II	1251520	1256880	II-1254	II-1254		Confirmed	2D gel electrophoresis	sp_ori:422
+ODB-SP-0426	Schizosaccharomyces pombe	ASM294v2	II	1276310	1279810	II-1278	II-1278		Confirmed	2D gel electrophoresis	sp_ori:426
+ODB-SP-0438	Schizosaccharomyces pombe	ASM294v2	II	1545160	1549690	II-1547	II-1547		Confirmed	2D gel electrophoresis	sp_ori:438
+ODB-SP-0443	Schizosaccharomyces pombe	ASM294v2	II	1605970	1644600	II-1625	II-1625		Confirmed	2D gel electrophoresis	sp_ori:443
+ODB-SP-0468	Schizosaccharomyces pombe	ASM294v2	II	2103790	2107820	II-2106	II-2106		Confirmed	2D gel electrophoresis	sp_ori:468
+ODB-SP-0470	Schizosaccharomyces pombe	ASM294v2	II	2116510	2120490	II-2119	II-2119		Confirmed	2D gel electrophoresis	sp_ori:470
+ODB-SP-0476	Schizosaccharomyces pombe	ASM294v2	II	2184460	2190480	II-2187	II-2187		Confirmed	2D gel electrophoresis	sp_ori:476
+ODB-SP-0493	Schizosaccharomyces pombe	ASM294v2	II	2580450	2584420	II-2582	II-2582		Confirmed	2D gel electrophoresis	sp_ori:493
+ODB-SP-0505	Schizosaccharomyces pombe	ASM294v2	II	2789090	2792428	II-2791	II-2791		Confirmed	2D gel electrophoresis	sp_ori:505
+ODB-SP-0506	Schizosaccharomyces pombe	ASM294v2	II	2797803	2802471	II-2800	II-2800		Confirmed	2D gel electrophoresis	sp_ori:506
+ODB-SP-0521	Schizosaccharomyces pombe	ASM294v2	II	3153350	3155500	II-3154	II-3154		Confirmed	2D gel electrophoresis	sp_ori:521
+ODB-SP-0530	Schizosaccharomyces pombe	ASM294v2	II	3333930	3335780	II-3335	II-3335		Confirmed	2D gel electrophoresis	sp_ori:530
+ODB-SP-0532	Schizosaccharomyces pombe	ASM294v2	II	3342830	3346970	II-3345	II-3345		Confirmed	2D gel electrophoresis	sp_ori:532
+ODB-SP-0533	Schizosaccharomyces pombe	ASM294v2	II	3355220	3360100	II-3358	II-3358		Confirmed	2D gel electrophoresis	sp_ori:533
+ODB-SP-0534	Schizosaccharomyces pombe	ASM294v2	II	3361380	3363940	II-3363	II-3363		Confirmed	2D gel electrophoresis	sp_ori:534
+ODB-SP-0535	Schizosaccharomyces pombe	ASM294v2	II	3371880	3376410	II-3374	II-3374		Confirmed	2D gel electrophoresis	sp_ori:535
+ODB-SP-0537	Schizosaccharomyces pombe	ASM294v2	II	3396620	3400300	II-3398	II-3398		Confirmed	2D gel electrophoresis	sp_ori:537
+ODB-SP-0583	Schizosaccharomyces pombe	ASM294v2	II	4138290	4144110	II-4141	II-4141		Confirmed	2D gel electrophoresis	sp_ori:583
+ODB-SP-0605	Schizosaccharomyces pombe	ASM294v2	III	3479	3479	III-3	III-3		Confirmed	2D gel electrophoresis	sp_ori:605
+ODB-SP-0614	Schizosaccharomyces pombe	ASM294v2	III	118706	121296	III-120	III-120		Confirmed	2D gel electrophoresis	sp_ori:614
+ODB-SP-0615	Schizosaccharomyces pombe	ASM294v2	III	121296	125512	III-123	III-123		Confirmed	2D gel electrophoresis	sp_ori:615
+ODB-SP-0679	Schizosaccharomyces pombe	ASM294v2	III	1410590	1412630	III-1412	III-1412		Confirmed	2D gel electrophoresis	sp_ori:679
+ODB-SP-0680	Schizosaccharomyces pombe	ASM294v2	III	1414850	1419450	III-1417	III-1417		Confirmed	2D gel electrophoresis	sp_ori:680
+ODB-SP-0698	Schizosaccharomyces pombe	ASM294v2	III	1717810	1720480	III-1719	III-1719		Confirmed	2D gel electrophoresis	sp_ori:698
+ODB-SP-0703	Schizosaccharomyces pombe	ASM294v2	III	1820370	1827480	III-1824	III-1824		Confirmed	2D gel electrophoresis	sp_ori:703
+ODB-SP-0704	Schizosaccharomyces pombe	ASM294v2	III	1837380	1839930	III-1839	III-1839		Confirmed	2D gel electrophoresis	sp_ori:704
+ODB-SP-0705	Schizosaccharomyces pombe	ASM294v2	III	1842090	1846360	III-1844	III-1844		Confirmed	2D gel electrophoresis	sp_ori:705

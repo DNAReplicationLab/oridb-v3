@@ -1,0 +1,51 @@
+{
+  "release": "3.0.0-trial.1",
+  "generated": "2026-11-17",
+  "description": "OriDB v3.0 trial release: the Confirmed origin tier only, carried forward from OriDB v2 with explicit evidence records.",
+  "inclusion_rule": "An origin is Confirmed if its interval overlaps at least one plasmid (ARS) assay positive or one 2D gel electrophoresis record.",
+  "assemblies": {
+    "sacCer1": {
+      "species": "Saccharomyces cerevisiae",
+      "ucsc_db": "sacCer1",
+      "sequence_naming": "UCSC roman (chrI..chrXVI)",
+      "note": "Coordinates are as stored in OriDB v2 and verified sacCer1 by sequence anchoring. Lift-over to sacCer3 is NOT yet applied."
+    },
+    "ASM294v2": {
+      "species": "Schizosaccharomyces pombe",
+      "ucsc_db": "GCA_000002945.3",
+      "sequence_naming": "PomBase roman (I, II, III)",
+      "note": "Current assembly; no lift-over required."
+    }
+  },
+  "coordinate_convention": "1-based, fully closed intervals",
+  "files": {
+    "origins.tsv": {
+      "md5": "83d0ea0443d6c97c55c3f76f7cc60435",
+      "rows": 458
+    },
+    "evidence.tsv": {
+      "md5": "a0365d799113258c6a8036276c3ab594",
+      "rows": 536
+    },
+    "studies.tsv": {
+      "md5": "26a4e1c847fc681569eae9a54c1e620b",
+      "rows": 37
+    }
+  },
+  "provenance": {
+    "source": "nieduszy_oridb MySQL dump (OriDB v2.1.0 cerevisiae / v1.0.0 pombe)",
+    "source_tables": [
+      "local_pubmed",
+      "sc_2D_gel",
+      "sc_cloned_ori",
+      "sc_ori",
+      "sp_2D_gel",
+      "sp_ori"
+    ]
+  },
+  "known_issues": [
+    "Non-Confirmed v2 origins that overlap direct evidence and need curator review: sc_ori 79 (Dubious), sc_ori 84 (Dubious), sc_ori 741 (Likely).",
+    "24 evidence records carry no PubMed ID in v2 and need a citation assigned.",
+    "Cerevisiae coordinates are sacCer1 (2003). External links therefore use db=sacCer1, not sacCer3."
+  ]
+}

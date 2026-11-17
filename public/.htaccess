@@ -1,0 +1,25 @@
+# OriDB v3.0 trial - web root configuration.
+# LiteSpeed (UKhost4U) reads .htaccess with Apache syntax.
+
+Options -Indexes
+DirectoryIndex index.php
+
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+    Header set X-Frame-Options "SAMEORIGIN"
+</IfModule>
+
+# Exports and API responses may be fetched cross-origin by genome browsers.
+<FilesMatch "\.(bed|bb|bw|bigWig|bigBed)$">
+    <IfModule mod_headers.c>
+        Header set Access-Control-Allow-Origin "*"
+    </IfModule>
+</FilesMatch>
+
+# Keep the trial out of search results until the URLs are stable.
+<IfModule mod_headers.c>
+    Header set X-Robots-Tag "noindex, nofollow"
+</IfModule>
+
+ErrorDocument 404 /404.php

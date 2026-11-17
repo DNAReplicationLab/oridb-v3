@@ -1,0 +1,21 @@
+<?php
+declare(strict_types=1);
+
+/**
+ * Template for a local configuration override. Copy to src/config.local.php,
+ * which is gitignored. The trial release needs none of this - it is here so
+ * that database credentials NEVER enter the repository when the MariaDB
+ * back end arrives.
+ *
+ * On the production host, prefer environment variables set in cPanel over a
+ * file: getenv('ORIDB_DB_PASSWORD').
+ */
+
+return [
+    'db' => [
+        'dsn'      => getenv('ORIDB_DSN') ?: 'mysql:host=localhost;dbname=oridb;charset=utf8mb4',
+        'user'     => getenv('ORIDB_DB_USER') ?: '',
+        'password' => getenv('ORIDB_DB_PASSWORD') ?: '',
+    ],
+    'base_url' => getenv('ORIDB_BASE_URL') ?: '',
+];
