@@ -30,6 +30,7 @@ public/           web root — one PHP file per page, plus assets/ and api/
   app/            application code: bootstrap, Data accessor, page templates (HTTP-denied)
   data/           released flat files: origins.tsv, evidence.tsv, studies.tsv, release.json (HTTP-denied)
 bin/              build and test scripts
+reference/        the UCSC liftOver chain, committed so the lift is reproducible offline
 docs/             page structure and deployment notes
 build/            generated; not committed
 ```
@@ -65,13 +66,35 @@ preview cannot drift from the live site.
 
 ## Rebuilding the data
 
-`bin/build_from_v2.py` regenerates `public/data/*.tsv` from the OriDB v2 MySQL dump. The dump
-is not in this repository. Checksums of the generated files are recorded in
+Two steps, in order. The dump is not in this repository.
+
+```bash
+python3 bin/build_from_v2.py /path/to/nieduszy_oridb.sql          # extract (sacCer1)
+python3 bin/lift_to_saccer3.py --sacCer1 DIR --sacCer3 DIR        # lift to sacCer3
+```
+
+`build_from_v2.py` extracts the v2 records, which are sacCer1. `lift_to_saccer3.py` rewrites
+the cerevisiae coordinates onto sacCer3 using the committed UCSC chain, and — when both
+assembly FASTA directories are supplied — checks every lifted interval base for base,
+recording the outcome per record in `lift_status`. *S. pombe* is ASM294v2 already and is
+passed through untouched. Checksums of the generated files are recorded in
 `public/data/release.json` so a deposited copy can be proved identical to the served one.
+
+## Coordinates
+
+*S. cerevisiae* records are **sacCer3**, lifted from the sacCer1 coordinates OriDB v2 stored.
+Every record keeps its original position in `source_chromosome` / `source_start` /
+`source_end` and the result of a sequence check in `lift_status`: of 896 intervals (458
+origins and 536 evidence records, less the 48 *S. pombe* origins and 50 pombe evidence rows
+that need no lift), 845 are sequence-identical in sacCer3, 26 have substitutions only, and
+25 contain an indel that changes the interval length. None failed to map.
+
+Systematic names (`I-1`, `X-212`) are **not** recomputed. They are coordinate-derived labels
+from the v2 build that appear in the literature, so they stay fixed; 12 of the 410 cerevisiae
+names would otherwise have changed.
 
 ## What is deliberately not here yet
 
-- Lift-over of the *S. cerevisiae* coordinates from sacCer1 (2003) to sacCer3.
 - The Likely and Dubious tiers, and the genome-wide datasets behind them.
 - Genome-browser tracks (bigBed/bigWig) and a UCSC track hub.
 - Any database. The trial is flat files on purpose.

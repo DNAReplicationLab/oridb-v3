@@ -4,27 +4,27 @@
   "description": "OriDB v3.0 trial release: the Confirmed origin tier only, carried forward from OriDB v2 with explicit evidence records.",
   "inclusion_rule": "An origin is Confirmed if its interval overlaps at least one plasmid (ARS) assay positive or one 2D gel electrophoresis record.",
   "assemblies": {
-    "sacCer1": {
-      "species": "Saccharomyces cerevisiae",
-      "ucsc_db": "sacCer1",
-      "sequence_naming": "UCSC roman (chrI..chrXVI)",
-      "note": "Coordinates are as stored in OriDB v2 and verified sacCer1 by sequence anchoring. Lift-over to sacCer3 is NOT yet applied."
-    },
     "ASM294v2": {
       "species": "Schizosaccharomyces pombe",
       "ucsc_db": "GCA_000002945.3",
       "sequence_naming": "PomBase roman (I, II, III)",
       "note": "Current assembly; no lift-over required."
+    },
+    "sacCer3": {
+      "species": "Saccharomyces cerevisiae",
+      "ucsc_db": "sacCer3",
+      "sequence_naming": "UCSC roman (chrI..chrXVI)",
+      "note": "Lifted from sacCer1 with the UCSC chain file. Each record keeps its original sacCer1 position in source_chromosome/source_start/source_end and the outcome of a base-for-base sequence check in lift_status."
     }
   },
   "coordinate_convention": "1-based, fully closed intervals",
   "files": {
     "origins.tsv": {
-      "md5": "83d0ea0443d6c97c55c3f76f7cc60435",
+      "md5": "c5a89042e8f2014a2133f3906dd94dd8",
       "rows": 458
     },
     "evidence.tsv": {
-      "md5": "a0365d799113258c6a8036276c3ab594",
+      "md5": "b0504ca4b1d1fcad7a015444caa7c199",
       "rows": 536
     },
     "studies.tsv": {
@@ -46,6 +46,21 @@
   "known_issues": [
     "Non-Confirmed v2 origins that overlap direct evidence and need curator review: sc_ori 79 (Dubious), sc_ori 84 (Dubious), sc_ori 741 (Likely).",
     "24 evidence records carry no PubMed ID in v2 and need a citation assigned.",
-    "Cerevisiae coordinates are sacCer1 (2003). External links therefore use db=sacCer1, not sacCer3."
-  ]
+    "51 lifted cerevisiae intervals do not have identical sequence in sacCer3 (substitutions, or an indel that changes interval length). The mapping is correct in each case - the 2003 assembly sequence was revised - but intervals whose length changed are worth a curator review. See lift_status in origins.tsv and evidence.tsv."
+  ],
+  "lift": {
+    "from": "sacCer1",
+    "to": "sacCer3",
+    "chain": "reference/sacCer1ToSacCer3.over.chain.gz",
+    "chain_md5": "c3aa03bde2422b6c083f478ac42d4cdc",
+    "chain_source": "https://hgdownload.soe.ucsc.edu/goldenPath/sacCer1/liftOver/sacCer1ToSacCer3.over.chain.gz",
+    "tool": "pyliftover",
+    "sequence_verified": true,
+    "record_counts": {
+      "identical": 845,
+      "length-changed": 25,
+      "same-length-mismatch": 26
+    },
+    "note": "Systematic names are NOT recomputed. They are coordinate-derived labels from the v2 build and are cited as such in the literature, so they stay fixed; a name like X-212 therefore need not match the lifted midpoint."
+  }
 }

@@ -30,6 +30,28 @@ require ORIDB_APP_DIR . '/header.php';
       <span class="small">(<?= h(bp($width)) ?> bp, 1-based inclusive)</span></dd>
   <dt>Genome browser</dt>
   <dd><a href="<?= h(Data::browserUrl($origin)) ?>" rel="noopener">View in browser (<?= h($origin['assembly']) ?>)</a></dd>
+  <?php if (($origin['lift_status'] ?? '') !== '' && $origin['lift_status'] !== 'not-required'): ?>
+    <dt>Original position</dt>
+    <dd class="mono"><?= h($origin['source_chromosome']) ?>:<?= h(bp($origin['source_start'])) ?>&ndash;<?= h(bp($origin['source_end'])) ?>
+        <span class="small">(<?= h($origin['source_assembly']) ?>, as recorded in OriDB v2)</span></dd>
+    <dt>Lift check</dt>
+    <dd>
+      <?php
+      $msg = [
+          'identical' => 'sequence identical in both assemblies',
+          'same-length-mismatch' => 'same length, but the assembly sequence was revised',
+          'length-changed' => 'an insertion or deletion falls inside this interval, so its length changed',
+          'unmapped' => 'no alignment in the chain file',
+          'unverified' => 'lifted, but not checked against the sequence',
+      ][$origin['lift_status']] ?? $origin['lift_status'];
+      ?>
+      <?= h($msg) ?>
+      <?php if ($origin['lift_status'] === 'length-changed'): ?>
+        <span class="small">(<?= h(bp((int) $origin['source_end'] - (int) $origin['source_start'] + 1)) ?> bp
+        &rarr; <?= h(bp($width)) ?> bp)</span>
+      <?php endif; ?>
+    </dd>
+  <?php endif; ?>
   <dt>OriDB v2 record</dt><dd class="mono"><?= h($origin['legacy_id']) ?></dd>
 </dl>
 

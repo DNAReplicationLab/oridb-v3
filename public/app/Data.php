@@ -177,9 +177,11 @@ final class Data
     public static function browserUrl(array $origin): string
     {
         $pos = $origin['chromosome'] . ':' . $origin['start'] . '-' . $origin['end'];
-        if ($origin['assembly'] === 'sacCer1') {
-            // NB: deliberately sacCer1, not sacCer3 - these coordinates have not been lifted.
-            return 'https://genome.ucsc.edu/cgi-bin/hgTracks?db=sacCer1&position=' . rawurlencode($pos);
+        if (str_starts_with($origin['assembly'], 'sacCer')) {
+            // The db follows the record's own assembly, so a link cannot point at a
+            // build the coordinates do not belong to - which is what OriDB v2 did.
+            return 'https://genome.ucsc.edu/cgi-bin/hgTracks?db=' . rawurlencode($origin['assembly'])
+                . '&position=' . rawurlencode($pos);
         }
 
         return 'https://fungi.ensembl.org/Schizosaccharomyces_pombe/Location/View?r='
