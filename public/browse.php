@@ -21,6 +21,14 @@ require ORIDB_APP_DIR . '/header.php';
 ?>
 <h1>Browse origins</h1>
 
+<?php if (defined('ORIDB_STATIC')): ?>
+  <p class="small">
+    Static preview: filtering needs the live site. Showing <em><?= h($species) ?></em>.
+    <?php foreach ($speciesList as $alt): if ($alt === $species) { continue; } ?>
+      Switch to <a href="<?= h(u('browse.php', ['species' => $alt, 'page' => 1])) ?>"><em><?= h($alt) ?></em></a>.
+    <?php endforeach; ?>
+  </p>
+<?php else: ?>
 <form class="filters" method="get" action="browse.php">
   <div>
     <label for="species">Species</label>
@@ -41,6 +49,7 @@ require ORIDB_APP_DIR . '/header.php';
   </div>
   <button type="submit">Apply</button>
 </form>
+<?php endif; ?>
 
 <p class="small"><?= h((string) count($rows)) ?> origins match. Showing page <?= h((string) $page) ?> of <?= h((string) $pages) ?>.</p>
 
