@@ -138,14 +138,15 @@ require ORIDB_APP_DIR . '/header.php';
       <?= h((string) $motif['width']) ?> bp window against the matrix.
       <a href="https://github.com/DNAReplicationLab/oridb-v3/blob/main/docs/acs-motif.md">How this motif was derived</a>.
     </p>
-    <img src="assets/acs_logo.svg" alt="Sequence logo of the OriDB ACS motif"
-         class="logo" width="620">
+    <div class="alnbox" style="--colw: <?= h((string) $motif['logo_column_width']) ?>px;
+                               --padl: <?= h((string) $motif['logo_left_pad']) ?>px">
+    <img src="assets/acs_logo.svg" alt="Sequence logo of the OriDB ACS motif" class="logo">
     <table class="aln">
       <tbody>
         <tr class="cons">
           <td class="lbl">consensus</td>
           <?php foreach (str_split($motif['consensus']) as $i => $c): ?>
-            <td class="<?= $i + 1 >= $motif['core_columns'][0] && $i + 1 <= $motif['core_columns'][1] ? 'core' : '' ?>"><?= h($c) ?></td>
+            <td class="b<?= $i + 1 >= $motif['core_columns'][0] && $i + 1 <= $motif['core_columns'][1] ? ' core' : '' ?>"><?= h($c) ?></td>
           <?php endforeach; ?>
           <td class="sc">score</td>
         </tr>
@@ -156,7 +157,7 @@ require ORIDB_APP_DIR . '/header.php';
                 $code = $motif['consensus'][$i];
                 $ok = str_contains(['W' => 'AT', 'Y' => 'CT', 'R' => 'AG', 'S' => 'CG',
                                     'M' => 'AC', 'K' => 'GT', 'n' => 'ACGT'][$code] ?? $code, $b);
-                $cls = ($ok ? 'm' : 'x')
+                $cls = 'b ' . ($ok ? 'm' : 'x')
                      . ($i + 1 >= $motif['core_columns'][0] && $i + 1 <= $motif['core_columns'][1] ? ' core' : ''); ?>
               <td class="<?= h($cls) ?>"><?= h($b) ?></td>
             <?php endforeach; ?>
@@ -165,6 +166,7 @@ require ORIDB_APP_DIR . '/header.php';
         <?php endforeach; ?>
       </tbody>
     </table>
+    </div>
     <?php $unaligned = count($elements) - count($aligned); ?>
     <?php if ($unaligned > 0): ?>
       <p class="small"><?= h((string) $unaligned) ?> element<?= $unaligned === 1 ? '' : 's' ?>

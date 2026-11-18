@@ -18,59 +18,84 @@ genomic sequence, with the stored strings used only to locate each element.
 
 Every element is located in sacCer3 by its own sequence, then extended into the genome
 either side of the core. Placing the core inside the stored string needs one number, the
-v2 `offset`, which is a coordinate in the alignment frame of Figure 6 of Chang, Theis and
-Newlon (PMID 18573888), where every stored element begins at position -9. So
+v2 `offset`, which is a coordinate in the alignment frame of Figure 6 of Chang et al.
+(PMID 18573888), where every stored element begins at position -9. So
 
     core index inside the stored string = 9 - offset
 
-For the 68 confirmed elements the `offset` is recorded per record and this rule agrees
-with the best consensus match in 62 of them. The three study-level tables carry one
-offset each: Nieduszynski2006_ACS 7, Eaton2010_ACS 6, Xu2006_ACS 6. Under their declared
+The 68 confirmed elements carry a per-record `offset`; the three study-level tables carry
+one each: Nieduszynski2006_ACS 7, Eaton2010_ACS 6, Xu2006_ACS 6. Under their declared
 offsets the Eaton and Xu 33-mers occupy exactly the window derived below, which is an
 independent check that the frame is the same one in all four studies.
+
+## A corrected offset in four records
+
+Four `sc_confirmed_ACS` records (source ids 60, 63, 65, 66) carried `offset` 8 where the
+rest of their study carries 7, putting their core one base off. All four reproduce their
+Nieduszynski 2006 (PMID 16847347) table S1 proACS sequence and position exactly, so the
+site is not in doubt — only the core position inside the 15-mer. Across all 228 table S1
+proACS sequences the core starts at index 2 of the 15-mer — the 11 bp core with 2 bp of
+flank either side — as the best or tied-best match to the consensus in 221 cases, scoring
+9 or more of 11 in 218. Index 2 is `offset` 7. These four are therefore transcription
+errors, and `OFFSET_CORRECTIONS` in `bin/build_elements.py` sets them to 7. The
+uncorrected value stays in the `source_offset` column of `elements.tsv`, so the change is
+visible and reversible.
+
+| element | ARS | stored | corrected | core match | motif score |
+|---|---|---:|---:|---|---|
+| ODB-EL-0590 | ARS1021 | 8 | 7 | 6 &rarr; 7 | -16.72 &rarr; +14.66 |
+| ODB-EL-0929 | ARS1526 | 8 | 7 | 8 &rarr; 9 | +8.51 &rarr; +7.46 |
+| ODB-EL-0938 | ARS1529.5 | 8 | 7 | 7 &rarr; 9 | -3.52 &rarr; +20.69 |
+| ODB-EL-1001 | ARS1626.5 | 8 | 7 | 6 &rarr; 11 | -8.50 &rarr; +21.03 |
+
+A fifth record, ODB-EL-0417 (ARS731), was flagged alongside these but is correctly
+placed: its `offset` is 7, its core sits at index 2 where table S1 puts it, and it is
+simply a weak ACS (7 of 11).
 
 ## Choosing the window
 
 The window was not assumed. Information content was computed column by column over a wide
-span around the core, from the confirmed elements extended into sacCer3, against a
-background of the sacCer3 base composition
-(A 0.309, C 0.192, G 0.191, T 0.308).
+span around the core, from the confirmed elements extended into sacCer3. It is measured
+against the sacCer3 base composition
+(A 0.309, C 0.192, G 0.191, T 0.308),
+not against a uniform background: the genome is 62% AT, so an all-T column carries
+1.70 bits here rather than 2. Logo heights use the same measure.
 
 | column | offset from core start | information (bits) |
 |---:|---:|---:|
-| 1 | -3 | 0.33 |
-| 2 | -2 | 0.31 |
-| 3 | -1 | 0.88 |
-| 4 | +0 | 0.53 |
-| 5 | +1 | 1.50 |
-| 6 | +2 | 1.07 |
-| 7 | +3 | 1.01 |
-| 8 | +4 | 1.21 |
-| 9 | +5 | 0.73 |
-| 10 | +6 | 0.43 |
-| 11 | +7 | 1.58 |
-| 12 | +8 | 1.59 |
-| 13 | +9 | 1.58 |
-| 14 | +10 | 0.71 |
-| 15 | +11 | 1.09 |
-| 16 | +12 | 0.46 |
-| 17 | +13 | 0.49 |
+| 1 | -3 | 0.32 |
+| 2 | -2 | 0.33 |
+| 3 | -1 | 0.77 |
+| 4 | +0 | 0.45 |
+| 5 | +1 | 1.36 |
+| 6 | +2 | 1.05 |
+| 7 | +3 | 0.90 |
+| 8 | +4 | 1.13 |
+| 9 | +5 | 0.61 |
+| 10 | +6 | 0.41 |
+| 11 | +7 | 1.43 |
+| 12 | +8 | 1.51 |
+| 13 | +9 | 1.50 |
+| 14 | +10 | 0.58 |
+| 15 | +11 | 1.06 |
+| 16 | +12 | 0.47 |
+| 17 | +13 | 0.46 |
 | 18 | +14 | 0.01 |
-| 19 | +15 | 0.09 |
-| 20 | +16 | 0.04 |
-| 21 | +17 | 0.08 |
-| 22 | +18 | 0.03 |
-| 23 | +19 | 0.23 |
-| 24 | +20 | 0.08 |
-| 25 | +21 | 0.02 |
+| 19 | +15 | 0.10 |
+| 20 | +16 | 0.03 |
+| 21 | +17 | 0.09 |
+| 22 | +18 | 0.02 |
+| 23 | +19 | 0.18 |
+| 24 | +20 | 0.06 |
+| 25 | +21 | 0.01 |
 | 26 | +22 | 0.02 |
 | 27 | +23 | 0.03 |
 | 28 | +24 | 0.01 |
-| 29 | +25 | 0.04 |
+| 29 | +25 | 0.03 |
 | 30 | +26 | 0.06 |
-| 31 | +27 | 0.33 |
+| 31 | +27 | 0.34 |
 | 32 | +28 | 0.82 |
-| 33 | +29 | 0.32 |
+| 33 | +29 | 0.36 |
 
 Three features decide the window:
 
@@ -79,27 +104,21 @@ Three features decide the window:
 3. a second, separate peak at columns 31-33 — 17 to 19 bp past the core — after a
    13 column trough that sits at background.
 
-That second peak is the WTW motif reported by Chang, Theis and Newlon, recovered here
-from the data without being put in. Including it, the motif is 33 bp wide,
-running -3 to +29 relative to the core, and carries
-21.7 bits in total. Its consensus is
+That second peak is the WTW motif reported by Chang et al., recovered here from the data
+without being put in. Including it, the motif is 33 bp wide, running
+-3 to +29 relative to the core, and carries 16.5 bits in
+total (the column table above sums to the same figure, to rounding). Its consensus is
 
-    WWWWTTTAYRTTTWKnnnnnnnnnnnnnnnWTn
-       ^^^^^^^^^^^ core, reading WTTTAYRTTTW
+    WWWWTTTAYnTTTWKnnnnnnnnnnnnnnnWTn
+       ^^^^^^^^^^^ core, reading WTTTAYnTTTW
 
 ## Training set
 
-63 of the 68 confirmed elements. Excluded: ODB-EL-0417, ODB-EL-0590, ODB-EL-0929, ODB-EL-0938, ODB-EL-1001.
-In each of those five the stored `offset` puts the core where the sequence does not
-support it, and a shifted window scores far better (for ODB-EL-1001, 6 bits against 11).
-All five are 15 bp records from the same study, PMID 16847347, which also contributes
-records whose offsets are consistent — so the discrepancy is within one study, not
-between studies. They are excluded from the matrix but still scored and displayed, so the
-disagreement stays visible rather than being hidden or silently corrected.
-
-Note that ODB-EL-0108 is only 10 bp as stored, too short to carry a core by itself; it is
-in the training set because the window is taken from the genome, not from the stored
-string.
+All 68 confirmed elements that can be placed in the assembly; none are
+excluded. Dropping weak-scoring elements would bias the matrix towards its own consensus,
+so every experimentally confirmed ACS counts, including ODB-EL-0417 and ODB-EL-0108 —
+the latter only 10 bp as stored, too short to carry a core by itself, but scorable
+because the window is taken from the genome rather than from the stored string.
 
 ## Scoring
 
@@ -110,17 +129,31 @@ Each element's 33 bp window is scored as a log-odds sum against the matrix
 
 | class | n | median score |
 |---|---:|---:|
-| confirmed | 68 | 17.55 bits (90%) |
-| proposed | 195 | 15.86 bits (89%) |
-| predicted | 756 | 14.86 bits (88%) |
+| confirmed | 68 | 17.95 bits (90%) |
+| predicted | 951 | 15.13 bits (88%) |
 
 3 of 1,022 elements cannot be scored because they cannot be placed in sacCer3.
 
+Elements are either `confirmed` (experimentally defined) or `predicted`. The predicted set
+comes from three studies, published under their own names — proACS in PMID 16847347,
+nimACS in PMID 17067396 — which are not reproduced as a status here; the study citation
+carries that information.
+
+## Alignment on the page
+
+The logo is one shared SVG, written by the same build that writes the matrix, and the
+element rows below it are laid out one logo column wide so that each base sits under its
+own position in the motif. `logo_column_width` and `logo_left_pad` in `release.json` are
+the single source of those numbers: `public/origin.php` reads them into CSS custom
+properties rather than repeating them, and `bin/smoke_test.php` fails the build if the
+page hard-codes a width or if the label column is narrower than the logo's left gutter.
+
 ## For curation
 
-- ODB-EL-0417, ODB-EL-0590, ODB-EL-0929, ODB-EL-0938, ODB-EL-1001 — stored offset
-  disagrees with the sequence; see above.
+- ODB-EL-0417 — correctly placed, but a weak core (7 of 11).
 - ODB-EL-0108 — stored as 10 bp, shorter than the core.
 - ODB-EL-1020 — anchors ambiguously (chr7:999,470-999,485, inside ARS734).
 - ODB-EL-1021, ODB-EL-1022 — cannot be placed. ODB-EL-1021 is a sacCer2 record whose
   flanks lift into ARS1006 but whose own start falls in an unalignable gap.
+- The four corrected offsets above should be fixed at source if the v2 tables are ever
+  reissued.

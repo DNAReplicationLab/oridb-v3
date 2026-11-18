@@ -8,9 +8,9 @@ Step 3 of the data pipeline, after build_from_v2.py and lift_to_saccer3.py.
 OriDB v2 holds four ACS element tables, all registered in sc_elements_studies:
 
     sc_confirmed_ACS       68 rows   experimentally confirmed
-    Nieduszynski2006_ACS  196 rows   proposed (proACS), PMID 16847347
+    Nieduszynski2006_ACS  196 rows   predicted (published as proACS), PMID 16847347
     Eaton2010_ACS         253 rows   predicted, PMID 20351051
-    Xu2006_ACS            505 rows   predicted (nimACS), PMID 17067396
+    Xu2006_ACS            505 rows   predicted (published as nimACS), PMID 17067396
 
 They do not share a genome build - the v2 assembly audit calls the first three
 sacCer1 and Xu2006_ACS sacCer2 - and the coordinates they do carry are unreliable
@@ -57,7 +57,7 @@ DATA = ROOT / 'public' / 'data'
 # preference to any table-level one.
 TABLES = {
     'sc_confirmed_ACS':     ('confirmed', '',         'sacCer1'),
-    'Nieduszynski2006_ACS': ('proposed',  '16847347', 'sacCer1'),
+    'Nieduszynski2006_ACS': ('predicted', '16847347', 'sacCer1'),
     'Eaton2010_ACS':        ('predicted', '20351051', 'sacCer1'),
     'Xu2006_ACS':           ('predicted', '17067396', 'sacCer2'),
 }
@@ -75,6 +75,17 @@ PROXIMITY_LIMIT = 5000  # bp; builds differ by at most a few hundred bp
 STUDY_OFFSET = {'Nieduszynski2006_ACS': 7, 'Eaton2010_ACS': 6, 'Xu2006_ACS': 6}
 FRAME_ORIGIN = 9
 
+# Curation: four sc_confirmed_ACS records carry offset 8 where their study uses 7.
+# All four reproduce their Nieduszynski 2006 (PMID 16847347) table S1 proACS
+# sequence and position exactly, and across all 228 table S1 proACS the 11 bp core
+# starts at index 2 of the 15-mer - offset 7 - as the best or tied-best consensus
+# match in 221 cases. So these are transcription errors, not a different frame.
+# The uncorrected value stays in the source_offset column of elements.tsv.
+OFFSET_CORRECTIONS = {('sc_confirmed_ACS', '60'): '7',   # ODB-EL-0590, ARS1021
+                      ('sc_confirmed_ACS', '63'): '7',   # ODB-EL-0929, ARS1526
+                      ('sc_confirmed_ACS', '65'): '7',   # ODB-EL-0938, ARS1529.5
+                      ('sc_confirmed_ACS', '66'): '7'}   # ODB-EL-1001, ARS1626.5
+
 # Window taken forward, measured from the first base of the 11 bp core. Chosen
 # by information content over the confirmed set rather than assumed: columns -4
 # and below sit at background (~0.2 bits), -3 to -1 rise, the core runs +0..+10,
@@ -86,10 +97,8 @@ MOTIF_UP, MOTIF_CORE, MOTIF_DOWN = 3, 11, 19
 MOTIF_WIDTH = MOTIF_UP + MOTIF_CORE + MOTIF_DOWN
 ACS11 = 'WTTTAYRTTTW'
 IUPAC = {'W': 'AT', 'Y': 'CT', 'R': 'AG', 'A': 'A', 'C': 'C', 'G': 'G', 'T': 'T'}
-# A confirmed element only trains the matrix if its offset-anchored core is a
-# credible ACS; five records are anchored a base or two out and one is too
-# short to score, and they would otherwise blur the matrix.
-TRAIN_MIN_CORE_SCORE = 9
+# Every confirmed element that can be placed in the assembly trains the matrix.
+# Dropping weak-scoring ones would bias the matrix towards its own consensus.
 
 
 def load_builder():
@@ -155,12 +164,21 @@ def write_tsv(path: Path, header: list[str], rows: list[dict[str, str]]) -> None
                                for c in header) + '\n')
 
 
+# Logo geometry, in CSS pixels. Published in release.json so that the element
+# alignment on an origin page can put its columns under the logo's columns
+# without either side hard-coding the other's numbers.
+LOGO_COL_W = 18
+LOGO_PAD_L = 62
+# Logo y-axis ceiling, in bits relative to the sacCer3 base composition.
+LOGO_MAX_BITS = 2.0
+
+
 def write_logo(path: Path, freqs: list[dict[str, float]], info: list[float],
                bases: str) -> None:
     """A sequence logo as plain SVG: one stacked column per position, letter
     height proportional to its share of that column's information content."""
     colour = {'A': '#1a7f4b', 'C': '#0b5fa5', 'G': '#d08b00', 'T': '#c0392b'}
-    cw, h, pad_l, pad_b = 18, 90, 26, 18
+    cw, h, pad_l, pad_b = LOGO_COL_W, 90, LOGO_PAD_L, 18
     width = pad_l + cw * len(freqs) + 6
     out = [f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{h + pad_b + 14}" '
            f'viewBox="0 0 {width} {h + pad_b + 14}" role="img" '
@@ -168,13 +186,14 @@ def write_logo(path: Path, freqs: list[dict[str, float]], info: list[float],
            '<style>text{font-family:ui-monospace,Menlo,monospace;font-weight:700}'
            '.ax{font-weight:400;font-size:9px;fill:#5b6671}</style>',
            f'<line x1="{pad_l - 4}" y1="{h}" x2="{width - 4}" y2="{h}" stroke="#d8dee4"/>',
-           f'<text class="ax" x="2" y="12">2 bits</text>',
-           f'<text class="ax" x="2" y="{h}">0</text>']
+           f'<text class="ax" x="{pad_l - 6}" y="12" text-anchor="end">{LOGO_MAX_BITS:g} bits</text>',
+           f'<text class="ax" x="{pad_l - 6}" y="23" text-anchor="end">vs genome</text>',
+           f'<text class="ax" x="{pad_l - 6}" y="{h}" text-anchor="end">0</text>']
     for i, (f, ic) in enumerate(zip(freqs, info)):
         x = pad_l + i * cw
         y = h
         for b in sorted(bases, key=lambda b: f[b]):
-            bh = (h - 10) * (f[b] * max(ic, 0) / 2)
+            bh = (h - 10) * (f[b] * max(ic, 0) / LOGO_MAX_BITS)
             if bh < 0.6:
                 continue
             y -= bh
@@ -295,7 +314,8 @@ def main() -> None:
 
     # ---- anchor each element, take its motif window ---------------------------
     for r in placed + unplaced:
-        off = r['source_offset']
+        off = OFFSET_CORRECTIONS.get((r['source_table'], r['source_id']),
+                                     r['source_offset'])
         if off == '':
             off = STUDY_OFFSET.get(r['source_table'], '')
         r['acs_offset'] = str(off)
@@ -311,11 +331,9 @@ def main() -> None:
 
     # ---- derive the matrix from the well-anchored confirmed elements ----------
     train = [r for r in placed
-             if r['element_type'] == 'confirmed' and r['motif_window']
-             and int(r['core_match']) >= TRAIN_MIN_CORE_SCORE]
-    excluded = [r['accession'] for r in placed
-                if r['element_type'] == 'confirmed'
-                and (not r['motif_window'] or int(r['core_match'] or -1) < TRAIN_MIN_CORE_SCORE)]
+             if r['element_type'] == 'confirmed' and r['motif_window']]
+    excluded = [r['accession'] for r in placed + unplaced
+                if r['element_type'] == 'confirmed' and not r['motif_window']]
     bases = 'ACGT'
     background = {b: 0.0 for b in bases}
     total = 0
@@ -335,7 +353,10 @@ def main() -> None:
         f = {b: col[b] / tot for b in bases}
         freqs.append(f)
         weights.append({b: math.log2(f[b] / background[b]) for b in bases})
-        info.append(2 + sum(f[b] * math.log2(f[b]) for b in bases))
+        # Information content relative to the sacCer3 base composition, not to a
+        # uniform background: the genome is 62% AT, so an all-T column is far less
+        # surprising here than 2 bits. Logo heights and the reported total use this.
+        info.append(sum(f[b] * math.log2(f[b] / background[b]) for b in bases))
 
     def consensus_letter(f: dict[str, float]) -> str:
         order = sorted(bases, key=lambda b: -f[b])
@@ -401,13 +422,18 @@ def main() -> None:
                       'elements, extended into sacCer3 either side of the 11 bp core. The '
                       'window was chosen by information content, not assumed: it runs from '
                       '3 bp upstream of the core to 19 bp downstream, and includes the WTW '
-                      'motif that Chang, Theis and Newlon (PMID 18573888) place 17-19 bp from '
-                      'the ACS, which this matrix reproduces independently.',
+                      'motif that Chang et al. (PMID 18573888) place 17-19 bp from the ACS, '
+                      'which this matrix reproduces independently. Information content is '
+                      'measured against the sacCer3 base composition, not a uniform '
+                      'background, and the logo is drawn on the same scale.',
         'training_elements': len(train),
         'excluded_elements': excluded,
-        'information_content_bits': round(sum(info), 1),
+        'information_content_bits': round(sum(info), 2),
+        'information_by_column': [round(v, 2) for v in info],
         'background': {b: round(background[b], 4) for b in bases},
         'logo': 'assets/acs_logo.svg',
+        'logo_column_width': LOGO_COL_W,
+        'logo_left_pad': LOGO_PAD_L,
     }
     rel['elements'] = {
         'description': 'ACS elements from the four OriDB v2 element studies, each located '

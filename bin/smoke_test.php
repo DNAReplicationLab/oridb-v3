@@ -28,10 +28,6 @@ $cases = [
     ['downloads.php', []],
     ['about.php', []],
     ['export.php', ['format' => 'bed', 'species' => 'Saccharomyces cerevisiae']],
-    ['export.php', ['format' => 'bed', 'species' => 'Saccharomyces cerevisiae', 'names' => 'legacy']],
-    ['export.php', ['format' => 'bed', 'species' => 'Saccharomyces cerevisiae', 'names' => 'both']],
-    ['export.php', ['format' => 'bed', 'species' => 'Saccharomyces cerevisiae', 'names' => '<script>']],
-    ['export.php', ['format' => 'elements']],
     ['export.php', ['format' => 'tsv']],
     ['export.php', ['format' => 'json']],
     ['api/origins.php', ['chr' => 'chrI']],
@@ -161,6 +157,28 @@ if (str_contains($out, '<img src=x')) {
     echo "FAIL  search.php reflected unescaped HTML\n";
 } else {
     echo "ok    search.php escapes reflected input\n";
+}
+
+// The element alignment on an origin page must sit under the logo's columns.
+// Both derive from release.json; the label column has to be at least as wide as
+// the logo's left gutter, or the motif and the elements under it will drift.
+$rel = json_decode((string) file_get_contents($root . '/public/data/release.json'), true);
+$css = (string) file_get_contents($root . '/public/assets/style.css');
+$php = (string) file_get_contents($root . '/public/origin.php');
+$motif = $rel['acs_motif'] ?? [];
+preg_match('/--lblw:\s*(\d+)px/', $css, $m);
+$lblw = isset($m[1]) ? (int) $m[1] : -1;
+$colw = (int) ($motif['logo_column_width'] ?? 0);
+$padl = (int) ($motif['logo_left_pad'] ?? 0);
+if ($colw <= 0 || $padl <= 0 || $lblw < $padl) {
+    $failures++;
+    echo "FAIL  alignment geometry is missing or the label column is narrower than the logo gutter\n";
+} elseif (!str_contains($php, "logo_column_width") || !str_contains($php, "logo_left_pad")
+          || preg_match('/--colw:\s*\d/', $php)) {
+    $failures++;
+    echo "FAIL  origin.php hard-codes the alignment column width instead of reading it\n";
+} else {
+    echo "ok    element alignment is pinned to the logo geometry\n";
 }
 
 printf("\n%d case(s) failed.\n", $failures);

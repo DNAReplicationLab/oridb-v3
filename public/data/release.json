@@ -32,7 +32,7 @@
       "rows": 48
     },
     "elements.tsv": {
-      "md5": "020ee351e6cfc845ec09ec90533ec729",
+      "md5": "8a13915d56b63e1831c0defa358878cd",
       "rows": 1022
     }
   },
@@ -143,24 +143,55 @@
       4,
       14
     ],
-    "consensus": "WWWWTTTAYRTTTWKnnnnnnnnnnnnnnnWTn",
-    "derivation": "Position weight matrix built from the experimentally confirmed ACS elements, extended into sacCer3 either side of the 11 bp core. The window was chosen by information content, not assumed: it runs from 3 bp upstream of the core to 19 bp downstream, and includes the WTW motif that Chang, Theis and Newlon (PMID 18573888) place 17-19 bp from the ACS, which this matrix reproduces independently.",
-    "training_elements": 63,
-    "excluded_elements": [
-      "ODB-EL-0417",
-      "ODB-EL-0590",
-      "ODB-EL-0929",
-      "ODB-EL-0938",
-      "ODB-EL-1001"
+    "consensus": "WWWWTTTAYnTTTWKnnnnnnnnnnnnnnnWTn",
+    "derivation": "Position weight matrix built from the experimentally confirmed ACS elements, extended into sacCer3 either side of the 11 bp core. The window was chosen by information content, not assumed: it runs from 3 bp upstream of the core to 19 bp downstream, and includes the WTW motif that Chang et al. (PMID 18573888) place 17-19 bp from the ACS, which this matrix reproduces independently. Information content is measured against the sacCer3 base composition, not a uniform background, and the logo is drawn on the same scale.",
+    "training_elements": 68,
+    "excluded_elements": [],
+    "information_content_bits": 16.5,
+    "information_by_column": [
+      0.32,
+      0.33,
+      0.77,
+      0.45,
+      1.36,
+      1.05,
+      0.9,
+      1.13,
+      0.61,
+      0.41,
+      1.43,
+      1.51,
+      1.5,
+      0.58,
+      1.06,
+      0.47,
+      0.46,
+      0.01,
+      0.1,
+      0.03,
+      0.09,
+      0.02,
+      0.18,
+      0.06,
+      0.01,
+      0.02,
+      0.03,
+      0.01,
+      0.03,
+      0.06,
+      0.34,
+      0.82,
+      0.36
     ],
-    "information_content_bits": 21.7,
     "background": {
       "A": 0.309,
       "C": 0.1917,
       "G": 0.1913,
       "T": 0.308
     },
-    "logo": "assets/acs_logo.svg"
+    "logo": "assets/acs_logo.svg",
+    "logo_column_width": 18,
+    "logo_left_pad": 62
   },
   "elements": {
     "description": "ACS elements from the four OriDB v2 element studies, each located in sacCer3 by its stored sequence rather than by its stored coordinates.",
@@ -171,7 +202,7 @@
         "source_assembly": "sacCer1"
       },
       "Nieduszynski2006_ACS": {
-        "element_type": "proposed",
+        "element_type": "predicted",
         "pmid": "16847347",
         "source_assembly": "sacCer1"
       },
