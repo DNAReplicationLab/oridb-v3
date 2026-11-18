@@ -9,7 +9,7 @@ $title = $title ?? 'OriDB';
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title><?= h($title) ?> &middot; OriDB</title>
-<link rel="stylesheet" href="assets/style.css">
+<link rel="stylesheet" href="<?= h(Data::asset('assets/style.css')) ?>">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>

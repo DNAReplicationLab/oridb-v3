@@ -32,7 +32,7 @@
       "rows": 48
     },
     "elements.tsv": {
-      "md5": "8a13915d56b63e1831c0defa358878cd",
+      "md5": "98ef9853c9e453f2bf9fb284506e21bb",
       "rows": 1022
     }
   },
@@ -115,6 +115,10 @@
         "ODB-SC-0652",
         "ODB-SC-0690"
       ]
+    },
+    {
+      "text": "3 of 1022 ACS elements could not be placed in sacCer3 from their sequence alone - either the sequence does not occur in the current assembly, or it occurs several times with none near the coordinate v2 recorded. They are published without coordinates rather than placed on a guess; see anchor_status in elements.tsv.",
+      "accessions": []
     },
     {
       "text": "3 of 1022 ACS elements could not be placed in sacCer3 from their sequence alone - either the sequence does not occur in the current assembly, or it occurs several times with none near the coordinate v2 recorded. They are published without coordinates rather than placed on a guess; see anchor_status in elements.tsv.",

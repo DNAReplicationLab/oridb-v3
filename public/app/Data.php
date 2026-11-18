@@ -209,6 +209,18 @@ final class Data
     }
 
     /** Outbound link to the matching genome browser view. */
+    /**
+     * A URL for a static asset, carrying a short hash of the file's contents.
+     * Browsers and edge caches key on the URL, so a changed stylesheet or logo
+     * arrives as a new URL rather than waiting for someone's cache to expire.
+     */
+    public static function asset(string $path): string
+    {
+        $file = ORIDB_ROOT . '/' . ltrim($path, '/');
+        $hash = is_readable($file) ? substr(md5_file($file) ?: '', 0, 8) : '';
+        return $hash === '' ? $path : $path . '?v=' . $hash;
+    }
+
     public static function browserUrl(array $origin): string
     {
         $pos = $origin['chromosome'] . ':' . $origin['start'] . '-' . $origin['end'];

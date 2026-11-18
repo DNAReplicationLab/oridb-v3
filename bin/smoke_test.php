@@ -181,5 +181,23 @@ if ($colw <= 0 || $padl <= 0 || $lblw < $padl) {
     echo "ok    element alignment is pinned to the logo geometry\n";
 }
 
+// Every static asset must be referenced through Data::asset(), which appends a
+// content hash. A bare assets/ URL means a changed stylesheet or logo sits in
+// browser and edge caches until they expire - which is how the alignment and
+// the motif once went stale on the live site while the HTML was current.
+$bare = [];
+foreach (glob($root . '/public/*.php') + glob($root . '/public/app/*.php') as $tpl) {
+    $src = (string) file_get_contents($tpl);
+    if (preg_match('/(?:href|src)="assets\/[^"?]+"/', $src)) {
+        $bare[] = basename($tpl);
+    }
+}
+if ($bare !== []) {
+    $failures++;
+    echo 'FAIL  unversioned asset reference in ' . implode(', ', $bare) . "\n";
+} else {
+    echo "ok    assets are referenced with a content hash\n";
+}
+
 printf("\n%d case(s) failed.\n", $failures);
 exit($failures === 0 ? 0 : 1);

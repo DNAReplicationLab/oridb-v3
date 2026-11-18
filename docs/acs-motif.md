@@ -148,6 +148,20 @@ the single source of those numbers: `public/origin.php` reads them into CSS cust
 properties rather than repeating them, and `bin/smoke_test.php` fails the build if the
 page hard-codes a width or if the label column is narrower than the logo's left gutter.
 
+Within each row the shaded run is the sequence as that study published it, which is 10 to
+33 bp depending on the study; the rest of the row is genomic context added here to fill
+the window. `published_start` and `published_end` in `elements.tsv` give that run as
+1-based column numbers, and the build checks that the span reproduces the stored sequence
+exactly for every scored element. The spans are: 10 bp at columns 4-13, 11 bp at 4-14,
+15 bp at 2-16, 17 bp at 1-17 and 33 bp at 1-33; none falls outside the window. The 11 bp
+core is marked on every row by a pair of vertical rules.
+
+Stylesheet and logo are referenced through `Data::asset()`, which appends a short hash of
+the file's contents to the URL. Without it a changed stylesheet or logo sits in browser
+and edge caches while the HTML around it is current, which is exactly how the alignment
+and the motif once appeared stale on the live site but correct on the static mirror. A
+smoke test fails the build on any bare `assets/` reference.
+
 ## For curation
 
 - ODB-EL-0417 — correctly placed, but a weak core (7 of 11).

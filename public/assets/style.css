@@ -75,7 +75,12 @@ table.aln td.lbl { width: var(--lblw); text-align: right; padding-right: .6rem;
 table.aln td.sc { width: 92px; padding-left: .7rem; text-align: left; font-size: .72rem;
                   white-space: nowrap; color: var(--muted); }
 table.aln tr.cons td { font-weight: 700; color: var(--ink); border-bottom: 1px solid var(--line); }
+table.aln td.pub { background: #fdf3dc; }
 table.aln td.core { background: #eef4fa; }
+table.aln td.cs { border-left: 1px solid #9fb4c7; }
+table.aln td.ce { border-right: 1px solid #9fb4c7; }
 table.aln td.m { color: var(--ink); }
 table.aln td.x { color: #b9c2cb; }
+table.aln tr:hover td.pub { background: #f7e7bf; }
 table.aln tr:hover td.core { background: #e2ecf6; }
+table.aln td.lbl .small { color: #9aa5b0; }

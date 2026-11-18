@@ -133,32 +133,39 @@ require ORIDB_APP_DIR . '/header.php';
       The motif below was derived from the <?= h((string) $motif['training_elements']) ?>
       experimentally confirmed ACS elements, extended into the genome either side of the
       11 bp core; columns <?= h((string) $motif['core_columns'][0]) ?>&ndash;<?= h((string) $motif['core_columns'][1]) ?>
-      are the core. Each element below is shown on its T-rich strand, aligned on that core.
-      Bases matching the consensus are tinted; the score is the log-odds of the whole
+      are the core, marked by the rules below. Each element is shown on its T-rich strand,
+      aligned on that core. The shaded run is the sequence as published by that study,
+      which is 10 to 33 bp depending on the study; everything outside it is genomic
+      context added here to fill the window. Bases matching the consensus are in black,
+      the rest grey. The score is the log-odds of the whole
       <?= h((string) $motif['width']) ?> bp window against the matrix.
       <a href="https://github.com/DNAReplicationLab/oridb-v3/blob/main/docs/acs-motif.md">How this motif was derived</a>.
     </p>
     <div class="alnbox" style="--colw: <?= h((string) $motif['logo_column_width']) ?>px;
                                --padl: <?= h((string) $motif['logo_left_pad']) ?>px">
-    <img src="assets/acs_logo.svg" alt="Sequence logo of the OriDB ACS motif" class="logo">
+    <img src="<?= h(Data::asset($motif['logo'])) ?>" alt="Sequence logo of the OriDB ACS motif" class="logo">
     <table class="aln">
       <tbody>
         <tr class="cons">
           <td class="lbl">consensus</td>
-          <?php foreach (str_split($motif['consensus']) as $i => $c): ?>
-            <td class="b<?= $i + 1 >= $motif['core_columns'][0] && $i + 1 <= $motif['core_columns'][1] ? ' core' : '' ?>"><?= h($c) ?></td>
+          <?php foreach (str_split($motif['consensus']) as $i => $c):
+              $col = $i + 1; ?>
+            <td class="b core<?= $col === $motif['core_columns'][0] ? ' cs' : '' ?><?= $col === $motif['core_columns'][1] ? ' ce' : '' ?>"><?= h($c) ?></td>
           <?php endforeach; ?>
           <td class="sc">score</td>
         </tr>
         <?php foreach ($aligned as $e): ?>
           <tr>
-            <td class="lbl mono"><?= h($e['accession']) ?></td>
+            <td class="lbl mono"><?= h($e['accession']) ?> <span class="small"><?= h($e['length']) ?> bp</span></td>
             <?php foreach (str_split($e['motif_window']) as $i => $b):
+                $col = $i + 1;
                 $code = $motif['consensus'][$i];
                 $ok = str_contains(['W' => 'AT', 'Y' => 'CT', 'R' => 'AG', 'S' => 'CG',
                                     'M' => 'AC', 'K' => 'GT', 'n' => 'ACGT'][$code] ?? $code, $b);
                 $cls = 'b ' . ($ok ? 'm' : 'x')
-                     . ($i + 1 >= $motif['core_columns'][0] && $i + 1 <= $motif['core_columns'][1] ? ' core' : ''); ?>
+                     . ($col >= (int) $e['published_start'] && $col <= (int) $e['published_end'] ? ' pub' : '')
+                     . ($col === $motif['core_columns'][0] ? ' cs' : '')
+                     . ($col === $motif['core_columns'][1] ? ' ce' : ''); ?>
               <td class="<?= h($cls) ?>"><?= h($b) ?></td>
             <?php endforeach; ?>
             <td class="sc"><?= h($e['motif_score']) ?> bits<br><span class="small"><?= h($e['motif_score_pct']) ?>%</span></td>

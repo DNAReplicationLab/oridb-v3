@@ -322,12 +322,22 @@ def main() -> None:
         r['core_index'] = str(FRAME_ORIGIN - int(off)) if off != '' else ''
         r['motif_window'] = ''
         r['core_match'] = ''
+        r['published_start'] = ''
+        r['published_end'] = ''
         if r['start'] and r['core_index'] != '' and int(r['core_index']) >= 0:
             w = motif_window(nuclear, r['chromosome'], int(r['start']), int(r['end']),
                              r['strand'], int(r['core_index']))
             if w:
                 r['motif_window'] = w
                 r['core_match'] = str(core_score(w[MOTIF_UP:MOTIF_UP + MOTIF_CORE]))
+                # Where this study's own published sequence sits in the window,
+                # as 1-based column numbers. Elements are 10 to 33 bp, so the
+                # span differs per record; the rest of the window is genomic
+                # context this build added.
+                first = MOTIF_UP - int(r['core_index']) + 1
+                last = first + len(r['sequence']) - 1
+                r['published_start'] = str(max(1, first))
+                r['published_end'] = str(min(MOTIF_WIDTH, last))
 
     # ---- derive the matrix from the well-anchored confirmed elements ----------
     train = [r for r in placed
@@ -386,6 +396,7 @@ def main() -> None:
               'relation', 'anchor_status', 'source_table', 'source_id', 'source_assembly',
               'source_chromosome', 'source_start', 'source_end', 'source_strand',
               'source_name', 'score', 'source_offset', 'acs_offset', 'core_index',
+              'published_start', 'published_end',
               'core_match', 'motif_score', 'motif_score_pct', 'motif_window']
     write_tsv(DATA / 'elements.tsv', header, placed + unplaced)
 
