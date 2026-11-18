@@ -60,3 +60,15 @@ dl.facts dd { margin: 0; }
 .note { background: var(--panel); border-left: 3px solid var(--accent); padding: .75rem 1rem; margin: 1.25rem 0; font-size: .92rem; }
 .small { font-size: .82rem; color: var(--muted); }
 footer.site { border-top: 1px solid var(--line); background: var(--panel); padding: 1.5rem 0; margin-top: 2rem; }
+
+/* ACS motif logo and alignment */
+.logo { display: block; max-width: 100%; height: auto; margin: .75rem 0; }
+table.aln { border-collapse: collapse; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .78rem; width: auto; }
+table.aln td { border: 0; padding: .05rem .17rem; text-align: center; }
+table.aln td.lbl { text-align: right; padding-right: .6rem; color: var(--muted); font-size: .72rem; white-space: nowrap; }
+table.aln td.sc { text-align: left; padding-left: .7rem; font-size: .72rem; white-space: nowrap; color: var(--muted); }
+table.aln tr.cons td { font-weight: 700; color: var(--ink); border-bottom: 1px solid var(--line); }
+table.aln td.core { background: #eef4fa; }
+table.aln td.m { color: var(--ink); }
+table.aln td.x { color: #b9c2cb; }
+table.aln tr:hover td.core { background: #e2ecf6; }

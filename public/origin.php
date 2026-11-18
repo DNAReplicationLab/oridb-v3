@@ -123,9 +123,54 @@ require ORIDB_APP_DIR . '/header.php';
     <?php endforeach; ?>
     </tbody>
   </table>
-  <p class="small">
-    Sequences: <?php foreach ($elements as $i => $e): ?><span class="mono"><?= h($e['sequence']) ?></span><?= $i < count($elements) - 1 ? ' &middot; ' : '' ?><?php endforeach; ?>
-  </p>
+  <?php
+  $motif = Data::release()['acs_motif'] ?? null;
+  $aligned = array_values(array_filter($elements, static fn (array $e): bool => $e['motif_window'] !== ''));
+  ?>
+  <?php if ($motif !== null && $aligned !== []): ?>
+    <h3>Match to the ACS motif</h3>
+    <p class="small">
+      The motif below was derived from the <?= h((string) $motif['training_elements']) ?>
+      experimentally confirmed ACS elements, extended into the genome either side of the
+      11 bp core; columns <?= h((string) $motif['core_columns'][0]) ?>&ndash;<?= h((string) $motif['core_columns'][1]) ?>
+      are the core. Each element below is shown on its T-rich strand, aligned on that core.
+      Bases matching the consensus are tinted; the score is the log-odds of the whole
+      <?= h((string) $motif['width']) ?> bp window against the matrix.
+      <a href="https://github.com/DNAReplicationLab/oridb-v3/blob/main/docs/acs-motif.md">How this motif was derived</a>.
+    </p>
+    <img src="assets/acs_logo.svg" alt="Sequence logo of the OriDB ACS motif"
+         class="logo" width="620">
+    <table class="aln">
+      <tbody>
+        <tr class="cons">
+          <td class="lbl">consensus</td>
+          <?php foreach (str_split($motif['consensus']) as $i => $c): ?>
+            <td class="<?= $i + 1 >= $motif['core_columns'][0] && $i + 1 <= $motif['core_columns'][1] ? 'core' : '' ?>"><?= h($c) ?></td>
+          <?php endforeach; ?>
+          <td class="sc">score</td>
+        </tr>
+        <?php foreach ($aligned as $e): ?>
+          <tr>
+            <td class="lbl mono"><?= h($e['accession']) ?></td>
+            <?php foreach (str_split($e['motif_window']) as $i => $b):
+                $code = $motif['consensus'][$i];
+                $ok = str_contains(['W' => 'AT', 'Y' => 'CT', 'R' => 'AG', 'S' => 'CG',
+                                    'M' => 'AC', 'K' => 'GT', 'n' => 'ACGT'][$code] ?? $code, $b);
+                $cls = ($ok ? 'm' : 'x')
+                     . ($i + 1 >= $motif['core_columns'][0] && $i + 1 <= $motif['core_columns'][1] ? ' core' : ''); ?>
+              <td class="<?= h($cls) ?>"><?= h($b) ?></td>
+            <?php endforeach; ?>
+            <td class="sc"><?= h($e['motif_score']) ?> bits<br><span class="small"><?= h($e['motif_score_pct']) ?>%</span></td>
+          </tr>
+        <?php endforeach; ?>
+      </tbody>
+    </table>
+    <?php $unaligned = count($elements) - count($aligned); ?>
+    <?php if ($unaligned > 0): ?>
+      <p class="small"><?= h((string) $unaligned) ?> element<?= $unaligned === 1 ? '' : 's' ?>
+      could not be placed in the assembly and so cannot be aligned.</p>
+    <?php endif; ?>
+  <?php endif; ?>
 <?php endif; ?>
 
 <h2>Machine-readable</h2>

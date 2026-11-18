@@ -125,7 +125,9 @@ foreach (Data::origins() as $o) {
 if (!is_dir($out . '/assets')) {
     mkdir($out . '/assets', 0o755, true);
 }
-copy($root . '/public/assets/style.css', $out . '/assets/style.css');
+foreach (glob($root . '/public/assets/*') as $asset) {
+    copy($asset, $out . '/assets/' . basename($asset));
+}
 foreach (Data::speciesList() as $species) {
     $slug = strtolower(str_replace(' ', '-', $species));
     file_put_contents($out . "/oridb-confirmed-{$slug}.bed", render($root, 'export.php', ['format' => 'bed', 'species' => $species]));

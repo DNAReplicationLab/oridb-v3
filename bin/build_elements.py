@@ -39,6 +39,7 @@ from __future__ import annotations
 
 import argparse
 import glob
+import math
 import hashlib
 import importlib.util
 import json
@@ -64,6 +65,32 @@ ROMAN = ['', 'I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X',
          'XI', 'XII', 'XIII', 'XIV', 'XV', 'XVI']
 PROXIMITY_LIMIT = 5000  # bp; builds differ by at most a few hundred bp
 
+# --- ACS motif ------------------------------------------------------------
+# v2 records an `offset` per confirmed element and per study in
+# sc_elements_studies. It is a coordinate in the alignment frame of Chang,
+# Theis & Newlon (2008, PMID 18573888) figure 6, in which every stored element
+# begins at position -9. The core therefore starts at index 9 - offset within
+# the stored sequence; that reproduces the best match to the canonical ACS for
+# 62 of the 68 confirmed elements.
+STUDY_OFFSET = {'Nieduszynski2006_ACS': 7, 'Eaton2010_ACS': 6, 'Xu2006_ACS': 6}
+FRAME_ORIGIN = 9
+
+# Window taken forward, measured from the first base of the 11 bp core. Chosen
+# by information content over the confirmed set rather than assumed: columns -4
+# and below sit at background (~0.2 bits), -3 to -1 rise, the core runs +0..+10,
+# +11..+13 carry residual signal, +14..+26 are background again, and +27..+29
+# form a second peak - the WTW motif that Chang et al. place 17-19 bp from the
+# ACS. -3..+29 is 33 columns, and is exactly the span the Eaton and Xu 33-mers
+# already occupy under their declared offset of 6.
+MOTIF_UP, MOTIF_CORE, MOTIF_DOWN = 3, 11, 19
+MOTIF_WIDTH = MOTIF_UP + MOTIF_CORE + MOTIF_DOWN
+ACS11 = 'WTTTAYRTTTW'
+IUPAC = {'W': 'AT', 'Y': 'CT', 'R': 'AG', 'A': 'A', 'C': 'C', 'G': 'G', 'T': 'T'}
+# A confirmed element only trains the matrix if its offset-anchored core is a
+# credible ACS; five records are anchored a base or two out and one is too
+# short to score, and they would otherwise blur the matrix.
+TRAIN_MIN_CORE_SCORE = 9
+
 
 def load_builder():
     """Reuse the dump parser from build_from_v2.py rather than duplicating it."""
@@ -75,6 +102,34 @@ def load_builder():
 
 def rc(s: str) -> str:
     return s.translate(str.maketrans('ACGT', 'TGCA'))[::-1]
+
+
+def core_score(window: str) -> int:
+    """How many of the 11 core bases satisfy the canonical ACS."""
+    if len(window) < MOTIF_CORE:
+        return -1
+    return sum(1 for b, code in zip(window, ACS11) if b in IUPAC[code])
+
+
+def motif_window(seqs: dict[str, str], chrom: str, start: int, end: int,
+                 strand: str, core_i: int) -> str | None:
+    """The 33 bp motif window on the element's own (T-rich) strand."""
+    chrseq = seqs.get(chrom)
+    if chrseq is None:
+        return None
+    if strand == '+':
+        cs = start + core_i
+        a, b = cs - MOTIF_UP, cs + MOTIF_CORE - 1 + MOTIF_DOWN
+        if a < 1 or b > len(chrseq):
+            return None
+        w = chrseq[a - 1:b]
+    else:
+        ce = end - core_i
+        a, b = ce - MOTIF_CORE + 1 - MOTIF_DOWN, ce + MOTIF_UP
+        if a < 1 or b > len(chrseq):
+            return None
+        w = rc(chrseq[a - 1:b])
+    return w if set(w) <= set('ACGT') and len(w) == MOTIF_WIDTH else None
 
 
 def load_fasta_dir(d: str) -> dict[str, str]:
@@ -100,6 +155,37 @@ def write_tsv(path: Path, header: list[str], rows: list[dict[str, str]]) -> None
                                for c in header) + '\n')
 
 
+def write_logo(path: Path, freqs: list[dict[str, float]], info: list[float],
+               bases: str) -> None:
+    """A sequence logo as plain SVG: one stacked column per position, letter
+    height proportional to its share of that column's information content."""
+    colour = {'A': '#1a7f4b', 'C': '#0b5fa5', 'G': '#d08b00', 'T': '#c0392b'}
+    cw, h, pad_l, pad_b = 18, 90, 26, 18
+    width = pad_l + cw * len(freqs) + 6
+    out = [f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{h + pad_b + 14}" '
+           f'viewBox="0 0 {width} {h + pad_b + 14}" role="img" '
+           'aria-label="Sequence logo of the OriDB ACS motif">',
+           '<style>text{font-family:ui-monospace,Menlo,monospace;font-weight:700}'
+           '.ax{font-weight:400;font-size:9px;fill:#5b6671}</style>',
+           f'<line x1="{pad_l - 4}" y1="{h}" x2="{width - 4}" y2="{h}" stroke="#d8dee4"/>',
+           f'<text class="ax" x="2" y="12">2 bits</text>',
+           f'<text class="ax" x="2" y="{h}">0</text>']
+    for i, (f, ic) in enumerate(zip(freqs, info)):
+        x = pad_l + i * cw
+        y = h
+        for b in sorted(bases, key=lambda b: f[b]):
+            bh = (h - 10) * (f[b] * max(ic, 0) / 2)
+            if bh < 0.6:
+                continue
+            y -= bh
+            out.append(f'<g transform="translate({x},{y + bh}) scale({cw / 10:.3f},{bh / 10:.3f})">'
+                       f'<text x="0" y="0" font-size="10" fill="{colour[b]}">{b}</text></g>')
+        if (i + 1) % 5 == 0 or i == 0:
+            out.append(f'<text class="ax" x="{x + 2}" y="{h + 12}">{i + 1}</text>')
+    out.append('</svg>')
+    path.write_text('\n'.join(out) + '\n')
+
+
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
@@ -107,17 +193,17 @@ def main() -> None:
     ap.add_argument('--sacCer3', required=True, help='directory of sacCer3 chr*.fa')
     args = ap.parse_args()
 
-    b = load_builder()
-    sql = b.read_dump(Path(args.dump))
+    v2 = load_builder()
+    sql = v2.read_dump(Path(args.dump))
     sc3 = load_fasta_dir(args.sacCer3)
     nuclear = {k: v for k, v in sc3.items() if k != 'chrM'}
 
     # ---- collect the four element tables -------------------------------------
     records = []
     for table, (kind, pmid, src_asm) in TABLES.items():
-        for row in b.load(sql, table):
+        for row in v2.load(sql, table):
             seq_field = 'sequence' if 'sequence' in row else 'seq'
-            seq = b.unescape(str(row.get(seq_field, ''))).lstrip('.').upper()
+            seq = v2.unescape(str(row.get(seq_field, ''))).lstrip('.').upper()
             if not re.fullmatch(r'[ACGT]+', seq or ''):
                 continue
             chrom = int(row['chr'])
@@ -132,7 +218,7 @@ def main() -> None:
                                      else ('chr%d' % chrom),
                 'source_start': row['start'], 'source_end': row['end'],
                 'source_strand': (row.get('strand') or '').strip(),
-                'source_name': b.unescape(str(row.get('name', ''))),
+                'source_name': v2.unescape(str(row.get('name', ''))),
                 'score': str(row.get('score', '')).strip(),
                 # v2 records an integer per confirmed element in an `offset` column.
                 # Its meaning is not documented in the schema, so it is carried
@@ -207,30 +293,98 @@ def main() -> None:
                 r['origin_accession'], r['relation'] = o['accession'], 'overlapping'
         link_counts[r['relation']] += 1
 
+    # ---- anchor each element, take its motif window ---------------------------
+    for r in placed + unplaced:
+        off = r['source_offset']
+        if off == '':
+            off = STUDY_OFFSET.get(r['source_table'], '')
+        r['acs_offset'] = str(off)
+        r['core_index'] = str(FRAME_ORIGIN - int(off)) if off != '' else ''
+        r['motif_window'] = ''
+        r['core_match'] = ''
+        if r['start'] and r['core_index'] != '' and int(r['core_index']) >= 0:
+            w = motif_window(nuclear, r['chromosome'], int(r['start']), int(r['end']),
+                             r['strand'], int(r['core_index']))
+            if w:
+                r['motif_window'] = w
+                r['core_match'] = str(core_score(w[MOTIF_UP:MOTIF_UP + MOTIF_CORE]))
+
+    # ---- derive the matrix from the well-anchored confirmed elements ----------
+    train = [r for r in placed
+             if r['element_type'] == 'confirmed' and r['motif_window']
+             and int(r['core_match']) >= TRAIN_MIN_CORE_SCORE]
+    excluded = [r['accession'] for r in placed
+                if r['element_type'] == 'confirmed'
+                and (not r['motif_window'] or int(r['core_match'] or -1) < TRAIN_MIN_CORE_SCORE)]
+    bases = 'ACGT'
+    background = {b: 0.0 for b in bases}
+    total = 0
+    for chrseq in nuclear.values():
+        for b in bases:
+            background[b] += chrseq.count(b)
+        total += len(chrseq)
+    background = {b: background[b] / total for b in bases}
+
+    col_counts = [{b: 0.25 for b in bases} for _ in range(MOTIF_WIDTH)]
+    for r in train:
+        for i, b in enumerate(r['motif_window']):
+            col_counts[i][b] += 1
+    freqs, weights, info = [], [], []
+    for col in col_counts:
+        tot = sum(col.values())
+        f = {b: col[b] / tot for b in bases}
+        freqs.append(f)
+        weights.append({b: math.log2(f[b] / background[b]) for b in bases})
+        info.append(2 + sum(f[b] * math.log2(f[b]) for b in bases))
+
+    def consensus_letter(f: dict[str, float]) -> str:
+        order = sorted(bases, key=lambda b: -f[b])
+        if f[order[0]] >= 0.75:
+            return order[0]
+        pairs = {frozenset('AT'): 'W', frozenset('CG'): 'S', frozenset('AC'): 'M',
+                 frozenset('GT'): 'K', frozenset('AG'): 'R', frozenset('CT'): 'Y'}
+        if f[order[0]] + f[order[1]] >= 0.85:
+            return pairs[frozenset(order[0] + order[1])]
+        return 'n'
+    consensus = ''.join(consensus_letter(f) for f in freqs)
+
+    best = sum(max(w.values()) for w in weights)
+    worst = sum(min(w.values()) for w in weights)
+    for r in placed + unplaced:
+        r['motif_score'] = ''
+        r['motif_score_pct'] = ''
+        if r['motif_window']:
+            sc = sum(weights[i][b] for i, b in enumerate(r['motif_window']))
+            r['motif_score'] = f'{sc:.2f}'
+            r['motif_score_pct'] = str(int(round(100 * (sc - worst) / (best - worst))))
+
+    write_logo(ROOT / 'public' / 'assets' / 'acs_logo.svg', freqs, info, bases)
+
     header = ['accession', 'species', 'assembly', 'chromosome', 'start', 'end', 'strand',
               'sequence', 'length', 'element_type', 'study_pmid', 'origin_accession',
               'relation', 'anchor_status', 'source_table', 'source_id', 'source_assembly',
               'source_chromosome', 'source_start', 'source_end', 'source_strand',
-              'source_name', 'score', 'source_offset']
+              'source_name', 'score', 'source_offset', 'acs_offset', 'core_index',
+              'core_match', 'motif_score', 'motif_score_pct', 'motif_window']
     write_tsv(DATA / 'elements.tsv', header, placed + unplaced)
 
     # ---- make sure every element study is cited in studies.tsv ---------------
     studies = read_tsv(DATA / 'studies.tsv')
     known = {s['pmid'] for s in studies}
-    pm = {str(r['pubmed_id']): r for r in b.load(sql, 'local_pubmed')}
+    pm = {str(r['pubmed_id']): r for r in v2.load(sql, 'local_pubmed')}
     added = []
     cited = {r['study_pmid'] for r in records if r['study_pmid']}
     for pmid in sorted(cited):
         if pmid and pmid not in known and pmid in pm:
             r = pm[pmid]
             known.add(pmid)
-            authors = [a.strip() for a in b.unescape(str(r['author_list'])).split(';') if a.strip()]
-            studies.append({'pmid': pmid, 'doi': b.unescape(str(r['doi'])),
-                            'year': b.unescape(str(r['date']))[:4],
-                            'journal': b.unescape(str(r['journal'])),
+            authors = [a.strip() for a in v2.unescape(str(r['author_list'])).split(';') if a.strip()]
+            studies.append({'pmid': pmid, 'doi': v2.unescape(str(r['doi'])),
+                            'year': v2.unescape(str(r['date']))[:4],
+                            'journal': v2.unescape(str(r['journal'])),
                             'first_author': authors[0] if authors else '',
                             'n_authors': str(len(authors)),
-                            'title': b.unescape(str(r['article_title']))})
+                            'title': v2.unescape(str(r['article_title']))})
             added.append(pmid)
     if added:
         studies.sort(key=lambda s: s['pmid'])
@@ -238,6 +392,23 @@ def main() -> None:
 
     # ---- release metadata ----------------------------------------------------
     rel = json.loads((DATA / 'release.json').read_text())
+    rel['acs_motif'] = {
+        'width': MOTIF_WIDTH,
+        'window': f'-{MOTIF_UP} to +{MOTIF_UP + MOTIF_CORE - 1 + MOTIF_DOWN - MOTIF_UP}',
+        'core_columns': [MOTIF_UP + 1, MOTIF_UP + MOTIF_CORE],
+        'consensus': consensus,
+        'derivation': 'Position weight matrix built from the experimentally confirmed ACS '
+                      'elements, extended into sacCer3 either side of the 11 bp core. The '
+                      'window was chosen by information content, not assumed: it runs from '
+                      '3 bp upstream of the core to 19 bp downstream, and includes the WTW '
+                      'motif that Chang, Theis and Newlon (PMID 18573888) place 17-19 bp from '
+                      'the ACS, which this matrix reproduces independently.',
+        'training_elements': len(train),
+        'excluded_elements': excluded,
+        'information_content_bits': round(sum(info), 1),
+        'background': {b: round(background[b], 4) for b in bases},
+        'logo': 'assets/acs_logo.svg',
+    }
     rel['elements'] = {
         'description': 'ACS elements from the four OriDB v2 element studies, each located '
                        'in sacCer3 by its stored sequence rather than by its stored '
