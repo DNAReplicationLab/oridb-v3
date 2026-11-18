@@ -232,22 +232,20 @@ def main(dump_path: str) -> None:
                      + ' evidence records carry no PubMed ID in v2 and need a citation '
                        'assigned. The origins they support are:',
              'accessions': sorted({e['accession'] for e in evidence if not e['pmid']})},
-            {'text': 'Positions will not coincide with the ARS features UCSC and SGD show '
-                     'for sacCer3. OriDB intervals are the experimentally assayed regions '
-                     'reported by the source studies - for the plasmid data, the PCR fragment '
-                     'that conferred ARS activity - which are larger objects than an annotated '
-                     'ARS element. This is expected, not an error. A coordinate-convention '
-                     'offset has been excluded for the largest contributing study (Nieduszynski '
-                     '2006, PMID 16847347): its PCR primers were located in sacCer1 by sequence '
-                     'and the 5\' and 3\' ends of 199 of its 228 fragments sit exactly on the '
-                     'recorded coordinates, confirming them as 1-based inclusive. No fragment '
-                     'was contradicted. Of the other 29, 21 yielded no primer at either end '
-                     '(19 of those being ARSs taken from earlier literature rather than '
-                     'amplified in that study, so no primers exist for them); the remaining 8 '
-                     'have oligos nearby but none landing exactly, each 5 bp or more away and '
-                     'so a different oligo rather than the amplification primer. No fragment '
-                     'end has a primer 1-4 bp off as its only candidate. The remaining plasmid '
-                     'and 2D gel sources have not been checked this way at all.',
+            {'text': 'OriDB intervals and the ARS features SGD and UCSC show for sacCer3 '
+                     'should describe the same object - the assayed fragment - and mostly they '
+                     'differ in a way that looks like a coordinate error rather than biology. '
+                     'Of the 410 Confirmed cerevisiae origins, 293 overlap a replication-origin '
+                     'feature in UCSC\'s sgdOther table for sacCer3. 258 of those pairs share an '
+                     'IDENTICAL end coordinate and differ only at the start: 244 by exactly 2 bp '
+                     'and 14 by 1 bp, with the SGD feature always starting inside the OriDB '
+                     'interval. For 194 of the 2 bp cases the OriDB start is the position of a '
+                     'PCR primer located in the genome by its own sequence, so the SGD feature '
+                     'begins two bases inside the primer that defined the fragment. This has not '
+                     'been confirmed with SGD and should be raised with them before either set '
+                     'is treated as authoritative at base resolution. Separately, 117 Confirmed '
+                     'origins have no SGD origin feature and 81 SGD origin features overlap no '
+                     'Confirmed origin.',
              'accessions': []},
         ],
     }
