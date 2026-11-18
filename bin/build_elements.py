@@ -50,7 +50,10 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / 'public' / 'data'
 
-# element table -> (evidence class, PubMed ID, source assembly per the v2 audit)
+# element table -> (evidence class, study-level PubMed ID, source assembly per the v2 audit)
+# sc_confirmed_ACS is the exception: it cites a study PER RECORD, in its own
+# pubmed_id column, across 18 different papers. Those citations are used in
+# preference to any table-level one.
 TABLES = {
     'sc_confirmed_ACS':     ('confirmed', '',         'sacCer1'),
     'Nieduszynski2006_ACS': ('proposed',  '16847347', 'sacCer1'),
@@ -118,8 +121,11 @@ def main() -> None:
             if not re.fullmatch(r'[ACGT]+', seq or ''):
                 continue
             chrom = int(row['chr'])
+            row_pmid = str(row.get('pubmed_id', '') or '').strip()
+            if row_pmid in ('', '0', 'NULL'):
+                row_pmid = pmid
             records.append({
-                'sequence': seq, 'element_type': kind, 'study_pmid': pmid,
+                'sequence': seq, 'element_type': kind, 'study_pmid': row_pmid,
                 'source_table': table, 'source_id': row.get('id') or row.get('ID', ''),
                 'source_assembly': src_asm,
                 'source_chromosome': ('chr%d' % chrom) if src_asm == 'sacCer2'
@@ -128,6 +134,10 @@ def main() -> None:
                 'source_strand': (row.get('strand') or '').strip(),
                 'source_name': b.unescape(str(row.get('name', ''))),
                 'score': str(row.get('score', '')).strip(),
+                # v2 records an integer per confirmed element in an `offset` column.
+                # Its meaning is not documented in the schema, so it is carried
+                # through unchanged rather than interpreted.
+                'source_offset': str(row.get('offset', '') or '').strip(),
                 'chrom_num': chrom,
             })
 
@@ -201,7 +211,7 @@ def main() -> None:
               'sequence', 'length', 'element_type', 'study_pmid', 'origin_accession',
               'relation', 'anchor_status', 'source_table', 'source_id', 'source_assembly',
               'source_chromosome', 'source_start', 'source_end', 'source_strand',
-              'source_name', 'score']
+              'source_name', 'score', 'source_offset']
     write_tsv(DATA / 'elements.tsv', header, placed + unplaced)
 
     # ---- make sure every element study is cited in studies.tsv ---------------
@@ -209,9 +219,11 @@ def main() -> None:
     known = {s['pmid'] for s in studies}
     pm = {str(r['pubmed_id']): r for r in b.load(sql, 'local_pubmed')}
     added = []
-    for _, pmid, _ in TABLES.values():
+    cited = {r['study_pmid'] for r in records if r['study_pmid']}
+    for pmid in sorted(cited):
         if pmid and pmid not in known and pmid in pm:
             r = pm[pmid]
+            known.add(pmid)
             authors = [a.strip() for a in b.unescape(str(r['author_list'])).split(';') if a.strip()]
             studies.append({'pmid': pmid, 'doi': b.unescape(str(r['doi'])),
                             'year': b.unescape(str(r['date']))[:4],
