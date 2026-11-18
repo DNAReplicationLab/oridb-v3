@@ -232,13 +232,16 @@ def main(dump_path: str) -> None:
                      + ' evidence records carry no PubMed ID in v2 and need a citation '
                        'assigned. The origins they support are:',
              'accessions': sorted({e['accession'] for e in evidence if not e['pmid']})},
-            {'text': 'Positions may not line up exactly with the ARS features UCSC shows for '
-                     'sacCer3. OriDB intervals are the experimentally mapped regions reported '
-                     'by the source studies, which are not the same objects as SGD/UCSC ARS '
-                     'annotations, and a systematic offset from a coordinate-convention '
-                     'difference has not been excluded. This needs checking against an '
-                     'independent sacCer3 annotation before the coordinates are relied on for '
-                     'base-level work.',
+            {'text': 'Positions will not coincide with the ARS features UCSC and SGD show '
+                     'for sacCer3. OriDB intervals are the experimentally assayed regions '
+                     'reported by the source studies - for the plasmid data, the PCR fragment '
+                     'that conferred ARS activity - which are larger objects than an annotated '
+                     'ARS element. This is expected, not an error. A coordinate-convention '
+                     'offset has been excluded for the largest contributing study (Nieduszynski '
+                     '2006, PMID 16847347): its PCR primers were located in sacCer1 by sequence '
+                     'and the 5\' and 3\' ends of 199 of its 228 fragments sit exactly on the '
+                     'recorded coordinates, confirming them as 1-based inclusive. The remaining '
+                     'plasmid and 2D gel sources have not been checked the same way.',
              'accessions': []},
         ],
     }
