@@ -241,10 +241,13 @@ def main(dump_path: str) -> None:
                      '2006, PMID 16847347): its PCR primers were located in sacCer1 by sequence '
                      'and the 5\' and 3\' ends of 199 of its 228 fragments sit exactly on the '
                      'recorded coordinates, confirming them as 1-based inclusive. No fragment '
-                     'was contradicted - for the other 29 no amplification primer could be '
-                     'recovered, 19 of them being ARSs taken from earlier literature rather '
-                     'than amplified in that study. The remaining plasmid and 2D gel sources '
-                     'have not been checked this way at all.',
+                     'was contradicted. Of the other 29, 21 yielded no primer at either end '
+                     '(19 of those being ARSs taken from earlier literature rather than '
+                     'amplified in that study, so no primers exist for them); the remaining 8 '
+                     'have oligos nearby but none landing exactly, each 5 bp or more away and '
+                     'so a different oligo rather than the amplification primer. No fragment '
+                     'end has a primer 1-4 bp off as its only candidate. The remaining plasmid '
+                     'and 2D gel sources have not been checked this way at all.',
              'accessions': []},
         ],
     }
