@@ -76,6 +76,7 @@ foreach (Data::speciesList() as $species) {
     $map['export.php?' . http_build_query(['format' => 'bed', 'species' => $species])]
         = "oridb-confirmed-{$slug}.bed";
 }
+$map['export.php?format=elements'] = 'oridb-elements.bed';
 $map['export.php?format=json'] = 'oridb-confirmed.json';
 $map['export.php?format=tsv'] = 'oridb-confirmed.tsv';
 
@@ -129,6 +130,7 @@ foreach (Data::speciesList() as $species) {
     $slug = strtolower(str_replace(' ', '-', $species));
     file_put_contents($out . "/oridb-confirmed-{$slug}.bed", render($root, 'export.php', ['format' => 'bed', 'species' => $species]));
 }
+file_put_contents($out . '/oridb-elements.bed', render($root, 'export.php', ['format' => 'elements']));
 file_put_contents($out . '/oridb-confirmed.json', render($root, 'export.php', ['format' => 'json']));
 file_put_contents($out . '/oridb-confirmed.tsv', render($root, 'export.php', ['format' => 'tsv']));
 file_put_contents($out . '/.nojekyll', '');

@@ -28,8 +28,12 @@
       "rows": 536
     },
     "studies.tsv": {
-      "md5": "26a4e1c847fc681569eae9a54c1e620b",
-      "rows": 37
+      "md5": "30dfd0286acc9741061601beb7126ce2",
+      "rows": 38
+    },
+    "elements.tsv": {
+      "md5": "b20d36f372237e2c6fad36ac065261cd",
+      "rows": 1022
     }
   },
   "provenance": {
@@ -111,6 +115,10 @@
         "ODB-SC-0652",
         "ODB-SC-0690"
       ]
+    },
+    {
+      "text": "3 of 1022 ACS elements could not be placed in sacCer3 from their sequence alone - either the sequence does not occur in the current assembly, or it occurs several times with none near the coordinate v2 recorded. They are published without coordinates rather than placed on a guess; see anchor_status in elements.tsv.",
+      "accessions": []
     }
   ],
   "lift": {
@@ -127,5 +135,41 @@
       "same-length-mismatch": 26
     },
     "note": "Systematic names are NOT recomputed. They are coordinate-derived labels from the v2 build and are cited as such in the literature, so they stay fixed; a name like X-212 therefore need not match the lifted midpoint."
+  },
+  "elements": {
+    "description": "ACS elements from the four OriDB v2 element studies, each located in sacCer3 by its stored sequence rather than by its stored coordinates.",
+    "studies": {
+      "sc_confirmed_ACS": {
+        "element_type": "confirmed",
+        "pmid": "",
+        "source_assembly": "sacCer1"
+      },
+      "Nieduszynski2006_ACS": {
+        "element_type": "proposed",
+        "pmid": "16847347",
+        "source_assembly": "sacCer1"
+      },
+      "Eaton2010_ACS": {
+        "element_type": "predicted",
+        "pmid": "20351051",
+        "source_assembly": "sacCer1"
+      },
+      "Xu2006_ACS": {
+        "element_type": "predicted",
+        "pmid": "17067396",
+        "source_assembly": "sacCer2"
+      }
+    },
+    "anchor_status_counts": {
+      "unique": 800,
+      "resolved-by-proximity": 219,
+      "ambiguous": 1,
+      "unanchored": 2
+    },
+    "link_counts": {
+      "contained": 814,
+      "overlapping": 11,
+      "unlinked": 197
+    }
   }
 }

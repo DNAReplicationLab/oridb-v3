@@ -15,6 +15,7 @@ if ($origin === null) {
 }
 
 $origin['evidence_records'] = Data::evidenceFor($accession);
+$origin['elements'] = Data::elementsFor($accession);
 $origin['references'] = [];
 foreach ($origin['evidence_records'] as $e) {
     $study = Data::study($e['pmid']);

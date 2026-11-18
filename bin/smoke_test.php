@@ -18,7 +18,7 @@ $cases = [
     ['browse.php', ['page' => '3']],
     ['browse.php', ['species' => '<script>', 'chr' => '../../etc/passwd', 'page' => '-5']],
     ['origin.php', ['id' => 'ODB-SC-0001']],
-    ['origin.php', ['id' => 'ODB-SP-0007']],
+    ['origin.php', ['id' => 'ODB-SP-0014']],
     ['origin.php', ['id' => '"><script>alert(1)</script>']],
     ['search.php', ['q' => 'ARS305']],
     ['search.php', ['q' => "' OR 1=1 --"]],

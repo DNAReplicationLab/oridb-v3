@@ -21,11 +21,28 @@ if ($format === 'bed') {
     exit;
 }
 
+if ($format === 'elements') {
+    header('Content-Type: text/plain; charset=utf-8');
+    header('Content-Disposition: attachment; filename="oridb-elements-' . $stamp . '.bed"');
+    echo "# OriDB {$release['release']} - ACS elements - assembly "
+        . Data::elementAssembly() . "\n";
+    echo 'track name="OriDB ACS elements" description="OriDB ' . $release['release'] . '" visibility=2' . "\n";
+    foreach (Data::elements() as $e) {
+        if ($e['start'] === '') {
+            continue; // not placed in this assembly; see anchor_status in elements.tsv
+        }
+        echo implode("\t", [$e['chromosome'], (int) $e['start'] - 1, (int) $e['end'],
+                             $e['accession'], 0, $e['strand'] ?: '.']), "\n";
+    }
+    exit;
+}
+
 if ($format === 'json') {
     header('Content-Type: application/json; charset=utf-8');
     $out = ['release' => $release['release'], 'origins' => []];
     foreach ($rows as $o) {
         $o['evidence_records'] = Data::evidenceFor($o['accession']);
+        $o['elements'] = Data::elementsFor($o['accession']);
         $out['origins'][] = $o;
     }
     echo json_encode($out, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);

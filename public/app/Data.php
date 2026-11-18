@@ -79,6 +79,41 @@ final class Data
         return self::indexBy('evidence', 'accession')[$accession] ?? [];
     }
 
+    /** @return list<array<string,string>> every ACS element, placed or not */
+    public static function elements(): array
+    {
+        return self::table('elements');
+    }
+
+    /** The assembly the placed elements are on, read from the records themselves. */
+    public static function elementAssembly(): string
+    {
+        foreach (self::elements() as $e) {
+            if ($e['assembly'] !== '') {
+                return $e['assembly'];
+            }
+        }
+
+        return '';
+    }
+
+    /**
+     * ACS elements linked to an origin, most specific relation first.
+     *
+     * @return list<array<string,string>>
+     */
+    public static function elementsFor(string $accession): array
+    {
+        $rows = self::indexBy('elements', 'origin_accession')[$accession] ?? [];
+        usort($rows, static function (array $a, array $b): int {
+            $rank = ['contained' => 0, 'overlapping' => 1];
+            return [$rank[$a['relation']] ?? 2, (int) $a['start']]
+                <=> [$rank[$b['relation']] ?? 2, (int) $b['start']];
+        });
+
+        return $rows;
+    }
+
     /** @return array<string,string>|null */
     public static function study(string $pmid): ?array
     {

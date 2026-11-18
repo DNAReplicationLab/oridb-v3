@@ -84,6 +84,50 @@ require ORIDB_APP_DIR . '/header.php';
   </tbody>
 </table>
 
+<h2>ACS elements</h2>
+<?php $elements = Data::elementsFor($accession); ?>
+<?php if ($elements === []): ?>
+  <p class="small">No ACS element from the four element studies falls within this origin.</p>
+<?php else: ?>
+  <p class="small">
+    <?= h((string) count($elements)) ?> element record<?= count($elements) === 1 ? '' : 's' ?>.
+    Each is located in <?= h($origin['assembly']) ?> by its own sequence rather than by the
+    coordinates OriDB v2 recorded, so the same element reported by two studies appears twice
+    at the same position.
+  </p>
+  <table>
+    <thead><tr><th>Element</th><th>Position</th><th class="num">Length</th><th>Strand</th>
+               <th>Class</th><th>Study</th><th>Placement</th></tr></thead>
+    <tbody>
+    <?php foreach ($elements as $e):
+        $study = Data::study($e['study_pmid']); ?>
+      <tr>
+        <td class="mono"><?= h($e['accession']) ?></td>
+        <td class="mono"><?= h($e['chromosome']) ?>:<?= h(bp($e['start'])) ?>&ndash;<?= h(bp($e['end'])) ?></td>
+        <td class="num"><?= h($e['length']) ?></td>
+        <td class="mono"><?= h($e['strand']) ?></td>
+        <td><?= h($e['element_type']) ?></td>
+        <td class="small">
+          <?php if ($study !== null): ?>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/<?= h($study['pmid']) ?>/" rel="noopener">
+              <?= h(explode(',', $study['first_author'])[0]) ?><?= (int) $study['n_authors'] > 1 ? ' et al.' : '' ?>
+              <?= h($study['year']) ?></a>
+          <?php else: ?>
+            <?= h($e['source_table']) ?>
+          <?php endif; ?>
+        </td>
+        <td class="small">
+          <?= h($e['relation']) ?><?= $e['anchor_status'] !== 'unique' ? ', ' . h($e['anchor_status']) : '' ?>
+        </td>
+      </tr>
+    <?php endforeach; ?>
+    </tbody>
+  </table>
+  <p class="small">
+    Sequences: <?php foreach ($elements as $i => $e): ?><span class="mono"><?= h($e['sequence']) ?></span><?= $i < count($elements) - 1 ? ' &middot; ' : '' ?><?php endforeach; ?>
+  </p>
+<?php endif; ?>
+
 <h2>Machine-readable</h2>
 <p class="small">
   <a href="<?= h(u('api/origin.php', ['id' => $accession])) ?>">JSON record</a> for this origin.
