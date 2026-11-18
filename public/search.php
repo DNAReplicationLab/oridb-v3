@@ -6,6 +6,7 @@ $q      = trim((string) ($_GET['q'] ?? ''));
 $region = trim((string) ($_GET['region'] ?? ''));
 $results = [];
 $error   = '';
+$total   = count(Data::origins());
 
 if ($region !== '') {
     // Accept "chrIV:100000-200000", "chrIV 100000 200000" or bare "chrIV".
@@ -32,7 +33,7 @@ require ORIDB_APP_DIR . '/header.php';
     This is a static preview served from GitHub Pages, which runs no code, so queries
     cannot be answered here. Use the search on
     <a href="https://v3.oridb.org/search.php">v3.oridb.org</a>, or
-    <a href="browse.html">browse</a> the 458 origins — every one has its own page, and your
+    <a href="browse.html">browse</a> the <?= h((string) $total) ?> origins — every one has its own page, and your
     browser's own find-in-page works on the browse tables.
   </div>
 <?php else: ?>
@@ -64,7 +65,7 @@ require ORIDB_APP_DIR . '/header.php';
   <?php if ($results === [] && $error === ''): ?>
     <div class="note">
       <strong>Nothing found — check what this release covers.</strong>
-      The trial holds only the <strong>Confirmed</strong> tier: 458 origins, those supported by a
+      The trial holds only the <strong>Confirmed</strong> tier: <?= h((string) $total) ?> origins, those supported by a
       plasmid (ARS) assay or a 2D gel. OriDB v2 also listed Likely and Dubious origins, and those
       are <em>not</em> here yet, so a search for one of them returns no match even though the
       origin exists in v2. Names are matched as substrings and case is ignored; try a shorter

@@ -2,7 +2,8 @@
 <footer class="site">
   <div class="wrap">
     <p>
-      OriDB <?= h(Data::release()['release']) ?>, generated <?= h(Data::release()['generated']) ?>.
+      OriDB data release <?= h(Data::release()['release']) ?>, built <?= h(Data::release()['generated']) ?>.
+      That is the date the dataset was generated, not the date the site last changed.
       Data released under CC BY 4.0. Source on
       <a href="https://github.com/DNAReplicationLab/oridb-v3">GitHub</a>.
     </p>

@@ -63,6 +63,42 @@ foreach ($cases as [$page, $query]) {
     }
 }
 
+// Staleness check 2: a page must not hard-code a count that the data supplies.
+// "458 origins" was written into search.php by hand and would have gone wrong the
+// day the Likely and Dubious tiers were added.
+$release = json_decode((string) file_get_contents($root . '/public/data/release.json'), true);
+$facts = [];
+foreach ($release['files'] as $meta) {
+    $facts[(string) $meta['rows']] = true;
+}
+$perSpecies = [];
+foreach (file($root . '/public/data/origins.tsv') as $i => $line) {
+    if ($i === 0) {
+        continue;
+    }
+    $f = explode("\t", $line);
+    $perSpecies[$f[1]] = ($perSpecies[$f[1]] ?? 0) + 1;
+}
+foreach ($perSpecies as $n) {
+    $facts[(string) $n] = true;
+}
+$offenders = [];
+foreach (array_merge(glob($root . '/public/*.php'), glob($root . '/public/app/*.php')) as $file) {
+    $body = (string) file_get_contents($file);
+    foreach (array_keys($facts) as $n) {
+        $n = (string) $n;
+        if (preg_match('/(?<![\d>])' . preg_quote($n, '/') . '(?![\d<])/', $body) === 1) {
+            $offenders[] = basename($file) . ' contains ' . $n;
+        }
+    }
+}
+if ($offenders !== []) {
+    $failures++;
+    echo "FAIL  hard-coded count: " . implode('; ', $offenders) . "\n";
+} else {
+    echo "ok    no page hard-codes a record count\n";
+}
+
 // Staleness check: a page must not assert an assembly name of its own. The banner
 // once claimed coordinates were "not lifted" and went silently wrong the day they
 // were. Anything assembly-specific belongs in data/release.json, which the pages read.
