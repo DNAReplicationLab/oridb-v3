@@ -70,9 +70,12 @@ table.aln { border-collapse: collapse; table-layout: fixed; width: auto;
             font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .78rem; }
 table.aln td { box-sizing: border-box; border: 0; padding: .06rem 0; text-align: center; }
 table.aln td.b { width: var(--colw); }
-table.aln td.lbl { width: var(--lblw); text-align: right; padding-right: .6rem;
-                   color: var(--muted); font-size: .72rem; white-space: nowrap; }
-table.aln td.sc { width: 92px; padding-left: .7rem; text-align: left; font-size: .72rem;
+/* The label must never spill into the first base column: fixed layout keeps the
+   column width, but overflowing text would still be painted over the bases. */
+table.aln td.lbl { width: var(--lblw); max-width: var(--lblw); text-align: right;
+                   padding-right: .6rem; color: var(--muted); font-size: .72rem;
+                   white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+table.aln td.sc { width: 108px; padding-left: .7rem; text-align: left; font-size: .72rem;
                   white-space: nowrap; color: var(--muted); }
 table.aln tr.cons td { font-weight: 700; color: var(--ink); border-bottom: 1px solid var(--line); }
 table.aln td.pub { background: #fdf3dc; }

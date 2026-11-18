@@ -84,10 +84,10 @@ require ORIDB_APP_DIR . '/header.php';
   </tbody>
 </table>
 
-<h2>ACS elements</h2>
+<h2>Origin elements</h2>
 <?php $elements = Data::elementsFor($accession); ?>
 <?php if ($elements === []): ?>
-  <p class="small">No ACS element from the four element studies falls within this origin.</p>
+  <p class="small">No element from the four element studies falls within this origin.</p>
 <?php else: ?>
   <p class="small">
     <?= h((string) count($elements)) ?> element record<?= count($elements) === 1 ? '' : 's' ?>.
@@ -95,34 +95,6 @@ require ORIDB_APP_DIR . '/header.php';
     coordinates OriDB v2 recorded, so the same element reported by two studies appears twice
     at the same position.
   </p>
-  <table>
-    <thead><tr><th>Element</th><th>Position</th><th class="num">Length</th><th>Strand</th>
-               <th>Class</th><th>Study</th><th>Placement</th></tr></thead>
-    <tbody>
-    <?php foreach ($elements as $e):
-        $study = Data::study($e['study_pmid']); ?>
-      <tr>
-        <td class="mono"><?= h($e['accession']) ?></td>
-        <td class="mono"><?= h($e['chromosome']) ?>:<?= h(bp($e['start'])) ?>&ndash;<?= h(bp($e['end'])) ?></td>
-        <td class="num"><?= h($e['length']) ?></td>
-        <td class="mono"><?= h($e['strand']) ?></td>
-        <td><?= h($e['element_type']) ?></td>
-        <td class="small">
-          <?php if ($study !== null): ?>
-            <a href="https://pubmed.ncbi.nlm.nih.gov/<?= h($study['pmid']) ?>/" rel="noopener">
-              <?= h(explode(',', $study['first_author'])[0]) ?><?= (int) $study['n_authors'] > 1 ? ' et al.' : '' ?>
-              <?= h($study['year']) ?></a>
-          <?php else: ?>
-            <?= h($e['source_table']) ?>
-          <?php endif; ?>
-        </td>
-        <td class="small">
-          <?= h($e['relation']) ?><?= $e['anchor_status'] !== 'unique' ? ', ' . h($e['anchor_status']) : '' ?>
-        </td>
-      </tr>
-    <?php endforeach; ?>
-    </tbody>
-  </table>
   <?php
   $motif = Data::release()['acs_motif'] ?? null;
   $aligned = array_values(array_filter($elements, static fn (array $e): bool => $e['motif_window'] !== ''));
@@ -156,7 +128,7 @@ require ORIDB_APP_DIR . '/header.php';
         </tr>
         <?php foreach ($aligned as $e): ?>
           <tr>
-            <td class="lbl mono"><?= h($e['accession']) ?> <span class="small"><?= h($e['length']) ?> bp</span></td>
+            <td class="lbl mono"><?= h($e['accession']) ?></td>
             <?php foreach (str_split($e['motif_window']) as $i => $b):
                 $col = $i + 1;
                 $code = $motif['consensus'][$i];
@@ -168,7 +140,7 @@ require ORIDB_APP_DIR . '/header.php';
                      . ($col === $motif['core_columns'][1] ? ' ce' : ''); ?>
               <td class="<?= h($cls) ?>"><?= h($b) ?></td>
             <?php endforeach; ?>
-            <td class="sc"><?= h($e['motif_score']) ?> bits<br><span class="small"><?= h($e['motif_score_pct']) ?>%</span></td>
+            <td class="sc"><?= h($e['motif_score']) ?> bits<br><span class="small"><?= h($e['motif_score_pct']) ?>%, <?= h($e['length']) ?> bp</span></td>
           </tr>
         <?php endforeach; ?>
       </tbody>
@@ -180,6 +152,36 @@ require ORIDB_APP_DIR . '/header.php';
       could not be placed in the assembly and so cannot be aligned.</p>
     <?php endif; ?>
   <?php endif; ?>
+
+  <h3>Element records</h3>
+  <table>
+    <thead><tr><th>Element</th><th>Position</th><th class="num">Length</th><th>Strand</th>
+               <th>Class</th><th>Study</th><th>Placement</th></tr></thead>
+    <tbody>
+    <?php foreach ($elements as $e):
+        $study = Data::study($e['study_pmid']); ?>
+      <tr>
+        <td class="mono"><?= h($e['accession']) ?></td>
+        <td class="mono"><?= h($e['chromosome']) ?>:<?= h(bp($e['start'])) ?>&ndash;<?= h(bp($e['end'])) ?></td>
+        <td class="num"><?= h($e['length']) ?></td>
+        <td class="mono"><?= h($e['strand']) ?></td>
+        <td><?= h($e['element_type']) ?></td>
+        <td class="small">
+          <?php if ($study !== null): ?>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/<?= h($study['pmid']) ?>/" rel="noopener">
+              <?= h(explode(',', $study['first_author'])[0]) ?><?= (int) $study['n_authors'] > 1 ? ' et al.' : '' ?>
+              <?= h($study['year']) ?></a>
+          <?php else: ?>
+            <?= h($e['source_table']) ?>
+          <?php endif; ?>
+        </td>
+        <td class="small">
+          <?= h($e['relation']) ?><?= $e['anchor_status'] !== 'unique' ? ', ' . h($e['anchor_status']) : '' ?>
+        </td>
+      </tr>
+    <?php endforeach; ?>
+    </tbody>
+  </table>
 <?php endif; ?>
 
 <h2>Machine-readable</h2>
