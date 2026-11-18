@@ -240,8 +240,11 @@ def main(dump_path: str) -> None:
                      'offset has been excluded for the largest contributing study (Nieduszynski '
                      '2006, PMID 16847347): its PCR primers were located in sacCer1 by sequence '
                      'and the 5\' and 3\' ends of 199 of its 228 fragments sit exactly on the '
-                     'recorded coordinates, confirming them as 1-based inclusive. The remaining '
-                     'plasmid and 2D gel sources have not been checked the same way.',
+                     'recorded coordinates, confirming them as 1-based inclusive. No fragment '
+                     'was contradicted - for the other 29 no amplification primer could be '
+                     'recovered, 19 of them being ARSs taken from earlier literature rather '
+                     'than amplified in that study. The remaining plasmid and 2D gel sources '
+                     'have not been checked this way at all.',
              'accessions': []},
         ],
     }
