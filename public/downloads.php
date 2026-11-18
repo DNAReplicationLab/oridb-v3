@@ -24,12 +24,21 @@ require ORIDB_APP_DIR . '/header.php';
     <tr><td><a href="<?= h(u('export.php', ['format' => 'bed', 'species' => $sp])) ?>">BED</a></td>
         <td><em><?= h($abbrev) ?></em>, <?= h($build) ?></td>
         <td class="small">0-based half-open, accession as feature name</td></tr>
+    <tr><td><a href="<?= h(u('export.php', ['format' => 'bed', 'species' => $sp, 'names' => 'legacy'])) ?>">BED</a></td>
+        <td><em><?= h($abbrev) ?></em>, <?= h($build) ?>, legacy names</td>
+        <td class="small">same intervals, column 4 is the historical OriDB name
+          (<a href="<?= h(u('export.php', ['format' => 'bed', 'species' => $sp, 'names' => 'both'])) ?>">accession|name</a>
+          also available)</td></tr>
     <?php endforeach; ?>
     <tr><td><a href="<?= h(u('export.php', ['format' => 'elements'])) ?>">BED</a></td>
         <td>ACS elements, <?= h(Data::elementAssembly()) ?></td>
         <td class="small">all four element studies; records with no position in that assembly are omitted</td></tr>
     <tr><td><a href="<?= h(u('export.php', ['format' => 'tsv'])) ?>">TSV</a></td>
-        <td>all origins</td><td class="small">as served, 1-based inclusive</td></tr>
+        <td>all origins</td>
+        <td class="small">as served, 1-based inclusive; the only export that carries the legacy
+          layer &mdash; historical and systematic names, other names, the OriDB&nbsp;2012 record id
+          (<span class="mono">legacy_id</span>) and the original source-assembly coordinates with
+          their lift status</td></tr>
     <tr><td><a href="<?= h(u('export.php', ['format' => 'json'])) ?>">JSON</a></td>
         <td>origins with nested evidence</td><td class="small">one object per origin</td></tr>
   </tbody>

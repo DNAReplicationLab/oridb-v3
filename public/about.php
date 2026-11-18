@@ -15,6 +15,33 @@ require ORIDB_APP_DIR . '/header.php';
   rebuilt separately and will be added once their assemblies and thresholds are settled.
 </p>
 
+<h2>Accessions</h2>
+<p>
+  Every origin carries a permanent accession, <span class="mono">ODB-SC-nnnn</span> for
+  <em>S.&nbsp;cerevisiae</em> and <span class="mono">ODB-SP-nnnn</span> for <em>S.&nbsp;pombe</em>.
+  The numbers were minted once, over the complete OriDB&nbsp;2012 origin set of each species in
+  genome order. That ordering is a historical accident of the first minting, not a rule:
+</p>
+<ul>
+  <li>An origin added in a later release takes the <strong>next unused number for its
+      species</strong>, whatever its coordinates. Accession order therefore stops following
+      genome order as soon as the set grows &mdash; sort on chromosome and start, never on the
+      accession.</li>
+  <li>Numbers already spent on the Likely and Dubious tiers are <strong>not free</strong>.
+      This release publishes the Confirmed tier only, so the numbering in these files is
+      deliberately gappy; the missing numbers belong to origins that exist in OriDB&nbsp;2012 and
+      are held for them.</li>
+  <li>An accession is <strong>never reused, reassigned or renumbered</strong>. Refined
+      coordinates, a changed status or a new assembly leave it untouched; an origin that is
+      withdrawn keeps its accession, marked as retired, rather than freeing it.</li>
+  <li>Two origins that are later merged keep the earlier accession as the surviving record,
+      with the other retired and redirected to it; one origin split in two keeps its accession
+      for one part and mints a new number for the other.</li>
+  <li>The OriDB&nbsp;2012 record id is kept on every origin as
+      <span class="mono">legacy_id</span>, so citations and links made against the old site can
+      still be resolved.</li>
+</ul>
+
 <h2>Coordinates</h2>
 <p>
   Coordinates are <?= h($release['coordinate_convention']) ?>. Each record carries its assembly
