@@ -143,6 +143,26 @@ final class Data
     }
 
     /**
+     * The track hub description, generated from the hub repository by
+     * bin/build_datahub.php. Empty when it has not been built: the hub lives in its
+     * own repository, so a checkout of this one need not have seen it.
+     *
+     * @return array<string,mixed>
+     */
+    public static function hub(): array
+    {
+        static $hub = null;
+        if ($hub === null) {
+            $path = ORIDB_DATA_DIR . '/datahub.json';
+            $hub = is_readable($path)
+                ? (array) json_decode((string) file_get_contents($path), true, 512, JSON_THROW_ON_ERROR)
+                : [];
+        }
+
+        return $hub;
+    }
+
+    /**
      * Filter origins. All arguments are optional; omitted filters match everything.
      *
      * @return list<array<string,string>>

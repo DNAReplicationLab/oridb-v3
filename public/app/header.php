@@ -20,6 +20,7 @@ $title = $title ?? 'OriDB';
       <a href="browse.php">Browse</a>
       <a href="search.php">Search</a>
       <a href="downloads.php">Downloads</a>
+      <a href="datahub.php">Data hub</a>
       <a href="studies.php">Studies</a>
       <a href="about.php">About</a>
     </nav>

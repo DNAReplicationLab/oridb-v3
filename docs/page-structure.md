@@ -13,6 +13,7 @@ Dubious tiers, and later the genome-wide datasets, extends it rather than replac
 | `search.php` | Name/accession search and region search | Gains fuzzy matching and a sequence search |
 | `studies.php` | The source publications, with origin counts | Becomes the dataset registry view |
 | `downloads.php` | Exports and release checksums | Gains track-hub and bulk-archive links |
+| `datahub.php` | The UCSC track hub: how to load it, what it carries, where the data came from | Grows with the hub; the track list is generated from the hub repository, not written here |
 | `about.php` | Scope, coordinate conventions, known issues | Becomes release notes plus curation policy |
 | `export.php` | Generates BED / TSV / JSON on request | Gains GFF3 and bigBed |
 | `api/origins.php` | JSON list endpoint with filters | Versioned under `/api/v1/` |

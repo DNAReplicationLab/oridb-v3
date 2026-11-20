@@ -73,6 +73,18 @@ python3 bin/build_from_v2.py /path/to/nieduszy_oridb.sql          # extract (sac
 python3 bin/lift_to_saccer3.py --sacCer1 DIR --sacCer3 DIR        # lift to sacCer3
 ```
 
+The **Data hub** page is built separately, because the hub is a different repository with
+its own release cycle:
+
+```bash
+php bin/build_datahub.php --hub-root /path/to/oridb-data-hub
+```
+
+That reads the hub's own `hub.txt`, trackDb chain and per-dataset `dataset.json` and
+writes `public/data/datahub.json`. The page states nothing about the hub that this file
+does not carry, so a track added to the hub appears on the page at the next build and
+nothing on the page can contradict what the hub serves.
+
 `build_from_v2.py` extracts the v2 records, which are sacCer1. `lift_to_saccer3.py` rewrites
 the cerevisiae coordinates onto sacCer3 using the committed UCSC chain, and — when both
 assembly FASTA directories are supplied — checks every lifted interval base for base,
@@ -96,7 +108,9 @@ names would otherwise have changed.
 ## What is deliberately not here yet
 
 - The Likely and Dubious tiers, and the genome-wide datasets behind them.
-- Genome-browser tracks (bigBed/bigWig) and a UCSC track hub.
+- The origin records themselves as a genome-browser track (bigBed). The *data* hub
+  exists — `oridb-data-hub`, a UCSC track hub of genome-wide replication profiles,
+  described on the **Data hub** page — but OriDB's own origin intervals are not in it yet.
 - Any database. The trial is flat files on purpose.
 
 ## Licence

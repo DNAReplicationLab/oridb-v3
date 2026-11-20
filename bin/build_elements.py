@@ -75,6 +75,9 @@ PROXIMITY_LIMIT = 5000  # bp; builds differ by at most a few hundred bp
 STUDY_OFFSET = {'Nieduszynski2006_ACS': 7, 'Eaton2010_ACS': 6, 'Xu2006_ACS': 6}
 FRAME_ORIGIN = 9
 
+# Stable key for the one known issue this step contributes to release.json.
+ISSUE_ID = 'elements-unplaced'
+
 # Curation: four sc_confirmed_ACS records carry offset 8 where their study uses 7.
 # All four reproduce their Nieduszynski 2006 (PMID 16847347) table S1 proACS
 # sequence and position exactly, and across all 228 table S1 proACS the 11 bp core
@@ -464,8 +467,13 @@ def main() -> None:
         'rows': len(studies),
     }
     unresolved = counts['ambiguous'] + counts['unanchored']
+    # This step can be rerun on its own, so drop any copy a previous run left
+    # before appending: an unconditional append duplicates the issue each time.
+    rel['known_issues'] = [i for i in rel['known_issues']
+                           if not (isinstance(i, dict) and i.get('id') == ISSUE_ID)]
     if unresolved:
         rel['known_issues'].append({
+            'id': ISSUE_ID,
             'text': f'{unresolved} of {len(records)} ACS elements could not be placed in '
                     'sacCer3 from their sequence alone - either the sequence does not occur '
                     'in the current assembly, or it occurs several times with none near the '

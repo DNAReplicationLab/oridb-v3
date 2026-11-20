@@ -1,0 +1,239 @@
+{
+    "generated": "2026-11-20T08:21:41Z",
+    "hub": {
+        "name": "oridb_data_hub",
+        "shortLabel": "OriDB data hub",
+        "longLabel": "OriDB: genome-wide DNA replication datasets",
+        "url": "https://dnareplicationlab.github.io/oridb-data-hub/hub.txt",
+        "base_url": "https://dnareplicationlab.github.io/oridb-data-hub/",
+        "repo_url": "https://github.com/DNAReplicationLab/oridb-data-hub"
+    },
+    "genomes": [
+        {
+            "genome": "sacCer3",
+            "datasets": [
+                {
+                    "id": "muller2014",
+                    "title": "The dynamics of genome replication using deep sequencing (Muller et al. 2014), reprocessed on sacCer3",
+                    "organism": "Saccharomyces cerevisiae",
+                    "assembly": "sacCer3",
+                    "bin_size_bp": 1000,
+                    "measurement": "relative DNA copy number (replication timing)",
+                    "scale": "1 = unreplicated, 2 = fully replicated",
+                    "source": {
+                        "doi": "10.1093/nar/gkt878",
+                        "pubmed": "24089142",
+                        "archive_series": [
+                            "GSE42243",
+                            "GSE48212"
+                        ],
+                        "n_runs": 18
+                    },
+                    "n_samples": 18,
+                    "groups": [
+                        {
+                            "track": "muller2014_timecourse",
+                            "shortLabel": "Muller timecourse",
+                            "longLabel": "Muller et al. (2014): S. cerevisiae genome replication time course from alpha-factor release",
+                            "container": "multiWig",
+                            "tracks": [
+                                {
+                                    "track": "timecourse_syncseq_AUY077_90min_smooth",
+                                    "shortLabel": "1 90 min",
+                                    "longLabel": "Muller et al. (2014): time course 90 min post alpha-factor release",
+                                    "type": "bigWig",
+                                    "file": "syncseq_AUY077_90min.smooth.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/muller2014/syncseq_AUY077_90min.smooth.bw",
+                                    "bytes": 62142
+                                },
+                                {
+                                    "track": "timecourse_syncseq_AUY077_50min_smooth",
+                                    "shortLabel": "2 50 min",
+                                    "longLabel": "Muller et al. (2014): time course 50 min post alpha-factor release",
+                                    "type": "bigWig",
+                                    "file": "syncseq_AUY077_50min.smooth.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/muller2014/syncseq_AUY077_50min.smooth.bw",
+                                    "bytes": 90277
+                                },
+                                {
+                                    "track": "timecourse_syncseq_AUY077_45min_smooth",
+                                    "shortLabel": "3 45 min",
+                                    "longLabel": "Muller et al. (2014): time course 45 min post alpha-factor release",
+                                    "type": "bigWig",
+                                    "file": "syncseq_AUY077_45min.smooth.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/muller2014/syncseq_AUY077_45min.smooth.bw",
+                                    "bytes": 92209
+                                },
+                                {
+                                    "track": "timecourse_syncseq_AUY077_40min_smooth",
+                                    "shortLabel": "4 40 min",
+                                    "longLabel": "Muller et al. (2014): time course 40 min post alpha-factor release",
+                                    "type": "bigWig",
+                                    "file": "syncseq_AUY077_40min.smooth.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/muller2014/syncseq_AUY077_40min.smooth.bw",
+                                    "bytes": 91878
+                                },
+                                {
+                                    "track": "timecourse_syncseq_AUY077_35min_smooth",
+                                    "shortLabel": "5 35 min",
+                                    "longLabel": "Muller et al. (2014): time course 35 min post alpha-factor release",
+                                    "type": "bigWig",
+                                    "file": "syncseq_AUY077_35min.smooth.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/muller2014/syncseq_AUY077_35min.smooth.bw",
+                                    "bytes": 89337
+                                },
+                                {
+                                    "track": "timecourse_syncseq_AUY077_30min_smooth",
+                                    "shortLabel": "6 30 min",
+                                    "longLabel": "Muller et al. (2014): time course 30 min post alpha-factor release",
+                                    "type": "bigWig",
+                                    "file": "syncseq_AUY077_30min.smooth.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/muller2014/syncseq_AUY077_30min.smooth.bw",
+                                    "bytes": 84642
+                                },
+                                {
+                                    "track": "timecourse_syncseq_AUY077_25min_smooth",
+                                    "shortLabel": "7 25 min",
+                                    "longLabel": "Muller et al. (2014): time course 25 min post alpha-factor release",
+                                    "type": "bigWig",
+                                    "file": "syncseq_AUY077_25min.smooth.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/muller2014/syncseq_AUY077_25min.smooth.bw",
+                                    "bytes": 78948
+                                }
+                            ]
+                        },
+                        {
+                            "track": "muller2014_sortseq_ploidy",
+                            "shortLabel": "Haploid vs diploid",
+                            "longLabel": "Muller et al. (2014): haploid and diploid S. cerevisiae sort-seq replication profiles",
+                            "container": "multiWig",
+                            "tracks": [
+                                {
+                                    "track": "sortseq_ploidy_sortseq_T9475_SOLiD_smooth",
+                                    "shortLabel": "1 diploid",
+                                    "longLabel": "Muller et al. (2014): diploid (T9475) sort-seq replication profile, SOLiD",
+                                    "type": "bigWig",
+                                    "file": "sortseq_T9475_SOLiD.smooth.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/muller2014/sortseq_T9475_SOLiD.smooth.bw",
+                                    "bytes": 91847
+                                },
+                                {
+                                    "track": "sortseq_ploidy_sortseq_T7107_SOLiD_smooth",
+                                    "shortLabel": "2 haploid",
+                                    "longLabel": "Muller et al. (2014): haploid (T7107) sort-seq replication profile, SOLiD",
+                                    "type": "bigWig",
+                                    "file": "sortseq_T7107_SOLiD.smooth.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/muller2014/sortseq_T7107_SOLiD.smooth.bw",
+                                    "bytes": 91830
+                                }
+                            ]
+                        },
+                        {
+                            "track": "muller2014_sortseq_platform",
+                            "shortLabel": "SOLiD vs Illumina",
+                            "longLabel": "Muller et al. (2014): technology comparison for diploid S. cerevisiae sort-seq replication profiles",
+                            "container": "multiWig",
+                            "tracks": [
+                                {
+                                    "track": "sortseq_platform_sortseq_T9475_SOLiD_smooth",
+                                    "shortLabel": "1 SOLiD",
+                                    "longLabel": "Muller et al. (2014): diploid (T9475) sort-seq replication profile, SOLiD",
+                                    "type": "bigWig",
+                                    "file": "sortseq_T9475_SOLiD.smooth.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/muller2014/sortseq_T9475_SOLiD.smooth.bw",
+                                    "bytes": 91847
+                                },
+                                {
+                                    "track": "sortseq_platform_sortseq_T9475_Illumina_smooth",
+                                    "shortLabel": "2 Illumina",
+                                    "longLabel": "Muller et al. (2014): diploid (T9475) sort-seq replication profile, Illumina",
+                                    "type": "bigWig",
+                                    "file": "sortseq_T9475_Illumina.smooth.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/muller2014/sortseq_T9475_Illumina.smooth.bw",
+                                    "bytes": 90818
+                                }
+                            ]
+                        },
+                        {
+                            "track": "muller2014_mfaseq",
+                            "shortLabel": "MFA-seq",
+                            "longLabel": "Muller et al. (2014): marker frequency analysis, exponential versus stationary phase (T7107)",
+                            "container": "multiWig",
+                            "tracks": [
+                                {
+                                    "track": "mfaseq_mfaseq_T7107_smooth",
+                                    "shortLabel": "MFA-seq",
+                                    "longLabel": "Muller et al. (2014): MFA-seq replication profile, exponential vs stationary phase",
+                                    "type": "bigWig",
+                                    "file": "mfaseq_T7107.smooth.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/muller2014/mfaseq_T7107.smooth.bw",
+                                    "bytes": 82480
+                                }
+                            ]
+                        },
+                        {
+                            "track": "muller2014_hu",
+                            "shortLabel": "HU origin mapping",
+                            "longLabel": "Muller et al. (2014): origin mapping by replication forks stalled in hydroxyurea (rad53 sml1)",
+                            "container": "multiWig",
+                            "tracks": [
+                                {
+                                    "track": "hu_hu_CAY106_smooth",
+                                    "shortLabel": "HU 60 min",
+                                    "longLabel": "Muller et al. (2014): HU-stalled fork origin mapping, 60 min after release (CAY106)",
+                                    "type": "bigWig",
+                                    "file": "hu_CAY106.smooth.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/muller2014/hu_CAY106.smooth.bw",
+                                    "bytes": 87925
+                                }
+                            ]
+                        },
+                        {
+                            "track": "muller2014_trep",
+                            "shortLabel": "Trep",
+                            "longLabel": "Muller et al. (2014): median replication time (Trep, minutes from alpha-factor release)",
+                            "container": "multiWig",
+                            "tracks": [
+                                {
+                                    "track": "trep_syncseq_trep",
+                                    "shortLabel": "Trep",
+                                    "longLabel": "Muller et al. (2014): median replication time from the sync-seq time course",
+                                    "type": "bigWig",
+                                    "file": "syncseq.trep.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/muller2014/syncseq.trep.bw",
+                                    "bytes": 74713
+                                }
+                            ]
+                        },
+                        {
+                            "track": "muller2014_trep_peaks",
+                            "shortLabel": "Trep peaks",
+                            "longLabel": "Origin calls from the Muller et al. (2014) Trep profile: local minima of replication time, called by OriDB",
+                            "container": "",
+                            "tracks": [
+                                {
+                                    "track": "muller2014_trep_peaks",
+                                    "shortLabel": "Trep peaks",
+                                    "longLabel": "Origin calls from the Muller et al. (2014) Trep profile: local minima of replication time, called by OriDB",
+                                    "type": "bigBed 8 +",
+                                    "file": "syncseq.trep.peaks.bb",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/muller2014/syncseq.trep.peaks.bb",
+                                    "bytes": 34666,
+                                    "bed": "syncseq.trep.peaks.bed",
+                                    "bed_url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/muller2014/syncseq.trep.peaks.bed",
+                                    "rows": 212
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "counts": {
+        "genomes": 1,
+        "datasets": 1,
+        "tracks": 15,
+        "files": 15
+    }
+}

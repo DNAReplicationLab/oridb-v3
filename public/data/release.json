@@ -117,10 +117,7 @@
       ]
     },
     {
-      "text": "3 of 1022 ACS elements could not be placed in sacCer3 from their sequence alone - either the sequence does not occur in the current assembly, or it occurs several times with none near the coordinate v2 recorded. They are published without coordinates rather than placed on a guess; see anchor_status in elements.tsv.",
-      "accessions": []
-    },
-    {
+      "id": "elements-unplaced",
       "text": "3 of 1022 ACS elements could not be placed in sacCer3 from their sequence alone - either the sequence does not occur in the current assembly, or it occurs several times with none near the coordinate v2 recorded. They are published without coordinates rather than placed on a guess; see anchor_status in elements.tsv.",
       "accessions": []
     }

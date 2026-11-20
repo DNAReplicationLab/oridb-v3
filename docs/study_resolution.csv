@@ -1,0 +1,22 @@
+species,study,n_calls,call_width_median_bp,v2_declared_resolution_bp,confirmed_origins_detected_pct,err_median_bp,err_p75_bp,err_p90_bp,err_p95_bp,note
+cerevisiae,sc_cloned_ori,421,294,0,100,0,0,0,0,"defines the Confirmed tier, so displacement is 0 by construction"
+cerevisiae,Wyrick2001_ori,416,619,500,90,186,599,8144,13023,
+cerevisiae,Xu2006_ori,529,1911,2,99,217,467,1049,4539,"v2 declares a resolution of 2 bp, which the measurement contradicts"
+cerevisiae,Alvino2007_ori,275,1,7500,87,2057,6306,13359,16393,
+cerevisiae,Raghu2001_ori,332,1,7500,90,3785,7738,13792,16806,
+cerevisiae,sc_2D_gel,49,4669,0,11,432,3214,15194,17157,"only 49 records, so covers a small fraction of confirmed origins"
+cerevisiae,Yabuki2002_ori,276,1,5000,84,2020,5983,12978,15886,
+cerevisiae,Crabbe2010_ori,494,501,500,94,0,64,1235,7467,coordinates curated onto the OriDB origin list (62% identical intervals) - resolution not measurable
+cerevisiae,Feng2006_ori,353,1,4000,96,782,1825,7958,10961,
+cerevisiae,Szilard2010_ori,434,11,500,96,101,209,3298,8933,
+cerevisiae,Shor2009_ori,541,1301,500,92,258,1425,7553,13910,
+cerevisiae,Muller2010_ori,398,1276,500,90,191,584,10466,14681,
+pombe,Feng2006_sp_ori,366,1,4000,92,2912,4705,10700,14945,
+pombe,sp_2D_gel,48,3976,1,100,0,0,0,0,"defines the pombe Confirmed tier, so displacement is 0 by construction"
+pombe,Heichinger2006_ori,401,1,3500,92,2043,5011,10187,10867,
+pombe,Hayashi2007_ori,459,1,500,90,1185,2721,7324,7401,
+pombe,Segurado2003_ori,387,1,1000,100,1156,1671,3691,5047,
+cerevisiae,GSE242131_MCM_all,17618,1,n/a,100,61,130,237,322,
+cerevisiae,GSE242131_MCM_top1600,1600,1,n/a,99,61,144,322,817,
+pombe,GSE62108_Pu-seq,1145,301,n/a,100,917,1555,2735,3025,
+cerevisiae,Muller2014_Trep_peaks,212,6000,n/a,70,963,5520,14562,17092,"called for this work from the hub Trep bigWig; call width is the band within 1 min of the trough minimum, so it is quantised to the 1 kb bins"

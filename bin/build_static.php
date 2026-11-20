@@ -50,6 +50,7 @@ $targets = [
     ['index.php', []],
     ['about.php', []],
     ['downloads.php', []],
+    ['datahub.php', []],
     ['studies.php', []],
     ['search.php', []],
     ['browse.php', []],

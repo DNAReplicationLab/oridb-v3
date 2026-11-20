@@ -26,6 +26,7 @@ $cases = [
     ['search.php', ['region' => 'nonsense((']],
     ['studies.php', []],
     ['downloads.php', []],
+    ['datahub.php', []],
     ['about.php', []],
     ['export.php', ['format' => 'bed', 'species' => 'Saccharomyces cerevisiae']],
     ['export.php', ['format' => 'tsv']],
@@ -197,6 +198,17 @@ if ($bare !== []) {
     echo 'FAIL  unversioned asset reference in ' . implode(', ', $bare) . "\n";
 } else {
     echo "ok    assets are referenced with a content hash\n";
+}
+
+// release.json must not accumulate the same known issue twice. Build steps that
+// append to it can be rerun individually, and an unconditional append duplicates.
+$issues = $rel['known_issues'] ?? [];
+$texts = array_map(static fn ($i) => is_array($i) ? ($i['text'] ?? '') : (string) $i, $issues);
+if (count($texts) !== count(array_unique($texts))) {
+    $failures++;
+    echo "FAIL  release.json lists the same known issue more than once\n";
+} else {
+    printf("ok    %d known issue(s), none duplicated\n", count($texts));
 }
 
 printf("\n%d case(s) failed.\n", $failures);
