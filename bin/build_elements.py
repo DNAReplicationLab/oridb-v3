@@ -38,6 +38,7 @@ so the layer is complete and will attach when those tiers are added.
 from __future__ import annotations
 
 import argparse
+import csv
 import glob
 import math
 import hashlib
@@ -72,7 +73,22 @@ PROXIMITY_LIMIT = 5000  # bp; builds differ by at most a few hundred bp
 # begins at position -9. The core therefore starts at index 9 - offset within
 # the stored sequence; that reproduces the best match to the canonical ACS for
 # 62 of the 68 confirmed elements.
-STUDY_OFFSET = {'Nieduszynski2006_ACS': 7, 'Eaton2010_ACS': 6, 'Xu2006_ACS': 6}
+STUDY_OFFSET = {'Nieduszynski2006_ACS': 7, 'Eaton2010_ACS': 6, 'Xu2006_ACS': 6,
+                'Reuter2024_A': 6}
+
+# Reuter et al. 2024 (PMID 39181881, GSE240779) contributes two element classes.
+# "ACS" names the MOTIF; the element itself is the A element, which is the
+# functionally defined, ARS-essential element the motif matches. B2 is a second,
+# distinct element with its own motif, lying 3' of the A element.
+REUTER_PMID = '39181881'
+REUTER_A = 'reuter2024_A_elements.tsv'
+REUTER_B2 = 'reuter2024_B2_elements.tsv'
+# Accessions are frozen: adding a source must never renumber an existing element.
+ACCESSION_MAP = 'element_accessions.tsv'
+B2_CORE_INDEX = 1
+# Roman chromosome NAME -> number. Deliberately not called ROMAN: that name is
+# already the number -> numeral list above, and shadowing it breaks anchoring.
+CHR_NUM = {'chr' + n: i for i, n in enumerate(ROMAN) if n}
 FRAME_ORIGIN = 9
 
 # Stable key for the one known issue this step contributes to release.json.
@@ -247,7 +263,40 @@ def main() -> None:
                 # through unchanged rather than interpreted.
                 'source_offset': str(row.get('offset', '') or '').strip(),
                 'chrom_num': chrom,
+                'element_class': 'A',
             })
+
+    # ---- Reuter et al. 2024: A elements and B2 elements -----------------------
+    for cls, fname in (('A', REUTER_A), ('B2', REUTER_B2)):
+        path = ROOT / 'reference' / fname
+        with path.open(newline='') as fh:
+            for i, row in enumerate(csv.DictReader(fh, delimiter='\t'), start=1):
+                seq = (row.get('sequence') or '').upper()
+                if not re.fullmatch(r'[ACGT]+', seq or ''):
+                    continue
+                records.append({
+                    'sequence': seq,
+                    # Keep the agreed vocabulary: element_type is evidence
+                    # (confirmed | predicted); the class lives in element_class.
+                    'element_type': ((row.get('element_type') or '').strip()
+                                     if (row.get('element_type') or '').strip()
+                                     in ('confirmed', 'predicted') else 'predicted'),
+                    'element_class': cls,
+                    'study_pmid': REUTER_PMID,
+                    'source_table': 'Reuter2024_' + cls,
+                    'source_id': str(i),
+                    'source_assembly': 'sacCer3',
+                    'source_chromosome': row['chromosome'],
+                    'source_start': row['start'], 'source_end': row['end'],
+                    'source_strand': (row.get('strand') or '').strip(),
+                    'source_name': (row.get('source_name') or '').strip(),
+                    'score': '',
+                    'source_offset': '',
+                    'chrom_num': CHR_NUM[row['chromosome']],
+                    # B2 carries the 33 bp window the published interval sits in;
+                    # it is checked against the genome below rather than trusted.
+                    'given_window': (row.get('motif_window') or '').strip().upper(),
+                })
 
     # ---- locate every distinct sequence in sacCer3 ---------------------------
     index: dict[str, list[tuple[str, int, int, str]]] = {}
@@ -288,8 +337,23 @@ def main() -> None:
                     key=lambda r: (ROMAN.index(r['chromosome'][3:]), int(r['start'])))
     unplaced = sorted([r for r in records if not r['start']],
                       key=lambda r: (r['chrom_num'], int(r['source_start'])))
-    for i, r in enumerate(placed + unplaced, start=1):
-        r['accession'] = f'ODB-EL-{i:04d}'
+    # Accessions are frozen by (source_table, source_id) in reference/element_accessions.tsv.
+    # A new source appends after the highest existing number; nothing is renumbered,
+    # so a published ODB-EL accession keeps meaning the same element for ever.
+    frozen = {}
+    acc_path = ROOT / 'reference' / ACCESSION_MAP
+    if acc_path.exists():
+        with acc_path.open(newline='') as fh:
+            for row in csv.DictReader(fh, delimiter='\t'):
+                frozen[(row['source_table'], row['source_id'])] = row['accession']
+    next_n = max([int(a.rsplit('-', 1)[1]) for a in frozen.values()] or [0]) + 1
+    for r in placed + unplaced:
+        key = (r['source_table'], str(r['source_id']))
+        if key in frozen:
+            r['accession'] = frozen[key]
+        else:
+            r['accession'] = f'ODB-EL-{next_n:04d}'
+            next_n += 1
         r['species'] = 'Saccharomyces cerevisiae'
         r['assembly'] = 'sacCer3' if r['start'] else ''
         r['length'] = str(len(r['sequence']))
@@ -327,6 +391,21 @@ def main() -> None:
         r['core_match'] = ''
         r['published_start'] = ''
         r['published_end'] = ''
+        if r['element_class'] == 'B2':
+            # B2 has its own motif; the ACS core index does not apply. Take the
+            # 33 bp window around the published interval and VERIFY it against
+            # sacCer3 rather than trusting the supplied string.
+            if r['start']:
+                w = motif_window(nuclear, r['chromosome'], int(r['start']),
+                                 int(r['end']), r['strand'], B2_CORE_INDEX)
+                if w:
+                    r['motif_window'] = w
+                    r['published_start'] = str(MOTIF_UP - B2_CORE_INDEX + 1)
+                    r['published_end'] = str(int(r['published_start']) + len(r['sequence']) - 1)
+                    given = r.get('given_window') or ''
+                    if given and given != w:
+                        r['window_disagrees'] = '1'
+            continue
         if r['start'] and r['core_index'] != '' and int(r['core_index']) >= 0:
             w = motif_window(nuclear, r['chromosome'], int(r['start']), int(r['end']),
                              r['strand'], int(r['core_index']))
@@ -344,9 +423,11 @@ def main() -> None:
 
     # ---- derive the matrix from the well-anchored confirmed elements ----------
     train = [r for r in placed
-             if r['element_type'] == 'confirmed' and r['motif_window']]
+             if r['element_class'] == 'A' and r['element_type'] == 'confirmed'
+             and r['motif_window']]
     excluded = [r['accession'] for r in placed + unplaced
-                if r['element_type'] == 'confirmed' and not r['motif_window']]
+                if r['element_class'] == 'A' and r['element_type'] == 'confirmed'
+                and not r['motif_window']]
     bases = 'ACGT'
     background = {b: 0.0 for b in bases}
     total = 0
@@ -387,6 +468,8 @@ def main() -> None:
     for r in placed + unplaced:
         r['motif_score'] = ''
         r['motif_score_pct'] = ''
+        if r['element_class'] != 'A':
+            continue
         if r['motif_window']:
             sc = sum(weights[i][b] for i, b in enumerate(r['motif_window']))
             r['motif_score'] = f'{sc:.2f}'
@@ -394,8 +477,36 @@ def main() -> None:
 
     write_logo(ROOT / 'public' / 'assets' / 'acs_logo.svg', freqs, info, bases)
 
+    # ---- the B2 motif: its own matrix, derived the same way ------------------
+    # B2 is a different element with a different motif, so scoring it against the
+    # ACS matrix would be meaningless. Every placed B2 trains its own matrix.
+    b2 = [r for r in placed if r['element_class'] == 'B2' and r['motif_window']]
+    b2_cols = [{b: 0.25 for b in bases} for _ in range(MOTIF_WIDTH)]
+    for r in b2:
+        for i, base in enumerate(r['motif_window']):
+            b2_cols[i][base] += 1
+    b2_freqs, b2_weights, b2_info = [], [], []
+    for col in b2_cols:
+        tot = sum(col.values())
+        f = {b: col[b] / tot for b in bases}
+        b2_freqs.append(f)
+        b2_weights.append({b: math.log2(f[b] / background[b]) for b in bases})
+        b2_info.append(sum(f[b] * math.log2(f[b] / background[b]) for b in bases))
+    b2_consensus = ''.join(consensus_letter(f) for f in b2_freqs)
+    b2_best = sum(max(w.values()) for w in b2_weights)
+    b2_worst = sum(min(w.values()) for w in b2_weights)
+    for r in placed + unplaced:
+        if r['element_class'] != 'B2' or not r['motif_window']:
+            continue
+        sc = sum(b2_weights[i][base] for i, base in enumerate(r['motif_window']))
+        r['motif_score'] = f'{sc:.2f}'
+        r['motif_score_pct'] = str(int(round(100 * (sc - b2_worst) / (b2_best - b2_worst))))
+    if b2:
+        write_logo(ROOT / 'public' / 'assets' / 'b2_logo.svg', b2_freqs, b2_info, bases)
+
     header = ['accession', 'species', 'assembly', 'chromosome', 'start', 'end', 'strand',
-              'sequence', 'length', 'element_type', 'study_pmid', 'origin_accession',
+              'sequence', 'length', 'element_class', 'element_type', 'study_pmid',
+              'origin_accession',
               'relation', 'anchor_status', 'source_table', 'source_id', 'source_assembly',
               'source_chromosome', 'source_start', 'source_end', 'source_strand',
               'source_name', 'score', 'source_offset', 'acs_offset', 'core_index',
@@ -448,7 +559,27 @@ def main() -> None:
         'logo': 'assets/acs_logo.svg',
         'logo_column_width': LOGO_COL_W,
         'logo_left_pad': LOGO_PAD_L,
+        'applies_to_element_class': 'A',
     }
+    if b2:
+        rel['b2_motif'] = {
+            'width': MOTIF_WIDTH,
+            'applies_to_element_class': 'B2',
+            'consensus': b2_consensus,
+            'derivation': 'Position weight matrix built from the placed B2 elements of '
+                          'Reuter et al. 2024 (PMID 39181881), extended into sacCer3 '
+                          'around the published interval and measured against the sacCer3 '
+                          'base composition, by the same recipe as the ACS matrix. B2 is '
+                          'a distinct element from the A element and is scored against '
+                          'this matrix, not against the ACS matrix.',
+            'training_elements': len(b2),
+            'information_content_bits': round(sum(b2_info), 2),
+            'information_by_column': [round(v, 2) for v in b2_info],
+            'background': {b: round(background[b], 4) for b in bases},
+            'logo': 'assets/b2_logo.svg',
+            'logo_column_width': LOGO_COL_W,
+            'logo_left_pad': LOGO_PAD_L,
+        }
     rel['elements'] = {
         'description': 'ACS elements from the four OriDB v2 element studies, each located '
                        'in sacCer3 by its stored sequence rather than by its stored '

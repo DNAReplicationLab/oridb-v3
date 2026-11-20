@@ -97,7 +97,11 @@ require ORIDB_APP_DIR . '/header.php';
   </p>
   <?php
   $motif = Data::release()['acs_motif'] ?? null;
-  $aligned = array_values(array_filter($elements, static fn (array $e): bool => $e['motif_window'] !== ''));
+  // Only A elements are scored against the ACS matrix. B2 elements have their own
+  // motif and their own matrix, so they are excluded from this alignment rather
+  // than being drawn against a consensus that does not apply to them.
+  $aligned = array_values(array_filter($elements, static fn (array $e): bool =>
+      $e['motif_window'] !== '' && ($e['element_class'] ?? 'A') === 'A'));
   ?>
   <?php if ($motif !== null && $aligned !== []): ?>
     <h3>Match to the ACS motif</h3>

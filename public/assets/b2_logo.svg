@@ -1,0 +1,122 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="662" height="122" viewBox="0 0 662 122" role="img" aria-label="Sequence logo of the OriDB ACS motif">
+<style>text{font-family:ui-monospace,Menlo,monospace;font-weight:700}.ax{font-weight:400;font-size:9px;fill:#5b6671}</style>
+<line x1="58" y1="90" x2="658" y2="90" stroke="#d8dee4"/>
+<text class="ax" x="56" y="12" text-anchor="end">2 bits</text>
+<text class="ax" x="56" y="23" text-anchor="end">vs genome</text>
+<text class="ax" x="56" y="90" text-anchor="end">0</text>
+<g transform="translate(62,90.0) scale(1.800,0.061)"><text x="0" y="0" font-size="10" fill="#c0392b">T</text></g>
+<g transform="translate(62,89.39420290476137) scale(1.800,0.093)"><text x="0" y="0" font-size="10" fill="#1a7f4b">A</text></g>
+<text class="ax" x="64" y="102">1</text>
+<g transform="translate(80,90.0) scale(1.800,0.082)"><text x="0" y="0" font-size="10" fill="#d08b00">G</text></g>
+<g transform="translate(80,89.18442772546354) scale(1.800,0.174)"><text x="0" y="0" font-size="10" fill="#c0392b">T</text></g>
+<g transform="translate(80,87.44928402728866) scale(1.800,0.351)"><text x="0" y="0" font-size="10" fill="#1a7f4b">A</text></g>
+<g transform="translate(98,90.0) scale(1.800,0.062)"><text x="0" y="0" font-size="10" fill="#0b5fa5">C</text></g>
+<g transform="translate(98,89.37759584424195) scale(1.800,0.167)"><text x="0" y="0" font-size="10" fill="#d08b00">G</text></g>
+<g transform="translate(98,87.7069320577335) scale(1.800,0.276)"><text x="0" y="0" font-size="10" fill="#c0392b">T</text></g>
+<g transform="translate(98,84.94433115586004) scale(1.800,0.822)"><text x="0" y="0" font-size="10" fill="#1a7f4b">A</text></g>
+<g transform="translate(116,90.0) scale(1.800,0.195)"><text x="0" y="0" font-size="10" fill="#d08b00">G</text></g>
+<g transform="translate(116,88.04688119246524) scale(1.800,0.306)"><text x="0" y="0" font-size="10" fill="#c0392b">T</text></g>
+<g transform="translate(116,84.98429844692257) scale(1.800,0.861)"><text x="0" y="0" font-size="10" fill="#1a7f4b">A</text></g>
+<g transform="translate(134,90.0) scale(1.800,0.110)"><text x="0" y="0" font-size="10" fill="#0b5fa5">C</text></g>
+<g transform="translate(134,88.9020292976325) scale(1.800,0.125)"><text x="0" y="0" font-size="10" fill="#d08b00">G</text></g>
+<g transform="translate(134,87.64859371705367) scale(1.800,0.215)"><text x="0" y="0" font-size="10" fill="#c0392b">T</text></g>
+<g transform="translate(134,85.50123508675972) scale(1.800,0.732)"><text x="0" y="0" font-size="10" fill="#1a7f4b">A</text></g>
+<text class="ax" x="136" y="102">5</text>
+<g transform="translate(152,90.0) scale(1.800,0.077)"><text x="0" y="0" font-size="10" fill="#d08b00">G</text></g>
+<g transform="translate(152,89.2316028156504) scale(1.800,0.135)"><text x="0" y="0" font-size="10" fill="#0b5fa5">C</text></g>
+<g transform="translate(152,87.88464775131995) scale(1.800,0.229)"><text x="0" y="0" font-size="10" fill="#c0392b">T</text></g>
+<g transform="translate(152,85.59753613202058) scale(1.800,0.659)"><text x="0" y="0" font-size="10" fill="#1a7f4b">A</text></g>
+<g transform="translate(170,90.0) scale(1.800,0.071)"><text x="0" y="0" font-size="10" fill="#d08b00">G</text></g>
+<g transform="translate(170,89.2924127170419) scale(1.800,0.084)"><text x="0" y="0" font-size="10" fill="#c0392b">T</text></g>
+<g transform="translate(170,88.44842306628463) scale(1.800,0.155)"><text x="0" y="0" font-size="10" fill="#1a7f4b">A</text></g>
+<g transform="translate(188,90.0) scale(1.800,0.110)"><text x="0" y="0" font-size="10" fill="#d08b00">G</text></g>
+<g transform="translate(188,88.89549017038065) scale(1.800,0.156)"><text x="0" y="0" font-size="10" fill="#c0392b">T</text></g>
+<g transform="translate(188,87.33695258471225) scale(1.800,0.234)"><text x="0" y="0" font-size="10" fill="#1a7f4b">A</text></g>
+<g transform="translate(206,90.0) scale(1.800,0.079)"><text x="0" y="0" font-size="10" fill="#c0392b">T</text></g>
+<g transform="translate(206,89.21140927051853) scale(1.800,0.137)"><text x="0" y="0" font-size="10" fill="#1a7f4b">A</text></g>
+<g transform="translate(224,90.0) scale(1.800,0.065)"><text x="0" y="0" font-size="10" fill="#d08b00">G</text></g>
+<g transform="translate(224,89.34852840746125) scale(1.800,0.093)"><text x="0" y="0" font-size="10" fill="#c0392b">T</text></g>
+<g transform="translate(224,88.415670023779) scale(1.800,0.174)"><text x="0" y="0" font-size="10" fill="#1a7f4b">A</text></g>
+<text class="ax" x="226" y="102">10</text>
+<g transform="translate(242,90.0) scale(1.800,0.074)"><text x="0" y="0" font-size="10" fill="#c0392b">T</text></g>
+<g transform="translate(242,89.2598998750854) scale(1.800,0.124)"><text x="0" y="0" font-size="10" fill="#1a7f4b">A</text></g>
+<g transform="translate(260,90.0) scale(1.800,0.071)"><text x="0" y="0" font-size="10" fill="#d08b00">G</text></g>
+<g transform="translate(260,89.28985487511812) scale(1.800,0.080)"><text x="0" y="0" font-size="10" fill="#0b5fa5">C</text></g>
+<g transform="translate(260,88.49162973474702) scale(1.800,0.159)"><text x="0" y="0" font-size="10" fill="#c0392b">T</text></g>
+<g transform="translate(260,86.9006844549729) scale(1.800,0.359)"><text x="0" y="0" font-size="10" fill="#1a7f4b">A</text></g>
+<g transform="translate(278,90.0) scale(1.800,0.076)"><text x="0" y="0" font-size="10" fill="#d08b00">G</text></g>
+<g transform="translate(278,89.24051861692894) scale(1.800,0.107)"><text x="0" y="0" font-size="10" fill="#c0392b">T</text></g>
+<g transform="translate(278,88.16622629786987) scale(1.800,0.240)"><text x="0" y="0" font-size="10" fill="#1a7f4b">A</text></g>
+<g transform="translate(296,90.0) scale(1.800,0.108)"><text x="0" y="0" font-size="10" fill="#c0392b">T</text></g>
+<g transform="translate(296,88.92195983516794) scale(1.800,0.173)"><text x="0" y="0" font-size="10" fill="#1a7f4b">A</text></g>
+<g transform="translate(314,90.0) scale(1.800,0.121)"><text x="0" y="0" font-size="10" fill="#c0392b">T</text></g>
+<g transform="translate(314,88.78581883184816) scale(1.800,0.202)"><text x="0" y="0" font-size="10" fill="#1a7f4b">A</text></g>
+<text class="ax" x="316" y="102">15</text>
+<g transform="translate(332,90.0) scale(1.800,0.114)"><text x="0" y="0" font-size="10" fill="#c0392b">T</text></g>
+<g transform="translate(332,88.86472861349955) scale(1.800,0.196)"><text x="0" y="0" font-size="10" fill="#1a7f4b">A</text></g>
+<g transform="translate(350,90.0) scale(1.800,0.071)"><text x="0" y="0" font-size="10" fill="#d08b00">G</text></g>
+<g transform="translate(350,89.2918831712685) scale(1.800,0.152)"><text x="0" y="0" font-size="10" fill="#c0392b">T</text></g>
+<g transform="translate(350,87.76920057876742) scale(1.800,0.286)"><text x="0" y="0" font-size="10" fill="#1a7f4b">A</text></g>
+<g transform="translate(368,90.0) scale(1.800,0.063)"><text x="0" y="0" font-size="10" fill="#0b5fa5">C</text></g>
+<g transform="translate(368,89.3713658418216) scale(1.800,0.079)"><text x="0" y="0" font-size="10" fill="#d08b00">G</text></g>
+<g transform="translate(368,88.5764813277613) scale(1.800,0.156)"><text x="0" y="0" font-size="10" fill="#c0392b">T</text></g>
+<g transform="translate(368,87.01268891774725) scale(1.800,0.333)"><text x="0" y="0" font-size="10" fill="#1a7f4b">A</text></g>
+<g transform="translate(386,90.0) scale(1.800,0.095)"><text x="0" y="0" font-size="10" fill="#0b5fa5">C</text></g>
+<g transform="translate(386,89.0504888369967) scale(1.800,0.135)"><text x="0" y="0" font-size="10" fill="#d08b00">G</text></g>
+<g transform="translate(386,87.70308728187774) scale(1.800,0.203)"><text x="0" y="0" font-size="10" fill="#c0392b">T</text></g>
+<g transform="translate(386,85.66842050401354) scale(1.800,0.666)"><text x="0" y="0" font-size="10" fill="#1a7f4b">A</text></g>
+<g transform="translate(404,90.0) scale(1.800,0.094)"><text x="0" y="0" font-size="10" fill="#0b5fa5">C</text></g>
+<g transform="translate(404,89.05885183787993) scale(1.800,0.108)"><text x="0" y="0" font-size="10" fill="#d08b00">G</text></g>
+<g transform="translate(404,87.9761776363433) scale(1.800,0.165)"><text x="0" y="0" font-size="10" fill="#c0392b">T</text></g>
+<g transform="translate(404,86.32739927714046) scale(1.800,0.493)"><text x="0" y="0" font-size="10" fill="#1a7f4b">A</text></g>
+<text class="ax" x="406" y="102">20</text>
+<g transform="translate(422,90.0) scale(1.800,0.075)"><text x="0" y="0" font-size="10" fill="#d08b00">G</text></g>
+<g transform="translate(422,89.2507183656169) scale(1.800,0.077)"><text x="0" y="0" font-size="10" fill="#0b5fa5">C</text></g>
+<g transform="translate(422,88.47745971893355) scale(1.800,0.180)"><text x="0" y="0" font-size="10" fill="#c0392b">T</text></g>
+<g transform="translate(422,86.67318954333905) scale(1.800,0.396)"><text x="0" y="0" font-size="10" fill="#1a7f4b">A</text></g>
+<g transform="translate(440,90.0) scale(1.800,0.086)"><text x="0" y="0" font-size="10" fill="#0b5fa5">C</text></g>
+<g transform="translate(440,89.13672326990867) scale(1.800,0.130)"><text x="0" y="0" font-size="10" fill="#d08b00">G</text></g>
+<g transform="translate(440,87.83207197104883) scale(1.800,0.136)"><text x="0" y="0" font-size="10" fill="#c0392b">T</text></g>
+<g transform="translate(440,86.47549425233387) scale(1.800,0.437)"><text x="0" y="0" font-size="10" fill="#1a7f4b">A</text></g>
+<g transform="translate(458,90.0) scale(1.800,0.066)"><text x="0" y="0" font-size="10" fill="#0b5fa5">C</text></g>
+<g transform="translate(458,89.34080169284813) scale(1.800,0.266)"><text x="0" y="0" font-size="10" fill="#d08b00">G</text></g>
+<g transform="translate(458,86.67764053195461) scale(1.800,0.277)"><text x="0" y="0" font-size="10" fill="#c0392b">T</text></g>
+<g transform="translate(458,83.90900764191679) scale(1.800,2.597)"><text x="0" y="0" font-size="10" fill="#1a7f4b">A</text></g>
+<g transform="translate(476,90.0) scale(1.800,0.194)"><text x="0" y="0" font-size="10" fill="#d08b00">G</text></g>
+<g transform="translate(476,88.05928425777438) scale(1.800,0.317)"><text x="0" y="0" font-size="10" fill="#c0392b">T</text></g>
+<g transform="translate(476,84.89285330993258) scale(1.800,3.612)"><text x="0" y="0" font-size="10" fill="#1a7f4b">A</text></g>
+<g transform="translate(494,90.0) scale(1.800,0.152)"><text x="0" y="0" font-size="10" fill="#0b5fa5">C</text></g>
+<g transform="translate(494,88.48278656328598) scale(1.800,0.461)"><text x="0" y="0" font-size="10" fill="#c0392b">T</text></g>
+<g transform="translate(494,83.8692191740944) scale(1.800,3.149)"><text x="0" y="0" font-size="10" fill="#1a7f4b">A</text></g>
+<text class="ax" x="496" y="102">25</text>
+<g transform="translate(512,90.0) scale(1.800,0.249)"><text x="0" y="0" font-size="10" fill="#0b5fa5">C</text></g>
+<g transform="translate(512,87.51272840290181) scale(1.800,0.340)"><text x="0" y="0" font-size="10" fill="#c0392b">T</text></g>
+<g transform="translate(512,84.1081651529731) scale(1.800,1.512)"><text x="0" y="0" font-size="10" fill="#1a7f4b">A</text></g>
+<g transform="translate(530,90.0) scale(1.800,0.169)"><text x="0" y="0" font-size="10" fill="#d08b00">G</text></g>
+<g transform="translate(530,88.3087834298308) scale(1.800,0.197)"><text x="0" y="0" font-size="10" fill="#c0392b">T</text></g>
+<g transform="translate(530,86.33860330169554) scale(1.800,0.225)"><text x="0" y="0" font-size="10" fill="#0b5fa5">C</text></g>
+<g transform="translate(530,84.08945961559422) scale(1.800,1.529)"><text x="0" y="0" font-size="10" fill="#1a7f4b">A</text></g>
+<g transform="translate(548,90.0) scale(1.800,0.083)"><text x="0" y="0" font-size="10" fill="#d08b00">G</text></g>
+<g transform="translate(548,89.1676476975989) scale(1.800,0.514)"><text x="0" y="0" font-size="10" fill="#c0392b">T</text></g>
+<g transform="translate(548,84.0266481827685) scale(1.800,0.553)"><text x="0" y="0" font-size="10" fill="#1a7f4b">A</text></g>
+<g transform="translate(566,90.0) scale(1.800,0.082)"><text x="0" y="0" font-size="10" fill="#d08b00">G</text></g>
+<g transform="translate(566,89.17567829954675) scale(1.800,0.267)"><text x="0" y="0" font-size="10" fill="#c0392b">T</text></g>
+<g transform="translate(566,86.50942397187383) scale(1.800,0.305)"><text x="0" y="0" font-size="10" fill="#1a7f4b">A</text></g>
+<g transform="translate(584,90.0) scale(1.800,0.126)"><text x="0" y="0" font-size="10" fill="#0b5fa5">C</text></g>
+<g transform="translate(584,88.74320785065223) scale(1.800,0.136)"><text x="0" y="0" font-size="10" fill="#d08b00">G</text></g>
+<g transform="translate(584,87.38240531653085) scale(1.800,0.160)"><text x="0" y="0" font-size="10" fill="#c0392b">T</text></g>
+<g transform="translate(584,85.77891188460438) scale(1.800,0.632)"><text x="0" y="0" font-size="10" fill="#1a7f4b">A</text></g>
+<text class="ax" x="586" y="102">30</text>
+<g transform="translate(602,90.0) scale(1.800,0.091)"><text x="0" y="0" font-size="10" fill="#d08b00">G</text></g>
+<g transform="translate(602,89.09288446964598) scale(1.800,0.138)"><text x="0" y="0" font-size="10" fill="#0b5fa5">C</text></g>
+<g transform="translate(602,87.71758027846408) scale(1.800,0.227)"><text x="0" y="0" font-size="10" fill="#c0392b">T</text></g>
+<g transform="translate(602,85.44491448736207) scale(1.800,0.731)"><text x="0" y="0" font-size="10" fill="#1a7f4b">A</text></g>
+<g transform="translate(620,90.0) scale(1.800,0.086)"><text x="0" y="0" font-size="10" fill="#d08b00">G</text></g>
+<g transform="translate(620,89.14366888978648) scale(1.800,0.148)"><text x="0" y="0" font-size="10" fill="#0b5fa5">C</text></g>
+<g transform="translate(620,87.66751716646603) scale(1.800,0.177)"><text x="0" y="0" font-size="10" fill="#c0392b">T</text></g>
+<g transform="translate(620,85.89776620535808) scale(1.800,0.581)"><text x="0" y="0" font-size="10" fill="#1a7f4b">A</text></g>
+<g transform="translate(638,90.0) scale(1.800,0.097)"><text x="0" y="0" font-size="10" fill="#d08b00">G</text></g>
+<g transform="translate(638,89.0291430143245) scale(1.800,0.170)"><text x="0" y="0" font-size="10" fill="#0b5fa5">C</text></g>
+<g transform="translate(638,87.3266256916182) scale(1.800,0.283)"><text x="0" y="0" font-size="10" fill="#c0392b">T</text></g>
+<g transform="translate(638,84.4984770811722) scale(1.800,1.161)"><text x="0" y="0" font-size="10" fill="#1a7f4b">A</text></g>
+</svg>

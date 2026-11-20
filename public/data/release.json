@@ -32,8 +32,8 @@
       "rows": 48
     },
     "elements.tsv": {
-      "md5": "98ef9853c9e453f2bf9fb284506e21bb",
-      "rows": 1022
+      "md5": "a019772caa5e8ae10e0eb5af9e8891eb",
+      "rows": 1657
     }
   },
   "provenance": {
@@ -118,7 +118,7 @@
     },
     {
       "id": "elements-unplaced",
-      "text": "3 of 1022 ACS elements could not be placed in sacCer3 from their sequence alone - either the sequence does not occur in the current assembly, or it occurs several times with none near the coordinate v2 recorded. They are published without coordinates rather than placed on a guess; see anchor_status in elements.tsv.",
+      "text": "3 of 1657 ACS elements could not be placed in sacCer3 from their sequence alone - either the sequence does not occur in the current assembly, or it occurs several times with none near the coordinate v2 recorded. They are published without coordinates rather than placed on a guess; see anchor_status in elements.tsv.",
       "accessions": []
     }
   ],
@@ -192,7 +192,8 @@
     },
     "logo": "assets/acs_logo.svg",
     "logo_column_width": 18,
-    "logo_left_pad": 62
+    "logo_left_pad": 62,
+    "applies_to_element_class": "A"
   },
   "elements": {
     "description": "ACS elements from the four OriDB v2 element studies, each located in sacCer3 by its stored sequence rather than by its stored coordinates.",
@@ -219,15 +220,67 @@
       }
     },
     "anchor_status_counts": {
-      "unique": 800,
-      "resolved-by-proximity": 219,
+      "unique": 1404,
+      "resolved-by-proximity": 250,
       "ambiguous": 1,
       "unanchored": 2
     },
     "link_counts": {
-      "contained": 814,
-      "overlapping": 11,
-      "unlinked": 197
+      "contained": 1423,
+      "overlapping": 18,
+      "unlinked": 216
     }
+  },
+  "b2_motif": {
+    "width": 33,
+    "applies_to_element_class": "B2",
+    "consensus": "nnnnnnnnnnnnnnnnnnnnnnAAAWnWnnnnn",
+    "derivation": "Position weight matrix built from the placed B2 elements of Reuter et al. 2024 (PMID 39181881), extended into sacCer3 around the published interval and measured against the sacCer3 base composition, by the same recipe as the ACS matrix. B2 is a distinct element from the A element and is scored against this matrix, not against the ACS matrix.",
+    "training_elements": 303,
+    "information_content_bits": 9.24,
+    "information_by_column": [
+      0.05,
+      0.17,
+      0.33,
+      0.35,
+      0.3,
+      0.27,
+      0.09,
+      0.13,
+      0.07,
+      0.09,
+      0.07,
+      0.17,
+      0.12,
+      0.09,
+      0.11,
+      0.1,
+      0.14,
+      0.16,
+      0.27,
+      0.22,
+      0.18,
+      0.2,
+      0.8,
+      1.04,
+      0.94,
+      0.54,
+      0.53,
+      0.3,
+      0.17,
+      0.26,
+      0.3,
+      0.25,
+      0.43
+    ],
+    "background": {
+      "A": 0.309,
+      "C": 0.1917,
+      "G": 0.1913,
+      "T": 0.308
+    },
+    "logo": "assets/b2_logo.svg",
+    "logo_column_width": 18,
+    "logo_left_pad": 62
   }
 }
