@@ -23,6 +23,7 @@ $title = $title ?? 'OriDB';
       <a href="datahub.php">Data hub</a>
       <a href="studies.php">Studies</a>
       <a href="about.php">About</a>
+      <a href="development.php">Development</a>
     </nav>
   </div>
 </header>

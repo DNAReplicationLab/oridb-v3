@@ -49,6 +49,7 @@ function render(string $root, string $page, array $query): string
 $targets = [
     ['index.php', []],
     ['about.php', []],
+    ['development.php', []],
     ['downloads.php', []],
     ['datahub.php', []],
     ['studies.php', []],
@@ -91,18 +92,20 @@ foreach ($targets as [$page, $query]) {
     $html = render($root, $page, $query);
 
     // Rewrite internal links onto the flat filenames.
+    // A fragment is carried across unchanged: pages link to named sections of each
+    // other, and dropping the #anchor would silently land the reader at the top.
     $html = preg_replace_callback(
-        '/(href=")([a-z0-9_\/]+\.php)(\?[^"]*)?(")/i',
+        '/(href=")([a-z0-9_\/]+\.php)(\?[^"#]*)?(#[^"]*)?(")/i',
         static function (array $m) use ($map): string {
             $query = [];
-            if (isset($m[3]) && $m[3] !== '') {
+            if (($m[3] ?? '') !== '') {
                 parse_str(html_entity_decode(ltrim($m[3], '?'), ENT_QUOTES, 'UTF-8'), $query);
             }
             $query = array_filter($query, static fn ($v): bool => (string) $v !== '');
             $key = $m[2] . '?' . http_build_query($query);
             $file = $map[$key] ?? static_name($m[2], $query);
 
-            return $m[1] . $file . $m[4];
+            return $m[1] . $file . ($m[4] ?? '') . $m[5];
         },
         $html
     );

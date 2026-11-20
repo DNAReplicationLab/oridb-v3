@@ -1,6 +1,7 @@
 <?php
 declare(strict_types=1);
 require_once __DIR__ . '/app/bootstrap.php';
+require_once ORIDB_APP_DIR . '/elements_view.php';
 
 $accession = isset($_GET['id']) ? (string) $_GET['id'] : '';
 $origin = $accession !== '' ? Data::origin($accession) : null;
@@ -63,122 +64,146 @@ require ORIDB_APP_DIR . '/header.php';
 <table>
   <thead><tr><th>Method</th><th>Assayed interval</th><th class="num">Width</th><th>Detail</th><th>Reference</th></tr></thead>
   <tbody>
-  <?php foreach ($evidence as $e):
-      $study = Data::study($e['pmid']); ?>
+  <?php foreach ($evidence as $e): ?>
     <tr>
       <td><?= h($e['method']) ?></td>
       <td class="mono"><?= h($e['chromosome']) ?>:<?= h(bp($e['start'])) ?>&ndash;<?= h(bp($e['end'])) ?></td>
       <td class="num"><?= h(bp((int) $e['end'] - (int) $e['start'] + 1)) ?></td>
       <td><?= $e['detail'] !== '' ? h($e['detail']) : '<span class="small">&ndash;</span>' ?></td>
-      <td>
-        <?php if ($study !== null): ?>
-          <a href="https://pubmed.ncbi.nlm.nih.gov/<?= h($study['pmid']) ?>/" rel="noopener">
-            <?= h(explode(',', $study['first_author'])[0]) ?><?= (int) $study['n_authors'] > 1 ? ' et al.' : '' ?>
-            <?= h($study['year']) ?></a>
-        <?php else: ?>
-          <span class="small">citation not recorded in v2</span>
-        <?php endif; ?>
-      </td>
+      <td><?= cite_pmid((string) $e['pmid']) ?></td>
     </tr>
   <?php endforeach; ?>
   </tbody>
 </table>
 
 <h2>Origin elements</h2>
-<?php $elements = Data::elementsFor($accession); ?>
+<?php
+$elements = Data::elementsFor($accession);
+// Placed elements only can be drawn or aligned; the records table lists them all.
+$byClass = ['A' => [], 'B2' => []];
+foreach ($elements as $e) {
+    $class = ($e['element_class'] ?? 'A') === 'B2' ? 'B2' : 'A';
+    if ($e['motif_window'] !== '' && $e['start'] !== '') {
+        $byClass[$class][] = $e;
+    }
+}
+$motifs = [
+    'A' => Data::release()['acs_motif'] ?? null,
+    'B2' => Data::release()['b2_motif'] ?? null,
+];
+?>
 <?php if ($elements === []): ?>
-  <p class="small">No element from the four element studies falls within this origin.</p>
+  <p class="small">
+    No element from the element studies falls within this origin. What these elements are
+    and how they are located is described <a href="about.php#elements">on the About page</a>.
+  </p>
 <?php else: ?>
   <p class="small">
-    <?= h((string) count($elements)) ?> element record<?= count($elements) === 1 ? '' : 's' ?>.
-    Each is located in <?= h($origin['assembly']) ?> by its own sequence rather than by the
-    coordinates OriDB v2 recorded, so the same element reported by two studies appears twice
-    at the same position.
+    <?= h((string) count($elements)) ?> element record<?= count($elements) === 1 ? '' : 's' ?>
+    at this origin: <?= h((string) count($byClass['A'])) ?> A,
+    <?= h((string) count($byClass['B2'])) ?> B2 (placed).
+    <a href="about.php#elements">What A and B2 elements are, how they are located and what
+    the scores mean</a>.
   </p>
+
   <?php
-  $motif = Data::release()['acs_motif'] ?? null;
-  // Only A elements are scored against the ACS matrix. B2 elements have their own
-  // motif and their own matrix, so they are excluded from this alignment rather
-  // than being drawn against a consensus that does not apply to them.
-  $aligned = array_values(array_filter($elements, static fn (array $e): bool =>
-      $e['motif_window'] !== '' && ($e['element_class'] ?? 'A') === 'A'));
+  $figure = element_overview_svg($origin, $elements, 'elfig-' . $accession);
+  $unplacedCount = count($elements) - count($byClass['A']) - count($byClass['B2']);
   ?>
-  <?php if ($motif !== null && $aligned !== []): ?>
-    <h3>Match to the ACS motif</h3>
+  <?php if ($figure !== ''): ?>
+    <figure class="elfig-wrap">
+      <?= $figure ?>
+      <figcaption class="small">
+        Elements drawn to scale across the origin interval, A above and B2 below. Dashed
+        rules mark the ends of the origin, so an element that extends past them is drawn
+        outside the box rather than trimmed to fit. Marks narrower than a few pixels are
+        drawn at that minimum, so a very short element stays visible; exact coordinates are
+        in the table below. Hovering a mark names the element.
+      </figcaption>
+    </figure>
+  <?php endif; ?>
+  <?php if ($unplacedCount > 0): ?>
+    <p class="small"><?= h((string) $unplacedCount) ?> of these records could not be placed
+    in the assembly from their sequence, so they are listed below but not drawn or aligned.</p>
+  <?php endif; ?>
+
+  <?php if ($motifs['A'] !== null && $byClass['A'] !== []):
+      $motifA = $motifs['A'];
+      $regionsA = motif_regions($motifA);
+      $coreA = motif_region($regionsA, 'core');
+      $b1A = motif_region($regionsA, 'b1'); ?>
+    <h3>A and B1 elements</h3>
     <p class="small">
-      The motif below was derived from the <?= h((string) $motif['training_elements']) ?>
-      experimentally confirmed ACS elements, extended into the genome either side of the
-      11 bp core; columns <?= h((string) $motif['core_columns'][0]) ?>&ndash;<?= h((string) $motif['core_columns'][1]) ?>
-      are the core, marked by the rules below. Each element is shown on its T-rich strand,
-      aligned on that core. The shaded run is the sequence as published by that study,
-      which is 10 to 33 bp depending on the study; everything outside it is genomic
-      context added here to fill the window. Bases matching the consensus are in black,
-      the rest grey. The score is the log-odds of the whole
-      <?= h((string) $motif['width']) ?> bp window against the matrix.
-      <a href="https://github.com/DNAReplicationLab/oridb-v3/blob/main/docs/acs-motif.md">How this motif was derived</a>.
+      The <?= h((string) $motifA['width']) ?> bp window below spans both elements: the A
+      element &mdash; the ORC-binding element the ACS motif matches &mdash; at columns
+      <?= h((string) $coreA['start']) ?>&ndash;<?= h((string) $coreA['end']) ?>, and
+      <?php if ($b1A !== null): ?>
+        the B1 region at columns <?= h((string) $b1A['start']) ?>&ndash;<?= h((string) $b1A['end']) ?>,
+        which the matrix recovers as a separate run of conserved columns past a trough at
+        background. Both are marked on the rows.
+      <?php else: ?>
+        no second conserved run is resolved in this matrix.
+      <?php endif; ?>
+      Each element is shown on its T-rich strand, aligned on the A core; the shaded run is
+      the sequence as that study published it and the rest is genomic context. Bases
+      agreeing with the consensus are in black, the rest grey.
+      <strong>Confirmed elements are in bold</strong> and labelled
+      <span class="ev">confirmed</span> beside the score; the others are predictions.
+      <a href="about.php#elements">How the motif is built and scored</a>.
     </p>
-    <div class="alnbox" style="--colw: <?= h((string) $motif['logo_column_width']) ?>px;
-                               --padl: <?= h((string) $motif['logo_left_pad']) ?>px">
-    <img src="<?= h(Data::asset($motif['logo'])) ?>" alt="Sequence logo of the OriDB ACS motif" class="logo">
-    <table class="aln">
-      <tbody>
-        <tr class="cons">
-          <td class="lbl">consensus</td>
-          <?php foreach (str_split($motif['consensus']) as $i => $c):
-              $col = $i + 1; ?>
-            <td class="b core<?= $col === $motif['core_columns'][0] ? ' cs' : '' ?><?= $col === $motif['core_columns'][1] ? ' ce' : '' ?>"><?= h($c) ?></td>
-          <?php endforeach; ?>
-          <td class="sc">score</td>
-        </tr>
-        <?php foreach ($aligned as $e): ?>
-          <tr>
-            <td class="lbl mono"><?= h($e['accession']) ?></td>
-            <?php foreach (str_split($e['motif_window']) as $i => $b):
-                $col = $i + 1;
-                $code = $motif['consensus'][$i];
-                $ok = str_contains(['W' => 'AT', 'Y' => 'CT', 'R' => 'AG', 'S' => 'CG',
-                                    'M' => 'AC', 'K' => 'GT', 'n' => 'ACGT'][$code] ?? $code, $b);
-                $cls = 'b ' . ($ok ? 'm' : 'x')
-                     . ($col >= (int) $e['published_start'] && $col <= (int) $e['published_end'] ? ' pub' : '')
-                     . ($col === $motif['core_columns'][0] ? ' cs' : '')
-                     . ($col === $motif['core_columns'][1] ? ' ce' : ''); ?>
-              <td class="<?= h($cls) ?>"><?= h($b) ?></td>
-            <?php endforeach; ?>
-            <td class="sc"><?= h($e['motif_score']) ?> bits<br><span class="small"><?= h($e['motif_score_pct']) ?>%, <?= h($e['length']) ?> bp</span></td>
-          </tr>
-        <?php endforeach; ?>
-      </tbody>
-    </table>
-    </div>
-    <?php $unaligned = count($elements) - count($aligned); ?>
-    <?php if ($unaligned > 0): ?>
-      <p class="small"><?= h((string) $unaligned) ?> element<?= $unaligned === 1 ? '' : 's' ?>
-      could not be placed in the assembly and so cannot be aligned.</p>
-    <?php endif; ?>
+    <?php motif_panel(
+        $motifA,
+        $byClass['A'],
+        (int) $motifA['logo_column_width'],
+        (int) $motifA['logo_left_pad'],
+        'Sequence logo of the OriDB A-element (ACS) motif'
+    ); ?>
+  <?php endif; ?>
+
+  <?php if ($motifs['B2'] !== null && $byClass['B2'] !== []):
+      $motifB = $motifs['B2'];
+      $regionsB = motif_regions($motifB);
+      $blockB = motif_region($regionsB, 'core'); ?>
+    <h3>B2 elements</h3>
+    <p class="small">
+      B2 is a distinct element 3' of the A element, with its own matrix: these rows are
+      scored against the B2 motif, not against the ACS motif.
+      <?php if ($blockB !== null): ?>
+        Its conserved block falls at columns <?= h((string) $blockB['start']) ?>&ndash;<?= h((string) $blockB['end']) ?>
+        of the <?= h((string) $motifB['width']) ?> bp window and is marked on the rows;
+      <?php else: ?>
+        The window is <?= h((string) $motifB['width']) ?> bp wide;
+      <?php endif; ?>
+      the matrix carries <?= h((string) $motifB['information_content_bits']) ?> bits in all,
+      so agreement is weaker and more spread out than for the A element. Shading, tinting
+      and scores read as in the panel above.
+      <a href="about.php#elements">What the B2 element is</a>.
+    </p>
+    <?php motif_panel(
+        $motifB,
+        $byClass['B2'],
+        (int) $motifB['logo_column_width'],
+        (int) $motifB['logo_left_pad'],
+        'Sequence logo of the OriDB B2-element motif'
+    ); ?>
   <?php endif; ?>
 
   <h3>Element records</h3>
   <table>
     <thead><tr><th>Element</th><th>Position</th><th class="num">Length</th><th>Strand</th>
-               <th>Class</th><th>Study</th><th>Placement</th></tr></thead>
+               <th>Class</th><th>Evidence</th><th>Study</th><th>Placement</th></tr></thead>
     <tbody>
-    <?php foreach ($elements as $e):
-        $study = Data::study($e['study_pmid']); ?>
-      <tr>
+    <?php foreach ($elements as $e): ?>
+      <tr<?= $e['element_type'] === 'confirmed' ? ' class="conf"' : '' ?>>
         <td class="mono"><?= h($e['accession']) ?></td>
-        <td class="mono"><?= h($e['chromosome']) ?>:<?= h(bp($e['start'])) ?>&ndash;<?= h(bp($e['end'])) ?></td>
+        <td class="mono"><?= $e['start'] !== ''
+            ? h($e['chromosome']) . ':' . h(bp($e['start'])) . '&ndash;' . h(bp($e['end']))
+            : '<span class="small">not placed</span>' ?></td>
         <td class="num"><?= h($e['length']) ?></td>
         <td class="mono"><?= h($e['strand']) ?></td>
+        <td><?= h($e['element_class']) ?></td>
         <td><?= h($e['element_type']) ?></td>
-        <td class="small">
-          <?php if ($study !== null): ?>
-            <a href="https://pubmed.ncbi.nlm.nih.gov/<?= h($study['pmid']) ?>/" rel="noopener">
-              <?= h(explode(',', $study['first_author'])[0]) ?><?= (int) $study['n_authors'] > 1 ? ' et al.' : '' ?>
-              <?= h($study['year']) ?></a>
-          <?php else: ?>
-            <?= h($e['source_table']) ?>
-          <?php endif; ?>
-        </td>
+        <td class="small"><?= cite_pmid((string) $e['study_pmid'], (string) $e['source_table']) ?></td>
         <td class="small">
           <?= h($e['relation']) ?><?= $e['anchor_status'] !== 'unique' ? ', ' . h($e['anchor_status']) : '' ?>
         </td>

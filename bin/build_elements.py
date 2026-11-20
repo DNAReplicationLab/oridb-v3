@@ -28,6 +28,20 @@ anchor_status per record:
   ambiguous               several occurrences, none near the stored coordinate
   unanchored              the sequence does not occur in sacCer3
 
+This step has two further jobs, both of which touch files other than elements.tsv.
+
+  studies.tsv   Every study the element layer cites must have a citation record.
+                Those the dump's cached PubMed table predates - Reuter et al.
+                2024, for one - are looked up in reference/pubmed_cache.tsv and,
+                failing that, fetched from NCBI and written into that cache.
+
+  origins.tsv   Two per-origin values from modern call sets committed in docs/:
+                Ok-seq activity (the fraction of cells in which the origin fires)
+                and a COMPOSITE median replication time, each with the distance
+                to the call that supplied it. An origin whose nearest call is not
+                unambiguously its own gets an empty value, never a zero. The rule
+                and its justification are in docs/origin_activity_timing.md.
+
 Elements are linked to origins by position, not by any v2 identifier: an element
 is `contained` if it lies wholly inside a released origin, `overlapping` if it
 straddles a boundary, and `unlinked` otherwise. Most unlinked elements belong to
@@ -93,6 +107,36 @@ FRAME_ORIGIN = 9
 
 # Stable key for the one known issue this step contributes to release.json.
 ISSUE_ID = 'elements-unplaced'
+
+# --- citations ------------------------------------------------------------
+# studies.tsv is filled from the v2 dump's cached PubMed table, which stops at
+# the papers v2 knew about: a study the element layer cites but v2 never saw -
+# Reuter et al. 2024, for one - would otherwise be rendered as a bare table
+# name. Any such PMID is looked up: first in a committed cache, then at NCBI.
+# Fetched records are written back into the cache, so the next run - and a run
+# with no network at all - reproduces this build without asking NCBI again.
+PUBMED_CACHE = 'pubmed_cache.tsv'
+EUTILS = 'https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi'
+STUDY_COLUMNS = ['pmid', 'doi', 'year', 'journal', 'first_author', 'n_authors', 'title']
+
+# --- per-origin activity and replication time ------------------------------
+# Two modern call sets, both committed so the build is reproducible offline.
+# Each call carries the anchor point against which that dataset's positional
+# error was measured in docs/study_resolution.csv, because the cap below is
+# taken from that measurement and the two must mean the same thing:
+#   Ok-seq  - the derivative peak (BED thickStart) of the initiation zone
+#   timing  - the midpoint of the band within 1 min of the Trep trough
+# Column 9 of each BED carries the value: raw OEM efficiency, and Trep at the
+# summit in minutes.
+OKSEQ_CALLS = 'mcguffee2013_okseq_initiation_sites.bed'
+TREP_CALLS = 'muller2014_trep_peaks.bed'
+# Cap on origin-to-call distance: the 75th percentile of that assay's measured
+# positional error (docs/study_resolution.csv). Not a round number and not a
+# guess - the median is the typical displacement of a true pairing and the p90
+# is dominated by origins the assay does not detect at all, so the p75 is the
+# distance within which a call still plausibly belongs to this origin.
+OKSEQ_CAP_BP = 1160    # GSE40696_Okseq_initiation, err_p75_bp
+TREP_CAP_BP = 5520     # Muller2014_Trep_peaks, err_p75_bp
 
 # Curation: four sc_confirmed_ACS records carry offset 8 where their study uses 7.
 # All four reproduce their Nieduszynski 2006 (PMID 16847347) table S1 proACS
@@ -181,6 +225,139 @@ def write_tsv(path: Path, header: list[str], rows: list[dict[str, str]]) -> None
         for r in rows:
             fh.write('\t'.join(str(r.get(c, '')).replace('\t', ' ').replace('\n', ' ')
                                for c in header) + '\n')
+
+
+def read_pubmed_cache(path: Path) -> dict[str, dict[str, str]]:
+    if not path.exists():
+        return {}
+    return {r['pmid']: r for r in read_tsv(path)}
+
+
+def fetch_pubmed(pmids: list[str]) -> dict[str, dict[str, str]]:
+    """Citation metadata for PMIDs from NCBI E-utilities, in studies.tsv shape.
+
+    Returns {} if NCBI cannot be reached, so a build without a network still
+    completes; the caller reports what it could not resolve.
+    """
+    import urllib.parse
+    import urllib.request
+    import xml.etree.ElementTree as ET
+
+    query = urllib.parse.urlencode({'db': 'pubmed', 'retmode': 'xml',
+                                    'id': ','.join(pmids)})
+    try:
+        with urllib.request.urlopen(f'{EUTILS}?{query}', timeout=60) as fh:
+            root = ET.fromstring(fh.read())
+    except Exception as exc:                                  # pragma: no cover
+        print(f'  WARNING: PubMed lookup failed ({exc})', file=sys.stderr)
+        return {}
+
+    out: dict[str, dict[str, str]] = {}
+    for art in root.findall('.//PubmedArticle'):
+        pmid = art.findtext('.//MedlineCitation/PMID') or ''
+        if not pmid:
+            continue
+        # The article's own DOI only: ArticleIdList under PubmedData. A bare
+        # .//ArticleId search also returns every DOI in the reference list.
+        doi = ''
+        for ident in art.findall('./PubmedData/ArticleIdList/ArticleId'):
+            if ident.get('IdType') == 'doi':
+                doi = (ident.text or '').strip()
+                break
+        pub = art.find('.//Journal/JournalIssue/PubDate')
+        year = (pub.findtext('Year') if pub is not None else '') or ''
+        if not year and pub is not None:
+            year = (pub.findtext('MedlineDate') or '')[:4]
+        authors = art.findall('.//AuthorList/Author')
+        first = ''
+        if authors:
+            last = authors[0].findtext('LastName') or authors[0].findtext('CollectiveName') or ''
+            initials = authors[0].findtext('Initials') or ''
+            # v2 stored authors as "Theis, J F" - surname, then spaced initials.
+            first = (f'{last}, ' + ' '.join(initials)) if initials else last
+        out[pmid] = {
+            'pmid': pmid,
+            'doi': doi,
+            'year': year,
+            'journal': art.findtext('.//Journal/ISOAbbreviation') or
+                       art.findtext('.//MedlineTA') or '',
+            'first_author': first,
+            'n_authors': str(len(authors)),
+            'title': ''.join(art.find('.//ArticleTitle').itertext()).strip()
+                     if art.find('.//ArticleTitle') is not None else '',
+        }
+    return out
+
+
+def read_bed(path: Path) -> list[dict[str, str]]:
+    """A BED8+ call set. Track lines and a `#chrom` header row are ignored."""
+    calls = []
+    for line in path.read_text(encoding='utf-8').split('\n'):
+        if not line.strip() or line.startswith(('#', 'track', 'browser')):
+            continue
+        f = line.split('\t')
+        calls.append({'chrom': f[0], 'start': int(f[1]), 'end': int(f[2]),
+                      'name': f[3], 'thick': int(f[6]), 'value': f[8]})
+    return calls
+
+
+def assign_calls(origin_rows: list[dict[str, str]], calls: list[dict[str, str]],
+                 anchor: str, cap_bp: int) -> tuple[dict[str, tuple[dict[str, str], int]],
+                                                    dict[str, int]]:
+    """Give each origin the value of its nearest call, or nothing.
+
+    Distance is measured from the origin midpoint to the call's anchor point,
+    the same way the positional error of these datasets was measured. A pairing
+    is kept only if it is MUTUALLY nearest - the call is this origin's nearest
+    call and this origin is that call's nearest origin - and the distance is
+    within cap_bp. The mutual test is what stops a value being attributed from
+    a call that in fact belongs to a neighbouring origin; the cap stops a value
+    being carried across a gap where the assay simply detected nothing.
+    """
+    def point(call: dict[str, str]) -> int:
+        return call['thick'] if anchor == 'thick' else (call['start'] + call['end']) // 2
+
+    calls_by_chr: dict[str, list[dict[str, str]]] = {}
+    for call in calls:
+        calls_by_chr.setdefault(call['chrom'], []).append(call)
+    origins_by_chr: dict[str, list[dict[str, str]]] = {}
+    for orow in origin_rows:
+        origins_by_chr.setdefault(orow['chromosome'], []).append(orow)
+
+    # each call's nearest origin
+    nearest_origin = {}
+    for call in calls:
+        cands = origins_by_chr.get(call['chrom'], [])
+        if cands:
+            nearest_origin[call['name']] = min(
+                cands, key=lambda orow: abs(midpoint(orow) - point(call)))['accession']
+
+    hits: dict[str, tuple[dict[str, str], int]] = {}
+    tally = {'assigned': 0, 'rejected_by_cap': 0, 'rejected_by_mutual_test': 0,
+             'rejected_by_both': 0, 'no_call_on_sequence': 0}
+    for orow in origin_rows:
+        cands = calls_by_chr.get(orow['chromosome'], [])
+        if not cands:
+            tally['no_call_on_sequence'] += 1
+            continue
+        call = min(cands, key=lambda c: abs(midpoint(orow) - point(c)))
+        dist = abs(midpoint(orow) - point(call))
+        mutual = nearest_origin.get(call['name']) == orow['accession']
+        within = dist <= cap_bp
+        if mutual and within:
+            hits[orow['accession']] = (call, dist)
+            tally['assigned'] += 1
+        elif not mutual and not within:
+            tally['rejected_by_both'] += 1
+        elif not mutual:
+            tally['rejected_by_mutual_test'] += 1
+        else:
+            tally['rejected_by_cap'] += 1
+    return hits, tally
+
+
+def midpoint(origin_row: dict[str, str]) -> int:
+    return (int(origin_row['start']) + int(origin_row['end'])) // 2
 
 
 # Logo geometry, in CSS pixels. Published in release.json so that the element
@@ -359,7 +536,9 @@ def main() -> None:
         r['length'] = str(len(r['sequence']))
 
     # ---- link to released origins by position --------------------------------
-    origins = [o for o in read_tsv(DATA / 'origins.tsv') if o['assembly'] == 'sacCer3']
+    origin_header = (DATA / 'origins.tsv').read_text(encoding='utf-8').split('\n')[0].split('\t')
+    origin_rows = read_tsv(DATA / 'origins.tsv')
+    origins = [o for o in origin_rows if o['assembly'] == 'sacCer3']
     by_chr: dict[str, list[dict[str, str]]] = {}
     for o in origins:
         by_chr.setdefault(o['chromosome'], []).append(o)
@@ -532,9 +711,66 @@ def main() -> None:
                             'n_authors': str(len(authors)),
                             'title': v2.unescape(str(r['article_title']))})
             added.append(pmid)
+    # Anything the element layer cites that v2's cached PubMed table never held
+    # is resolved from the committed cache, and failing that from NCBI. Without
+    # this a study renders as a raw table name, which is what PMID 39181881
+    # (Reuter et al. 2024) did: it postdates the dump.
+    cache_path = ROOT / 'reference' / PUBMED_CACHE
+    cached = read_pubmed_cache(cache_path)
+    outstanding = sorted(p for p in cited if p and p not in known)
+    fetched: dict[str, dict[str, str]] = {}
+    if outstanding:
+        from_cache = [p for p in outstanding if p in cached]
+        to_fetch = [p for p in outstanding if p not in cached]
+        if to_fetch:
+            fetched = fetch_pubmed(to_fetch)
+            if fetched:
+                merged = dict(cached)
+                merged.update(fetched)
+                write_tsv(cache_path, STUDY_COLUMNS,
+                          [merged[p] for p in sorted(merged)])
+        for pmid in outstanding:
+            rec = fetched.get(pmid) or cached.get(pmid)
+            if rec:
+                studies.append({c: rec.get(c, '') for c in STUDY_COLUMNS})
+                known.add(pmid)
+                added.append(pmid)
+        unresolved_pmids = [p for p in outstanding if p not in known]
+        print(f'  citations: {len(from_cache)} from cache, {len(fetched)} fetched from '
+              f'PubMed, {len(unresolved_pmids)} unresolved')
+        if unresolved_pmids:
+            print(f'  WARNING: no citation metadata for {unresolved_pmids} - the element '
+                  'layer cites them but studies.tsv cannot name them', file=sys.stderr)
     if added:
         studies.sort(key=lambda s: s['pmid'])
         write_tsv(DATA / 'studies.tsv', list(studies[0]), studies)
+
+    # ---- per-origin Ok-seq activity and replication time ---------------------
+    # Both values are read off modern call sets and attached to an origin only
+    # when the pairing is unambiguous (see assign_calls). An origin with no
+    # qualifying call gets an EMPTY value, never a zero: for a firing assay,
+    # no call means the origin was not detected firing, which is a real state -
+    # it may be licensed and rarely activated - and is not a measured zero.
+    okseq_calls = read_bed(ROOT / 'docs' / OKSEQ_CALLS)
+    trep_calls = read_bed(ROOT / 'docs' / TREP_CALLS)
+    okseq_hits, okseq_tally = assign_calls(origins, okseq_calls, 'thick', OKSEQ_CAP_BP)
+    trep_hits, trep_tally = assign_calls(origins, trep_calls, 'mid', TREP_CAP_BP)
+    value_columns = ['okseq_activity_oem', 'okseq_call', 'okseq_distance_bp',
+                     'median_replication_time_composite_min',
+                     'replication_time_call', 'replication_time_distance_bp']
+    for column in value_columns:
+        if column not in origin_header:
+            origin_header.append(column)
+    for orow in origin_rows:
+        okseq_hit = okseq_hits.get(orow['accession'])
+        trep_hit = trep_hits.get(orow['accession'])
+        orow['okseq_activity_oem'] = okseq_hit[0]['value'] if okseq_hit else ''
+        orow['okseq_call'] = okseq_hit[0]['name'] if okseq_hit else ''
+        orow['okseq_distance_bp'] = str(okseq_hit[1]) if okseq_hit else ''
+        orow['median_replication_time_composite_min'] = trep_hit[0]['value'] if trep_hit else ''
+        orow['replication_time_call'] = trep_hit[0]['name'] if trep_hit else ''
+        orow['replication_time_distance_bp'] = str(trep_hit[1]) if trep_hit else ''
+    write_tsv(DATA / 'origins.tsv', origin_header, origin_rows)
 
     # ---- release metadata ----------------------------------------------------
     rel = json.loads((DATA / 'release.json').read_text())
@@ -589,6 +825,107 @@ def main() -> None:
         'anchor_status_counts': counts,
         'link_counts': link_counts,
     }
+    rel['per_origin_values'] = {
+        'description': 'Two per-origin values read off modern genome-wide call sets: how '
+                       'often an origin fires, and when the DNA at it is replicated. They '
+                       'apply to Saccharomyces cerevisiae origins on sacCer3 only; S. pombe '
+                       'rows carry no value.',
+        'columns': {
+            'okseq_activity_oem': {
+                'meaning': 'Origin efficiency (OEM) of the Okazaki-fragment initiation zone '
+                           'assigned to this origin: the fraction of cells in which the '
+                           'origin fires.',
+                'units': 'fraction of cells, 0 to 1',
+                'caveat': 'Raw OEM; the deconvolution correction of the original paper is '
+                          'not applied, so values near termination zones are under-estimates.',
+            },
+            'okseq_call': {'meaning': 'Identifier of the initiation zone the value came from.'},
+            'okseq_distance_bp': {
+                'meaning': 'Distance from the origin midpoint to that zone\'s derivative '
+                           'peak, so a user can see how well supported the value is.'},
+            'median_replication_time_composite_min': {
+                'meaning': 'MEDIAN REPLICATION TIME at the timing peak assigned to this '
+                           'origin - the time by which half the cells have replicated the '
+                           'DNA there.',
+                'units': 'minutes after release from alpha-factor arrest',
+                'caveat': 'THIS IS NOT THE FIRING TIME of the origin. It is a composite of '
+                          'the firing-time distribution of this origin and the '
+                          'passive-replication-time distribution produced by forks from '
+                          'neighbouring origins, and must be labelled as such wherever it '
+                          'is shown.',
+            },
+            'replication_time_call': {'meaning': 'Identifier of the timing peak the value came from.'},
+            'replication_time_distance_bp': {
+                'meaning': 'Distance from the origin midpoint to the midpoint of that '
+                           'timing peak.'},
+        },
+        'empty_is_not_zero': 'An origin with no qualifying call has an EMPTY value, never a '
+                             'zero. Both are firing assays: no call means the origin was not '
+                             'detected firing in that experiment, which is a real and '
+                             'interesting state - it may be licensed but rarely activated - '
+                             'and is not a measurement of zero activity or of a replication '
+                             'time of zero.',
+        'assignment_rule': {
+            'summary': 'An origin takes the value of its nearest call only when the pairing '
+                       'is mutually nearest and within a distance cap set by that assay\'s '
+                       'measured positional error.',
+            'distance': 'From the origin midpoint to the call\'s anchor point, which is the '
+                        'same point against which that dataset\'s positional error was '
+                        'measured in docs/study_resolution.csv: the derivative peak for an '
+                        'Ok-seq initiation zone, and the midpoint of the 1-minute band for a '
+                        'timing peak.',
+            'mutual_nearest': 'The call must be the origin\'s nearest call AND the origin '
+                              'must be that call\'s nearest origin. This is what stops a '
+                              'value being attributed from a call that in fact belongs to a '
+                              'neighbouring origin; it also means no call ever supplies two '
+                              'origins.',
+            'cap_basis': 'The 75th percentile of the assay\'s measured positional error '
+                         '(docs/study_resolution.csv). The median is the typical displacement '
+                         'of a true pairing and the p90 is dominated by origins the assay '
+                         'does not detect at all, so the p75 is the distance within which a '
+                         'call still plausibly belongs to this origin. Both caps are well '
+                         'inside half the median spacing between neighbouring origins '
+                         '(16,671 bp), so a capped call cannot reach past a neighbour.',
+            'caps_bp': {'okseq': OKSEQ_CAP_BP, 'replication_time': TREP_CAP_BP},
+            'documentation': 'docs/origin_activity_timing.md',
+        },
+        'datasets': {
+            'okseq': {
+                'calls': 'docs/' + OKSEQ_CALLS,
+                'n_calls': len(okseq_calls),
+                'dataset_id': 'mcguffee2013-saccer3',
+                'title': 'Okazaki-fragment sequencing (McGuffee, Smith & Whitehouse 2013), '
+                         're-analysed on sacCer3',
+                'pmid': '23562327',
+                'doi': '10.1016/j.molcel.2013.03.004',
+                'archive_series': ['GSE40696'],
+                'hub_track': 'sacCer3/mcguffee2013/okseq.initiation_sites.bb',
+                'call_definition': 'maxima of the derivative of fork directionality, OEM > 0.05',
+            },
+            'replication_time': {
+                'calls': 'docs/' + TREP_CALLS,
+                'n_calls': len(trep_calls),
+                'dataset_id': 'muller2014-saccer3',
+                'title': 'The dynamics of genome replication using deep sequencing '
+                         '(Muller et al. 2014), reprocessed on sacCer3',
+                'pmid': '24089142',
+                'doi': '10.1093/nar/gkt878',
+                'archive_series': ['GSE42243', 'GSE48212'],
+                'hub_track': 'sacCer3/muller2014/syncseq.trep.bw',
+                'call_definition': 'local minima of the smoothed sync-seq Trep profile; the '
+                                   'called interval is the band within 1 minute of the trough',
+            },
+        },
+        'counts': {
+            'cerevisiae_origins': len(origins),
+            'okseq': okseq_tally,
+            'replication_time': trep_tally,
+        },
+    }
+    rel['files']['origins.tsv'] = {
+        'md5': hashlib.md5((DATA / 'origins.tsv').read_bytes()).hexdigest(),
+        'rows': len(origin_rows),
+    }
     rel['files']['elements.tsv'] = {
         'md5': hashlib.md5((DATA / 'elements.tsv').read_bytes()).hexdigest(),
         'rows': len(records),
@@ -617,7 +954,10 @@ def main() -> None:
     print(f'  anchoring: {counts}')
     print(f'  linking:   {link_counts}')
     if added:
-        print(f'  studies.tsv: added PMIDs {added}')
+        print(f'  studies.tsv: added PMIDs {sorted(added)}')
+    print(f'origins.tsv: {len(origins)} cerevisiae origins annotated')
+    print(f'  Ok-seq activity (cap {OKSEQ_CAP_BP} bp):      {okseq_tally}')
+    print(f'  replication time (cap {TREP_CAP_BP} bp):     {trep_tally}')
 
 
 if __name__ == '__main__':

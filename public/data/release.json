@@ -1,6 +1,6 @@
 {
   "release": "3.0.0-trial.1",
-  "generated": "2026-11-18",
+  "generated": "2026-11-20",
   "description": "OriDB v3.0 trial release: the Confirmed origin tier only, carried forward from OriDB v2 with explicit evidence records.",
   "inclusion_rule": "An origin is Confirmed if its interval overlaps at least one plasmid (ARS) assay positive or one 2D gel electrophoresis record.",
   "assemblies": {
@@ -20,7 +20,7 @@
   "coordinate_convention": "1-based, fully closed intervals",
   "files": {
     "origins.tsv": {
-      "md5": "c5a89042e8f2014a2133f3906dd94dd8",
+      "md5": "9ae961b0271948a4c47b97d82837369f",
       "rows": 458
     },
     "evidence.tsv": {
@@ -28,8 +28,8 @@
       "rows": 536
     },
     "studies.tsv": {
-      "md5": "3003d558b300d87cda1d5087c255de79",
-      "rows": 48
+      "md5": "50d394a693bb622173a974ca173fc397",
+      "rows": 49
     },
     "elements.tsv": {
       "md5": "a019772caa5e8ae10e0eb5af9e8891eb",
@@ -195,42 +195,6 @@
     "logo_left_pad": 62,
     "applies_to_element_class": "A"
   },
-  "elements": {
-    "description": "ACS elements from the four OriDB v2 element studies, each located in sacCer3 by its stored sequence rather than by its stored coordinates.",
-    "studies": {
-      "sc_confirmed_ACS": {
-        "element_type": "confirmed",
-        "pmid": "",
-        "source_assembly": "sacCer1"
-      },
-      "Nieduszynski2006_ACS": {
-        "element_type": "predicted",
-        "pmid": "16847347",
-        "source_assembly": "sacCer1"
-      },
-      "Eaton2010_ACS": {
-        "element_type": "predicted",
-        "pmid": "20351051",
-        "source_assembly": "sacCer1"
-      },
-      "Xu2006_ACS": {
-        "element_type": "predicted",
-        "pmid": "17067396",
-        "source_assembly": "sacCer2"
-      }
-    },
-    "anchor_status_counts": {
-      "unique": 1404,
-      "resolved-by-proximity": 250,
-      "ambiguous": 1,
-      "unanchored": 2
-    },
-    "link_counts": {
-      "contained": 1423,
-      "overlapping": 18,
-      "unlinked": 216
-    }
-  },
   "b2_motif": {
     "width": 33,
     "applies_to_element_class": "B2",
@@ -282,5 +246,126 @@
     "logo": "assets/b2_logo.svg",
     "logo_column_width": 18,
     "logo_left_pad": 62
+  },
+  "elements": {
+    "description": "ACS elements from the four OriDB v2 element studies, each located in sacCer3 by its stored sequence rather than by its stored coordinates.",
+    "studies": {
+      "sc_confirmed_ACS": {
+        "element_type": "confirmed",
+        "pmid": "",
+        "source_assembly": "sacCer1"
+      },
+      "Nieduszynski2006_ACS": {
+        "element_type": "predicted",
+        "pmid": "16847347",
+        "source_assembly": "sacCer1"
+      },
+      "Eaton2010_ACS": {
+        "element_type": "predicted",
+        "pmid": "20351051",
+        "source_assembly": "sacCer1"
+      },
+      "Xu2006_ACS": {
+        "element_type": "predicted",
+        "pmid": "17067396",
+        "source_assembly": "sacCer2"
+      }
+    },
+    "anchor_status_counts": {
+      "unique": 1404,
+      "resolved-by-proximity": 250,
+      "ambiguous": 1,
+      "unanchored": 2
+    },
+    "link_counts": {
+      "contained": 1423,
+      "overlapping": 18,
+      "unlinked": 216
+    }
+  },
+  "per_origin_values": {
+    "description": "Two per-origin values read off modern genome-wide call sets: how often an origin fires, and when the DNA at it is replicated. They apply to Saccharomyces cerevisiae origins on sacCer3 only; S. pombe rows carry no value.",
+    "columns": {
+      "okseq_activity_oem": {
+        "meaning": "Origin efficiency (OEM) of the Okazaki-fragment initiation zone assigned to this origin: the fraction of cells in which the origin fires.",
+        "units": "fraction of cells, 0 to 1",
+        "caveat": "Raw OEM; the deconvolution correction of the original paper is not applied, so values near termination zones are under-estimates."
+      },
+      "okseq_call": {
+        "meaning": "Identifier of the initiation zone the value came from."
+      },
+      "okseq_distance_bp": {
+        "meaning": "Distance from the origin midpoint to that zone's derivative peak, so a user can see how well supported the value is."
+      },
+      "median_replication_time_composite_min": {
+        "meaning": "MEDIAN REPLICATION TIME at the timing peak assigned to this origin - the time by which half the cells have replicated the DNA there.",
+        "units": "minutes after release from alpha-factor arrest",
+        "caveat": "THIS IS NOT THE FIRING TIME of the origin. It is a composite of the firing-time distribution of this origin and the passive-replication-time distribution produced by forks from neighbouring origins, and must be labelled as such wherever it is shown."
+      },
+      "replication_time_call": {
+        "meaning": "Identifier of the timing peak the value came from."
+      },
+      "replication_time_distance_bp": {
+        "meaning": "Distance from the origin midpoint to the midpoint of that timing peak."
+      }
+    },
+    "empty_is_not_zero": "An origin with no qualifying call has an EMPTY value, never a zero. Both are firing assays: no call means the origin was not detected firing in that experiment, which is a real and interesting state - it may be licensed but rarely activated - and is not a measurement of zero activity or of a replication time of zero.",
+    "assignment_rule": {
+      "summary": "An origin takes the value of its nearest call only when the pairing is mutually nearest and within a distance cap set by that assay's measured positional error.",
+      "distance": "From the origin midpoint to the call's anchor point, which is the same point against which that dataset's positional error was measured in docs/study_resolution.csv: the derivative peak for an Ok-seq initiation zone, and the midpoint of the 1-minute band for a timing peak.",
+      "mutual_nearest": "The call must be the origin's nearest call AND the origin must be that call's nearest origin. This is what stops a value being attributed from a call that in fact belongs to a neighbouring origin; it also means no call ever supplies two origins.",
+      "cap_basis": "The 75th percentile of the assay's measured positional error (docs/study_resolution.csv). The median is the typical displacement of a true pairing and the p90 is dominated by origins the assay does not detect at all, so the p75 is the distance within which a call still plausibly belongs to this origin. Both caps are well inside half the median spacing between neighbouring origins (16,671 bp), so a capped call cannot reach past a neighbour.",
+      "caps_bp": {
+        "okseq": 1160,
+        "replication_time": 5520
+      },
+      "documentation": "docs/origin_activity_timing.md"
+    },
+    "datasets": {
+      "okseq": {
+        "calls": "docs/mcguffee2013_okseq_initiation_sites.bed",
+        "n_calls": 383,
+        "dataset_id": "mcguffee2013-saccer3",
+        "title": "Okazaki-fragment sequencing (McGuffee, Smith & Whitehouse 2013), re-analysed on sacCer3",
+        "pmid": "23562327",
+        "doi": "10.1016/j.molcel.2013.03.004",
+        "archive_series": [
+          "GSE40696"
+        ],
+        "hub_track": "sacCer3/mcguffee2013/okseq.initiation_sites.bb",
+        "call_definition": "maxima of the derivative of fork directionality, OEM > 0.05"
+      },
+      "replication_time": {
+        "calls": "docs/muller2014_trep_peaks.bed",
+        "n_calls": 212,
+        "dataset_id": "muller2014-saccer3",
+        "title": "The dynamics of genome replication using deep sequencing (Muller et al. 2014), reprocessed on sacCer3",
+        "pmid": "24089142",
+        "doi": "10.1093/nar/gkt878",
+        "archive_series": [
+          "GSE42243",
+          "GSE48212"
+        ],
+        "hub_track": "sacCer3/muller2014/syncseq.trep.bw",
+        "call_definition": "local minima of the smoothed sync-seq Trep profile; the called interval is the band within 1 minute of the trough"
+      }
+    },
+    "counts": {
+      "cerevisiae_origins": 410,
+      "okseq": {
+        "assigned": 260,
+        "rejected_by_cap": 24,
+        "rejected_by_mutual_test": 3,
+        "rejected_by_both": 123,
+        "no_call_on_sequence": 0
+      },
+      "replication_time": {
+        "assigned": 202,
+        "rejected_by_cap": 4,
+        "rejected_by_mutual_test": 15,
+        "rejected_by_both": 189,
+        "no_call_on_sequence": 0
+      }
+    }
   }
 }

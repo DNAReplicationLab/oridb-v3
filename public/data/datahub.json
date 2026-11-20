@@ -1,17 +1,135 @@
 {
-    "generated": "2026-11-20T08:21:41Z",
+    "generated": "2026-11-20T13:27:02Z",
     "hub": {
         "name": "oridb_data_hub",
         "shortLabel": "OriDB data hub",
         "longLabel": "OriDB: genome-wide DNA replication datasets",
         "url": "https://dnareplicationlab.github.io/oridb-data-hub/hub.txt",
         "base_url": "https://dnareplicationlab.github.io/oridb-data-hub/",
-        "repo_url": "https://github.com/DNAReplicationLab/oridb-data-hub"
+        "repo_url": "https://github.com/dnareplicationlab/oridb-data-hub",
+        "read_from": "local checkout"
     },
     "genomes": [
         {
             "genome": "sacCer3",
             "datasets": [
+                {
+                    "id": "mcguffee2013",
+                    "title": "Okazaki-fragment sequencing (McGuffee, Smith & Whitehouse 2013), re-analysed on sacCer3",
+                    "organism": "Saccharomyces cerevisiae",
+                    "assembly": "sacCer3",
+                    "bin_size_bp": 250,
+                    "measurement": "replication fork directionality and initiation site mapping",
+                    "scale": "fork directionality -1 (leftward forks) to +1 (rightward forks); OEM 0 to 1",
+                    "source": {
+                        "doi": "10.1016/j.molcel.2013.03.004",
+                        "pubmed": "23562327",
+                        "archive_series": [
+                            "GSE40696"
+                        ],
+                        "n_runs": 2,
+                        "n_samples_used": 2,
+                        "n_samples_excluded": 3,
+                        "exclusion_reason": "SSDDCS over-expression strains, and one Ion Torrent single-end library, none of them wild type on genotype"
+                    },
+                    "n_samples": 0,
+                    "calls": {
+                        "file": "okseq.initiation_sites.bb",
+                        "definition": "maxima of the derivative of fork directionality, OEM > 0.05",
+                        "caveat": "efficiencies are raw OEM; the deconvolution correction of the original paper is not applied, so values near termination zones are under-estimates"
+                    },
+                    "groups": [
+                        {
+                            "track": "mcguffee2013_fd",
+                            "shortLabel": "Fork direction",
+                            "longLabel": "McGuffee et al. (2013): replication fork directionality from Okazaki fragment strand ratio, wild type",
+                            "container": "multiWig",
+                            "tracks": [
+                                {
+                                    "track": "fd_okseq_directionality",
+                                    "shortLabel": "FD",
+                                    "longLabel": "Fork directionality (C-W)/(C+W), 250 bp windows, WT_A + WT_B",
+                                    "type": "bigWig",
+                                    "file": "okseq.directionality.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/mcguffee2013/okseq.directionality.bw",
+                                    "bytes": 452286
+                                }
+                            ]
+                        },
+                        {
+                            "track": "mcguffee2013_initiation",
+                            "shortLabel": "Initiation signal",
+                            "longLabel": "McGuffee et al. (2013): initiation signal - derivative of fork directionality, and origin efficiency (OEM)",
+                            "container": "multiWig",
+                            "tracks": [
+                                {
+                                    "track": "initiation_okseq_derivative",
+                                    "shortLabel": "d(FD)/dx",
+                                    "longLabel": "Derivative of fork directionality per kb; maxima are initiation sites",
+                                    "type": "bigWig",
+                                    "file": "okseq.derivative.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/mcguffee2013/okseq.derivative.bw",
+                                    "bytes": 455882
+                                },
+                                {
+                                    "track": "initiation_okseq_oem",
+                                    "shortLabel": "OEM",
+                                    "longLabel": "Origin efficiency metric over 10 kb quadrants, raw (not deconvolved)",
+                                    "type": "bigWig",
+                                    "file": "okseq.oem.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/mcguffee2013/okseq.oem.bw",
+                                    "bytes": 443653
+                                }
+                            ]
+                        },
+                        {
+                            "track": "mcguffee2013_strands",
+                            "shortLabel": "Okazaki strands",
+                            "longLabel": "McGuffee et al. (2013): Okazaki fragment coverage by strand, fragments per million, 250 bp windows",
+                            "container": "multiWig",
+                            "tracks": [
+                                {
+                                    "track": "strands_okseq_watson",
+                                    "shortLabel": "Watson",
+                                    "longLabel": "Okazaki fragments on the Watson strand (leftward-moving forks)",
+                                    "type": "bigWig",
+                                    "file": "okseq.watson.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/mcguffee2013/okseq.watson.bw",
+                                    "bytes": 444749
+                                },
+                                {
+                                    "track": "strands_okseq_crick",
+                                    "shortLabel": "Crick",
+                                    "longLabel": "Okazaki fragments on the Crick strand (rightward-moving forks)",
+                                    "type": "bigWig",
+                                    "file": "okseq.crick.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/mcguffee2013/okseq.crick.bw",
+                                    "bytes": 444852
+                                }
+                            ]
+                        },
+                        {
+                            "track": "mcguffee2013_init_sites",
+                            "shortLabel": "Initiation zones",
+                            "longLabel": "Initiation zones called from Okazaki fragment directionality (McGuffee et al. 2013, re-analysed by OriDB); score = 1000 x OEM",
+                            "container": "",
+                            "tracks": [
+                                {
+                                    "track": "mcguffee2013_init_sites",
+                                    "shortLabel": "Initiation zones",
+                                    "longLabel": "Initiation zones called from Okazaki fragment directionality (McGuffee et al. 2013, re-analysed by OriDB); score = 1000 x OEM",
+                                    "type": "bigBed 8 +",
+                                    "file": "okseq.initiation_sites.bb",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/mcguffee2013/okseq.initiation_sites.bb",
+                                    "bytes": 51877,
+                                    "bed": "okseq.initiation_sites.bed",
+                                    "bed_url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/mcguffee2013/okseq.initiation_sites.bed",
+                                    "rows": 383
+                                }
+                            ]
+                        }
+                    ]
+                },
                 {
                     "id": "muller2014",
                     "title": "The dynamics of genome replication using deep sequencing (Muller et al. 2014), reprocessed on sacCer3",
@@ -27,9 +145,13 @@
                             "GSE42243",
                             "GSE48212"
                         ],
-                        "n_runs": 18
+                        "n_runs": 18,
+                        "n_samples_used": 0,
+                        "n_samples_excluded": 0,
+                        "exclusion_reason": ""
                     },
                     "n_samples": 18,
+                    "calls": null,
                     "groups": [
                         {
                             "track": "muller2014_timecourse",
@@ -232,8 +354,8 @@
     ],
     "counts": {
         "genomes": 1,
-        "datasets": 1,
-        "tracks": 15,
-        "files": 15
+        "datasets": 2,
+        "tracks": 21,
+        "files": 21
     }
 }

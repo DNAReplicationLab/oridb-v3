@@ -18,5 +18,6 @@ pombe,Hayashi2007_ori,459,1,500,90,1185,2721,7324,7401,
 pombe,Segurado2003_ori,387,1,1000,100,1156,1671,3691,5047,
 cerevisiae,GSE242131_MCM_all,17618,1,n/a,100,61,130,237,322,
 cerevisiae,GSE242131_MCM_top1600,1600,1,n/a,99,61,144,322,817,
+cerevisiae,GSE40696_Okseq_initiation,383,6250,n/a,86,348,1160,9977,15594,"measures firing, not licensing: the p90 reflects origins it does not detect, not positional spread - use the p75 as this study's positional error"
 pombe,GSE62108_Pu-seq,1145,301,n/a,100,917,1555,2735,3025,
-cerevisiae,Muller2014_Trep_peaks,212,6000,n/a,70,963,5520,14562,17092,"called for this work from the hub Trep bigWig; call width is the band within 1 min of the trough minimum, so it is quantised to the 1 kb bins"
+cerevisiae,Muller2014_Trep_peaks,212,6000,n/a,70,963,5520,14562,17092,"called for this work from the hub Trep bigWig; call width is the band within 1 min of the trough minimum, so it is quantised to the 1 kb bins; measures firing, not licensing: the p90 reflects origins it does not detect, not positional spread - use the p75 as this study's positional error"

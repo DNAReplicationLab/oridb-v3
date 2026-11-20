@@ -209,6 +209,7 @@ every row above it.*
 | Muller2010_ori | 398 | 1276 | 500 | 191 | 584 | 10466 | 90% |
 | GSE242131_MCM_all | 17618 | 1 | n/a | 61 | 130 | 237 | 100% |
 | GSE242131_MCM_top1600 | 1600 | 1 | n/a | 61 | 144 | 322 | 99% |
+| GSE40696_Okseq_initiation * | 383 | 6250 | n/a | 348 | 1160 | 9977 | 86% |
 | Muller2014_Trep_peaks | 212 | 6000 | n/a | 963 | 5520 | 14562 | 70% |
 
 ### Measured resolution, *S. pombe*
@@ -250,6 +251,77 @@ by construction, since they define the Confirmed tier.
 Before any study's error is trusted, its intervals should be checked for identity against
 the origin list. A study that was curated onto the list cannot be used to measure its own
 resolution.
+
+### The initiation axis, measured
+
+GSE40696 publishes signal but no call set, so this axis was produced by re-analysis: both
+wild-type libraries (GSM999266 and GSM999267, 278 million read pairs) remapped to sacCer3,
+Okazaki fragment coverage counted per strand in 250 bp windows, fork directionality taken
+as (C - W)/(C + W), and initiation sites called as maxima of its derivative. Method and
+code: [`docs/okseq_mcguffee2013.md`](https://github.com/DNAReplicationLab/oridb-data-hub/blob/main/docs/okseq_mcguffee2013.md)
+and `pipelines/okseq-mcguffee2013/` in the hub repository.
+
+Three sample-selection and polarity details are worth recording, because each could have
+produced a confident wrong answer. GEO labels all five libraries "strain: WT" and only the
+genotype field distinguishes them; the three SSDDCS over-expression libraries were
+excluded, including an uninduced control that would also have confounded strain with
+sequencing platform. The strand convention was fixed against the authors' own tracks
+(read-1 plus-strand coverage correlates with their Watson track at +0.82, their Crick track
+at -0.44) and the polarity against the Confirmed tier (mean OEM +0.317 at confirmed origins
+against +0.003 at random positions). An inverted sign would have produced an elegant map of
+termination zones.
+
+The re-analysis was checked against the authors' published output rather than taken on
+trust. Their `.sgr` tracks are on sacCer2 — established empirically by lifting under both
+candidate chains and cross-correlating, which gives an optimum lag of -1 bp on every
+chromosome under sacCer2 against -299 bp on chrX under sacCer1 — and lifted forward to
+sacCer3, the profiles agree at **r = 0.969-0.971**. The authors' own two replicates agree
+at r = 0.9701, so the re-implementation reproduces their result as closely as their
+replicates reproduce each other.
+
+**383 initiation zones**, median width 6.25 kb. Measured as every row above:
+**median 348 bp, p75 1,160, p90 9,977, p95 15,594, with 86% of confirmed origins
+detected**.
+
+### Detection and positional error are different properties
+
+The Ok-seq and timing rows share a feature that the footprint rows do not have, and
+reading their p90 as positional error would be a mistake.
+
+Both measure **firing**. A footprint dataset reports where MCM2-7 or ORC is bound, so it
+sees an origin whether or not it ever initiates; Ok-seq and replication timing report the
+consequences of initiation, so an origin that licenses but rarely fires is invisible to
+them at any sequencing depth. Their misses are therefore not mislocalised calls but absent
+ones, and the upper percentiles measure that absence rather than any spread in where a
+call lands.
+
+The Ok-seq data shows this directly: median OEM is 0.471 at confirmed origins with a call
+within 2 kb, 0.027 at those further away, and -0.003 at the 59 origins (14%) with no call
+within 20 kb. Those origins are not displaced, they are quiet. The timing axis has the same
+structure for the same reason — 150 of 410 origins within 1 kb of a call, the rest a
+separate population with no trough of their own — which is why its distribution is bimodal
+rather than wide.
+
+Three consequences for the rule:
+
+1. **The positional error of a firing assay is its median to p75, not its p90.** For
+   Ok-seq that is 348 bp to 1.16 kb; for timing 963 bp to 5.5 kb. Feeding 9,977 bp or
+   14,562 bp into the sum-of-errors merge would merge almost anything with anything, on
+   the strength of origins the assay never saw.
+2. **Detection belongs in the rule as its own property**, recorded per dataset beside the
+   error, not folded into it. The measured figures are 100% for the MCM footprint, 86% for
+   Ok-seq and 70% for timing.
+3. **Non-detection by a firing assay is not evidence against an origin.** An origin seen
+   by licensing but not by firing is a real and interesting class — licensed, rarely
+   activated — so a firing assay's silence must never contribute to *refuted*, and should
+   not weigh against *likely* either.
+
+This also sharpens the open question of whether *likely* should require two datasets of
+different kinds. Ok-seq and timing are not independent in the way two arbitrary datasets
+would be: they share a blind spot, and an origin invisible to one is disproportionately
+likely to be invisible to the other. Two firing assays agreeing is therefore weaker
+corroboration than a firing assay agreeing with a licensing assay, and the rule should say
+so explicitly rather than counting datasets.
 
 ### The timing axis, measured
 
@@ -296,21 +368,23 @@ the substantive evidence is the other direction — 207 of the 212 calls fall wi
 of a confirmed origin, at a median of 526 bp. The calls land on origins without being
 copies of them.
 
-**What this implies for the rule.** Under the 2007 sum-of-errors rule the merge distance
-contributed by an axis is its error, so a timing call merged with an MCM footprint call
-(p90 237 bp) at the measured p90 gives 14,562 + 237 ≈ **14.8 kb**, and two timing calls
-29.1 kb. The median spacing between adjacent confirmed origins is 26.9 kb, so a 14.8 kb
-window would routinely swallow a neighbour: timing cannot be a site-*defining* axis. It
-should be a corroborating one — asked whether a timing call exists near a site that a
-footprint or initiation dataset has already defined — and at the tolerance where it
-actually performs, the median to p75 band of roughly 1-5 kb rather than the p90. On the
-scale of the other axes this is the coarsest evidence we have: MCM footprint 61 bp median,
-Pu-seq 917 bp, timing 963 bp at the median but two orders of magnitude worse in the tail.
+**What this implies for the rule.** Timing should not be a site-*defining* axis, but the
+reason is its positional precision rather than its tail. Its p90 of 14.6 kb is inflated by
+origins it does not detect at all, exactly as the Ok-seq p90 is, so the honest error for a
+timing call is the median-to-p75 band of 1-5.5 kb. Even at the p75 a merge of two timing
+calls spans 11 kb against a median spacing between adjacent confirmed origins of 26.9 kb,
+and the calls are 6 kb wide on 1 kb bins — so timing locates an origin to a few kilobases
+at best and should corroborate sites that a footprint or initiation dataset has already
+defined. On the same footing the three cerevisiae axes read: MCM footprint 61 bp median
+and 130 bp p75 at 100% detection, Ok-seq 348 bp and 1.16 kb at 86%, timing 963 bp and
+5.5 kb at 70%.
 
 Its value is not positional. 70% detection at a 20 kb window is the lowest coverage of any
 cerevisiae dataset measured here, and that is informative in itself: it says which
 confirmed origins are efficient enough to shape the replication profile, which is a
-property no footprint dataset reports.
+property no footprint dataset reports. Ok-seq reports the same property more sensitively
+(86%), and the two agree about what they are blind to — see *Detection and positional
+error are different properties* above.
 
 ## What has to be decided before any of this is built
 

@@ -35,6 +35,18 @@ docs/             page structure and deployment notes
 build/            generated; not committed
 ```
 
+## Method notes
+
+How each derived layer was produced, and what it does and does not claim:
+
+- [`docs/acs-motif.md`](docs/acs-motif.md) — the ACS matrix: training set, window, scoring.
+- [`docs/origin_activity_timing.md`](docs/origin_activity_timing.md) — per-origin Ok-seq
+  activity and median replication time: the mutual-nearest rule, its distance caps, and
+  why an empty value is not a zero.
+- [`docs/tier-evidence-proposal.md`](docs/tier-evidence-proposal.md) — the tier rebuild:
+  evidence axes, measured per-study resolution, and the merge rule.
+- [`docs/origin_page_changes.md`](docs/origin_page_changes.md) — the origin page layout.
+
 `public/app/Data.php` is the only file that knows where the data physically lives. When
 the MariaDB back end arrives, re-implement its methods against PDO; no page changes.
 
@@ -77,13 +89,29 @@ The **Data hub** page is built separately, because the hub is a different reposi
 its own release cycle:
 
 ```bash
-php bin/build_datahub.php --hub-root /path/to/oridb-data-hub
+php bin/build_datahub.php --hub-root /path/to/oridb-data-hub      # a checkout on disk
+php bin/build_datahub.php --hub-url https://dnareplicationlab.github.io/oridb-data-hub/hub.txt
 ```
 
 That reads the hub's own `hub.txt`, trackDb chain and per-dataset `dataset.json` and
 writes `public/data/datahub.json`. The page states nothing about the hub that this file
 does not carry, so a track added to the hub appears on the page at the next build and
 nothing on the page can contradict what the hub serves.
+
+The second form reads the **published** hub over HTTPS and needs no second checkout, so it
+can run in CI as a staleness check — the same shape of check the hub repository runs on its
+own `trackDb.txt`:
+
+```bash
+php bin/build_datahub.php --hub-url https://dnareplicationlab.github.io/oridb-data-hub/hub.txt \
+  && git diff --exit-code -- public/data/datahub.json
+```
+
+Both forms produce the same file (`generated` and the recorded source aside). The network is
+never the default, and a hub that cannot be read fails the build with a message and writes
+nothing, so the page can never be served a half-described hub. Giving both options reads the
+files locally and takes the public URL from `--hub-url`, which is what a checkout with no git
+remote needs.
 
 `build_from_v2.py` extracts the v2 records, which are sacCer1. `lift_to_saccer3.py` rewrites
 the cerevisiae coordinates onto sacCer3 using the committed UCSC chain, and — when both

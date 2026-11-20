@@ -87,3 +87,27 @@ table.aln td.x { color: #b9c2cb; }
 table.aln tr:hover td.pub { background: #f7e7bf; }
 table.aln tr:hover td.core { background: #e2ecf6; }
 table.aln td.lbl .small { color: #9aa5b0; }
+
+/* The B1 region of the ACS window: a second marked span, drawn like the core but
+   in its own tint so the two are not read as one element. */
+table.aln td.b1 { background: #eef6ee; }
+table.aln tr:hover td.b1 { background: #e2f0e2; }
+/* The region row names the marked spans, so the marking is not left to colour. */
+table.aln tr.reg td { font-size: .62rem; line-height: 1.35; color: var(--muted);
+                      letter-spacing: .02em; overflow: hidden; white-space: nowrap; }
+table.aln tr.reg td.rg-core { background: #eef4fa; border-bottom: 2px solid #9fb4c7; }
+table.aln tr.reg td.rg-b1 { background: #eef6ee; border-bottom: 2px solid #8ab28a; }
+/* Confirmed elements are the experimentally defined ones: they carry the weight of
+   the panel, so they are set in bold over the per-base tinting, which stays. */
+table.aln tr.conf td.b, table.aln tr.conf td.lbl { font-weight: 700; }
+table.aln tr.conf td.lbl { color: var(--ink); }
+table.aln tr.conf td.x { color: #8e99a4; }
+.ev { font-weight: 600; }
+table.aln tr.conf td.sc .ev { color: var(--confirmed); }
+table.aln td.sc { width: 150px; }
+tr.conf td.mono { font-weight: 700; }
+
+/* Element overview figure. The SVG carries a viewBox and scales to the column. */
+figure.elfig-wrap { margin: 1rem 0 .4rem; }
+svg.elfig { display: block; width: 100%; height: auto; max-width: 54rem; }
+figure.elfig-wrap figcaption { max-width: 54rem; margin-top: .3rem; }

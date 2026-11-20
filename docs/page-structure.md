@@ -1,7 +1,7 @@
 # Page structure for the trial site
 
-Twelve files, each doing one thing. The structure is chosen so that adding the Likely and
-Dubious tiers, and later the genome-wide datasets, extends it rather than replaces it.
+One file per page, each doing one thing. The structure is chosen so that adding the Likely
+and Dubious tiers, and later the genome-wide datasets, extends it rather than replaces it.
 
 ## Pages
 
@@ -9,16 +9,26 @@ Dubious tiers, and later the genome-wide datasets, extends it rather than replac
 |---|---|---|
 | `index.php` | What the release is, counts, entry points | Unchanged; counts come from the data |
 | `browse.php` | Filterable, paged origin table | Gains a status filter and a dataset filter |
-| `origin.php?id=…` | One origin: coordinates, assembly, evidence table, external links | Gains a genome-browser panel and per-dataset evidence |
+| `origin.php?id=…` | One origin: coordinates, assembly, evidence table, elements (overview figure, motif panels, records) | Gains a genome-browser panel and per-dataset evidence |
 | `search.php` | Name/accession search and region search | Gains fuzzy matching and a sequence search |
 | `studies.php` | The source publications, with origin counts | Becomes the dataset registry view |
 | `downloads.php` | Exports and release checksums | Gains track-hub and bulk-archive links |
 | `datahub.php` | The UCSC track hub: how to load it, what it carries, where the data came from | Grows with the hub; the track list is generated from the hub repository, not written here |
-| `about.php` | Scope, coordinate conventions, known issues | Becomes release notes plus curation policy |
+| `about.php` | How to read the database: scope, accessions, coordinates, elements and motifs | Becomes the curation policy and the data dictionary |
+| `development.php` | How the site is built and what is outstanding: mechanics, known issues, roadmap | Becomes the release notes |
 | `export.php` | Generates BED / TSV / JSON on request | Gains GFF3 and bigBed |
 | `api/origins.php` | JSON list endpoint with filters | Versioned under `/api/v1/` |
 | `api/origin.php?id=…` | JSON record for one origin | Versioned under `/api/v1/` |
 | `404.php` | Error page | Unchanged |
+
+Shared includes live in `public/app/`: `bootstrap.php`, `Data.php`, `header.php`,
+`footer.php`, and `elements_view.php` — the element overview figure, the motif/alignment
+panel and the study citation, which the origin page and About both draw on.
+
+**Explanation belongs on About, not on 458 copies of it.** Prose that is identical on every
+origin page — what an A or B2 element is, how elements are located, what the motif panel
+and the scores mean — lives on `about.php#elements` and is linked from each origin. The
+origin page carries only what is needed to read *that* origin.
 
 ## Decisions worth keeping
 

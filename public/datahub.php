@@ -84,11 +84,36 @@ $bytes = static function (int $n): string {
           &middot; <a href="<?= h('https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=' . rawurlencode($acc)) ?>"><?= h($acc) ?></a>
           <?php endforeach; ?>
         </td></tr>
+    <?php
+    // A dataset describes its input either as per-sample records or, when the samples
+    // are not tracked individually, as the archive runs it was built from. Say whichever
+    // the dataset carries rather than assuming every dataset is described the same way.
+    $nRuns = (int) ($d['source']['n_runs'] ?? 0);
+    $nUsed = (int) ($d['source']['n_samples_used'] ?? 0);
+    $nExcluded = (int) ($d['source']['n_samples_excluded'] ?? 0);
+    ?>
     <?php if ($d['n_samples'] > 0): ?>
     <tr><th>Samples</th>
         <td><?= h((string) $d['n_samples']) ?> sequencing samples
-          (<?= h((string) $d['source']['n_runs']) ?> archive runs), reprocessed onto
+          (<?= h((string) $nRuns) ?> archive runs), reprocessed onto
           <?= h($d['assembly']) ?> by this project's pipeline</td></tr>
+    <?php elseif ($nRuns > 0): ?>
+    <tr><th>Sequencing data</th>
+        <td><?= h($plural($nRuns, 'archive run')) ?><?php if ($nUsed > 0): ?>
+          covering <?= h($plural($nUsed, 'sample')) ?><?php endif; ?>,
+          reprocessed onto <?= h($d['assembly']) ?> by this project's pipeline<?php
+          if ($nExcluded > 0): ?>.
+          <span class="small"><?= h($plural($nExcluded, 'sample')) ?> in the series
+          <?= $nExcluded === 1 ? 'was' : 'were' ?> excluded<?= ($d['source']['exclusion_reason'] ?? '') !== ''
+              ? ': ' . h($d['source']['exclusion_reason']) : '' ?>.</span>
+          <?php endif; ?></td></tr>
+    <?php endif; ?>
+    <?php if (($d['calls'] ?? null) !== null && $d['calls']['definition'] !== ''): ?>
+    <tr><th>Calls</th>
+        <td><?= h($d['calls']['definition']) ?>
+          <?php if ($d['calls']['caveat'] !== ''): ?>
+            <br><span class="small">Caveat: <?= h($d['calls']['caveat']) ?></span>
+          <?php endif; ?></td></tr>
     <?php endif; ?>
   </tbody>
 </table>
@@ -106,7 +131,7 @@ $bytes = static function (int $n): string {
       <td class="small mono">
         <?php foreach ($grp['tracks'] as $t): ?>
           <?php if ($t['url'] !== ''): ?><a href="<?= h($t['url']) ?>"><?= h($t['file']) ?></a><?php else: ?><?= h($t['file']) ?><?php endif; ?>
-          <?= h('(' . $bytes((int) $t['bytes']) . ')') ?>
+          <?= (int) $t['bytes'] > 0 ? h('(' . $bytes((int) $t['bytes']) . ')') : '' ?>
           <?php if (isset($t['rows'])): ?>
             &mdash; <?= h((string) $t['rows']) ?> features, also as
             <a href="<?= h($t['bed_url']) ?>"><?= h($t['bed']) ?></a>
