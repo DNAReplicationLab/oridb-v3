@@ -3,12 +3,17 @@
 How the ARS consensus sequence (ACS) motif shown on origin pages was derived, how each
 element is scored against it, and which records are flagged for curation.
 
+Throughout, **ACS** means the motif &mdash; the matrix and the score columns derived from
+it. An **A element** is the record in the database: a functionally validated element
+required for ARS activity, which is scored against the ACS but is not the same thing as a
+match to it. The element layer also holds **B2 elements**, which carry their own matrix.
+
 Everything here is produced by `bin/build_elements.py`; the numbers below are read back
 from `public/data/release.json` and `public/data/elements.tsv` after a build.
 
 ## Why a matrix was needed
 
-OriDB v2 stored each ACS element as a short string (10, 11 or 15 bp) plus an integer
+OriDB v2 stored each A element as a short string (10, 11 or 15 bp) plus an integer
 `offset`, and displayed an alignment. The strings alone are too short to show the motif:
 the 11 bp consensus `WTTTAYRTTTW` is a weak match criterion, and nothing in the stored
 data says where the core sits inside a 15 bp string. The matrix is derived instead from
@@ -50,7 +55,7 @@ visible and reversible.
 
 A fifth record, ODB-EL-0417 (ARS731), was flagged alongside these but is correctly
 placed: its `offset` is 7, its core sits at index 2 where table S1 puts it, and it is
-simply a weak ACS (7 of 11).
+simply a weak match to the ACS (7 of 11).
 
 ## Choosing the window
 
@@ -116,7 +121,7 @@ total (the column table above sums to the same figure, to rounding). Its consens
 
 All 68 confirmed elements that can be placed in the assembly; none are
 excluded. Dropping weak-scoring elements would bias the matrix towards its own consensus,
-so every experimentally confirmed ACS counts, including ODB-EL-0417 and ODB-EL-0108 —
+so every experimentally confirmed A element counts, including ODB-EL-0417 and ODB-EL-0108 —
 the latter only 10 bp as stored, too short to carry a core by itself, but scorable
 because the window is taken from the genome rather than from the stored string.
 

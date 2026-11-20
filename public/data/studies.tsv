@@ -30,6 +30,8 @@ pmid	doi	year	journal	first_author	n_authors	title
 20972444	10.1038/nsmb.1932	2010	Nat. Struct. Mol. Biol.	Crabbé, Laure	6	Analysis of replication profiles reveals key role of RFC-Ctf18 in yeast replication stress response.
 21351687		1988	Genome	Button, L L	2	DNA fragments isolated from the left end of chromosome III in yeast are repaired to generate functional telomeres.
 22767388	10.1101/gr.139477.112	2012	Genome Res.	Müller, Carolin A	2	Conservation of replication timing reveals global and local regulation of replication origin activity.
+23562327	10.1016/j.molcel.2013.03.004	2013	Mol Cell	McGuffee SR	3	Quantitative, genome-wide analysis of eukaryotic replication initiation and termination
+24089142	10.1093/nar/gkt878	2014	Nucleic Acids Res	Müller CA	11	The dynamics of genome replication using deep sequencing
 3023929		1986	Mol. Cell. Biol.	Bouton, A H	2	Fine-structure analysis of the DNA sequence requirements for autonomous replication of Saccharomyces cerevisiae plasmids.
 3277180		1988	Proc. Natl. Acad. Sci. U.S.A.	Eisenberg, S	3	Specific interaction between a Saccharomyces cerevisiae protein and a DNA element associated with certain autonomously replicating sequences.
 3284655		1988	Cell	Palzkill, T G	2	A yeast replication origin consists of multiple copies of a small conserved sequence.

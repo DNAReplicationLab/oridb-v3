@@ -28,8 +28,8 @@
       "rows": 536
     },
     "studies.tsv": {
-      "md5": "50d394a693bb622173a974ca173fc397",
-      "rows": 49
+      "md5": "b6cdcd7afe87b201731bded16d0315ed",
+      "rows": 51
     },
     "elements.tsv": {
       "md5": "a019772caa5e8ae10e0eb5af9e8891eb",
@@ -118,7 +118,7 @@
     },
     {
       "id": "elements-unplaced",
-      "text": "3 of 1657 ACS elements could not be placed in sacCer3 from their sequence alone - either the sequence does not occur in the current assembly, or it occurs several times with none near the coordinate v2 recorded. They are published without coordinates rather than placed on a guess; see anchor_status in elements.tsv.",
+      "text": "3 of 1657 origin elements could not be placed in sacCer3 from their sequence alone - either the sequence does not occur in the current assembly, or it occurs several times with none near the coordinate v2 recorded. They are published without coordinates rather than placed on a guess; see anchor_status in elements.tsv.",
       "accessions": []
     }
   ],
@@ -145,7 +145,7 @@
       14
     ],
     "consensus": "WWWWTTTAYnTTTWKnnnnnnnnnnnnnnnWTn",
-    "derivation": "Position weight matrix built from the experimentally confirmed ACS elements, extended into sacCer3 either side of the 11 bp core. The window was chosen by information content, not assumed: it runs from 3 bp upstream of the core to 19 bp downstream, and includes the WTW motif that Chang et al. (PMID 18573888) place 17-19 bp from the ACS, which this matrix reproduces independently. Information content is measured against the sacCer3 base composition, not a uniform background, and the logo is drawn on the same scale.",
+    "derivation": "Position weight matrix built from the experimentally confirmed A elements, extended into sacCer3 either side of the 11 bp core. The window was chosen by information content, not assumed: it runs from 3 bp upstream of the core to 19 bp downstream, and includes the WTW motif that Chang et al. (PMID 18573888) place 17-19 bp from the ACS, which this matrix reproduces independently. Information content is measured against the sacCer3 base composition, not a uniform background, and the logo is drawn on the same scale.",
     "training_elements": 68,
     "excluded_elements": [],
     "information_content_bits": 16.5,
@@ -248,7 +248,7 @@
     "logo_left_pad": 62
   },
   "elements": {
-    "description": "ACS elements from the four OriDB v2 element studies, each located in sacCer3 by its stored sequence rather than by its stored coordinates.",
+    "description": "A and B2 elements from the four OriDB v2 element tables and from Reuter et al. 2024, each located in sacCer3 by its stored sequence rather than by its stored coordinates.",
     "studies": {
       "sc_confirmed_ACS": {
         "element_type": "confirmed",

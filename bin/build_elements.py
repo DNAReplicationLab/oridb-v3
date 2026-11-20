@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
-"""Build the ACS element layer: public/data/elements.tsv.
+"""Build the origin element layer (A and B2): public/data/elements.tsv.
 
 Step 3 of the data pipeline, after build_from_v2.py and lift_to_saccer3.py.
 
     python3 bin/build_elements.py /path/to/nieduszy_oridb.sql --sacCer3 DIR
 
-OriDB v2 holds four ACS element tables, all registered in sc_elements_studies:
+OriDB v2 holds four A-element tables, all registered in sc_elements_studies:
 
     sc_confirmed_ACS       68 rows   experimentally confirmed
     Nieduszynski2006_ACS  196 rows   predicted (published as proACS), PMID 16847347
@@ -135,6 +135,8 @@ TREP_CALLS = 'muller2014_trep_peaks.bed'
 # guess - the median is the typical displacement of a true pairing and the p90
 # is dominated by origins the assay does not detect at all, so the p75 is the
 # distance within which a call still plausibly belongs to this origin.
+OKSEQ_PMID = '23562327'  # McGuffee, Smith & Whitehouse 2013
+TREP_PMID = '24089142'   # Muller et al. 2014
 OKSEQ_CAP_BP = 1160    # GSE40696_Okseq_initiation, err_p75_bp
 TREP_CAP_BP = 5520     # Muller2014_Trep_peaks, err_p75_bp
 
@@ -698,7 +700,10 @@ def main() -> None:
     known = {s['pmid'] for s in studies}
     pm = {str(r['pubmed_id']): r for r in v2.load(sql, 'local_pubmed')}
     added = []
-    cited = {r['study_pmid'] for r in records if r['study_pmid']}
+    # The two per-origin value datasets are cited on every origin page that
+    # carries an activity or a replication time, so they need citation records
+    # even though no element record points at them.
+    cited = {r['study_pmid'] for r in records if r['study_pmid']} | {OKSEQ_PMID, TREP_PMID}
     for pmid in sorted(cited):
         if pmid and pmid not in known and pmid in pm:
             r = pm[pmid]
@@ -779,7 +784,7 @@ def main() -> None:
         'window': f'-{MOTIF_UP} to +{MOTIF_UP + MOTIF_CORE - 1 + MOTIF_DOWN - MOTIF_UP}',
         'core_columns': [MOTIF_UP + 1, MOTIF_UP + MOTIF_CORE],
         'consensus': consensus,
-        'derivation': 'Position weight matrix built from the experimentally confirmed ACS '
+        'derivation': 'Position weight matrix built from the experimentally confirmed A '
                       'elements, extended into sacCer3 either side of the 11 bp core. The '
                       'window was chosen by information content, not assumed: it runs from '
                       '3 bp upstream of the core to 19 bp downstream, and includes the WTW '
@@ -817,9 +822,9 @@ def main() -> None:
             'logo_left_pad': LOGO_PAD_L,
         }
     rel['elements'] = {
-        'description': 'ACS elements from the four OriDB v2 element studies, each located '
-                       'in sacCer3 by its stored sequence rather than by its stored '
-                       'coordinates.',
+        'description': 'A and B2 elements from the four OriDB v2 element tables and '
+                       'from Reuter et al. 2024, each located in sacCer3 by its stored '
+                       'sequence rather than by its stored coordinates.',
         'studies': {t: {'element_type': k, 'pmid': p, 'source_assembly': a}
                     for t, (k, p, a) in TABLES.items()},
         'anchor_status_counts': counts,
@@ -942,7 +947,7 @@ def main() -> None:
     if unresolved:
         rel['known_issues'].append({
             'id': ISSUE_ID,
-            'text': f'{unresolved} of {len(records)} ACS elements could not be placed in '
+            'text': f'{unresolved} of {len(records)} origin elements could not be placed in '
                     'sacCer3 from their sequence alone - either the sequence does not occur '
                     'in the current assembly, or it occurs several times with none near the '
                     'coordinate v2 recorded. They are published without coordinates rather '

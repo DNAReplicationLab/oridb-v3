@@ -31,8 +31,8 @@ require ORIDB_APP_DIR . '/header.php';
           also available)</td></tr>
     <?php endforeach; ?>
     <tr><td><a href="<?= h(u('export.php', ['format' => 'elements'])) ?>">BED</a></td>
-        <td>ACS elements, <?= h(Data::elementAssembly()) ?></td>
-        <td class="small">all four element studies; records with no position in that assembly are omitted</td></tr>
+        <td>origin elements, <?= h(Data::elementAssembly()) ?></td>
+        <td class="small">A and B2 elements from every element study; records with no position in that assembly are omitted</td></tr>
     <tr><td><a href="<?= h(u('export.php', ['format' => 'tsv'])) ?>">TSV</a></td>
         <td>all origins</td>
         <td class="small">as served, 1-based inclusive; the only export that carries the legacy

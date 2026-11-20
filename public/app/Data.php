@@ -79,7 +79,7 @@ final class Data
         return self::indexBy('evidence', 'accession')[$accession] ?? [];
     }
 
-    /** @return list<array<string,string>> every ACS element, placed or not */
+    /** @return list<array<string,string>> every origin element (A or B2), placed or not */
     public static function elements(): array
     {
         return self::table('elements');
@@ -98,7 +98,7 @@ final class Data
     }
 
     /**
-     * ACS elements linked to an origin, most specific relation first.
+     * Origin elements linked to an origin, most specific relation first.
      *
      * @return list<array<string,string>>
      */

@@ -76,6 +76,90 @@ require ORIDB_APP_DIR . '/header.php';
   </tbody>
 </table>
 
+<?php
+// Per-origin values from the two modern genome-wide call sets. Both measure
+// firing, both cover S. cerevisiae only, and both are assigned by the rule in
+// docs/origin_activity_timing.md: mutually nearest call, within that assay's
+// measured positional error. An origin with no qualifying call keeps an empty
+// field, which records a call the experiment could not resolve - not a zero.
+$dyn = [
+    [
+        'label'   => 'Firing efficiency',
+        'unit'    => 'OEM, 0 to 1',
+        'value'   => $origin['okseq_activity_oem'] ?? '',
+        'format'  => static fn (string $v): string => number_format((float) $v, 2),
+        'call'    => $origin['okseq_call'] ?? '',
+        'dist'    => $origin['okseq_distance_bp'] ?? '',
+        'what'    => 'the fraction of cells in which a fork starts here, from the '
+                   . 'directionality of Okazaki fragments',
+        'pmid'    => '23562327',
+        'assay'   => 'Okazaki-fragment sequencing',
+    ],
+    [
+        'label'   => 'Median replication time',
+        'unit'    => 'minutes after release',
+        'value'   => $origin['median_replication_time_composite_min'] ?? '',
+        'format'  => static fn (string $v): string => number_format((float) $v, 1),
+        'call'    => $origin['replication_time_call'] ?? '',
+        'dist'    => $origin['replication_time_distance_bp'] ?? '',
+        'what'    => 'the time by which half the cells have replicated this DNA, from '
+                   . 'sequencing a synchronous culture',
+        'pmid'    => '24089142',
+        'assay'   => 'sync-seq replication profiling',
+    ],
+];
+// The assays are cerevisiae-wide, so the section is shown for every cerevisiae
+// origin, with or without values: a missing value is itself a result. No
+// equivalent pombe dataset is loaded yet, so the section is omitted there.
+$showDynamics = str_contains($origin['species'], 'cerevisiae');
+?>
+<?php if ($showDynamics): ?>
+<h2>Replication dynamics</h2>
+<p class="small">
+  How often this origin fires, and when the surrounding DNA is replicated. Each value is
+  read from a genome-wide dataset re-analysed on <?= h($origin['assembly']) ?> and is
+  attached to this origin only where the origin and the call are each other&rsquo;s nearest
+  neighbour and lie within the measured positional error of that assay, so the distance is
+  published with the value.
+</p>
+<table>
+  <thead><tr><th>Measurement</th><th class="num">Value</th><th>Assigned call</th>
+             <th class="num">Distance</th><th>Assay</th></tr></thead>
+  <tbody>
+  <?php foreach ($dyn as $d): ?>
+    <tr>
+      <td><?= h($d['label']) ?>
+          <span class="small"><?= h($d['unit']) ?></span></td>
+      <td class="num">
+        <?php if ($d['value'] !== ''): ?>
+          <strong><?= h(($d['format'])((string) $d['value'])) ?></strong>
+        <?php else: ?>
+          <span class="small">not resolved</span>
+        <?php endif; ?>
+      </td>
+      <td class="mono"><?= $d['call'] !== '' ? h($d['call']) : '<span class="small">&ndash;</span>' ?></td>
+      <td class="num"><?= $d['dist'] !== '' ? h(bp((int) $d['dist'])) . ' bp' : '<span class="small">&ndash;</span>' ?></td>
+      <td><?= h($d['assay']) ?><br><span class="small"><?= cite_pmid($d['pmid']) ?></span></td>
+    </tr>
+  <?php endforeach; ?>
+  </tbody>
+</table>
+<p class="small">
+  <strong>Read these with their qualifications.</strong>
+  A blank is not a zero: it records that the experiment resolved no call here, which for
+  both of these assays happens to origins that fire late or in few cells, so the origins
+  without a value are unmeasured rather than inactive.
+  The efficiency is the raw OEM, without the deconvolution the original study applied, so
+  values are under-estimates close to a termination zone.
+  The replication time is a <em>composite</em> and not a firing time &mdash; DNA here is
+  replicated either by this origin or by a fork arriving from a neighbour, and an early
+  value can be produced by either.
+  <a href="https://github.com/DNAReplicationLab/oridb-v3/blob/main/docs/origin_activity_timing.md">How
+  these values are assigned</a>, and both datasets are browsable in the
+  <a href="datahub.php">data hub</a>.
+</p>
+<?php endif; ?>
+
 <h2>Origin elements</h2>
 <?php
 $elements = Data::elementsFor($accession);

@@ -24,7 +24,7 @@ require ORIDB_APP_DIR . '/header.php';
   <li><span class="n"><?= h((string) $n) ?></span><span class="k"><em><?= h($species) ?></em></span></li>
 <?php endforeach; ?>
   <li><span class="n"><?= h((string) $release['files']['evidence.tsv']['rows']) ?></span><span class="k">evidence records</span></li>
-  <li><span class="n"><?= h((string) $release['files']['elements.tsv']['rows']) ?></span><span class="k">ACS elements</span></li>
+  <li><span class="n"><?= h((string) $release['files']['elements.tsv']['rows']) ?></span><span class="k">origin elements</span></li>
   <li><span class="n"><?= h((string) $release['files']['studies.tsv']['rows']) ?></span><span class="k">source publications</span></li>
 </ul>
 
