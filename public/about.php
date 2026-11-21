@@ -113,7 +113,7 @@ require ORIDB_APP_DIR . '/header.php';
   It is the same for every origin, so it is kept here rather than repeated on each one.
 </p>
 
-<h3>A, B1 and B2</h3>
+<h3>A, B1, B2 and B3</h3>
 <ul>
   <li><strong>A element</strong> &mdash; the element the origin recognition complex binds, and
       the one the <strong>ACS</strong> (ARS consensus sequence) motif matches.
@@ -128,6 +128,12 @@ require ORIDB_APP_DIR . '/header.php';
       reported as a class of its own by the study it comes from and carried here as its own
       record, with its own matrix. B2 elements are <em>not</em> scored against the ACS motif,
       which does not describe them.</li>
+  <li><strong>B3 element</strong> &mdash; the Abf1p-binding element, the furthest of the B
+      elements from the A element at the origins where it has been defined; at ARS1 it lies
+      89&nbsp;bp 3' of the A element, beyond B2 at 49&nbsp;bp. It is a protein-binding site for a sequence-specific
+      factor rather than a degenerate consensus, so it has no matrix here and is carried from
+      the literature with its coordinates and its citation. It is drawn and listed, but has no
+      alignment panel: there is nothing to align it against.</li>
 </ul>
 
 <h3>How elements are located</h3>
@@ -156,8 +162,8 @@ require ORIDB_APP_DIR . '/header.php';
 <p>
   <span class="mono">confirmed</span> elements are experimentally defined; the rest are
   <span class="mono">predicted</span> &mdash; computational calls, published under their own names
-  by the studies they come from. This is evidence, not class: an element is A or B2 <em>and</em>
-  confirmed or predicted. Confirmed elements are set in bold in the alignment, labelled there,
+  by the studies they come from. This is evidence, not class: an element is A, B2 or B3
+  <em>and</em> confirmed or predicted. Confirmed elements are set in bold in the alignment, labelled there,
   and drawn in a solid colour in the overview figure, because they are the records the ACS matrix
   itself was built from.
 </p>
@@ -210,10 +216,11 @@ if ($acs !== null):
 
 <h3>The overview figure</h3>
 <p>
-  The figure at the top of an origin's element section draws the origin interval as a box, with A
-  elements above it and B2 elements below. The two classes are separated because they lie close
-  together &mdash; B2 sits a few tens of bases 3' of the A element, which at the scale of an
-  origin is a few pixels &mdash; and within each class, marks that would collide are stacked onto
+  The figure at the top of an origin's element section draws the origin interval as a box, with
+  the A element above it and the B elements &mdash; B2, and B3 where one is defined &mdash;
+  below, each class in its own colour. The two sides are separated because the elements lie close
+  together: the B elements sit within about a hundred bases 3' of the A element, which at the
+  scale of an origin is a few pixels. Marks that would collide are stacked onto
   further rows rather than drawn over one another. Marks are to scale, down to a floor of a few
   pixels so that a short element in a wide origin stays visible, and the pointed end of a mark is
   the 3' end of that element. Exact coordinates are always in the records table below it.

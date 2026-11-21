@@ -240,6 +240,34 @@ function motif_panel(array $motif, array $elements, int $colw, int $padl, string
  *
  * Returns SVG markup; the caller supplies the caption.
  */
+/**
+ * Which side of the origin line an element is drawn on.
+ *
+ * A is the ORC-binding element; B1, B2 and B3 are the B elements 3' of it. Only
+ * the side is collapsed here - the class itself is kept for the colour, the
+ * label and the tooltip, because a B3 is not a B2. Anything unrecognised is
+ * treated as a B element rather than silently joining the A lane, which is how
+ * the one B3 record in the database was drawn as a confirmed A element.
+ */
+function element_lane(string $class): string
+{
+    return $class === 'A' || $class === '' ? 'A' : 'B';
+}
+
+/**
+ * Fill and edge colours. Colour carries the side of the origin, not the class:
+ * every B element is drawn in the same colour, whether it is a B2 or a B3, and
+ * only A has a colour of its own. Which B class a mark is comes from the lane
+ * label, the tooltip and the records table. Giving each class its own hue made
+ * a B3 read as a near-A, which is the confusion worth avoiding.
+ */
+function element_colours(string $class): array
+{
+    return element_lane($class) === 'A'
+        ? ['confirmed' => '#15467f', 'predicted' => '#b7d0e8', 'edge' => '#15467f']
+        : ['confirmed' => '#8a4a12', 'predicted' => '#f0cea4', 'edge' => '#8a4a12'];
+}
+
 function element_overview_svg(array $origin, array $elements, string $domId): string
 {
     $placed = array_values(array_filter(
@@ -270,20 +298,23 @@ function element_overview_svg(array $origin, array $elements, string $domId): st
 
     // Lane packing: a mark needs its own row unless it clears everything already
     // on that row by a few pixels, so that two elements 20 bp apart stay readable.
-    $lanes = ['A' => [], 'B2' => []];
+    // Packed by side, not by class: B2 and B3 share the lower lane and stack
+    // against each other, so two B elements 20 bp apart still read separately.
+    $lanes = ['A' => [], 'B' => []];
     foreach ($placed as $e) {
-        $class = ($e['element_class'] ?? 'A') === 'B2' ? 'B2' : 'A';
+        $class = (string) ($e['element_class'] ?? 'A');
+        $lane = element_lane($class);
         $x1 = $x((int) $e['start']);
         $x2 = max($x1 + 3.0, $x((int) $e['end'] + 1));
         $row = 0;
-        while (isset($lanes[$class][$row]) && $lanes[$class][$row]['until'] > $x1 - 4.0) {
+        while (isset($lanes[$lane][$row]) && $lanes[$lane][$row]['until'] > $x1 - 4.0) {
             $row++;
         }
-        $lanes[$class][$row]['until'] = $x2;
-        $lanes[$class][$row]['marks'][] = ['e' => $e, 'x1' => $x1, 'x2' => $x2];
+        $lanes[$lane][$row]['until'] = $x2;
+        $lanes[$lane][$row]['marks'][] = ['e' => $e, 'class' => $class, 'x1' => $x1, 'x2' => $x2];
     }
     $rowsA = count($lanes['A']);
-    $rowsB = count($lanes['B2']);
+    $rowsB = count($lanes['B']);
 
     $rowH = 13.0;
     $markH = 9.0;
@@ -298,22 +329,21 @@ function element_overview_svg(array $origin, array $elements, string $domId): st
     $legendY = $scaleY + 22.0;
     $viewH = (int) ceil($legendY + 14.0);
 
-    $fill = [
-        'A:confirmed' => '#15467f', 'A:predicted' => '#b7d0e8',
-        'B2:confirmed' => '#8a4a12', 'B2:predicted' => '#f0cea4',
-    ];
-    $edge = ['A' => '#15467f', 'B2' => '#8a4a12'];
-
-    $counts = ['A' => ['confirmed' => 0, 'predicted' => 0], 'B2' => ['confirmed' => 0, 'predicted' => 0]];
+    // Counted per class, so a class that is present gets a legend entry and one
+    // that is not stays out of the figure entirely.
+    $counts = [];
+    $laneTotals = ['A' => 0, 'B' => 0];
     $outside = 0;
     foreach ($placed as $e) {
-        $class = ($e['element_class'] ?? 'A') === 'B2' ? 'B2' : 'A';
+        $class = (string) ($e['element_class'] ?? 'A');
         $type = $e['element_type'] === 'confirmed' ? 'confirmed' : 'predicted';
-        $counts[$class][$type]++;
+        $counts[$class][$type] = ($counts[$class][$type] ?? 0) + 1;
+        $laneTotals[element_lane($class)]++;
         if ((int) $e['start'] < $oStart || (int) $e['end'] > $oEnd) {
             $outside++;
         }
     }
+    uksort($counts, static fn (string $a, string $b): int => strcmp($a, $b));
 
     // A round number for the scale bar: the 1-2-5 step nearest a fifth of the view.
     $target = $winSpan / 5;
@@ -329,19 +359,20 @@ function element_overview_svg(array $origin, array $elements, string $domId): st
     $titleId = $domId . '-t';
     $descId = $domId . '-d';
     $parts = [];
-    foreach (['A', 'B2'] as $class) {
-        $n = $counts[$class]['confirmed'] + $counts[$class]['predicted'];
+    foreach ($counts as $class => $byType) {
+        $conf = $byType['confirmed'] ?? 0;
+        $pred = $byType['predicted'] ?? 0;
+        $n = $conf + $pred;
         if ($n > 0) {
             $parts[] = $n . ' ' . $class . ' element' . ($n === 1 ? '' : 's')
-                . ' (' . $counts[$class]['confirmed'] . ' confirmed, '
-                . $counts[$class]['predicted'] . ' predicted)';
+                . ' (' . $conf . ' confirmed, ' . $pred . ' predicted)';
         }
     }
     $title = 'Positions of the elements in ' . ($origin['name'] !== '' ? $origin['name'] : $origin['accession']);
     $desc = implode(' and ', $parts) . ' drawn to scale on '
           . $origin['chromosome'] . ':' . bp($oStart) . '-' . bp($oEnd)
-          . ' (' . bp($oEnd - $oStart + 1) . ' bp). A elements are drawn above the origin interval and '
-          . 'B2 elements below it, each stacked onto its own row where marks would overlap. '
+          . ' (' . bp($oEnd - $oStart + 1) . ' bp). A elements are drawn above the origin interval '
+          . 'and B elements below it, each stacked onto its own row where marks would overlap. '
           . ($outside > 0
               ? $outside . ($outside === 1 ? ' element extends' : ' elements extend') . ' beyond the origin interval. '
               : 'All of them lie inside the origin interval. ')
@@ -373,22 +404,30 @@ function element_overview_svg(array $origin, array $elements, string $domId): st
     );
 
     // Lanes.
-    foreach (['A' => $topPad, 'B2' => $laneBY] as $class => $laneTop) {
-        $rows = $lanes[$class] ?? [];
+    foreach (['A' => $topPad, 'B' => $laneBY] as $lane => $laneTop) {
+        $rows = $lanes[$lane] ?? [];
         if ($rows === []) {
             continue;
         }
-        $n = $counts[$class]['confirmed'] + $counts[$class]['predicted'];
+        // The lower lane is labelled by the classes actually drawn in it, so a
+        // figure with a B3 says so rather than calling everything B2.
+        $inLane = array_keys(array_filter(
+            $counts,
+            static fn (string $c): bool => element_lane($c) === $lane,
+            ARRAY_FILTER_USE_KEY
+        ));
         $svg[] = sprintf(
             '<text x="%.1f" y="%.1f" font-size="11" text-anchor="end" fill="#1b1f23">%s</text>',
             $gutter - 8.0,
             $laneTop + $markH,
-            h($class . ' (' . $n . ')')
+            h(implode(', ', $inLane) . ' (' . $laneTotals[$lane] . ')')
         );
         foreach ($rows as $r => $row) {
             $y = $laneTop + $r * $rowH;
             foreach ($row['marks'] as $m) {
                 $e = $m['e'];
+                $class = $m['class'];
+                $colour = element_colours($class);
                 $type = $e['element_type'] === 'confirmed' ? 'confirmed' : 'predicted';
                 $w = $m['x2'] - $m['x1'];
                 $tip = $e['accession'] . ': ' . $class . ' element, ' . $type . ', '
@@ -408,8 +447,8 @@ function element_overview_svg(array $origin, array $elements, string $domId): st
                             $m['x2'], $y, $m['x1'] + $tipw, $y, $m['x1'], $y + $markH / 2,
                             $m['x1'] + $tipw, $y + $markH, $m['x2'], $y + $markH
                         );
-                    $svg[] = '<polygon points="' . $pts . '" fill="' . $fill[$class . ':' . $type]
-                           . '" stroke="' . $edge[$class] . '" stroke-width="1"><title>' . h($tip) . '</title></polygon>';
+                    $svg[] = '<polygon points="' . $pts . '" fill="' . $colour[$type]
+                           . '" stroke="' . $colour['edge'] . '" stroke-width="1"><title>' . h($tip) . '</title></polygon>';
                 } else {
                     $svg[] = sprintf(
                         '<rect x="%.1f" y="%.1f" width="%.1f" height="%.1f" rx="1.5" fill="%s" stroke="%s" stroke-width="1"><title>%s</title></rect>',
@@ -417,8 +456,8 @@ function element_overview_svg(array $origin, array $elements, string $domId): st
                         $y,
                         $w,
                         $markH,
-                        $fill[$class . ':' . $type],
-                        $edge[$class],
+                        $colour[$type],
+                        $colour['edge'],
                         h($tip)
                     );
                 }
@@ -483,9 +522,20 @@ function element_overview_svg(array $origin, array $elements, string $domId): st
 
     // Legend, drawn only for the combinations that occur.
     $lx = (float) $gutter;
-    foreach (['A', 'B2'] as $class) {
+    // One entry per side, not per class: two swatches of the same colour labelled
+    // B2 and B3 would say that the colour distinguishes them, and it does not.
+    $laneTypes = ['A' => [], 'B' => []];
+    foreach ($counts as $class => $byType) {
         foreach (['confirmed', 'predicted'] as $type) {
-            if ($counts[$class][$type] === 0) {
+            if (($byType[$type] ?? 0) > 0) {
+                $laneTypes[element_lane($class)][$type] = true;
+            }
+        }
+    }
+    foreach ($laneTypes as $class => $byType) {
+        $colour = element_colours($class);
+        foreach (['confirmed', 'predicted'] as $type) {
+            if (!isset($byType[$type])) {
                 continue;
             }
             $svg[] = sprintf(
@@ -493,8 +543,8 @@ function element_overview_svg(array $origin, array $elements, string $domId): st
                 . '<text x="%.1f" y="%.1f" font-size="10" fill="#1b1f23">%s</text>',
                 $lx,
                 $legendY - 7.0,
-                $fill[$class . ':' . $type],
-                $edge[$class],
+                $colour[$type],
+                $colour['edge'],
                 $lx + 19.0,
                 $legendY,
                 h($class . ' ' . $type)

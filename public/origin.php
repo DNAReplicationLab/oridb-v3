@@ -221,14 +221,22 @@ $showDynamics = str_contains($origin['species'], 'cerevisiae');
 <h2>Origin elements</h2>
 <?php
 $elements = Data::elementsFor($accession);
-// Placed elements only can be drawn or aligned; the records table lists them all.
+// Only an element with a motif window can be aligned under a logo, and only the
+// two classes with a matrix have one to be aligned against. Everything else - a
+// B3, or a literature element published without a scored window - is still
+// placed, drawn and listed; it simply has no panel. Bucketing it with the A
+// elements, which is what an "is it B2?" test did, drew a B3 as an A element.
 $byClass = ['A' => [], 'B2' => []];
+$classCounts = [];
 foreach ($elements as $e) {
-    $class = ($e['element_class'] ?? 'A') === 'B2' ? 'B2' : 'A';
-    if ($e['motif_window'] !== '' && $e['start'] !== '') {
+    $class = (string) ($e['element_class'] ?? 'A');
+    $classCounts[$class] = ($classCounts[$class] ?? 0) + 1;
+    if (isset($byClass[$class]) && $e['motif_window'] !== '' && $e['start'] !== '') {
         $byClass[$class][] = $e;
     }
 }
+ksort($classCounts);
+$unplaced = array_filter($elements, static fn (array $e): bool => $e['start'] === '');
 $motifs = [
     'A' => Data::release()['acs_motif'] ?? null,
     'B2' => Data::release()['b2_motif'] ?? null,
@@ -242,21 +250,26 @@ $motifs = [
 <?php else: ?>
   <p class="small">
     <?= h((string) count($elements)) ?> element record<?= count($elements) === 1 ? '' : 's' ?>
-    at this origin: <?= h((string) count($byClass['A'])) ?> A,
-    <?= h((string) count($byClass['B2'])) ?> B2 (placed).
-    <a href="about.php#elements">What A and B2 elements are, how they are located and what
+    at this origin:
+    <?= h(implode(', ', array_map(
+        static fn (string $c, int $n): string => $n . ' ' . $c,
+        array_keys($classCounts),
+        $classCounts
+    ))) ?>.
+    <a href="about.php#elements">What A and B elements are, how they are located and what
     the scores mean</a>.
   </p>
 
   <?php
   $figure = element_overview_svg($origin, $elements, 'elfig-' . $accession);
-  $unplacedCount = count($elements) - count($byClass['A']) - count($byClass['B2']);
+  $unplacedCount = count($unplaced);
   ?>
   <?php if ($figure !== ''): ?>
     <figure class="elfig-wrap">
       <?= $figure ?>
       <figcaption class="small">
-        Elements drawn to scale across the origin interval, A above and B2 below. Dashed
+        Elements drawn to scale across the origin interval, A above the line and the B
+        elements below it, each class in its own colour. Dashed
         rules mark the ends of the origin, so an element that extends past them is drawn
         outside the box rather than trimmed to fit. Marks narrower than a few pixels are
         drawn at that minimum, so a very short element stays visible; exact coordinates are
