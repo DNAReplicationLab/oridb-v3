@@ -225,6 +225,7 @@ def main(dump_path: str) -> None:
     # it contains a known origin. 76 of them contain none: they are assay results about
     # an interval, so they are published as such rather than invented as origins.
     refuted = [dict(fragment_id=f"sc_cloned_no_ori:{r['id']}",
+                    assembly=ASSEMBLY['sc'][1],
                     chromosome=seqname('sc', int(r['chr'])), start=r['start'], end=r['end'],
                     name=unescape(str(r['name'] or '')),
                     other_names=unescape(str(r['othernames'] or '')),

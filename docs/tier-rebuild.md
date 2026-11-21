@@ -22,7 +22,7 @@ Counts after the current build:
 
 | species | Confirmed | Likely | Unsupported | Not assessed |
 |---|---:|---:|---:|---:|
-| *S. cerevisiae* | 413 | 58 | 368 | — |
+| *S. cerevisiae* | 413 | 40 | 386 | — |
 | *S. pombe* | 48 | — | — | 693 |
 
 and how the 2012 tiers moved:
@@ -30,9 +30,9 @@ and how the 2012 tiers moved:
 | OriDB 2012 | → Confirmed | → Likely | → Unsupported |
 |---|---:|---:|---:|
 | Confirmed (410) | 410 | — | — |
-| Likely (216) | 1 | 38 | 177 |
-| Dubious (203) | 2 | 10 | 191 |
-| new in v3 (10) | — | 10 | — |
+| Likely (216) | 1 | 26 | 189 |
+| Dubious (203) | 2 | 9 | 192 |
+| new in v3 (10) | — | 5 | 5 |
 
 The three promotions to Confirmed are v2 records that already overlapped a positive ARS
 assay or a 2D gel but were not Confirmed in v2 (`sc_ori` 79, 84 and 741). They are raised
@@ -69,7 +69,8 @@ plus its call file, then a rerun.
 |---|---|---|---|---:|---|
 | `foss2024_mcm` | Foss *et al.* 2024, PMID 38315095 | licensing | yes | 500 bp | rank ≤ 500 |
 | `mcguffee2013_okseq` | McGuffee, Smith & Whitehouse 2013, PMID 23562327 | firing | yes | 1,160 bp | — |
-| `reuter2024_orc` | Reuter *et al.* 2024, PMID 39181881 | licensing | yes | 500 bp | non-origin ORC calls only |
+| `reuter2024_mcm` | Reuter *et al.* 2024, PMID 39181881 | licensing | yes | 500 bp | MCM2-7 double-hexamer calls |
+| `reuter2024_orc_nonorigin` | Reuter *et al.* 2024, PMID 39181881 | ORC without MCM2-7 | **no** | 500 bp | — |
 | `muller2014_trep` | Müller *et al.* 2014, PMID 24089142 | timing | **no** | 5,520 bp | — |
 
 Each dataset supports a site when one of its calls lies within the window of the site
@@ -98,18 +99,27 @@ sites and create no others:
 | **500 bp (shipped)** | **58** | **368** | **10** |
 
 Sites supported, per dataset: `foss2024_mcm` 456, `mcguffee2013_okseq` 327,
-`reuter2024_orc` 71.
+`reuter2024_mcm` 322.
 
 **Replication timing is recorded but excluded from the tier.** A timing peak locates where
 replication happened, not where it initiated, and the p90 of its displacement measures
 whether an origin was detected rather than how precisely it was placed. It stays in the
 matrix so that the exclusion is visible and auditable rather than silent.
 
-**Reuter's two origin tables are excluded for a different reason.** They are indexed on the
-OriDB origin list — 302 of 308 MCM2-7 calls and 315 of 323 ORC calls sit at Confirmed
-origins, and only 5 each at Likely ones — so they cannot corroborate the list they were
-drawn from. The genome-wide remainder Reuter publishes, the 242 non-origin ORC calls, is
-independent of it and is the part used here.
+**Licensing means MCM2-7 loading, so only Reuter's MCM table counts.** Reuter reports
+MCM2-7 double hexamers, ORC footprints at origins, and 242 ORC footprints at sites the
+paper annotates as **non-origin** — ORC bound, no MCM2-7 loaded. An earlier version of this
+build used that last set as the licensing axis, on the reasoning that it was the only part
+of Reuter's data not drawn from the OriDB origin list. That was wrong twice over: ORC
+binding is not licensing, and a site the authors annotate as a non-origin cannot be
+evidence that an origin is there. It supported 35 Likely and 30 Unsupported sites before it
+was withdrawn. It stays registered with `counts_towards_tier = no`, so the matrix records
+that those sites were examined and carry ORC without MCM2-7.
+
+The MCM table that replaces it is honest but weak: it is indexed on the OriDB origin list,
+with 295 of its 308 calls at a Confirmed origin, so it can seldom promote anything by
+itself. It is kept because where it does fall on a non-Confirmed site, that is real
+evidence.
 
 ## Where the Foss rank cut came from
 
@@ -179,11 +189,20 @@ One record is excluded: `sc_cloned_no_ori:161` spans 1,005,821 bp and cannot be 
 fragment — left in, it would mark every origin on chromosome XII as ARS-negative. It is
 reported as a known issue rather than silently corrected.
 
-## Novel sites
+## Novel sites and frozen accessions
 
 A cluster of calls within 1,160 bp of each other, drawn from at least two datasets with at
 least one measuring licensing, and matching no site carried from v2, becomes a new site.
-This build creates **10**, ODB-SC-0830 to ODB-SC-0839, all in the Likely tier.
+There are **10**, ODB-SC-0830 to ODB-SC-0839; 5 are Likely and 5 Unsupported.
+
+Those accessions are frozen in `reference/origin_accessions.tsv` the moment they are first
+published, and that is not a formality. When the Reuter ORC-without-MCM calls stopped
+counting, 8 of the 10 no longer met the creation rule. Without the map, the 2 that still
+qualified would have been renumbered onto those loci — ODB-SC-0830, published at
+chrII:5,382, would have come back pointing at chrIV:85,283. Instead each accession keeps
+its locus, a published site whose evidence has weakened is re-created and re-tiered rather
+than deleted, and new numbers are issued above everything ever issued rather than above
+whatever is in the current table.
 
 They continue the existing accession series. The numbers were minted in the first build
 over the complete 2012 origin set in genome order, so publishing the Likely and Dubious

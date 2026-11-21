@@ -20,7 +20,7 @@
   "coordinate_convention": "1-based, fully closed intervals",
   "files": {
     "origins.tsv": {
-      "md5": "17f1ff254435cd41b84de53a2b71a9e8",
+      "md5": "c08742ce60caff0a5abe2ada14dc3067",
       "rows": 1580
     },
     "evidence.tsv": {
@@ -32,7 +32,7 @@
       "rows": 54
     },
     "refuted_fragments.tsv": {
-      "md5": "235c9cb1cb60e9391f35b576e055bed2",
+      "md5": "5dc2fbfbacdffb7f0e0e226ad22d0795",
       "rows": 224
     },
     "elements.tsv": {
@@ -40,8 +40,8 @@
       "rows": 1667
     },
     "evidence_matrix.tsv": {
-      "md5": "0d6af5d7429bd0471199537c44da9066",
-      "rows": 3356
+      "md5": "fca65420b1319f5faed905327ddf3b88",
+      "rows": 4195
     }
   },
   "provenance": {
@@ -100,7 +100,7 @@
       "accessions": []
     },
     {
-      "text": "131 lifted cerevisiae intervals do not have identical sequence in sacCer3 - substitutions, or an indel that changes interval length. Each mapping was checked and is correctly placed; it is the 2003 assembly sequence that was revised. Intervals whose length changed are worth a curator review. The origins affected are:",
+      "text": "179 lifted cerevisiae intervals do not have identical sequence in sacCer3 - substitutions, or an indel that changes interval length. Each mapping was checked and is correctly placed; it is the 2003 assembly sequence that was revised. Intervals whose length changed are worth a curator review. The origins affected are:",
       "accessions": [
         "ODB-SC-0002",
         "ODB-SC-0007",
@@ -187,7 +187,55 @@
         "ODB-SC-0691",
         "ODB-SC-0717",
         "ODB-SC-0796",
-        "ODB-SC-0814"
+        "ODB-SC-0814",
+        "sc_cloned_no_ori:103",
+        "sc_cloned_no_ori:111",
+        "sc_cloned_no_ori:125",
+        "sc_cloned_no_ori:134",
+        "sc_cloned_no_ori:136",
+        "sc_cloned_no_ori:141",
+        "sc_cloned_no_ori:142",
+        "sc_cloned_no_ori:159",
+        "sc_cloned_no_ori:160",
+        "sc_cloned_no_ori:168",
+        "sc_cloned_no_ori:17",
+        "sc_cloned_no_ori:175",
+        "sc_cloned_no_ori:195",
+        "sc_cloned_no_ori:198",
+        "sc_cloned_no_ori:2",
+        "sc_cloned_no_ori:201",
+        "sc_cloned_no_ori:203",
+        "sc_cloned_no_ori:204",
+        "sc_cloned_no_ori:217",
+        "sc_cloned_no_ori:221",
+        "sc_cloned_no_ori:222",
+        "sc_cloned_no_ori:23",
+        "sc_cloned_no_ori:24",
+        "sc_cloned_no_ori:26",
+        "sc_cloned_no_ori:27",
+        "sc_cloned_no_ori:28",
+        "sc_cloned_no_ori:29",
+        "sc_cloned_no_ori:30",
+        "sc_cloned_no_ori:31",
+        "sc_cloned_no_ori:32",
+        "sc_cloned_no_ori:35",
+        "sc_cloned_no_ori:36",
+        "sc_cloned_no_ori:37",
+        "sc_cloned_no_ori:38",
+        "sc_cloned_no_ori:39",
+        "sc_cloned_no_ori:44",
+        "sc_cloned_no_ori:45",
+        "sc_cloned_no_ori:52",
+        "sc_cloned_no_ori:58",
+        "sc_cloned_no_ori:6",
+        "sc_cloned_no_ori:60",
+        "sc_cloned_no_ori:64",
+        "sc_cloned_no_ori:85",
+        "sc_cloned_no_ori:86",
+        "sc_cloned_no_ori:9",
+        "sc_cloned_no_ori:90",
+        "sc_cloned_no_ori:91",
+        "sc_cloned_no_ori:95"
       ]
     },
     {
@@ -205,9 +253,9 @@
     "tool": "pyliftover",
     "sequence_verified": true,
     "record_counts": {
-      "identical": 1342,
-      "length-changed": 75,
-      "same-length-mismatch": 56
+      "identical": 1518,
+      "length-changed": 102,
+      "same-length-mismatch": 77
     },
     "note": "Systematic names are NOT recomputed. They are coordinate-derived labels from the v2 build and are cited as such in the literature, so they stay fixed; a name like X-212 therefore need not match the lifted midpoint."
   },
@@ -470,11 +518,20 @@
         "rank_max": ""
       },
       {
-        "dataset_id": "reuter2024_orc",
+        "dataset_id": "reuter2024_mcm",
         "study_pmid": "39181881",
         "species": "Saccharomyces cerevisiae",
         "measures": "licensing",
         "counts_towards_tier": "yes",
+        "support_window_bp": "500",
+        "rank_max": ""
+      },
+      {
+        "dataset_id": "reuter2024_orc_nonorigin",
+        "study_pmid": "39181881",
+        "species": "Saccharomyces cerevisiae",
+        "measures": "orc-without-mcm",
+        "counts_towards_tier": "no",
         "support_window_bp": "500",
         "rank_max": ""
       },
@@ -506,8 +563,8 @@
     },
     "counts": {
       "Saccharomyces cerevisiae | Confirmed": 413,
-      "Saccharomyces cerevisiae | Likely": 58,
-      "Saccharomyces cerevisiae | Unsupported": 368,
+      "Saccharomyces cerevisiae | Likely": 40,
+      "Saccharomyces cerevisiae | Unsupported": 386,
       "Schizosaccharomyces pombe | Confirmed": 48,
       "Schizosaccharomyces pombe | Not assessed": 693
     },

@@ -255,6 +255,24 @@ if ($wrongAssembly !== [] || $noLift > 0) {
     echo "ok    every origin is on the current assembly, with a lift status\n";
 }
 
+// The refuted fragments were published on sacCer1 for one release because the
+// lift step did not know about the file. Coordinates without an assembly are
+// worse than no coordinates.
+$fragments = $readTsv('refuted_fragments.tsv');
+$wrongFragments = [];
+foreach ($fragments as $f) {
+    if (($f['assembly'] ?? '') !== 'sacCer3') {
+        $wrongFragments[$f['assembly'] ?? '(no assembly column)'] = true;
+    }
+}
+if ($fragments !== [] && $wrongFragments !== []) {
+    echo 'FAIL  refuted_fragments.tsv is on ' . implode(', ', array_keys($wrongFragments))
+       . ", not the current assembly\n";
+    $failures++;
+} else {
+    printf("ok    %d refuted fragment(s) on the current assembly\n", count($fragments));
+}
+
 // The element layer is useless unless its records reach an origin page.
 $linked = 0;
 foreach ($readTsv('elements.tsv') as $e) {

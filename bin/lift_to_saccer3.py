@@ -116,7 +116,9 @@ def main() -> None:
 
     counts: dict[str, int] = {}
     affected: set[str] = set()
-    for filename in ('origins.tsv', 'evidence.tsv'):
+    # The refuted fragments are cerevisiae intervals like any other and were
+    # published on sacCer1 for one release because they were not in this list.
+    for filename in ('origins.tsv', 'evidence.tsv', 'refuted_fragments.tsv'):
         path = DATA / filename
         header, rows = read_tsv(path)
 
@@ -126,7 +128,10 @@ def main() -> None:
                 header.append(col)
 
         for r in rows:
-            cerevisiae = r['accession'].startswith('ODB-SC-')
+            # origins and evidence are keyed by accession, the fragments by their
+            # v2 table and row id; every fragment is cerevisiae.
+            key = r.get('accession', r.get('fragment_id', ''))
+            cerevisiae = key.startswith('ODB-SC-') or key.startswith('sc_')
             # origins.tsv carries the assembly; evidence.tsv does not.
             already = r.get('assembly') == 'sacCer3' or r.get('lift_status') not in (None, '')
             if already:
@@ -142,7 +147,7 @@ def main() -> None:
             new_chr, ns, ne, status = lift(r['chromosome'], int(r['start']), int(r['end']))
             counts[status] = counts.get(status, 0) + 1
             if status not in ('identical', 'not-required'):
-                affected.add(r['accession'])
+                affected.add(key)
             r['source_assembly'] = 'sacCer1'
             r['source_chromosome'] = src_chr
             r['source_start'], r['source_end'] = r['start'], r['end']

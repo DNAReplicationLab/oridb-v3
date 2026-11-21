@@ -41,6 +41,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / 'public' / 'data'
 REGISTRY = ROOT / 'reference' / 'datasets.tsv'
+ACCESSION_MAP = ROOT / 'reference' / 'origin_accessions.tsv'
 
 # Two calls belong to the same novel site if their anchors are within this far.
 # It is the largest support window in the registry: a cluster must be tight enough
@@ -199,17 +200,41 @@ def main() -> None:
                 cluster = [item]
         flush(cluster)
 
-    # Accessions continue the existing series in genome order among themselves;
-    # nothing already published is renumbered.
+    # Accessions for sites with no v2 record are frozen in
+    # reference/origin_accessions.tsv the moment they are first published. A
+    # published accession must keep pointing at the same piece of DNA: when the
+    # Reuter ORC-without-MCM calls stopped counting, eight of the first ten novel
+    # sites no longer met the creation rule, and without this map the two that
+    # remained would have been renumbered onto other loci.
     prefix = {'Saccharomyces cerevisiae': 'ODB-SC', 'Schizosaccharomyces pombe': 'ODB-SP'}
-    next_num = {p: max((int(o['accession'].split('-')[-1]) for o in origins
-                        if o['accession'].startswith(p)), default=0) + 1
-                for p in prefix.values()}
+    frozen: list[dict[str, str]] = []
+    if ACCESSION_MAP.exists():
+        _, frozen = read_tsv(ACCESSION_MAP)
+    # Numbers are issued above everything ever issued, not above what is in the
+    # current table, so a retired accession is never handed to a second site.
+    all_accessions = [o['accession'] for o in origins] + [f['accession'] for f in frozen]
+    next_num = {pfx: max([int(a.split('-')[-1]) for a in all_accessions
+                          if a.startswith(pfx)], default=0) + 1
+                for pfx in prefix.values()}
+
+    def claim(cl: dict) -> str | None:
+        # The frozen accession whose locus this cluster overlaps, if there is one.
+        for f in frozen:
+            if (f['species'] == cl['species'] and f['chromosome'] == cl['chromosome']
+                    and int(f['start']) <= cl['end'] and cl['start'] <= int(f['end'])):
+                return f['accession']
+        return None
+
     novel_rows = []
+    used_frozen = set()
     for cl in sorted(novel_clusters, key=lambda c: (c['species'], c['chromosome'], c['start'])):
         p = prefix[cl['species']]
-        acc = f'{p}-{next_num[p]:04d}'
-        next_num[p] += 1
+        acc = claim(cl)
+        if acc is not None:
+            used_frozen.add(acc)
+        else:
+            acc = f'{p}-{next_num[p]:04d}'
+            next_num[p] += 1
         row = {c: '' for c in header}
         row.update(accession=acc, species=cl['species'],
                    assembly=next(o['assembly'] for o in origins if o['species'] == cl['species']),
@@ -219,6 +244,26 @@ def main() -> None:
                    evidence='', legacy_id='', lift_status='not-required',
                    source_assembly='', source_chromosome='', source_start='', source_end='')
         novel_rows.append(row)
+
+    # A published site whose evidence no longer meets the creation rule does not
+    # disappear: it is re-created at its frozen locus and re-tiered like anything
+    # else, so the change shows up as a change of tier rather than as a site and
+    # an accession silently vanishing.
+    for f in frozen:
+        if f['accession'] in used_frozen:
+            continue
+        row = {c: '' for c in header}
+        row.update(accession=f['accession'], species=f['species'],
+                   assembly=next((o['assembly'] for o in origins
+                                  if o['species'] == f['species']), ''),
+                   chromosome=f['chromosome'], start=f['start'], end=f['end'],
+                   name='', systematic='', other_names='', status='Unassigned',
+                   v2_status='', ars_negative='no', ars_negative_fragments='',
+                   evidence='', legacy_id='', lift_status='not-required',
+                   source_assembly='', source_chromosome='', source_start='',
+                   source_end='')
+        novel_rows.append(row)
+
     # Assessed the same way as every other site rather than from their own cluster
     # members, so that one run of this script and two runs of it agree exactly.
     for row in novel_rows:
@@ -255,6 +300,19 @@ def main() -> None:
                 o['status'] = 'Unsupported'
         counts[(o['species'], o['status'])] += 1
 
+    # Freeze every site that has no v2 record, so the next build cannot move its
+    # accession to another locus. Existing rows are never rewritten.
+    known = {f['accession'] for f in frozen}
+    for o in origins:
+        if o['legacy_id'] == '' and o['accession'] not in known:
+            frozen.append(dict(accession=o['accession'], species=o['species'],
+                               chromosome=o['chromosome'], start=o['start'],
+                               end=o['end'], first_release=rel_release))
+    frozen.sort(key=lambda f: f['accession'])
+    write_tsv(ACCESSION_MAP,
+              ['accession', 'species', 'chromosome', 'start', 'end', 'first_release'],
+              frozen)
+
     origins.sort(key=lambda o: (o['species'], o['chromosome'], int(o['start'])))
     # Sorted so that the file depends on the data and not on the order sites were
     # assessed in: a novel site is appended on the run that mints it and assessed
@@ -266,6 +324,7 @@ def main() -> None:
                'call', 'distance_bp', 'study_pmid'], matrix)
 
     novel_sites = [o for o in origins if not o['legacy_id']]
+    rel_release = json.loads((DATA / 'release.json').read_text()).get('release', '')
 
     # Counted here so that no page has to hard-code them.
     _, fragments = read_tsv(DATA / 'refuted_fragments.tsv')
