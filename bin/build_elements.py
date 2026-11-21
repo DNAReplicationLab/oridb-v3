@@ -97,6 +97,14 @@ STUDY_OFFSET = {'Nieduszynski2006_ACS': 7, 'Eaton2010_ACS': 6, 'Xu2006_ACS': 6,
 REUTER_PMID = '39181881'
 REUTER_A = 'reuter2024_A_elements.tsv'
 REUTER_B2 = 'reuter2024_B2_elements.tsv'
+# Curated single elements read from the primary literature, one row per element,
+# each with its own study and a stable source_id so that appending a row never
+# renumbers an accession. These are functionally defined elements (linker
+# substitution, deletion), not motif calls: they carry no motif window, because
+# their boundaries are the element itself rather than the fixed-width interval
+# the Reuter frame assumes. See LIT_B_NO_WINDOW below.
+LIT_B = 'literature_B_elements.tsv'
+LIT_B_TABLE = 'LiteratureB'
 # Accessions are frozen: adding a source must never renumber an existing element.
 ACCESSION_MAP = 'element_accessions.tsv'
 B2_CORE_INDEX = 1
@@ -477,6 +485,41 @@ def main() -> None:
                     'given_window': (row.get('motif_window') or '').strip().upper(),
                 })
 
+    # ---- curated elements from the primary literature ------------------------
+    # One row per element, each citing the paper that defined it. Located in
+    # sacCer3 by sequence like every other source; the published coordinates are
+    # carried as source_* and used only to resolve a sequence that occurs more
+    # than once.
+    lit_path = ROOT / 'reference' / LIT_B
+    if lit_path.exists():
+        with lit_path.open(newline='') as fh:
+            for row in csv.DictReader(fh, delimiter='\t'):
+                seq = (row.get('sequence') or '').upper()
+                if not re.fullmatch(r'[ACGT]+', seq or ''):
+                    continue
+                records.append({
+                    'sequence': seq,
+                    'element_type': ((row.get('element_type') or '').strip()
+                                     if (row.get('element_type') or '').strip()
+                                     in ('confirmed', 'predicted') else 'confirmed'),
+                    'element_class': (row.get('element_class') or '').strip(),
+                    'study_pmid': (row.get('study_pmid') or '').strip(),
+                    'source_table': LIT_B_TABLE,
+                    'source_id': (row.get('source_id') or '').strip(),
+                    'source_assembly': 'sacCer3',
+                    'source_chromosome': row['chromosome'],
+                    'source_start': row['start'], 'source_end': row['end'],
+                    'source_strand': (row.get('strand') or '').strip(),
+                    'source_name': (row.get('origin_name') or '').strip(),
+                    'score': '',
+                    'source_offset': '',
+                    'chrom_num': CHR_NUM[row['chromosome']],
+                    # A functionally defined element is not in the frame the B2
+                    # matrix was trained in, so it neither takes a motif window
+                    # nor contributes to that matrix.
+                    'no_motif_window': True,
+                })
+
     # ---- locate every distinct sequence in sacCer3 ---------------------------
     index: dict[str, list[tuple[str, int, int, str]]] = {}
     for seq in {r['sequence'] for r in records}:
@@ -576,7 +619,7 @@ def main() -> None:
             # B2 has its own motif; the ACS core index does not apply. Take the
             # 33 bp window around the published interval and VERIFY it against
             # sacCer3 rather than trusting the supplied string.
-            if r['start']:
+            if r['start'] and not r.get('no_motif_window'):
                 w = motif_window(nuclear, r['chromosome'], int(r['start']),
                                  int(r['end']), r['strand'], B2_CORE_INDEX)
                 if w:
@@ -703,16 +746,7 @@ def main() -> None:
     # The two per-origin value datasets are cited on every origin page that
     # carries an activity or a replication time, so they need citation records
     # even though no element record points at them.
-    # Every dataset in reference/datasets.tsv is cited on the origin pages it supports,
-    # so each needs a citation record even though no element record points at it.
-    registry = ROOT / 'reference' / 'datasets.tsv'
-    registry_pmids = set()
-    if registry.exists():
-        for row in csv.DictReader(registry.open(), delimiter='\t'):
-            if row.get('study_pmid'):
-                registry_pmids.add(row['study_pmid'].strip())
-    cited = ({r['study_pmid'] for r in records if r['study_pmid']}
-             | {OKSEQ_PMID, TREP_PMID} | registry_pmids)
+    cited = {r['study_pmid'] for r in records if r['study_pmid']} | {OKSEQ_PMID, TREP_PMID}
     for pmid in sorted(cited):
         if pmid and pmid not in known and pmid in pm:
             r = pm[pmid]

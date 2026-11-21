@@ -11,6 +11,7 @@ pmid	doi	year	journal	first_author	n_authors	title
 14566325	10.1038/sj.embor.embor7400008	2003	EMBO Rep.	Segurado, Mónica	3	Genome-wide distribution of DNA replication origins at A+T-rich islands in Schizosaccharomyces pombe.
 15059255	10.1186/gb-2004-5-4-r22	2004	Genome Biol.	Breier, Adam M	3	Prediction of Saccharomyces cerevisiae replication origins.
 15143171	10.1128/MCB.24.11.4769-4780.2004	2004	Mol. Cell. Biol.	Aparicio, Jennifer G	4	The Rpd3-Sin3 histone deacetylase regulates replication timing and enables intra-S origin control in Saccharomyces cerevisiae.
+1536007		1992	Science	Marahrens, Y	2	A yeast chromosomal origin of DNA replication defined by multiple functional elements.
 15542831	10.1128/MCB.24.23.10208-10222.2004	2004	Mol. Cell. Biol.	Gibson, Daniel G	4	Diminished S-phase cyclin-dependent kinase function elicits vital Rad53-dependent checkpoint responses in Saccharomyces cerevisiae.
 15956196	10.1073/pnas.0406987102	2005	Proc. Natl. Acad. Sci. U.S.A.	Hu, Fangfang	2	Swe1 regulation and transcriptional control restrict the activity of mitotic cyclins toward replication proteins in Saccharomyces cerevisiae.
 16137624	10.1016/j.molcel.2005.06.037	2005	Mol. Cell	Szyjka, Shawn J	3	Mrc1 is required for normal progression of replication forks throughout chromatin in S. cerevisiae.
@@ -29,6 +30,7 @@ pmid	doi	year	journal	first_author	n_authors	title
 20485513	10.1371/journal.pgen.1000946	2010	PLoS Genet.	Liachko, Ivan	6	A comprehensive genome-wide map of autonomously replicating sequences in a naive genome.
 20972444	10.1038/nsmb.1932	2010	Nat. Struct. Mol. Biol.	Crabbé, Laure	6	Analysis of replication profiles reveals key role of RFC-Ctf18 in yeast replication stress response.
 21351687		1988	Genome	Button, L L	2	DNA fragments isolated from the left end of chromosome III in yeast are repaired to generate functional telomeres.
+21558171	10.1093/nar/gkr301	2011	Nucleic Acids Res	Chang, F	6	High-resolution analysis of four efficient yeast replication origins reveals new insights into the ORC and putative MCM binding elements.
 22767388	10.1101/gr.139477.112	2012	Genome Res.	Müller, Carolin A	2	Conservation of replication timing reveals global and local regulation of replication origin activity.
 23562327	10.1016/j.molcel.2013.03.004	2013	Mol Cell	McGuffee SR	3	Quantitative, genome-wide analysis of eukaryotic replication initiation and termination
 24089142	10.1093/nar/gkt878	2014	Nucleic Acids Res	Müller CA	11	The dynamics of genome replication using deep sequencing
@@ -41,6 +43,7 @@ pmid	doi	year	journal	first_author	n_authors	title
 6327056		1984	Cell	Kearsey, S	1	Structural requirements for the function of a yeast chromosomal replicator.
 6392851		1984	Mol. Cell. Biol.	Celniker, S E	5	Deletion mutations affecting autonomously replicating sequence ARS1 of Saccharomyces cerevisiae.
 7028571		1981	Gene	Hsiao, C L	2	Characterization of a yeast replication origin (ars2) and construction of stable minichromosomes containing cloned yeast centromere DNA (CEN3).
+7935479		1994	Mol. Cell. Biol.	Theis, J F	2	Domain B of ARS307 contains two functional elements and contributes to chromosomal replication origin function.
 8062838		1994	EMBO J.	Dubey, D D	5	Three ARS elements contribute to the ura4 replication origin region in the fission yeast, Schizosaccharomyces pombe.
 8336734		1993	Mol. Cell. Biol.	Shirahige, K	5	Location and characterization of autonomously replicating sequences from chromosome VI of Saccharomyces cerevisiae.
 8593680		1995	Curr. Genet.	Gammie, A E	2	Identification and characterization of CEN12 in the budding yeast Saccharomyces cerevisiae.

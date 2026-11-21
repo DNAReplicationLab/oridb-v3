@@ -1,0 +1,11 @@
+source_id	origin_name	element_class	element_type	study_pmid	chromosome	start	end	strand	sequence	note
+ARS305_B2	ARS305	B2	confirmed	18439895	chrIII	39517	39539	-	AAAACAAGAATTTATCAAAGAAA	region rather than a single element: ARS305 B2 is broader and weaker than at other ARSs; Fig 6A shows three overlapping consensus matches across chrIII 39487-39545. Widest shaded window taken
+ARS307_B2	ARS307	B2	confirmed	7935479	chrIII	108887	108905	-	TATATATATATGCTAAAAG	functionally defined element; coordinates read from the Chang et al. 2011 (PMID 21558171) Figure 6A alignment and anchored in sacCer3 by sequence
+ARS309_B2	ARS309	B2	confirmed	21558171	chrIII	132140	132146	+	ATTTAAA	span is one 7 bp linker substitution, too short to test the ANWWAAAT consensus; 3' boundary uncertain by ~1 bp
+ARS315_B2	ARS315	B2	confirmed	18439895	chrIII	224944	224964	+	CAAACAAAAATAAAAAGCACA	functionally defined element; coordinates read from the Chang et al. 2011 (PMID 21558171) Figure 6A alignment and anchored in sacCer3 by sequence
+ARS318_B2	ARS318	B2	confirmed	18573888	chrIII	294883	294896	+	ATTAATATTTATTA	functionally defined element; coordinates read from the Chang et al. 2011 (PMID 21558171) Figure 6A alignment and anchored in sacCer3 by sequence
+ARS319_B2	ARS319	B2	confirmed	21558171	chrIII	315865	315877	+	ACATAAGTGTATA	functionally defined element; coordinates read from the Chang et al. 2011 (PMID 21558171) Figure 6A alignment and anchored in sacCer3 by sequence
+ARS416_B2	ARS416	B2	confirmed	1536007	chrIV	462537	462547	-	AATACTTAAAT	read from Marahrens & Stillman 1992 Figure 1; independently reproduced from Chang et al. 2011 Figure 6A
+ARS416_B3	ARS416	B3	confirmed	1536007	chrIV	462490	462507	+	AATTTCGTCAAAAATGCT	Abf1p-binding element; the Abf1 recognition site is chrIV 462495-462507 on the minus strand (12/13 vs RTCRYN5ACG). Read from Marahrens & Stillman 1992 Figure 1
+ARS606_B2	ARS606	B2	confirmed	21558171	chrVI	167685	167697	-	CACAAAAAAAGCG	functionally defined element; coordinates read from the Chang et al. 2011 (PMID 21558171) Figure 6A alignment and anchored in sacCer3 by sequence
+ARS607_B2	ARS607	B2	confirmed	21558171	chrVI	199474	199481	+	AAAAAAAT	functionally defined element; coordinates read from the Chang et al. 2011 (PMID 21558171) Figure 6A alignment and anchored in sacCer3 by sequence
