@@ -43,6 +43,9 @@ How each derived layer was produced, and what it does and does not claim:
 - [`docs/origin_activity_timing.md`](docs/origin_activity_timing.md) — per-origin Ok-seq
   activity and median replication time: the mutual-nearest rule, its distance caps, and
   why an empty value is not a zero.
+- [`docs/tier-rebuild.md`](docs/tier-rebuild.md) — how every site is placed in a tier:
+  the dataset registry, where the Foss rank cut came from, why refutation is a flag, and
+  what changing a decision later would cost.
 - [`docs/tier-evidence-proposal.md`](docs/tier-evidence-proposal.md) — the tier rebuild:
   evidence axes, measured per-study resolution, and the merge rule.
 - [`docs/origin_page_changes.md`](docs/origin_page_changes.md) — the origin page layout.

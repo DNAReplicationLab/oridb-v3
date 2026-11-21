@@ -1,39 +1,47 @@
 {
   "release": "3.0.0-trial.1",
-  "generated": "2026-11-20",
-  "description": "OriDB v3.0 trial release: the Confirmed origin tier only, carried forward from OriDB v2 with explicit evidence records.",
-  "inclusion_rule": "An origin is Confirmed if its interval overlaps at least one plasmid (ARS) assay positive or one 2D gel electrophoresis record.",
+  "generated": "2026-11-21",
+  "description": "OriDB v3.0: every origin OriDB v2 held, carried forward with its evidence records, with the tier recomputed from modern data.",
+  "inclusion_rule": "An origin is Confirmed if its interval overlaps at least one plasmid (ARS) assay positive or one 2D gel electrophoresis record. The remaining tiers are set by bin/build_tiers.py from the evidence matrix; see docs/tier-rebuild.md.",
   "assemblies": {
+    "sacCer1": {
+      "species": "Saccharomyces cerevisiae",
+      "ucsc_db": "sacCer1",
+      "sequence_naming": "UCSC roman (chrI..chrXVI)",
+      "note": "Coordinates are as stored in OriDB v2 and verified sacCer1 by sequence anchoring. Lift-over to sacCer3 is NOT yet applied."
+    },
     "ASM294v2": {
       "species": "Schizosaccharomyces pombe",
       "ucsc_db": "GCA_000002945.3",
       "sequence_naming": "PomBase roman (I, II, III)",
       "note": "Current assembly; no lift-over required."
-    },
-    "sacCer3": {
-      "species": "Saccharomyces cerevisiae",
-      "ucsc_db": "sacCer3",
-      "sequence_naming": "UCSC roman (chrI..chrXVI)",
-      "note": "Lifted from sacCer1 with the UCSC chain file. Each record keeps its original sacCer1 position in source_chromosome/source_start/source_end and the outcome of a base-for-base sequence check in lift_status."
     }
   },
   "coordinate_convention": "1-based, fully closed intervals",
   "files": {
     "origins.tsv": {
-      "md5": "9ae961b0271948a4c47b97d82837369f",
-      "rows": 458
+      "md5": "fdce78119e4d7a6ab90df2e74825e339",
+      "rows": 1580
     },
     "evidence.tsv": {
-      "md5": "b0504ca4b1d1fcad7a015444caa7c199",
-      "rows": 536
+      "md5": "e761dbda7856838933ad76a9341aee86",
+      "rows": 694
     },
     "studies.tsv": {
-      "md5": "b6cdcd7afe87b201731bded16d0315ed",
-      "rows": 51
+      "md5": "93c23b028578c7424db34ee7fbf6f7fd",
+      "rows": 52
+    },
+    "refuted_fragments.tsv": {
+      "md5": "235c9cb1cb60e9391f35b576e055bed2",
+      "rows": 224
     },
     "elements.tsv": {
-      "md5": "a019772caa5e8ae10e0eb5af9e8891eb",
+      "md5": "3477493a341578f7097a7549572bf228",
       "rows": 1657
+    },
+    "evidence_matrix.tsv": {
+      "md5": "bd625b106e8784ca5e1d5dba9118f5b3",
+      "rows": 3356
     }
   },
   "provenance": {
@@ -41,6 +49,7 @@
     "source_tables": [
       "local_pubmed",
       "sc_2D_gel",
+      "sc_cloned_no_ori",
       "sc_cloned_ori",
       "sc_ori",
       "sp_2D_gel",
@@ -49,11 +58,15 @@
   },
   "known_issues": [
     {
-      "text": "Non-Confirmed v2 origins that overlap direct evidence and need curator review: sc_ori 79 (Dubious), sc_ori 84 (Dubious), sc_ori 741 (Likely). They are Likely or Dubious in v2, so they are not in this release and cannot be linked here.",
+      "text": "sc_cloned_no_ori:161 (12:778-1006599, 1005822 bp) is too wide to be a cloned fragment - the other 224 records have a median width of 4,685 bp - so it is excluded from the refuted layer. Left in, it would mark every origin on that chromosome as ARS-negative. It needs correction or withdrawal at source.",
       "accessions": []
     },
     {
-      "text": "24 evidence records carry no PubMed ID in v2 and need a citation assigned. The origins they support are:",
+      "text": "v2 origins that overlap direct experimental evidence yet were not Confirmed in v2, so v3 now promotes them: sc_ori 79 (Dubious), sc_ori 84 (Dubious), sc_ori 741 (Likely). Each needs curator review against the source publication.",
+      "accessions": []
+    },
+    {
+      "text": "28 evidence records carry no PubMed ID in v2 and need a citation assigned. The origins they support are:",
       "accessions": [
         "ODB-SC-0087",
         "ODB-SC-0088",
@@ -61,6 +74,10 @@
         "ODB-SC-0090",
         "ODB-SC-0091",
         "ODB-SC-0092",
+        "ODB-SC-0096",
+        "ODB-SC-0102",
+        "ODB-SC-0104",
+        "ODB-SC-0109",
         "ODB-SC-0144",
         "ODB-SC-0211",
         "ODB-SC-0212",
@@ -83,60 +100,11 @@
       "accessions": []
     },
     {
-      "text": "51 lifted cerevisiae intervals do not have identical sequence in sacCer3 - substitutions, or an indel that changes interval length. Each mapping was checked and is correctly placed; it is the 2003 assembly sequence that was revised. Intervals whose length changed are worth a curator review. The origins affected are:",
-      "accessions": [
-        "ODB-SC-0002",
-        "ODB-SC-0007",
-        "ODB-SC-0025",
-        "ODB-SC-0029",
-        "ODB-SC-0040",
-        "ODB-SC-0054",
-        "ODB-SC-0070",
-        "ODB-SC-0080",
-        "ODB-SC-0081",
-        "ODB-SC-0082",
-        "ODB-SC-0095",
-        "ODB-SC-0112",
-        "ODB-SC-0144",
-        "ODB-SC-0206",
-        "ODB-SC-0213",
-        "ODB-SC-0255",
-        "ODB-SC-0258",
-        "ODB-SC-0261",
-        "ODB-SC-0263",
-        "ODB-SC-0283",
-        "ODB-SC-0326",
-        "ODB-SC-0340",
-        "ODB-SC-0421",
-        "ODB-SC-0422",
-        "ODB-SC-0427",
-        "ODB-SC-0473",
-        "ODB-SC-0488",
-        "ODB-SC-0652",
-        "ODB-SC-0690"
-      ]
-    },
-    {
       "id": "elements-unplaced",
       "text": "3 of 1657 origin elements could not be placed in sacCer3 from their sequence alone - either the sequence does not occur in the current assembly, or it occurs several times with none near the coordinate v2 recorded. They are published without coordinates rather than placed on a guess; see anchor_status in elements.tsv.",
       "accessions": []
     }
   ],
-  "lift": {
-    "from": "sacCer1",
-    "to": "sacCer3",
-    "chain": "reference/sacCer1ToSacCer3.over.chain.gz",
-    "chain_md5": "c3aa03bde2422b6c083f478ac42d4cdc",
-    "chain_source": "https://hgdownload.soe.ucsc.edu/goldenPath/sacCer1/liftOver/sacCer1ToSacCer3.over.chain.gz",
-    "tool": "pyliftover",
-    "sequence_verified": true,
-    "record_counts": {
-      "identical": 845,
-      "length-changed": 25,
-      "same-length-mismatch": 26
-    },
-    "note": "Systematic names are NOT recomputed. They are coordinate-derived labels from the v2 build and are cited as such in the literature, so they stay fixed; a name like X-212 therefore need not match the lifted midpoint."
-  },
   "acs_motif": {
     "width": 33,
     "window": "-3 to +29",
@@ -278,9 +246,9 @@
       "unanchored": 2
     },
     "link_counts": {
-      "contained": 1423,
-      "overlapping": 18,
-      "unlinked": 216
+      "contained": 0,
+      "overlapping": 0,
+      "unlinked": 1657
     }
   },
   "per_origin_values": {
@@ -351,21 +319,96 @@
       }
     },
     "counts": {
-      "cerevisiae_origins": 410,
+      "cerevisiae_origins": 0,
       "okseq": {
-        "assigned": 260,
-        "rejected_by_cap": 24,
-        "rejected_by_mutual_test": 3,
-        "rejected_by_both": 123,
+        "assigned": 0,
+        "rejected_by_cap": 0,
+        "rejected_by_mutual_test": 0,
+        "rejected_by_both": 0,
         "no_call_on_sequence": 0
       },
       "replication_time": {
-        "assigned": 202,
-        "rejected_by_cap": 4,
-        "rejected_by_mutual_test": 15,
-        "rejected_by_both": 189,
+        "assigned": 0,
+        "rejected_by_cap": 0,
+        "rejected_by_mutual_test": 0,
+        "rejected_by_both": 0,
         "no_call_on_sequence": 0
       }
+    }
+  },
+  "tiers": {
+    "rule": {
+      "Confirmed": "a positive plasmid (ARS) assay or a 2D gel record at this site",
+      "Likely": "at least two datasets support the site and at least one measures licensing; firing assays share a blind spot, so two of them are not enough, and requiring one of each would make the tier mean \"active\"",
+      "Unsupported": "datasets cover this species and fewer than that support the site",
+      "Not assessed": "no dataset in the registry covers this species yet"
+    },
+    "refutation": "a negative ARS assay is carried as the ars_negative flag, never as a tier: it describes a tested interval, and a site can hold a positive and a negative assay at once",
+    "datasets": [
+      {
+        "dataset_id": "foss2024_mcm",
+        "study_pmid": "38315095",
+        "species": "Saccharomyces cerevisiae",
+        "measures": "licensing",
+        "counts_towards_tier": "yes",
+        "support_window_bp": "500",
+        "rank_max": "500"
+      },
+      {
+        "dataset_id": "mcguffee2013_okseq",
+        "study_pmid": "23562327",
+        "species": "Saccharomyces cerevisiae",
+        "measures": "firing",
+        "counts_towards_tier": "yes",
+        "support_window_bp": "1160",
+        "rank_max": ""
+      },
+      {
+        "dataset_id": "reuter2024_orc",
+        "study_pmid": "39181881",
+        "species": "Saccharomyces cerevisiae",
+        "measures": "licensing",
+        "counts_towards_tier": "yes",
+        "support_window_bp": "500",
+        "rank_max": ""
+      },
+      {
+        "dataset_id": "muller2014_trep",
+        "study_pmid": "24089142",
+        "species": "Saccharomyces cerevisiae",
+        "measures": "timing",
+        "counts_towards_tier": "no",
+        "support_window_bp": "5520",
+        "rank_max": ""
+      }
+    ],
+    "novel_sites": {
+      "n": 10,
+      "rule": "a cluster of calls within 1160 bp from at least two datasets, one of them licensing, matching no site carried from v2",
+      "accessions": [
+        "ODB-SC-0830",
+        "ODB-SC-0831",
+        "ODB-SC-0832",
+        "ODB-SC-0833",
+        "ODB-SC-0834",
+        "ODB-SC-0835",
+        "ODB-SC-0836",
+        "ODB-SC-0837",
+        "ODB-SC-0838",
+        "ODB-SC-0839"
+      ]
+    },
+    "counts": {
+      "Saccharomyces cerevisiae | Confirmed": 413,
+      "Saccharomyces cerevisiae | Likely": 60,
+      "Saccharomyces cerevisiae | Unsupported": 366,
+      "Schizosaccharomyces pombe | Confirmed": 48,
+      "Schizosaccharomyces pombe | Not assessed": 693
+    },
+    "refuted": {
+      "n_fragments": 224,
+      "n_fragments_without_a_site": 76,
+      "n_sites_flagged": 121
     }
   }
 }

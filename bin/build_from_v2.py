@@ -122,8 +122,19 @@ def main(dump_path: str) -> None:
     data_dir = Path(__file__).resolve().parent.parent / 'public' / 'data'
     data_dir.mkdir(exist_ok=True)
 
+    # One sc_cloned_no_ori record (chrXII 778-1,006,599) is 1,005,821 bp wide and
+    # cannot be a cloned fragment; the other 224 have a median width of 4,685 bp.
+    # Left in, it would mark every origin on chrXII as ARS-negative. It is dropped
+    # here and reported as a known issue rather than silently corrected.
+    MAX_FRAGMENT_BP = 50_000
+
     tables = {name: load(sql, name) for name in
-              ('sc_ori', 'sp_ori', 'sc_cloned_ori', 'sc_2D_gel', 'sp_2D_gel', 'local_pubmed')}
+              ('sc_ori', 'sp_ori', 'sc_cloned_ori', 'sc_cloned_no_ori', 'sc_2D_gel',
+               'sp_2D_gel', 'local_pubmed')}
+
+    oversized = [r for r in tables['sc_cloned_no_ori']
+                 if int(r['end']) - int(r['start']) + 1 > MAX_FRAGMENT_BP]
+    tables['sc_cloned_no_ori'] = [r for r in tables['sc_cloned_no_ori'] if r not in oversized]
 
     # Accessions are minted over the FULL v2 origin set in genome order, so that
     # adding the Likely and Dubious tiers later does not renumber anything.
@@ -156,17 +167,33 @@ def main(dump_path: str) -> None:
                         detail=unescape(str(r.get(detail_col, '') or '')),
                         pmid='' if pmid in ('0', 'NULL', '') else pmid,
                         source_table=table, source_id=r['id']))
-            if not methods:
-                continue
-            if o['status'] != 'Confirmed':
+            # A fragment that was cloned and did NOT support replication is a result,
+            # not an absence of one. It is recorded as evidence and raised as a flag on
+            # the site; it never sets the tier, because a site can carry a positive and
+            # a negative ARS assay at once (ARS735 and ARS302 do).
+            negatives = overlaps(tables['sc_cloned_no_ori'], chrom, start, end) if sp == 'sc' else []
+            for r in negatives:
+                pmid = str(r.get('pubmed_id', '')).strip()
+                records.append(dict(
+                    accession=acc, method='plasmid (ARS assay, negative)',
+                    chromosome=seqname(sp, int(r['chr'])), start=r['start'], end=r['end'],
+                    detail='no autonomous replication',
+                    pmid='' if pmid in ('0', 'NULL', '') else pmid,
+                    source_table='sc_cloned_no_ori', source_id=r['id']))
+            if o['status'] != 'Confirmed' and methods:
                 exceptions.append(f"{ori_key} {o['ori_id']} ({o['status']})")
-                continue
             evidence.extend(records)
             origins.append(dict(
                 accession=acc, species=ASSEMBLY[sp][0], assembly=ASSEMBLY[sp][1],
                 chromosome=seqname(sp, chrom), start=str(start), end=str(end),
                 name=unescape(o['name']), systematic=systematic(chrom, start, end),
-                other_names=unescape(o['othernames']), status='Confirmed',
+                other_names=unescape(o['othernames']),
+                # The tier is derived in bin/build_tiers.py from the evidence matrix.
+                # Direct experimental evidence is the one tier this step can settle.
+                status='Confirmed' if methods else 'Unassigned',
+                v2_status=o['status'],
+                ars_negative='yes' if negatives else 'no',
+                ars_negative_fragments=';'.join(f"sc_cloned_no_ori:{r['id']}" for r in negatives),
                 evidence=';'.join(methods), legacy_id=f"{ori_key}:{o['ori_id']}"))
 
     cited = sorted({e['pmid'] for e in evidence if e['pmid']})
@@ -194,7 +221,21 @@ def main(dump_path: str) -> None:
                 fh.write('\t'.join(str(row[c]).replace('\t', ' ').replace('\n', ' ')
                                    for c in header) + '\n')
 
+    # Every fragment that was cloned and failed to support replication, whether or not
+    # it contains a known origin. 76 of them contain none: they are assay results about
+    # an interval, so they are published as such rather than invented as origins.
+    refuted = [dict(fragment_id=f"sc_cloned_no_ori:{r['id']}",
+                    chromosome=seqname('sc', int(r['chr'])), start=r['start'], end=r['end'],
+                    name=unescape(str(r['name'] or '')),
+                    other_names=unescape(str(r['othernames'] or '')),
+                    result='no autonomous replication',
+                    pmid='' if str(r.get('pubmed_id', '')).strip() in ('0', 'NULL', '') else
+                         str(r['pubmed_id']).strip())
+               for r in sorted(tables['sc_cloned_no_ori'],
+                               key=lambda r: (int(r['chr']), int(r['start'])))]
+
     write_tsv('origins.tsv', origins)
+    write_tsv('refuted_fragments.tsv', refuted)
     write_tsv('evidence.tsv', evidence)
     write_tsv('studies.tsv', studies)
 
@@ -204,10 +245,12 @@ def main(dump_path: str) -> None:
     release = {
         'release': '3.0.0-trial.1',
         'generated': datetime.date.today().isoformat(),
-        'description': 'OriDB v3.0 trial release: the Confirmed origin tier only, carried '
-                       'forward from OriDB v2 with explicit evidence records.',
+        'description': 'OriDB v3.0: every origin OriDB v2 held, carried forward with its '
+                       'evidence records, with the tier recomputed from modern data.',
         'inclusion_rule': 'An origin is Confirmed if its interval overlaps at least one '
-                          'plasmid (ARS) assay positive or one 2D gel electrophoresis record.',
+                          'plasmid (ARS) assay positive or one 2D gel electrophoresis '
+                          'record. The remaining tiers are set by bin/build_tiers.py from '
+                          'the evidence matrix; see docs/tier-rebuild.md.',
         'assemblies': {
             'sacCer1': {'species': 'Saccharomyces cerevisiae', 'ucsc_db': 'sacCer1',
                         'sequence_naming': 'UCSC roman (chrI..chrXVI)',
@@ -219,14 +262,23 @@ def main(dump_path: str) -> None:
         'coordinate_convention': '1-based, fully closed intervals',
         'files': {'origins.tsv': {'md5': md5('origins.tsv'), 'rows': len(origins)},
                   'evidence.tsv': {'md5': md5('evidence.tsv'), 'rows': len(evidence)},
-                  'studies.tsv': {'md5': md5('studies.tsv'), 'rows': len(studies)}},
+                  'studies.tsv': {'md5': md5('studies.tsv'), 'rows': len(studies)},
+                  'refuted_fragments.tsv': {'md5': md5('refuted_fragments.tsv'),
+                                            'rows': len(refuted)}},
         'provenance': {'source': 'nieduszy_oridb MySQL dump '
                                  '(OriDB v2.1.0 cerevisiae / v1.0.0 pombe)',
                        'source_tables': sorted(tables)},
         'known_issues': [
-            {'text': 'Non-Confirmed v2 origins that overlap direct evidence and need curator '
-                     'review: ' + ', '.join(exceptions) + '. They are Likely or Dubious in v2, '
-                     'so they are not in this release and cannot be linked here.',
+            {'text': ', '.join(f"sc_cloned_no_ori:{r['id']} ({r['chr']}:{r['start']}-{r['end']}, "
+                                f"{int(r['end']) - int(r['start']) + 1} bp)" for r in oversized)
+                     + ' is too wide to be a cloned fragment - the other 224 records have a '
+                       'median width of 4,685 bp - so it is excluded from the refuted layer. '
+                       'Left in, it would mark every origin on that chromosome as '
+                       'ARS-negative. It needs correction or withdrawal at source.',
+             'accessions': []},
+            {'text': 'v2 origins that overlap direct experimental evidence yet were not '
+                     'Confirmed in v2, so v3 now promotes them: ' + ', '.join(exceptions)
+                     + '. Each needs curator review against the source publication.',
              'accessions': []},
             {'text': str(sum(1 for e in evidence if not e['pmid']))
                      + ' evidence records carry no PubMed ID in v2 and need a citation '

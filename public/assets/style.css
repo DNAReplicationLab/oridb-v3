@@ -45,6 +45,12 @@ td.num { text-align: right; font-variant-numeric: tabular-nums; }
 tr:hover td { background: #fbfcfd; }
 
 .tag { display: inline-block; font-size: .75rem; font-weight: 700; border-radius: .35rem; padding: .1rem .45rem; color: #fff; background: var(--confirmed); }
+.tag.confirmed { background: var(--confirmed); }
+.tag.likely { background: #2f7d9b; }
+.tag.unsupported { background: #8a8f98; }
+.tag.unassessed { background: #fff; color: #5a6069; border: 1px solid #c7ccd3; }
+.tag.warn { background: #fff; color: #9a3b1f; border: 1px solid #d79a86; }
+td .tag { font-size: .7rem; }
 .mono { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .9em; }
 
 form.filters { display: flex; flex-wrap: wrap; gap: .6rem; align-items: flex-end; margin-top: 1rem; }

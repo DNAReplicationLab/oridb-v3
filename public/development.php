@@ -32,6 +32,9 @@ require ORIDB_APP_DIR . '/header.php';
       the nearest call, the mutual-nearest rule and distance caps that stop a
       neighbouring origin&rsquo;s value being attributed, and why a blank is not a
       zero.</li>
+  <li><a href="https://github.com/DNAReplicationLab/oridb-v3/blob/main/docs/tier-rebuild.md">How a site is tiered</a> &mdash; the dataset
+      registry, where the MCM rank cut came from, why a negative ARS assay is a flag
+      and not a tier, and which later changes are a rerun rather than a migration.</li>
   <li><a href="https://github.com/DNAReplicationLab/oridb-v3/blob/main/docs/tier-evidence-proposal.md">Rebuilding the origin tiers</a> &mdash; the
       evidence axes, the measured resolution of every candidate study, and the merge
       rule.</li>

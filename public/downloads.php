@@ -33,6 +33,14 @@ require ORIDB_APP_DIR . '/header.php';
     <tr><td><a href="<?= h(u('export.php', ['format' => 'elements'])) ?>">BED</a></td>
         <td>origin elements, <?= h(Data::elementAssembly()) ?></td>
         <td class="small">A and B2 elements from every element study; records with no position in that assembly are omitted</td></tr>
+    <tr><td><a href="<?= h(u('export.php', ['format' => 'matrix'])) ?>">TSV</a></td>
+        <td>evidence matrix</td>
+        <td class="small">one row per site per dataset, supported or not, with the nearest call
+          and its distance &mdash; the table the tier is computed from</td></tr>
+    <tr><td><a href="<?= h(u('export.php', ['format' => 'refuted'])) ?>">TSV</a></td>
+        <td>ARS-negative fragments</td>
+        <td class="small">every fragment cloned that did not support replication, including
+          those containing no known origin</td></tr>
     <tr><td><a href="<?= h(u('export.php', ['format' => 'tsv'])) ?>">TSV</a></td>
         <td>all origins</td>
         <td class="small">as served, 1-based inclusive; the only export that carries the legacy

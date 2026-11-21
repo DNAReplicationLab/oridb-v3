@@ -115,6 +115,46 @@ final class Data
     }
 
     /** @return array<string,string>|null */
+    /**
+     * Which modern datasets were tested against this site, and which support it.
+     * Every registered dataset appears, supported or not: a dataset that looked and
+     * found nothing is a different statement from a dataset that never looked.
+     *
+     * @return list<array<string,string>>
+     */
+    public static function supportFor(string $accession): array
+    {
+        static $byAccession = null;
+        if ($byAccession === null) {
+            $byAccession = [];
+            foreach (self::table('evidence_matrix') as $row) {
+                $byAccession[$row['accession']][] = $row;
+            }
+        }
+
+        return $byAccession[$accession] ?? [];
+    }
+
+    /** @return list<array<string,string>> every fragment cloned that did not replicate */
+    public static function refutedFragments(): array
+    {
+        return self::table('refuted_fragments');
+    }
+
+    /** @return array<string,int> site count per tier, in tier order */
+    public static function tierCounts(?string $species = null): array
+    {
+        $order = ['Confirmed' => 0, 'Likely' => 0, 'Unsupported' => 0, 'Not assessed' => 0];
+        foreach (self::origins() as $row) {
+            if ($species !== null && $row['species'] !== $species) {
+                continue;
+            }
+            $order[$row['status']] = ($order[$row['status']] ?? 0) + 1;
+        }
+
+        return array_filter($order, static fn (int $n): bool => $n > 0);
+    }
+
     public static function study(string $pmid): ?array
     {
         if ($pmid === '') {
@@ -173,6 +213,8 @@ final class Data
         ?string $text = null,
         ?int $from = null,
         ?int $to = null,
+        ?string $tier = null,
+        ?string $arsNegative = null,
     ): array {
         $text = $text !== null ? mb_strtolower(trim($text)) : null;
         $out = [];
@@ -187,6 +229,14 @@ final class Data
                 continue;
             }
             if ($to !== null && (int) $row['start'] > $to) {
+                continue;
+            }
+            if ($tier !== null && $tier !== '' && $row['status'] !== $tier) {
+                continue;
+            }
+            // 'yes' keeps only refuted sites, 'no' excludes them, null ignores the flag.
+            if ($arsNegative !== null && $arsNegative !== ''
+                && ($row['ars_negative'] ?? 'no') !== $arsNegative) {
                 continue;
             }
             if ($text !== null && $text !== '') {

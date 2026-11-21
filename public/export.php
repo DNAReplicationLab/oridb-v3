@@ -44,6 +44,16 @@ if ($format === 'bed') {
     exit;
 }
 
+// The evidence matrix and the refuted fragments are served as they are stored: both
+// are already flat tables and reshaping them would only lose the column names.
+if ($format === 'matrix' || $format === 'refuted') {
+    $file = $format === 'matrix' ? 'evidence_matrix' : 'refuted_fragments';
+    header('Content-Type: text/tab-separated-values; charset=utf-8');
+    header('Content-Disposition: attachment; filename="oridb-' . $file . '-' . $stamp . '.tsv"');
+    readfile(ORIDB_DATA_DIR . '/' . $file . '.tsv');
+    exit;
+}
+
 if ($format === 'elements') {
     header('Content-Type: text/plain; charset=utf-8');
     header('Content-Disposition: attachment; filename="oridb-elements-' . $stamp . '.bed"');

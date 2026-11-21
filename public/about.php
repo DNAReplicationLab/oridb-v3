@@ -15,9 +15,50 @@ require ORIDB_APP_DIR . '/header.php';
 
 <h2>Scope</h2>
 <p>
-  Only the Confirmed tier is included. <?= h($release['inclusion_rule']) ?>
-  The Likely and Dubious tiers rest on genome-wide mapping datasets, which are being
-  rebuilt separately and will be added once their assemblies and thresholds are settled.
+  Every origin OriDB&nbsp;2012 held is here, with its evidence records. What has changed is how
+  well supported each one is said to be: the 2012 tiers were a judgement about the literature
+  of the time, and v3 recomputes them from genome-wide datasets re-analysed on the current
+  assemblies.
+</p>
+
+<h3>The tiers</h3>
+<dl class="facts">
+  <dt><span class="tag confirmed">Confirmed</span></dt>
+  <dd>A plasmid (ARS) assay or a 2D gel showed an origin at this site. This is direct
+      experimental evidence and no amount of genome-wide data replaces it.</dd>
+  <dt><span class="tag likely">Likely</span></dt>
+  <dd>No such assay, but at least two modern datasets support the site and at least one of
+      them measures <strong>licensing</strong> &mdash; where the replicative helicase is
+      loaded. The licensing requirement is deliberate. Assays that measure firing share a
+      blind spot: an origin that is licensed but rarely fires is invisible to all of them, so
+      two firing datasets agreeing is weaker evidence than one firing and one licensing
+      dataset agreeing. Requiring one of each would be worse still, because it would make
+      <em>likely</em> mean <em>active</em> and exclude dormant origins by definition.</dd>
+  <dt><span class="tag unsupported">Unsupported</span></dt>
+  <dd>Those datasets cover this species and do not support this site. This is a statement
+      about the evidence, not a claim that no origin is here.</dd>
+  <dt><span class="tag unassessed">Not assessed</span></dt>
+  <dd>No dataset in the registry covers that species yet, so nothing has looked. Every
+      <em>S.&nbsp;pombe</em> site that is not confirmed sits here until a fission yeast dataset
+      is added.</dd>
+</dl>
+<p>
+  A site that was cloned and failed to support replication carries a separate
+  <span class="tag warn">ARS&#8209;negative</span> flag. It is not a tier, because the result
+  describes the fragment that was tested rather than the site:
+  <?= h((string) $release['tiers']['refuted']['n_fragments_without_a_site']) ?> of the
+  <?= h((string) $release['tiers']['refuted']['n_fragments']) ?> such fragments contain no
+  known origin at all, and a few contain an origin that a positive assay confirms.
+  The flag is independent of the tier, so both can be filtered on separately in
+  <a href="browse.php">Browse</a>.
+</p>
+<p class="small">
+  Which datasets are used, how each threshold was set and what changing one would cost are
+  written up in
+  <a href="https://github.com/DNAReplicationLab/oridb-v3/blob/main/docs/tier-rebuild.md">the
+  tier rebuild note</a>. The tier itself is stored nowhere: it is derived at build time from
+  <span class="mono">evidence_matrix.tsv</span>, which records every dataset tested against
+  every site.
 </p>
 
 <h2>Accessions</h2>
@@ -32,10 +73,9 @@ require ORIDB_APP_DIR . '/header.php';
       species</strong>, whatever its coordinates. Accession order therefore stops following
       genome order as soon as the set grows &mdash; sort on chromosome and start, never on the
       accession.</li>
-  <li>Numbers already spent on the Likely and Dubious tiers are <strong>not free</strong>.
-      This release publishes the Confirmed tier only, so the numbering in these files is
-      deliberately gappy; the missing numbers belong to origins that exist in OriDB&nbsp;2012 and
-      are held for them.</li>
+  <li>Because the numbers were minted over the whole 2012 set at once, publishing the
+      remaining tiers <strong>filled the gaps rather than creating identifiers</strong>: those
+      sites already owned their accessions and nothing was renumbered when they appeared.</li>
   <li>An accession is <strong>never reused, reassigned or renumbered</strong>. Refined
       coordinates, a changed status or a new assembly leave it untouched; an origin that is
       withdrawn keeps its accession, marked as retired, rather than freeing it.</li>

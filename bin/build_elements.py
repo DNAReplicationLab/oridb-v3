@@ -703,7 +703,16 @@ def main() -> None:
     # The two per-origin value datasets are cited on every origin page that
     # carries an activity or a replication time, so they need citation records
     # even though no element record points at them.
-    cited = {r['study_pmid'] for r in records if r['study_pmid']} | {OKSEQ_PMID, TREP_PMID}
+    # Every dataset in reference/datasets.tsv is cited on the origin pages it supports,
+    # so each needs a citation record even though no element record points at it.
+    registry = ROOT / 'reference' / 'datasets.tsv'
+    registry_pmids = set()
+    if registry.exists():
+        for row in csv.DictReader(registry.open(), delimiter='\t'):
+            if row.get('study_pmid'):
+                registry_pmids.add(row['study_pmid'].strip())
+    cited = ({r['study_pmid'] for r in records if r['study_pmid']}
+             | {OKSEQ_PMID, TREP_PMID} | registry_pmids)
     for pmid in sorted(cited):
         if pmid and pmid not in known and pmid in pm:
             r = pm[pmid]

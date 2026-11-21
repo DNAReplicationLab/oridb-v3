@@ -16,7 +16,10 @@ $title = $origin['name'] !== '' ? $origin['name'] : $origin['accession'];
 require ORIDB_APP_DIR . '/header.php';
 ?>
 <h1><?= h($origin['name'] !== '' ? $origin['name'] : $origin['accession']) ?>
-    <span class="tag"><?= h($origin['status']) ?></span></h1>
+    <span class="tag <?= h(tier_class($origin['status'])) ?>"><?= h($origin['status']) ?></span>
+    <?php if (($origin['ars_negative'] ?? 'no') === 'yes'): ?>
+      <span class="tag warn">ARS&#8209;negative</span>
+    <?php endif; ?></h1>
 
 <dl class="facts">
   <dt>Accession</dt><dd class="mono"><?= h($origin['accession']) ?></dd>
@@ -55,6 +58,61 @@ require ORIDB_APP_DIR . '/header.php';
   <?php endif; ?>
   <dt>OriDB v2 record</dt><dd class="mono"><?= h($origin['legacy_id']) ?></dd>
 </dl>
+
+<?php
+$support = Data::supportFor($accession);
+$counted = array_filter($support, static fn (array $r): bool => $r['counts_towards_tier'] === 'yes');
+$yes = array_filter($counted, static fn (array $r): bool => $r['supported'] === 'yes');
+$kinds = array_unique(array_column($yes, 'measures'));
+?>
+<h2>How this site is tiered</h2>
+<?php if ($support === []): ?>
+  <p class="small">
+    No modern dataset in the registry covers <em><?= h($origin['species']) ?></em> yet, so this
+    site is shown as <strong>not assessed</strong>. That records missing coverage, not a
+    negative result: nothing has looked here.
+  </p>
+<?php else: ?>
+<p class="small">
+  Every registered dataset is tested against every site, and all of them are listed below
+  whether or not they support this one &mdash; a dataset that looked and found nothing says
+  something different from a dataset that never looked. A site is <strong>confirmed</strong>
+  on direct experimental evidence alone, and <strong>likely</strong> when at least two
+  datasets support it and at least one of those measures licensing.
+</p>
+<table>
+  <thead><tr><th>Dataset</th><th>Measures</th><th>Supports this site</th>
+             <th>Nearest call</th><th class="num">Distance</th><th>Reference</th></tr></thead>
+  <tbody>
+  <?php foreach ($support as $r): ?>
+    <tr>
+      <td class="mono"><?= h($r['dataset_id']) ?></td>
+      <td><?= h($r['measures']) ?><?= $r['counts_towards_tier'] === 'no'
+            ? ' <span class="small">(not used for the tier)</span>' : '' ?></td>
+      <td><?= $r['supported'] === 'yes'
+            ? '<strong>yes</strong>'
+            : '<span class="small">no</span>' ?></td>
+      <td class="mono"><?= $r['call'] !== '' ? h($r['call']) : '<span class="small">&ndash;</span>' ?></td>
+      <td class="num"><?= $r['distance_bp'] !== '' ? h(bp((int) $r['distance_bp'])) . ' bp'
+            : '<span class="small">&ndash;</span>' ?></td>
+      <td><?= cite_pmid($r['study_pmid']) ?></td>
+    </tr>
+  <?php endforeach; ?>
+  </tbody>
+</table>
+<p class="small">
+  <?= h((string) count($yes)) ?> of <?= h((string) count($counted)) ?> datasets that count
+  towards the tier support this site<?= $kinds !== [] ? ' (' . h(implode(', ', $kinds)) . ')' : '' ?>.
+  <?php if (($origin['ars_negative'] ?? 'no') === 'yes'): ?>
+    This site also lies inside a fragment that was cloned and did not support autonomous
+    replication, listed with the evidence below. That result is carried as a flag and never
+    as a tier: it describes the fragment that was tested, and a site can hold a positive and
+    a negative assay at once.
+  <?php endif; ?>
+  <a href="https://github.com/DNAReplicationLab/oridb-v3/blob/main/docs/tier-rebuild.md">How
+  the tiers are built</a>.
+</p>
+<?php endif; ?>
 
 <h2>Supporting evidence</h2>
 <p class="small">

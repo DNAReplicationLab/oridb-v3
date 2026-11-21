@@ -9,7 +9,13 @@ $species = isset($_GET['species']) && in_array($_GET['species'], $speciesList, t
 $chromosomes = Data::chromosomes($species);
 $chromosome = isset($_GET['chr']) && in_array($_GET['chr'], $chromosomes, true) ? (string) $_GET['chr'] : '';
 
-$rows    = Data::query(species: $species, chromosome: $chromosome ?: null);
+$tiers   = array_keys(Data::tierCounts($species));
+$tier    = isset($_GET['tier']) && in_array($_GET['tier'], $tiers, true) ? (string) $_GET['tier'] : '';
+// The refuted flag is orthogonal to the tier: a site can be Confirmed and ARS-negative.
+$refuted = in_array($_GET['refuted'] ?? '', ['yes', 'no'], true) ? (string) $_GET['refuted'] : '';
+
+$rows    = Data::query(species: $species, chromosome: $chromosome ?: null,
+                       tier: $tier ?: null, arsNegative: $refuted ?: null);
 $perPage = 100;
 $page    = max(1, (int) ($_GET['page'] ?? 1));
 $pages   = max(1, (int) ceil(count($rows) / $perPage));
@@ -47,15 +53,32 @@ require ORIDB_APP_DIR . '/header.php';
       <?php endforeach; ?>
     </select>
   </div>
+  <div>
+    <label for="tier">Tier</label>
+    <select name="tier" id="tier">
+      <option value="">all</option>
+      <?php foreach ($tiers as $t): ?>
+        <option value="<?= h($t) ?>"<?= $t === $tier ? ' selected' : '' ?>><?= h($t) ?></option>
+      <?php endforeach; ?>
+    </select>
+  </div>
+  <div>
+    <label for="refuted">ARS assay</label>
+    <select name="refuted" id="refuted">
+      <option value="">any result</option>
+      <option value="yes"<?= $refuted === 'yes' ? ' selected' : '' ?>>tested, did not replicate</option>
+      <option value="no"<?= $refuted === 'no' ? ' selected' : '' ?>>no negative result</option>
+    </select>
+  </div>
   <button type="submit">Apply</button>
 </form>
 <?php endif; ?>
 
-<p class="small"><?= h((string) count($rows)) ?> origins match. Showing page <?= h((string) $page) ?> of <?= h((string) $pages) ?>.</p>
+<p class="small"><?= h((string) count($rows)) ?> sites match. Showing page <?= h((string) $page) ?> of <?= h((string) $pages) ?>.</p>
 
 <table>
   <thead>
-    <tr><th>Accession</th><th>Name</th><th>Systematic</th><th>Chromosome</th>
+    <tr><th>Accession</th><th>Name</th><th>Tier</th><th>Systematic</th><th>Chromosome</th>
         <th class="num">Start</th><th class="num">End</th><th class="num">Width</th><th>Evidence</th></tr>
   </thead>
   <tbody>
@@ -63,6 +86,10 @@ require ORIDB_APP_DIR . '/header.php';
     <tr>
       <td class="mono"><a href="<?= h(u('origin.php', ['id' => $o['accession']])) ?>"><?= h($o['accession']) ?></a></td>
       <td><?= $o['name'] !== '' ? h($o['name']) : '<span class="small">unnamed</span>' ?></td>
+      <td><span class="tag <?= h(tier_class($o['status'])) ?>"><?= h($o['status']) ?></span>
+          <?php if (($o['ars_negative'] ?? 'no') === 'yes'): ?>
+            <span class="tag warn" title="cloned and did not support replication">ARS&#8209;negative</span>
+          <?php endif; ?></td>
       <td class="mono"><?= h($o['systematic']) ?></td>
       <td><?= h($o['chromosome']) ?></td>
       <td class="num"><?= h(bp($o['start'])) ?></td>
@@ -76,10 +103,10 @@ require ORIDB_APP_DIR . '/header.php';
 
 <div class="pager">
   <?php if ($page > 1): ?>
-    <a href="<?= h(u('browse.php', ['species' => $species, 'chr' => $chromosome, 'page' => $page - 1])) ?>">&larr; Previous</a>
+    <a href="<?= h(u('browse.php', ['species' => $species, 'chr' => $chromosome, 'tier' => $tier, 'refuted' => $refuted, 'page' => $page - 1])) ?>">&larr; Previous</a>
   <?php endif; ?>
   <?php if ($page < $pages): ?>
-    <a href="<?= h(u('browse.php', ['species' => $species, 'chr' => $chromosome, 'page' => $page + 1])) ?>">Next &rarr;</a>
+    <a href="<?= h(u('browse.php', ['species' => $species, 'chr' => $chromosome, 'tier' => $tier, 'refuted' => $refuted, 'page' => $page + 1])) ?>">Next &rarr;</a>
   <?php endif; ?>
 </div>
 <?php require ORIDB_APP_DIR . '/footer.php'; ?>

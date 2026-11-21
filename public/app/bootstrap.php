@@ -47,3 +47,19 @@ function send_404(string $message = 'Not found'): never
     require ORIDB_APP_DIR . '/footer.php';
     exit;
 }
+
+/**
+ * CSS modifier for a tier chip. The tiers are ordered by how much is known, and
+ * the colours follow that order rather than implying good and bad: a site nobody
+ * has looked at is not a failed one.
+ */
+function tier_class(string $tier): string
+{
+    return [
+        'Confirmed' => 'confirmed',
+        'Likely' => 'likely',
+        'Unsupported' => 'unsupported',
+        'Not assessed' => 'unassessed',
+    ][$tier] ?? 'unsupported';
+}
+
