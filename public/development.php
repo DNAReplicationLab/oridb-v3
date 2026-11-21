@@ -40,6 +40,10 @@ require ORIDB_APP_DIR . '/header.php';
       rule.</li>
   <li><a href="https://github.com/DNAReplicationLab/oridb-v3/blob/main/docs/origin_page_changes.md">The origin page</a> &mdash; how the elements
       section is laid out and why.</li>
+  <li><a href="https://github.com/DNAReplicationLab/oridb-v3/blob/main/docs/origin-page-viewer.md">A browser panel on the origin page</a>
+      &mdash; a design note rather than a method: what embedding a limited JBrowse view
+      would require, what each route costs in bytes, and how the page should be sectioned
+      so that adding it does not make the page unreadable.</li>
 </ul>
 
 <h2>How the site is built</h2>

@@ -49,6 +49,10 @@ How each derived layer was produced, and what it does and does not claim:
 - [`docs/tier-evidence-proposal.md`](docs/tier-evidence-proposal.md) — the tier rebuild:
   evidence axes, measured per-study resolution, and the merge rule.
 - [`docs/origin_page_changes.md`](docs/origin_page_changes.md) — the origin page layout.
+- [`docs/origin-page-viewer.md`](docs/origin-page-viewer.md) — a design note rather than a
+  method: what embedding a limited JBrowse panel in the origin page would require, the
+  measured cost of each route, and how the page should be sectioned so that it stays
+  readable.
 
 `public/app/Data.php` is the only file that knows where the data physically lives. When
 the MariaDB back end arrives, re-implement its methods against PDO; no page changes.
