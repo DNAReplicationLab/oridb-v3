@@ -218,6 +218,7 @@ if (count($texts) !== count(array_unique($texts))) {
 // step that does not run must fail here rather than look fine.
 $readTsv = static function (string $name): array {
     $path = dirname(__DIR__) . '/public/data/' . $name;
+    $path = str_contains($name, '..') ? realpath($path) ?: $path : $path;
     if (!is_file($path)) {
         return [];
     }
@@ -374,6 +375,32 @@ if ($missingTiers !== [] || array_keys($widths) !== [7]) {
 } else {
     printf("ok    the BED export names every tier it contains (%s)\n",
            implode(', ', array_keys($bedTiers)));
+}
+
+// Every registered dataset must be citable. Without this, a dataset renders on
+// every origin page as a bare "PMID nnnn (citation not yet in the study table)",
+// which is what happened to Foss 2024 when a commit on another branch carried an
+// older bin/build_elements.py forward and dropped the step that adds them.
+$studyPmids = [];
+foreach ($readTsv('studies.tsv') as $st) {
+    $studyPmids[$st['pmid']] = true;
+}
+$uncited = [];
+foreach ($readTsv('../reference/datasets.tsv') as $d) {
+    if (($d['study_pmid'] ?? '') !== '' && !isset($studyPmids[$d['study_pmid']])) {
+        $uncited[$d['dataset_id']] = $d['study_pmid'];
+    }
+}
+if ($uncited !== []) {
+    $parts = [];
+    foreach ($uncited as $id => $pmid) {
+        $parts[] = $id . ' (PMID ' . $pmid . ')';
+    }
+    echo 'FAIL  registered dataset(s) with no citation in studies.tsv: '
+       . implode(', ', $parts) . "\n";
+    $failures++;
+} else {
+    echo "ok    every registered dataset has a citation record\n";
 }
 
 // Repeated builds have appended to studies.tsv before now.
