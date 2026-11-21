@@ -1,0 +1,436 @@
+accession	name	chromosome	start	end	pmid	study	strength	source_table	source_id	liachko2013
+ODB-SC-0001	ARS102	chrI	650	1791	17067396	Xu 2006	strong	sc_cloned_ori	1	ARS-seq contig
+ODB-SC-0002	ARS102.5	chrI	6136	7135	17067396	Xu 2006	weak	sc_cloned_ori	2	identical fragment: very weak
+ODB-SC-0003	ARS103	chrI	7997	8547	17067396	Xu 2006	strong	sc_cloned_ori	3	identical fragment: very weak
+ODB-SC-0006	ARS104	chrI	30945	31183	16847347	Nieduszynski 2006		sc_cloned_ori	4	ARS-seq contig
+ODB-SC-0007	ARS105	chrI	40715	43300	17067396	Xu 2006		sc_cloned_ori	5	ARS-seq contig
+ODB-SC-0007	ARS105	chrI	41795	42274	22767388	Müller & Nieduszynski 2012		sc_cloned_ori	426	ARS-seq contig
+ODB-SC-0008	ARS106	chrI	70256	70489	16847347	Nieduszynski 2006		sc_cloned_ori	6	ARS-seq contig
+ODB-SC-0010	ARS107	chrI	124348	124597	16847347	Nieduszynski 2006		sc_cloned_ori	7	ARS-seq contig
+ODB-SC-0011	ARS107.5	chrI	136898	137898	17067396	Xu 2006	very weak	sc_cloned_ori	8	identical fragment: non-functional
+ODB-SC-0012	ARS108	chrI	146702	147689	17067396	Xu 2006	strong	sc_cloned_ori	9	ARS-seq contig
+ODB-SC-0012	ARS108	chrI	147403	147806	22767388	Müller & Nieduszynski 2012		sc_cloned_ori	427	ARS-seq contig
+ODB-SC-0013	ARS109	chrI	159906	160127	16847347	Nieduszynski 2006		sc_cloned_ori	10	ARS-seq contig
+ODB-SC-0015	ARS110	chrI	176156	176404	16847347	Nieduszynski 2006		sc_cloned_ori	11	ARS-seq contig
+ODB-SC-0018	ARS111	chrI	214888	215644	17067396	Xu 2006	strong	sc_cloned_ori	12	identical fragment: strong
+ODB-SC-0019	ARS112	chrI	222880	224046	17067396	Xu 2006	strong	sc_cloned_ori	13	identical fragment: very weak
+ODB-SC-0020	ARS113	chrI	226109	227009	17067396	Xu 2006	weak	sc_cloned_ori	14	identical fragment: non-functional
+ODB-SC-0022	ARS200	chrII	39	686	17067396	Xu 2006	strong	sc_cloned_ori	15	ARS-seq contig
+ODB-SC-0023	ARS201	chrII	6123	7127	17067396	Xu 2006	strong	sc_cloned_ori	16	ARS-seq contig
+ODB-SC-0024	ARS201.5	chrII	28941	29160	16847347	Nieduszynski 2006		sc_cloned_ori	17	ARS-seq contig
+ODB-SC-0025	ARS201.7	chrII	38631	39076	22767388	Müller & Nieduszynski 2012		sc_cloned_ori	428	not covered
+ODB-SC-0026	ARS202	chrII	63192	63427	16847347	Nieduszynski 2006		sc_cloned_ori	18	ARS-seq contig
+ODB-SC-0029	ARS203	chrII	93412	93812	17067396	Xu 2006	strong	sc_cloned_ori	19	ARS-seq contig
+ODB-SC-0033	ARS206	chrII	142906	144054	17067396	Xu 2006	strong	sc_cloned_ori	20	ARS-seq contig
+ODB-SC-0034	ARS207	chrII	170087	170336	16847347	Nieduszynski 2006		sc_cloned_ori	21	ARS-seq contig
+ODB-SC-0035	ARS207.1	chrII	177567	177915	16965179	other		sc_cloned_ori	22	identical fragment: non-functional
+ODB-SC-0037	ARS207.5	chrII	198231	198472	16847347	Nieduszynski 2006		sc_cloned_ori	23	ARS-seq contig
+ODB-SC-0038	ARS207.8	chrII	209226	210102	17067396	Xu 2006	very weak	sc_cloned_ori	24	not covered
+ODB-SC-0040	ARS208	chrII	237683	237918	16847347	Nieduszynski 2006		sc_cloned_ori	25	ARS-seq contig
+ODB-SC-0042	ARS209	chrII	254787	255161	3023929	other		sc_cloned_ori	0	ARS-seq contig
+ODB-SC-0042	ARS209	chrII	254933	255179	16847347	Nieduszynski 2006		sc_cloned_ori	26	ARS-seq contig
+ODB-SC-0046	ARS210.5	chrII	283056	283954	17067396	Xu 2006	very weak	sc_cloned_ori	27	identical fragment: non-functional
+ODB-SC-0050	ARS211	chrII	326139	326375	16847347	Nieduszynski 2006		sc_cloned_ori	28	ARS-seq contig
+ODB-SC-0053	ARS212	chrII	378475	379235	17067396	Xu 2006	strong	sc_cloned_ori	29	identical fragment: non-functional
+ODB-SC-0054	ARS213	chrII	389288	390412	17067396	Xu 2006	strong	sc_cloned_ori	30	not covered
+ODB-SC-0055	ARS214	chrII	407875	408108	16847347	Nieduszynski 2006		sc_cloned_ori	31	ARS-seq contig
+ODB-SC-0056	ARS215	chrII	417783	418079	16847347	Nieduszynski 2006		sc_cloned_ori	32	overlapping fragment positive
+ODB-SC-0057	ARS215.5	chrII	440903	441741	17067396	Xu 2006	very weak	sc_cloned_ori	33	identical fragment: very weak
+ODB-SC-0059	ARS216	chrII	486706	486954	16847347	Nieduszynski 2006		sc_cloned_ori	34	ARS-seq contig
+ODB-SC-0062	ARS217	chrII	516850	517850	17067396	Xu 2006	weak	sc_cloned_ori	35	ARS-seq contig
+ODB-SC-0063	ARS218	chrII	539182	539744	17067396	Xu 2006	strong	sc_cloned_ori	36	identical fragment: non-functional
+ODB-SC-0066	ARS219	chrII	591469	591758	17067396	Xu 2006	strong	sc_cloned_ori	37	ARS-seq contig
+ODB-SC-0067	ARS219.5	chrII	611314	613245	17067396	Xu 2006	weak	sc_cloned_ori	38	not covered
+ODB-SC-0067	ARS219.5	chrII	611865	612344	22767388	Müller & Nieduszynski 2012		sc_cloned_ori	429	not covered
+ODB-SC-0068	ARS220	chrII	622670	622939	16847347	Nieduszynski 2006		sc_cloned_ori	39	ARS-seq contig
+ODB-SC-0070	ARS221	chrII	631979	632291	17067396	Xu 2006	strong	sc_cloned_ori	40	identical fragment: weak
+ODB-SC-0071	ARS221.5	chrII	675992	676712	17067396	Xu 2006	weak	sc_cloned_ori	41	identical fragment: non-functional
+ODB-SC-0073	ARS222	chrII	704295	704566	16847347	Nieduszynski 2006		sc_cloned_ori	42	ARS-seq contig
+ODB-SC-0074	ARS222.5	chrII	707203	708307	17067396	Xu 2006	weak	sc_cloned_ori	43	identical fragment: weak
+ODB-SC-0075	ARS223	chrII	720646	721083	17067396	Xu 2006	weak	sc_cloned_ori	44	identical fragment: non-functional
+ODB-SC-0077	ARS224	chrII	741557	741847	16847347	Nieduszynski 2006		sc_cloned_ori	45	ARS-seq contig
+ODB-SC-0078	ARS225	chrII	757436	757667	16847347	Nieduszynski 2006		sc_cloned_ori	46	identical fragment: very weak
+ODB-SC-0080	ARS227	chrII	773964	774394	17067396	Xu 2006	strong	sc_cloned_ori	47	identical fragment: non-functional
+ODB-SC-0081	ARS228	chrII	792163	792388	16847347	Nieduszynski 2006		sc_cloned_ori	48	ARS-seq contig
+ODB-SC-0082	ARS228.5	chrII	796307	797210	17067396	Xu 2006	strong	sc_cloned_ori	49	identical fragment: very weak
+ODB-SC-0083	ARS229	chrII	801978	802665	17067396	Xu 2006	strong	sc_cloned_ori	50	ARS-seq contig
+ODB-SC-0085	ARS300	chrIII	837	1551	21351687	other		sc_cloned_ori	51	ARS-seq contig
+ODB-SC-0087	ARS301	chrIII	11145	11401		(uncited)		sc_cloned_ori	52	ARS-seq contig
+ODB-SC-0087	ARS301	chrIII	9675	11309	1683846	other		sc_cloned_ori	418	ARS-seq contig
+ODB-SC-0087	ARS301	chrIII	11303	14854	1683846	other		sc_cloned_ori	419	ARS-seq contig
+ODB-SC-0088	ARS302	chrIII	11145	11401		(uncited)		sc_cloned_ori	52	ARS-seq contig
+ODB-SC-0088	ARS302	chrIII	14574	14849		(uncited)		sc_cloned_ori	53	ARS-seq contig
+ODB-SC-0088	ARS302	chrIII	9675	11309	1683846	other		sc_cloned_ori	418	ARS-seq contig
+ODB-SC-0088	ARS302	chrIII	11303	14854	1683846	other		sc_cloned_ori	419	ARS-seq contig
+ODB-SC-0088	ARS302	chrIII	14848	16279	1683846	other		sc_cloned_ori	420	ARS-seq contig
+ODB-SC-0089	ARS302	chrIII	14574	14849		(uncited)		sc_cloned_ori	53	ARS-seq contig
+ODB-SC-0089	ARS302	chrIII	11303	14854	1683846	other		sc_cloned_ori	419	ARS-seq contig
+ODB-SC-0089	ARS302	chrIII	14848	16279	1683846	other		sc_cloned_ori	420	ARS-seq contig
+ODB-SC-0090	ARS303	chrIII	14870	15213		(uncited)		sc_cloned_ori	54	ARS-seq contig
+ODB-SC-0090	ARS303	chrIII	15213	16274		(uncited)		sc_cloned_ori	55	ARS-seq contig
+ODB-SC-0090	ARS303	chrIII	14848	16279	1683846	other		sc_cloned_ori	420	ARS-seq contig
+ODB-SC-0091	ARS320	chrIII	14870	15213		(uncited)		sc_cloned_ori	54	ARS-seq contig
+ODB-SC-0091	ARS320	chrIII	15213	16274		(uncited)		sc_cloned_ori	55	ARS-seq contig
+ODB-SC-0091	ARS320	chrIII	14848	16279	1683846	other		sc_cloned_ori	420	ARS-seq contig
+ODB-SC-0092	ARS304	chrIII	30199	30657		(uncited)		sc_cloned_ori	56	identical fragment: non-functional
+ODB-SC-0093	ARS305	chrIII	39158	39706	3529036	other		sc_cloned_ori	57	ARS-seq contig
+ODB-SC-0095	ARS306	chrIII	74457	74677	1683846	other		sc_cloned_ori	58	ARS-seq contig
+ODB-SC-0097	ARS307	chrIII	108779	109295	3529036	other		sc_cloned_ori	59	ARS-seq contig
+ODB-SC-0098	ARS308	chrIII	114320	114939	1683846	other		sc_cloned_ori	60	not covered
+ODB-SC-0099	ARS309	chrIII	131984	132328	3529036	other		sc_cloned_ori	61	ARS-seq contig
+ODB-SC-0103	ARS310	chrIII	166502	167348	1683846	other		sc_cloned_ori	62	ARS-seq contig
+ODB-SC-0105	ARS313	chrIII	194264	194513	16847347	Nieduszynski 2006		sc_cloned_ori	63	ARS-seq contig
+ODB-SC-0105	ARS313	chrIII	194260	195051	11694569	other		sc_cloned_ori	421	ARS-seq contig
+ODB-SC-0106	ARS314	chrIII	197377	197609	16847347	Nieduszynski 2006		sc_cloned_ori	64	ARS-seq contig
+ODB-SC-0106	ARS314	chrIII	195910	197720	11694569	other		sc_cloned_ori	422	ARS-seq contig
+ODB-SC-0110	ARS315	chrIII	224815	225061	16847347	Nieduszynski 2006		sc_cloned_ori	65	ARS-seq contig
+ODB-SC-0110	ARS315	chrIII	224804	225368	11694569	other		sc_cloned_ori	423	ARS-seq contig
+ODB-SC-0112	ARS316	chrIII	272851	273095	16847347	Nieduszynski 2006		sc_cloned_ori	66	ARS-seq contig
+ODB-SC-0112	ARS316	chrIII	272674	273865	11694569	other		sc_cloned_ori	424	ARS-seq contig
+ODB-SC-0113	ARS317	chrIII	292531	292833	16847347	Nieduszynski 2006		sc_cloned_ori	67	ARS-seq contig
+ODB-SC-0113	ARS317	chrIII	292386	292924	11694569	other		sc_cloned_ori	425	ARS-seq contig
+ODB-SC-0114	ARS318	chrIII	294403	295034	11694569	other		sc_cloned_ori	68	ARS-seq contig
+ODB-SC-0116	ARS319	chrIII	315353	316239	11694569	other		sc_cloned_ori	69	ARS-seq contig
+ODB-SC-0117	ARS400	chrIV	137	1392	17067396	Xu 2006	strong	sc_cloned_ori	70	ARS-seq contig
+ODB-SC-0119	ARS403	chrIV	15492	15739	16847347	Nieduszynski 2006		sc_cloned_ori	72	identical fragment: weak
+ODB-SC-0120	ARS402.5	chrIV	21265	22262	17067396	Xu 2006	very weak	sc_cloned_ori	71	identical fragment: non-functional
+ODB-SC-0121	ARS404	chrIV	46180	46236	17067396	Xu 2006		sc_cloned_ori	73	ARS-seq contig
+ODB-SC-0123	ARS405	chrIV	85944	86176	16847347	Nieduszynski 2006		sc_cloned_ori	74	ARS-seq contig
+ODB-SC-0125	ARS405.5	chrIV	100379	101354	17067396	Xu 2006	weak	sc_cloned_ori	75	identical fragment: very weak
+ODB-SC-0126	ARS406	chrIV	123616	123901	16847347	Nieduszynski 2006		sc_cloned_ori	76	ARS-seq contig
+ODB-SC-0127	ARS407	chrIV	137444	137807	22767388	Müller & Nieduszynski 2012		sc_cloned_ori	430	ARS-seq contig
+ODB-SC-0128	ARS408	chrIV	157743	158234	22767388	Müller & Nieduszynski 2012		sc_cloned_ori	431	not covered
+ODB-SC-0130	ARS409	chrIV	212419	212668	16847347	Nieduszynski 2006		sc_cloned_ori	77	ARS-seq contig
+ODB-SC-0132	ARS409.3	chrIV	232140	232618	22767388	Müller & Nieduszynski 2012		sc_cloned_ori	432	not covered
+ODB-SC-0133	ARS409.5	chrIV	235936	236185	19997491	other		sc_cloned_ori	326	identical fragment: strong
+ODB-SC-0134	ARS410	chrIV	253790	254039	16847347	Nieduszynski 2006		sc_cloned_ori	78	ARS-seq contig
+ODB-SC-0136	ARS412	chrIV	316720	317112	19997491	other		sc_cloned_ori	327	ARS-seq contig
+ODB-SC-0137	ARS413	chrIV	329565	329814	16847347	Nieduszynski 2006		sc_cloned_ori	79	ARS-seq contig
+ODB-SC-0138	ARS413.5	chrIV	350836	351805	17067396	Xu 2006	weak	sc_cloned_ori	80	identical fragment: non-functional
+ODB-SC-0141	ARS414	chrIV	408074	408316	16847347	Nieduszynski 2006		sc_cloned_ori	81	ARS-seq contig
+ODB-SC-0142	ARS415	chrIV	435060	435392	19997491	other		sc_cloned_ori	329	ARS-seq contig
+ODB-SC-0144	ARS416	chrIV	462434	462704		(uncited)		sc_cloned_ori	82	ARS-seq contig
+ODB-SC-0146	ARS417	chrIV	483851	484096	16847347	Nieduszynski 2006		sc_cloned_ori	83	ARS-seq contig
+ODB-SC-0147	ARS417.5	chrIV	505342	505584	16847347	Nieduszynski 2006		sc_cloned_ori	84	ARS-seq contig
+ODB-SC-0148	ARS418	chrIV	555229	555466	16847347	Nieduszynski 2006		sc_cloned_ori	85	ARS-seq contig
+ODB-SC-0149	ARS419	chrIV	567495	567742	16847347	Nieduszynski 2006		sc_cloned_ori	86	ARS-seq contig
+ODB-SC-0151	ARS420	chrIV	629079	629676	19997491	other		sc_cloned_ori	331	ARS-seq contig
+ODB-SC-0152	ARS421	chrIV	639866	640115	16847347	Nieduszynski 2006		sc_cloned_ori	87	ARS-seq contig
+ODB-SC-0155	ARS422	chrIV	702886	703132	16847347	Nieduszynski 2006		sc_cloned_ori	88	ARS-seq contig
+ODB-SC-0158	ARS422.5	chrIV	748391	748637	16847347	Nieduszynski 2006		sc_cloned_ori	89	ARS-seq contig
+ODB-SC-0159	ARS423	chrIV	753166	753398	16847347	Nieduszynski 2006		sc_cloned_ori	90	ARS-seq contig
+ODB-SC-0163	ARS425	chrIV	806051	806277	16847347	Nieduszynski 2006		sc_cloned_ori	91	ARS-seq contig
+ODB-SC-0166	ARS426.5	chrIV	844605	845601	17067396	Xu 2006	weak	sc_cloned_ori	92	not covered
+ODB-SC-0170	ARS427.5	chrIV	903833	904664	17067396	Xu 2006	very weak	sc_cloned_ori	93	identical fragment: non-functional
+ODB-SC-0171	ARS428	chrIV	913789	914038	16847347	Nieduszynski 2006		sc_cloned_ori	94	ARS-seq contig
+ODB-SC-0172	ARS429	chrIV	921691	921939	16847347	Nieduszynski 2006		sc_cloned_ori	95	ARS-seq contig
+ODB-SC-0173	ARS429.5	chrIV	942992	943984	17067396	Xu 2006	weak	sc_cloned_ori	96	identical fragment: non-functional
+ODB-SC-0177	ARS430	chrIV	1016633	1016931	16847347	Nieduszynski 2006		sc_cloned_ori	97	ARS-seq contig
+ODB-SC-0179	ARS430.5	chrIV	1033078	1034191	17067396	Xu 2006	weak	sc_cloned_ori	98	identical fragment: non-functional
+ODB-SC-0180	ARS431	chrIV	1057837	1058085	16847347	Nieduszynski 2006		sc_cloned_ori	99	ARS-seq contig
+ODB-SC-0181	ARS431.5	chrIV	1109963	1110204	16847347	Nieduszynski 2006		sc_cloned_ori	100	ARS-seq contig
+ODB-SC-0182	ARS431.7	chrIV	1130682	1131165	22767388	Müller & Nieduszynski 2012		sc_cloned_ori	433	not covered
+ODB-SC-0184	ARS432	chrIV	1159261	1159510	16847347	Nieduszynski 2006		sc_cloned_ori	101	identical fragment: weak
+ODB-SC-0185	ARS432.5	chrIV	1166009	1166232	16847347	Nieduszynski 2006		sc_cloned_ori	102	ARS-seq contig
+ODB-SC-0187	ARS433	chrIV	1240881	1241110	16847347	Nieduszynski 2006		sc_cloned_ori	103	ARS-seq contig
+ODB-SC-0189	ARS434	chrIV	1276224	1276452	16847347	Nieduszynski 2006		sc_cloned_ori	104	identical fragment: strong
+ODB-SC-0190	ARS435	chrIV	1302591	1302831	16847347	Nieduszynski 2006		sc_cloned_ori	105	ARS-seq contig
+ODB-SC-0193	ARS437	chrIV	1353506	1353679	16965179	other		sc_cloned_ori	106	ARS-seq contig
+ODB-SC-0196	ARS439.5	chrIV	1385163	1385642	22767388	Müller & Nieduszynski 2012		sc_cloned_ori	434	ARS-seq contig
+ODB-SC-0197	ARS440	chrIV	1404289	1404524	16847347	Nieduszynski 2006		sc_cloned_ori	107	identical fragment: strong
+ODB-SC-0199	ARS441	chrIV	1447310	1448940	16965179	other		sc_cloned_ori	108	ARS-seq contig
+ODB-SC-0201	ARS442	chrIV	1461861	1462173	16847347	Nieduszynski 2006		sc_cloned_ori	109	ARS-seq contig
+ODB-SC-0204	ARS446	chrIV	1486917	1487161	16847347	Nieduszynski 2006		sc_cloned_ori	110	identical fragment: very weak
+ODB-SC-0206	ARS447	chrIV	1502636	1503234	19997491	other		sc_cloned_ori	332	ARS-seq contig
+ODB-SC-0211	ARS502	chrV	4097	4185		(uncited)		sc_cloned_ori	111	identical fragment: non-functional
+ODB-SC-0212	ARS503	chrV	6464	7230		(uncited)		sc_cloned_ori	112	ARS-seq contig
+ODB-SC-0213	ARS504	chrV	8786	10019		(uncited)		sc_cloned_ori	113	identical fragment: non-functional
+ODB-SC-0214	ARS504.2	chrV	11713	12194	22767388	Müller & Nieduszynski 2012		sc_cloned_ori	435	not covered
+ODB-SC-0216	ARS507	chrV	59282	59516	16847347	Nieduszynski 2006		sc_cloned_ori	114	ARS-seq contig
+ODB-SC-0218	ARS508	chrV	93977	94218	16847347	Nieduszynski 2006		sc_cloned_ori	115	ARS-seq contig
+ODB-SC-0220	ARS510	chrV	145540	145783	16847347	Nieduszynski 2006		sc_cloned_ori	116	ARS-seq contig
+ODB-SC-0222	ARS511	chrV	173637	173875	16847347	Nieduszynski 2006		sc_cloned_ori	117	ARS-seq contig
+ODB-SC-0224	ARS511.5	chrV	192494	192927	20485513	other		sc_cloned_ori	370	identical fragment: non-functional
+ODB-SC-0225	ARS512	chrV	212382	212631	16847347	Nieduszynski 2006		sc_cloned_ori	118	ARS-seq contig
+ODB-SC-0227	ARS513.5	chrV	276129	276528	19997491	other		sc_cloned_ori	333	identical fragment: very weak
+ODB-SC-0228	ARS513.7	chrV	278075	278357	19997491	other		sc_cloned_ori	334	identical fragment: weak
+ODB-SC-0229	ARS514	chrV	287506	287752	16847347	Nieduszynski 2006		sc_cloned_ori	119	ARS-seq contig
+ODB-SC-0230	ARS514.5	chrV	301567	302063	22767388	Müller & Nieduszynski 2012		sc_cloned_ori	436	not covered
+ODB-SC-0232	ARS516	chrV	353508	353755	16847347	Nieduszynski 2006		sc_cloned_ori	120	ARS-seq contig
+ODB-SC-0233	ARS517	chrV	406751	406953	16847347	Nieduszynski 2006		sc_cloned_ori	121	ARS-seq contig
+ODB-SC-0236	ARS518	chrV	438933	439182	16847347	Nieduszynski 2006		sc_cloned_ori	122	ARS-seq contig
+ODB-SC-0237	ARS519	chrV	442416	442735		(uncited)		sc_cloned_ori	123	identical fragment: non-functional
+ODB-SC-0239	ARS520	chrV	498422	499348		(uncited)		sc_cloned_ori	124	ARS-seq contig
+ODB-SC-0239	ARS520	chrV	498751	499249	22767388	Müller & Nieduszynski 2012		sc_cloned_ori	437	ARS-seq contig
+ODB-SC-0241	ARS521	chrV	520772	521030		(uncited)		sc_cloned_ori	125	identical fragment: strong
+ODB-SC-0242	ARS522	chrV	549565	549814	16847347	Nieduszynski 2006		sc_cloned_ori	126	ARS-seq contig
+ODB-SC-0244	ARS523	chrV	569025	570090		(uncited)		sc_cloned_ori	127	ARS-seq contig
+ODB-SC-0247	ARS600.1	chrVI	5435	6155	3277180	other		sc_cloned_ori	128	ARS-seq contig
+ODB-SC-0248	ARS600.2	chrVI	12174	13028	11743203	other		sc_cloned_ori	129	identical fragment: very weak
+ODB-SC-0249	ARS600.3	chrVI	18682	19864	11743203	other		sc_cloned_ori	130	identical fragment: very weak
+ODB-SC-0249	ARS600.3	chrVI	19669	20826	11743203	other		sc_cloned_ori	131	ARS-seq contig
+ODB-SC-0250	ARS600.4	chrVI	18682	19864	11743203	other		sc_cloned_ori	130	identical fragment: very weak
+ODB-SC-0250	ARS600.4	chrVI	19669	20826	11743203	other		sc_cloned_ori	131	ARS-seq contig
+ODB-SC-0251	ARS601	chrVI	32472	32995	8336734	other		sc_cloned_ori	132	not covered
+ODB-SC-0251	ARS601	chrVI	32666	33247	8336734	other		sc_cloned_ori	133	not covered
+ODB-SC-0252	ARS602	chrVI	32472	32995	8336734	other		sc_cloned_ori	132	not covered
+ODB-SC-0252	ARS602	chrVI	32666	33247	8336734	other		sc_cloned_ori	133	not covered
+ODB-SC-0255	ARS603	chrVI	68692	68871	8336734	other		sc_cloned_ori	134	ARS-seq contig
+ODB-SC-0257	ARS603.1	chrVI	104462	104701	17067396	Xu 2006	very weak	sc_cloned_ori	135	identical fragment: very weak
+ODB-SC-0258	ARS603.5	chrVI	118636	118957	9491800	other		sc_cloned_ori	136	ARS-seq contig
+ODB-SC-0259	ARS604	chrVI	127750	128071	8336734	other		sc_cloned_ori	137	identical fragment: weak
+ODB-SC-0260	ARS605	chrVI	135984	136085	8336734	other		sc_cloned_ori	138	identical fragment: very weak
+ODB-SC-0261	ARS606	chrVI	167613	168048	8336734	other		sc_cloned_ori	139	ARS-seq contig
+ODB-SC-0262	ARS607	chrVI	199394	199505	8336734	other		sc_cloned_ori	140	ARS-seq contig
+ODB-SC-0263	ARS608	chrVI	216356	216704	8336734	other		sc_cloned_ori	141	identical fragment: very weak
+ODB-SC-0265	ARS608.5	chrVI	253329	253813	17067396	Xu 2006	weak	sc_cloned_ori	142	identical fragment: very weak
+ODB-SC-0266	ARS609	chrVI	256276	256431	8336734	other		sc_cloned_ori	143	ARS-seq contig
+ODB-SC-0268	ARS610	chrVI	269417	270035	11743203	other		sc_cloned_ori	325	ARS-seq contig
+ODB-SC-0271	ARS700.5	chrVII	17629	18112	22767388	Müller & Nieduszynski 2012		sc_cloned_ori	438	ARS-seq contig
+ODB-SC-0274	ARS702	chrVII	64280	64529	16847347	Nieduszynski 2006		sc_cloned_ori	144	ARS-seq contig
+ODB-SC-0276	ARS704	chrVII	112078	112317	16847347	Nieduszynski 2006		sc_cloned_ori	145	ARS-seq contig
+ODB-SC-0278	ARS706	chrVII	117469	117953	9491083	other		sc_cloned_ori	146	identical fragment: very weak
+ODB-SC-0279	ARS707	chrVII	163176	163443	16847347	Nieduszynski 2006		sc_cloned_ori	147	ARS-seq contig
+ODB-SC-0282	ARS709	chrVII	187237	187647	22767388	Müller & Nieduszynski 2012		sc_cloned_ori	439	not covered
+ODB-SC-0283	ARS710	chrVII	203913	204155	16847347	Nieduszynski 2006		sc_cloned_ori	148	ARS-seq contig
+ODB-SC-0284	ARS711	chrVII	231906	231981		(uncited)		sc_cloned_ori	149	identical fragment: non-functional
+ODB-SC-0285	ARS712	chrVII	240969	241438	22767388	Müller & Nieduszynski 2012		sc_cloned_ori	440	ARS-seq contig
+ODB-SC-0289	ARS714	chrVII	285947	286242	16847347	Nieduszynski 2006		sc_cloned_ori	150	ARS-seq contig
+ODB-SC-0293	ARS716	chrVII	352694	352916	16847347	Nieduszynski 2006		sc_cloned_ori	151	ARS-seq contig
+ODB-SC-0294	ARS717	chrVII	388657	388891	16847347	Nieduszynski 2006		sc_cloned_ori	152	ARS-seq contig
+ODB-SC-0295	ARS718	chrVII	421089	421338	16847347	Nieduszynski 2006		sc_cloned_ori	153	ARS-seq contig
+ODB-SC-0298	ARS719	chrVII	484929	485157	16847347	Nieduszynski 2006		sc_cloned_ori	154	ARS-seq contig
+ODB-SC-0299	ARS720	chrVII	508728	508977	16847347	Nieduszynski 2006		sc_cloned_ori	155	ARS-seq contig
+ODB-SC-0302	ARS721	chrVII	568489	568737	16847347	Nieduszynski 2006		sc_cloned_ori	156	identical fragment: weak
+ODB-SC-0303	ARS722	chrVII	574621	574915	16847347	Nieduszynski 2006		sc_cloned_ori	157	ARS-seq contig
+ODB-SC-0307	ARS724.5	chrVII	607175	607618	22767388	Müller & Nieduszynski 2012		sc_cloned_ori	441	not covered
+ODB-SC-0310	ARS726	chrVII	653610	654090	22767388	Müller & Nieduszynski 2012		sc_cloned_ori	442	ARS-seq contig
+ODB-SC-0311	ARS727	chrVII	659808	660053	16847347	Nieduszynski 2006		sc_cloned_ori	158	ARS-seq contig
+ODB-SC-0312	ARS728	chrVII	715272	715555	16847347	Nieduszynski 2006		sc_cloned_ori	159	ARS-seq contig
+ODB-SC-0315	ARS729	chrVII	777965	778214	16847347	Nieduszynski 2006		sc_cloned_ori	160	ARS-seq contig
+ODB-SC-0318	ARS731	chrVII	834490	834734	16847347	Nieduszynski 2006		sc_cloned_ori	161	ARS-seq contig
+ODB-SC-0322	ARS731.5	chrVII	888348	888597	16847347	Nieduszynski 2006		sc_cloned_ori	162	ARS-seq contig
+ODB-SC-0323	ARS732	chrVII	916673	917168	22767388	Müller & Nieduszynski 2012		sc_cloned_ori	443	not covered
+ODB-SC-0325	ARS733	chrVII	977727	977976	16847347	Nieduszynski 2006		sc_cloned_ori	163	ARS-seq contig
+ODB-SC-0326	ARS734	chrVII	999446	999692	16847347	Nieduszynski 2006		sc_cloned_ori	164	ARS-seq contig
+ODB-SC-0327	ARS735	chrVII	1002179	1002568	22767388	Müller & Nieduszynski 2012		sc_cloned_ori	444	not covered
+ODB-SC-0330	ARS735.5	chrVII	1063250	1063711	22767388	Müller & Nieduszynski 2012		sc_cloned_ori	445	ARS-seq contig
+ODB-SC-0332	ARS131a	chrVII	1082955	1084332		(uncited)		sc_cloned_ori	165	ARS-seq contig
+ODB-SC-0335	ARS131n	chrVIII	5159	6169		(uncited)		sc_cloned_ori	166	ARS-seq contig
+ODB-SC-0336	ARS802	chrVIII	7535	7783	16847347	Nieduszynski 2006		sc_cloned_ori	167	ARS-seq contig
+ODB-SC-0338	ARS804	chrVIII	45591	46078	22767388	Müller & Nieduszynski 2012		sc_cloned_ori	446	ARS-seq contig
+ODB-SC-0340	ARS805	chrVIII	64258	64493	16847347	Nieduszynski 2006		sc_cloned_ori	168	ARS-seq contig
+ODB-SC-0343	ARS805.5	chrVIII	94764	95197	20485513	other		sc_cloned_ori	371	identical fragment: non-functional
+ODB-SC-0344	ARS805.7	chrVIII	111300	111773	22767388	Müller & Nieduszynski 2012		sc_cloned_ori	447	not covered
+ODB-SC-0346	ARS807	chrVIII	133356	133600	16847347	Nieduszynski 2006		sc_cloned_ori	169	ARS-seq contig
+ODB-SC-0348	ARS808	chrVIII	140349	141274	7028571	other		sc_cloned_ori	170	identical fragment: very weak
+ODB-SC-0349	ARS809	chrVIII	168540	168782	16847347	Nieduszynski 2006		sc_cloned_ori	171	ARS-seq contig
+ODB-SC-0352	ARS810	chrVIII	213179	213861	20485513	other		sc_cloned_ori	380	identical fragment: non-functional
+ODB-SC-0355	ARS813	chrVIII	245718	245967	16847347	Nieduszynski 2006		sc_cloned_ori	172	ARS-seq contig
+ODB-SC-0359	ARS815	chrVIII	296880	297473	19997491	other		sc_cloned_ori	335	ARS-seq contig
+ODB-SC-0361	ARS816	chrVIII	359467	359926	22767388	Müller & Nieduszynski 2012		sc_cloned_ori	448	not covered
+ODB-SC-0364	ARS818	chrVIII	392147	392390	16847347	Nieduszynski 2006		sc_cloned_ori	173	ARS-seq contig
+ODB-SC-0365	ARS818.5	chrVIII	406011	406507	22767388	Müller & Nieduszynski 2012		sc_cloned_ori	449	not covered
+ODB-SC-0366	ARS820	chrVIII	447621	447855	16847347	Nieduszynski 2006		sc_cloned_ori	174	ARS-seq contig
+ODB-SC-0368	ARS821	chrVIII	474313	474797	22767388	Müller & Nieduszynski 2012		sc_cloned_ori	450	not covered
+ODB-SC-0369	ARS822	chrVIII	501755	501996	16847347	Nieduszynski 2006		sc_cloned_ori	175	ARS-seq contig
+ODB-SC-0371	ARS823	chrVIII	520020	520634	20485513	other		sc_cloned_ori	379	ARS-seq contig
+ODB-SC-0372	ARS823.5	chrVIII	535407	535840	20485513	other		sc_cloned_ori	377	not covered
+ODB-SC-0375	ARS824	chrVIII	556000	556331	15059255	other		sc_cloned_ori	176	ARS-seq contig
+ODB-SC-0382	ARS905	chrIX	33335	33803	22767388	Müller & Nieduszynski 2012		sc_cloned_ori	451	ARS-seq contig
+ODB-SC-0384	ARS907	chrIX	73803	74220	19997491	other		sc_cloned_ori	336	ARS-seq contig
+ODB-SC-0385	ARS908	chrIX	80058	80557	22767388	Müller & Nieduszynski 2012		sc_cloned_ori	452	ARS-seq contig
+ODB-SC-0386	ARS909	chrIX	105821	106048	16847347	Nieduszynski 2006		sc_cloned_ori	177	ARS-seq contig
+ODB-SC-0388	ARS911	chrIX	136097	136338	16847347	Nieduszynski 2006		sc_cloned_ori	178	ARS-seq contig
+ODB-SC-0389	ARS911.5	chrIX	162939	163305	15059255	other		sc_cloned_ori	179	identical fragment: non-functional
+ODB-SC-0390	ARS912	chrIX	175037	175358	15059255	other		sc_cloned_ori	180	ARS-seq contig
+ODB-SC-0395	ARS913	chrIX	214678	214829	16847347	Nieduszynski 2006		sc_cloned_ori	181	ARS-seq contig
+ODB-SC-0399	ARS913.5	chrIX	245697	245935	16847347	Nieduszynski 2006		sc_cloned_ori	182	ARS-seq contig
+ODB-SC-0400	ARS914	chrIX	247582	247803	16847347	Nieduszynski 2006		sc_cloned_ori	183	ARS-seq contig
+ODB-SC-0404	ARS916	chrIX	310585	311072	19997491	other		sc_cloned_ori	337	ARS-seq contig
+ODB-SC-0408	ARS919	chrIX	341856	342099	16847347	Nieduszynski 2006		sc_cloned_ori	184	ARS-seq contig
+ODB-SC-0409	ARS920	chrIX	357159	357396	16847347	Nieduszynski 2006		sc_cloned_ori	185	ARS-seq contig
+ODB-SC-0412	ARS922	chrIX	411820	412056	16847347	Nieduszynski 2006		sc_cloned_ori	186	ARS-seq contig
+ODB-SC-0413	ARS922.5	chrIX	432500	432998	22767388	Müller & Nieduszynski 2012		sc_cloned_ori	453	not covered
+ODB-SC-0415	ARS1001	chrX	64	577	11743203	other		sc_cloned_ori	187	not covered
+ODB-SC-0416	ARS1002	chrX	7444	7943	11743203	other		sc_cloned_ori	188	ARS-seq contig
+ODB-SC-0417	ARS1003	chrX	16123	16762	11743203	other		sc_cloned_ori	189	identical fragment: weak
+ODB-SC-0418	ARS1004	chrX	23661	24158	11743203	other		sc_cloned_ori	190	ARS-seq contig
+ODB-SC-0420	ARS1005	chrX	67468	67950	11743203	other		sc_cloned_ori	191	ARS-seq contig
+ODB-SC-0421	ARS1006	chrX	99366	99803	11743203	other		sc_cloned_ori	192	ARS-seq contig
+ODB-SC-0422	ARS1007	chrX	113232	113834	11743203	other		sc_cloned_ori	193	ARS-seq contig
+ODB-SC-0425	ARS1007.5	chrX	161737	162162	17067396	Xu 2006	strong	sc_cloned_ori	194	ARS-seq contig
+ODB-SC-0427	ARS1008	chrX	204028	204917	11743203	other		sc_cloned_ori	195	ARS-seq contig
+ODB-SC-0429	ARS1009	chrX	228551	229043	11743203	other		sc_cloned_ori	196	ARS-seq contig
+ODB-SC-0430	ARS1009.5	chrX	248904	249604	17067396	Xu 2006	strong	sc_cloned_ori	197	identical fragment: non-functional
+ODB-SC-0432	ARS1010	chrX	298775	299256	11743203	other		sc_cloned_ori	198	ARS-seq contig
+ODB-SC-0435	ARS1011	chrX	337280	337529	16847347	Nieduszynski 2006		sc_cloned_ori	199	ARS-seq contig
+ODB-SC-0437	ARS1012	chrX	374879	375122	16847347	Nieduszynski 2006		sc_cloned_ori	200	ARS-seq contig
+ODB-SC-0438	ARS1013	chrX	375705	376227	11743203	other		sc_cloned_ori	201	ARS-seq contig
+ODB-SC-0440	ARS1014	chrX	417194	417440	16847347	Nieduszynski 2006		sc_cloned_ori	202	ARS-seq contig
+ODB-SC-0441	ARS1015	chrX	442555	442965	11743203	other		sc_cloned_ori	203	ARS-seq contig
+ODB-SC-0442	ARS1016	chrX	454583	455555	11743203	other		sc_cloned_ori	204	identical fragment: weak
+ODB-SC-0443	ARS1017	chrX	459336	459895	11743203	other		sc_cloned_ori	205	ARS-seq contig
+ODB-SC-0445	ARS1017.5	chrX	501901	502831	17067396	Xu 2006	very weak	sc_cloned_ori	206	not covered
+ODB-SC-0446	ARS1018	chrX	540545	540780	16847347	Nieduszynski 2006		sc_cloned_ori	207	ARS-seq contig
+ODB-SC-0447	ARS1018.5	chrX	609303	610053	17067396	Xu 2006	weak	sc_cloned_ori	208	identical fragment: non-functional
+ODB-SC-0448	ARS1019	chrX	612845	613278	11743203	other		sc_cloned_ori	209	ARS-seq contig
+ODB-SC-0451	ARS1020	chrX	654374	654614	16847347	Nieduszynski 2006		sc_cloned_ori	210	ARS-seq contig
+ODB-SC-0452	ARS1021	chrX	683633	684122	16847347	Nieduszynski 2006		sc_cloned_ori	211	ARS-seq contig
+ODB-SC-0454	ARS1022	chrX	711895	712142	16847347	Nieduszynski 2006		sc_cloned_ori	212	ARS-seq contig
+ODB-SC-0456	ARS1023	chrX	729982	730513	11743203	other		sc_cloned_ori	213	not covered
+ODB-SC-0457	ARS1024	chrX	737033	737275	16847347	Nieduszynski 2006		sc_cloned_ori	214	identical fragment: very weak
+ODB-SC-0458	ARS1025	chrX	744407	745008	11743203	other		sc_cloned_ori	215	ARS-seq contig
+ODB-SC-0463	ARS1102.5	chrXI	42109	42562	22767388	Müller & Nieduszynski 2012		sc_cloned_ori	454	not covered
+ODB-SC-0464	ARS1103	chrXI	55670	55917	16847347	Nieduszynski 2006		sc_cloned_ori	216	ARS-seq contig
+ODB-SC-0466	ARS1104.5	chrXI	98328	98567	16847347	Nieduszynski 2006		sc_cloned_ori	217	ARS-seq contig
+ODB-SC-0468	ARS1105.5	chrXI	145432	145892	22767388	Müller & Nieduszynski 2012		sc_cloned_ori	455	not covered
+ODB-SC-0469	ARS1106	chrXI	152933	153172	16847347	Nieduszynski 2006		sc_cloned_ori	218	ARS-seq contig, manually negative
+ODB-SC-0472	ARS1106.3	chrXI	196041	196287	16847347	Nieduszynski 2006		sc_cloned_ori	219	ARS-seq contig
+ODB-SC-0473	ARS1106.5	chrXI	199892	200895	22767388	Müller & Nieduszynski 2012		sc_cloned_ori	456	not covered
+ODB-SC-0474	ARS1106.7	chrXI	213438	213743	16847347	Nieduszynski 2006		sc_cloned_ori	220	ARS-seq contig
+ODB-SC-0476	ARS1107	chrXI	257749	258198	22767388	Müller & Nieduszynski 2012		sc_cloned_ori	457	ARS-seq contig
+ODB-SC-0477	ARS1107.5	chrXI	302511	302883	22767388	Müller & Nieduszynski 2012		sc_cloned_ori	458	ARS-seq contig
+ODB-SC-0480	ARS1109	chrXI	329681	329930	16847347	Nieduszynski 2006		sc_cloned_ori	221	ARS-seq contig
+ODB-SC-0484	ARS1112	chrXI	388969	389264	16847347	Nieduszynski 2006		sc_cloned_ori	222	ARS-seq contig
+ODB-SC-0485	ARS1113	chrXI	417184	417417	16847347	Nieduszynski 2006		sc_cloned_ori	223	ARS-seq contig
+ODB-SC-0486	ARS1113.5	chrXI	444923	445390	22767388	Müller & Nieduszynski 2012		sc_cloned_ori	459	not covered
+ODB-SC-0487	ARS1114	chrXI	448019	448254	16847347	Nieduszynski 2006		sc_cloned_ori	224	ARS-seq contig
+ODB-SC-0488	ARS1114.5	chrXI	454815	459559	16965179	other		sc_cloned_ori	225	ARS-seq contig, manually negative
+ODB-SC-0492	ARS1116	chrXI	517016	517265	16847347	Nieduszynski 2006		sc_cloned_ori	226	ARS-seq contig
+ODB-SC-0494	ARS1117	chrXI	530433	530923	22767388	Müller & Nieduszynski 2012		sc_cloned_ori	460	not covered
+ODB-SC-0496	ARS1118	chrXI	581832	582070	16847347	Nieduszynski 2006		sc_cloned_ori	227	ARS-seq contig
+ODB-SC-0498	ARS1120	chrXI	612240	612473	16847347	Nieduszynski 2006		sc_cloned_ori	228	ARS-seq contig
+ODB-SC-0501	ARS1123	chrXI	642726	642973	16847347	Nieduszynski 2006		sc_cloned_ori	229	ARS-seq contig
+ODB-SC-0507	ARS1203	chrXII	51861	52211	22767388	Müller & Nieduszynski 2012		sc_cloned_ori	461	not covered
+ODB-SC-0509	ARS1205	chrXII	76712	77164	22767388	Müller & Nieduszynski 2012		sc_cloned_ori	462	ARS-seq contig
+ODB-SC-0510	ARS1206	chrXII	91418	91660	16847347	Nieduszynski 2006		sc_cloned_ori	230	ARS-seq contig
+ODB-SC-0511	ARS1206.5	chrXII	93167	93660	22767388	Müller & Nieduszynski 2012		sc_cloned_ori	463	not covered
+ODB-SC-0513	ARS1208	chrXII	150915	151422	8593680	other		sc_cloned_ori	231	identical fragment: weak
+ODB-SC-0514	ARS1209	chrXII	156647	156884	16847347	Nieduszynski 2006		sc_cloned_ori	232	ARS-seq contig
+ODB-SC-0518	ARS1210	chrXII	222409	222791	20485513	other		sc_cloned_ori	382	ARS-seq contig
+ODB-SC-0519	ARS1211	chrXII	231178	231421	16847347	Nieduszynski 2006		sc_cloned_ori	233	ARS-seq contig
+ODB-SC-0520	ARS1211.5	chrXII	243526	243959	20485513	other		sc_cloned_ori	372	ARS-seq contig
+ODB-SC-0522	ARS1212	chrXII	289219	289468	16847347	Nieduszynski 2006		sc_cloned_ori	234	ARS-seq contig
+ODB-SC-0525	ARS1212.5	chrXII	343576	344032	20485513	other		sc_cloned_ori	383	identical fragment: strong
+ODB-SC-0526	ARS1213	chrXII	373155	373399	16847347	Nieduszynski 2006		sc_cloned_ori	235	ARS-seq contig
+ODB-SC-0528	ARS1215	chrXII	412667	412896	16847347	Nieduszynski 2006		sc_cloned_ori	236	ARS-seq contig
+ODB-SC-0531	ARS1216	chrXII	450484	450725	16847347	Nieduszynski 2006		sc_cloned_ori	237	ARS-seq contig
+ODB-SC-0532	ARS1216.5	chrXII	458825	459140	16847347	Nieduszynski 2006		sc_cloned_ori	238	ARS-seq contig
+ODB-SC-0536	ARS1217	chrXII	512866	513115	16847347	Nieduszynski 2006		sc_cloned_ori	239	ARS-seq contig
+ODB-SC-0538	ARS1218	chrXII	602938	603155	16847347	Nieduszynski 2006		sc_cloned_ori	240	ARS-seq contig
+ODB-SC-0541	ARS1219	chrXII	622672	623123	22767388	Müller & Nieduszynski 2012		sc_cloned_ori	464	ARS-seq contig
+ODB-SC-0543	ARS1219.7	chrXII	644937	645426	22767388	Müller & Nieduszynski 2012		sc_cloned_ori	465	not covered
+ODB-SC-0544	ARS1220	chrXII	659823	660072	16847347	Nieduszynski 2006		sc_cloned_ori	241	ARS-seq contig
+ODB-SC-0545	ARS1220.5	chrXII	687249	687738	22767388	Müller & Nieduszynski 2012		sc_cloned_ori	466	not covered
+ODB-SC-0547	ARS1222	chrXII	730275	730832	22767388	Müller & Nieduszynski 2012		sc_cloned_ori	467	ARS-seq contig
+ODB-SC-0548	ARS1223	chrXII	744942	745179	16847347	Nieduszynski 2006		sc_cloned_ori	242	ARS-seq contig
+ODB-SC-0552	ARS1226	chrXII	794020	794269	16847347	Nieduszynski 2006		sc_cloned_ori	243	ARS-seq contig
+ODB-SC-0554	ARS1227	chrXII	821907	822336	22767388	Müller & Nieduszynski 2012		sc_cloned_ori	468	ARS-seq contig
+ODB-SC-0558	ARS1227.5	chrXII	888569	888810	16847347	Nieduszynski 2006		sc_cloned_ori	244	ARS-seq contig
+ODB-SC-0560	ARS1229	chrXII	928054	928543	22767388	Müller & Nieduszynski 2012		sc_cloned_ori	469	ARS-seq contig
+ODB-SC-0562	ARS1231	chrXII	947912	948362	22767388	Müller & Nieduszynski 2012		sc_cloned_ori	470	not covered
+ODB-SC-0564	ARS1232	chrXII	1007185	1007475	16847347	Nieduszynski 2006		sc_cloned_ori	245	ARS-seq contig
+ODB-SC-0565	ARS1233	chrXII	1013794	1014022	16847347	Nieduszynski 2006		sc_cloned_ori	246	ARS-seq contig
+ODB-SC-0567	ARS1234	chrXII	1023972	1024212	16847347	Nieduszynski 2006		sc_cloned_ori	247	ARS-seq contig
+ODB-SC-0570	ARS1235	chrXII	1059490	1059923	20485513	other		sc_cloned_ori	373	ARS-seq contig
+ODB-SC-0578	ARS1303	chrXIII	31687	31935	16847347	Nieduszynski 2006		sc_cloned_ori	248	ARS-seq contig
+ODB-SC-0579	ARS1304	chrXIII	39922	40355	20485513	other		sc_cloned_ori	374	ARS-seq contig
+ODB-SC-0581	ARS1304.5	chrXIII	49645	50141	22767388	Müller & Nieduszynski 2012		sc_cloned_ori	471	not covered
+ODB-SC-0583	ARS1304.7	chrXIII	73874	74373	22767388	Müller & Nieduszynski 2012		sc_cloned_ori	472	not covered
+ODB-SC-0584	ARS1305	chrXIII	94216	94463	16847347	Nieduszynski 2006		sc_cloned_ori	249	ARS-seq contig
+ODB-SC-0586	ARS1307	chrXIII	137299	137548	16847347	Nieduszynski 2006		sc_cloned_ori	250	ARS-seq contig
+ODB-SC-0587	ARS1307.5	chrXIII	158846	159279	20485513	other		sc_cloned_ori	375	ARS-seq contig, manually negative
+ODB-SC-0588	ARS1308	chrXIII	183793	184037	16847347	Nieduszynski 2006		sc_cloned_ori	251	ARS-seq contig
+ODB-SC-0591	ARS1309	chrXIII	263062	263296	16847347	Nieduszynski 2006		sc_cloned_ori	252	ARS-seq contig
+ODB-SC-0594	ARS1310	chrXIII	286783	287068	16847347	Nieduszynski 2006		sc_cloned_ori	253	ARS-seq contig
+ODB-SC-0599	ARS1312	chrXIII	370977	371222	16847347	Nieduszynski 2006		sc_cloned_ori	254	ARS-seq contig
+ODB-SC-0604	ARS1315	chrXIII	432852	433348	22767388	Müller & Nieduszynski 2012		sc_cloned_ori	473	ARS-seq contig
+ODB-SC-0605	ARS1316	chrXIII	468178	468469	16847347	Nieduszynski 2006		sc_cloned_ori	255	identical fragment: strong
+ODB-SC-0609	ARS1319	chrXIII	503347	504088	20485513	other		sc_cloned_ori	381	ARS-seq contig
+ODB-SC-0610	ARS1320	chrXIII	535596	535844	16847347	Nieduszynski 2006		sc_cloned_ori	256	ARS-seq contig
+ODB-SC-0612	ARS1322	chrXIII	554393	554751	20485513	other		sc_cloned_ori	378	ARS-seq contig
+ODB-SC-0615	ARS1323	chrXIII	611274	611489	16847347	Nieduszynski 2006		sc_cloned_ori	257	ARS-seq contig
+ODB-SC-0616	ARS1324	chrXIII	634480	634715	16847347	Nieduszynski 2006		sc_cloned_ori	258	ARS-seq contig, manually negative
+ODB-SC-0617	ARS1325	chrXIII	649308	649552	16847347	Nieduszynski 2006		sc_cloned_ori	259	identical fragment: strong
+ODB-SC-0618	ARS1326	chrXIII	688767	689222	22767388	Müller & Nieduszynski 2012		sc_cloned_ori	474	ARS-seq contig
+ODB-SC-0620	ARS1327	chrXIII	758223	758471	16847347	Nieduszynski 2006		sc_cloned_ori	260	ARS-seq contig
+ODB-SC-0622	ARS1328	chrXIII	772630	772879	16847347	Nieduszynski 2006		sc_cloned_ori	261	ARS-seq contig
+ODB-SC-0624	ARS1329	chrXIII	805116	805338	16847347	Nieduszynski 2006		sc_cloned_ori	262	ARS-seq contig
+ODB-SC-0625	ARS1330	chrXIII	815341	815567	16847347	Nieduszynski 2006		sc_cloned_ori	263	ARS-seq contig
+ODB-SC-0627	ARS1331.5	chrXIII	865288	865683	15059255	other		sc_cloned_ori	264	identical fragment: very weak
+ODB-SC-0628	ARS1331.7	chrXIII	878619	879115	22767388	Müller & Nieduszynski 2012		sc_cloned_ori	475	ARS-seq contig
+ODB-SC-0629	ARS1332	chrXIII	897804	898040	16847347	Nieduszynski 2006		sc_cloned_ori	265	ARS-seq contig
+ODB-SC-0635	ARS1405	chrXIV	28468	28700	16847347	Nieduszynski 2006		sc_cloned_ori	266	ARS-seq contig
+ODB-SC-0637	ARS1406	chrXIV	61598	61895	16847347	Nieduszynski 2006		sc_cloned_ori	267	ARS-seq contig
+ODB-SC-0639	ARS1407	chrXIV	89530	89804	16847347	Nieduszynski 2006		sc_cloned_ori	268	ARS-seq contig
+ODB-SC-0643	ARS1410	chrXIV	126490	126983	22767388	Müller & Nieduszynski 2012		sc_cloned_ori	476	ARS-seq contig
+ODB-SC-0646	ARS1411	chrXIV	169567	169805	16847347	Nieduszynski 2006		sc_cloned_ori	269	ARS-seq contig
+ODB-SC-0648	ARS1412	chrXIV	196056	196292	16847347	Nieduszynski 2006		sc_cloned_ori	270	ARS-seq contig
+ODB-SC-0650	ARS1413	chrXIV	250260	250507	16847347	Nieduszynski 2006		sc_cloned_ori	271	overlapping fragment positive
+ODB-SC-0652	ARS1414	chrXIV	279879	280112	16847347	Nieduszynski 2006		sc_cloned_ori	272	ARS-seq contig
+ODB-SC-0653	ARS1415	chrXIV	321920	322213	16847347	Nieduszynski 2006		sc_cloned_ori	273	ARS-seq contig
+ODB-SC-0656	ARS1311.7	chrXIV	352512	352999	22767388	Müller & Nieduszynski 2012		sc_cloned_ori	477	ARS-seq contig
+ODB-SC-0659	ARS1417	chrXIV	412266	412496	16847347	Nieduszynski 2006		sc_cloned_ori	274	ARS-seq contig
+ODB-SC-0662	ARS1419	chrXIV	449346	449591	16847347	Nieduszynski 2006		sc_cloned_ori	275	ARS-seq contig
+ODB-SC-0664	ARS1420	chrXIV	498990	499235	16847347	Nieduszynski 2006		sc_cloned_ori	276	ARS-seq contig
+ODB-SC-0666	ARS1421	chrXIV	545970	546205	16847347	Nieduszynski 2006		sc_cloned_ori	277	ARS-seq contig
+ODB-SC-0668	ARS1422	chrXIV	561110	561388	16847347	Nieduszynski 2006		sc_cloned_ori	278	ARS-seq contig
+ODB-SC-0672	ARS1424	chrXIV	609462	609710	16847347	Nieduszynski 2006		sc_cloned_ori	279	ARS-seq contig
+ODB-SC-0674	ARS1426	chrXIV	635663	635904	16847347	Nieduszynski 2006		sc_cloned_ori	280	ARS-seq contig
+ODB-SC-0677	ARS1427	chrXIV	691485	691730	16847347	Nieduszynski 2006		sc_cloned_ori	281	ARS-seq contig
+ODB-SC-0679	ARS1428	chrXIV	713645	714139	22767388	Müller & Nieduszynski 2012		sc_cloned_ori	478	not covered
+ODB-SC-0682	ARS1428.5	chrXIV	738555	738987	22767388	Müller & Nieduszynski 2012		sc_cloned_ori	479	ARS-seq contig
+ODB-SC-0683	ARS1429	chrXIV	764006	764505	22767388	Müller & Nieduszynski 2012		sc_cloned_ori	480	ARS-seq contig
+ODB-SC-0690	ARS1506.5	chrXV	35668	35904	16847347	Nieduszynski 2006		sc_cloned_ori	282	ARS-seq contig
+ODB-SC-0692	ARS1507	chrXV	72637	72873	16847347	Nieduszynski 2006		sc_cloned_ori	283	ARS-seq contig
+ODB-SC-0694	ARS1508	chrXV	85196	85445	16847347	Nieduszynski 2006		sc_cloned_ori	284	ARS-seq contig
+ODB-SC-0696	ARS1509	chrXV	113844	114085	16847347	Nieduszynski 2006		sc_cloned_ori	285	ARS-seq contig
+ODB-SC-0697	ARS1509.3	chrXV	128923	130183	20485513	other		sc_cloned_ori	417	identical fragment: very weak
+ODB-SC-0698	ARS1509.5	chrXV	154973	155463	15059255	other		sc_cloned_ori	286	identical fragment: non-functional
+ODB-SC-0700	ARS1510	chrXV	166975	167221	16847347	Nieduszynski 2006		sc_cloned_ori	287	ARS-seq contig
+ODB-SC-0701	ARS1510.5	chrXV	227483	228119	19997491	other		sc_cloned_ori	338	ARS-seq contig
+ODB-SC-0704	ARS1511	chrXV	277529	277778	16847347	Nieduszynski 2006		sc_cloned_ori	288	ARS-seq contig
+ODB-SC-0705	ARS1512	chrXV	308969	309462	22767388	Müller & Nieduszynski 2012		sc_cloned_ori	481	ARS-seq contig
+ODB-SC-0707	ARS1513	chrXV	337279	337528	16847347	Nieduszynski 2006		sc_cloned_ori	289	ARS-seq contig
+ODB-SC-0712	ARS1513.5	chrXV	436731	436965	16847347	Nieduszynski 2006		sc_cloned_ori	290	ARS-seq contig
+ODB-SC-0716	ARS1514	chrXV	489644	490128	15059255	other		sc_cloned_ori	291	ARS-seq contig
+ODB-SC-0718	ARS1515.5	chrXV	497144	497603	22767388	Müller & Nieduszynski 2012		sc_cloned_ori	482	ARS-seq contig
+ODB-SC-0720	ARS1515.7	chrXV	520541	521040	22767388	Müller & Nieduszynski 2012		sc_cloned_ori	483	not covered
+ODB-SC-0721	ARS1516	chrXV	566409	566643	16847347	Nieduszynski 2006		sc_cloned_ori	292	ARS-seq contig
+ODB-SC-0723	ARS1517	chrXV	600885	600960		(uncited)		sc_cloned_ori	293	ARS-seq contig
+ODB-SC-0728	ARS1519	chrXV	656632	656876	16847347	Nieduszynski 2006		sc_cloned_ori	294	ARS-seq contig
+ODB-SC-0731	ARS1520	chrXV	681112	681611	22767388	Müller & Nieduszynski 2012		sc_cloned_ori	484	ARS-seq contig
+ODB-SC-0733	ARS1521	chrXV	729739	729969	16847347	Nieduszynski 2006		sc_cloned_ori	295	identical fragment: weak
+ODB-SC-0736	ARS1523	chrXV	766617	766862	16847347	Nieduszynski 2006		sc_cloned_ori	296	ARS-seq contig
+ODB-SC-0737	ARS1524	chrXV	783344	783563	16847347	Nieduszynski 2006		sc_cloned_ori	297	ARS-seq contig
+ODB-SC-0739	ARS1525	chrXV	854738	855231	22767388	Müller & Nieduszynski 2012		sc_cloned_ori	485	ARS-seq contig
+ODB-SC-0740	ARS1526	chrXV	874193	874437	16847347	Nieduszynski 2006		sc_cloned_ori	298	ARS-seq contig
+ODB-SC-0744	ARS1528	chrXV	908295	908544	16847347	Nieduszynski 2006		sc_cloned_ori	299	ARS-seq contig
+ODB-SC-0746	ARS1529	chrXV	981461	981697	16847347	Nieduszynski 2006		sc_cloned_ori	300	ARS-seq contig
+ODB-SC-0751	ARS1529.5	chrXV	1053496	1053907	15059255	other		sc_cloned_ori	301	ARS-seq contig
+ODB-SC-0757	ARS1601	chrXVI	6778	8439	16965179	other		sc_cloned_ori	302	ARS-seq contig
+ODB-SC-0758	ARS1602	chrXVI	12290	13227	16965179	other		sc_cloned_ori	303	identical fragment: strong
+ODB-SC-0760	ARS1604	chrXVI	42976	43212	16847347	Nieduszynski 2006		sc_cloned_ori	304	ARS-seq contig
+ODB-SC-0762	ARS1605	chrXVI	73038	73283	16847347	Nieduszynski 2006		sc_cloned_ori	305	ARS-seq contig
+ODB-SC-0764	ARS1607	chrXVI	116505	116765	16847347	Nieduszynski 2006		sc_cloned_ori	306	ARS-seq contig
+ODB-SC-0770	ARS1609	chrXVI	210468	211724	20485513	other		sc_cloned_ori	416	ARS-seq contig
+ODB-SC-0778	ARS1614	chrXVI	289484	289705	16847347	Nieduszynski 2006		sc_cloned_ori	307	ARS-seq contig
+ODB-SC-0783	ARS1617	chrXVI	331679	332075	22767388	Müller & Nieduszynski 2012		sc_cloned_ori	486	not covered
+ODB-SC-0787	ARS1618	chrXVI	384541	384789	16847347	Nieduszynski 2006		sc_cloned_ori	308	ARS-seq contig
+ODB-SC-0788	ARS1618.5	chrXVI	414037	416077	16965179	other		sc_cloned_ori	309	not covered
+ODB-SC-0789	ARS1619	chrXVI	418137	418364	16847347	Nieduszynski 2006		sc_cloned_ori	310	ARS-seq contig
+ODB-SC-0794	ARS1620.5	chrXVI	456562	456810	16847347	Nieduszynski 2006		sc_cloned_ori	311	ARS-seq contig
+ODB-SC-0798	ARS1621	chrXVI	511623	511944	16847347	Nieduszynski 2006		sc_cloned_ori	312	ARS-seq contig
+ODB-SC-0801	ARS1622	chrXVI	563827	564066	16847347	Nieduszynski 2006		sc_cloned_ori	313	ARS-seq contig
+ODB-SC-0802	ARS1622.5	chrXVI	565051	565294	16847347	Nieduszynski 2006		sc_cloned_ori	314	ARS-seq contig
+ODB-SC-0804	ARS1622.7	chrXVI	584042	584491	22767388	Müller & Nieduszynski 2012		sc_cloned_ori	487	not covered
+ODB-SC-0809	ARS1623	chrXVI	633873	634122	16847347	Nieduszynski 2006		sc_cloned_ori	315	ARS-seq contig
+ODB-SC-0811	ARS1624	chrXVI	684388	684637	16847347	Nieduszynski 2006		sc_cloned_ori	316	ARS-seq contig
+ODB-SC-0813	ARS1625	chrXVI	695437	695686	16847347	Nieduszynski 2006		sc_cloned_ori	317	ARS-seq contig
+ODB-SC-0816	ARS1626	chrXVI	749098	749345	16847347	Nieduszynski 2006		sc_cloned_ori	318	ARS-seq contig
+ODB-SC-0817	ARS1626.5	chrXVI	776925	777156	16847347	Nieduszynski 2006		sc_cloned_ori	319	ARS-seq contig
+ODB-SC-0818	ARS1627	chrXVI	819159	819399	16847347	Nieduszynski 2006		sc_cloned_ori	320	ARS-seq contig
+ODB-SC-0820	ARS1628	chrXVI	842652	842900	16847347	Nieduszynski 2006		sc_cloned_ori	321	ARS-seq contig
+ODB-SC-0824	ARS1630	chrXVI	880860	881108	16847347	Nieduszynski 2006		sc_cloned_ori	322	ARS-seq contig
+ODB-SC-0827	ARS1631	chrXVI	932982	933229	16847347	Nieduszynski 2006		sc_cloned_ori	323	identical fragment: weak

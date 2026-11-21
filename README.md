@@ -30,7 +30,7 @@ public/           web root — one PHP file per page, plus assets/ and api/
   app/            application code: bootstrap, Data accessor, page templates (HTTP-denied)
   data/           released flat files: origins.tsv, evidence.tsv, studies.tsv, release.json (HTTP-denied)
 bin/              build and test scripts
-reference/        the UCSC liftOver chain, committed so the lift is reproducible offline
+reference/        the UCSC liftOver chain, the dataset registry, and curated source tables (see reference/README.md)
 docs/             page structure and deployment notes
 build/            generated; not committed
 ```
@@ -53,6 +53,9 @@ How each derived layer was produced, and what it does and does not claim:
   method: what embedding a limited JBrowse panel in the origin page would require, the
   measured cost of each route, and how the page should be sectioned so that it stays
   readable.
+- [`docs/liachko2013-review.md`](docs/liachko2013-review.md) — Liachko et al. 2013 reviewed
+  as a source of evidence: what was incorporated (manual ARS assays, assay strength) and
+  what is still to come (ARS-seq, miniARS-seq cores, mutARS-seq).
 
 `public/app/Data.php` is the only file that knows where the data physically lives. When
 the MariaDB back end arrives, re-implement its methods against PDO; no page changes.

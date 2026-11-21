@@ -12,7 +12,8 @@ The tier is DERIVED here and nowhere else. Nothing is stored that cannot be
 recomputed from the matrix, so changing a threshold is a rerun, not a migration.
 
     Confirmed     direct experimental evidence of an origin at this site: a positive
-                  plasmid (ARS) assay or a 2D gel. Set by build_from_v2.py from v2.
+                  plasmid (ARS) assay or a 2D gel. Set by build_from_v2.py, from v2
+                  and from the assays curated since (reference/curated_ars_assays.tsv).
     Likely        no direct evidence, but at least two modern datasets support the
                   site and at least one of them measures LICENSING. The licensing
                   requirement is deliberate: two firing assays share a blind spot,
@@ -26,8 +27,9 @@ recomputed from the matrix, so changing a threshold is a rerun, not a migration.
 
 A negative ARS assay never sets a tier. It is carried as the ars_negative flag from
 build_from_v2.py, because refutation attaches to a tested interval rather than to an
-origin: 76 of the 224 negative fragments contain no origin at all, and two contain an
-origin that a positive assay confirms.
+origin: many negative fragments contain no origin at all, and some contain an origin
+that a positive assay confirms (the counts are in release.json, under tiers.refuted
+and curated_assays).
 """
 from __future__ import annotations
 
@@ -329,8 +331,12 @@ def main() -> None:
     # Counted here so that no page has to hard-code them.
     _, fragments = read_tsv(DATA / 'refuted_fragments.tsv')
     n_fragments = len(fragments)
-    fragments_with_a_site = {f for o in origins if o.get('ars_negative') == 'yes'
-                             for f in o['ars_negative_fragments'].split(';') if f}
+    # A fragment has a site if any site records it. Read from the evidence rather
+    # than from the flag: a curated negative that covers only part of a site is
+    # recorded against it without flagging it, and still is not a fragment at no site.
+    _, evidence_rows = read_tsv(DATA / 'evidence.tsv')
+    fragments_with_a_site = {f"{e['source_table']}:{e['source_id']}" for e in evidence_rows
+                             if e['method'] == 'plasmid (ARS assay, negative)'}
 
     rel = json.loads((DATA / 'release.json').read_text())
     rel['tiers'] = {

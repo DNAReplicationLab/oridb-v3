@@ -9,11 +9,13 @@ sc_cloned_no_ori:25	sacCer3	chrI	103930	109421	W303-03d08	NULL	no autonomous rep
 sc_cloned_no_ori:26	sacCer3	chrI	108593	112690	W303-28b13	NULL	no autonomous replication	22767388	sacCer1	chr1	108595	112692	same-length-mismatch
 sc_cloned_no_ori:27	sacCer3	chrI	112316	117823	W303-42f21	NULL	no autonomous replication	22767388	sacCer1	chr1	112318	117825	same-length-mismatch
 sc_cloned_no_ori:28	sacCer3	chrI	117314	121862	W303-21b10	NULL	no autonomous replication	22767388	sacCer1	chr1	117316	121864	same-length-mismatch
+Liachko2013_S3:003	sacCer3	chrI	136898	137898			no autonomous replication	23241746	sacCer1	chr1	136900	137900	identical
 sc_cloned_no_ori:29	sacCer3	chrI	150633	153603	Y55-3f07	NULL	no autonomous replication	22767388	sacCer1	chr1	150634	153604	same-length-mismatch
 sc_cloned_no_ori:30	sacCer3	chrI	164801	169224	W303-35h22	NULL	no autonomous replication	22767388	sacCer1	chr1	164801	169219	length-changed
 sc_cloned_no_ori:31	sacCer3	chrI	169230	174833	S288c-24g20	NULL	no autonomous replication	22767388	sacCer1	chr1	169225	174831	length-changed
 sc_cloned_no_ori:32	sacCer3	chrI	179926	185509	W303-21c06	NULL	no autonomous replication	22767388	sacCer1	chr1	179924	185503	length-changed
 sc_cloned_no_ori:33	sacCer3	chrI	187859	192107	S288c-18l15	NULL	no autonomous replication	22767388	sacCer1	chr1	187853	192101	identical
+Liachko2013_S3:006	sacCer3	chrI	226109	227009			no autonomous replication	23241746	sacCer1	chr1	226100	227000	identical
 sc_cloned_no_ori:34	sacCer3	chrII	31565	35687	W303-41e22	NULL	no autonomous replication	22767388	sacCer1	chr2	31557	35679	identical
 sc_cloned_no_ori:35	sacCer3	chrII	71012	75778	W303-37i08	NULL	no autonomous replication	22767388	sacCer1	chr2	71006	75772	same-length-mismatch
 sc_cloned_no_ori:36	sacCer3	chrII	74876	79914	W303-3i22	NULL	no autonomous replication	22767388	sacCer1	chr2	74870	79908	same-length-mismatch
@@ -21,17 +23,29 @@ sc_cloned_no_ori:37	sacCer3	chrII	77513	82232	W303-50p19	NULL	no autonomous repl
 sc_cloned_no_ori:38	sacCer3	chrII	80398	85914	S288c-21o02	NULL	no autonomous replication	22767388	sacCer1	chr2	80392	85909	length-changed
 sc_cloned_no_ori:39	sacCer3	chrII	94187	98576	YS4-19k24	NULL	no autonomous replication	22767388	sacCer1	chr2	94185	98537	length-changed
 sc_cloned_no_ori:40	sacCer3	chrII	97573	102592	S288c-9l06	NULL	no autonomous replication	22767388	sacCer1	chr2	97534	102553	identical
+Liachko2013_S3:008	sacCer3	chrII	152577	152945			no autonomous replication	23241746	sacCer1	chr2	152539	152907	identical
+Liachko2013_S3:009	sacCer3	chrII	177567	177915			no autonomous replication	23241746	sacCer1	chr2	177529	177877	identical
 sc_cloned_no_ori:41	sacCer3	chrII	184958	187533	Y55-85i10	NULL	no autonomous replication	22767388	sacCer1	chr2	184920	187495	identical
+Liachko2013_S3:010	sacCer3	chrII	208130	208379			no autonomous replication	23241746	sacCer1	chr2	208091	208340	identical
 sc_cloned_no_ori:42	sacCer3	chrII	278011	281714	S288c-28o04	NULL	no autonomous replication	22767388	sacCer1	chr2	277970	281673	identical
+Liachko2013_S3:011	sacCer3	chrII	283056	283954			no autonomous replication	23241746	sacCer1	chr2	283015	283913	identical
 sc_cloned_no_ori:43	sacCer3	chrII	361279	365865	S288c-1j18	NULL	no autonomous replication	22767388	sacCer1	chr2	361238	365824	identical
 sc_cloned_no_ori:44	sacCer3	chrII	362694	368584	S288c-9c06	NULL	no autonomous replication	22767388	sacCer1	chr2	362653	368544	length-changed
+Liachko2013_S3:012	sacCer3	chrII	378475	379235			no autonomous replication	23241746	sacCer1	chr2	378434	379194	identical
 sc_cloned_no_ori:45	sacCer3	chrII	426647	432740	YS4-1b05	NULL	no autonomous replication	22767388	sacCer1	chr2	426603	432696	same-length-mismatch
 sc_cloned_no_ori:5	sacCer3	chrII	475955	480350		NULL	no autonomous replication	19997491	sacCer1	chr2	475910	480305	identical
 sc_cloned_no_ori:46	sacCer3	chrII	476086	481237	W303-35b13	NULL	no autonomous replication	22767388	sacCer1	chr2	476041	481192	identical
+Liachko2013_S3:015	sacCer3	chrII	486672	486746			no autonomous replication	23241746	sacCer1	chr2	486627	486701	identical
+Liachko2013_S3:017	sacCer3	chrII	539182	539744			no autonomous replication	23241746	sacCer1	chr2	539137	539699	identical
 sc_cloned_no_ori:47	sacCer3	chrII	584689	590421	YS4-4g15	NULL	no autonomous replication	22767388	sacCer1	chr2	584644	590376	identical
+Liachko2013_S3:020	sacCer3	chrII	675992	676712			no autonomous replication	23241746	sacCer1	chr2	675947	676667	identical
 sc_cloned_no_ori:48	sacCer3	chrII	692844	697354	S288c-21i10	NULL	no autonomous replication	22767388	sacCer1	chr2	692799	697309	identical
 sc_cloned_no_ori:49	sacCer3	chrII	696380	702664	YS4-12h03	NULL	no autonomous replication	22767388	sacCer1	chr2	696335	702619	identical
+Liachko2013_S3:022	sacCer3	chrII	720646	721083			no autonomous replication	23241746	sacCer1	chr2	720601	721038	identical
+Liachko2013_S3:024	sacCer3	chrII	773964	774394			no autonomous replication	23241746	sacCer1	chr2	773918	774348	same-length-mismatch
+Liachko2013_S3:025	sacCer3	chrII	791821	792037			no autonomous replication	23241746	sacCer1	chr2	791774	791990	identical
 sc_cloned_no_ori:50	sacCer3	chrIII	11923	14100	Y55-13l01	NULL	no autonomous replication	22767388	sacCer1	chr3	11923	14100	identical
+Liachko2013_S3:030	sacCer3	chrIII	30199	30657			no autonomous replication	23241746	sacCer1	chr3	30199	30657	identical
 sc_cloned_no_ori:1	sacCer3	chrIII	80001	90001		NULL	no autonomous replication		sacCer1	chr3	80000	90000	identical
 sc_cloned_no_ori:51	sacCer3	chrIII	135288	140441	W303-59o04	NULL	no autonomous replication	22767388	sacCer1	chr3	135282	140435	identical
 sc_cloned_no_ori:2	sacCer3	chrIII	159308	166408		NULL	no autonomous replication		sacCer1	chr3	159300	166400	same-length-mismatch
@@ -41,20 +55,29 @@ sc_cloned_no_ori:4	sacCer3	chrIII	222908	224808		NULL	no autonomous replication	
 sc_cloned_no_ori:53	sacCer3	chrIII	226763	231614	W303-36c02	NULL	no autonomous replication	22767388	sacCer1	chr3	226755	231606	identical
 sc_cloned_no_ori:54	sacCer3	chrIII	306302	311792	W303-41b20	NULL	no autonomous replication	22767388	sacCer1	chr3	306295	311785	identical
 sc_cloned_no_ori:55	sacCer3	chrIII	306851	309688	W303-40e16	NULL	no autonomous replication	22767388	sacCer1	chr3	306844	309681	identical
+Liachko2013_S3:032	sacCer3	chrIII	311469	311816			no autonomous replication	23241746	sacCer1	chr3	311462	311809	identical
+Liachko2013_S3:035	sacCer3	chrIV	21265	22262			no autonomous replication	23241746	sacCer1	chr4	21265	22262	identical
 sc_cloned_no_ori:56	sacCer3	chrIV	159465	164128	YS4-1n17	NULL	no autonomous replication	22767388	sacCer1	chr4	159466	164129	identical
 sc_cloned_no_ori:57	sacCer3	chrIV	168765	172730	W303-59e10	NULL	no autonomous replication	22767388	sacCer1	chr4	168766	172731	identical
 sc_cloned_no_ori:58	sacCer3	chrIV	215816	220359	S288c-31e24	NULL	no autonomous replication	22767388	sacCer1	chr4	215817	220359	length-changed
 sc_cloned_no_ori:59	sacCer3	chrIV	219544	225555	YS4-18h19	NULL	no autonomous replication	22767388	sacCer1	chr4	219544	225555	identical
+Liachko2013_S3:038	sacCer3	chrIV	350836	351805			no autonomous replication	23241746	sacCer1	chr4	350835	351804	identical
 sc_cloned_no_ori:60	sacCer3	chrIV	381831	387589	W303-12m02	NULL	no autonomous replication	22767388	sacCer1	chr4	381827	387585	same-length-mismatch
 sc_cloned_no_ori:61	sacCer3	chrIV	423990	429877	W303-54n12	NULL	no autonomous replication	22767388	sacCer1	chr4	423986	429873	identical
+Liachko2013_S3:039	sacCer3	chrIV	452770	452889			no autonomous replication	23241746	sacCer1	chr4	452766	452885	identical
+Liachko2013_S3:040	sacCer3	chrIV	464713	466500			no autonomous replication	23241746	sacCer1	chr4	464709	466496	identical
 sc_cloned_no_ori:62	sacCer3	chrIV	665374	670827	Y55-33c22	NULL	no autonomous replication	22767388	sacCer1	chr4	665367	670820	identical
 sc_cloned_no_ori:63	sacCer3	chrIV	760293	766263	W303-35g10	NULL	no autonomous replication	22767388	sacCer1	chr4	760286	766256	identical
 sc_cloned_no_ori:64	sacCer3	chrIV	817753	822175	W303-10a07	NULL	no autonomous replication	22767388	sacCer1	chr4	817746	822167	length-changed
 sc_cloned_no_ori:65	sacCer3	chrIV	831487	836681	W303-12h13	NULL	no autonomous replication	22767388	sacCer1	chr4	831479	836673	identical
 sc_cloned_no_ori:66	sacCer3	chrIV	832845	838341	S288c-38g12	NULL	no autonomous replication	22767388	sacCer1	chr4	832837	838333	identical
 sc_cloned_no_ori:67	sacCer3	chrIV	862086	867143	W303-3o01	NULL	no autonomous replication	22767388	sacCer1	chr4	862078	867135	identical
+Liachko2013_S3:042	sacCer3	chrIV	903833	904664			no autonomous replication	23241746	sacCer1	chr4	903824	904655	identical
+Liachko2013_S3:043	sacCer3	chrIV	942992	943984			no autonomous replication	23241746	sacCer1	chr4	942983	943975	identical
+Liachko2013_S3:044	sacCer3	chrIV	951178	951316			no autonomous replication	23241746	sacCer1	chr4	951169	951307	identical
 sc_cloned_no_ori:68	sacCer3	chrIV	974105	978352	W303-42g06	NULL	no autonomous replication	22767388	sacCer1	chr4	974096	978343	identical
 sc_cloned_no_ori:69	sacCer3	chrIV	990964	994922	W303-19d14	NULL	no autonomous replication	22767388	sacCer1	chr4	990955	994913	identical
+Liachko2013_S3:045	sacCer3	chrIV	1033078	1034191			no autonomous replication	23241746	sacCer1	chr4	1033069	1034182	identical
 sc_cloned_no_ori:70	sacCer3	chrIV	1045096	1050572	W303-3m20	NULL	no autonomous replication	22767388	sacCer1	chr4	1045087	1050563	identical
 sc_cloned_no_ori:71	sacCer3	chrIV	1132192	1137611	W303-49b06	NULL	no autonomous replication	22767388	sacCer1	chr4	1132182	1137601	identical
 sc_cloned_no_ori:72	sacCer3	chrIV	1203595	1208486	S288c-8n22	NULL	no autonomous replication	22767388	sacCer1	chr4	1203583	1208474	identical
@@ -65,25 +88,41 @@ sc_cloned_no_ori:75	sacCer3	chrIV	1353818	1359323	S288c-35i14	NULL	no autonomous
 sc_cloned_no_ori:76	sacCer3	chrIV	1387466	1391986	W303-8n05	NULL	no autonomous replication	22767388	sacCer1	chr4	1387454	1391974	identical
 sc_cloned_no_ori:77	sacCer3	chrIV	1428177	1431762	S288c-6f07	NULL	no autonomous replication	22767388	sacCer1	chr4	1428165	1431750	identical
 sc_cloned_no_ori:78	sacCer3	chrIV	1467571	1471745	W303-9k08	NULL	no autonomous replication	22767388	sacCer1	chr4	1467559	1471733	identical
+Liachko2013_S3:052	sacCer3	chrV	4097	4185			no autonomous replication	23241746	sacCer1	chr5	4097	4185	identical
+Liachko2013_S3:054	sacCer3	chrV	8786	10019			no autonomous replication	23241746	sacCer1	chr5	8786	10019	same-length-mismatch
 sc_cloned_no_ori:79	sacCer3	chrV	64217	70492	W303-43e11	NULL	no autonomous replication	22767388	sacCer1	chr5	64217	70492	identical
+Liachko2013_S3:055	sacCer3	chrV	70087	70198			no autonomous replication	23241746	sacCer1	chr5	70087	70198	identical
 sc_cloned_no_ori:80	sacCer3	chrV	84420	88188	YS4-15p15	NULL	no autonomous replication	22767388	sacCer1	chr5	84420	88188	identical
 sc_cloned_no_ori:81	sacCer3	chrV	105817	109939	S288c-31l09	NULL	no autonomous replication	22767388	sacCer1	chr5	105817	109939	identical
 sc_cloned_no_ori:82	sacCer3	chrV	181257	185881	W303-40b01	NULL	no autonomous replication	22767388	sacCer1	chr5	181256	185880	identical
+Liachko2013_S3:057	sacCer3	chrV	192494	192927			no autonomous replication	23241746	sacCer1	chr5	192493	192926	identical
 sc_cloned_no_ori:83	sacCer3	chrV	197978	203670	W303-9k07	NULL	no autonomous replication	22767388	sacCer1	chr5	197977	203669	identical
 sc_cloned_no_ori:84	sacCer3	chrV	221131	226323	S288c-26l20	NULL	no autonomous replication	22767388	sacCer1	chr5	221130	226322	identical
 sc_cloned_no_ori:85	sacCer3	chrV	264707	268923	W303-12g17	NULL	no autonomous replication	22767388	sacCer1	chr5	264706	268921	length-changed
+Liachko2013_S3:061	sacCer3	chrV	442416	442735			no autonomous replication	23241746	sacCer1	chr5	442412	442731	identical
+Liachko2013_S3:062	sacCer3	chrV	489770	490094			no autonomous replication	23241746	sacCer1	chr5	489765	490089	identical
+Liachko2013_S3:066	sacCer3	chrVI	19001	19350			no autonomous replication	23241746	sacCer1	chr6	19001	19350	identical
+Liachko2013_S3:067	sacCer3	chrVI	19701	20000			no autonomous replication	23241746	sacCer1	chr6	19701	20000	identical
 sc_cloned_no_ori:86	sacCer3	chrVI	50828	55705	W303-45h06	NULL	no autonomous replication	22767388	sacCer1	chr6	50828	55704	length-changed
 sc_cloned_no_ori:6	sacCer3	chrVI	50831	55705		NULL	no autonomous replication	19997491	sacCer1	chr6	50831	55704	length-changed
+Liachko2013_S3:071	sacCer3	chrVI	86150	86479			no autonomous replication	23241746	sacCer1	chr6	86148	86477	identical
 sc_cloned_no_ori:87	sacCer3	chrVII	23232	27687	W303-44g05	NULL	no autonomous replication	22767388	sacCer1	chr7	23232	27687	identical
+Liachko2013_S3:079	sacCer3	chrVII	55425	55927			no autonomous replication	23241746	sacCer1	chr7	55424	55926	identical
 sc_cloned_no_ori:88	sacCer3	chrVII	67996	72367	W303-42e15	NULL	no autonomous replication	22767388	sacCer1	chr7	67995	72366	identical
+Liachko2013_S3:080	sacCer3	chrVII	92732	92863			no autonomous replication	23241746	sacCer1	chr7	92735	92866	identical
 sc_cloned_no_ori:89	sacCer3	chrVII	164781	169041	W303-52b16	NULL	no autonomous replication	22767388	sacCer1	chr7	164785	169045	identical
 sc_cloned_no_ori:90	sacCer3	chrVII	226000	230308	S288c-26l12	NULL	no autonomous replication	22767388	sacCer1	chr7	226003	230311	same-length-mismatch
+Liachko2013_S3:082	sacCer3	chrVII	231906	231981			no autonomous replication	23241746	sacCer1	chr7	231909	231984	identical
+Liachko2013_S3:083	sacCer3	chrVII	250460	251270			no autonomous replication	23241746	sacCer1	chr7	250463	251273	identical
 sc_cloned_no_ori:91	sacCer3	chrVII	288396	294116	W303-24l15	NULL	no autonomous replication	22767388	sacCer1	chr7	288400	294117	length-changed
+Liachko2013_S3:084	sacCer3	chrVII	303699	303821			no autonomous replication	23241746	sacCer1	chr7	303700	303822	identical
 sc_cloned_no_ori:92	sacCer3	chrVII	308552	312949	W303-12a08	NULL	no autonomous replication	22767388	sacCer1	chr7	308553	312950	identical
 sc_cloned_no_ori:93	sacCer3	chrVII	312237	317572	S288c-35k04	NULL	no autonomous replication	22767388	sacCer1	chr7	312238	317573	identical
+Liachko2013_S3:085	sacCer3	chrVII	313540	314181			no autonomous replication	23241746	sacCer1	chr7	313541	314182	identical
 sc_cloned_no_ori:94	sacCer3	chrVII	319974	322415	W303-24o03	NULL	no autonomous replication	22767388	sacCer1	chr7	319975	322416	identical
 sc_cloned_no_ori:95	sacCer3	chrVII	399764	403873	W303-18o05	NULL	no autonomous replication	22767388	sacCer1	chr7	399765	403874	same-length-mismatch
 sc_cloned_no_ori:96	sacCer3	chrVII	402550	406774	S288c-17f08	NULL	no autonomous replication	22767388	sacCer1	chr7	402551	406775	identical
+Liachko2013_S3:086	sacCer3	chrVII	481340	481523			no autonomous replication	23241746	sacCer1	chr7	481343	481526	identical
 sc_cloned_no_ori:97	sacCer3	chrVII	514722	518809	S288c-33m24	NULL	no autonomous replication	22767388	sacCer1	chr7	514723	518810	identical
 sc_cloned_no_ori:98	sacCer3	chrVII	550772	554443	Y55-47n12	NULL	no autonomous replication	22767388	sacCer1	chr7	550773	554444	identical
 sc_cloned_no_ori:99	sacCer3	chrVII	551588	553820	Y55-2f05	NULL	no autonomous replication	22767388	sacCer1	chr7	551589	553821	identical
@@ -102,46 +141,60 @@ sc_cloned_no_ori:109	sacCer3	chrVII	894648	899472	W303-21g15	NULL	no autonomous 
 sc_cloned_no_ori:9	sacCer3	chrVII	1000911	1005183		NULL	no autonomous replication	19997491	sacCer1	chr7	1000914	1005187	length-changed
 sc_cloned_no_ori:110	sacCer3	chrVIII	33246	37102	S288c-21o06	NULL	no autonomous replication	22767388	sacCer1	chr8	33244	37100	identical
 sc_cloned_no_ori:111	sacCer3	chrVIII	61356	63189	S288c-26p10	NULL	no autonomous replication	22767388	sacCer1	chr8	61353	63186	same-length-mismatch
+Liachko2013_S3:089	sacCer3	chrVIII	66462	66661			no autonomous replication	23241746	sacCer1	chr8	66458	66657	identical
 sc_cloned_no_ori:112	sacCer3	chrVIII	82963	94475	W303-52l07	NULL	no autonomous replication	22767388	sacCer1	chr8	82958	94470	identical
 sc_cloned_no_ori:113	sacCer3	chrVIII	83576	94514	Y55-5o16	NULL	no autonomous replication	22767388	sacCer1	chr8	83571	94509	identical
 sc_cloned_no_ori:114	sacCer3	chrVIII	89027	93367	S288c-38l06	NULL	no autonomous replication	22767388	sacCer1	chr8	89022	93362	identical
+Liachko2013_S3:090	sacCer3	chrVIII	94764	95197			no autonomous replication	23241746	sacCer1	chr8	94759	95192	identical
 sc_cloned_no_ori:115	sacCer3	chrVIII	142331	146961	W303-24b18	NULL	no autonomous replication	22767388	sacCer1	chr8	142322	146952	identical
+Liachko2013_S3:092	sacCer3	chrVIII	213179	213861			no autonomous replication	23241746	sacCer1	chr8	213179	213861	identical
 sc_cloned_no_ori:116	sacCer3	chrVIII	378796	381031	Y55-72b20	NULL	no autonomous replication	22767388	sacCer1	chr8	378797	381032	identical
 sc_cloned_no_ori:117	sacCer3	chrVIII	381345	385150	Y55-51a21	NULL	no autonomous replication	22767388	sacCer1	chr8	381346	385151	identical
 sc_cloned_no_ori:10	sacCer3	chrVIII	449740	453642		NULL	no autonomous replication	19997491	sacCer1	chr8	449738	453640	identical
+Liachko2013_S3:094	sacCer3	chrVIII	449849	450502			no autonomous replication	23241746	sacCer1	chr8	449847	450500	identical
 sc_cloned_no_ori:118	sacCer3	chrVIII	450514	454817	W303-22f21	NULL	no autonomous replication	22767388	sacCer1	chr8	450512	454815	identical
 sc_cloned_no_ori:119	sacCer3	chrVIII	462199	465889	W303-23o20	NULL	no autonomous replication	22767388	sacCer1	chr8	462195	465885	identical
 sc_cloned_no_ori:120	sacCer3	chrVIII	502195	505885	S288c-9i19	NULL	no autonomous replication	22767388	sacCer1	chr8	502191	505881	identical
 sc_cloned_no_ori:121	sacCer3	chrVIII	502917	507019	W303-31b12	NULL	no autonomous replication	22767388	sacCer1	chr8	502913	507015	identical
 sc_cloned_no_ori:122	sacCer3	chrIX	46071	50431	W303-26h17	NULL	no autonomous replication	22767388	sacCer1	chr9	46071	50431	identical
 sc_cloned_no_ori:123	sacCer3	chrIX	48713	53132	S288c-28a15	NULL	no autonomous replication	22767388	sacCer1	chr9	48713	53132	identical
+Liachko2013_S3:096	sacCer3	chrIX	162939	163305			no autonomous replication	23241746	sacCer1	chr9	162936	163302	identical
 sc_cloned_no_ori:124	sacCer3	chrIX	180393	186538	W303-16f18	NULL	no autonomous replication	22767388	sacCer1	chr9	180390	186535	identical
 sc_cloned_no_ori:125	sacCer3	chrIX	202961	208157	S288c-37a03	NULL	no autonomous replication	22767388	sacCer1	chr9	202958	208154	same-length-mismatch
+Liachko2013_S3:098	sacCer3	chrIX	214735	214767			no autonomous replication	23241746	sacCer1	chr9	214732	214764	identical
 sc_cloned_no_ori:126	sacCer3	chrIX	265973	270484	S288c-25b21	NULL	no autonomous replication	22767388	sacCer1	chr9	265972	270483	identical
 sc_cloned_no_ori:127	sacCer3	chrIX	306142	309657	W303-13j21	NULL	no autonomous replication	22767388	sacCer1	chr9	306140	309655	identical
+Liachko2013_S3:100	sacCer3	chrIX	309763	309998			no autonomous replication	23241746	sacCer1	chr9	309761	309996	identical
 sc_cloned_no_ori:128	sacCer3	chrIX	312481	318583	YS4-13d08	NULL	no autonomous replication	22767388	sacCer1	chr9	312479	318581	identical
 sc_cloned_no_ori:129	sacCer3	chrIX	319109	323146	S288c-5d24	NULL	no autonomous replication	22767388	sacCer1	chr9	319107	323144	identical
 sc_cloned_no_ori:130	sacCer3	chrIX	319858	324425	W303-22b23	NULL	no autonomous replication	22767388	sacCer1	chr9	319856	324423	identical
 sc_cloned_no_ori:131	sacCer3	chrIX	360862	365046	YS4-7k13	NULL	no autonomous replication	22767388	sacCer1	chr9	360859	365043	identical
 sc_cloned_no_ori:132	sacCer3	chrX	43719	48660	W303-31l19	NULL	no autonomous replication	22767388	sacCer1	chr10	43719	48660	identical
 sc_cloned_no_ori:133	sacCer3	chrX	46634	52232	W303-32b12	NULL	no autonomous replication	22767388	sacCer1	chr10	46634	52232	identical
+Liachko2013_S3:103	sacCer3	chrX	53172	53361			no autonomous replication	23241746	sacCer1	chr10	53172	53361	identical
 sc_cloned_no_ori:134	sacCer3	chrX	118809	124455	W303-54j12	NULL	no autonomous replication	22767388	sacCer1	chr10	118804	124152	length-changed
+Liachko2013_S3:104	sacCer3	chrX	120657	121320			no autonomous replication	23241746	sacCer1	chr10	120652	121237	length-changed
 sc_cloned_no_ori:135	sacCer3	chrX	166923	171935	S288c-38n14	NULL	no autonomous replication	22767388	sacCer1	chr10	166621	171633	identical
 sc_cloned_no_ori:136	sacCer3	chrX	170125	174965	S288c-9d09	NULL	no autonomous replication	22767388	sacCer1	chr10	169823	174663	same-length-mismatch
 sc_cloned_no_ori:137	sacCer3	chrX	206036	211348	S288c-18e19	NULL	no autonomous replication	22767388	sacCer1	chr10	205733	211045	identical
+Liachko2013_S3:105	sacCer3	chrX	248904	249604			no autonomous replication	23241746	sacCer1	chr10	248600	249300	identical
 sc_cloned_no_ori:138	sacCer3	chrX	262693	267461	W303-11i18	NULL	no autonomous replication	22767388	sacCer1	chr10	262389	267157	identical
 sc_cloned_no_ori:11	sacCer3	chrX	338705	344340		NULL	no autonomous replication	19997491	sacCer1	chr10	338401	344036	identical
 sc_cloned_no_ori:139	sacCer3	chrX	359321	364493	S288c-28h24	NULL	no autonomous replication	22767388	sacCer1	chr10	359017	364189	identical
 sc_cloned_no_ori:140	sacCer3	chrX	400340	405594	W303-11g01	NULL	no autonomous replication	22767388	sacCer1	chr10	400036	405290	identical
 sc_cloned_no_ori:141	sacCer3	chrX	403807	407676	S288c-34a13	NULL	no autonomous replication	22767388	sacCer1	chr10	403503	407371	length-changed
 sc_cloned_no_ori:142	sacCer3	chrX	405270	408931	Y55-22d04	NULL	no autonomous replication	22767388	sacCer1	chr10	404966	408626	length-changed
+Liachko2013_S3:106	sacCer3	chrX	411895	412333			no autonomous replication	23241746	sacCer1	chr10	411589	412027	identical
 sc_cloned_no_ori:143	sacCer3	chrX	446434	451550	W303-39k22	NULL	no autonomous replication	22767388	sacCer1	chr10	446127	451243	identical
 sc_cloned_no_ori:144	sacCer3	chrX	577667	581974	S288c-29c11	NULL	no autonomous replication	22767388	sacCer1	chr10	577361	581668	identical
+Liachko2013_S3:108	sacCer3	chrX	609303	610053			no autonomous replication	23241746	sacCer1	chr10	609000	609750	identical
+Liachko2013_S3:111	sacCer3	chrX	623229	623436			no autonomous replication	23241746	sacCer1	chr10	622922	623129	identical
 sc_cloned_no_ori:145	sacCer3	chrX	633071	639115	S288c-26m04	NULL	no autonomous replication	22767388	sacCer1	chr10	632766	638810	identical
 sc_cloned_no_ori:146	sacCer3	chrX	637634	641374	S288c-9c13	NULL	no autonomous replication	22767388	sacCer1	chr10	637329	641069	identical
 sc_cloned_no_ori:147	sacCer3	chrX	655947	660720	YS4-8k17	NULL	no autonomous replication	22767388	sacCer1	chr10	655642	660415	identical
 sc_cloned_no_ori:148	sacCer3	chrX	700673	705704	S288c-38h08	NULL	no autonomous replication	22767388	sacCer1	chr10	700368	705399	identical
 sc_cloned_no_ori:149	sacCer3	chrXI	50682	54933	S288c-5k08	NULL	no autonomous replication	22767388	sacCer1	chr11	50682	54933	identical
+Liachko2013_S3:113	sacCer3	chrXI	154269	154495			no autonomous replication	23241746	sacCer1	chr11	154270	154496	identical
 sc_cloned_no_ori:12	sacCer3	chrXI	161255	166655		NULL	no autonomous replication	19997491	sacCer1	chr11	161256	166656	identical
 sc_cloned_no_ori:150	sacCer3	chrXI	161801	166850	YS4-10n08	NULL	no autonomous replication	22767388	sacCer1	chr11	161802	166851	identical
 sc_cloned_no_ori:151	sacCer3	chrXI	236560	238707	Y55-1b06	NULL	no autonomous replication	22767388	sacCer1	chr11	236202	238349	identical
@@ -151,13 +204,16 @@ sc_cloned_no_ori:154	sacCer3	chrXI	311948	314153	W303-15g23	NULL	no autonomous r
 sc_cloned_no_ori:155	sacCer3	chrXI	323925	327911	S288c-21k05	NULL	no autonomous replication	22767388	sacCer1	chr11	323566	327552	identical
 sc_cloned_no_ori:13	sacCer3	chrXI	323929	327819		NULL	no autonomous replication	19997491	sacCer1	chr11	323570	327460	identical
 sc_cloned_no_ori:156	sacCer3	chrXI	341215	345899	W303-53o19	NULL	no autonomous replication	22767388	sacCer1	chr11	340856	345540	identical
+Liachko2013_S3:116	sacCer3	chrXI	457328	457413			no autonomous replication	23241746	sacCer1	chr11	456966	457051	identical
 sc_cloned_no_ori:14	sacCer3	chrXI	518925	524068		NULL	no autonomous replication	19997491	sacCer1	chr11	518562	523705	identical
 sc_cloned_no_ori:157	sacCer3	chrXI	519281	523190	S288c-24h23	NULL	no autonomous replication	22767388	sacCer1	chr11	518918	522827	identical
 sc_cloned_no_ori:158	sacCer3	chrXI	582646	587162	W303-59n09	NULL	no autonomous replication	22767388	sacCer1	chr11	582282	586798	identical
 sc_cloned_no_ori:159	sacCer3	chrXI	616200	620364	S288c-37c11	NULL	no autonomous replication	22767388	sacCer1	chr11	615834	619998	same-length-mismatch
 sc_cloned_no_ori:160	sacCer3	chrXI	629015	633997	S288c-10o17	NULL	no autonomous replication	22767388	sacCer1	chr11	628649	633627	length-changed
+Liachko2013_S3:118	sacCer3	chrXI	665638	665796			no autonomous replication	23241746	sacCer1	chr11	665267	665425	identical
 sc_cloned_no_ori:162	sacCer3	chrXII	68915	74602	W303-53k07	NULL	no autonomous replication	22767388	sacCer1	chr12	68914	74601	identical
 sc_cloned_no_ori:163	sacCer3	chrXII	94455	99102	W303-42a12	NULL	no autonomous replication	22767388	sacCer1	chr12	94454	99101	identical
+Liachko2013_S3:121	sacCer3	chrXII	126267	127492			no autonomous replication	23241746	sacCer1	chr12	126266	127491	identical
 sc_cloned_no_ori:164	sacCer3	chrXII	279891	285038	S288c-10b14	NULL	no autonomous replication	22767388	sacCer1	chr12	279892	285039	identical
 sc_cloned_no_ori:15	sacCer3	chrXII	281383	285677		NULL	no autonomous replication	19997491	sacCer1	chr12	281384	285678	identical
 sc_cloned_no_ori:165	sacCer3	chrXII	345857	351022	W303-38f09	NULL	no autonomous replication	22767388	sacCer1	chr12	345858	351023	identical
@@ -167,9 +223,11 @@ sc_cloned_no_ori:168	sacCer3	chrXII	551117	554282	Y55-56f20	NULL	no autonomous r
 sc_cloned_no_ori:169	sacCer3	chrXII	553853	558988	W303-8g16	NULL	no autonomous replication	22767388	sacCer1	chr12	553853	558988	identical
 sc_cloned_no_ori:170	sacCer3	chrXII	636640	641954	S288c-11a16	NULL	no autonomous replication	22767388	sacCer1	chr12	636640	641954	identical
 sc_cloned_no_ori:171	sacCer3	chrXII	702274	707188	S288c-34h20	NULL	no autonomous replication	22767388	sacCer1	chr12	702274	707188	identical
+Liachko2013_S3:125	sacCer3	chrXII	702851	703060			no autonomous replication	23241746	sacCer1	chr12	702851	703060	identical
 sc_cloned_no_ori:172	sacCer3	chrXII	718697	724440	YS4-2a03	NULL	no autonomous replication	22767388	sacCer1	chr12	718697	724440	identical
 sc_cloned_no_ori:173	sacCer3	chrXII	804501	809664	W303-54f06	NULL	no autonomous replication	22767388	sacCer1	chr12	804501	809664	identical
 sc_cloned_no_ori:174	sacCer3	chrXII	836520	841341	W303-37p16	NULL	no autonomous replication	22767388	sacCer1	chr12	836519	841340	identical
+Liachko2013_S3:126	sacCer3	chrXII	868024	868181			no autonomous replication	23241746	sacCer1	chr12	868023	868180	identical
 sc_cloned_no_ori:175	sacCer3	chrXII	929668	933706	YS4-3b08	NULL	no autonomous replication	22767388	sacCer1	chr12	929665	933702	length-changed
 sc_cloned_no_ori:176	sacCer3	chrXII	974120	979723	S288c-8k03	NULL	no autonomous replication	22767388	sacCer1	chr12	974115	979718	identical
 sc_cloned_no_ori:177	sacCer3	chrXII	1000783	1006604	W303-40k10	NULL	no autonomous replication	22767388	sacCer1	chr12	1000778	1006599	identical
@@ -178,45 +236,59 @@ sc_cloned_no_ori:179	sacCer3	chrXIII	52020	57503	S288c-28c08	NULL	no autonomous 
 sc_cloned_no_ori:180	sacCer3	chrXIII	54706	60538	W303-26n02	NULL	no autonomous replication	22767388	sacCer1	chr13	54706	60538	identical
 sc_cloned_no_ori:181	sacCer3	chrXIII	109293	114838	S288c-8k05	NULL	no autonomous replication	22767388	sacCer1	chr13	109293	114838	identical
 sc_cloned_no_ori:182	sacCer3	chrXIII	140103	143926	S288c-34b09	NULL	no autonomous replication	22767388	sacCer1	chr13	140103	143926	identical
+Liachko2013_S3:128	sacCer3	chrXIII	158833	159008			no autonomous replication	23241746	sacCer1	chr13	158833	159008	identical
 sc_cloned_no_ori:183	sacCer3	chrXIII	190387	196218	S288c-29k09	NULL	no autonomous replication	22767388	sacCer1	chr13	190387	196218	identical
 sc_cloned_no_ori:184	sacCer3	chrXIII	237026	242330	S288c-5l10	NULL	no autonomous replication	22767388	sacCer1	chr13	237026	242330	identical
 sc_cloned_no_ori:185	sacCer3	chrXIII	296132	299654	S288c-30a15	NULL	no autonomous replication	22767388	sacCer1	chr13	296131	299653	identical
 sc_cloned_no_ori:186	sacCer3	chrXIII	336885	340871	S288c-33b19	NULL	no autonomous replication	22767388	sacCer1	chr13	336884	340870	identical
 sc_cloned_no_ori:187	sacCer3	chrXIII	371330	380826	Y55-39e12	NULL	no autonomous replication	22767388	sacCer1	chr13	371329	380825	identical
 sc_cloned_no_ori:188	sacCer3	chrXIII	415436	419459	S288c-28h14	NULL	no autonomous replication	22767388	sacCer1	chr13	415435	419458	identical
+Liachko2013_S3:129	sacCer3	chrXIII	427745	427819			no autonomous replication	23241746	sacCer1	chr13	427744	427818	identical
 sc_cloned_no_ori:189	sacCer3	chrXIII	475996	479780	S288c-26h17	NULL	no autonomous replication	22767388	sacCer1	chr13	475995	479779	identical
 sc_cloned_no_ori:190	sacCer3	chrXIII	488178	493558	W303-34k16	NULL	no autonomous replication	22767388	sacCer1	chr13	488177	493557	identical
 sc_cloned_no_ori:191	sacCer3	chrXIII	538704	543423	S288c-37o19	NULL	no autonomous replication	22767388	sacCer1	chr13	538703	543422	identical
 sc_cloned_no_ori:192	sacCer3	chrXIII	627609	633180	S288c-12l05	NULL	no autonomous replication	22767388	sacCer1	chr13	627608	633179	identical
+Liachko2013_S3:131	sacCer3	chrXIII	634069	634410			no autonomous replication	23241746	sacCer1	chr13	634068	634409	identical
 sc_cloned_no_ori:193	sacCer3	chrXIII	890144	894339	S288c-13h06	NULL	no autonomous replication	22767388	sacCer1	chr13	890144	894339	identical
+Liachko2013_S3:135	sacCer3	chrXIII	902283	902393			no autonomous replication	23241746	sacCer1	chr13	902283	902393	identical
 sc_cloned_no_ori:194	sacCer3	chrXIV	93701	98354	S288c-3j06	NULL	no autonomous replication	22767388	sacCer1	chr14	93699	98352	identical
 sc_cloned_no_ori:195	sacCer3	chrXIV	427418	432486	W303-21a21	NULL	no autonomous replication	22767388	sacCer1	chr14	427415	432483	same-length-mismatch
 sc_cloned_no_ori:196	sacCer3	chrXIV	514167	519304	W303-21h10	NULL	no autonomous replication	22767388	sacCer1	chr14	514163	519300	identical
 sc_cloned_no_ori:197	sacCer3	chrXIV	595719	600602	W303-42b06	NULL	no autonomous replication	22767388	sacCer1	chr14	595715	600598	identical
 sc_cloned_no_ori:198	sacCer3	chrXIV	617489	622459	W303-31c13	NULL	no autonomous replication	22767388	sacCer1	chr14	617485	622456	length-changed
+Liachko2013_S3:139	sacCer3	chrXIV	629685	629834			no autonomous replication	23241746	sacCer1	chr14	629682	629831	identical
 sc_cloned_no_ori:199	sacCer3	chrXIV	661863	665312	W303-29b21	NULL	no autonomous replication	22767388	sacCer1	chr14	661860	665309	identical
+Liachko2013_S3:140	sacCer3	chrXIV	686528	686598			no autonomous replication	23241746	sacCer1	chr14	686525	686595	identical
 sc_cloned_no_ori:200	sacCer3	chrXIV	702441	707733	W303-58m18	NULL	no autonomous replication	22767388	sacCer1	chr14	702438	707730	identical
 sc_cloned_no_ori:201	sacCer3	chrXIV	728556	732766	S288c-18k06	NULL	no autonomous replication	22767388	sacCer1	chr14	728552	732761	length-changed
+Liachko2013_S3:141	sacCer3	chrXIV	732518	733075			no autonomous replication	23241746	sacCer1	chr14	732513	733070	identical
+Liachko2013_S3:145	sacCer3	chrXV	154973	155463			no autonomous replication	23241746	sacCer1	chr15	154972	155462	identical
 sc_cloned_no_ori:202	sacCer3	chrXV	158255	162615	S288c-34l11	NULL	no autonomous replication	22767388	sacCer1	chr15	158254	162614	identical
 sc_cloned_no_ori:203	sacCer3	chrXV	215116	219199	W303-39c09	NULL	no autonomous replication	22767388	sacCer1	chr15	215115	219197	length-changed
 sc_cloned_no_ori:16	sacCer3	chrXV	443318	447473		NULL	no autonomous replication	19997491	sacCer1	chr15	443319	447474	identical
 sc_cloned_no_ori:204	sacCer3	chrXV	491387	496012	S288c-30g03	NULL	no autonomous replication	22767388	sacCer1	chr15	491388	496012	length-changed
 sc_cloned_no_ori:205	sacCer3	chrXV	535633	539952	S288c-28i06	NULL	no autonomous replication	22767388	sacCer1	chr15	535633	539952	identical
 sc_cloned_no_ori:206	sacCer3	chrXV	693884	700296	YS4-7i14	NULL	no autonomous replication	22767388	sacCer1	chr15	693884	700296	identical
+Liachko2013_S3:148	sacCer3	chrXV	713811	714404			no autonomous replication	23241746	sacCer1	chr15	713811	714404	identical
 sc_cloned_no_ori:207	sacCer3	chrXV	758622	764727	W303-12m20	NULL	no autonomous replication	22767388	sacCer1	chr15	758622	764727	identical
 sc_cloned_no_ori:208	sacCer3	chrXV	794360	799002	S288c-7o03	NULL	no autonomous replication	22767388	sacCer1	chr15	794360	799002	identical
 sc_cloned_no_ori:209	sacCer3	chrXV	795926	800310	W303-54d05	NULL	no autonomous replication	22767388	sacCer1	chr15	795926	800310	identical
 sc_cloned_no_ori:210	sacCer3	chrXV	901202	903242	S288c-24o07	NULL	no autonomous replication	22767388	sacCer1	chr15	901195	903235	identical
+Liachko2013_S3:150	sacCer3	chrXV	1047405	1047640			no autonomous replication	23241746	sacCer1	chr15	1047399	1047634	identical
 sc_cloned_no_ori:211	sacCer3	chrXV	1069230	1074352	W303-32p03	NULL	no autonomous replication	22767388	sacCer1	chr15	1069224	1074346	identical
 sc_cloned_no_ori:212	sacCer3	chrXVI	49350	54985	YS4-13e05	NULL	no autonomous replication	22767388	sacCer1	chr16	49350	54985	identical
 sc_cloned_no_ori:213	sacCer3	chrXVI	181557	184703	W303-9c01	NULL	no autonomous replication	22767388	sacCer1	chr16	181556	184702	identical
 sc_cloned_no_ori:214	sacCer3	chrXVI	264923	269329	W303-9k20	NULL	no autonomous replication	22767388	sacCer1	chr16	264922	269328	identical
 sc_cloned_no_ori:215	sacCer3	chrXVI	307994	312109	S288c-29l10	NULL	no autonomous replication	22767388	sacCer1	chr16	307993	312108	identical
+Liachko2013_S3:153	sacCer3	chrXVI	309146	309480			no autonomous replication	23241746	sacCer1	chr16	309145	309479	identical
 sc_cloned_no_ori:216	sacCer3	chrXVI	420322	425393	W303-32k24	NULL	no autonomous replication	22767388	sacCer1	chr16	420317	425388	identical
+Liachko2013_S3:156	sacCer3	chrXVI	453420	453525			no autonomous replication	23241746	sacCer1	chr16	453415	453520	identical
 sc_cloned_no_ori:217	sacCer3	chrXVI	481188	485789	S288c-3f22	NULL	no autonomous replication	22767388	sacCer1	chr16	481183	485785	length-changed
 sc_cloned_no_ori:218	sacCer3	chrXVI	484333	489668	W303-43a13	NULL	no autonomous replication	22767388	sacCer1	chr16	484329	489664	identical
 sc_cloned_no_ori:219	sacCer3	chrXVI	568351	573388	W303-3c20	NULL	no autonomous replication	22767388	sacCer1	chr16	568346	573383	identical
 sc_cloned_no_ori:220	sacCer3	chrXVI	586941	591134	W303-8a15	NULL	no autonomous replication	22767388	sacCer1	chr16	586936	591129	identical
+Liachko2013_S3:157	sacCer3	chrXVI	592323	592517			no autonomous replication	23241746	sacCer1	chr16	592318	592512	identical
+Liachko2013_S3:158	sacCer3	chrXVI	598856	599106			no autonomous replication	23241746	sacCer1	chr16	598851	599101	identical
 sc_cloned_no_ori:221	sacCer3	chrXVI	642801	648717	S288c-2b19	NULL	no autonomous replication	22767388	sacCer1	chr16	642796	648712	same-length-mismatch
 sc_cloned_no_ori:222	sacCer3	chrXVI	697973	703265	S288c-3m15	NULL	no autonomous replication	22767388	sacCer1	chr16	697968	703261	length-changed
 sc_cloned_no_ori:17	sacCer3	chrXVI	697981	703267		NULL	no autonomous replication	19997491	sacCer1	chr16	697976	703263	length-changed

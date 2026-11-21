@@ -9,7 +9,7 @@ ODB-SC-0007	Saccharomyces cerevisiae	sacCer3	chrI	40715	43300	ARS105	I-42	proARS
 ODB-SC-0008	Saccharomyces cerevisiae	sacCer3	chrI	70256	70489	ARS106	I-70	proARS106	Confirmed	Confirmed	no		plasmid (ARS assay)	sc_ori:5	sacCer1	chr1	70258	70491	identical	0.4583	McGuffee2013_init_003	247	41.9	trep_peak_001	1628	3	firing;licensing
 ODB-SC-0009	Saccharomyces cerevisiae	sacCer3	chrI	98767	105767		I-102		Unsupported	Likely	yes	sc_cloned_no_ori:23;sc_cloned_no_ori:24;sc_cloned_no_ori:25		sc_ori:8	sacCer1	chr1	98769	105769	same-length-mismatch							0	
 ODB-SC-0010	Saccharomyces cerevisiae	sacCer3	chrI	124348	124597	ARS107	I-124	proARS107	Confirmed	Confirmed	no		plasmid (ARS assay)	sc_ori:9	sacCer1	chr1	124350	124599	identical	0.1784	McGuffee2013_init_004	97	36.1	trep_peak_002	28	3	firing;licensing
-ODB-SC-0011	Saccharomyces cerevisiae	sacCer3	chrI	136898	137898	ARS107.5	I-137		Confirmed	Confirmed	no		plasmid (ARS assay)	sc_ori:653	sacCer1	chr1	136900	137900	identical							0	
+ODB-SC-0011	Saccharomyces cerevisiae	sacCer3	chrI	136898	137898	ARS107.5	I-137		Confirmed	Confirmed	yes	Liachko2013_S3:003	plasmid (ARS assay)	sc_ori:653	sacCer1	chr1	136900	137900	identical							0	
 ODB-SC-0012	Saccharomyces cerevisiae	sacCer3	chrI	146702	147689	ARS108	I-147	proARS108	Confirmed	Confirmed	no		plasmid (ARS assay)	sc_ori:10	sacCer1	chr1	146703	147690	identical	0.2303	McGuffee2013_init_005	180				3	firing;licensing
 ODB-SC-0013	Saccharomyces cerevisiae	sacCer3	chrI	159906	160127	ARS109	I-160	ARS101, proARS109	Confirmed	Confirmed	no		plasmid (ARS assay)	sc_ori:11	sacCer1	chr1	159906	160127	identical	0.2310	McGuffee2013_init_006	141				3	firing;licensing
 ODB-SC-0014	Saccharomyces cerevisiae	sacCer3	chrI	162000	170005		I-166		Unsupported	Likely	yes	sc_cloned_no_ori:30;sc_cloned_no_ori:31		sc_ori:12	sacCer1	chr1	162000	170000	length-changed							0	
@@ -18,8 +18,8 @@ ODB-SC-0016	Saccharomyces cerevisiae	sacCer3	chrI	197391	198101		I-198		Unsuppor
 ODB-SC-0017	Saccharomyces cerevisiae	sacCer3	chrI	202776	209778		I-206		Unsupported	Likely	no			sc_ori:16	sacCer1	chr1	202769	209769	length-changed							0	
 ODB-SC-0018	Saccharomyces cerevisiae	sacCer3	chrI	214888	215644	ARS111	I-215	proARS111	Confirmed	Confirmed	no		plasmid (ARS assay)	sc_ori:17	sacCer1	chr1	214879	215635	identical							2	licensing
 ODB-SC-0019	Saccharomyces cerevisiae	sacCer3	chrI	222880	224046	ARS112	I-223		Confirmed	Confirmed	no		plasmid (ARS assay)	sc_ori:18	sacCer1	chr1	222871	224037	identical							1	licensing
-ODB-SC-0020	Saccharomyces cerevisiae	sacCer3	chrI	226109	227009	ARS113	I-227		Confirmed	Confirmed	no		plasmid (ARS assay)	sc_ori:654	sacCer1	chr1	226100	227000	identical							0	
-ODB-SC-0021	Saccharomyces cerevisiae	sacCer3	chrI	229645	230218		I-230		Unsupported	Likely	no			sc_ori:788	sacCer1	chr1	229635	230208	identical							0	
+ODB-SC-0020	Saccharomyces cerevisiae	sacCer3	chrI	226109	227009	ARS113	I-227		Confirmed	Confirmed	yes	Liachko2013_S3:006	plasmid (ARS assay)	sc_ori:654	sacCer1	chr1	226100	227000	identical							0	
+ODB-SC-0021	Saccharomyces cerevisiae	sacCer3	chrI	229645	230218		I-230		Confirmed	Likely	no		plasmid (ARS assay)	sc_ori:788	sacCer1	chr1	229635	230208	identical							0	
 ODB-SC-0022	Saccharomyces cerevisiae	sacCer3	chrII	39	686	ARS200	II-0		Confirmed	Confirmed	no		plasmid (ARS assay)	sc_ori:655	sacCer1	chr2	39	686	identical							0	
 ODB-SC-0830	Saccharomyces cerevisiae	sacCer3	chrII	5382	5882				Unsupported		no								not-required							1	licensing
 ODB-SC-0023	Saccharomyces cerevisiae	sacCer3	chrII	6123	7127	ARS201	II-7	proARS201	Confirmed	Confirmed	no		plasmid (ARS assay)	sc_ori:19	sacCer1	chr2	6123	7127	identical							2	licensing
@@ -34,7 +34,7 @@ ODB-SC-0031	Saccharomyces cerevisiae	sacCer3	chrII	99804	100868		II-100	proARS20
 ODB-SC-0032	Saccharomyces cerevisiae	sacCer3	chrII	121340	136340		II-129		Unsupported	Dubious	no			sc_ori:27	sacCer1	chr2	121302	136302	identical							0	
 ODB-SC-0033	Saccharomyces cerevisiae	sacCer3	chrII	142906	144054	ARS206	II-143	proARS206	Confirmed	Confirmed	no		plasmid (ARS assay)	sc_ori:28	sacCer1	chr2	142868	144016	identical	0.1183	McGuffee2013_init_012	355	44.0	trep_peak_005	20	3	firing;licensing
 ODB-SC-0034	Saccharomyces cerevisiae	sacCer3	chrII	170087	170336	ARS207	II-170	proARS207	Confirmed	Confirmed	no		plasmid (ARS assay)	sc_ori:29	sacCer1	chr2	170049	170298	identical	0.1805	McGuffee2013_init_013	1086				3	firing;licensing
-ODB-SC-0035	Saccharomyces cerevisiae	sacCer3	chrII	177567	177915	ARS207.1	II-178	ARS207.3	Confirmed	Confirmed	no		plasmid (ARS assay)	sc_ori:640	sacCer1	chr2	177529	177877	identical							0	
+ODB-SC-0035	Saccharomyces cerevisiae	sacCer3	chrII	177567	177915	ARS207.1	II-178	ARS207.3	Confirmed	Confirmed	yes	Liachko2013_S3:009	plasmid (ARS assay)	sc_ori:640	sacCer1	chr2	177529	177877	identical							0	
 ODB-SC-0036	Saccharomyces cerevisiae	sacCer3	chrII	187243	187953		II-188		Unsupported	Likely	yes	sc_cloned_no_ori:41		sc_ori:789	sacCer1	chr2	187205	187915	identical							0	
 ODB-SC-0037	Saccharomyces cerevisiae	sacCer3	chrII	198231	198472	ARS207.5	II-198	ARS231	Confirmed	Confirmed	no		plasmid (ARS assay)	sc_ori:30	sacCer1	chr2	198193	198434	identical	0.6783	McGuffee2013_init_016	24	37.4	trep_peak_006	1649	2	firing;licensing
 ODB-SC-0038	Saccharomyces cerevisiae	sacCer3	chrII	209226	210102	ARS207.8	II-210		Confirmed	Confirmed	no		plasmid (ARS assay)	sc_ori:656	sacCer1	chr2	209187	210063	identical							0	
@@ -45,14 +45,14 @@ ODB-SC-0042	Saccharomyces cerevisiae	sacCer3	chrII	254933	255179	ARS209	II-255	A
 ODB-SC-0043	Saccharomyces cerevisiae	sacCer3	chrII	258473	259644		II-259	proARS210	Unsupported	Likely	no			sc_ori:35	sacCer1	chr2	258430	259601	identical							0	
 ODB-SC-0044	Saccharomyces cerevisiae	sacCer3	chrII	263021	270019		II-266		Unsupported	Dubious	no			sc_ori:36	sacCer1	chr2	262978	269978	length-changed							0	
 ODB-SC-0045	Saccharomyces cerevisiae	sacCer3	chrII	279124	279888		II-279		Unsupported	Dubious	yes	sc_cloned_no_ori:42		sc_ori:657	sacCer1	chr2	279083	279847	identical	0.1086	McGuffee2013_init_019	869				1	firing
-ODB-SC-0046	Saccharomyces cerevisiae	sacCer3	chrII	283056	283954	ARS210.5	II-283		Confirmed	Confirmed	no		plasmid (ARS assay)	sc_ori:658	sacCer1	chr2	283015	283913	identical							1	licensing
+ODB-SC-0046	Saccharomyces cerevisiae	sacCer3	chrII	283056	283954	ARS210.5	II-283		Confirmed	Confirmed	yes	Liachko2013_S3:011	plasmid (ARS assay)	sc_ori:658	sacCer1	chr2	283015	283913	identical							1	licensing
 ODB-SC-0047	Saccharomyces cerevisiae	sacCer3	chrII	292895	294095		II-293		Unsupported	Dubious	no			sc_ori:822	sacCer1	chr2	292854	294054	identical							1	licensing
 ODB-SC-0048	Saccharomyces cerevisiae	sacCer3	chrII	296041	306041		II-301		Unsupported	Dubious	no			sc_ori:861	sacCer1	chr2	296000	306000	identical							0	
 ODB-SC-0049	Saccharomyces cerevisiae	sacCer3	chrII	308447	309647		II-309		Unsupported	Dubious	no			sc_ori:823	sacCer1	chr2	308406	309606	identical							0	
 ODB-SC-0050	Saccharomyces cerevisiae	sacCer3	chrII	326139	326375	ARS211	II-326	proARS211	Confirmed	Confirmed	no		plasmid (ARS assay)	sc_ori:37	sacCer1	chr2	326099	326335	identical	0.6306	McGuffee2013_init_020	132	38.6	trep_peak_009	2257	3	firing;licensing
 ODB-SC-0051	Saccharomyces cerevisiae	sacCer3	chrII	341959	343159		II-343		Unsupported	Dubious	no			sc_ori:824	sacCer1	chr2	341918	343118	identical							0	
 ODB-SC-0052	Saccharomyces cerevisiae	sacCer3	chrII	358939	373939		II-366		Unsupported	Dubious	yes	sc_cloned_no_ori:43;sc_cloned_no_ori:44		sc_ori:38	sacCer1	chr2	358898	373898	same-length-mismatch							0	
-ODB-SC-0053	Saccharomyces cerevisiae	sacCer3	chrII	378475	379235	ARS212	II-379	proARS212	Confirmed	Confirmed	no		plasmid (ARS assay)	sc_ori:39	sacCer1	chr2	378434	379194	identical	0.0943	McGuffee2013_init_022	730				2	firing;licensing
+ODB-SC-0053	Saccharomyces cerevisiae	sacCer3	chrII	378475	379235	ARS212	II-379	proARS212	Confirmed	Confirmed	yes	Liachko2013_S3:012	plasmid (ARS assay)	sc_ori:39	sacCer1	chr2	378434	379194	identical	0.0943	McGuffee2013_init_022	730				2	firing;licensing
 ODB-SC-0054	Saccharomyces cerevisiae	sacCer3	chrII	389288	390412	ARS213	II-390	proARS213	Confirmed	Confirmed	no		plasmid (ARS assay)	sc_ori:40	sacCer1	chr2	389245	390368	length-changed							2	licensing
 ODB-SC-0055	Saccharomyces cerevisiae	sacCer3	chrII	407875	408108	ARS214	II-408	proARS214	Confirmed	Confirmed	no		plasmid (ARS assay)	sc_ori:41	sacCer1	chr2	407831	408064	identical	0.6453	McGuffee2013_init_024	134	32.9	trep_peak_010	491	3	firing;licensing
 ODB-SC-0056	Saccharomyces cerevisiae	sacCer3	chrII	417783	418079	ARS215	II-418	proARS215	Confirmed	Confirmed	no		plasmid (ARS assay)	sc_ori:42	sacCer1	chr2	417739	418035	identical							2	licensing
@@ -62,7 +62,7 @@ ODB-SC-0059	Saccharomyces cerevisiae	sacCer3	chrII	486706	486954	ARS216	II-487	p
 ODB-SC-0060	Saccharomyces cerevisiae	sacCer3	chrII	497695	499395		II-499		Unsupported	Likely	no			sc_ori:825	sacCer1	chr2	497650	499350	identical							0	
 ODB-SC-0061	Saccharomyces cerevisiae	sacCer3	chrII	503746	505147		II-504	proARS217	Unsupported	Likely	no			sc_ori:45	sacCer1	chr2	503701	505102	identical							0	
 ODB-SC-0062	Saccharomyces cerevisiae	sacCer3	chrII	516850	517850	ARS217	II-517		Confirmed	Confirmed	no		plasmid (ARS assay)	sc_ori:46	sacCer1	chr2	516805	517805	identical							1	licensing
-ODB-SC-0063	Saccharomyces cerevisiae	sacCer3	chrII	539182	539744	ARS218	II-539	proARS218	Confirmed	Confirmed	no		plasmid (ARS assay)	sc_ori:47	sacCer1	chr2	539137	539699	identical							3	firing;licensing
+ODB-SC-0063	Saccharomyces cerevisiae	sacCer3	chrII	539182	539744	ARS218	II-539	proARS218	Confirmed	Confirmed	yes	Liachko2013_S3:017	plasmid (ARS assay)	sc_ori:47	sacCer1	chr2	539137	539699	identical							3	firing;licensing
 ODB-SC-0064	Saccharomyces cerevisiae	sacCer3	chrII	543645	553645		II-549		Unsupported	Likely	no			sc_ori:48	sacCer1	chr2	543600	553600	same-length-mismatch							0	
 ODB-SC-0065	Saccharomyces cerevisiae	sacCer3	chrII	582695	584395		II-584		Unsupported	Likely	no			sc_ori:660	sacCer1	chr2	582650	584350	identical							0	
 ODB-SC-0066	Saccharomyces cerevisiae	sacCer3	chrII	591469	591758	ARS219	II-592	proARS219	Confirmed	Confirmed	no		plasmid (ARS assay)	sc_ori:49	sacCer1	chr2	591424	591713	identical	0.1194	McGuffee2013_init_027	488				2	firing;licensing
@@ -70,16 +70,16 @@ ODB-SC-0067	Saccharomyces cerevisiae	sacCer3	chrII	611314	613245	ARS219.5	II-612
 ODB-SC-0068	Saccharomyces cerevisiae	sacCer3	chrII	622670	622939	ARS220	II-623	proARS220	Confirmed	Confirmed	no		plasmid (ARS assay)	sc_ori:50	sacCer1	chr2	622625	622894	identical	0.5204	McGuffee2013_init_029	71	32.5	trep_peak_013	1196	3	firing;licensing
 ODB-SC-0069	Saccharomyces cerevisiae	sacCer3	chrII	627180	627890		II-627		Unsupported	Likely	no			sc_ori:790	sacCer1	chr2	627135	627845	same-length-mismatch							0	
 ODB-SC-0070	Saccharomyces cerevisiae	sacCer3	chrII	631979	632291	ARS221	II-632	proARS221	Confirmed	Confirmed	no		plasmid (ARS assay)	sc_ori:51	sacCer1	chr2	631934	632246	same-length-mismatch	0.2808	McGuffee2013_init_030	10				3	firing;licensing
-ODB-SC-0071	Saccharomyces cerevisiae	sacCer3	chrII	675992	676712	ARS221.5	II-676		Confirmed	Confirmed	no		plasmid (ARS assay)	sc_ori:52	sacCer1	chr2	675947	676667	identical							1	licensing
+ODB-SC-0071	Saccharomyces cerevisiae	sacCer3	chrII	675992	676712	ARS221.5	II-676		Confirmed	Confirmed	yes	Liachko2013_S3:020	plasmid (ARS assay)	sc_ori:52	sacCer1	chr2	675947	676667	identical							1	licensing
 ODB-SC-0072	Saccharomyces cerevisiae	sacCer3	chrII	687576	702576		II-695		Unsupported	Dubious	yes	sc_cloned_no_ori:48;sc_cloned_no_ori:49		sc_ori:53	sacCer1	chr2	687531	702531	identical							1	firing
 ODB-SC-0073	Saccharomyces cerevisiae	sacCer3	chrII	704295	704566	ARS222	II-704	proARS222	Confirmed	Confirmed	no		plasmid (ARS assay)	sc_ori:54	sacCer1	chr2	704250	704521	identical	0.4911	McGuffee2013_init_033	195	44.3	trep_peak_015	570	3	firing;licensing
 ODB-SC-0074	Saccharomyces cerevisiae	sacCer3	chrII	707203	708307	ARS222.5	II-708		Confirmed	Confirmed	no		plasmid (ARS assay)	sc_ori:662	sacCer1	chr2	707158	708262	identical							0	
-ODB-SC-0075	Saccharomyces cerevisiae	sacCer3	chrII	720646	721083	ARS223	II-721	proARS223	Confirmed	Confirmed	no		plasmid (ARS assay)	sc_ori:55	sacCer1	chr2	720601	721038	identical							1	licensing
+ODB-SC-0075	Saccharomyces cerevisiae	sacCer3	chrII	720646	721083	ARS223	II-721	proARS223	Confirmed	Confirmed	yes	Liachko2013_S3:022	plasmid (ARS assay)	sc_ori:55	sacCer1	chr2	720601	721038	identical							1	licensing
 ODB-SC-0076	Saccharomyces cerevisiae	sacCer3	chrII	724591	739591		II-732		Unsupported	Dubious	no			sc_ori:56	sacCer1	chr2	724546	739546	same-length-mismatch							0	
 ODB-SC-0077	Saccharomyces cerevisiae	sacCer3	chrII	741557	741847	ARS224	II-742	proARS224	Confirmed	Confirmed	no		plasmid (ARS assay)	sc_ori:57	sacCer1	chr2	741512	741802	identical	0.3280	McGuffee2013_init_034	173	46.2	trep_peak_016	202	3	firing;licensing
 ODB-SC-0078	Saccharomyces cerevisiae	sacCer3	chrII	757436	757667	ARS225	II-758	proARS225	Confirmed	Confirmed	no		plasmid (ARS assay)	sc_ori:58	sacCer1	chr2	757390	757621	identical	0.1246	McGuffee2013_init_035	176				3	firing;licensing
 ODB-SC-0079	Saccharomyces cerevisiae	sacCer3	chrII	760401	761759		II-761	proARS226	Unsupported	Likely	no			sc_ori:59	sacCer1	chr2	760355	761713	identical							0	
-ODB-SC-0080	Saccharomyces cerevisiae	sacCer3	chrII	773964	774394	ARS227	II-774	proARS227	Confirmed	Confirmed	no		plasmid (ARS assay)	sc_ori:60	sacCer1	chr2	773918	774348	same-length-mismatch				46.3	trep_peak_017	179	2	licensing
+ODB-SC-0080	Saccharomyces cerevisiae	sacCer3	chrII	773964	774394	ARS227	II-774	proARS227	Confirmed	Confirmed	yes	Liachko2013_S3:024	plasmid (ARS assay)	sc_ori:60	sacCer1	chr2	773918	774348	same-length-mismatch				46.3	trep_peak_017	179	2	licensing
 ODB-SC-0081	Saccharomyces cerevisiae	sacCer3	chrII	792163	792388	ARS228	II-792	proARS228	Confirmed	Confirmed	no		plasmid (ARS assay)	sc_ori:61	sacCer1	chr2	792116	792340	length-changed	0.3071	McGuffee2013_init_036	150				3	firing;licensing
 ODB-SC-0082	Saccharomyces cerevisiae	sacCer3	chrII	796307	797210	ARS228.5	II-797		Confirmed	Confirmed	no		plasmid (ARS assay)	sc_ori:663	sacCer1	chr2	796259	797162	same-length-mismatch							1	licensing
 ODB-SC-0083	Saccharomyces cerevisiae	sacCer3	chrII	801978	802665	ARS229	II-802	proARS229	Confirmed	Confirmed	no		plasmid (ARS assay)	sc_ori:62	sacCer1	chr2	801930	802617	identical							2	licensing
@@ -91,7 +91,7 @@ ODB-SC-0088	Saccharomyces cerevisiae	sacCer3	chrIII	11303	14854	ARS302	III-13	pr
 ODB-SC-0089	Saccharomyces cerevisiae	sacCer3	chrIII	14574	14849	ARS302	III-15	proARS302, proARS303/proARS320	Confirmed	Confirmed	no		plasmid (ARS assay)	sc_ori:66	sacCer1	chr3	14574	14849	identical							1	licensing
 ODB-SC-0090	Saccharomyces cerevisiae	sacCer3	chrIII	14870	15213	ARS303	III-15	proARS302, proARS303/proARS320	Confirmed	Confirmed	no		plasmid (ARS assay)	sc_ori:67	sacCer1	chr3	14870	15213	identical							1	licensing
 ODB-SC-0091	Saccharomyces cerevisiae	sacCer3	chrIII	15213	16274	ARS320	III-16	proARS302, proARS303/proARS320	Confirmed	Confirmed	no		plasmid (ARS assay)	sc_ori:68	sacCer1	chr3	15213	16274	identical							1	licensing
-ODB-SC-0092	Saccharomyces cerevisiae	sacCer3	chrIII	30199	30657	ARS304	III-30		Confirmed	Confirmed	no		plasmid (ARS assay);2D gel electrophoresis	sc_ori:69	sacCer1	chr3	30199	30657	identical							1	licensing
+ODB-SC-0092	Saccharomyces cerevisiae	sacCer3	chrIII	30199	30657	ARS304	III-30		Confirmed	Confirmed	yes	Liachko2013_S3:030	plasmid (ARS assay);2D gel electrophoresis	sc_ori:69	sacCer1	chr3	30199	30657	identical							1	licensing
 ODB-SC-0093	Saccharomyces cerevisiae	sacCer3	chrIII	39158	39706	ARS305	III-39	ARS A6C, proARS305	Confirmed	Confirmed	no		plasmid (ARS assay);2D gel electrophoresis	sc_ori:70	sacCer1	chr3	39158	39706	identical	0.7156	McGuffee2013_init_037	57	31.9	trep_peak_018	432	3	firing;licensing
 ODB-SC-0094	Saccharomyces cerevisiae	sacCer3	chrIII	53807	55007		III-54		Unsupported	Dubious	no			sc_ori:826	sacCer1	chr3	53807	55007	identical							0	
 ODB-SC-0095	Saccharomyces cerevisiae	sacCer3	chrIII	74457	74677	ARS306	III-75		Confirmed	Confirmed	no		plasmid (ARS assay);2D gel electrophoresis	sc_ori:71	sacCer1	chr3	74457	74677	identical	0.5437	McGuffee2013_init_039	442	33.2	trep_peak_019	67	3	firing;licensing
@@ -119,7 +119,7 @@ ODB-SC-0116	Saccharomyces cerevisiae	sacCer3	chrIII	315353	316239	ARS319	III-316
 ODB-SC-0117	Saccharomyces cerevisiae	sacCer3	chrIV	137	1392	ARS400	IV-1		Confirmed	Confirmed	no		plasmid (ARS assay)	sc_ori:666	sacCer1	chr4	137	1392	identical							1	licensing
 ODB-SC-0118	Saccharomyces cerevisiae	sacCer3	chrIV	7596	11052		IV-9	proARS401, proARS402	Unsupported	Likely	no			sc_ori:91	sacCer1	chr4	7596	11052	identical							1	licensing
 ODB-SC-0119	Saccharomyces cerevisiae	sacCer3	chrIV	15492	15739	ARS403	IV-16	proARS403	Confirmed	Confirmed	no		plasmid (ARS assay)	sc_ori:93	sacCer1	chr4	15492	15739	identical							2	licensing
-ODB-SC-0120	Saccharomyces cerevisiae	sacCer3	chrIV	21265	22262	ARS402.5	IV-22		Confirmed	Confirmed	no		plasmid (ARS assay)	sc_ori:667	sacCer1	chr4	21265	22262	identical							1	licensing
+ODB-SC-0120	Saccharomyces cerevisiae	sacCer3	chrIV	21265	22262	ARS402.5	IV-22		Confirmed	Confirmed	yes	Liachko2013_S3:035	plasmid (ARS assay)	sc_ori:667	sacCer1	chr4	21265	22262	identical							1	licensing
 ODB-SC-0121	Saccharomyces cerevisiae	sacCer3	chrIV	46180	46236	ARS404	IV-46	HO, proARS404	Confirmed	Confirmed	no		plasmid (ARS assay)	sc_ori:94	sacCer1	chr4	46181	46237	identical	0.6856	McGuffee2013_init_048	83	42.3	trep_peak_026	208	3	firing;licensing
 ODB-SC-0122	Saccharomyces cerevisiae	sacCer3	chrIV	50244	50954		IV-51		Unsupported	Likely	no			sc_ori:793	sacCer1	chr4	50245	50955	identical							1	licensing
 ODB-SC-0831	Saccharomyces cerevisiae	sacCer3	chrIV	85283	85783				Likely		no								not-required							3	firing;licensing
@@ -138,7 +138,7 @@ ODB-SC-0134	Saccharomyces cerevisiae	sacCer3	chrIV	253790	254039	ARS410	IV-254	p
 ODB-SC-0135	Saccharomyces cerevisiae	sacCer3	chrIV	256030	257133		IV-257	proARS411	Unsupported	Likely	no			sc_ori:105	sacCer1	chr4	256029	257132	identical							0	
 ODB-SC-0136	Saccharomyces cerevisiae	sacCer3	chrIV	316720	317112	ARS412	IV-317	proARS412	Confirmed	Confirmed	no		plasmid (ARS assay)	sc_ori:106	sacCer1	chr4	316719	317111	identical	0.1170	McGuffee2013_init_055	541				3	firing;licensing
 ODB-SC-0137	Saccharomyces cerevisiae	sacCer3	chrIV	329565	329814	ARS413	IV-330	proARS413	Confirmed	Confirmed	no		plasmid (ARS assay)	sc_ori:107	sacCer1	chr4	329564	329813	identical	0.6952	McGuffee2013_init_057	64	32.1	trep_peak_031	311	3	firing;licensing
-ODB-SC-0138	Saccharomyces cerevisiae	sacCer3	chrIV	350836	351805	ARS413.5	IV-351		Confirmed	Confirmed	no		plasmid (ARS assay)	sc_ori:669	sacCer1	chr4	350835	351804	identical							0	
+ODB-SC-0138	Saccharomyces cerevisiae	sacCer3	chrIV	350836	351805	ARS413.5	IV-351		Confirmed	Confirmed	yes	Liachko2013_S3:038	plasmid (ARS assay)	sc_ori:669	sacCer1	chr4	350835	351804	identical							0	
 ODB-SC-0139	Saccharomyces cerevisiae	sacCer3	chrIV	357807	359007		IV-358		Unsupported	Dubious	no			sc_ori:828	sacCer1	chr4	357806	359006	identical							0	
 ODB-SC-0140	Saccharomyces cerevisiae	sacCer3	chrIV	384236	385436		IV-385		Unsupported	Dubious	yes	sc_cloned_no_ori:60		sc_ori:829	sacCer1	chr4	384232	385432	identical							0	
 ODB-SC-0141	Saccharomyces cerevisiae	sacCer3	chrIV	408074	408316	ARS414	IV-408	proARS414	Confirmed	Confirmed	no		plasmid (ARS assay);2D gel electrophoresis	sc_ori:108	sacCer1	chr4	408070	408312	identical	0.3614	McGuffee2013_init_058	570	32.2	trep_peak_032	195	3	firing;licensing
@@ -170,16 +170,16 @@ ODB-SC-0166	Saccharomyces cerevisiae	sacCer3	chrIV	844605	845601	ARS426.5	IV-845
 ODB-SC-0167	Saccharomyces cerevisiae	sacCer3	chrIV	858648	859848		IV-859		Unsupported	Likely	no			sc_ori:131	sacCer1	chr4	858640	859840	identical							0	
 ODB-SC-0168	Saccharomyces cerevisiae	sacCer3	chrIV	875799	882799		IV-879		Likely	Likely	no			sc_ori:132	sacCer1	chr4	875791	882791	identical	0.1733	McGuffee2013_init_071	674				2	firing;licensing
 ODB-SC-0169	Saccharomyces cerevisiae	sacCer3	chrIV	898262	899896		IV-899	proARS427	Unsupported	Likely	no			sc_ori:133	sacCer1	chr4	898253	899887	identical							1	licensing
-ODB-SC-0170	Saccharomyces cerevisiae	sacCer3	chrIV	903833	904664	ARS427.5	IV-904		Confirmed	Confirmed	no		plasmid (ARS assay)	sc_ori:672	sacCer1	chr4	903824	904655	identical							0	
+ODB-SC-0170	Saccharomyces cerevisiae	sacCer3	chrIV	903833	904664	ARS427.5	IV-904		Confirmed	Confirmed	yes	Liachko2013_S3:042	plasmid (ARS assay)	sc_ori:672	sacCer1	chr4	903824	904655	identical							0	
 ODB-SC-0171	Saccharomyces cerevisiae	sacCer3	chrIV	913789	914038	ARS428	IV-914	proARS428	Confirmed	Confirmed	no		plasmid (ARS assay)	sc_ori:134	sacCer1	chr4	913780	914029	identical	0.6183	McGuffee2013_init_072	538	29.8	trep_peak_039	413	3	firing;licensing
 ODB-SC-0172	Saccharomyces cerevisiae	sacCer3	chrIV	921691	921939	ARS429	IV-922	proARS429	Confirmed	Confirmed	no		plasmid (ARS assay)	sc_ori:135	sacCer1	chr4	921682	921930	identical	0.2837	McGuffee2013_init_073	690				3	firing;licensing
-ODB-SC-0173	Saccharomyces cerevisiae	sacCer3	chrIV	942992	943984	ARS429.5	IV-943		Confirmed	Confirmed	no		plasmid (ARS assay)	sc_ori:673	sacCer1	chr4	942983	943975	identical							1	licensing
+ODB-SC-0173	Saccharomyces cerevisiae	sacCer3	chrIV	942992	943984	ARS429.5	IV-943		Confirmed	Confirmed	yes	Liachko2013_S3:043	plasmid (ARS assay)	sc_ori:673	sacCer1	chr4	942983	943975	identical							1	licensing
 ODB-SC-0174	Saccharomyces cerevisiae	sacCer3	chrIV	954033	955233		IV-955		Unsupported	Dubious	no			sc_ori:830	sacCer1	chr4	954024	955224	identical							0	
 ODB-SC-0175	Saccharomyces cerevisiae	sacCer3	chrIV	970259	980259		IV-975		Unsupported	Likely	yes	sc_cloned_no_ori:68		sc_ori:136	sacCer1	chr4	970250	980250	identical							0	
 ODB-SC-0176	Saccharomyces cerevisiae	sacCer3	chrIV	987009	995009		IV-991		Unsupported	Dubious	yes	sc_cloned_no_ori:69		sc_ori:137	sacCer1	chr4	987000	995000	identical							0	
 ODB-SC-0177	Saccharomyces cerevisiae	sacCer3	chrIV	1016633	1016931	ARS430	IV-1017	proARS430	Confirmed	Confirmed	no		plasmid (ARS assay)	sc_ori:138	sacCer1	chr4	1016624	1016922	identical	0.6515	McGuffee2013_init_074	157	33.2	trep_peak_040	218	3	firing;licensing
 ODB-SC-0178	Saccharomyces cerevisiae	sacCer3	chrIV	1021554	1022264		IV-1022		Unsupported	Likely	no			sc_ori:797	sacCer1	chr4	1021545	1022255	identical							1	licensing
-ODB-SC-0179	Saccharomyces cerevisiae	sacCer3	chrIV	1033078	1034191	ARS430.5	IV-1034		Confirmed	Confirmed	no		plasmid (ARS assay)	sc_ori:674	sacCer1	chr4	1033069	1034182	identical							1	licensing
+ODB-SC-0179	Saccharomyces cerevisiae	sacCer3	chrIV	1033078	1034191	ARS430.5	IV-1034		Confirmed	Confirmed	yes	Liachko2013_S3:045	plasmid (ARS assay)	sc_ori:674	sacCer1	chr4	1033069	1034182	identical							1	licensing
 ODB-SC-0180	Saccharomyces cerevisiae	sacCer3	chrIV	1057837	1058085	ARS431	IV-1058	proARS431	Confirmed	Confirmed	no		plasmid (ARS assay)	sc_ori:139	sacCer1	chr4	1057828	1058076	identical	0.4992	McGuffee2013_init_075	164	39.6	trep_peak_041	539	3	firing;licensing
 ODB-SC-0181	Saccharomyces cerevisiae	sacCer3	chrIV	1109963	1110204	ARS431.5	IV-1110	ARS452	Confirmed	Confirmed	no		plasmid (ARS assay)	sc_ori:140	sacCer1	chr4	1109955	1110196	identical				45.2	trep_peak_042	417	1	licensing
 ODB-SC-0182	Saccharomyces cerevisiae	sacCer3	chrIV	1130682	1131165	ARS431.7	IV-1131		Confirmed	Confirmed	no		plasmid (ARS assay)	sc_ori:872	sacCer1	chr4	1130672	1131155	identical							0	
@@ -222,7 +222,7 @@ ODB-SC-0385	Saccharomyces cerevisiae	sacCer3	chrIX	80058	80557	ARS908	IX-80	proA
 ODB-SC-0386	Saccharomyces cerevisiae	sacCer3	chrIX	105821	106048	ARS909	IX-106	proARS909	Confirmed	Confirmed	no		plasmid (ARS assay)	sc_ori:301	sacCer1	chr9	105821	106048	identical	0.6893	McGuffee2013_init_092	191	34.1	trep_peak_093	434	3	firing;licensing
 ODB-SC-0387	Saccharomyces cerevisiae	sacCer3	chrIX	112737	114306		IX-114	proARS910	Unsupported	Dubious	no			sc_ori:302	sacCer1	chr9	112737	114306	identical							0	
 ODB-SC-0388	Saccharomyces cerevisiae	sacCer3	chrIX	136097	136338	ARS911	IX-136	proARS911	Confirmed	Confirmed	no		plasmid (ARS assay)	sc_ori:303	sacCer1	chr9	136094	136335	identical	0.2773	McGuffee2013_init_093	92				3	firing;licensing
-ODB-SC-0389	Saccharomyces cerevisiae	sacCer3	chrIX	162939	163305	ARS911.5	IX-163		Confirmed	Confirmed	no		plasmid (ARS assay)	sc_ori:304	sacCer1	chr9	162936	163302	identical							0	
+ODB-SC-0389	Saccharomyces cerevisiae	sacCer3	chrIX	162939	163305	ARS911.5	IX-163		Confirmed	Confirmed	yes	Liachko2013_S3:096	plasmid (ARS assay)	sc_ori:304	sacCer1	chr9	162936	163302	identical							0	
 ODB-SC-0390	Saccharomyces cerevisiae	sacCer3	chrIX	175037	175358	ARS912	IX-175	proARS912	Confirmed	Confirmed	no		plasmid (ARS assay)	sc_ori:305	sacCer1	chr9	175034	175355	identical	0.2242	McGuffee2013_init_094	572				3	firing;licensing
 ODB-SC-0391	Saccharomyces cerevisiae	sacCer3	chrIX	179594	186594		IX-183		Unsupported	Likely	yes	sc_cloned_no_ori:124		sc_ori:306	sacCer1	chr9	179591	186591	identical							0	
 ODB-SC-0392	Saccharomyces cerevisiae	sacCer3	chrIX	189526	190750		IX-190		Unsupported	Likely	no			sc_ori:705	sacCer1	chr9	189523	190747	identical							1	licensing
@@ -249,9 +249,9 @@ ODB-SC-0412	Saccharomyces cerevisiae	sacCer3	chrIX	411820	412056	ARS922	IX-412	p
 ODB-SC-0413	Saccharomyces cerevisiae	sacCer3	chrIX	432500	432998	ARS922.5	IX-433		Confirmed	Confirmed	no		plasmid (ARS assay)	sc_ori:325	sacCer1	chr9	432496	432994	identical							1	licensing
 ODB-SC-0414	Saccharomyces cerevisiae	sacCer3	chrIX	437556	439850		IX-439		Unsupported	Likely	no			sc_ori:708	sacCer1	chr9	437553	439847	identical							0	
 ODB-SC-0210	Saccharomyces cerevisiae	sacCer3	chrV	23	1144		V-1		Unsupported	Dubious	no			sc_ori:676	sacCer1	chr5	23	1144	identical							0	
-ODB-SC-0211	Saccharomyces cerevisiae	sacCer3	chrV	4097	4185	ARS502	V-4	Y'-ARS, proARS502	Confirmed	Confirmed	no		plasmid (ARS assay)	sc_ori:168	sacCer1	chr5	4097	4185	identical							0	
+ODB-SC-0211	Saccharomyces cerevisiae	sacCer3	chrV	4097	4185	ARS502	V-4	Y'-ARS, proARS502	Confirmed	Confirmed	yes	Liachko2013_S3:052	plasmid (ARS assay)	sc_ori:168	sacCer1	chr5	4097	4185	identical							0	
 ODB-SC-0212	Saccharomyces cerevisiae	sacCer3	chrV	6464	7230	ARS503	V-7	proARS503	Confirmed	Confirmed	no		plasmid (ARS assay)	sc_ori:169	sacCer1	chr5	6464	7230	identical							1	licensing
-ODB-SC-0213	Saccharomyces cerevisiae	sacCer3	chrV	8786	10019	ARS504	V-9	proARS504	Confirmed	Confirmed	no		plasmid (ARS assay)	sc_ori:170	sacCer1	chr5	8786	10019	same-length-mismatch							0	
+ODB-SC-0213	Saccharomyces cerevisiae	sacCer3	chrV	8786	10019	ARS504	V-9	proARS504	Confirmed	Confirmed	yes	Liachko2013_S3:054	plasmid (ARS assay)	sc_ori:170	sacCer1	chr5	8786	10019	same-length-mismatch							0	
 ODB-SC-0214	Saccharomyces cerevisiae	sacCer3	chrV	11713	12194	ARS504.2	V-12	proARS505	Confirmed	Confirmed	no		plasmid (ARS assay)	sc_ori:171	sacCer1	chr5	11713	12194	identical							2	licensing
 ODB-SC-0215	Saccharomyces cerevisiae	sacCer3	chrV	17067	19023		V-18	proARS506	Unsupported	Likely	no			sc_ori:172	sacCer1	chr5	17067	19023	same-length-mismatch							1	licensing
 ODB-SC-0216	Saccharomyces cerevisiae	sacCer3	chrV	59282	59516	ARS507	V-59	proARS507	Confirmed	Confirmed	no		plasmid (ARS assay)	sc_ori:173	sacCer1	chr5	59282	59516	identical	0.5927	McGuffee2013_init_106	274	33.0	trep_peak_051	101	3	firing;licensing
@@ -262,20 +262,20 @@ ODB-SC-0220	Saccharomyces cerevisiae	sacCer3	chrV	145540	145783	ARS510	V-146	pro
 ODB-SC-0221	Saccharomyces cerevisiae	sacCer3	chrV	164052	165252		V-165		Unsupported	Dubious	no			sc_ori:832	sacCer1	chr5	164051	165251	identical							0	
 ODB-SC-0222	Saccharomyces cerevisiae	sacCer3	chrV	173637	173875	ARS511	V-174	proARS511	Confirmed	Confirmed	no		plasmid (ARS assay)	sc_ori:177	sacCer1	chr5	173636	173874	identical	0.5799	McGuffee2013_init_110	131	31.4	trep_peak_054	1256	3	firing;licensing
 ODB-SC-0223	Saccharomyces cerevisiae	sacCer3	chrV	183824	184698		V-184		Unsupported	Dubious	yes	sc_cloned_no_ori:82		sc_ori:678	sacCer1	chr5	183823	184697	identical							0	
-ODB-SC-0224	Saccharomyces cerevisiae	sacCer3	chrV	192494	192927	ARS511.5	V-193		Confirmed	Confirmed	no		plasmid (ARS assay)	sc_ori:781	sacCer1	chr5	192493	192926	identical							0	
+ODB-SC-0224	Saccharomyces cerevisiae	sacCer3	chrV	192494	192927	ARS511.5	V-193		Confirmed	Confirmed	yes	Liachko2013_S3:057	plasmid (ARS assay)	sc_ori:781	sacCer1	chr5	192493	192926	identical							0	
 ODB-SC-0225	Saccharomyces cerevisiae	sacCer3	chrV	212382	212631	ARS512	V-213	proARS512	Confirmed	Confirmed	no		plasmid (ARS assay)	sc_ori:178	sacCer1	chr5	212381	212630	identical	0.1726	McGuffee2013_init_111	131	41.5	trep_peak_055	994	3	firing;licensing
 ODB-SC-0226	Saccharomyces cerevisiae	sacCer3	chrV	255624	256958		V-256		Likely	Likely	no			sc_ori:179	sacCer1	chr5	255623	256957	identical	0.0606	McGuffee2013_init_113	416				2	firing;licensing
 ODB-SC-0227	Saccharomyces cerevisiae	sacCer3	chrV	276129	276528	ARS513.5	V-276		Confirmed	Confirmed	no		plasmid (ARS assay)	sc_ori:180	sacCer1	chr5	276127	276526	identical							1	licensing
 ODB-SC-0228	Saccharomyces cerevisiae	sacCer3	chrV	278075	278357	ARS513.7	V-278		Confirmed	Confirmed	no		plasmid (ARS assay)	sc_ori:779	sacCer1	chr5	278073	278355	identical							2	licensing
 ODB-SC-0229	Saccharomyces cerevisiae	sacCer3	chrV	287506	287752	ARS514	V-288	proARS514	Confirmed	Confirmed	no		plasmid (ARS assay)	sc_ori:181	sacCer1	chr5	287504	287750	identical	0.4287	McGuffee2013_init_115	246	37.0	trep_peak_056	1629	2	firing;licensing
 ODB-SC-0230	Saccharomyces cerevisiae	sacCer3	chrV	301567	302063	ARS514.5	V-302		Confirmed	Confirmed	no		plasmid (ARS assay)	sc_ori:182	sacCer1	chr5	301565	302061	identical							1	licensing
-ODB-SC-0231	Saccharomyces cerevisiae	sacCer3	chrV	316047	317311		V-317		Likely	Likely	no			sc_ori:183	sacCer1	chr5	316043	317307	identical	0.3021	McGuffee2013_init_116	554	36.4	trep_peak_057	1179	2	firing;licensing
+ODB-SC-0231	Saccharomyces cerevisiae	sacCer3	chrV	316047	317311		V-317		Confirmed	Likely	no		plasmid (ARS assay)	sc_ori:183	sacCer1	chr5	316043	317307	identical	0.3021	McGuffee2013_init_116	554	36.4	trep_peak_057	1179	2	firing;licensing
 ODB-SC-0232	Saccharomyces cerevisiae	sacCer3	chrV	353508	353755	ARS516	V-354	tRNAgluARS, proARS516	Confirmed	Confirmed	no		plasmid (ARS assay)	sc_ori:184	sacCer1	chr5	353504	353751	identical	0.6381	McGuffee2013_init_118	244	32.0	trep_peak_058	369	2	firing;licensing
 ODB-SC-0233	Saccharomyces cerevisiae	sacCer3	chrV	406751	406953	ARS517	V-407	proARS517	Confirmed	Confirmed	no		plasmid (ARS assay)	sc_ori:185	sacCer1	chr5	406747	406949	identical	0.4588	McGuffee2013_init_119	23	38.0	trep_peak_059	352	3	firing;licensing
 ODB-SC-0234	Saccharomyces cerevisiae	sacCer3	chrV	418019	418729		V-418		Unsupported	Dubious	no			sc_ori:800	sacCer1	chr5	418015	418725	identical							0	
 ODB-SC-0235	Saccharomyces cerevisiae	sacCer3	chrV	429865	431065		V-430		Unsupported	Likely	no			sc_ori:833	sacCer1	chr5	429861	431061	identical							0	
 ODB-SC-0236	Saccharomyces cerevisiae	sacCer3	chrV	438933	439182	ARS518	V-439	proARS518	Confirmed	Confirmed	no		plasmid (ARS assay)	sc_ori:186	sacCer1	chr5	438929	439178	identical	0.6623	McGuffee2013_init_120	68				3	firing;licensing
-ODB-SC-0237	Saccharomyces cerevisiae	sacCer3	chrV	442416	442735	ARS519	V-443	proARS519	Confirmed	Confirmed	no		plasmid (ARS assay)	sc_ori:187	sacCer1	chr5	442412	442731	identical							0	
+ODB-SC-0237	Saccharomyces cerevisiae	sacCer3	chrV	442416	442735	ARS519	V-443	proARS519	Confirmed	Confirmed	yes	Liachko2013_S3:061	plasmid (ARS assay)	sc_ori:187	sacCer1	chr5	442412	442731	identical							0	
 ODB-SC-0238	Saccharomyces cerevisiae	sacCer3	chrV	477891	484891		V-481		Unsupported	Dubious	no			sc_ori:188	sacCer1	chr5	477886	484886	identical							0	
 ODB-SC-0239	Saccharomyces cerevisiae	sacCer3	chrV	498422	499348	ARS520	V-499	proARS520	Confirmed	Confirmed	no		plasmid (ARS assay)	sc_ori:189	sacCer1	chr5	498417	499343	identical	0.5272	McGuffee2013_init_122	490				3	firing;licensing
 ODB-SC-0240	Saccharomyces cerevisiae	sacCer3	chrV	502956	517956		V-510		Unsupported	Dubious	no			sc_ori:190	sacCer1	chr5	502951	517951	identical							0	
@@ -307,7 +307,7 @@ ODB-SC-0265	Saccharomyces cerevisiae	sacCer3	chrVI	253329	253813	ARS608.5	VI-254
 ODB-SC-0266	Saccharomyces cerevisiae	sacCer3	chrVI	256276	256431	ARS609	VI-256	proARS609	Confirmed	Confirmed	no		plasmid (ARS assay);2D gel electrophoresis	sc_ori:211	sacCer1	chr6	256263	256418	identical				51.7	trep_peak_065	1353	2	licensing
 ODB-SC-0267	Saccharomyces cerevisiae	sacCer3	chrVI	268268	268978		VI-269	proARS610	Unsupported	Likely	no			sc_ori:801	sacCer1	chr6	268255	268965	identical							0	
 ODB-SC-0268	Saccharomyces cerevisiae	sacCer3	chrVI	269417	270035	ARS610	VI-270	proARS610	Confirmed	Confirmed	no		plasmid (ARS assay)	sc_ori:212	sacCer1	chr6	269404	270022	identical							0	
-ODB-SC-0269	Saccharomyces cerevisiae	sacCer3	chrVII	23	778		VII-0		Unsupported	Dubious	no			sc_ori:684	sacCer1	chr7	23	778	identical							0	
+ODB-SC-0269	Saccharomyces cerevisiae	sacCer3	chrVII	23	778		VII-0		Confirmed	Dubious	no		plasmid (ARS assay)	sc_ori:684	sacCer1	chr7	23	778	identical							0	
 ODB-SC-0270	Saccharomyces cerevisiae	sacCer3	chrVII	6261	8789		VII-8		Unsupported	Likely	no			sc_ori:213	sacCer1	chr7	6261	8789	identical							1	licensing
 ODB-SC-0832	Saccharomyces cerevisiae	sacCer3	chrVII	10075	10575				Unsupported		no								not-required							1	licensing
 ODB-SC-0271	Saccharomyces cerevisiae	sacCer3	chrVII	17629	18112	ARS700.5	VII-18		Confirmed	Confirmed	no		plasmid (ARS assay)	sc_ori:214	sacCer1	chr7	17629	18112	identical	0.4324	McGuffee2013_init_134	5	44.8	trep_peak_066	870	3	firing;licensing
@@ -324,7 +324,7 @@ ODB-SC-0280	Saccharomyces cerevisiae	sacCer3	chrVII	165721	167852		VII-167	proAR
 ODB-SC-0281	Saccharomyces cerevisiae	sacCer3	chrVII	170769	172013		VII-171		Unsupported	Likely	no			sc_ori:686	sacCer1	chr7	170773	172017	identical							1	licensing
 ODB-SC-0282	Saccharomyces cerevisiae	sacCer3	chrVII	187237	187647	ARS709	VII-187	proARS709	Confirmed	Confirmed	no		plasmid (ARS assay)	sc_ori:224	sacCer1	chr7	187241	187651	identical							1	licensing
 ODB-SC-0283	Saccharomyces cerevisiae	sacCer3	chrVII	203913	204155	ARS710	VII-204	proARS710	Confirmed	Confirmed	no		plasmid (ARS assay)	sc_ori:225	sacCer1	chr7	203917	204159	same-length-mismatch	0.5101	McGuffee2013_init_139	91	35.6	trep_peak_070	466	3	firing;licensing
-ODB-SC-0284	Saccharomyces cerevisiae	sacCer3	chrVII	231906	231981	ARS711	VII-232	ARS701; ARS137	Confirmed	Confirmed	no		plasmid (ARS assay)	sc_ori:226	sacCer1	chr7	231909	231984	identical							0	
+ODB-SC-0284	Saccharomyces cerevisiae	sacCer3	chrVII	231906	231981	ARS711	VII-232	ARS701; ARS137	Confirmed	Confirmed	yes	Liachko2013_S3:082	plasmid (ARS assay)	sc_ori:226	sacCer1	chr7	231909	231984	identical							0	
 ODB-SC-0285	Saccharomyces cerevisiae	sacCer3	chrVII	240969	241438	ARS712	VII-241	proARS712	Confirmed	Confirmed	no		plasmid (ARS assay)	sc_ori:227	sacCer1	chr7	240972	241441	identical							2	licensing
 ODB-SC-0286	Saccharomyces cerevisiae	sacCer3	chrVII	266523	267723		VII-267		Unsupported	Likely	no			sc_ori:835	sacCer1	chr7	266526	267726	identical							0	
 ODB-SC-0287	Saccharomyces cerevisiae	sacCer3	chrVII	268876	270676		VII-270	proARS713	Unsupported	Likely	no			sc_ori:228	sacCer1	chr7	268879	270680	length-changed							0	
@@ -383,7 +383,7 @@ ODB-SC-0339	Saccharomyces cerevisiae	sacCer3	chrVIII	56653	59175		VIII-58		Unsup
 ODB-SC-0340	Saccharomyces cerevisiae	sacCer3	chrVIII	64258	64493	ARS805	VIII-64	SPO11, proARS805	Confirmed	Confirmed	no		plasmid (ARS assay)	sc_ori:267	sacCer1	chr8	64255	64489	length-changed	0.4214	McGuffee2013_init_161	250	34.0	trep_peak_083	125	3	firing;licensing
 ODB-SC-0341	Saccharomyces cerevisiae	sacCer3	chrVIII	77694	78895		VIII-78		Unsupported	Dubious	no			sc_ori:840	sacCer1	chr8	77690	78890	length-changed							0	
 ODB-SC-0342	Saccharomyces cerevisiae	sacCer3	chrVIII	87477	89457		VIII-88		Unsupported	Dubious	yes	sc_cloned_no_ori:112;sc_cloned_no_ori:113;sc_cloned_no_ori:114		sc_ori:698	sacCer1	chr8	87472	89452	identical							0	
-ODB-SC-0343	Saccharomyces cerevisiae	sacCer3	chrVIII	94764	95197	ARS805.5	VIII-95		Confirmed	Confirmed	no		plasmid (ARS assay)	sc_ori:782	sacCer1	chr8	94759	95192	identical							1	licensing
+ODB-SC-0343	Saccharomyces cerevisiae	sacCer3	chrVIII	94764	95197	ARS805.5	VIII-95		Confirmed	Confirmed	yes	Liachko2013_S3:090	plasmid (ARS assay)	sc_ori:782	sacCer1	chr8	94759	95192	identical							1	licensing
 ODB-SC-0344	Saccharomyces cerevisiae	sacCer3	chrVIII	111300	111773	ARS805.7	VIII-112		Confirmed	Confirmed	no		plasmid (ARS assay)	sc_ori:699	sacCer1	chr8	111293	111766	identical							1	licensing
 ODB-SC-0345	Saccharomyces cerevisiae	sacCer3	chrVIII	115690	117264		VIII-116	proARS806	Unsupported	Likely	no			sc_ori:268	sacCer1	chr8	115683	117257	identical	0.5008	McGuffee2013_init_162	148	31.5	trep_peak_084	23	1	firing
 ODB-SC-0346	Saccharomyces cerevisiae	sacCer3	chrVIII	133356	133600	ARS807	VIII-133		Confirmed	Confirmed	no		plasmid (ARS assay)	sc_ori:269	sacCer1	chr8	133347	133591	identical	0.3935	McGuffee2013_init_163	397				1	firing
@@ -392,7 +392,7 @@ ODB-SC-0348	Saccharomyces cerevisiae	sacCer3	chrVIII	140349	141274	ARS808	VIII-1
 ODB-SC-0349	Saccharomyces cerevisiae	sacCer3	chrVIII	168540	168782	ARS809	VIII-169	proARS809	Confirmed	Confirmed	no		plasmid (ARS assay)	sc_ori:271	sacCer1	chr8	168531	168773	identical	0.1451	McGuffee2013_init_164	36	42.2	trep_peak_085	339	3	firing;licensing
 ODB-SC-0350	Saccharomyces cerevisiae	sacCer3	chrVIII	192468	193668		VIII-193		Unsupported	Likely	no			sc_ori:272	sacCer1	chr8	192459	193659	identical							0	
 ODB-SC-0351	Saccharomyces cerevisiae	sacCer3	chrVIII	197823	199023		VIII-198		Unsupported	Likely	no			sc_ori:870	sacCer1	chr8	197814	199014	identical							0	
-ODB-SC-0352	Saccharomyces cerevisiae	sacCer3	chrVIII	213179	213861	ARS810	VIII-214	proARS810	Confirmed	Confirmed	no		plasmid (ARS assay)	sc_ori:274	sacCer1	chr8	213179	213861	identical				62.8	trep_peak_086	5520	1	licensing
+ODB-SC-0352	Saccharomyces cerevisiae	sacCer3	chrVIII	213179	213861	ARS810	VIII-214	proARS810	Confirmed	Confirmed	yes	Liachko2013_S3:092	plasmid (ARS assay)	sc_ori:274	sacCer1	chr8	213179	213861	identical				62.8	trep_peak_086	5520	1	licensing
 ODB-SC-0353	Saccharomyces cerevisiae	sacCer3	chrVIII	214885	215595		VIII-215	proARS811	Unsupported	Likely	no			sc_ori:785	sacCer1	chr8	214885	215595	identical							1	licensing
 ODB-SC-0354	Saccharomyces cerevisiae	sacCer3	chrVIII	218343	219497		VIII-219	proARS812	Unsupported	Likely	no			sc_ori:275	sacCer1	chr8	218344	219498	identical							0	
 ODB-SC-0355	Saccharomyces cerevisiae	sacCer3	chrVIII	245718	245967	ARS813	VIII-246	proARS813	Confirmed	Confirmed	no		plasmid (ARS assay)	sc_ori:276	sacCer1	chr8	245719	245968	identical	0.5931	McGuffee2013_init_166	217	38.2	trep_peak_087	842	3	firing;licensing
@@ -432,7 +432,7 @@ ODB-SC-0426	Saccharomyces cerevisiae	sacCer3	chrX	167735	174735		X-171		Unsuppor
 ODB-SC-0427	Saccharomyces cerevisiae	sacCer3	chrX	204028	204917	ARS1008	X-204	proARS1008	Confirmed	Confirmed	no		plasmid (ARS assay)	sc_ori:336	sacCer1	chr10	203729	204614	length-changed	0.6838	McGuffee2013_init_184	97				3	firing;licensing
 ODB-SC-0428	Saccharomyces cerevisiae	sacCer3	chrX	205058	220058		X-212		Unsupported	Dubious	yes	sc_cloned_no_ori:137		sc_ori:337	sacCer1	chr10	204755	219755	same-length-mismatch							1	firing
 ODB-SC-0429	Saccharomyces cerevisiae	sacCer3	chrX	228551	229043	ARS1009	X-228	proARS1009	Confirmed	Confirmed	no		plasmid (ARS assay)	sc_ori:338	sacCer1	chr10	228248	228740	identical	0.2832	McGuffee2013_init_185	578	34.9	trep_peak_102	1203	3	firing;licensing
-ODB-SC-0430	Saccharomyces cerevisiae	sacCer3	chrX	248904	249604	ARS1009.5	X-249		Confirmed	Confirmed	no		plasmid (ARS assay)	sc_ori:710	sacCer1	chr10	248600	249300	identical							0	
+ODB-SC-0430	Saccharomyces cerevisiae	sacCer3	chrX	248904	249604	ARS1009.5	X-249		Confirmed	Confirmed	yes	Liachko2013_S3:105	plasmid (ARS assay)	sc_ori:710	sacCer1	chr10	248600	249300	identical							0	
 ODB-SC-0431	Saccharomyces cerevisiae	sacCer3	chrX	268354	269554		X-269		Unsupported	Likely	no			sc_ori:339	sacCer1	chr10	268050	269250	identical							0	
 ODB-SC-0432	Saccharomyces cerevisiae	sacCer3	chrX	298775	299256	ARS1010	X-299	proARS1010	Confirmed	Confirmed	no		plasmid (ARS assay)	sc_ori:340	sacCer1	chr10	298471	298952	identical	0.5612	McGuffee2013_init_186	140	43.7	trep_peak_103	515	3	firing;licensing
 ODB-SC-0433	Saccharomyces cerevisiae	sacCer3	chrX	301737	308737		X-305		Unsupported	Likely	no			sc_ori:341	sacCer1	chr10	301433	308433	identical							0	
@@ -449,7 +449,7 @@ ODB-SC-0443	Saccharomyces cerevisiae	sacCer3	chrX	459336	459895	ARS1017	X-459		C
 ODB-SC-0444	Saccharomyces cerevisiae	sacCer3	chrX	469976	479976		X-475		Unsupported	Likely	no			sc_ori:349	sacCer1	chr10	469670	479670	identical							0	
 ODB-SC-0445	Saccharomyces cerevisiae	sacCer3	chrX	501901	502831	ARS1017.5	X-502		Confirmed	Confirmed	no		plasmid (ARS assay)	sc_ori:350	sacCer1	chr10	501595	502525	identical							0	
 ODB-SC-0446	Saccharomyces cerevisiae	sacCer3	chrX	540545	540780	ARS1018	X-540	proARS1018	Confirmed	Confirmed	no		plasmid (ARS assay)	sc_ori:351	sacCer1	chr10	540239	540474	identical	0.6467	McGuffee2013_init_195	287	32.0	trep_peak_108	1162	3	firing;licensing
-ODB-SC-0447	Saccharomyces cerevisiae	sacCer3	chrX	609303	610053	ARS1018.5	X-609		Confirmed	Confirmed	no		plasmid (ARS assay)	sc_ori:712	sacCer1	chr10	609000	609750	identical							0	
+ODB-SC-0447	Saccharomyces cerevisiae	sacCer3	chrX	609303	610053	ARS1018.5	X-609		Confirmed	Confirmed	yes	Liachko2013_S3:108	plasmid (ARS assay)	sc_ori:712	sacCer1	chr10	609000	609750	identical							0	
 ODB-SC-0448	Saccharomyces cerevisiae	sacCer3	chrX	612845	613278	ARS1019	X-613	proARS1019	Confirmed	Confirmed	no		plasmid (ARS assay)	sc_ori:352	sacCer1	chr10	612542	612975	identical	0.6574	McGuffee2013_init_199	64	32.4	trep_peak_109	61	3	firing;licensing
 ODB-SC-0449	Saccharomyces cerevisiae	sacCer3	chrX	627924	629123		X-628		Unsupported	Dubious	no			sc_ori:845	sacCer1	chr10	627618	628818	length-changed							0	
 ODB-SC-0450	Saccharomyces cerevisiae	sacCer3	chrX	644118	645072		X-644		Unsupported	Likely	no			sc_ori:713	sacCer1	chr10	643813	644767	identical							1	licensing
@@ -504,18 +504,18 @@ ODB-SC-0498	Saccharomyces cerevisiae	sacCer3	chrXI	612240	612473	ARS1120	XI-612	
 ODB-SC-0499	Saccharomyces cerevisiae	sacCer3	chrXI	617038	618499		XI-617	proARS1121	Unsupported	Dubious	yes	sc_cloned_no_ori:159		sc_ori:389	sacCer1	chr11	616672	618133	identical							0	
 ODB-SC-0500	Saccharomyces cerevisiae	sacCer3	chrXI	632373	634747		XI-633	proARS1122	Unsupported	Likely	yes	sc_cloned_no_ori:160		sc_ori:390	sacCer1	chr11	632003	634377	identical							1	licensing
 ODB-SC-0501	Saccharomyces cerevisiae	sacCer3	chrXI	642726	642973	ARS1123	XI-642	proARS1123	Confirmed	Confirmed	no		plasmid (ARS assay)	sc_ori:391	sacCer1	chr11	642355	642602	identical	0.2014	McGuffee2013_init_221	526	45.6	trep_peak_126	2349	3	firing;licensing
-ODB-SC-0502	Saccharomyces cerevisiae	sacCer3	chrXI	658649	666788		XI-662	proARS1124	Unsupported	Likely	no			sc_ori:392	sacCer1	chr11	658278	666417	identical							0	
+ODB-SC-0502	Saccharomyces cerevisiae	sacCer3	chrXI	658649	666788		XI-662	proARS1124	Confirmed	Likely	no		plasmid (ARS assay)	sc_ori:392	sacCer1	chr11	658278	666417	identical							0	
 ODB-SC-0503	Saccharomyces cerevisiae	sacCer3	chrXII	23	2077		XII-1		Unsupported	Likely	no			sc_ori:393	sacCer1	chr12	23	2077	identical							0	
 ODB-SC-0504	Saccharomyces cerevisiae	sacCer3	chrXII	5107	7993		XII-7		Unsupported	Dubious	no			sc_ori:721	sacCer1	chr12	5107	7993	identical							1	licensing
 ODB-SC-0505	Saccharomyces cerevisiae	sacCer3	chrXII	10642	13971		XII-12	proARS1201	Likely	Dubious	no			sc_ori:394	sacCer1	chr12	10642	13971	identical	0.2781	McGuffee2013_init_223	319				2	firing;licensing
 ODB-SC-0834	Saccharomyces cerevisiae	sacCer3	chrXII	12031	13809				Likely		no								not-required							2	firing;licensing
-ODB-SC-0506	Saccharomyces cerevisiae	sacCer3	chrXII	28749	32505		XII-31	proARS1202	Likely	Dubious	no			sc_ori:395	sacCer1	chr12	28749	32505	identical	0.0829	McGuffee2013_init_224	998				2	firing;licensing
+ODB-SC-0506	Saccharomyces cerevisiae	sacCer3	chrXII	28749	32505		XII-31	proARS1202	Confirmed	Dubious	no		plasmid (ARS assay)	sc_ori:395	sacCer1	chr12	28749	32505	identical	0.0829	McGuffee2013_init_224	998				2	firing;licensing
 ODB-SC-0507	Saccharomyces cerevisiae	sacCer3	chrXII	51861	52211	ARS1203	XII-52	proARS1203	Confirmed	Confirmed	no		plasmid (ARS assay)	sc_ori:396	sacCer1	chr12	51860	52210	identical	0.0850	McGuffee2013_init_226	411				2	firing;licensing
 ODB-SC-0508	Saccharomyces cerevisiae	sacCer3	chrXII	70575	72393		XII-71	proARS1204	Unsupported	Dubious	yes	sc_cloned_no_ori:162		sc_ori:397	sacCer1	chr12	70574	72392	identical							0	
 ODB-SC-0509	Saccharomyces cerevisiae	sacCer3	chrXII	76712	77164	ARS1205	XII-77	proARS1205	Confirmed	Confirmed	no		plasmid (ARS assay)	sc_ori:398	sacCer1	chr12	76711	77163	identical							3	firing;licensing
 ODB-SC-0510	Saccharomyces cerevisiae	sacCer3	chrXII	91418	91660	ARS1206	XII-92	proARS1206	Confirmed	Confirmed	no		plasmid (ARS assay)	sc_ori:399	sacCer1	chr12	91417	91659	identical	0.4817	McGuffee2013_init_229	164	32.4	trep_peak_127	39	3	firing;licensing
 ODB-SC-0511	Saccharomyces cerevisiae	sacCer3	chrXII	93167	93660	ARS1206.5	XII-93		Confirmed	Confirmed	no		plasmid (ARS assay)	sc_ori:807	sacCer1	chr12	93166	93659	identical							1	licensing
-ODB-SC-0512	Saccharomyces cerevisiae	sacCer3	chrXII	139294	140448		XII-140	proARS1207	Likely	Dubious	no			sc_ori:400	sacCer1	chr12	139293	140447	identical	0.4164	McGuffee2013_init_230	496				2	firing;licensing
+ODB-SC-0512	Saccharomyces cerevisiae	sacCer3	chrXII	139294	140448		XII-140	proARS1207	Confirmed	Dubious	no		plasmid (ARS assay)	sc_ori:400	sacCer1	chr12	139293	140447	identical	0.4164	McGuffee2013_init_230	496				2	firing;licensing
 ODB-SC-0513	Saccharomyces cerevisiae	sacCer3	chrXII	150915	151422	ARS1208	XII-151	CEN12 ARS	Confirmed	Confirmed	no		plasmid (ARS assay)	sc_ori:401	sacCer1	chr12	150914	151421	identical							1	licensing
 ODB-SC-0514	Saccharomyces cerevisiae	sacCer3	chrXII	156647	156884	ARS1209	XII-157	proARS1209	Confirmed	Confirmed	no		plasmid (ARS assay)	sc_ori:402	sacCer1	chr12	156646	156883	identical	0.5461	McGuffee2013_init_231	140	33.3	trep_peak_128	235	3	firing;licensing
 ODB-SC-0515	Saccharomyces cerevisiae	sacCer3	chrXII	170109	171309		XII-171		Unsupported	Dubious	no			sc_ori:848	sacCer1	chr12	170108	171308	identical							0	
@@ -576,7 +576,7 @@ ODB-SC-0568	Saccharomyces cerevisiae	sacCer3	chrXII	1042802	1043956		XII-1043		U
 ODB-SC-0569	Saccharomyces cerevisiae	sacCer3	chrXII	1052308	1059308		XII-1056		Likely	Likely	no			sc_ori:783	sacCer1	chr12	1052304	1059304	identical							2	licensing
 ODB-SC-0570	Saccharomyces cerevisiae	sacCer3	chrXII	1059490	1059923	ARS1235	XII-1060	proARS1235	Confirmed	Confirmed	no		plasmid (ARS assay)	sc_ori:449	sacCer1	chr12	1059486	1059919	identical							2	licensing
 ODB-SC-0571	Saccharomyces cerevisiae	sacCer3	chrXII	1062402	1065756		XII-1064	proARS1236	Likely	Likely	no			sc_ori:450	sacCer1	chr12	1062398	1065752	identical	0.3030	McGuffee2013_init_262	704				2	firing;licensing
-ODB-SC-0572	Saccharomyces cerevisiae	sacCer3	chrXII	1070202	1071956		XII-1071	proARS1237	Unsupported	Likely	no			sc_ori:451	sacCer1	chr12	1070198	1071952	identical							1	licensing
+ODB-SC-0572	Saccharomyces cerevisiae	sacCer3	chrXII	1070202	1071956		XII-1071	proARS1237	Confirmed	Likely	no		plasmid (ARS assay)	sc_ori:451	sacCer1	chr12	1070198	1071952	identical							1	licensing
 ODB-SC-0573	Saccharomyces cerevisiae	sacCer3	chrXII	1077202	1078106		XII-1078		Unsupported	Dubious	no			sc_ori:730	sacCer1	chr12	1077198	1078102	identical							0	
 ODB-SC-0574	Saccharomyces cerevisiae	sacCer3	chrXIII	23	1261		XIII-1		Unsupported	Likely	no			sc_ori:731	sacCer1	chr13	23	1261	identical							0	
 ODB-SC-0575	Saccharomyces cerevisiae	sacCer3	chrXIII	4983	7702		XIII-6	proARS1301	Likely	Likely	no			sc_ori:452	sacCer1	chr13	4983	7702	identical							2	licensing
@@ -692,7 +692,7 @@ ODB-SC-0684	Saccharomyces cerevisiae	sacCer3	chrXIV	769974	776974		XIV-773		Unsu
 ODB-SC-0685	Saccharomyces cerevisiae	sacCer3	chrXIV	781458	784292		XIV-783	proARS1430	Unsupported	Likely	no			sc_ori:540	sacCer1	chr14	781453	784287	identical							0	
 ODB-SC-0686	Saccharomyces cerevisiae	sacCer3	chrXV	23	2646		XV-1	proARS1503	Unsupported	Likely	no			sc_ori:541	sacCer1	chr15	23	2646	identical							0	
 ODB-SC-0687	Saccharomyces cerevisiae	sacCer3	chrXV	9762	12673		XV-11	proARS1504, proARS1505	Unsupported	Likely	no			sc_ori:542	sacCer1	chr15	9761	12672	identical							1	licensing
-ODB-SC-0688	Saccharomyces cerevisiae	sacCer3	chrXV	18368	20228		XV-19	proARS1506	Likely	Likely	no			sc_ori:544	sacCer1	chr15	18367	20227	identical							2	licensing
+ODB-SC-0688	Saccharomyces cerevisiae	sacCer3	chrXV	18368	20228		XV-19	proARS1506	Confirmed	Likely	no		plasmid (ARS assay)	sc_ori:544	sacCer1	chr15	18367	20227	identical							2	licensing
 ODB-SC-0689	Saccharomyces cerevisiae	sacCer3	chrXV	22524	24676		XV-24		Unsupported	Likely	no			sc_ori:744	sacCer1	chr15	22523	24675	identical							0	
 ODB-SC-0690	Saccharomyces cerevisiae	sacCer3	chrXV	35668	35904	ARS1506.5	XV-36	ARS1531	Confirmed	Confirmed	no		plasmid (ARS assay)	sc_ori:545	sacCer1	chr15	35667	35903	same-length-mismatch	0.4043	McGuffee2013_init_318	339	35.0	trep_peak_172	214	3	firing;licensing
 ODB-SC-0691	Saccharomyces cerevisiae	sacCer3	chrXV	37751	52752		XV-45		Unsupported	Dubious	no			sc_ori:649	sacCer1	chr15	37750	52750	length-changed							0	
@@ -702,7 +702,7 @@ ODB-SC-0694	Saccharomyces cerevisiae	sacCer3	chrXV	85196	85445	ARS1508	XV-85	pro
 ODB-SC-0695	Saccharomyces cerevisiae	sacCer3	chrXV	103254	104168		XV-104		Unsupported	Likely	no			sc_ori:745	sacCer1	chr15	103253	104167	identical							0	
 ODB-SC-0696	Saccharomyces cerevisiae	sacCer3	chrXV	113844	114085	ARS1509	XV-114	proARS1509	Confirmed	Confirmed	no		plasmid (ARS assay)	sc_ori:549	sacCer1	chr15	113843	114084	identical	0.6376	McGuffee2013_init_321	339				3	firing;licensing
 ODB-SC-0697	Saccharomyces cerevisiae	sacCer3	chrXV	128923	130183	ARS1509.3	XV-130		Confirmed	Confirmed	no		plasmid (ARS assay)	sc_ori:784	sacCer1	chr15	128922	130182	identical							0	
-ODB-SC-0698	Saccharomyces cerevisiae	sacCer3	chrXV	154973	155463	ARS1509.5	XV-155		Confirmed	Confirmed	no		plasmid (ARS assay)	sc_ori:550	sacCer1	chr15	154972	155462	identical							1	licensing
+ODB-SC-0698	Saccharomyces cerevisiae	sacCer3	chrXV	154973	155463	ARS1509.5	XV-155		Confirmed	Confirmed	yes	Liachko2013_S3:145	plasmid (ARS assay)	sc_ori:550	sacCer1	chr15	154972	155462	identical							1	licensing
 ODB-SC-0699	Saccharomyces cerevisiae	sacCer3	chrXV	159204	160568		XV-160		Unsupported	Dubious	yes	sc_cloned_no_ori:202		sc_ori:746	sacCer1	chr15	159203	160567	identical							0	
 ODB-SC-0700	Saccharomyces cerevisiae	sacCer3	chrXV	166975	167221	ARS1510	XV-167	proARS1510	Confirmed	Confirmed	no		plasmid (ARS assay)	sc_ori:551	sacCer1	chr15	166974	167220	identical	0.5849	McGuffee2013_init_322	27	33.4	trep_peak_174	598	3	firing;licensing
 ODB-SC-0701	Saccharomyces cerevisiae	sacCer3	chrXV	227483	228119	ARS1510.5	XV-228		Confirmed	Confirmed	no		plasmid (ARS assay)	sc_ori:552	sacCer1	chr15	227481	228117	identical	0.6832	McGuffee2013_init_324	176	34.0	trep_peak_175	199	3	firing;licensing
@@ -712,7 +712,7 @@ ODB-SC-0704	Saccharomyces cerevisiae	sacCer3	chrXV	277529	277778	ARS1511	XV-278	
 ODB-SC-0705	Saccharomyces cerevisiae	sacCer3	chrXV	308969	309462	ARS1512	XV-309	proARS1512	Confirmed	Confirmed	no		plasmid (ARS assay)	sc_ori:555	sacCer1	chr15	308969	309462	identical	0.2873	McGuffee2013_init_328	410	36.6	trep_peak_177	285	3	firing;licensing
 ODB-SC-0706	Saccharomyces cerevisiae	sacCer3	chrXV	331493	332707		XV-332		Unsupported	Likely	no			sc_ori:747	sacCer1	chr15	331493	332707	identical							0	
 ODB-SC-0707	Saccharomyces cerevisiae	sacCer3	chrXV	337279	337528	ARS1513	XV-337	proARS1513	Confirmed	Confirmed	no		plasmid (ARS assay)	sc_ori:556	sacCer1	chr15	337279	337528	identical	0.4591	McGuffee2013_init_330	28	31.7	trep_peak_178	97	3	firing;licensing
-ODB-SC-0708	Saccharomyces cerevisiae	sacCer3	chrXV	347634	348863		XV-348		Likely	Likely	no			sc_ori:748	sacCer1	chr15	347633	348862	identical	0.0854	McGuffee2013_init_331	373				2	firing;licensing
+ODB-SC-0708	Saccharomyces cerevisiae	sacCer3	chrXV	347634	348863		XV-348		Confirmed	Likely	no		plasmid (ARS assay)	sc_ori:748	sacCer1	chr15	347633	348862	identical	0.0854	McGuffee2013_init_331	373				2	firing;licensing
 ODB-SC-0709	Saccharomyces cerevisiae	sacCer3	chrXV	353744	354888		XV-354		Unsupported	Likely	no			sc_ori:557	sacCer1	chr15	353743	354887	identical							0	
 ODB-SC-0710	Saccharomyces cerevisiae	sacCer3	chrXV	371694	372628		XV-372		Unsupported	Likely	no			sc_ori:749	sacCer1	chr15	371693	372627	identical							1	licensing
 ODB-SC-0711	Saccharomyces cerevisiae	sacCer3	chrXV	397774	399038		XV-398		Unsupported	Likely	no			sc_ori:750	sacCer1	chr15	397773	399037	identical							0	
@@ -788,7 +788,7 @@ ODB-SC-0777	Saccharomyces cerevisiae	sacCer3	chrXVI	273919	274963		XVI-274		Unsu
 ODB-SC-0778	Saccharomyces cerevisiae	sacCer3	chrXVI	289484	289705	ARS1614	XVI-290	proARS1614	Confirmed	Confirmed	no		plasmid (ARS assay)	sc_ori:606	sacCer1	chr16	289483	289704	identical	0.6787	McGuffee2013_init_363	31	34.1	trep_peak_201	406	3	firing;licensing
 ODB-SC-0779	Saccharomyces cerevisiae	sacCer3	chrXVI	297814	299288		XVI-299		Unsupported	Likely	no			sc_ori:765	sacCer1	chr16	297813	299287	identical							1	licensing
 ODB-SC-0780	Saccharomyces cerevisiae	sacCer3	chrXVI	303434	305028		XVI-304	proARS1615	Unsupported	Likely	no			sc_ori:607	sacCer1	chr16	303433	305027	identical							1	licensing
-ODB-SC-0781	Saccharomyces cerevisiae	sacCer3	chrXVI	316744	318398		XVI-318	proARS1616	Unsupported	Likely	no			sc_ori:608	sacCer1	chr16	316743	318397	identical							1	licensing
+ODB-SC-0781	Saccharomyces cerevisiae	sacCer3	chrXVI	316744	318398		XVI-318	proARS1616	Confirmed	Likely	no		plasmid (ARS assay)	sc_ori:608	sacCer1	chr16	316743	318397	identical							1	licensing
 ODB-SC-0782	Saccharomyces cerevisiae	sacCer3	chrXVI	319001	329001		XVI-324		Unsupported	Likely	no			sc_ori:868	sacCer1	chr16	319000	329000	identical							0	
 ODB-SC-0783	Saccharomyces cerevisiae	sacCer3	chrXVI	331679	332075	ARS1617	XVI-332	proARS1617	Confirmed	Confirmed	no		plasmid (ARS assay)	sc_ori:609	sacCer1	chr16	331678	332074	identical	0.1969	McGuffee2013_init_364	498	44.4	trep_peak_202	877	3	firing;licensing
 ODB-SC-0784	Saccharomyces cerevisiae	sacCer3	chrXVI	355138	362138		XVI-359		Unsupported	Dubious	no			sc_ori:610	sacCer1	chr16	355133	362133	identical							0	
@@ -798,7 +798,7 @@ ODB-SC-0787	Saccharomyces cerevisiae	sacCer3	chrXVI	384541	384789	ARS1618	XVI-38
 ODB-SC-0788	Saccharomyces cerevisiae	sacCer3	chrXVI	414037	416077	ARS1618.5	XVI-415		Confirmed	Confirmed	no		plasmid (ARS assay)	sc_ori:645	sacCer1	chr16	414032	416072	identical							1	licensing
 ODB-SC-0789	Saccharomyces cerevisiae	sacCer3	chrXVI	418137	418364	ARS1619	XVI-418	proARS1619	Confirmed	Confirmed	no		plasmid (ARS assay)	sc_ori:612	sacCer1	chr16	418132	418359	identical	0.6891	McGuffee2013_init_367	125	32.7	trep_peak_204	250	3	firing;licensing
 ODB-SC-0790	Saccharomyces cerevisiae	sacCer3	chrXVI	422286	423385		XVI-423	proARS1620	Unsupported	Dubious	yes	sc_cloned_no_ori:216		sc_ori:613	sacCer1	chr16	422281	423380	identical							0	
-ODB-SC-0791	Saccharomyces cerevisiae	sacCer3	chrXVI	427278	428762		XVI-428		Unsupported	Likely	no			sc_ori:768	sacCer1	chr16	427273	428757	identical							1	licensing
+ODB-SC-0791	Saccharomyces cerevisiae	sacCer3	chrXVI	427278	428762		XVI-428		Confirmed	Likely	no		plasmid (ARS assay)	sc_ori:768	sacCer1	chr16	427273	428757	identical							1	licensing
 ODB-SC-0792	Saccharomyces cerevisiae	sacCer3	chrXVI	439118	441377		XVI-440		Unsupported	Likely	no			sc_ori:614	sacCer1	chr16	439113	441372	identical							0	
 ODB-SC-0793	Saccharomyces cerevisiae	sacCer3	chrXVI	453663	454632		XVI-454		Unsupported	Likely	no			sc_ori:769	sacCer1	chr16	453658	454627	identical				39.3	trep_peak_205	853	0	
 ODB-SC-0794	Saccharomyces cerevisiae	sacCer3	chrXVI	456562	456810	ARS1620.5	XVI-457	ARS1633	Confirmed	Confirmed	no		plasmid (ARS assay)	sc_ori:615	sacCer1	chr16	456557	456805	identical							2	licensing

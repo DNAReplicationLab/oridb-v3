@@ -44,6 +44,9 @@ require ORIDB_APP_DIR . '/header.php';
       &mdash; a design note rather than a method: what embedding a limited JBrowse view
       would require, what each route costs in bytes, and how the page should be sectioned
       so that adding it does not make the page unreadable.</li>
+  <li><a href="https://github.com/DNAReplicationLab/oridb-v3/blob/main/docs/liachko2013-review.md">Liachko et al. 2013, reviewed</a> &mdash; the
+      manual ARS assays and assay strengths now in the evidence table, the origins whose
+      earlier positive was not reproduced, and what ARS-seq would add.</li>
 </ul>
 
 <h2>How the site is built</h2>

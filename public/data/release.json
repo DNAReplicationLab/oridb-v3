@@ -1,8 +1,70 @@
 {
   "release": "3.0.0-trial.1",
   "generated": "2026-11-21",
-  "description": "OriDB v3.0: every origin OriDB v2 held, carried forward with its evidence records, with the tier recomputed from modern data.",
-  "inclusion_rule": "An origin is Confirmed if its interval overlaps at least one plasmid (ARS) assay positive or one 2D gel electrophoresis record. The remaining tiers are set by bin/build_tiers.py from the evidence matrix; see docs/tier-rebuild.md.",
+  "description": "OriDB v3.0: every origin OriDB v2 held, carried forward with its evidence records, with ARS assays published since added, and with the tier recomputed from modern data.",
+  "inclusion_rule": "An origin is Confirmed if its interval overlaps at least one plasmid (ARS) assay positive or one 2D gel electrophoresis record, whether that record comes from OriDB v2 or from the assays curated since. The remaining tiers are set by bin/build_tiers.py from the evidence matrix; see docs/tier-rebuild.md.",
+  "curated_assays": {
+    "file": "reference/curated_ars_assays.tsv",
+    "n": 160,
+    "n_positive": 88,
+    "n_negative": 72,
+    "n_attached_to_a_site": 123,
+    "n_negative_without_a_site": 36,
+    "held": [
+      "Liachko2013_S3:138"
+    ],
+    "sites_confirmed": [
+      "ODB-SC-0021",
+      "ODB-SC-0231",
+      "ODB-SC-0269",
+      "ODB-SC-0502",
+      "ODB-SC-0506",
+      "ODB-SC-0512",
+      "ODB-SC-0572",
+      "ODB-SC-0688",
+      "ODB-SC-0708",
+      "ODB-SC-0781",
+      "ODB-SC-0791"
+    ],
+    "sites_retested_negative": [
+      "ODB-SC-0011",
+      "ODB-SC-0020",
+      "ODB-SC-0035",
+      "ODB-SC-0046",
+      "ODB-SC-0053",
+      "ODB-SC-0063",
+      "ODB-SC-0071",
+      "ODB-SC-0075",
+      "ODB-SC-0080",
+      "ODB-SC-0092",
+      "ODB-SC-0120",
+      "ODB-SC-0138",
+      "ODB-SC-0170",
+      "ODB-SC-0173",
+      "ODB-SC-0179",
+      "ODB-SC-0211",
+      "ODB-SC-0213",
+      "ODB-SC-0224",
+      "ODB-SC-0237",
+      "ODB-SC-0284",
+      "ODB-SC-0343",
+      "ODB-SC-0352",
+      "ODB-SC-0389",
+      "ODB-SC-0430",
+      "ODB-SC-0447",
+      "ODB-SC-0698"
+    ],
+    "strength": {
+      "file": "reference/ars_assay_strength.tsv",
+      "values": [
+        "strong",
+        "weak",
+        "very weak"
+      ],
+      "n_v2_records_annotated": 42,
+      "n_records_with_a_strength": 133
+    }
+  },
   "assemblies": {
     "ASM294v2": {
       "species": "Schizosaccharomyces pombe",
@@ -20,20 +82,20 @@
   "coordinate_convention": "1-based, fully closed intervals",
   "files": {
     "origins.tsv": {
-      "md5": "c08742ce60caff0a5abe2ada14dc3067",
+      "md5": "33cb8e3c99b458c185a1b40536f0f862",
       "rows": 1580
     },
     "evidence.tsv": {
-      "md5": "8275a084e2cd9a5cf4fb4fe7634372e2",
-      "rows": 694
+      "md5": "65bc78101ab40e32ad09a3018adf4f01",
+      "rows": 822
     },
     "studies.tsv": {
-      "md5": "6a7eeec023ea21b43b7f82e316ab937c",
-      "rows": 55
+      "md5": "559fb44f88da59392d33723b3e2456d1",
+      "rows": 56
     },
     "refuted_fragments.tsv": {
-      "md5": "5dc2fbfbacdffb7f0e0e226ad22d0795",
-      "rows": 224
+      "md5": "1074e1015bedb9a2528c2cd9a673a89e",
+      "rows": 296
     },
     "elements.tsv": {
       "md5": "fb9ec99262895e695e6312f1c5f6676a",
@@ -54,6 +116,10 @@
       "sc_ori",
       "sp_2D_gel",
       "sp_ori"
+    ],
+    "curated_files": [
+      "reference/curated_ars_assays.tsv",
+      "reference/ars_assay_strength.tsv"
     ]
   },
   "known_issues": [
@@ -96,17 +162,56 @@
       ]
     },
     {
+      "text": "26 Confirmed origins were re-tested on a fragment covering the whole site and did not support plasmid replication. The earlier positive and the later negative are both recorded, the site carries the ARS-negative flag, and the tier is unchanged: whether such a site should remain Confirmed has not been decided. The assays differ (vector, host strain), and several of the earlier positives were themselves graded weak or very weak. The origins are:",
+      "accessions": [
+        "ODB-SC-0011",
+        "ODB-SC-0020",
+        "ODB-SC-0035",
+        "ODB-SC-0046",
+        "ODB-SC-0053",
+        "ODB-SC-0063",
+        "ODB-SC-0071",
+        "ODB-SC-0075",
+        "ODB-SC-0080",
+        "ODB-SC-0092",
+        "ODB-SC-0120",
+        "ODB-SC-0138",
+        "ODB-SC-0170",
+        "ODB-SC-0173",
+        "ODB-SC-0179",
+        "ODB-SC-0211",
+        "ODB-SC-0213",
+        "ODB-SC-0224",
+        "ODB-SC-0237",
+        "ODB-SC-0284",
+        "ODB-SC-0343",
+        "ODB-SC-0352",
+        "ODB-SC-0389",
+        "ODB-SC-0430",
+        "ODB-SC-0447",
+        "ODB-SC-0698"
+      ]
+    },
+    {
+      "text": "Held back from curated_ars_assays.tsv: Liachko2013_S3:138 (chrXIV:443296-443971 on sacCer1, positive, strong) - Strong positive at no OriDB site: no ARS-seq contig, no Ok-seq peak, best Foss MCM rank within 500 bp is 1,727. Held back by curator decision (21 Nov 2026) until the locus has been reviewed; no site is created.",
+      "accessions": []
+    },
+    {
       "text": "OriDB intervals and the ARS features SGD and UCSC show for sacCer3 should describe the same object - the assayed fragment - and mostly they differ in a way that looks like a coordinate error rather than biology. Of the 410 Confirmed cerevisiae origins, 293 overlap a replication-origin feature in UCSC's sgdOther table for sacCer3. 258 of those pairs share an IDENTICAL end coordinate and differ only at the start: 244 by exactly 2 bp and 14 by 1 bp, with the SGD feature always starting inside the OriDB interval. For 194 of the 2 bp cases the OriDB start is the position of a PCR primer located in the genome by its own sequence, so the SGD feature begins two bases inside the primer that defined the fragment. This has not been confirmed with SGD and should be raised with them before either set is treated as authoritative at base resolution. Separately, 117 Confirmed origins have no SGD origin feature and 81 SGD origin features overlap no Confirmed origin.",
       "accessions": []
     },
     {
-      "text": "179 lifted cerevisiae intervals do not have identical sequence in sacCer3 - substitutions, or an indel that changes interval length. Each mapping was checked and is correctly placed; it is the 2003 assembly sequence that was revised. Intervals whose length changed are worth a curator review. The origins affected are:",
+      "text": "192 lifted cerevisiae intervals do not have identical sequence in sacCer3 - substitutions, or an indel that changes interval length. Each mapping was checked and is correctly placed; it is the 2003 assembly sequence that was revised. Intervals whose length changed are worth a curator review. The origins affected are:",
       "accessions": [
+        "Liachko2013_S3:024",
+        "Liachko2013_S3:054",
+        "Liachko2013_S3:104",
         "ODB-SC-0002",
         "ODB-SC-0007",
         "ODB-SC-0009",
         "ODB-SC-0014",
         "ODB-SC-0017",
+        "ODB-SC-0021",
         "ODB-SC-0025",
         "ODB-SC-0027",
         "ODB-SC-0028",
@@ -253,9 +358,9 @@
     "tool": "pyliftover",
     "sequence_verified": true,
     "record_counts": {
-      "identical": 1518,
-      "length-changed": 102,
-      "same-length-mismatch": 77
+      "identical": 1705,
+      "length-changed": 108,
+      "same-length-mismatch": 84
     },
     "note": "Systematic names are NOT recomputed. They are coordinate-derived labels from the v2 build and are cited as such in the literature, so they stay fixed; a name like X-212 therefore need not match the lifted midpoint."
   },
@@ -562,16 +667,16 @@
       ]
     },
     "counts": {
-      "Saccharomyces cerevisiae | Confirmed": 413,
-      "Saccharomyces cerevisiae | Likely": 40,
-      "Saccharomyces cerevisiae | Unsupported": 386,
+      "Saccharomyces cerevisiae | Confirmed": 424,
+      "Saccharomyces cerevisiae | Likely": 35,
+      "Saccharomyces cerevisiae | Unsupported": 380,
       "Schizosaccharomyces pombe | Confirmed": 48,
       "Schizosaccharomyces pombe | Not assessed": 693
     },
     "refuted": {
-      "n_fragments": 224,
-      "n_fragments_without_a_site": 76,
-      "n_sites_flagged": 121
+      "n_fragments": 296,
+      "n_fragments_without_a_site": 112,
+      "n_sites_flagged": 147
     }
   }
 }

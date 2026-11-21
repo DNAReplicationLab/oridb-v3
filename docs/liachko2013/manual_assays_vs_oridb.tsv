@@ -1,0 +1,161 @@
+assay	chromosome	start	end	result	strength	sites	site_names	tier_before	tier_after	disposition	assigned_explicitly	sacCer1_chromosome	sacCer1_start	sacCer1_end	note
+Liachko2013_S3:001	chrI	6136	7135	positive	very weak	ODB-SC-0002	ARS102.5	Confirmed	Confirmed	positive record added to a Confirmed site		chrI	6136	7136	
+Liachko2013_S3:002	chrI	7997	8547	positive	very weak	ODB-SC-0003	ARS103	Confirmed	Confirmed	positive record added to a Confirmed site		chrI	7998	8548	
+Liachko2013_S3:003	chrI	136898	137898	negative		ODB-SC-0011	ARS107.5	Confirmed	Confirmed	negative on the whole site: recorded, ARS-negative flag set		chrI	136900	137900	
+Liachko2013_S3:004	chrI	214888	215644	positive	strong	ODB-SC-0018	ARS111	Confirmed	Confirmed	positive record added to a Confirmed site		chrI	214879	215635	
+Liachko2013_S3:005	chrI	222880	224046	positive	very weak	ODB-SC-0019	ARS112	Confirmed	Confirmed	positive record added to a Confirmed site		chrI	222871	224037	
+Liachko2013_S3:006	chrI	226109	227009	negative		ODB-SC-0020	ARS113	Confirmed	Confirmed	negative on the whole site: recorded, ARS-negative flag set		chrI	226100	227000	
+Liachko2013_S3:007	chrI	229387	229699	positive	strong	ODB-SC-0021		Unsupported	Confirmed	site promoted to Confirmed		chrI	229378	229689	
+Liachko2013_S3:008	chrII	152577	152945	negative						negative fragment at no site		chrII	152539	152907	
+Liachko2013_S3:009	chrII	177567	177915	negative		ODB-SC-0035	ARS207.1	Confirmed	Confirmed	negative on the whole site: recorded, ARS-negative flag set		chrII	177529	177877	
+Liachko2013_S3:010	chrII	208130	208379	negative						negative fragment at no site		chrII	208091	208340	
+Liachko2013_S3:011	chrII	283056	283954	negative		ODB-SC-0046	ARS210.5	Confirmed	Confirmed	negative on the whole site: recorded, ARS-negative flag set		chrII	283015	283913	
+Liachko2013_S3:012	chrII	378475	379235	negative		ODB-SC-0053	ARS212	Confirmed	Confirmed	negative on the whole site: recorded, ARS-negative flag set		chrII	378434	379194	
+Liachko2013_S3:013	chrII	417426	418061	positive	very weak	ODB-SC-0056	ARS215	Confirmed	Confirmed	positive record added to a Confirmed site		chrII	417382	418017	
+Liachko2013_S3:014	chrII	440903	441741	positive	very weak	ODB-SC-0057	ARS215.5	Confirmed	Confirmed	positive record added to a Confirmed site		chrII	440859	441697	
+Liachko2013_S3:015	chrII	486672	486746	negative		ODB-SC-0059	ARS216	Confirmed	Confirmed	negative on part of a site: recorded, no flag		chrII	486627	486701	
+Liachko2013_S3:016	chrII	486869	486929	positive	weak	ODB-SC-0059	ARS216	Confirmed	Confirmed	positive record added to a Confirmed site		chrII	486824	486884	
+Liachko2013_S3:017	chrII	539182	539744	negative		ODB-SC-0063	ARS218	Confirmed	Confirmed	negative on the whole site: recorded, ARS-negative flag set		chrII	539137	539699	
+Liachko2013_S3:018	chrII	621878	623285	positive	strong	ODB-SC-0068	ARS220	Confirmed	Confirmed	positive record added to a Confirmed site		chrII	621833	623240	
+Liachko2013_S3:019	chrII	631979	632291	positive	weak	ODB-SC-0070	ARS221	Confirmed	Confirmed	positive record added to a Confirmed site		chrII	631934	632246	
+Liachko2013_S3:020	chrII	675992	676712	negative		ODB-SC-0071	ARS221.5	Confirmed	Confirmed	negative on the whole site: recorded, ARS-negative flag set		chrII	675947	676667	
+Liachko2013_S3:021	chrII	707203	708307	positive	weak	ODB-SC-0074	ARS222.5	Confirmed	Confirmed	positive record added to a Confirmed site		chrII	707158	708262	
+Liachko2013_S3:022	chrII	720646	721083	negative		ODB-SC-0075	ARS223	Confirmed	Confirmed	negative on the whole site: recorded, ARS-negative flag set		chrII	720601	721038	
+Liachko2013_S3:023	chrII	757436	757667	positive	very weak	ODB-SC-0078	ARS225	Confirmed	Confirmed	positive record added to a Confirmed site		chrII	757390	757621	
+Liachko2013_S3:024	chrII	773964	774394	negative		ODB-SC-0080	ARS227	Confirmed	Confirmed	negative on the whole site: recorded, ARS-negative flag set		chrII	773918	774348	
+Liachko2013_S3:025	chrII	791821	792037	negative						negative fragment at no site		chrII	791774	791990	
+Liachko2013_S3:026	chrII	792217	792310	positive	strong	ODB-SC-0081	ARS228	Confirmed	Confirmed	positive record added to a Confirmed site		chrII	792170	792262	
+Liachko2013_S3:027	chrII	796307	797210	positive	very weak	ODB-SC-0082	ARS228.5	Confirmed	Confirmed	positive record added to a Confirmed site		chrII	796259	797162	
+Liachko2013_S3:028	chrII	802137	802722	positive	strong	ODB-SC-0083	ARS229	Confirmed	Confirmed	positive record added to a Confirmed site		chrII	802089	802674	
+Liachko2013_S3:029	chrIII	13802	15620	positive	strong	ODB-SC-0088;ODB-SC-0089;ODB-SC-0090;ODB-SC-0091	ARS302;ARS302;ARS303;ARS320	Confirmed;Confirmed;Confirmed;Confirmed	Confirmed;Confirmed;Confirmed;Confirmed	positive record added to a Confirmed site		chrIII	13802	15620	
+Liachko2013_S3:030	chrIII	30199	30657	negative		ODB-SC-0092	ARS304	Confirmed	Confirmed	negative on the whole site: recorded, ARS-negative flag set		chrIII	30199	30657	
+Liachko2013_S3:031	chrIII	74152	74681	positive	strong	ODB-SC-0095	ARS306	Confirmed	Confirmed	positive record added to a Confirmed site		chrIII	74152	74681	
+Liachko2013_S3:032	chrIII	311469	311816	negative						negative fragment at no site		chrIII	311462	311809	
+Liachko2013_S3:033	chrIV	736	2433	positive	strong	ODB-SC-0117	ARS400	Confirmed	Confirmed	positive record added to a Confirmed site		chrIV	736	2433	
+Liachko2013_S3:034	chrIV	15492	15739	positive	weak	ODB-SC-0119	ARS403	Confirmed	Confirmed	positive record added to a Confirmed site		chrIV	15492	15739	
+Liachko2013_S3:035	chrIV	21265	22262	negative		ODB-SC-0120	ARS402.5	Confirmed	Confirmed	negative on the whole site: recorded, ARS-negative flag set		chrIV	21265	22262	
+Liachko2013_S3:036	chrIV	100379	101354	positive	very weak	ODB-SC-0125	ARS405.5	Confirmed	Confirmed	positive record added to a Confirmed site		chrIV	100380	101355	
+Liachko2013_S3:037	chrIV	235936	236185	positive	strong	ODB-SC-0133	ARS409.5	Confirmed	Confirmed	positive record added to a Confirmed site		chrIV	235935	236184	
+Liachko2013_S3:038	chrIV	350836	351805	negative		ODB-SC-0138	ARS413.5	Confirmed	Confirmed	negative on the whole site: recorded, ARS-negative flag set		chrIV	350835	351804	
+Liachko2013_S3:039	chrIV	452770	452889	negative						negative fragment at no site		chrIV	452766	452885	
+Liachko2013_S3:040	chrIV	464713	466500	negative						negative fragment at no site		chrIV	464709	466496	
+Liachko2013_S3:041	chrIV	748339	748699	positive	strong	ODB-SC-0158	ARS422.5	Confirmed	Confirmed	positive record added to a Confirmed site		chrIV	748332	748692	
+Liachko2013_S3:042	chrIV	903833	904664	negative		ODB-SC-0170	ARS427.5	Confirmed	Confirmed	negative on the whole site: recorded, ARS-negative flag set		chrIV	903824	904655	
+Liachko2013_S3:043	chrIV	942992	943984	negative		ODB-SC-0173	ARS429.5	Confirmed	Confirmed	negative on the whole site: recorded, ARS-negative flag set		chrIV	942983	943975	
+Liachko2013_S3:044	chrIV	951178	951316	negative						negative fragment at no site		chrIV	951169	951307	
+Liachko2013_S3:045	chrIV	1033078	1034191	negative		ODB-SC-0179	ARS430.5	Confirmed	Confirmed	negative on the whole site: recorded, ARS-negative flag set		chrIV	1033069	1034182	
+Liachko2013_S3:046	chrIV	1159261	1159510	positive	weak	ODB-SC-0184	ARS432	Confirmed	Confirmed	positive record added to a Confirmed site		chrIV	1159250	1159499	
+Liachko2013_S3:047	chrIV	1276224	1276452	positive	strong	ODB-SC-0189	ARS434	Confirmed	Confirmed	positive record added to a Confirmed site		chrIV	1276212	1276440	
+Liachko2013_S3:048	chrIV	1404289	1404524	positive	strong	ODB-SC-0197	ARS440	Confirmed	Confirmed	positive record added to a Confirmed site		chrIV	1404277	1404512	
+Liachko2013_S3:049	chrIV	1447483	1447515	positive	weak	ODB-SC-0199	ARS441	Confirmed	Confirmed	positive record added to a Confirmed site		chrIV	1447471	1447503	
+Liachko2013_S3:050	chrIV	1486917	1487161	positive	very weak	ODB-SC-0204	ARS446	Confirmed	Confirmed	positive record added to a Confirmed site		chrIV	1486905	1487149	
+Liachko2013_S3:051	chrIV	1502157	1504038	positive	strong	ODB-SC-0206	ARS447	Confirmed	Confirmed	positive record added to a Confirmed site	yes	chrIV	1502145	1504025	The fragment contains ARS447 and its ACS (chr4:1502756-1502788 in Table S4). It also overlaps the edge of ODB-SC-0205 by 147 bp, which it does not test, so it is assigned to ARS447 only.
+Liachko2013_S3:052	chrV	4097	4185	negative		ODB-SC-0211	ARS502	Confirmed	Confirmed	negative on the whole site: recorded, ARS-negative flag set		chrV	4097	4185	
+Liachko2013_S3:053	chrV	6377	6453	positive	weak	ODB-SC-0212	ARS503	Confirmed	Confirmed	positive record added to a Confirmed site	yes	chrV	6377	6453	Table S4 of the paper lists this fragment as the miniARS-seq functional core of ARS503. It lies 11 bp outside the OriDB interval for ARS503, so it is assigned explicitly; the interval of ARS503 needs curator review.
+Liachko2013_S3:054	chrV	8786	10019	negative		ODB-SC-0213	ARS504	Confirmed	Confirmed	negative on the whole site: recorded, ARS-negative flag set		chrV	8786	10019	
+Liachko2013_S3:055	chrV	70087	70198	negative						negative fragment at no site		chrV	70087	70198	
+Liachko2013_S3:056	chrV	145677	145840	positive	very weak	ODB-SC-0220	ARS510	Confirmed	Confirmed	positive record added to a Confirmed site		chrV	145676	145839	
+Liachko2013_S3:057	chrV	192494	192927	negative		ODB-SC-0224	ARS511.5	Confirmed	Confirmed	negative on the whole site: recorded, ARS-negative flag set		chrV	192493	192926	
+Liachko2013_S3:058	chrV	276129	276528	positive	very weak	ODB-SC-0227	ARS513.5	Confirmed	Confirmed	positive record added to a Confirmed site		chrV	276127	276526	
+Liachko2013_S3:059	chrV	278075	278357	positive	weak	ODB-SC-0228	ARS513.7	Confirmed	Confirmed	positive record added to a Confirmed site		chrV	278073	278355	
+Liachko2013_S3:060	chrV	316199	317313	positive	strong	ODB-SC-0231		Likely	Confirmed	site promoted to Confirmed		chrV	316195	317309	
+Liachko2013_S3:061	chrV	442416	442735	negative		ODB-SC-0237	ARS519	Confirmed	Confirmed	negative on the whole site: recorded, ARS-negative flag set		chrV	442412	442731	
+Liachko2013_S3:062	chrV	489770	490094	negative						negative fragment at no site		chrV	489765	490089	
+Liachko2013_S3:063	chrV	520772	521030	positive	strong	ODB-SC-0241	ARS521	Confirmed	Confirmed	positive record added to a Confirmed site		chrV	520767	521025	
+Liachko2013_S3:064	chrVI	12174	13028	positive	very weak	ODB-SC-0248	ARS600.2	Confirmed	Confirmed	positive record added to a Confirmed site		chrVI	12174	13028	
+Liachko2013_S3:065	chrVI	18682	19864	positive	very weak	ODB-SC-0249;ODB-SC-0250	ARS600.3;ARS600.4	Confirmed;Confirmed	Confirmed;Confirmed	positive record added to a Confirmed site		chrVI	18682	19864	
+Liachko2013_S3:066	chrVI	19001	19350	negative		ODB-SC-0249	ARS600.3	Confirmed	Confirmed	negative on part of a site: recorded, no flag		chrVI	19001	19350	
+Liachko2013_S3:067	chrVI	19701	20000	negative		ODB-SC-0249;ODB-SC-0250	ARS600.3;ARS600.4	Confirmed;Confirmed	Confirmed;Confirmed	negative on part of a site: recorded, no flag		chrVI	19701	20000	
+Liachko2013_S3:068	chrVI	20701	20900	positive	strong	ODB-SC-0250	ARS600.4	Confirmed	Confirmed	positive record added to a Confirmed site		chrVI	20701	20900	
+Liachko2013_S3:069	chrVI	68758	68861	positive	strong	ODB-SC-0255	ARS603	Confirmed	Confirmed	positive record added to a Confirmed site		chrVI	68756	68859	
+Liachko2013_S3:070	chrVI	68826	68858	positive	weak	ODB-SC-0255	ARS603	Confirmed	Confirmed	positive record added to a Confirmed site		chrVI	68824	68856	
+Liachko2013_S3:071	chrVI	86150	86479	negative						negative fragment at no site		chrVI	86148	86477	
+Liachko2013_S3:072	chrVI	104462	104701	positive	very weak	ODB-SC-0257	ARS603.1	Confirmed	Confirmed	positive record added to a Confirmed site		chrVI	104456	104695	
+Liachko2013_S3:073	chrVI	127750	128071	positive	weak	ODB-SC-0259	ARS604	Confirmed	Confirmed	positive record added to a Confirmed site		chrVI	127745	128066	
+Liachko2013_S3:074	chrVI	135984	136085	positive	very weak	ODB-SC-0260	ARS605	Confirmed	Confirmed	positive record added to a Confirmed site		chrVI	135979	136080	
+Liachko2013_S3:075	chrVI	216356	216704	positive	very weak	ODB-SC-0263	ARS608	Confirmed	Confirmed	positive record added to a Confirmed site		chrVI	216344	216692	
+Liachko2013_S3:076	chrVI	253329	253813	positive	very weak	ODB-SC-0265	ARS608.5	Confirmed	Confirmed	positive record added to a Confirmed site		chrVI	253316	253800	
+Liachko2013_S3:077	chrVII	693	757	positive	strong	ODB-SC-0269		Unsupported	Confirmed	site promoted to Confirmed		chrVII	693	757	
+Liachko2013_S3:078	chrVII	17720	18030	positive	strong	ODB-SC-0271	ARS700.5	Confirmed	Confirmed	positive record added to a Confirmed site		chrVII	17720	18030	
+Liachko2013_S3:079	chrVII	55425	55927	negative						negative fragment at no site		chrVII	55424	55926	
+Liachko2013_S3:080	chrVII	92732	92863	negative						negative fragment at no site		chrVII	92735	92866	
+Liachko2013_S3:081	chrVII	117469	117953	positive	very weak	ODB-SC-0278	ARS706	Confirmed	Confirmed	positive record added to a Confirmed site		chrVII	117471	117955	
+Liachko2013_S3:082	chrVII	231906	231981	negative		ODB-SC-0284	ARS711	Confirmed	Confirmed	negative on the whole site: recorded, ARS-negative flag set		chrVII	231909	231984	
+Liachko2013_S3:083	chrVII	250460	251270	negative						negative fragment at no site		chrVII	250463	251273	
+Liachko2013_S3:084	chrVII	303699	303821	negative						negative fragment at no site		chrVII	303700	303822	
+Liachko2013_S3:085	chrVII	313540	314181	negative						negative fragment at no site		chrVII	313541	314182	
+Liachko2013_S3:086	chrVII	481340	481523	negative		ODB-SC-0297		Unsupported	Unsupported	negative on part of a site: recorded, no flag		chrVII	481343	481526	
+Liachko2013_S3:087	chrVII	568489	568737	positive	weak	ODB-SC-0302	ARS721	Confirmed	Confirmed	positive record added to a Confirmed site		chrVII	568490	568738	
+Liachko2013_S3:088	chrVIII	45741	45804	positive	strong	ODB-SC-0338	ARS804	Confirmed	Confirmed	positive record added to a Confirmed site		chrVIII	45739	45802	
+Liachko2013_S3:089	chrVIII	66462	66661	negative						negative fragment at no site		chrVIII	66458	66657	
+Liachko2013_S3:090	chrVIII	94764	95197	negative		ODB-SC-0343	ARS805.5	Confirmed	Confirmed	negative on the whole site: recorded, ARS-negative flag set		chrVIII	94759	95192	
+Liachko2013_S3:091	chrVIII	140349	141274	positive	very weak	ODB-SC-0348	ARS808	Confirmed	Confirmed	positive record added to a Confirmed site		chrVIII	140340	141265	
+Liachko2013_S3:092	chrVIII	213179	213861	negative		ODB-SC-0352	ARS810	Confirmed	Confirmed	negative on the whole site: recorded, ARS-negative flag set		chrVIII	213179	213861	
+Liachko2013_S3:093	chrVIII	297059	297179	positive	strong	ODB-SC-0359	ARS815	Confirmed	Confirmed	positive record added to a Confirmed site		chrVIII	297061	297181	
+Liachko2013_S3:094	chrVIII	449849	450502	negative						negative fragment at no site		chrVIII	449847	450500	
+Liachko2013_S3:095	chrIX	79614	80860	positive	strong	ODB-SC-0385	ARS908	Confirmed	Confirmed	positive record added to a Confirmed site		chrIX	79614	80860	
+Liachko2013_S3:096	chrIX	162939	163305	negative		ODB-SC-0389	ARS911.5	Confirmed	Confirmed	negative on the whole site: recorded, ARS-negative flag set		chrIX	162936	163302	
+Liachko2013_S3:097	chrIX	214623	214754	positive	very weak	ODB-SC-0395	ARS913	Confirmed	Confirmed	positive record added to a Confirmed site		chrIX	214620	214751	
+Liachko2013_S3:098	chrIX	214735	214767	negative		ODB-SC-0395	ARS913	Confirmed	Confirmed	negative on part of a site: recorded, no flag		chrIX	214732	214764	
+Liachko2013_S3:099	chrIX	247704	247760	positive	strong	ODB-SC-0400	ARS914	Confirmed	Confirmed	positive record added to a Confirmed site		chrIX	247701	247757	
+Liachko2013_S3:100	chrIX	309763	309998	negative						negative fragment at no site		chrIX	309761	309996	
+Liachko2013_S3:101	chrIX	356954	358965	positive	strong	ODB-SC-0409	ARS920	Confirmed	Confirmed	positive record added to a Confirmed site		chrIX	356951	358962	
+Liachko2013_S3:102	chrX	16123	16762	positive	weak	ODB-SC-0417	ARS1003	Confirmed	Confirmed	positive record added to a Confirmed site		chrX	16123	16762	
+Liachko2013_S3:103	chrX	53172	53361	negative						negative fragment at no site		chrX	53172	53361	
+Liachko2013_S3:104	chrX	120657	121320	negative		ODB-SC-0423		Unsupported	Unsupported	negative on part of a site: recorded, no flag		chrX	120652	121237	
+Liachko2013_S3:105	chrX	248904	249604	negative		ODB-SC-0430	ARS1009.5	Confirmed	Confirmed	negative on the whole site: recorded, ARS-negative flag set		chrX	248600	249300	
+Liachko2013_S3:106	chrX	411895	412333	negative						negative fragment at no site		chrX	411589	412027	
+Liachko2013_S3:107	chrX	454583	455555	positive	weak	ODB-SC-0442	ARS1016	Confirmed	Confirmed	positive record added to a Confirmed site		chrX	454276	455248	
+Liachko2013_S3:108	chrX	609303	610053	negative		ODB-SC-0447	ARS1018.5	Confirmed	Confirmed	negative on the whole site: recorded, ARS-negative flag set		chrX	609000	609750	
+Liachko2013_S3:109	chrX	613042	613099	positive	strong	ODB-SC-0448	ARS1019	Confirmed	Confirmed	positive record added to a Confirmed site		chrX	612739	612796	
+Liachko2013_S3:110	chrX	613044	613076	positive	strong	ODB-SC-0448	ARS1019	Confirmed	Confirmed	positive record added to a Confirmed site		chrX	612741	612773	
+Liachko2013_S3:111	chrX	623229	623436	negative						negative fragment at no site		chrX	622922	623129	
+Liachko2013_S3:112	chrX	737033	737275	positive	very weak	ODB-SC-0457	ARS1024	Confirmed	Confirmed	positive record added to a Confirmed site		chrX	736728	736970	
+Liachko2013_S3:113	chrXI	154269	154495	negative						negative fragment at no site		chrXI	154270	154496	
+Liachko2013_S3:114	chrXI	195252	196517	positive	strong	ODB-SC-0472	ARS1106.3	Confirmed	Confirmed	positive record added to a Confirmed site		chrXI	195249	196514	
+Liachko2013_S3:115	chrXI	302257	303096	positive	strong	ODB-SC-0477	ARS1107.5	Confirmed	Confirmed	positive record added to a Confirmed site		chrXI	301898	302737	
+Liachko2013_S3:116	chrXI	457328	457413	negative		ODB-SC-0488	ARS1114.5	Confirmed	Confirmed	negative on part of a site: recorded, no flag		chrXI	456966	457051	
+Liachko2013_S3:117	chrXI	612377	612463	positive	strong	ODB-SC-0498	ARS1120	Confirmed	Confirmed	positive record added to a Confirmed site		chrXI	612011	612097	
+Liachko2013_S3:118	chrXI	665638	665796	negative		ODB-SC-0502		Unsupported	Confirmed	negative on part of a site: recorded, no flag		chrXI	665267	665425	
+Liachko2013_S3:119	chrXI	665934	665998	positive	weak	ODB-SC-0502		Unsupported	Confirmed	site promoted to Confirmed		chrXI	665563	665627	
+Liachko2013_S3:120	chrXII	31699	31778	positive	strong	ODB-SC-0506		Likely	Confirmed	site promoted to Confirmed		chrXII	31699	31778	
+Liachko2013_S3:121	chrXII	126267	127492	negative						negative fragment at no site		chrXII	126266	127491	
+Liachko2013_S3:122	chrXII	139565	139947	positive	strong	ODB-SC-0512		Likely	Confirmed	site promoted to Confirmed		chrXII	139564	139946	
+Liachko2013_S3:123	chrXII	150915	151422	positive	weak	ODB-SC-0513	ARS1208	Confirmed	Confirmed	positive record added to a Confirmed site		chrXII	150914	151421	
+Liachko2013_S3:124	chrXII	343576	344032	positive	strong	ODB-SC-0525	ARS1212.5	Confirmed	Confirmed	positive record added to a Confirmed site		chrXII	343577	344033	
+Liachko2013_S3:125	chrXII	702851	703060	negative						negative fragment at no site		chrXII	702851	703060	
+Liachko2013_S3:126	chrXII	868024	868181	negative		ODB-SC-0557		Unsupported	Unsupported	negative on part of a site: recorded, no flag		chrXII	868023	868180	
+Liachko2013_S3:127	chrXII	1070547	1071698	positive	strong	ODB-SC-0572		Unsupported	Confirmed	site promoted to Confirmed		chrXII	1070543	1071694	
+Liachko2013_S3:128	chrXIII	158833	159008	negative		ODB-SC-0587	ARS1307.5	Confirmed	Confirmed	negative on part of a site: recorded, no flag		chrXIII	158833	159008	
+Liachko2013_S3:129	chrXIII	427745	427819	negative						negative fragment at no site		chrXIII	427744	427818	
+Liachko2013_S3:130	chrXIII	468178	468469	positive	strong	ODB-SC-0605	ARS1316	Confirmed	Confirmed	positive record added to a Confirmed site		chrXIII	468177	468468	
+Liachko2013_S3:131	chrXIII	634069	634410	negative						negative fragment at no site		chrXIII	634068	634409	
+Liachko2013_S3:132	chrXIII	649308	649552	positive	strong	ODB-SC-0617	ARS1325	Confirmed	Confirmed	positive record added to a Confirmed site		chrXIII	649307	649551	
+Liachko2013_S3:133	chrXIII	865288	865683	positive	very weak	ODB-SC-0627	ARS1331.5	Confirmed	Confirmed	positive record added to a Confirmed site		chrXIII	865288	865683	
+Liachko2013_S3:134	chrXIII	897934	897985	positive	strong	ODB-SC-0629	ARS1332	Confirmed	Confirmed	positive record added to a Confirmed site		chrXIII	897934	897985	
+Liachko2013_S3:135	chrXIII	902283	902393	negative						negative fragment at no site		chrXIII	902283	902393	
+Liachko2013_S3:136	chrXIV	61688	61742	positive	strong	ODB-SC-0637	ARS1406	Confirmed	Confirmed	positive record added to a Confirmed site		chrXIV	61687	61741	
+Liachko2013_S3:137	chrXIV	250379	251470	positive	strong	ODB-SC-0650	ARS1413	Confirmed	Confirmed	positive record added to a Confirmed site		chrXIV	250378	251469	
+Liachko2013_S3:138	chrXIV	443299	443974	positive	strong					held back: no site created		chrXIV	443296	443971	Strong positive at no OriDB site: no ARS-seq contig, no Ok-seq peak, best Foss MCM rank within 500 bp is 1,727. Held back by curator decision (21 Nov 2026) until the locus has been reviewed; no site is created.
+Liachko2013_S3:139	chrXIV	629685	629834	negative						negative fragment at no site		chrXIV	629682	629831	
+Liachko2013_S3:140	chrXIV	686528	686598	negative						negative fragment at no site		chrXIV	686525	686595	
+Liachko2013_S3:141	chrXIV	732518	733075	negative						negative fragment at no site		chrXIV	732513	733070	
+Liachko2013_S3:142	chrXV	18202	19480	positive	strong	ODB-SC-0688		Likely	Confirmed	site promoted to Confirmed		chrXV	18201	19479	
+Liachko2013_S3:143	chrXV	35550	36505	positive	strong	ODB-SC-0690	ARS1506.5	Confirmed	Confirmed	positive record added to a Confirmed site		chrXV	35549	36504	
+Liachko2013_S3:144	chrXV	128923	130183	positive	very weak	ODB-SC-0697	ARS1509.3	Confirmed	Confirmed	positive record added to a Confirmed site		chrXV	128922	130182	
+Liachko2013_S3:145	chrXV	154973	155463	negative		ODB-SC-0698	ARS1509.5	Confirmed	Confirmed	negative on the whole site: recorded, ARS-negative flag set		chrXV	154972	155462	
+Liachko2013_S3:146	chrXV	277641	278269	positive	strong	ODB-SC-0704	ARS1511	Confirmed	Confirmed	positive record added to a Confirmed site		chrXV	277641	278269	
+Liachko2013_S3:147	chrXV	347824	348624	positive	weak	ODB-SC-0708		Likely	Confirmed	site promoted to Confirmed		chrXV	347823	348623	
+Liachko2013_S3:148	chrXV	713811	714404	negative						negative fragment at no site		chrXV	713811	714404	
+Liachko2013_S3:149	chrXV	729739	729969	positive	weak	ODB-SC-0733	ARS1521	Confirmed	Confirmed	positive record added to a Confirmed site		chrXV	729739	729969	
+Liachko2013_S3:150	chrXV	1047405	1047640	negative						negative fragment at no site		chrXV	1047399	1047634	
+Liachko2013_S3:151	chrXVI	5798	7700	positive	strong	ODB-SC-0757	ARS1601	Confirmed	Confirmed	positive record added to a Confirmed site	yes	chrXVI	5798	7700	The fragment contains the ACS of ARS1601 (chr16:7156-7188 in Table S4). It also spans the locus of ODB-SC-0838, which it does not distinguish, so it is assigned to ARS1601 only.
+Liachko2013_S3:152	chrXVI	12290	13227	positive	strong	ODB-SC-0758	ARS1602	Confirmed	Confirmed	positive record added to a Confirmed site		chrXVI	12290	13227	
+Liachko2013_S3:153	chrXVI	309146	309480	negative						negative fragment at no site		chrXVI	309145	309479	
+Liachko2013_S3:154	chrXVI	317114	317612	positive	strong	ODB-SC-0781		Unsupported	Confirmed	site promoted to Confirmed		chrXVI	317113	317611	
+Liachko2013_S3:155	chrXVI	427657	427991	positive	strong	ODB-SC-0791		Unsupported	Confirmed	site promoted to Confirmed		chrXVI	427652	427986	
+Liachko2013_S3:156	chrXVI	453420	453525	negative						negative fragment at no site		chrXVI	453415	453520	
+Liachko2013_S3:157	chrXVI	592323	592517	negative						negative fragment at no site		chrXVI	592318	592512	
+Liachko2013_S3:158	chrXVI	598856	599106	negative						negative fragment at no site		chrXVI	598851	599101	
+Liachko2013_S3:159	chrXVI	684400	684720	positive	strong	ODB-SC-0811	ARS1624	Confirmed	Confirmed	positive record added to a Confirmed site		chrXVI	684395	684715	
+Liachko2013_S3:160	chrXVI	932982	933229	positive	weak	ODB-SC-0827	ARS1631	Confirmed	Confirmed	positive record added to a Confirmed site		chrXVI	932976	933223	

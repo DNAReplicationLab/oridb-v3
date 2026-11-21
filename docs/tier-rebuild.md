@@ -22,7 +22,7 @@ Counts after the current build:
 
 | species | Confirmed | Likely | Unsupported | Not assessed |
 |---|---:|---:|---:|---:|
-| *S. cerevisiae* | 413 | 40 | 386 | — |
+| *S. cerevisiae* | 424 | 35 | 380 | — |
 | *S. pombe* | 48 | — | — | 693 |
 
 and how the 2012 tiers moved:
@@ -30,13 +30,40 @@ and how the 2012 tiers moved:
 | OriDB 2012 | → Confirmed | → Likely | → Unsupported |
 |---|---:|---:|---:|
 | Confirmed (410) | 410 | — | — |
-| Likely (216) | 1 | 26 | 189 |
-| Dubious (203) | 2 | 9 | 192 |
+| Likely (216) | 9 | 23 | 184 |
+| Dubious (203) | 5 | 7 | 191 |
 | new in v3 (10) | — | 5 | 5 |
 
-The three promotions to Confirmed are v2 records that already overlapped a positive ARS
+Three of the promotions to Confirmed are v2 records that already overlapped a positive ARS
 assay or a 2D gel but were not Confirmed in v2 (`sc_ori` 79, 84 and 741). They are raised
 as a known issue for curator review rather than quietly reclassified.
+
+The other eleven were confirmed by ARS assays published after v2 closed; see the next
+section.
+
+### ARS assays published since v2
+
+The v2 dump stops in 2012. Individual ARS assays published later are curated in
+[`reference/curated_ars_assays.tsv`](../reference/curated_ars_assays.tsv), on the assembly
+they were published on, and `bin/build_from_v2.py` attaches them exactly as it attaches the
+v2 records: a positive makes the site Confirmed, a negative is recorded. The first source is
+Table S3 of Liachko et al. 2013 (160 manual assays), reviewed in
+[`liachko2013-review.md`](liachko2013-review.md). It confirmed eleven sites, five that were
+Likely and six that were Unsupported.
+
+Two rules are specific to curated assays:
+
+- A row may name the site it belongs to, or be held back, when overlap alone would attach
+  it wrongly. A positive that reaches no site stops the build, so nothing is dropped
+  silently. One positive is currently held back, and listed as a known issue.
+- A negative raises the ARS-negative flag only when the fragment tested covers the whole
+  site interval (see "Refutation is a flag" below).
+
+Any positive grade confirms. The grade itself is kept in the `strength` column of
+`evidence.tsv` (strong, weak, very weak; blank where the study reported none), both for
+curated assays and, through
+[`reference/ars_assay_strength.tsv`](../reference/ars_assay_strength.tsv), for v2 records
+whose publication graded them.
 
 ### Why *likely* requires a licensing dataset
 
@@ -175,15 +202,29 @@ Right: contradictions as a multiple of the chance rate; it reaches 1 at about ra
 ## Refutation is a flag, not a tier
 
 A fragment that was cloned and failed to replicate is a result about **a tested interval**,
-not about an origin. Of the 224 such fragments, 76 contain no known origin at all, and a
-few contain an origin that a positive assay confirms. A tier would have to invent sites for
-the first group and suppress evidence for the second.
+not about an origin. Of the 296 such fragments (224 from v2, 72 from Liachko et al. 2013),
+112 are recorded against no site at all, and some contain an origin that a positive assay
+confirms. A tier would have to invent sites for the first group and suppress evidence for
+the second.
 
 So `ars_negative` is a separate column on the site, and the fragments themselves are
-published in full as `public/data/refuted_fragments.tsv`. 121 sites carry the flag. It is
+published in full as `public/data/refuted_fragments.tsv`. 147 sites carry the flag. It is
 orthogonal to the tier and filterable separately in Browse, so "Unsupported **and** tested
 negative" and "Likely **and** not tested negative" are different questions with different
 answers.
+
+Thirty Confirmed origins carry the flag. Twenty-six of them were re-tested by Liachko et
+al. 2013 on the identical fragment an earlier study scored positive, which is also the
+whole site interval, and did not support plasmid replication. The earlier positive
+and the later negative are both recorded and the tier is unchanged: **whether such a site
+should remain Confirmed has not been decided.** The sites are listed in `release.json`
+(`curated_assays.sites_retested_negative`) and discussed in
+[`liachko2013-review.md`](liachko2013-review.md).
+
+A negative from v2 flags every site it overlaps. A curated negative flags a site only when
+the fragment covers the whole site interval; one that covers part of a site is recorded
+against it, marked as partial, and does not flag it. A failed 32 bp sub-fragment is not a
+failed origin.
 
 One record is excluded: `sc_cloned_no_ori:161` spans 1,005,821 bp and cannot be a cloned
 fragment — left in, it would mark every origin on chromosome XII as ARS-negative. It is

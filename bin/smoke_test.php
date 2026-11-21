@@ -274,6 +274,66 @@ if ($fragments !== [] && $wrongFragments !== []) {
     printf("ok    %d refuted fragment(s) on the current assembly\n", count($fragments));
 }
 
+// Evidence records: direct evidence must show in the tier, an assay strength is
+// one of three grades or blank, and a negative assay cited by a site or recorded
+// against one must exist as a published fragment.
+$evidenceRows = $readTsv('evidence.tsv');
+$statusOf = [];
+foreach ($origins as $o) {
+    $statusOf[$o['accession']] = $o['status'];
+}
+$fragmentIds = [];
+foreach ($fragments as $f) {
+    $fragmentIds[$f['fragment_id']] = true;
+}
+$badStrength = 0;
+$unconfirmed = [];
+$orphanNegative = [];
+foreach ($evidenceRows as $e) {
+    $negative = $e['method'] === 'plasmid (ARS assay, negative)';
+    $strength = $e['strength'] ?? null;
+    if ($strength === null
+        || !in_array($strength, ['', 'strong', 'weak', 'very weak'], true)
+        || ($strength !== '' && $e['method'] !== 'plasmid (ARS assay)')) {
+        $badStrength++;
+    }
+    if (!$negative && ($statusOf[$e['accession']] ?? '') !== 'Confirmed') {
+        $unconfirmed[$e['accession']] = true;
+    }
+    if ($negative && !isset($fragmentIds[$e['source_table'] . ':' . $e['source_id']])) {
+        $orphanNegative[$e['source_table'] . ':' . $e['source_id']] = true;
+    }
+}
+foreach ($origins as $o) {
+    foreach (array_filter(explode(';', $o['ars_negative_fragments'] ?? '')) as $id) {
+        if (!isset($fragmentIds[$id])) {
+            $orphanNegative[$id] = true;
+        }
+    }
+}
+if ($badStrength > 0) {
+    echo "FAIL  {$badStrength} evidence record(s) with a missing or invalid assay strength\n";
+    $failures++;
+} else {
+    $graded = count(array_filter($evidenceRows, static fn(array $e): bool => $e['strength'] !== ''));
+    printf("ok    %d of %d evidence record(s) carry an assay strength, all valid\n",
+        $graded, count($evidenceRows));
+}
+if ($unconfirmed !== []) {
+    echo 'FAIL  direct evidence at a site that is not Confirmed: '
+       . implode(', ', array_keys($unconfirmed)) . "\n";
+    $failures++;
+} else {
+    echo "ok    every site with a positive ARS assay or a 2D gel is Confirmed\n";
+}
+if ($orphanNegative !== []) {
+    echo 'FAIL  negative assay(s) absent from refuted_fragments.tsv: '
+       . implode(', ', array_keys($orphanNegative)) . "\n";
+    $failures++;
+} else {
+    echo "ok    every negative assay recorded against a site is a published fragment\n";
+}
+
 // The element layer is useless unless its records reach an origin page.
 $linked = 0;
 foreach ($readTsv('elements.tsv') as $e) {

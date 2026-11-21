@@ -1,0 +1,27 @@
+accession	name	chromosome	start	end	earlier_positive_pmid	earlier_strength	n_positive_records	n_2D_gel	liachko_positive_too	arsseq_contig	n_support	support_kinds
+ODB-SC-0011	ARS107.5	chrI	136898	137898	17067396	very weak	1	0	False	False	0	
+ODB-SC-0020	ARS113	chrI	226109	227009	17067396	weak	1	0	False	False	0	
+ODB-SC-0035	ARS207.1	chrII	177567	177915	16965179		1	0	False	False	0	
+ODB-SC-0046	ARS210.5	chrII	283056	283954	17067396	very weak	1	0	False	False	1	licensing
+ODB-SC-0053	ARS212	chrII	378475	379235	17067396	strong	1	0	False	False	2	firing;licensing
+ODB-SC-0063	ARS218	chrII	539182	539744	17067396	strong	1	0	False	False	3	firing;licensing
+ODB-SC-0071	ARS221.5	chrII	675992	676712	17067396	weak	1	0	False	False	1	licensing
+ODB-SC-0075	ARS223	chrII	720646	721083	17067396	weak	1	0	False	False	1	licensing
+ODB-SC-0080	ARS227	chrII	773964	774394	17067396	strong	1	0	False	False	2	licensing
+ODB-SC-0092	ARS304	chrIII	30199	30657			1	1	False	False	1	licensing
+ODB-SC-0120	ARS402.5	chrIV	21265	22262	17067396	very weak	1	0	False	False	1	licensing
+ODB-SC-0138	ARS413.5	chrIV	350836	351805	17067396	weak	1	0	False	False	0	
+ODB-SC-0170	ARS427.5	chrIV	903833	904664	17067396	very weak	1	0	False	False	0	
+ODB-SC-0173	ARS429.5	chrIV	942992	943984	17067396	weak	1	0	False	False	1	licensing
+ODB-SC-0179	ARS430.5	chrIV	1033078	1034191	17067396	weak	1	0	False	False	1	licensing
+ODB-SC-0211	ARS502	chrV	4097	4185			1	0	False	False	0	
+ODB-SC-0213	ARS504	chrV	8786	10019			1	0	False	False	0	
+ODB-SC-0224	ARS511.5	chrV	192494	192927	20485513		1	0	False	False	0	
+ODB-SC-0237	ARS519	chrV	442416	442735			1	0	False	False	0	
+ODB-SC-0284	ARS711	chrVII	231906	231981			1	0	False	False	0	
+ODB-SC-0343	ARS805.5	chrVIII	94764	95197	20485513		1	0	False	False	1	licensing
+ODB-SC-0352	ARS810	chrVIII	213179	213861	20485513		1	0	False	False	1	licensing
+ODB-SC-0389	ARS911.5	chrIX	162939	163305	15059255		1	0	False	False	0	
+ODB-SC-0430	ARS1009.5	chrX	248904	249604	17067396	strong	1	0	False	False	0	
+ODB-SC-0447	ARS1018.5	chrX	609303	610053	17067396	weak	1	0	False	False	0	
+ODB-SC-0698	ARS1509.5	chrXV	154973	155463	15059255		1	0	False	False	1	licensing

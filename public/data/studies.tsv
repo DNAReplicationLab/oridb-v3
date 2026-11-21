@@ -32,6 +32,7 @@ pmid	doi	year	journal	first_author	n_authors	title
 21351687		1988	Genome	Button, L L	2	DNA fragments isolated from the left end of chromosome III in yeast are repaired to generate functional telomeres.
 21558171	10.1093/nar/gkr301	2011	Nucleic Acids Res	Chang, F	6	High-resolution analysis of four efficient yeast replication origins reveals new insights into the ORC and putative MCM binding elements.
 22767388	10.1101/gr.139477.112	2012	Genome Res.	Müller, Carolin A	2	Conservation of replication timing reveals global and local regulation of replication origin activity.
+23241746	10.1101/gr.144659.112	2013	Genome Res	Liachko, I	4	High-resolution mapping, characterization, and optimization of autonomously replicating sequences in yeast.
 23562327	10.1016/j.molcel.2013.03.004	2013	Mol Cell	McGuffee SR	3	Quantitative, genome-wide analysis of eukaryotic replication initiation and termination
 24089142	10.1093/nar/gkt878	2014	Nucleic Acids Res	Müller CA	11	The dynamics of genome replication using deep sequencing
 3023929		1986	Mol. Cell. Biol.	Bouton, A H	2	Fine-structure analysis of the DNA sequence requirements for autonomous replication of Saccharomyces cerevisiae plasmids.

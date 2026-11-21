@@ -117,10 +117,10 @@ $kinds = array_unique(array_column($yes, 'measures'));
 <h2>Supporting evidence</h2>
 <p class="small">
   <?= h((string) count($evidence)) ?> experimental record<?= count($evidence) === 1 ? '' : 's' ?>
-  overlap this interval. Each record is an individual assay reported by the cited study.
+recorded for this site. Each record is an individual assay reported by the cited study.
 </p>
 <table>
-  <thead><tr><th>Method</th><th>Assayed interval</th><th class="num">Width</th><th>Detail</th><th>Reference</th></tr></thead>
+  <thead><tr><th>Method</th><th>Assayed interval</th><th class="num">Width</th><th>Detail</th><th>Strength</th><th>Reference</th></tr></thead>
   <tbody>
   <?php foreach ($evidence as $e): ?>
     <tr>
@@ -128,11 +128,16 @@ $kinds = array_unique(array_column($yes, 'measures'));
       <td class="mono"><?= h($e['chromosome']) ?>:<?= h(bp($e['start'])) ?>&ndash;<?= h(bp($e['end'])) ?></td>
       <td class="num"><?= h(bp((int) $e['end'] - (int) $e['start'] + 1)) ?></td>
       <td><?= $e['detail'] !== '' ? h($e['detail']) : '<span class="small">&ndash;</span>' ?></td>
+      <td><?= ($e['strength'] ?? '') !== '' ? h($e['strength']) : '<span class="small">&ndash;</span>' ?></td>
       <td><?= cite_pmid((string) $e['pmid']) ?></td>
     </tr>
   <?php endforeach; ?>
   </tbody>
 </table>
+<p class="small">
+  Strength is the grade the cited study gave a positive ARS assay (strong, weak or very
+  weak colony growth). A dash means the study reported no grade, not that the assay was weak.
+</p>
 
 <?php
 // Per-origin values from the two modern genome-wide call sets. Both measure

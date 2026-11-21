@@ -1,0 +1,161 @@
+source	source_id	pmid	assembly	chromosome	start	end	result	strength	reported_as	site	hold	note
+Liachko2013_S3	001	23241746	sacCer1	chrI	6136	7136	positive	very weak	very_weak_function			
+Liachko2013_S3	002	23241746	sacCer1	chrI	7998	8548	positive	very weak	very_weak_function			
+Liachko2013_S3	003	23241746	sacCer1	chrI	136900	137900	negative		non-functional			
+Liachko2013_S3	004	23241746	sacCer1	chrI	214879	215635	positive	strong	strong_function			
+Liachko2013_S3	005	23241746	sacCer1	chrI	222871	224037	positive	very weak	very_weak_function			
+Liachko2013_S3	006	23241746	sacCer1	chrI	226100	227000	negative		non-functional			
+Liachko2013_S3	007	23241746	sacCer1	chrI	229378	229689	positive	strong	strong_function			
+Liachko2013_S3	008	23241746	sacCer1	chrII	152539	152907	negative		non-functional			
+Liachko2013_S3	009	23241746	sacCer1	chrII	177529	177877	negative		non-functional			
+Liachko2013_S3	010	23241746	sacCer1	chrII	208091	208340	negative		non-functional			
+Liachko2013_S3	011	23241746	sacCer1	chrII	283015	283913	negative		non-functional			
+Liachko2013_S3	012	23241746	sacCer1	chrII	378434	379194	negative		non-functional			
+Liachko2013_S3	013	23241746	sacCer1	chrII	417382	418017	positive	very weak	very_weak_function			
+Liachko2013_S3	014	23241746	sacCer1	chrII	440859	441697	positive	very weak	very_weak_function			
+Liachko2013_S3	015	23241746	sacCer1	chrII	486627	486701	negative		non-functional			
+Liachko2013_S3	016	23241746	sacCer1	chrII	486824	486884	positive	weak	weak_function			
+Liachko2013_S3	017	23241746	sacCer1	chrII	539137	539699	negative		non-functional			
+Liachko2013_S3	018	23241746	sacCer1	chrII	621833	623240	positive	strong	strong_function			
+Liachko2013_S3	019	23241746	sacCer1	chrII	631934	632246	positive	weak	weak_function			
+Liachko2013_S3	020	23241746	sacCer1	chrII	675947	676667	negative		non-functional			
+Liachko2013_S3	021	23241746	sacCer1	chrII	707158	708262	positive	weak	weak_function			
+Liachko2013_S3	022	23241746	sacCer1	chrII	720601	721038	negative		non-functional			
+Liachko2013_S3	023	23241746	sacCer1	chrII	757390	757621	positive	very weak	very_weak_function			
+Liachko2013_S3	024	23241746	sacCer1	chrII	773918	774348	negative		non-functional			
+Liachko2013_S3	025	23241746	sacCer1	chrII	791774	791990	negative		non-functional			
+Liachko2013_S3	026	23241746	sacCer1	chrII	792170	792262	positive	strong	strong_function			
+Liachko2013_S3	027	23241746	sacCer1	chrII	796259	797162	positive	very weak	very_weak_function			
+Liachko2013_S3	028	23241746	sacCer1	chrII	802089	802674	positive	strong	strong_function			
+Liachko2013_S3	029	23241746	sacCer1	chrIII	13802	15620	positive	strong	strong_function			
+Liachko2013_S3	030	23241746	sacCer1	chrIII	30199	30657	negative		non-functional			
+Liachko2013_S3	031	23241746	sacCer1	chrIII	74152	74681	positive	strong	strong_function			
+Liachko2013_S3	032	23241746	sacCer1	chrIII	311462	311809	negative		non-functional			
+Liachko2013_S3	033	23241746	sacCer1	chrIV	736	2433	positive	strong	strong_function			
+Liachko2013_S3	034	23241746	sacCer1	chrIV	15492	15739	positive	weak	weak_function			
+Liachko2013_S3	035	23241746	sacCer1	chrIV	21265	22262	negative		non-functional			
+Liachko2013_S3	036	23241746	sacCer1	chrIV	100380	101355	positive	very weak	very_weak_function			
+Liachko2013_S3	037	23241746	sacCer1	chrIV	235935	236184	positive	strong	strong_function			
+Liachko2013_S3	038	23241746	sacCer1	chrIV	350835	351804	negative		non-functional			
+Liachko2013_S3	039	23241746	sacCer1	chrIV	452766	452885	negative		non-functional			
+Liachko2013_S3	040	23241746	sacCer1	chrIV	464709	466496	negative		non-functional			
+Liachko2013_S3	041	23241746	sacCer1	chrIV	748332	748692	positive	strong	strong_function			
+Liachko2013_S3	042	23241746	sacCer1	chrIV	903824	904655	negative		non-functional			
+Liachko2013_S3	043	23241746	sacCer1	chrIV	942983	943975	negative		non-functional			
+Liachko2013_S3	044	23241746	sacCer1	chrIV	951169	951307	negative		non-functional			
+Liachko2013_S3	045	23241746	sacCer1	chrIV	1033069	1034182	negative		non-functional			
+Liachko2013_S3	046	23241746	sacCer1	chrIV	1159250	1159499	positive	weak	weak_function			
+Liachko2013_S3	047	23241746	sacCer1	chrIV	1276212	1276440	positive	strong	strong_function			
+Liachko2013_S3	048	23241746	sacCer1	chrIV	1404277	1404512	positive	strong	strong_function			
+Liachko2013_S3	049	23241746	sacCer1	chrIV	1447471	1447503	positive	weak	weak_function			
+Liachko2013_S3	050	23241746	sacCer1	chrIV	1486905	1487149	positive	very weak	very_weak_function			
+Liachko2013_S3	051	23241746	sacCer1	chrIV	1502145	1504025	positive	strong	strong_function	ODB-SC-0206		The fragment contains ARS447 and its ACS (chr4:1502756-1502788 in Table S4). It also overlaps the edge of ODB-SC-0205 by 147 bp, which it does not test, so it is assigned to ARS447 only.
+Liachko2013_S3	052	23241746	sacCer1	chrV	4097	4185	negative		non-functional			
+Liachko2013_S3	053	23241746	sacCer1	chrV	6377	6453	positive	weak	weak_function	ODB-SC-0212		Table S4 of the paper lists this fragment as the miniARS-seq functional core of ARS503. It lies 11 bp outside the OriDB interval for ARS503, so it is assigned explicitly; the interval of ARS503 needs curator review.
+Liachko2013_S3	054	23241746	sacCer1	chrV	8786	10019	negative		non-functional			
+Liachko2013_S3	055	23241746	sacCer1	chrV	70087	70198	negative		non-functional			
+Liachko2013_S3	056	23241746	sacCer1	chrV	145676	145839	positive	very weak	very_weak_function			
+Liachko2013_S3	057	23241746	sacCer1	chrV	192493	192926	negative		non-functional			
+Liachko2013_S3	058	23241746	sacCer1	chrV	276127	276526	positive	very weak	very_weak_function			
+Liachko2013_S3	059	23241746	sacCer1	chrV	278073	278355	positive	weak	weak_function			
+Liachko2013_S3	060	23241746	sacCer1	chrV	316195	317309	positive	strong	strong_function			
+Liachko2013_S3	061	23241746	sacCer1	chrV	442412	442731	negative		non-functional			
+Liachko2013_S3	062	23241746	sacCer1	chrV	489765	490089	negative		non-functional			
+Liachko2013_S3	063	23241746	sacCer1	chrV	520767	521025	positive	strong	strong_function			
+Liachko2013_S3	064	23241746	sacCer1	chrVI	12174	13028	positive	very weak	very_weak_function			
+Liachko2013_S3	065	23241746	sacCer1	chrVI	18682	19864	positive	very weak	very_weak_function			
+Liachko2013_S3	066	23241746	sacCer1	chrVI	19001	19350	negative		non-functional			
+Liachko2013_S3	067	23241746	sacCer1	chrVI	19701	20000	negative		non-functional			
+Liachko2013_S3	068	23241746	sacCer1	chrVI	20701	20900	positive	strong	strong_function			
+Liachko2013_S3	069	23241746	sacCer1	chrVI	68756	68859	positive	strong	strong_function			
+Liachko2013_S3	070	23241746	sacCer1	chrVI	68824	68856	positive	weak	weak_function			
+Liachko2013_S3	071	23241746	sacCer1	chrVI	86148	86477	negative		non-functional			
+Liachko2013_S3	072	23241746	sacCer1	chrVI	104456	104695	positive	very weak	very_weak_function			
+Liachko2013_S3	073	23241746	sacCer1	chrVI	127745	128066	positive	weak	weak_function			
+Liachko2013_S3	074	23241746	sacCer1	chrVI	135979	136080	positive	very weak	very_weak_function			
+Liachko2013_S3	075	23241746	sacCer1	chrVI	216344	216692	positive	very weak	very_weak_function			
+Liachko2013_S3	076	23241746	sacCer1	chrVI	253316	253800	positive	very weak	very_weak_function			
+Liachko2013_S3	077	23241746	sacCer1	chrVII	693	757	positive	strong	strong_function			
+Liachko2013_S3	078	23241746	sacCer1	chrVII	17720	18030	positive	strong	strong_function			
+Liachko2013_S3	079	23241746	sacCer1	chrVII	55424	55926	negative		non-functional			
+Liachko2013_S3	080	23241746	sacCer1	chrVII	92735	92866	negative		non-functional			
+Liachko2013_S3	081	23241746	sacCer1	chrVII	117471	117955	positive	very weak	very_weak_function			
+Liachko2013_S3	082	23241746	sacCer1	chrVII	231909	231984	negative		non-functional			
+Liachko2013_S3	083	23241746	sacCer1	chrVII	250463	251273	negative		non-functional			
+Liachko2013_S3	084	23241746	sacCer1	chrVII	303700	303822	negative		non-functional			
+Liachko2013_S3	085	23241746	sacCer1	chrVII	313541	314182	negative		non-functional			
+Liachko2013_S3	086	23241746	sacCer1	chrVII	481343	481526	negative		non-functional			
+Liachko2013_S3	087	23241746	sacCer1	chrVII	568490	568738	positive	weak	weak_function			
+Liachko2013_S3	088	23241746	sacCer1	chrVIII	45739	45802	positive	strong	strong_function			
+Liachko2013_S3	089	23241746	sacCer1	chrVIII	66458	66657	negative		non-functional			
+Liachko2013_S3	090	23241746	sacCer1	chrVIII	94759	95192	negative		non-functional			
+Liachko2013_S3	091	23241746	sacCer1	chrVIII	140340	141265	positive	very weak	very_weak_function			
+Liachko2013_S3	092	23241746	sacCer1	chrVIII	213179	213861	negative		non-functional			
+Liachko2013_S3	093	23241746	sacCer1	chrVIII	297061	297181	positive	strong	strong_function			
+Liachko2013_S3	094	23241746	sacCer1	chrVIII	449847	450500	negative		non-functional			
+Liachko2013_S3	095	23241746	sacCer1	chrIX	79614	80860	positive	strong	strong_function			
+Liachko2013_S3	096	23241746	sacCer1	chrIX	162936	163302	negative		non-functional			
+Liachko2013_S3	097	23241746	sacCer1	chrIX	214620	214751	positive	very weak	very_weak_function			
+Liachko2013_S3	098	23241746	sacCer1	chrIX	214732	214764	negative		non-functional			
+Liachko2013_S3	099	23241746	sacCer1	chrIX	247701	247757	positive	strong	strong_function			
+Liachko2013_S3	100	23241746	sacCer1	chrIX	309761	309996	negative		non-functional			
+Liachko2013_S3	101	23241746	sacCer1	chrIX	356951	358962	positive	strong	strong_function			
+Liachko2013_S3	102	23241746	sacCer1	chrX	16123	16762	positive	weak	weak_function			
+Liachko2013_S3	103	23241746	sacCer1	chrX	53172	53361	negative		non-functional			
+Liachko2013_S3	104	23241746	sacCer1	chrX	120652	121237	negative		non-functional			
+Liachko2013_S3	105	23241746	sacCer1	chrX	248600	249300	negative		non-functional			
+Liachko2013_S3	106	23241746	sacCer1	chrX	411589	412027	negative		non-functional			
+Liachko2013_S3	107	23241746	sacCer1	chrX	454276	455248	positive	weak	weak_function			
+Liachko2013_S3	108	23241746	sacCer1	chrX	609000	609750	negative		non-functional			
+Liachko2013_S3	109	23241746	sacCer1	chrX	612739	612796	positive	strong	strong_function			
+Liachko2013_S3	110	23241746	sacCer1	chrX	612741	612773	positive	strong	strong_function			
+Liachko2013_S3	111	23241746	sacCer1	chrX	622922	623129	negative		non-functional			
+Liachko2013_S3	112	23241746	sacCer1	chrX	736728	736970	positive	very weak	very_weak_function			
+Liachko2013_S3	113	23241746	sacCer1	chrXI	154270	154496	negative		non-functional			
+Liachko2013_S3	114	23241746	sacCer1	chrXI	195249	196514	positive	strong	strong_function			
+Liachko2013_S3	115	23241746	sacCer1	chrXI	301898	302737	positive	strong	strong_function			
+Liachko2013_S3	116	23241746	sacCer1	chrXI	456966	457051	negative		non-functional			
+Liachko2013_S3	117	23241746	sacCer1	chrXI	612011	612097	positive	strong	strong_function			
+Liachko2013_S3	118	23241746	sacCer1	chrXI	665267	665425	negative		non-functional			
+Liachko2013_S3	119	23241746	sacCer1	chrXI	665563	665627	positive	weak	weak_function			
+Liachko2013_S3	120	23241746	sacCer1	chrXII	31699	31778	positive	strong	strong_function			
+Liachko2013_S3	121	23241746	sacCer1	chrXII	126266	127491	negative		non-functional			
+Liachko2013_S3	122	23241746	sacCer1	chrXII	139564	139946	positive	strong	strong_function			
+Liachko2013_S3	123	23241746	sacCer1	chrXII	150914	151421	positive	weak	weak_function			
+Liachko2013_S3	124	23241746	sacCer1	chrXII	343577	344033	positive	strong	strong_function			
+Liachko2013_S3	125	23241746	sacCer1	chrXII	702851	703060	negative		non-functional			
+Liachko2013_S3	126	23241746	sacCer1	chrXII	868023	868180	negative		non-functional			
+Liachko2013_S3	127	23241746	sacCer1	chrXII	1070543	1071694	positive	strong	strong_function			
+Liachko2013_S3	128	23241746	sacCer1	chrXIII	158833	159008	negative		non-functional			
+Liachko2013_S3	129	23241746	sacCer1	chrXIII	427744	427818	negative		non-functional			
+Liachko2013_S3	130	23241746	sacCer1	chrXIII	468177	468468	positive	strong	strong_function			
+Liachko2013_S3	131	23241746	sacCer1	chrXIII	634068	634409	negative		non-functional			
+Liachko2013_S3	132	23241746	sacCer1	chrXIII	649307	649551	positive	strong	strong_function			
+Liachko2013_S3	133	23241746	sacCer1	chrXIII	865288	865683	positive	very weak	very_weak_function			
+Liachko2013_S3	134	23241746	sacCer1	chrXIII	897934	897985	positive	strong	strong_function			
+Liachko2013_S3	135	23241746	sacCer1	chrXIII	902283	902393	negative		non-functional			
+Liachko2013_S3	136	23241746	sacCer1	chrXIV	61687	61741	positive	strong	strong_function			
+Liachko2013_S3	137	23241746	sacCer1	chrXIV	250378	251469	positive	strong	strong_function			
+Liachko2013_S3	138	23241746	sacCer1	chrXIV	443296	443971	positive	strong	strong_function		yes	Strong positive at no OriDB site: no ARS-seq contig, no Ok-seq peak, best Foss MCM rank within 500 bp is 1,727. Held back by curator decision (21 Nov 2026) until the locus has been reviewed; no site is created.
+Liachko2013_S3	139	23241746	sacCer1	chrXIV	629682	629831	negative		non-functional			
+Liachko2013_S3	140	23241746	sacCer1	chrXIV	686525	686595	negative		non-functional			
+Liachko2013_S3	141	23241746	sacCer1	chrXIV	732513	733070	negative		non-functional			
+Liachko2013_S3	142	23241746	sacCer1	chrXV	18201	19479	positive	strong	strong_function			
+Liachko2013_S3	143	23241746	sacCer1	chrXV	35549	36504	positive	strong	strong_function			
+Liachko2013_S3	144	23241746	sacCer1	chrXV	128922	130182	positive	very weak	very_weak_function			
+Liachko2013_S3	145	23241746	sacCer1	chrXV	154972	155462	negative		non-functional			
+Liachko2013_S3	146	23241746	sacCer1	chrXV	277641	278269	positive	strong	strong_function			
+Liachko2013_S3	147	23241746	sacCer1	chrXV	347823	348623	positive	weak	weak_function			
+Liachko2013_S3	148	23241746	sacCer1	chrXV	713811	714404	negative		non-functional			
+Liachko2013_S3	149	23241746	sacCer1	chrXV	729739	729969	positive	weak	weak_function			
+Liachko2013_S3	150	23241746	sacCer1	chrXV	1047399	1047634	negative		non-functional			
+Liachko2013_S3	151	23241746	sacCer1	chrXVI	5798	7700	positive	strong	strong_function	ODB-SC-0757		The fragment contains the ACS of ARS1601 (chr16:7156-7188 in Table S4). It also spans the locus of ODB-SC-0838, which it does not distinguish, so it is assigned to ARS1601 only.
+Liachko2013_S3	152	23241746	sacCer1	chrXVI	12290	13227	positive	strong	strong_function			
+Liachko2013_S3	153	23241746	sacCer1	chrXVI	309145	309479	negative		non-functional			
+Liachko2013_S3	154	23241746	sacCer1	chrXVI	317113	317611	positive	strong	strong_function			
+Liachko2013_S3	155	23241746	sacCer1	chrXVI	427652	427986	positive	strong	strong_function			
+Liachko2013_S3	156	23241746	sacCer1	chrXVI	453415	453520	negative		non-functional			
+Liachko2013_S3	157	23241746	sacCer1	chrXVI	592318	592512	negative		non-functional			
+Liachko2013_S3	158	23241746	sacCer1	chrXVI	598851	599101	negative		non-functional			
+Liachko2013_S3	159	23241746	sacCer1	chrXVI	684395	684715	positive	strong	strong_function			
+Liachko2013_S3	160	23241746	sacCer1	chrXVI	932976	933223	positive	weak	weak_function			

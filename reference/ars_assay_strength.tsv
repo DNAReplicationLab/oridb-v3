@@ -1,0 +1,43 @@
+source_table	source_id	pmid	assembly	chromosome	start	end	strength	reported_as	note
+sc_cloned_ori	1	17067396	sacCer1	chrI	650	1791	strong	+	Xu et al. 2006 Additional file 10, ORCMCM2-1
+sc_cloned_ori	2	17067396	sacCer1	chrI	6136	7136	weak	weak	Xu et al. 2006 Additional file 10, ORCMCM2-2-1
+sc_cloned_ori	3	17067396	sacCer1	chrI	7998	8548	strong	+	Xu et al. 2006 Additional file 10, ORCMCM2-2-2
+sc_cloned_ori	8	17067396	sacCer1	chrI	136900	137900	very weak	very weak	Xu et al. 2006 Additional file 10, MCM2-5
+sc_cloned_ori	9	17067396	sacCer1	chrI	146703	147690	strong	+	Xu et al. 2006 Additional file 10, ORCMCM2-7
+sc_cloned_ori	12	17067396	sacCer1	chrI	214879	215635	strong	+	Xu et al. 2006 Additional file 10, ORCMCM2-9
+sc_cloned_ori	13	17067396	sacCer1	chrI	222871	224037	strong	+	Xu et al. 2006 Additional file 10, MCM2-7
+sc_cloned_ori	14	17067396	sacCer1	chrI	226100	227000	weak	weak	Xu et al. 2006 Additional file 10, ORCMCM2-10-1
+sc_cloned_ori	15	17067396	sacCer1	chrII	39	686	strong	+	Xu et al. 2006 Additional file 10, ORCMCM2-11
+sc_cloned_ori	16	17067396	sacCer1	chrII	6123	7127	strong	+	Xu et al. 2006 Additional file 10, ORCMCM2-12
+sc_cloned_ori	19	17067396	sacCer1	chrII	93410	93811	strong	+	Xu et al. 2006 Additional file 10, ORCMCM2-15
+sc_cloned_ori	20	17067396	sacCer1	chrII	142868	144016	strong	+	Xu et al. 2006 Additional file 10, ORCMCM2-16
+sc_cloned_ori	24	17067396	sacCer1	chrII	209187	210063	very weak	very weak	Xu et al. 2006 Additional file 10, MCM2-11
+sc_cloned_ori	27	17067396	sacCer1	chrII	283015	283913	very weak	very weak	Xu et al. 2006 Additional file 10, MCM2-14
+sc_cloned_ori	29	17067396	sacCer1	chrII	378434	379194	strong	+	Xu et al. 2006 Additional file 10, MCM2-16
+sc_cloned_ori	30	17067396	sacCer1	chrII	389245	390368	strong	+	Xu et al. 2006 Additional file 10, MCM2-17
+sc_cloned_ori	33	17067396	sacCer1	chrII	440859	441697	very weak	very weak	Xu et al. 2006 Additional file 10, MCM2-19
+sc_cloned_ori	35	17067396	sacCer1	chrII	516805	517805	weak	weak	Xu et al. 2006 Additional file 10, MCM2-21
+sc_cloned_ori	36	17067396	sacCer1	chrII	539137	539699	strong	+	Xu et al. 2006 Additional file 10, MCM2-22
+sc_cloned_ori	37	17067396	sacCer1	chrII	591424	591713	strong	+	Xu et al. 2006 Additional file 10, ORCMCM2-26
+sc_cloned_ori	38	17067396	sacCer1	chrII	611269	613200	weak	weak	Xu et al. 2006 Additional file 10, ORCMCM2-27
+sc_cloned_ori	40	17067396	sacCer1	chrII	631934	632246	strong	+	Xu et al. 2006 Additional file 10, MCM2-24
+sc_cloned_ori	41	17067396	sacCer1	chrII	675947	676667	weak	weak	Xu et al. 2006 Additional file 10, MCM2-25
+sc_cloned_ori	43	17067396	sacCer1	chrII	707158	708262	weak	weak	Xu et al. 2006 Additional file 10, MCM2-26
+sc_cloned_ori	44	17067396	sacCer1	chrII	720601	721038	weak	weak	Xu et al. 2006 Additional file 10, MCM2-27
+sc_cloned_ori	47	17067396	sacCer1	chrII	773918	774348	strong	+	Xu et al. 2006 Additional file 10, MCM2-28
+sc_cloned_ori	49	17067396	sacCer1	chrII	796259	797162	strong	+	Xu et al. 2006 Additional file 10, MCM2-30
+sc_cloned_ori	50	17067396	sacCer1	chrII	801930	802617	strong	+	Xu et al. 2006 Additional file 10, MCM2-31
+sc_cloned_ori	70	17067396	sacCer1	chrIV	137	1392	strong	+	Xu et al. 2006 Additional file 10, ORCMCM2-42
+sc_cloned_ori	71	17067396	sacCer1	chrIV	21265	22262	very weak	very weak	Xu et al. 2006 Additional file 10, MCM2-42
+sc_cloned_ori	75	17067396	sacCer1	chrIV	100380	101355	weak	weak	Xu et al. 2006 Additional file 10, MCM2-44
+sc_cloned_ori	80	17067396	sacCer1	chrIV	350835	351804	weak	weak	Xu et al. 2006 Additional file 10, MCM2-48
+sc_cloned_ori	92	17067396	sacCer1	chrIV	844597	845593	weak	weak	Xu et al. 2006 Additional file 10, MCM2-55
+sc_cloned_ori	93	17067396	sacCer1	chrIV	903824	904655	very weak	very weak	Xu et al. 2006 Additional file 10, MCM2-57
+sc_cloned_ori	96	17067396	sacCer1	chrIV	942983	943975	weak	weak	Xu et al. 2006 Additional file 10, MCM2-58
+sc_cloned_ori	98	17067396	sacCer1	chrIV	1033069	1034182	weak	weak	Xu et al. 2006 Additional file 10, MCM2-60
+sc_cloned_ori	135	17067396	sacCer1	chrVI	104456	104695	very weak	very weak	Xu et al. 2006 Additional file 10, MCM2-83
+sc_cloned_ori	142	17067396	sacCer1	chrVI	253316	253800	weak	weak	Xu et al. 2006 Additional file 10, MCM2-85
+sc_cloned_ori	194	17067396	sacCer1	chrX	161435	161860	strong	+	Xu et al. 2006 Additional file 10, MCM2-135
+sc_cloned_ori	197	17067396	sacCer1	chrX	248600	249300	strong	+	Xu et al. 2006 Additional file 10, MCM2-138
+sc_cloned_ori	206	17067396	sacCer1	chrX	501595	502525	very weak	very weak	Xu et al. 2006 Additional file 10, MCM2-143
+sc_cloned_ori	208	17067396	sacCer1	chrX	609000	609750	weak	weak	Xu et al. 2006 Additional file 10, MCM2-145

@@ -129,9 +129,12 @@ def main() -> None:
 
         for r in rows:
             # origins and evidence are keyed by accession, the fragments by their
-            # v2 table and row id; every fragment is cerevisiae.
+            # source and row id; every fragment is cerevisiae. A curated fragment
+            # (reference/curated_ars_assays.tsv) is named for its study, not for a
+            # v2 table, so the assembly it declares decides as well.
             key = r.get('accession', r.get('fragment_id', ''))
-            cerevisiae = key.startswith('ODB-SC-') or key.startswith('sc_')
+            cerevisiae = (key.startswith('ODB-SC-') or key.startswith('sc_')
+                          or r.get('assembly') == 'sacCer1')
             # origins.tsv carries the assembly; evidence.tsv does not.
             already = r.get('assembly') == 'sacCer3' or r.get('lift_status') not in (None, '')
             if already:
