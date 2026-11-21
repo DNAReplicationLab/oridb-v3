@@ -211,5 +211,124 @@ if (count($texts) !== count(array_unique($texts))) {
     printf("ok    %d known issue(s), none duplicated\n", count($texts));
 }
 
+// ---------------------------------------------------------------------------
+// Pipeline integrity. None of this was checked until a release shipped with
+// unlifted sacCer1 coordinates, no per-origin values and no element links: every
+// page rendered, every count looked plausible, and the data was wrong. A build
+// step that does not run must fail here rather than look fine.
+$readTsv = static function (string $name): array {
+    $path = dirname(__DIR__) . '/public/data/' . $name;
+    if (!is_file($path)) {
+        return [];
+    }
+    $lines = explode("\n", rtrim((string) file_get_contents($path), "\n"));
+    $header = explode("\t", array_shift($lines));
+    return array_map(
+        static fn (string $l): array => array_combine($header, array_pad(explode("\t", $l), count($header), '')),
+        $lines
+    );
+};
+
+$origins = $readTsv('origins.tsv');
+$expectedAssembly = [
+    'Saccharomyces cerevisiae' => 'sacCer3',
+    'Schizosaccharomyces pombe' => 'ASM294v2',
+];
+$wrongAssembly = [];
+$noLift = 0;
+foreach ($origins as $o) {
+    $want = $expectedAssembly[$o['species']] ?? null;
+    if ($want !== null && $o['assembly'] !== $want) {
+        $wrongAssembly[$o['species'] . ' on ' . $o['assembly']] = true;
+    }
+    if (($o['lift_status'] ?? '') === '') {
+        $noLift++;
+    }
+}
+if ($wrongAssembly !== [] || $noLift > 0) {
+    echo 'FAIL  origins are not on the current assembly: '
+       . implode('; ', array_keys($wrongAssembly))
+       . ($noLift > 0 ? "; {$noLift} without a lift_status" : '')
+       . " - bin/lift_to_saccer3.py did not run\n";
+    $failures++;
+} else {
+    echo "ok    every origin is on the current assembly, with a lift status\n";
+}
+
+// The element layer is useless unless its records reach an origin page.
+$linked = 0;
+foreach ($readTsv('elements.tsv') as $e) {
+    if (($e['origin_accession'] ?? '') !== '') {
+        $linked++;
+    }
+}
+if ($linked === 0) {
+    echo "FAIL  no element is linked to an origin - the element layer is orphaned\n";
+    $failures++;
+} else {
+    printf("ok    %d element record(s) linked to an origin\n", $linked);
+}
+
+// Per-origin values: empty for one origin is a result, empty for all is a bug.
+$withValue = 0;
+foreach ($origins as $o) {
+    if (($o['okseq_activity_oem'] ?? '') !== ''
+        || ($o['median_replication_time_composite_min'] ?? '') !== '') {
+        $withValue++;
+    }
+}
+if ($withValue === 0) {
+    echo "FAIL  no origin carries an activity or a replication time - "
+       . "bin/build_elements.py did not annotate\n";
+    $failures++;
+} else {
+    printf("ok    %d origin(s) carry an activity or a replication time\n", $withValue);
+}
+
+// The tier is derived from the matrix, so every site of a species some dataset
+// covers must appear in it. A species with no dataset has no rows by definition.
+$inMatrix = [];
+foreach ($readTsv('evidence_matrix.tsv') as $m) {
+    $inMatrix[$m['accession']] = true;
+}
+$covered = [];
+$registry = dirname(__DIR__) . '/reference/datasets.tsv';
+if (is_file($registry)) {
+    $lines = explode("\n", rtrim((string) file_get_contents($registry), "\n"));
+    $head = explode("\t", array_shift($lines));
+    foreach ($lines as $line) {
+        $row = array_combine($head, array_pad(explode("\t", $line), count($head), ''));
+        $covered[$row['species']] = true;
+    }
+}
+$missing = 0;
+foreach ($origins as $o) {
+    if (isset($covered[$o['species']]) && !isset($inMatrix[$o['accession']])) {
+        $missing++;
+    }
+}
+if ($missing > 0) {
+    echo "FAIL  {$missing} tiered site(s) absent from evidence_matrix.tsv\n";
+    $failures++;
+} else {
+    echo "ok    every tiered site appears in the evidence matrix\n";
+}
+
+// Repeated builds have appended to studies.tsv before now.
+$seen = [];
+$dupes = 0;
+foreach ($readTsv('studies.tsv') as $st) {
+    if (isset($seen[$st['pmid']])) {
+        $dupes++;
+    }
+    $seen[$st['pmid']] = true;
+}
+if ($dupes > 0) {
+    echo "FAIL  studies.tsv has {$dupes} duplicate PMID row(s)\n";
+    $failures++;
+} else {
+    echo "ok    studies.tsv has no duplicate PMIDs\n";
+}
+
 printf("\n%d case(s) failed.\n", $failures);
 exit($failures === 0 ? 0 : 1);

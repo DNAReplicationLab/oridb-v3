@@ -22,7 +22,7 @@ Counts after the current build:
 
 | species | Confirmed | Likely | Unsupported | Not assessed |
 |---|---:|---:|---:|---:|
-| *S. cerevisiae* | 413 | 60 | 366 | — |
+| *S. cerevisiae* | 413 | 58 | 368 | — |
 | *S. pombe* | 48 | — | — | 693 |
 
 and how the 2012 tiers moved:
@@ -31,7 +31,7 @@ and how the 2012 tiers moved:
 |---|---:|---:|---:|
 | Confirmed (410) | 410 | — | — |
 | Likely (216) | 1 | 38 | 177 |
-| Dubious (203) | 2 | 12 | 189 |
+| Dubious (203) | 2 | 10 | 191 |
 | new in v3 (10) | — | 10 | — |
 
 The three promotions to Confirmed are v2 records that already overlapped a positive ARS
@@ -88,17 +88,17 @@ interval. The windows do not all come from the same place, and it matters which:
   other footprint dataset.
 
 The two licensing windows are the ones that gate the *Likely* tier, so the choice is worth
-seeing rather than assuming. Narrowing the Foss window to its measured p75 would cost ten
+seeing rather than assuming. Narrowing the Foss window to its measured p75 would cost nine
 sites and create no others:
 
 | Foss window | Likely | Unsupported | novel sites |
 |---|---:|---:|---:|
-| 130 bp (its measured p75) | 50 | 376 | 10 |
-| 250 bp | 53 | 373 | 10 |
-| **500 bp (shipped)** | **60** | **366** | **10** |
+| 130 bp (its measured p75) | 49 | 377 | 10 |
+| 250 bp | 52 | 374 | 10 |
+| **500 bp (shipped)** | **58** | **368** | **10** |
 
-Sites supported, per dataset: `foss2024_mcm` 457, `mcguffee2013_okseq` 328,
-`reuter2024_orc` 72.
+Sites supported, per dataset: `foss2024_mcm` 456, `mcguffee2013_okseq` 327,
+`reuter2024_orc` 71.
 
 **Replication timing is recorded but excluded from the tier.** A timing peak locates where
 replication happened, not where it initiated, and the p90 of its displacement measures
@@ -240,5 +240,23 @@ python3 bin/build_elements.py /path/to/nieduszy_oridb.sql --sacCer3 DIR
 python3 bin/build_tiers.py
 ```
 
-Step 4 is idempotent: running it twice leaves every data file byte-identical. The call sets
-it reads are committed under `docs/`, so it needs no network.
+Or, in one command that stops at the first failure:
+
+```bash
+bin/build_all.sh /path/to/nieduszy_oridb.sql SACCER1_FASTA_DIR SACCER3_FASTA_DIR
+```
+
+**Use the driver, and never discard its stderr.** The four steps each produce a
+complete-looking set of files from the wrong input, and the first release of this rebuild
+shipped with unlifted sacCer1 coordinates, no per-origin values and no element links
+because step 2 exited with `pyliftover is required` into a discarded stream while the
+remaining steps ran on its untouched output. Three guards now make that impossible to
+repeat quietly: `build_elements.py` and `build_tiers.py` refuse to run on origins that are
+not on the current assembly, and `bin/smoke_test.php` fails if any origin lacks a lift
+status, if no element is linked to an origin, if no origin carries a per-origin value, if a
+site that should be in the evidence matrix is missing, or if `studies.tsv` has gained
+duplicate rows.
+
+Step 4 is idempotent: running it twice leaves every data file byte-identical, and so does
+running the whole pipeline twice. The call sets it reads are committed under `docs/`, so it
+needs no network.

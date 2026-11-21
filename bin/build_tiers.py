@@ -117,6 +117,22 @@ def main() -> None:
     _, registry = read_tsv(REGISTRY)
     header, origins = read_tsv(DATA / 'origins.tsv')
 
+    # Every call set is on the current assembly. Refuse to score origins that are
+    # not: an unlifted origins.tsv silently scores nothing and still writes a
+    # complete-looking set of files.
+    expected = {'Saccharomyces cerevisiae': 'sacCer3', 'Schizosaccharomyces pombe': 'ASM294v2'}
+    wrong = sorted({(o['species'], o['assembly']) for o in origins
+                    if o['assembly'] != expected.get(o['species'], o['assembly'])})
+    if wrong:
+        sys.exit('origins.tsv is not on the expected assembly: '
+                 + '; '.join(f'{sp} on {asm}' for sp, asm in wrong)
+                 + ' - run bin/lift_to_saccer3.py before this step')
+    if 'lift_status' not in header:
+        sys.exit('origins.tsv has no lift_status column: run bin/lift_to_saccer3.py first')
+    for col in ('okseq_activity_oem', 'median_replication_time_composite_min'):
+        if col not in header:
+            sys.exit(f'origins.tsv has no {col} column: run bin/build_elements.py first')
+
     calls = {d['dataset_id']: load_calls(d) for d in registry}
     for d in registry:
         print(f"  {d['dataset_id']:26s} {sum(len(v) for v in calls[d['dataset_id']].values()):6d} calls"

@@ -4,43 +4,43 @@
   "description": "OriDB v3.0: every origin OriDB v2 held, carried forward with its evidence records, with the tier recomputed from modern data.",
   "inclusion_rule": "An origin is Confirmed if its interval overlaps at least one plasmid (ARS) assay positive or one 2D gel electrophoresis record. The remaining tiers are set by bin/build_tiers.py from the evidence matrix; see docs/tier-rebuild.md.",
   "assemblies": {
-    "sacCer1": {
-      "species": "Saccharomyces cerevisiae",
-      "ucsc_db": "sacCer1",
-      "sequence_naming": "UCSC roman (chrI..chrXVI)",
-      "note": "Coordinates are as stored in OriDB v2 and verified sacCer1 by sequence anchoring. Lift-over to sacCer3 is NOT yet applied."
-    },
     "ASM294v2": {
       "species": "Schizosaccharomyces pombe",
       "ucsc_db": "GCA_000002945.3",
       "sequence_naming": "PomBase roman (I, II, III)",
       "note": "Current assembly; no lift-over required."
+    },
+    "sacCer3": {
+      "species": "Saccharomyces cerevisiae",
+      "ucsc_db": "sacCer3",
+      "sequence_naming": "UCSC roman (chrI..chrXVI)",
+      "note": "Lifted from sacCer1 with the UCSC chain file. Each record keeps its original sacCer1 position in source_chromosome/source_start/source_end and the outcome of a base-for-base sequence check in lift_status."
     }
   },
   "coordinate_convention": "1-based, fully closed intervals",
   "files": {
     "origins.tsv": {
-      "md5": "fdce78119e4d7a6ab90df2e74825e339",
+      "md5": "17f1ff254435cd41b84de53a2b71a9e8",
       "rows": 1580
     },
     "evidence.tsv": {
-      "md5": "e761dbda7856838933ad76a9341aee86",
+      "md5": "8275a084e2cd9a5cf4fb4fe7634372e2",
       "rows": 694
     },
     "studies.tsv": {
-      "md5": "93c23b028578c7424db34ee7fbf6f7fd",
-      "rows": 52
+      "md5": "3d596bb0051d51d0d101c5fc4ca46ae6",
+      "rows": 54
     },
     "refuted_fragments.tsv": {
       "md5": "235c9cb1cb60e9391f35b576e055bed2",
       "rows": 224
     },
     "elements.tsv": {
-      "md5": "3477493a341578f7097a7549572bf228",
-      "rows": 1657
+      "md5": "fb9ec99262895e695e6312f1c5f6676a",
+      "rows": 1667
     },
     "evidence_matrix.tsv": {
-      "md5": "bd625b106e8784ca5e1d5dba9118f5b3",
+      "md5": "0d6af5d7429bd0471199537c44da9066",
       "rows": 3356
     }
   },
@@ -100,11 +100,117 @@
       "accessions": []
     },
     {
+      "text": "131 lifted cerevisiae intervals do not have identical sequence in sacCer3 - substitutions, or an indel that changes interval length. Each mapping was checked and is correctly placed; it is the 2003 assembly sequence that was revised. Intervals whose length changed are worth a curator review. The origins affected are:",
+      "accessions": [
+        "ODB-SC-0002",
+        "ODB-SC-0007",
+        "ODB-SC-0009",
+        "ODB-SC-0014",
+        "ODB-SC-0017",
+        "ODB-SC-0025",
+        "ODB-SC-0027",
+        "ODB-SC-0028",
+        "ODB-SC-0029",
+        "ODB-SC-0030",
+        "ODB-SC-0040",
+        "ODB-SC-0041",
+        "ODB-SC-0044",
+        "ODB-SC-0052",
+        "ODB-SC-0054",
+        "ODB-SC-0064",
+        "ODB-SC-0069",
+        "ODB-SC-0070",
+        "ODB-SC-0076",
+        "ODB-SC-0080",
+        "ODB-SC-0081",
+        "ODB-SC-0082",
+        "ODB-SC-0095",
+        "ODB-SC-0101",
+        "ODB-SC-0102",
+        "ODB-SC-0112",
+        "ODB-SC-0131",
+        "ODB-SC-0140",
+        "ODB-SC-0144",
+        "ODB-SC-0150",
+        "ODB-SC-0164",
+        "ODB-SC-0206",
+        "ODB-SC-0208",
+        "ODB-SC-0213",
+        "ODB-SC-0215",
+        "ODB-SC-0253",
+        "ODB-SC-0255",
+        "ODB-SC-0256",
+        "ODB-SC-0258",
+        "ODB-SC-0261",
+        "ODB-SC-0263",
+        "ODB-SC-0264",
+        "ODB-SC-0283",
+        "ODB-SC-0287",
+        "ODB-SC-0290",
+        "ODB-SC-0308",
+        "ODB-SC-0316",
+        "ODB-SC-0326",
+        "ODB-SC-0327",
+        "ODB-SC-0328",
+        "ODB-SC-0329",
+        "ODB-SC-0340",
+        "ODB-SC-0341",
+        "ODB-SC-0358",
+        "ODB-SC-0362",
+        "ODB-SC-0394",
+        "ODB-SC-0421",
+        "ODB-SC-0422",
+        "ODB-SC-0423",
+        "ODB-SC-0426",
+        "ODB-SC-0427",
+        "ODB-SC-0428",
+        "ODB-SC-0439",
+        "ODB-SC-0449",
+        "ODB-SC-0455",
+        "ODB-SC-0459",
+        "ODB-SC-0462",
+        "ODB-SC-0473",
+        "ODB-SC-0488",
+        "ODB-SC-0489",
+        "ODB-SC-0499",
+        "ODB-SC-0500",
+        "ODB-SC-0516",
+        "ODB-SC-0557",
+        "ODB-SC-0561",
+        "ODB-SC-0576",
+        "ODB-SC-0652",
+        "ODB-SC-0658",
+        "ODB-SC-0661",
+        "ODB-SC-0673",
+        "ODB-SC-0680",
+        "ODB-SC-0690",
+        "ODB-SC-0691",
+        "ODB-SC-0717",
+        "ODB-SC-0796",
+        "ODB-SC-0814"
+      ]
+    },
+    {
       "id": "elements-unplaced",
-      "text": "3 of 1657 origin elements could not be placed in sacCer3 from their sequence alone - either the sequence does not occur in the current assembly, or it occurs several times with none near the coordinate v2 recorded. They are published without coordinates rather than placed on a guess; see anchor_status in elements.tsv.",
+      "text": "3 of 1667 origin elements could not be placed in sacCer3 from their sequence alone - either the sequence does not occur in the current assembly, or it occurs several times with none near the coordinate v2 recorded. They are published without coordinates rather than placed on a guess; see anchor_status in elements.tsv.",
       "accessions": []
     }
   ],
+  "lift": {
+    "from": "sacCer1",
+    "to": "sacCer3",
+    "chain": "reference/sacCer1ToSacCer3.over.chain.gz",
+    "chain_md5": "c3aa03bde2422b6c083f478ac42d4cdc",
+    "chain_source": "https://hgdownload.soe.ucsc.edu/goldenPath/sacCer1/liftOver/sacCer1ToSacCer3.over.chain.gz",
+    "tool": "pyliftover",
+    "sequence_verified": true,
+    "record_counts": {
+      "identical": 1342,
+      "length-changed": 75,
+      "same-length-mismatch": 56
+    },
+    "note": "Systematic names are NOT recomputed. They are coordinate-derived labels from the v2 build and are cited as such in the literature, so they stay fixed; a name like X-212 therefore need not match the lifted midpoint."
+  },
   "acs_motif": {
     "width": 33,
     "window": "-3 to +29",
@@ -240,15 +346,15 @@
       }
     },
     "anchor_status_counts": {
-      "unique": 1404,
-      "resolved-by-proximity": 250,
+      "unique": 1408,
+      "resolved-by-proximity": 256,
       "ambiguous": 1,
       "unanchored": 2
     },
     "link_counts": {
-      "contained": 0,
-      "overlapping": 0,
-      "unlinked": 1657
+      "contained": 1557,
+      "overlapping": 18,
+      "unlinked": 92
     }
   },
   "per_origin_values": {
@@ -319,19 +425,19 @@
       }
     },
     "counts": {
-      "cerevisiae_origins": 0,
+      "cerevisiae_origins": 829,
       "okseq": {
-        "assigned": 0,
-        "rejected_by_cap": 0,
-        "rejected_by_mutual_test": 0,
-        "rejected_by_both": 0,
+        "assigned": 283,
+        "rejected_by_cap": 44,
+        "rejected_by_mutual_test": 8,
+        "rejected_by_both": 494,
         "no_call_on_sequence": 0
       },
       "replication_time": {
-        "assigned": 0,
-        "rejected_by_cap": 0,
-        "rejected_by_mutual_test": 0,
-        "rejected_by_both": 0,
+        "assigned": 210,
+        "rejected_by_cap": 1,
+        "rejected_by_mutual_test": 71,
+        "rejected_by_both": 547,
         "no_call_on_sequence": 0
       }
     }
@@ -400,8 +506,8 @@
     },
     "counts": {
       "Saccharomyces cerevisiae | Confirmed": 413,
-      "Saccharomyces cerevisiae | Likely": 60,
-      "Saccharomyces cerevisiae | Unsupported": 366,
+      "Saccharomyces cerevisiae | Likely": 58,
+      "Saccharomyces cerevisiae | Unsupported": 368,
       "Schizosaccharomyces pombe | Confirmed": 48,
       "Schizosaccharomyces pombe | Not assessed": 693
     },

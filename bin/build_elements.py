@@ -79,6 +79,8 @@ TABLES = {
 ROMAN = ['', 'I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X',
          'XI', 'XII', 'XIII', 'XIV', 'XV', 'XVI']
 PROXIMITY_LIMIT = 5000  # bp; builds differ by at most a few hundred bp
+# The assembly every element is placed in, and the one the call sets below use.
+ELEMENT_ASSEMBLY = 'sacCer3'
 
 # --- ACS motif ------------------------------------------------------------
 # v2 records an `offset` per confirmed element and per study in
@@ -799,6 +801,18 @@ def main() -> None:
     # qualifying call gets an EMPTY value, never a zero: for a firing assay,
     # no call means the origin was not detected firing, which is a real state -
     # it may be licensed and rarely activated - and is not a measured zero.
+    # The call sets below are sacCer3. If build_from_v2.py has run but
+    # lift_to_saccer3.py has not, these origins are still on sacCer1 and every
+    # comparison here is meaningless - it annotates nothing and says so only by
+    # the counts, which is how a whole release once shipped unlifted. Stop instead.
+    wrong = sorted({o['assembly'] for o in origin_rows
+                    if o['accession'].startswith('ODB-SC-') and o['assembly'] != ELEMENT_ASSEMBLY})
+    if wrong:
+        sys.exit(f'origins.tsv holds cerevisiae origins on {", ".join(wrong)}, not '
+                 f'{ELEMENT_ASSEMBLY}: run bin/lift_to_saccer3.py before this step')
+    if any('lift_status' not in o or o['lift_status'] == '' for o in origin_rows):
+        sys.exit('origins.tsv has no lift_status: run bin/lift_to_saccer3.py before this step')
+
     okseq_calls = read_bed(ROOT / 'docs' / OKSEQ_CALLS)
     trep_calls = read_bed(ROOT / 'docs' / TREP_CALLS)
     okseq_hits, okseq_tally = assign_calls(origins, okseq_calls, 'thick', OKSEQ_CAP_BP)
