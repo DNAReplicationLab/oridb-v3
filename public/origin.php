@@ -152,6 +152,8 @@ $dyn = [
                    . 'directionality of Okazaki fragments',
         'pmid'    => '23562327',
         'assay'   => 'Okazaki-fragment sequencing',
+        'dataset' => 'mcguffee2013_okseq',
+        'column'  => 'okseq_call',
     ],
     [
         'label'   => 'Median replication time',
@@ -164,6 +166,8 @@ $dyn = [
                    . 'sequencing a synchronous culture',
         'pmid'    => '24089142',
         'assay'   => 'sync-seq replication profiling',
+        'dataset' => 'muller2014_trep',
+        'column'  => 'replication_time_call',
     ],
 ];
 // The assays are cerevisiae-wide, so the section is shown for every cerevisiae
@@ -188,15 +192,54 @@ $showDynamics = str_contains($origin['species'], 'cerevisiae');
     <tr>
       <td><?= h($d['label']) ?>
           <span class="small"><?= h($d['unit']) ?></span></td>
+      <?php
+      // A value can be absent for two different reasons, and they are not the
+      // same statement: the experiment resolved no call here at all, or it
+      // resolved one that belongs to a neighbouring origin. The tier table
+      // above only asks the first question, so without this the two tables
+      // appear to contradict each other.
+      $near = null;
+      $claimedBy = null;
+      if ($d['value'] === '') {
+          foreach ($support as $r) {
+              if ($r['dataset_id'] === $d['dataset'] && $r['supported'] === 'yes') {
+                  $near = $r;
+                  $claimedBy = Data::callOwner($d['column'], $r['call']);
+                  break;
+              }
+          }
+      }
+      ?>
       <td class="num">
         <?php if ($d['value'] !== ''): ?>
           <strong><?= h(($d['format'])((string) $d['value'])) ?></strong>
+        <?php elseif ($near !== null): ?>
+          <span class="small">not assigned</span>
         <?php else: ?>
           <span class="small">not resolved</span>
         <?php endif; ?>
       </td>
-      <td class="mono"><?= $d['call'] !== '' ? h($d['call']) : '<span class="small">&ndash;</span>' ?></td>
-      <td class="num"><?= $d['dist'] !== '' ? h(bp((int) $d['dist'])) . ' bp' : '<span class="small">&ndash;</span>' ?></td>
+      <td class="mono">
+        <?php if ($d['call'] !== ''): ?>
+          <?= h($d['call']) ?>
+        <?php elseif ($near !== null): ?>
+          <?= h($near['call']) ?>
+          <span class="small">
+            <?php if ($claimedBy !== null): ?>
+              nearby, but assigned to
+              <a href="<?= h(u('origin.php', ['id' => $claimedBy])) ?>"><?= h($claimedBy) ?></a>
+            <?php else: ?>
+              nearby, but nearer to another origin than that origin is to it
+            <?php endif; ?>
+          </span>
+        <?php else: ?>
+          <span class="small">&ndash;</span>
+        <?php endif; ?>
+      </td>
+      <td class="num"><?= $d['dist'] !== ''
+            ? h(bp((int) $d['dist'])) . ' bp'
+            : ($near !== null ? '<span class="small">(' . h(bp((int) $near['distance_bp'])) . ' bp)</span>'
+                              : '<span class="small">&ndash;</span>') ?></td>
       <td><?= h($d['assay']) ?><br><span class="small"><?= cite_pmid($d['pmid']) ?></span></td>
     </tr>
   <?php endforeach; ?>
@@ -204,9 +247,12 @@ $showDynamics = str_contains($origin['species'], 'cerevisiae');
 </table>
 <p class="small">
   <strong>Read these with their qualifications.</strong>
-  A blank is not a zero: it records that the experiment resolved no call here, which for
-  both of these assays happens to origins that fire late or in few cells, so the origins
-  without a value are unmeasured rather than inactive.
+  A blank is not a zero. <em>Not resolved</em> means the experiment produced no call here at
+  all, which for both of these assays happens to origins that fire late or in few cells, so
+  those origins are unmeasured rather than inactive. <em>Not assigned</em> means a call does
+  lie within range &mdash; and so counts towards the tier above &mdash; but it is not
+  unambiguously this origin's: a value is attached only where the origin and the call are
+  each other's nearest, which is what stops a neighbour's activity being reported here.
   The efficiency is the raw OEM, without the deconvolution the original study applied, so
   values are under-estimates close to a termination zone.
   The replication time is a <em>composite</em> and not a firing time &mdash; DNA here is

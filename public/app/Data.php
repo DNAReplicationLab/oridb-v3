@@ -135,6 +135,29 @@ final class Data
         return $byAccession[$accession] ?? [];
     }
 
+    /**
+     * Which origin a per-origin value call was assigned to, if any.
+     *
+     * The tier asks whether a call lies within the window of a site; the value
+     * asks whether the call is unambiguously that site's, which is a stricter
+     * question. When the two disagree it is almost always because a neighbour
+     * claimed the call, and a page that cannot say so reads as a bug.
+     */
+    public static function callOwner(string $column, string $call): ?string
+    {
+        static $owners = [];
+        if (!isset($owners[$column])) {
+            $owners[$column] = [];
+            foreach (self::origins() as $row) {
+                if (($row[$column] ?? '') !== '') {
+                    $owners[$column][$row[$column]] = $row['accession'];
+                }
+            }
+        }
+
+        return $owners[$column][$call] ?? null;
+    }
+
     /** @return list<array<string,string>> every fragment cloned that did not replicate */
     public static function refutedFragments(): array
     {

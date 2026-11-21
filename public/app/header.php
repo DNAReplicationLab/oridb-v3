@@ -40,7 +40,7 @@ foreach ($builds as $build => $meta) {
 }
 ?>
 <div class="banner wrap">
-  Trial release <strong><?= h($release['release']) ?></strong> &mdash; Confirmed origins only.
+  Trial release <strong><?= h($release['release']) ?></strong> &mdash; every OriDB origin, with its tier recomputed.
   Coordinates: <?= implode(', ', $assembly_summary) ?>.
   See <a href="about.php">About</a> for scope and known issues.
 </div>

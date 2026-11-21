@@ -76,11 +76,11 @@ foreach (Data::origins() as $o) {
 foreach (Data::speciesList() as $species) {
     $slug = strtolower(str_replace(' ', '-', $species));
     $map['export.php?' . http_build_query(['format' => 'bed', 'species' => $species])]
-        = "oridb-confirmed-{$slug}.bed";
+        = "oridb-origins-{$slug}.bed";
 }
 $map['export.php?format=elements'] = 'oridb-elements.bed';
-$map['export.php?format=json'] = 'oridb-confirmed.json';
-$map['export.php?format=tsv'] = 'oridb-confirmed.tsv';
+$map['export.php?format=json'] = 'oridb-origins.json';
+$map['export.php?format=tsv'] = 'oridb-origins.tsv';
 
 foreach ($targets as [$page, $query]) {
     $map[$page . '?' . http_build_query(array_filter($query, static fn ($v): bool => (string) $v !== ''))]
@@ -134,11 +134,11 @@ foreach (glob($root . '/public/assets/*') as $asset) {
 }
 foreach (Data::speciesList() as $species) {
     $slug = strtolower(str_replace(' ', '-', $species));
-    file_put_contents($out . "/oridb-confirmed-{$slug}.bed", render($root, 'export.php', ['format' => 'bed', 'species' => $species]));
+    file_put_contents($out . "/oridb-origins-{$slug}.bed", render($root, 'export.php', ['format' => 'bed', 'species' => $species]));
 }
 file_put_contents($out . '/oridb-elements.bed', render($root, 'export.php', ['format' => 'elements']));
-file_put_contents($out . '/oridb-confirmed.json', render($root, 'export.php', ['format' => 'json']));
-file_put_contents($out . '/oridb-confirmed.tsv', render($root, 'export.php', ['format' => 'tsv']));
+file_put_contents($out . '/oridb-origins.json', render($root, 'export.php', ['format' => 'json']));
+file_put_contents($out . '/oridb-origins.tsv', render($root, 'export.php', ['format' => 'tsv']));
 file_put_contents($out . '/.nojekyll', '');
 
 printf("Wrote %d HTML pages plus assets and exports to %s\n", $written, $out);

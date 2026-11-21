@@ -34,12 +34,36 @@ if ($format === 'bed') {
         'both'   => 'column 4 is accession|historical name',
         default  => 'column 4 is the OriDB accession',
     };
-    echo "# OriDB {$release['release']} - Confirmed origins - assembly {$assembly}\n";
-    echo "# {$naming}; both names and all legacy fields are in the TSV export\n";
-    echo 'track name="OriDB Confirmed origins" description="OriDB ' . $release['release'] . '" visibility=2' . "\n";
+    // Shading by tier, so a browser track reads at a glance; the tier itself is
+    // column 7, because BED has no field for it and silently dropping it would
+    // leave a file whose rows cannot be told apart.
+    $shade = ['Confirmed' => 1000, 'Likely' => 700, 'Unsupported' => 400, 'Not assessed' => 200];
+    $tiers = [];
+    foreach ($rows as $o) {
+        $tiers[$o['status']] = ($tiers[$o['status']] ?? 0) + 1;
+    }
+    ksort($tiers);
+    $breakdown = [];
+    foreach ($tiers as $tier => $n) {
+        $breakdown[] = $n . ' ' . $tier;
+    }
+    echo "# OriDB {$release['release']} - all origin tiers - assembly {$assembly}\n";
+    echo '# ' . implode(', ', $breakdown) . "\n";
+    echo "# {$naming}; column 5 shades by tier and column 7 names it; both names and all\n";
+    echo "# legacy fields are in the TSV export\n";
+    echo 'track name="OriDB origins" description="OriDB ' . $release['release']
+       . ' - all tiers" visibility=2 useScore=1' . "\n";
     foreach ($rows as $o) {
         // BED is 0-based half-open; stored coordinates are 1-based inclusive.
-        echo implode("\t", [$o['chromosome'], (int) $o['start'] - 1, (int) $o['end'], $label($o), 0, '.']), "\n";
+        echo implode("\t", [
+            $o['chromosome'],
+            (int) $o['start'] - 1,
+            (int) $o['end'],
+            $label($o),
+            $shade[$o['status']] ?? 0,
+            '.',
+            $o['status'],
+        ]), "\n";
     }
     exit;
 }

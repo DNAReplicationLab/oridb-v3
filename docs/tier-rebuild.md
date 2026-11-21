@@ -84,7 +84,7 @@ interval. The windows do not all come from the same place, and it matters which:
   v2 records whose coordinates are a good deal less precise — 15 confirmed origins have no
   MCM site within ±250 bp but 14 of them have one within 1,486 bp — so the window is a
   deliberate tolerance rather than a measurement.
-- `reuter2024_orc` (500 bp) has **no measured positional error at all**; the published
+- `reuter2024_mcm` (500 bp) has **no measured positional error at all**; the published
   table is already thresholded and carries no score. 500 bp is provisional, matched to the
   other footprint dataset.
 
@@ -245,7 +245,7 @@ accessions are minted.
   *not assessed*, which records missing coverage rather than a negative finding. Pu-seq
   (Daigaku *et al.*, GSE62108) measures firing and is ready to process; a licensing axis
   (Masuda *et al.* 2020, GSE125335) is the one that would let pombe sites reach *likely*.
-- **A measured threshold and positional error for `reuter2024_orc`.** It is used
+- **A measured threshold and positional error for `reuter2024_mcm`.** It is used
   present-or-absent because the published table is already thresholded and carries no
   score, so both its cut and its 500 bp window are provisional. A score per call would let
   both be set by measurement, as the Foss rank cut was.

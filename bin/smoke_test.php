@@ -332,6 +332,50 @@ if ($missing > 0) {
     echo "ok    every tiered site appears in the evidence matrix\n";
 }
 
+// The BED export announced "Confirmed origins" for a release in which it held
+// every tier. An export that does not say what it contains is worse than one
+// that is merely incomplete, so the header and the rows are checked against
+// each other.
+$species = 'Saccharomyces cerevisiae';
+$expectedTiers = [];
+foreach ($origins as $o) {
+    if ($o['species'] === $species) {
+        $expectedTiers[$o['status']] = true;
+    }
+}
+$cmd = sprintf(
+    'php -d display_errors=1 -r %s 2>&1',
+    escapeshellarg(
+        '$_GET = ' . var_export(['format' => 'bed', 'species' => $species], true) . ';'
+        . '$_SERVER["REQUEST_METHOD"]="GET";'
+        . 'require ' . var_export($root . '/public/export.php', true) . ';'
+    )
+);
+$bed = (string) shell_exec($cmd);
+$bedTiers = [];
+$widths = [];
+foreach (explode("\n", trim($bed)) as $line) {
+    if ($line === '' || $line[0] === '#' || str_starts_with($line, 'track')) {
+        continue;
+    }
+    $cols = explode("\t", $line);
+    $widths[count($cols)] = true;
+    $bedTiers[$cols[6] ?? ''] = true;
+}
+$missingTiers = array_diff_key($expectedTiers, $bedTiers);
+if ($missingTiers !== [] || array_keys($widths) !== [7]) {
+    echo 'FAIL  the BED export does not carry a tier per row: columns '
+       . implode('/', array_keys($widths)) . ', missing '
+       . (implode(', ', array_keys($missingTiers)) ?: 'none') . "\n";
+    $failures++;
+} elseif (preg_match('/^#.*\bConfirmed origins\b/m', $bed) === 1) {
+    echo "FAIL  the BED export header still claims Confirmed origins only\n";
+    $failures++;
+} else {
+    printf("ok    the BED export names every tier it contains (%s)\n",
+           implode(', ', array_keys($bedTiers)));
+}
+
 // Repeated builds have appended to studies.tsv before now.
 $seen = [];
 $dupes = 0;
