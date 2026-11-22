@@ -64,12 +64,12 @@ require ORIDB_APP_DIR . '/header.php';
   <p class="small"><?= h((string) count($results)) ?> match<?= count($results) === 1 ? '' : 'es' ?>.</p>
   <?php if ($results === [] && $error === ''): ?>
     <div class="note">
-      <strong>Nothing found — check what this release covers.</strong>
-      The trial holds only the <strong>Confirmed</strong> tier: <?= h((string) $total) ?> origins, those supported by a
-      plasmid (ARS) assay or a 2D gel. OriDB v2 also listed Likely and Dubious origins, and those
-      are <em>not</em> here yet, so a search for one of them returns no match even though the
-      origin exists in v2. Names are matched as substrings and case is ignored; try a shorter
-      fragment such as <span class="mono">ARS30</span>, or search by
+      <strong>Nothing found.</strong>
+      This release holds <?= h((string) $total) ?> origins &mdash; every site OriDB&nbsp;2012 listed,
+      whatever its tier, plus the sites the rebuild added &mdash; so a name from v2 should match.
+      Names are matched as substrings and case is ignored; try a shorter
+      fragment such as <span class="mono">ARS30</span>, an accession such as
+      <span class="mono">ODB-SC-0042</span>, or search by
       <a href="browse.php">browsing a chromosome</a>.
     </div>
   <?php endif; ?>

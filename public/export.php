@@ -81,7 +81,7 @@ if ($format === 'matrix' || $format === 'refuted') {
 if ($format === 'elements') {
     header('Content-Type: text/plain; charset=utf-8');
     header('Content-Disposition: attachment; filename="oridb-elements-' . $stamp . '.bed"');
-    echo "# OriDB {$release['release']} - origin elements (A and B2) - assembly "
+    echo "# OriDB {$release['release']} - origin elements (A, B2 and B3) - assembly "
         . Data::elementAssembly() . "\n";
     echo 'track name="OriDB origin elements" description="OriDB ' . $release['release'] . '" visibility=2' . "\n";
     foreach (Data::elements() as $e) {

@@ -216,8 +216,9 @@ require ORIDB_APP_DIR . '/header.php';
   <span class="mono">predicted</span> &mdash; computational calls, published under their own names
   by the studies they come from. This is evidence, not class: an element is A, B2 or B3
   <em>and</em> confirmed or predicted. Confirmed elements are set in bold in the alignment, labelled there,
-  and drawn in a solid colour in the overview figure, because they are the records the ACS matrix
-  itself was built from.
+  and drawn in a solid colour in the overview figure. The confirmed <em>A</em> elements are also the
+  records the ACS matrix itself was built from; a confirmed B2 or B3 comes from the literature
+  and trains nothing.
 </p>
 
 <h3>What the motif panels show</h3>

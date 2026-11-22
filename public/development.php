@@ -2,7 +2,6 @@
 declare(strict_types=1);
 require_once __DIR__ . '/app/bootstrap.php';
 $release = Data::release();
-$hub = Data::hub();
 $title = 'Development';
 require ORIDB_APP_DIR . '/header.php';
 ?>
@@ -113,14 +112,12 @@ require ORIDB_APP_DIR . '/header.php';
 
 <h2>What is deliberately not here yet</h2>
 <ul>
-  <li><strong>The Likely and Dubious tiers.</strong> They rest on genome-wide mapping data whose
-      assemblies and thresholds are a larger problem than the Confirmed tier, and they are being
-      rebuilt from current data rather than carried across.</li>
-  <li><strong>OriDB's own origin intervals as a browser track.</strong> The
-      <a href="datahub.php">data hub</a> exists and serves the genome-wide profiles behind the
-      origin calls<?php if ($hub !== [] && isset($hub['counts'])): ?>
-      (<?= h((string) $hub['counts']['datasets']) ?> dataset<?= (int) $hub['counts']['datasets'] === 1 ? '' : 's' ?>
-      so far)<?php endif; ?>, but the origin records themselves are not in it.</li>
+  <li><strong>Genome-wide data for <em>S.&nbsp;pombe</em>.</strong> Every dataset in the registry
+      that decides a tier covers budding yeast, so every fission yeast site that is not Confirmed
+      is shown as <em>not assessed</em> rather than placed in a tier, and the
+      <a href="datahub.php">data hub</a> serves OriDB's own records on that assembly but no
+      measured profile yet. Adding a fission yeast dataset is the next thing that would change a
+      large number of records.</li>
   <li><strong>A database back end.</strong> The trial is flat files on purpose: it keeps the
       release reproducible and checksummed while the schema is still moving.</li>
   <li><strong>Stable URLs.</strong> Accessions are permanent; the paths that serve them are not

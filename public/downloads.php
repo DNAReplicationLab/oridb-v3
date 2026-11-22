@@ -32,7 +32,7 @@ require ORIDB_APP_DIR . '/header.php';
     <?php endforeach; ?>
     <tr><td><a href="<?= h(u('export.php', ['format' => 'elements'])) ?>">BED</a></td>
         <td>origin elements, <?= h(Data::elementAssembly()) ?></td>
-        <td class="small">A and B2 elements from every element study; records with no position in that assembly are omitted</td></tr>
+        <td class="small">A, B2 and B3 elements from every element study; records with no position in that assembly are omitted</td></tr>
     <tr><td><a href="<?= h(u('export.php', ['format' => 'matrix'])) ?>">TSV</a></td>
         <td>evidence matrix</td>
         <td class="small">one row per site per dataset, supported or not, with the nearest call

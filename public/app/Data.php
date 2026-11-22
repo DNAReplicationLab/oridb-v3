@@ -79,7 +79,7 @@ final class Data
         return self::indexBy('evidence', 'accession')[$accession] ?? [];
     }
 
-    /** @return list<array<string,string>> every origin element (A or B2), placed or not */
+    /** @return list<array<string,string>> every origin element (A, B2 or B3), placed or not */
     public static function elements(): array
     {
         return self::table('elements');

@@ -409,18 +409,15 @@ function element_overview_svg(array $origin, array $elements, string $domId): st
         if ($rows === []) {
             continue;
         }
-        // The lower lane is labelled by the classes actually drawn in it, so a
-        // figure with a B3 says so rather than calling everything B2.
-        $inLane = array_keys(array_filter(
-            $counts,
-            static fn (string $c): bool => element_lane($c) === $lane,
-            ARRAY_FILTER_USE_KEY
-        ));
+        // The lane is labelled by the side it draws, not by the classes in it:
+        // the lower lane holds every B element, and labelling it "B2" or
+        // "B2, B3" made the lane read as a class. Which B class a mark is comes
+        // from the tooltip and the records table, as with the colours.
         $svg[] = sprintf(
             '<text x="%.1f" y="%.1f" font-size="11" text-anchor="end" fill="#1b1f23">%s</text>',
             $gutter - 8.0,
             $laneTop + $markH,
-            h(implode(', ', $inLane) . ' (' . $laneTotals[$lane] . ')')
+            h($lane . ' (' . $laneTotals[$lane] . ')')
         );
         foreach ($rows as $r => $row) {
             $y = $laneTop + $r * $rowH;
