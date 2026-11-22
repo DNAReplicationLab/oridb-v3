@@ -92,6 +92,7 @@ $trep = $fmt((string) ($origin['median_replication_time_composite_min'] ?? ''), 
   <a href="#elements">Elements</a>
   <a href="#identifiers">Identifiers</a>
   <a href="#data">Data</a>
+  <a class="top" href="#main">Top</a>
 </nav>
 
 <?php if ($jbAssembly !== null): ?>

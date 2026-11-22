@@ -125,10 +125,25 @@ dl.facts.summary { background: #f7f8fa; border: 1px solid #e3e6ea; border-radius
 
 /* In-page navigation. Anchors, not tabs: every section stays in the document, so
    find-in-page, printing and deep links all keep working. */
-nav.sectionnav { display: flex; flex-wrap: wrap; gap: .25rem .75rem; margin: .75rem 0 1.5rem;
-  padding-bottom: .5rem; border-bottom: 1px solid #e3e6ea; }
+/* The section strip on an origin page. It pins to the top of the viewport once
+   scrolled past, so a reader deep in the element records can reach any other
+   section - or the top - without scrolling back for it. Sticky needs an opaque
+   background and a z-index or the page scrolls through it; a browser without
+   position:sticky simply leaves the strip where it was. */
+nav.sectionnav { position: sticky; top: 0; z-index: 5; background: var(--bg);
+  display: flex; flex-wrap: wrap; gap: .25rem .75rem; margin: .75rem 0 1.5rem;
+  padding: .5rem 0; border-bottom: 1px solid #e3e6ea; }
 nav.sectionnav a { text-decoration: none; }
 nav.sectionnav a:hover { text-decoration: underline; }
+nav.sectionnav a.top { margin-left: auto; color: var(--muted); }
+
+/* A heading jumped to would otherwise land underneath the pinned strip. The
+   offset is the strip's height plus a line. Marking the heading on :target is
+   the one thing a strip with no JavaScript can say about where the reader is:
+   it marks the section they asked for. */
+main h2[id] { scroll-margin-top: 3.25rem; }
+main h2[id]:target { background: var(--panel); border-radius: .15rem;
+  box-shadow: -.5rem 0 0 var(--panel), .5rem 0 0 var(--panel); }
 
 /* A long table folded away behind its own count. Native details, so it costs no
    JavaScript and browsers can still find text inside it. */

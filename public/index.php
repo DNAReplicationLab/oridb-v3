@@ -16,7 +16,9 @@ require ORIDB_APP_DIR . '/header.php';
 <p class="lede">
   OriDB collects the mapped and curated replication origins of budding and fission yeast.
   Version 3.0 carries every origin the 2012 database held, each with the experimental records
-  that justify it, and recomputes how well supported it is from modern genome-wide data.
+  that justify it, and recomputes how well supported it is from modern genome-wide data. It also
+  adds <?= h((string) $release['tiers']['novel_sites']['n']) ?> sites those datasets support that
+  the 2012 database never listed.
 </p>
 
 <ul class="stats">

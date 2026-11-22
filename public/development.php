@@ -35,14 +35,16 @@ require ORIDB_APP_DIR . '/header.php';
       registry, where the MCM rank cut came from, why a negative ARS assay is a flag
       and not a tier, and which later changes are a rerun rather than a migration.</li>
   <li><a href="https://github.com/DNAReplicationLab/oridb-v3/blob/main/docs/tier-evidence-proposal.md">Rebuilding the origin tiers</a> &mdash; the
-      evidence axes, the measured resolution of every candidate study, and the merge
-      rule.</li>
+      proposal this was argued from, kept for the evidence axes and the measured resolution of
+      every candidate study. <strong>Superseded</strong> by the tiering note above, which records
+      what was built: the proposal&rsquo;s fourth tier was <em>refuted</em>, where what shipped
+      carries refutation as a flag and makes the fourth tier <em>not assessed</em>.</li>
   <li><a href="https://github.com/DNAReplicationLab/oridb-v3/blob/main/docs/origin_page_changes.md">The origin page</a> &mdash; how the elements
       section is laid out and why.</li>
   <li><a href="https://github.com/DNAReplicationLab/oridb-v3/blob/main/docs/origin-page-viewer.md">A browser panel on the origin page</a>
-      &mdash; a design note rather than a method: what embedding a limited JBrowse view
-      would require, what each route costs in bytes, and how the page should be sectioned
-      so that adding it does not make the page unreadable.</li>
+      &mdash; the design note the panel was built from, <strong>now implemented</strong>: what
+      embedding a limited JBrowse view required, what each route cost in bytes, and how the page
+      is sectioned so that adding it did not make the page unreadable.</li>
   <li><a href="https://github.com/DNAReplicationLab/oridb-v3/blob/main/docs/liachko2013-review.md">Liachko et al. 2013, reviewed</a> &mdash; the
       manual ARS assays and assay strengths now in the evidence table, the origins whose
       earlier positive was not reproduced, and what ARS-seq would add.</li>
@@ -54,8 +56,9 @@ require ORIDB_APP_DIR . '/header.php';
       plus <span class="mono">release.json</span>, and <span class="mono">public/app/Data.php</span>
       is the only code that knows where they live. When a database back end arrives, its methods
       are re-implemented against it and no page changes.</li>
-  <li><strong>No framework, no JavaScript, no build step for the front end.</strong> One
-      stylesheet. The 2012 site is largely unusable today because of its dependencies &mdash; a
+  <li><strong>No framework, no build step, and no JavaScript on a page that does not need
+      it.</strong> One stylesheet, and script only where a page cannot be built without it &mdash;
+      at present the genome-browser panel on an origin page, which loads nothing until asked. The 2012 site is largely unusable today because of its dependencies &mdash; a
       Flash shim, a charting library pinned at a 2010 version, a CDN copy of jQuery, browser
       conditional comments. Anything added back has to be needed by a page: a genome browser will
       want JavaScript, a table of a few hundred rows does not.</li>

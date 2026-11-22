@@ -159,3 +159,53 @@ says each note records "how [a layer] was produced".
   registered dataset covers the species.
 - The home page's "Start here" list offers Browse, Search, Downloads and About, omitting
   Data hub and Studies, which are both in the nav.
+
+---
+
+## 4. Resolution
+
+All seven decisions in section 2 were taken on 22 November 2026 and are implemented.
+
+**a. README rewritten** against the current release. The "first increment / Confirmed tier"
+framing is gone, replaced by a *What v3 changes* section; the summary table, the lift
+figures and the outstanding-work list are current, the JavaScript claim is qualified, and
+the non-existent `src/` is no longer mentioned.
+
+**b. SGD comparison rerun**, and made reproducible rather than hand-written. The paragraph
+is no longer a fixed string in `bin/build_from_v2.py`; `bin/compare_sgd.py` computes it
+from `public/data/origins.tsv` and a committed snapshot of UCSC's `sgdOther`
+(`reference/sgd_saccer3_ars_features.bed`, 389 features named ARS*), and rewrites the
+known issue keyed `sgd-coordinates`. It is step 5 of `bin/build_all.sh`, after the tiers,
+because the comparison is over the Confirmed tier. Current figures: of the 424 Confirmed
+cerevisiae origins, 292 overlap an ARS feature in 350 pairs; 259 pairs share an identical
+end, and in 258 the SGD feature begins inside the OriDB interval, 244 by exactly 2 bp and
+14 by 1 bp; 132 Confirmed origins overlap no ARS feature and 47 features overlap no
+Confirmed origin. One figure is **not** recomputed and now says so in the text: the finding
+that 194 of the 2 bp cases have an OriDB start at a PCR primer position was established
+against the v2 source records, which are not in this repository.
+
+**c. Studies table** carries three count columns — Origins, Elements, Datasets — with a
+dash, not a zero, where a study took a different route in. The lede explains each route.
+No study is now blank across all three.
+
+**d. The 10 new sites** are stated on the home page and explained on About, with the count
+and the rule read from `release.json` rather than written down.
+
+**e. Browser-track colours repointed** at the site convention: A in blue (21,70,127) and
+every B element in one brown (138,74,18), replacing orange A and two purples. The track
+description no longer calls the A element an "ACS match". This touched the hub repository
+as well — `docs/containers_oridb_v3_sacCer3.json` and the regenerated `trackDb.txt` and
+`elements.bb` — after which `jbrowse.json` and `datahub.json` were rebuilt here.
+
+**f. The "no JavaScript" claim** now reads "no framework, no build step, and no JavaScript
+on a page that does not need it", naming the browser panel as the exception.
+
+**g. Method notes** mark `origin-page-viewer.md` as implemented and
+`tier-evidence-proposal.md` as superseded by `tier-rebuild.md`, saying how the two differ.
+
+Also done, outside the review: the section strip on an origin page is now **sticky**, so
+every section — and the top — is reachable from anywhere on the page, with a *Top* link
+closing the strip and a `:target` mark on the section arrived at. Highlighting the section
+currently under the viewport would need JavaScript and was left out.
+
+Section 3 is unchanged and still open.

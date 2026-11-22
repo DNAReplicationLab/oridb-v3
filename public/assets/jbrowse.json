@@ -1,5 +1,5 @@
 {
-    "generated": "2026-11-22T00:00:14+00:00",
+    "generated": "2026-11-22T14:15:22+00:00",
     "hub": {
         "base_url": "https://dnareplicationlab.github.io/oridb-data-hub/",
         "url": "https://dnareplicationlab.github.io/oridb-data-hub/hub.txt"
@@ -88,7 +88,7 @@
                 "type": "FeatureTrack",
                 "trackId": "sacCer3-oridb_v3_elements",
                 "name": "Origin elements",
-                "description": "OriDB v3 origin elements: A (ACS match) in orange, B2 and B3 in purple; score is the motif score as a percentage of the matrix maximum",
+                "description": "OriDB v3 origin elements: A elements in blue and all B elements (B2, B3) in brown, the colours the origin pages use; the class is in the elementClass field and the score is the motif score as a percentage of the matrix maximum",
                 "assemblyNames": [
                     "sacCer3"
                 ],

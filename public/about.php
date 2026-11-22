@@ -20,6 +20,14 @@ require ORIDB_APP_DIR . '/header.php';
   of the time, and v3 recomputes them from genome-wide datasets re-analysed on the current
   assemblies.
 </p>
+<p>
+  Nothing from v2 was dropped, but the set is no longer only v2's.
+  <?= h((string) $release['tiers']['novel_sites']['n']) ?> sites are new, each found by the same
+  rule: <?= h($release['tiers']['novel_sites']['rule']) ?>. They were minted as ordinary origins and
+  took the next free accessions for their species, and they carry no
+  <span class="mono">legacy_id</span>, because there is no 2012 record to point at. They are
+  listed with everything else in <a href="browse.php">Browse</a>.
+</p>
 
 <h3>The tiers</h3>
 <dl class="facts">

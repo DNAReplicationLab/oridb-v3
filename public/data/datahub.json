@@ -1,5 +1,5 @@
 {
-    "generated": "2026-11-21T23:40:01Z",
+    "generated": "2026-11-22T14:15:22Z",
     "hub": {
         "name": "oridb_data_hub",
         "shortLabel": "OriDB data hub",
@@ -68,11 +68,11 @@
                                 {
                                     "track": "oridb_v3_elements",
                                     "shortLabel": "Origin elements",
-                                    "longLabel": "OriDB v3 origin elements: A (ACS match) in orange, B2 and B3 in purple; score is the motif score as a percentage of the matrix maximum",
+                                    "longLabel": "OriDB v3 origin elements: A elements in blue and all B elements (B2, B3) in brown, the colours the origin pages use; the class is in the elementClass field and the score is the motif score as a percentage of the matrix maximum",
                                     "type": "bigBed 9 +",
                                     "file": "elements.bb",
                                     "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/oridb_v3/elements.bb",
-                                    "bytes": 173026
+                                    "bytes": 173023
                                 },
                                 {
                                     "track": "oridb_v3_refuted",

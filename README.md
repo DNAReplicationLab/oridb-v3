@@ -2,36 +2,68 @@
 
 `github.com/DNAReplicationLab/oridb-v3`
 
-A rebuild of [oridb.org](http://oridb.org). This repository holds the **first increment**:
-the *Confirmed* origin tier of *Saccharomyces cerevisiae* and *Schizosaccharomyces pombe*,
-served by a small, dependency-free PHP application.
+A rebuild of [oridb.org](http://oridb.org). This repository is the whole of it: the released
+data files, the code that generates them from the OriDB v2 dump, and the small
+dependency-free PHP application that serves them. Trial site:
+[v3.oridb.org](https://v3.oridb.org/).
 
 | | |
 |---|---|
 | Release | `3.0.0-trial.1` |
-| Origins | 410 *S. cerevisiae* + 48 *S. pombe* = 458 |
-| Evidence records | 536 individual assays |
-| Source publications | 37 |
-| Runtime | PHP 8.1+ — no database, no Composer, no JavaScript |
+| Origins | 839 *S. cerevisiae* + 741 *S. pombe* = 1,580 |
+| Tiers | 472 Confirmed, 35 Likely, 380 Unsupported, 693 Not assessed |
+| Evidence records | 822 individual assays |
+| Origin elements | 1,667 — 1,354 A, 312 B2, 1 B3 |
+| Source publications | 56 |
+| Runtime | PHP 8.1+ — no database, no Composer; JavaScript only in the optional browser panel |
 
-## Why start with the Confirmed tier
+Every count above is generated rather than asserted: the pages read them from
+`public/data/release.json`, and a page that hard-codes one fails the test suite.
 
-Every Confirmed origin in OriDB v2 is Confirmed because a **plasmid (ARS) assay** or a
-**2D gel** put it there. That was verified against the v2 database, not assumed:
-all 458 Confirmed origins overlap at least one such record, and only three non-Confirmed
-origins do. The tier is therefore a self-contained, individually-cited dataset that can
-move to v3.0 without touching the genome-wide mapping data, whose assemblies and
-thresholds are a much larger problem.
+## What v3 changes
+
+**Every v2 origin is here**, with its accession, its identifiers and its evidence records.
+Nothing was dropped and nothing was renumbered.
+
+**The tiers are recomputed, not carried across.** The 2012 tiers were a judgement about the
+literature of the time. v3 derives a tier at build time from `evidence_matrix.tsv` — one row
+per site per dataset, supporting or not — using genome-wide datasets re-analysed on the
+current assemblies. *Confirmed* still means direct experimental evidence at the site, an ARS
+assay or a 2D gel, and no quantity of genome-wide data substitutes for it. *Likely* means two
+or more registered datasets support the site and at least one of them measures licensing.
+*Dubious* is gone: a site that current data do not support is *Unsupported*, which is a
+statement about the evidence rather than about the site, and a species no registered dataset
+covers is *Not assessed*. A negative ARS assay is a flag, never a tier — it describes the
+fragment that was cloned, and a site can hold a positive and a negative result at once.
+
+**Ten sites are new** (`ODB-SC-0830`–`ODB-SC-0839`): clusters of calls that two or more
+datasets support, one of them licensing, matching no site carried from v2.
+
+**Coordinates are the current assemblies.** *S. cerevisiae* records are lifted from sacCer1
+to sacCer3 and checked base for base; *S. pombe* is ASM294v2 already. Every lifted record
+keeps its original position and the outcome of that check.
+
+**There is an element layer.** A, B2 and B3 elements, each located in the assembly by its own
+stored sequence rather than by the coordinates v2 recorded, scored against a motif derived
+from the confirmed elements, and drawn on the origin page.
+
+**Two per-origin values** are published for each *S. cerevisiae* origin, a firing efficiency
+from Ok-seq and a median replication time from sync-seq, attached only where the origin and
+the call are each other's nearest and lie within that assay's measured positional error.
+
+**The data are browsable.** `oridb-data-hub` is a UCSC track hub of the genome-wide profiles
+behind the calls, with OriDB's own origins, elements and ARS-negative fragments rendered into
+it as bigBed, and an origin page can draw that window inline.
 
 ## Layout
 
 ```
 public/           web root — one PHP file per page, plus assets/ and api/
   app/            application code: bootstrap, Data accessor, page templates (HTTP-denied)
-  data/           released flat files: origins.tsv, evidence.tsv, studies.tsv, release.json (HTTP-denied)
+  data/           released flat files: the TSVs and release.json (HTTP-denied)
 bin/              build and test scripts
 reference/        the UCSC liftOver chain, the dataset registry, and curated source tables (see reference/README.md)
-docs/             page structure and deployment notes
+docs/             method notes, design notes and deployment notes
 build/            generated; not committed
 ```
 
@@ -46,13 +78,14 @@ How each derived layer was produced, and what it does and does not claim:
 - [`docs/tier-rebuild.md`](docs/tier-rebuild.md) — how every site is placed in a tier:
   the dataset registry, where the Foss rank cut came from, why refutation is a flag, and
   what changing a decision later would cost.
-- [`docs/tier-evidence-proposal.md`](docs/tier-evidence-proposal.md) — the tier rebuild:
-  evidence axes, measured per-study resolution, and the merge rule.
+- [`docs/tier-evidence-proposal.md`](docs/tier-evidence-proposal.md) — the proposal the
+  rebuild was argued from, kept for its evidence axes and its measured per-study resolution.
+  **Superseded** by `tier-rebuild.md`: its fourth tier was *refuted*, where what shipped
+  carries refutation as a flag and makes the fourth tier *not assessed*.
 - [`docs/origin_page_changes.md`](docs/origin_page_changes.md) — the origin page layout.
-- [`docs/origin-page-viewer.md`](docs/origin-page-viewer.md) — a design note rather than a
-  method: what embedding a limited JBrowse panel in the origin page would require, the
-  measured cost of each route, and how the page should be sectioned so that it stays
-  readable.
+- [`docs/origin-page-viewer.md`](docs/origin-page-viewer.md) — the design note the embedded
+  JBrowse panel was built from, **now implemented**: what each route cost in bytes, and how
+  the page is sectioned so that adding it did not make the page unreadable.
 - [`docs/liachko2013-review.md`](docs/liachko2013-review.md) — Liachko et al. 2013 reviewed
   as a source of evidence: what was incorporated (manual ARS assays, assay strength) and
   what is still to come (ARS-seq, miniARS-seq cores, mutARS-seq).
@@ -78,9 +111,11 @@ php bin/build_static.php    # renders the whole site to build/static/ as flat HT
 Putting this repository on GitHub, from a machine with nothing set up yet:
 [`docs/github-setup.md`](docs/github-setup.md).
 
-Serving it from the hosting account: [`docs/deployment-ukhost4u.md`](docs/deployment-ukhost4u.md). In short: a `v3`
-subdomain whose document root points at this repository's `public/` directory, kept
-up to date by cPanel's Git Version Control. `data/` and `src/` stay above the web root.
+Serving it from the hosting account:
+[`docs/deployment-ukhost4u.md`](docs/deployment-ukhost4u.md). In short: a `v3` subdomain
+whose document root points at this repository's `public/` directory, kept up to date by
+cPanel's Git Version Control. HTTP access to `app/` and `data/` is denied by their own
+`.htaccess`, so nothing has to live above the web root.
 
 `build/static/` is a complete no-PHP mirror of the site, suitable for GitHub Pages
 while the PHP version is under review. It is produced by the same templates, so the
@@ -88,12 +123,30 @@ preview cannot drift from the live site.
 
 ## Rebuilding the data
 
-Two steps, in order. The dump is not in this repository.
+Five steps, in order. The dump is not in this repository. Each step silently produces a
+complete-looking set of files from the wrong input, so run the script rather than the
+individual commands:
 
 ```bash
-python3 bin/build_from_v2.py /path/to/nieduszy_oridb.sql          # extract (sacCer1)
-python3 bin/lift_to_saccer3.py --sacCer1 DIR --sacCer3 DIR        # lift to sacCer3
+bin/build_all.sh /path/to/nieduszy_oridb.sql SACCER1_FASTA_DIR SACCER3_FASTA_DIR
 ```
+
+1. `build_from_v2.py` extracts the v2 records, which are sacCer1.
+2. `lift_to_saccer3.py` rewrites the cerevisiae coordinates onto sacCer3 using the committed
+   UCSC chain and — when both assembly FASTA directories are supplied — checks every lifted
+   interval base for base, recording the outcome per record in `lift_status`. *S. pombe* is
+   ASM294v2 already and is passed through untouched.
+3. `build_elements.py` locates every element by its stored sequence, derives the motifs,
+   scores each record, and assigns the per-origin activity and replication time.
+4. `build_tiers.py` evaluates every registered dataset against every site and derives the
+   tier.
+5. `compare_sgd.py` compares the Confirmed cerevisiae intervals with SGD's ARS features
+   (`reference/sgd_saccer3_ars_features.bed`, a committed snapshot of UCSC's `sgdOther`) and
+   rewrites that known issue with the numbers it measures. It runs last because the
+   comparison is over the Confirmed tier, which step 4 decides.
+
+Checksums of the generated files are recorded in `public/data/release.json`, so a deposited
+copy can be proved identical to the served one.
 
 The **Data hub** page is built separately, because the hub is a different repository with
 its own release cycle:
@@ -136,37 +189,32 @@ php bin/build_datahub.php --hub-url https://dnareplicationlab.github.io/oridb-da
 
 Both forms produce the same file (`generated` and the recorded source aside). The network is
 never the default, and a hub that cannot be read fails the build with a message and writes
-nothing, so the page can never be served a half-described hub. Giving both options reads the
-files locally and takes the public URL from `--hub-url`, which is what a checkout with no git
-remote needs.
-
-`build_from_v2.py` extracts the v2 records, which are sacCer1. `lift_to_saccer3.py` rewrites
-the cerevisiae coordinates onto sacCer3 using the committed UCSC chain, and — when both
-assembly FASTA directories are supplied — checks every lifted interval base for base,
-recording the outcome per record in `lift_status`. *S. pombe* is ASM294v2 already and is
-passed through untouched. Checksums of the generated files are recorded in
-`public/data/release.json` so a deposited copy can be proved identical to the served one.
+nothing, so the page can never be served a half-described hub.
 
 ## Coordinates
 
-*S. cerevisiae* records are **sacCer3**, lifted from the sacCer1 coordinates OriDB v2 stored.
-Every record keeps its original position in `source_chromosome` / `source_start` /
-`source_end` and the result of a sequence check in `lift_status`: of 896 intervals (458
-origins and 536 evidence records, less the 48 *S. pombe* origins and 50 pombe evidence rows
-that need no lift), 845 are sequence-identical in sacCer3, 26 have substitutions only, and
-25 contain an indel that changes the interval length. None failed to map.
+Coordinates are 1-based and fully closed. *S. cerevisiae* records are **sacCer3**, lifted
+from the sacCer1 coordinates OriDB v2 stored; *S. pombe* records are **ASM294v2** and need no
+lift. Every lifted record keeps its original position in `source_chromosome` /
+`source_start` / `source_end` and the result of a sequence check in `lift_status`: of the
+1,897 intervals lifted — 829 origins, 772 evidence records and 296 ARS-negative fragments —
+1,705 are sequence-identical in sacCer3, 84 have substitutions only, and 108 contain an indel
+that changes the interval length. None failed to map. Where the length changed it is the 2003
+assembly sequence that was revised rather than the mapping, and those records are worth a
+curator review; they are published as a known issue.
 
 Systematic names (`I-1`, `X-212`) are **not** recomputed. They are coordinate-derived labels
-from the v2 build that appear in the literature, so they stay fixed; 12 of the 410 cerevisiae
-names would otherwise have changed.
+from the v2 build that appear in the literature, so they stay fixed, and a name need not match
+the lifted midpoint.
 
 ## What is deliberately not here yet
 
-- The Likely and Dubious tiers, and the genome-wide datasets behind them.
-- The origin records themselves as a genome-browser track (bigBed). The *data* hub
-  exists — `oridb-data-hub`, a UCSC track hub of genome-wide replication profiles,
-  described on the **Data hub** page — but OriDB's own origin intervals are not in it yet.
-- Any database. The trial is flat files on purpose.
+- **Genome-wide data for *S. pombe*.** Every registered dataset covers budding yeast, so
+  every fission yeast site that is not Confirmed is *Not assessed*. Adding one fission yeast
+  dataset is the change that would move the largest number of records.
+- **Any database.** The trial is flat files on purpose: it keeps the release reproducible and
+  checksummed while the schema is still moving.
+- **Stable URLs.** Accessions are permanent; the paths that serve them are not settled.
 
 ## Licence
 

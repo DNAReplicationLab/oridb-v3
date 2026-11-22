@@ -472,21 +472,12 @@ def main(dump_path: str) -> None:
                                     + (f", {c['strength']}" if c['strength'] else '')
                                     + f") - {c['note']}" for c in held),
                 'accessions': []}] if held else []),
-            {'text': 'OriDB intervals and the ARS features SGD and UCSC show for sacCer3 '
-                     'should describe the same object - the assayed fragment - and mostly they '
-                     'differ in a way that looks like a coordinate error rather than biology. '
-                     'Of the 410 Confirmed cerevisiae origins, 293 overlap a replication-origin '
-                     'feature in UCSC\'s sgdOther table for sacCer3. 258 of those pairs share an '
-                     'IDENTICAL end coordinate and differ only at the start: 244 by exactly 2 bp '
-                     'and 14 by 1 bp, with the SGD feature always starting inside the OriDB '
-                     'interval. For 194 of the 2 bp cases the OriDB start is the position of a '
-                     'PCR primer located in the genome by its own sequence, so the SGD feature '
-                     'begins two bases inside the primer that defined the fragment. This has not '
-                     'been confirmed with SGD and should be raised with them before either set '
-                     'is treated as authoritative at base resolution. Separately, 117 Confirmed '
-                     'origins have no SGD origin feature and 81 SGD origin features overlap no '
-                     'Confirmed origin.',
-             'accessions': []},
+            # The OriDB-versus-SGD coordinate comparison used to be written out here as a
+            # paragraph of fixed numbers, which went stale the moment the tiers were
+            # rebuilt and the Confirmed set changed size. It is now computed by
+            # bin/compare_sgd.py, which runs after build_tiers.py - the comparison is over
+            # the Confirmed tier, and nothing at this point in the pipeline knows which
+            # sites those are - and appends its own entry, keyed 'sgd-coordinates'.
         ],
     }
     (data_dir / 'release.json').write_text(json.dumps(release, indent=2) + '\n', encoding='utf-8')

@@ -41,9 +41,13 @@ TIER_RGB = {
 }
 TIER_SHADE = {'Confirmed': 1000, 'Likely': 700, 'Unsupported': 400, 'Not assessed': 200}
 
-# Element classes are drawn in their own hues: the A element (the ACS match)
-# and the B elements are different kinds of thing and should not read as one.
-ELEMENT_RGB = {'A': '166,54,3', 'B2': '94,60,153', 'B3': '140,107,177'}
+# Element colour carries the SIDE of the origin, not the class, which is the
+# convention the origin-page figure uses: A in blue, every B element in one
+# brown, whether it is a B2 or a B3. Giving each class its own hue made a B3
+# read as a near-A, which is the confusion worth avoiding. These are the page's
+# own colours, so a track and a figure cannot disagree. Which class a feature is
+# comes from the elementClass field, as it comes from the records table there.
+ELEMENT_RGB = {'A': '21,70,127', 'B2': '138,74,18', 'B3': '138,74,18'}
 REFUTED_RGB = '178,34,34'
 
 ORIGINS_AS = """table oridbOrigins
