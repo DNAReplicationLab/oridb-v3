@@ -105,6 +105,58 @@ require ORIDB_APP_DIR . '/header.php';
 <?php endforeach; ?>
 </ul>
 
+<h2 id="tiering">How a site is tiered</h2>
+<p>
+  A tier is a statement about evidence, not about importance, and it is recomputed from the
+  evidence records rather than curated by hand. Every registered genome-wide dataset is
+  tested against every site, and an origin page lists all of them, supporting or not: a
+  dataset that looked and found nothing says something different from one that never looked.
+</p>
+<ul>
+  <li><strong>Confirmed</strong> &mdash; direct experimental evidence at this site: an ARS
+      assay or a 2D gel. No number of genome-wide datasets substitutes for it.</li>
+  <li><strong>Likely</strong> &mdash; at least two registered datasets support the site, and
+      at least one of them measures licensing.</li>
+  <li><strong>Unsupported</strong> &mdash; the site is in the database, but current data do
+      not support it: one dataset, or none, where datasets covering this species exist.</li>
+  <li><strong>Not assessed</strong> &mdash; no registered dataset covers this species yet.
+      That records missing coverage, not a negative result.</li>
+</ul>
+<p>
+  A <strong>negative ARS assay is a flag, not a tier</strong>. It describes the fragment that
+  was cloned, and a site can hold a positive and a negative result at once &mdash; the pages
+  show the flag beside the tier rather than folding one into the other.
+  <a href="https://github.com/DNAReplicationLab/oridb-v3/blob/main/docs/tier-rebuild.md">How
+  the tiers are built</a>, including where each threshold came from.
+</p>
+
+<h2 id="dynamics">Replication dynamics values</h2>
+<p>
+  Two values are published per <em>S. cerevisiae</em> origin: a firing efficiency from
+  Okazaki-fragment sequencing, and a median replication time from sync-seq. Both come from
+  genome-wide datasets re-analysed on the current assembly, and both are attached to an
+  origin only where the origin and the call are <strong>each other's nearest</strong> and lie
+  within the measured positional error of that assay. The distance is published with the
+  value, so the attachment can be judged rather than taken on trust.
+</p>
+<p>
+  <strong>A blank is not a zero</strong>, and the two kinds of blank differ.
+  <em>Not resolved</em> means the experiment produced no call here at all, which for both
+  assays happens to origins that fire late or in few cells &mdash; those origins are
+  unmeasured, not inactive. <em>Not assigned</em> means a call does lie within range, and so
+  counts towards the tier, but it is not unambiguously this origin's; the page names the
+  origin that holds it.
+</p>
+<p>
+  Two further qualifications. The efficiency is the <strong>raw OEM</strong>, without the
+  deconvolution the original study applied, so values are under-estimates close to a
+  termination zone. The replication time is a <strong>composite</strong> and not a firing
+  time: DNA here is replicated either by this origin or by a fork arriving from a neighbour,
+  and an early value can be produced by either.
+  <a href="https://github.com/DNAReplicationLab/oridb-v3/blob/main/docs/origin_activity_timing.md">How
+  these values are assigned</a>.
+</p>
+
 <h2 id="elements">Origin elements</h2>
 <p>
   Origins are intervals; the elements inside them are the short sequences that make an origin

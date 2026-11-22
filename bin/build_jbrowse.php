@@ -1,0 +1,157 @@
+<?php
+declare(strict_types=1);
+
+/**
+ * Describe the hub to JBrowse, from the description the site already has.
+ *
+ *     php bin/build_jbrowse.php [--hub-root DIR]
+ *
+ * The browser panel on an origin page needs the same facts the Data hub page needs -
+ * which assemblies exist, which tracks they carry and where the files are - so this
+ * reads public/data/datahub.json rather than parsing the hub a second time. Run
+ * bin/build_datahub.php first; this is the step after it.
+ *
+ * Two things the UCSC hub does not have to say, and JBrowse does:
+ *
+ *   - the reference sequence. UCSC fetches sacCer3 from its own servers; a browser
+ *     running in the reader's page has to be told where the .2bit is.
+ *   - which tracks to draw. The hub answers that already: its `overview` section is
+ *     one reference track per measurement type, drawn by default, so the panel's
+ *     default set is taken from there rather than listed here by hand.
+ *
+ * Output: public/assets/jbrowse.json, read by assets/origin-browser.js. It goes in
+ * assets/ rather than data/ because the panel fetches it over HTTP from the reader's
+ * browser, and public/data carries a deny-all .htaccess.
+ */
+
+$root = dirname(__DIR__);
+$opts = ['hub-root' => dirname($root) . '/oridb-data-hub'];
+for ($i = 1; $i < $argc; $i++) {
+    if (preg_match('/^--([a-z-]+)(?:=(.*))?$/', $argv[$i], $m)) {
+        $opts[$m[1]] = ($m[2] ?? '') !== '' ? $m[2] : ($argv[++$i] ?? '');
+    }
+}
+
+$hubFile = $root . '/public/data/datahub.json';
+if (!is_readable($hubFile)) {
+    fwrite(STDERR, "no public/data/datahub.json; run bin/build_datahub.php first\n");
+    exit(1);
+}
+$hub = json_decode((string) file_get_contents($hubFile), true, 512, JSON_THROW_ON_ERROR);
+$base = rtrim((string) $hub['hub']['base_url'], '/') . '/';
+
+/** A hub track's `type` line decides which JBrowse track and adapter it becomes. */
+function adapter_for(string $type, string $url): ?array
+{
+    if (str_starts_with($type, 'bigWig')) {
+        return ['track' => 'QuantitativeTrack',
+                'adapter' => ['type' => 'BigWigAdapter', 'bigWigLocation' => ['uri' => $url]]];
+    }
+    if (str_starts_with($type, 'bigBed')) {
+        return ['track' => 'FeatureTrack',
+                'adapter' => ['type' => 'BigBedAdapter', 'bigBedLocation' => ['uri' => $url]]];
+    }
+    return null;   // a type JBrowse has no adapter for is left out rather than guessed at
+}
+
+// Origin features are drawn in the tier colours the website uses, read from the
+// bigBed's own `tier` field. This is the one display rule written here: the hub
+// carries the colours as itemRgb, which JBrowse's feature renderer does not read.
+const TIER_COLOUR_JEXL = "jexl:get(feature,'tier')=='Confirmed'?'#1a7f4b'"
+    . ":get(feature,'tier')=='Likely'?'#2f7d9b'"
+    . ":get(feature,'tier')=='Unsupported'?'#8a8f98':'#c7ccd3'";
+
+$out = [
+    'generated' => gmdate('c'),
+    'hub' => ['base_url' => $base, 'url' => $hub['hub']['url']],
+    'assemblies' => [],
+    'tracks' => [],
+    'defaults' => [],
+];
+
+$missing = [];
+foreach ($hub['genomes'] as $g) {
+    $genome = $g['genome'];
+    $twoBit = "{$genome}/{$genome}.2bit";
+    $alias  = "{$genome}/{$genome}.refNameAliases.txt";
+    foreach ([$twoBit, $alias, "{$genome}.chrom.sizes"] as $rel) {
+        if (!is_readable($opts['hub-root'] . '/' . $rel)) {
+            $missing[] = $rel;
+        }
+    }
+
+    $out['assemblies'][$genome] = [
+        'name' => $genome,
+        'sequence' => [
+            'type' => 'ReferenceSequenceTrack',
+            'trackId' => $genome . '-ref',
+            'adapter' => [
+                'type' => 'TwoBitAdapter',
+                'twoBitLocation' => ['uri' => $base . $twoBit],
+                // Optional, and worth giving: with it JBrowse reads the sequence
+                // names from a 40-byte text file instead of the 2bit's header.
+                'chromSizesLocation' => ['uri' => $base . $genome . '.chrom.sizes'],
+            ],
+        ],
+        'refNameAliases' => [
+            'adapter' => ['type' => 'RefNameAliasAdapter', 'location' => ['uri' => $base . $alias]],
+        ],
+    ];
+
+    // One JBrowse track per FILE. The hub deliberately shows the same file in more
+    // than one place - a profile appears in its own section and again in the
+    // overview - and two tracks over one file would just be the same picture twice.
+    $byUrl = [];
+    $defaults = [];
+    foreach ($g['datasets'] as $ds) {
+        foreach ($ds['groups'] as $group) {
+            foreach ($group['tracks'] as $t) {
+                $a = adapter_for((string) $t['type'], (string) $t['url']);
+                if ($a === null) {
+                    continue;
+                }
+                $isOverview = $group['track'] === 'oridb_overview';
+                if (!isset($byUrl[$t['url']])) {
+                    $byUrl[$t['url']] = [
+                        'type' => $a['track'],
+                        'trackId' => $genome . '-' . $t['track'],
+                        'name' => $t['shortLabel'],
+                        'description' => $t['longLabel'],
+                        'assemblyNames' => [$genome],
+                        'category' => [$ds['title']],
+                        'adapter' => $a['adapter'],
+                    ];
+                    if (str_ends_with((string) $t['file'], 'origins.bb')) {
+                        $byUrl[$t['url']]['displays'] = [[
+                            'type' => 'LinearBasicDisplay',
+                            'displayId' => $genome . '-' . $t['track'] . '-display',
+                            'renderer' => ['type' => 'SvgFeatureRenderer',
+                                           'color1' => TIER_COLOUR_JEXL],
+                        ]];
+                    }
+                }
+                if ($isOverview) {
+                    $defaults[] = $byUrl[$t['url']]['trackId'];
+                }
+            }
+        }
+    }
+    $out['tracks'][$genome] = array_values($byUrl);
+    $out['defaults'][$genome] = array_values(array_unique($defaults));
+}
+
+if ($missing !== []) {
+    fwrite(STDERR, "sequence files not found in {$opts['hub-root']}: "
+        . implode(', ', $missing) . "\n"
+        . "The panel cannot draw an assembly whose sequence it cannot read.\n");
+    exit(1);
+}
+
+file_put_contents($root . '/public/assets/jbrowse.json',
+    json_encode($out, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES) . "\n");
+
+foreach ($out['tracks'] as $genome => $tracks) {
+    printf("%s: %d track(s), %d drawn by default\n",
+        $genome, count($tracks), count($out['defaults'][$genome]));
+}
+echo "-> public/assets/jbrowse.json\n";

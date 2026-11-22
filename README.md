@@ -108,6 +108,23 @@ writes `public/data/datahub.json`. The page states nothing about the hub that th
 does not carry, so a track added to the hub appears on the page at the next build and
 nothing on the page can contradict what the hub serves.
 
+Two more steps hang off the hub, both of which must be rerun when it changes:
+
+```bash
+php bin/build_jbrowse.php --hub-root /path/to/oridb-data-hub   # after build_datahub.php
+python3 bin/build_oridb_tracks.py --assembly sacCer3 \
+    --chrom-sizes /path/to/oridb-data-hub/sacCer3.chrom.sizes \
+    --out /path/to/oridb-data-hub/sacCer3/oridb_v3                # needs bedToBigBed
+```
+
+`build_jbrowse.php` turns the hub description into `public/assets/jbrowse.json`, which the
+browser panel on an origin page reads: the assemblies, their sequence files, every track,
+and which handful to draw by default — the last taken from the hub's own *overview*
+section rather than chosen here. `build_oridb_tracks.py` goes the other way, rendering
+this database's origins, elements and ARS-negative fragments as bigBed **into the hub**,
+so the records can be drawn beside the data they were called from. Run it once per
+assembly, then regenerate the hub's trackDb with the hub's own `bin/make_trackhub.py`.
+
 The second form reads the **published** hub over HTTPS and needs no second checkout, so it
 can run in CI as a staleness check — the same shape of check the hub repository runs on its
 own `trackDb.txt`:

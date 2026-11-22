@@ -226,6 +226,25 @@ final class Data
     }
 
     /**
+     * The browser-panel configuration, generated from the hub description by
+     * bin/build_jbrowse.php. Empty when it has not been built, and an assembly the
+     * hub serves no sequence for is simply absent from it: the origin page reads
+     * that as "no panel here" rather than drawing an empty frame.
+     */
+    public static function jbrowse(): array
+    {
+        static $cfg = null;
+        if ($cfg === null) {
+            $path = ORIDB_ROOT . '/assets/jbrowse.json';
+            $cfg = is_readable($path)
+                ? (array) json_decode((string) file_get_contents($path), true, 512, JSON_THROW_ON_ERROR)
+                : [];
+        }
+
+        return $cfg;
+    }
+
+    /**
      * Filter origins. All arguments are optional; omitted filters match everything.
      *
      * @return list<array<string,string>>

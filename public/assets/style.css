@@ -117,3 +117,40 @@ tr.conf td.mono { font-weight: 700; }
 figure.elfig-wrap { margin: 1rem 0 .4rem; }
 svg.elfig { display: block; width: 100%; height: auto; max-width: 54rem; }
 figure.elfig-wrap figcaption { max-width: 54rem; margin-top: .3rem; }
+
+/* The summary block at the top of an origin page: the same grid as a facts list,
+   boxed so that it reads as a header rather than as the first section. */
+dl.facts.summary { background: #f7f8fa; border: 1px solid #e3e6ea; border-radius: .4rem;
+  padding: .8rem 1rem; gap: .3rem 1rem; }
+
+/* In-page navigation. Anchors, not tabs: every section stays in the document, so
+   find-in-page, printing and deep links all keep working. */
+nav.sectionnav { display: flex; flex-wrap: wrap; gap: .25rem .75rem; margin: .75rem 0 1.5rem;
+  padding-bottom: .5rem; border-bottom: 1px solid #e3e6ea; }
+nav.sectionnav a { text-decoration: none; }
+nav.sectionnav a:hover { text-decoration: underline; }
+
+/* A long table folded away behind its own count. Native details, so it costs no
+   JavaScript and browsers can still find text inside it. */
+details.longtail { margin: 1rem 0; }
+details.longtail > summary { cursor: pointer; padding: .35rem 0; }
+details.longtail > summary span.small { color: var(--muted); }
+details.longtail[open] > summary { margin-bottom: .5rem; }
+
+/* The genome-browser panel. Until the reader presses the button this is a boxed
+   paragraph; the frame has a height only once a view is mounted in it, so an
+   unopened panel costs no layout and no bytes. */
+figure.jbpanel { margin: 1rem 0 1.5rem; border: 1px solid #e3e6ea; border-radius: .4rem;
+  padding: .8rem 1rem; }
+figure.jbpanel .jb-placeholder p { margin: 0 0 .6rem; }
+figure.jbpanel .jb-slot { margin: 0 -1rem .6rem; }
+figure.jbpanel.jb-live .jb-placeholder p.small:first-child { display: none; }
+figure.jbpanel button.jb-load { font: inherit; cursor: pointer; padding: .35rem .8rem;
+  border: 1px solid var(--confirmed); border-radius: .3rem; background: var(--confirmed);
+  color: #fff; }
+figure.jbpanel button.jb-load:disabled { background: #8a8f98; border-color: #8a8f98;
+  cursor: default; }
+figure.jbpanel .jb-note:empty { display: none; }
+figure.jbpanel .jb-note { margin: .5rem 0 0; color: var(--muted); }
+figure.jbpanel .jb-error { color: #a1281f; }
+figure.jbpanel figcaption { margin-top: .6rem; }

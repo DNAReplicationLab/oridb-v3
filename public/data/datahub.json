@@ -1,5 +1,5 @@
 {
-    "generated": "2026-11-20T13:27:02Z",
+    "generated": "2026-11-21T23:40:01Z",
     "hub": {
         "name": "oridb_data_hub",
         "shortLabel": "OriDB data hub",
@@ -14,117 +14,74 @@
             "genome": "sacCer3",
             "datasets": [
                 {
-                    "id": "mcguffee2013",
-                    "title": "Okazaki-fragment sequencing (McGuffee, Smith & Whitehouse 2013), re-analysed on sacCer3",
+                    "id": "oridb_v3",
+                    "title": "OriDB 3.0.0-trial.1 records on sacCer3",
                     "organism": "Saccharomyces cerevisiae",
                     "assembly": "sacCer3",
-                    "bin_size_bp": 250,
-                    "measurement": "replication fork directionality and initiation site mapping",
-                    "scale": "fork directionality -1 (leftward forks) to +1 (rightward forks); OEM 0 to 1",
+                    "bin_size_bp": null,
+                    "measurement": "curated origin records, not a measurement",
+                    "scale": "intervals; the score column shades by evidence tier",
                     "source": {
-                        "doi": "10.1016/j.molcel.2013.03.004",
-                        "pubmed": "23562327",
-                        "archive_series": [
-                            "GSE40696"
-                        ],
-                        "n_runs": 2,
-                        "n_samples_used": 2,
-                        "n_samples_excluded": 3,
-                        "exclusion_reason": "SSDDCS over-expression strains, and one Ion Torrent single-end library, none of them wild type on genotype"
+                        "doi": "",
+                        "pubmed": "",
+                        "archive_series": [],
+                        "n_runs": 0,
+                        "n_samples_used": 0,
+                        "n_samples_excluded": 0,
+                        "exclusion_reason": ""
                     },
                     "n_samples": 0,
-                    "calls": {
-                        "file": "okseq.initiation_sites.bb",
-                        "definition": "maxima of the derivative of fork directionality, OEM > 0.05",
-                        "caveat": "efficiencies are raw OEM; the deconvolution correction of the original paper is not applied, so values near termination zones are under-estimates"
-                    },
+                    "calls": null,
                     "groups": [
                         {
-                            "track": "mcguffee2013_fd",
-                            "shortLabel": "Fork direction",
-                            "longLabel": "McGuffee et al. (2013): replication fork directionality from Okazaki fragment strand ratio, wild type",
-                            "container": "multiWig",
-                            "tracks": [
-                                {
-                                    "track": "fd_okseq_directionality",
-                                    "shortLabel": "FD",
-                                    "longLabel": "Fork directionality (C-W)/(C+W), 250 bp windows, WT_A + WT_B",
-                                    "type": "bigWig",
-                                    "file": "okseq.directionality.bw",
-                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/mcguffee2013/okseq.directionality.bw",
-                                    "bytes": 452286
-                                }
-                            ]
-                        },
-                        {
-                            "track": "mcguffee2013_initiation",
-                            "shortLabel": "Initiation signal",
-                            "longLabel": "McGuffee et al. (2013): initiation signal - derivative of fork directionality, and origin efficiency (OEM)",
-                            "container": "multiWig",
-                            "tracks": [
-                                {
-                                    "track": "initiation_okseq_derivative",
-                                    "shortLabel": "d(FD)/dx",
-                                    "longLabel": "Derivative of fork directionality per kb; maxima are initiation sites",
-                                    "type": "bigWig",
-                                    "file": "okseq.derivative.bw",
-                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/mcguffee2013/okseq.derivative.bw",
-                                    "bytes": 455882
-                                },
-                                {
-                                    "track": "initiation_okseq_oem",
-                                    "shortLabel": "OEM",
-                                    "longLabel": "Origin efficiency metric over 10 kb quadrants, raw (not deconvolved)",
-                                    "type": "bigWig",
-                                    "file": "okseq.oem.bw",
-                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/mcguffee2013/okseq.oem.bw",
-                                    "bytes": 443653
-                                }
-                            ]
-                        },
-                        {
-                            "track": "mcguffee2013_strands",
-                            "shortLabel": "Okazaki strands",
-                            "longLabel": "McGuffee et al. (2013): Okazaki fragment coverage by strand, fragments per million, 250 bp windows",
-                            "container": "multiWig",
-                            "tracks": [
-                                {
-                                    "track": "strands_okseq_watson",
-                                    "shortLabel": "Watson",
-                                    "longLabel": "Okazaki fragments on the Watson strand (leftward-moving forks)",
-                                    "type": "bigWig",
-                                    "file": "okseq.watson.bw",
-                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/mcguffee2013/okseq.watson.bw",
-                                    "bytes": 444749
-                                },
-                                {
-                                    "track": "strands_okseq_crick",
-                                    "shortLabel": "Crick",
-                                    "longLabel": "Okazaki fragments on the Crick strand (rightward-moving forks)",
-                                    "type": "bigWig",
-                                    "file": "okseq.crick.bw",
-                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/mcguffee2013/okseq.crick.bw",
-                                    "bytes": 444852
-                                }
-                            ]
-                        },
-                        {
-                            "track": "mcguffee2013_init_sites",
-                            "shortLabel": "Initiation zones",
-                            "longLabel": "Initiation zones called from Okazaki fragment directionality (McGuffee et al. 2013, re-analysed by OriDB); score = 1000 x OEM",
+                            "track": "oridb_overview",
+                            "shortLabel": "OriDB overview",
+                            "longLabel": "OriDB overview: one reference track per measurement type, drawn by default",
                             "container": "",
                             "tracks": [
                                 {
-                                    "track": "mcguffee2013_init_sites",
-                                    "shortLabel": "Initiation zones",
-                                    "longLabel": "Initiation zones called from Okazaki fragment directionality (McGuffee et al. 2013, re-analysed by OriDB); score = 1000 x OEM",
-                                    "type": "bigBed 8 +",
-                                    "file": "okseq.initiation_sites.bb",
-                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/mcguffee2013/okseq.initiation_sites.bb",
-                                    "bytes": 51877,
-                                    "bed": "okseq.initiation_sites.bed",
-                                    "bed_url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/mcguffee2013/okseq.initiation_sites.bed",
-                                    "rows": 383
+                                    "track": "ov_origins",
+                                    "shortLabel": "OriDB origins",
+                                    "longLabel": "OriDB v3 origin records, coloured by evidence tier: green confirmed, blue likely, grey unsupported or not assessed",
+                                    "type": "bigBed 9 +",
+                                    "file": "origins.bb",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/oridb_v3/origins.bb",
+                                    "bytes": 111517
+                                }
+                            ]
+                        },
+                        {
+                            "track": "oridb_v3",
+                            "shortLabel": "OriDB v3 records",
+                            "longLabel": "OriDB v3: origin intervals, origin elements and fragments that failed an ARS assay",
+                            "container": "",
+                            "tracks": [
+                                {
+                                    "track": "oridb_v3_origins",
+                                    "shortLabel": "OriDB origins",
+                                    "longLabel": "OriDB v3 origin records on sacCer3, coloured by evidence tier; the name links to the OriDB page",
+                                    "type": "bigBed 9 +",
+                                    "file": "origins.bb",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/oridb_v3/origins.bb",
+                                    "bytes": 111517
+                                },
+                                {
+                                    "track": "oridb_v3_elements",
+                                    "shortLabel": "Origin elements",
+                                    "longLabel": "OriDB v3 origin elements: A (ACS match) in orange, B2 and B3 in purple; score is the motif score as a percentage of the matrix maximum",
+                                    "type": "bigBed 9 +",
+                                    "file": "elements.bb",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/oridb_v3/elements.bb",
+                                    "bytes": 173026
+                                },
+                                {
+                                    "track": "oridb_v3_refuted",
+                                    "shortLabel": "ARS-negative fragments",
+                                    "longLabel": "Fragments that were cloned and did not support autonomous replication; a flag on the sites inside them, never a tier",
+                                    "type": "bigBed 9 +",
+                                    "file": "refuted_fragments.bb",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/oridb_v3/refuted_fragments.bb",
+                                    "bytes": 81498
                                 }
                             ]
                         }
@@ -153,6 +110,23 @@
                     "n_samples": 18,
                     "calls": null,
                     "groups": [
+                        {
+                            "track": "oridb_overview",
+                            "shortLabel": "OriDB overview",
+                            "longLabel": "OriDB overview: one reference track per measurement type, drawn by default",
+                            "container": "",
+                            "tracks": [
+                                {
+                                    "track": "ov_timing",
+                                    "shortLabel": "Timing (Trep)",
+                                    "longLabel": "Replication timing: Trep in minutes from sync-seq (Muller et al. 2014); early replication plots high",
+                                    "type": "bigWig",
+                                    "file": "syncseq.trep.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/muller2014/syncseq.trep.bw",
+                                    "bytes": 74713
+                                }
+                            ]
+                        },
                         {
                             "track": "muller2014_timecourse",
                             "shortLabel": "Muller timecourse",
@@ -328,9 +302,9 @@
                             ]
                         },
                         {
-                            "track": "muller2014_trep_peaks",
-                            "shortLabel": "Trep peaks",
-                            "longLabel": "Origin calls from the Muller et al. (2014) Trep profile: local minima of replication time, called by OriDB",
+                            "track": "oridb_initiation",
+                            "shortLabel": "Initiation mapping",
+                            "longLabel": "Origin position and efficiency: initiation site and zone mapping",
                             "container": "",
                             "tracks": [
                                 {
@@ -348,14 +322,221 @@
                             ]
                         }
                     ]
+                },
+                {
+                    "id": "mcguffee2013",
+                    "title": "Okazaki-fragment sequencing (McGuffee, Smith & Whitehouse 2013), re-analysed on sacCer3",
+                    "organism": "Saccharomyces cerevisiae",
+                    "assembly": "sacCer3",
+                    "bin_size_bp": 250,
+                    "measurement": "replication fork directionality and initiation site mapping",
+                    "scale": "fork directionality -1 (leftward forks) to +1 (rightward forks); OEM 0 to 1",
+                    "source": {
+                        "doi": "10.1016/j.molcel.2013.03.004",
+                        "pubmed": "23562327",
+                        "archive_series": [
+                            "GSE40696"
+                        ],
+                        "n_runs": 2,
+                        "n_samples_used": 2,
+                        "n_samples_excluded": 3,
+                        "exclusion_reason": "SSDDCS over-expression strains, and one Ion Torrent single-end library, none of them wild type on genotype"
+                    },
+                    "n_samples": 0,
+                    "calls": {
+                        "file": "okseq.initiation_sites.bb",
+                        "definition": "maxima of the derivative of fork directionality, OEM > 0.05",
+                        "caveat": "efficiencies are raw OEM; the deconvolution correction of the original paper is not applied, so values near termination zones are under-estimates"
+                    },
+                    "groups": [
+                        {
+                            "track": "oridb_overview",
+                            "shortLabel": "OriDB overview",
+                            "longLabel": "OriDB overview: one reference track per measurement type, drawn by default",
+                            "container": "",
+                            "tracks": [
+                                {
+                                    "track": "ov_fd",
+                                    "shortLabel": "Fork direction",
+                                    "longLabel": "Replication fork directionality from Okazaki fragment strand ratio (McGuffee et al. 2013)",
+                                    "type": "bigWig",
+                                    "file": "okseq.directionality.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/mcguffee2013/okseq.directionality.bw",
+                                    "bytes": 452286
+                                },
+                                {
+                                    "track": "ov_init",
+                                    "shortLabel": "Initiation zones",
+                                    "longLabel": "Initiation zones called from the Okazaki-fragment initiation signal (McGuffee et al. 2013)",
+                                    "type": "bigBed 8 +",
+                                    "file": "okseq.initiation_sites.bb",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/mcguffee2013/okseq.initiation_sites.bb",
+                                    "bytes": 51877,
+                                    "bed": "okseq.initiation_sites.bed",
+                                    "bed_url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/mcguffee2013/okseq.initiation_sites.bed",
+                                    "rows": 383
+                                }
+                            ]
+                        },
+                        {
+                            "track": "mcguffee2013_fd",
+                            "shortLabel": "Fork direction",
+                            "longLabel": "McGuffee et al. (2013): replication fork directionality from Okazaki fragment strand ratio, wild type",
+                            "container": "multiWig",
+                            "tracks": [
+                                {
+                                    "track": "fd_okseq_directionality",
+                                    "shortLabel": "FD",
+                                    "longLabel": "Fork directionality (C-W)/(C+W), 250 bp windows, WT_A + WT_B",
+                                    "type": "bigWig",
+                                    "file": "okseq.directionality.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/mcguffee2013/okseq.directionality.bw",
+                                    "bytes": 452286
+                                }
+                            ]
+                        },
+                        {
+                            "track": "mcguffee2013_initiation",
+                            "shortLabel": "Initiation signal",
+                            "longLabel": "McGuffee et al. (2013): initiation signal - derivative of fork directionality, and origin efficiency (OEM)",
+                            "container": "multiWig",
+                            "tracks": [
+                                {
+                                    "track": "initiation_okseq_derivative",
+                                    "shortLabel": "d(FD)/dx",
+                                    "longLabel": "Derivative of fork directionality per kb; maxima are initiation sites",
+                                    "type": "bigWig",
+                                    "file": "okseq.derivative.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/mcguffee2013/okseq.derivative.bw",
+                                    "bytes": 455882
+                                },
+                                {
+                                    "track": "initiation_okseq_oem",
+                                    "shortLabel": "OEM",
+                                    "longLabel": "Origin efficiency metric over 10 kb quadrants, raw (not deconvolved)",
+                                    "type": "bigWig",
+                                    "file": "okseq.oem.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/mcguffee2013/okseq.oem.bw",
+                                    "bytes": 443653
+                                }
+                            ]
+                        },
+                        {
+                            "track": "mcguffee2013_strands",
+                            "shortLabel": "Okazaki strands",
+                            "longLabel": "McGuffee et al. (2013): Okazaki fragment coverage by strand, fragments per million, 250 bp windows",
+                            "container": "multiWig",
+                            "tracks": [
+                                {
+                                    "track": "strands_okseq_watson",
+                                    "shortLabel": "Watson",
+                                    "longLabel": "Okazaki fragments on the Watson strand (leftward-moving forks)",
+                                    "type": "bigWig",
+                                    "file": "okseq.watson.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/mcguffee2013/okseq.watson.bw",
+                                    "bytes": 444749
+                                },
+                                {
+                                    "track": "strands_okseq_crick",
+                                    "shortLabel": "Crick",
+                                    "longLabel": "Okazaki fragments on the Crick strand (rightward-moving forks)",
+                                    "type": "bigWig",
+                                    "file": "okseq.crick.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/mcguffee2013/okseq.crick.bw",
+                                    "bytes": 444852
+                                }
+                            ]
+                        },
+                        {
+                            "track": "oridb_initiation",
+                            "shortLabel": "Initiation mapping",
+                            "longLabel": "Origin position and efficiency: initiation site and zone mapping",
+                            "container": "",
+                            "tracks": [
+                                {
+                                    "track": "mcguffee2013_init_sites",
+                                    "shortLabel": "Initiation zones",
+                                    "longLabel": "Initiation zones called from Okazaki fragment directionality (McGuffee et al. 2013, re-analysed by OriDB); score = 1000 x OEM",
+                                    "type": "bigBed 8 +",
+                                    "file": "okseq.initiation_sites.bb",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/mcguffee2013/okseq.initiation_sites.bb",
+                                    "bytes": 51877,
+                                    "bed": "okseq.initiation_sites.bed",
+                                    "bed_url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/mcguffee2013/okseq.initiation_sites.bed",
+                                    "rows": 383
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "genome": "ASM294v2",
+            "datasets": [
+                {
+                    "id": "oridb_v3",
+                    "title": "OriDB 3.0.0-trial.1 records on ASM294v2",
+                    "organism": "Schizosaccharomyces pombe",
+                    "assembly": "ASM294v2",
+                    "bin_size_bp": null,
+                    "measurement": "curated origin records, not a measurement",
+                    "scale": "intervals; the score column shades by evidence tier",
+                    "source": {
+                        "doi": "",
+                        "pubmed": "",
+                        "archive_series": [],
+                        "n_runs": 0,
+                        "n_samples_used": 0,
+                        "n_samples_excluded": 0,
+                        "exclusion_reason": ""
+                    },
+                    "n_samples": 0,
+                    "calls": null,
+                    "groups": [
+                        {
+                            "track": "oridb_overview",
+                            "shortLabel": "OriDB overview",
+                            "longLabel": "OriDB overview: one reference track per measurement type, drawn by default",
+                            "container": "",
+                            "tracks": [
+                                {
+                                    "track": "ov_origins",
+                                    "shortLabel": "OriDB origins",
+                                    "longLabel": "OriDB v3 origin records, coloured by evidence tier: green confirmed, blue likely, grey unsupported or not assessed",
+                                    "type": "bigBed 9 +",
+                                    "file": "origins.bb",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/ASM294v2/oridb_v3/origins.bb",
+                                    "bytes": 86634
+                                }
+                            ]
+                        },
+                        {
+                            "track": "oridb_v3",
+                            "shortLabel": "OriDB v3 records",
+                            "longLabel": "OriDB v3: origin intervals, origin elements and fragments that failed an ARS assay",
+                            "container": "",
+                            "tracks": [
+                                {
+                                    "track": "oridb_v3_origins",
+                                    "shortLabel": "OriDB origins",
+                                    "longLabel": "OriDB v3 origin records on ASM294v2; no quantitative dataset is served on this assembly yet, so these intervals and the sequence are what the hub carries for S. pombe",
+                                    "type": "bigBed 9 +",
+                                    "file": "origins.bb",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/ASM294v2/oridb_v3/origins.bb",
+                                    "bytes": 86634
+                                }
+                            ]
+                        }
+                    ]
                 }
             ]
         }
     ],
     "counts": {
-        "genomes": 1,
-        "datasets": 2,
-        "tracks": 21,
-        "files": 21
+        "genomes": 2,
+        "datasets": 4,
+        "tracks": 30,
+        "files": 30
     }
 }

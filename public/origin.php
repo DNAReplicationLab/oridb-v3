@@ -12,6 +12,34 @@ if ($origin === null) {
 $evidence = Data::evidenceFor($accession);
 $width = (int) $origin['end'] - (int) $origin['start'] + 1;
 
+// Read once, at the top: the summary block states how much each section holds, so the
+// counts have to exist before the first section is rendered.
+$support = Data::supportFor($accession);
+$elements = Data::elementsFor($accession);
+$showDynamics = str_contains($origin['species'], 'cerevisiae');
+
+// The browser panel is drawn only for an assembly the hub serves a sequence for;
+// bin/build_jbrowse.php lists exactly those. The window is the origin plus a flank
+// of its own width, and never less than 2 kb: interval widths run from 1 bp to
+// 38.6 kb, so a fixed flank would frame a sixth of the database badly.
+$jb = Data::jbrowse();
+$jbAssembly = isset($jb['assemblies'][$origin['assembly']]) ? $origin['assembly'] : null;
+$jbPad = max(2000, $width);
+$jbLoc = sprintf('%s:%d..%d', $origin['chromosome'],
+                 max(1, (int) $origin['start'] - $jbPad), (int) $origin['end'] + $jbPad);
+$jbHighlight = sprintf('%s:%d..%d', $origin['chromosome'], (int) $origin['start'], (int) $origin['end']);
+$jbDefaults = $jbAssembly !== null ? ($jb['defaults'][$jbAssembly] ?? []) : [];
+// What the panel will show is read from the configuration, never named here: an
+// assembly with no quantitative dataset yet says so, and gains the sentence back
+// the moment one is added to the hub.
+$jbDefaultTracks = array_values(array_filter(
+    $jb['tracks'][$jbAssembly] ?? [],
+    static fn (array $t): bool => in_array($t['trackId'], $jbDefaults, true)
+));
+$jbNames = array_column($jbDefaultTracks, 'name');
+$jbHasSignal = array_filter($jbDefaultTracks,
+    static fn (array $t): bool => $t['type'] === 'QuantitativeTrack') !== [];
+
 $title = $origin['name'] !== '' ? $origin['name'] : $origin['accession'];
 require ORIDB_APP_DIR . '/header.php';
 ?>
@@ -21,64 +49,106 @@ require ORIDB_APP_DIR . '/header.php';
       <span class="tag warn">ARS&#8209;negative</span>
     <?php endif; ?></h1>
 
-<dl class="facts">
+<?php
+// The summary answers the question most visits come with - where is it, how well
+// supported is it, how often does it fire - without scrolling. Everything in it is
+// repeated in full further down; nothing is only here.
+$fmt = static fn (string $v, int $dp): string => $v !== '' ? number_format((float) $v, $dp) : '';
+$oem  = $fmt((string) ($origin['okseq_activity_oem'] ?? ''), 2);
+$trep = $fmt((string) ($origin['median_replication_time_composite_min'] ?? ''), 1);
+?>
+<dl class="facts summary">
   <dt>Accession</dt><dd class="mono"><?= h($origin['accession']) ?></dd>
-  <dt>Systematic name</dt><dd class="mono"><?= h($origin['systematic']) ?></dd>
-  <?php if ($origin['other_names'] !== ''): ?>
-    <dt>Other names</dt><dd><?= h(str_replace(',', ', ', $origin['other_names'])) ?></dd>
-  <?php endif; ?>
-  <dt>Species</dt><dd><em><?= h($origin['species']) ?></em></dd>
-  <dt>Assembly</dt><dd class="mono"><?= h($origin['assembly']) ?></dd>
   <dt>Position</dt>
   <dd class="mono"><?= h($origin['chromosome']) ?>:<?= h(bp($origin['start'])) ?>&ndash;<?= h(bp($origin['end'])) ?>
-      <span class="small">(<?= h(bp($width)) ?> bp, 1-based inclusive)</span></dd>
-  <dt>Genome browser</dt>
-  <dd><a href="<?= h(Data::browserUrl($origin)) ?>" rel="noopener">View in browser (<?= h($origin['assembly']) ?>)</a></dd>
-  <?php if (($origin['lift_status'] ?? '') !== '' && $origin['lift_status'] !== 'not-required'): ?>
-    <dt>Original position</dt>
-    <dd class="mono"><?= h($origin['source_chromosome']) ?>:<?= h(bp($origin['source_start'])) ?>&ndash;<?= h(bp($origin['source_end'])) ?>
-        <span class="small">(<?= h($origin['source_assembly']) ?>, as recorded in OriDB v2)</span></dd>
-    <dt>Lift check</dt>
-    <dd>
-      <?php
-      $msg = [
-          'identical' => 'sequence identical in both assemblies',
-          'same-length-mismatch' => 'same length, but the assembly sequence was revised',
-          'length-changed' => 'an insertion or deletion falls inside this interval, so its length changed',
-          'unmapped' => 'no alignment in the chain file',
-          'unverified' => 'lifted, but not checked against the sequence',
-      ][$origin['lift_status']] ?? $origin['lift_status'];
-      ?>
-      <?= h($msg) ?>
-      <?php if ($origin['lift_status'] === 'length-changed'): ?>
-        <span class="small">(<?= h(bp((int) $origin['source_end'] - (int) $origin['source_start'] + 1)) ?> bp
-        &rarr; <?= h(bp($width)) ?> bp)</span>
-      <?php endif; ?>
-    </dd>
+      <span class="small">(<?= h(bp($width)) ?> bp)</span></dd>
+  <dt>Assembly</dt>
+  <dd><em><?= h($origin['species']) ?></em>, <span class="mono"><?= h($origin['assembly']) ?></span></dd>
+  <dt>Evidence tier</dt>
+  <dd><span class="tag <?= h(tier_class($origin['status'])) ?>"><?= h($origin['status']) ?></span>
+      <span class="small">from <?= h((string) count($evidence)) ?> assay
+      record<?= count($evidence) === 1 ? '' : 's' ?><?php
+      if (($origin['ars_negative'] ?? 'no') === 'yes'): ?>; a fragment covering this site
+      failed an ARS assay<?php endif; ?></span></dd>
+  <?php if ($showDynamics): ?>
+  <dt>Firing efficiency</dt>
+  <dd><?= $oem !== '' ? '<strong>' . h($oem) . '</strong> <span class="small">OEM, 0 to 1</span>'
+        : '<span class="small">not resolved by Ok-seq</span>' ?></dd>
+  <dt>Replication time</dt>
+  <dd><?= $trep !== '' ? '<strong>' . h($trep) . '</strong> <span class="small">min, composite</span>'
+        : '<span class="small">not resolved by sync-seq</span>' ?></dd>
   <?php endif; ?>
-  <dt>OriDB v2 record</dt><dd class="mono"><?= h($origin['legacy_id']) ?></dd>
+  <dt>Elements</dt>
+  <dd><?= $elements === [] ? '<span class="small">none recorded</span>'
+        : h((string) count($elements)) . ' record' . (count($elements) === 1 ? '' : 's') ?></dd>
+  <dt>Genome browser</dt>
+  <dd><a href="<?= h(Data::browserUrl($origin)) ?>" rel="noopener">UCSC, <?= h($origin['assembly']) ?></a></dd>
 </dl>
 
+<nav class="sectionnav small" aria-label="Sections of this page">
+  <?php if ($jbAssembly !== null): ?><a href="#genome">In the genome</a><?php endif; ?>
+  <a href="#evidence">Evidence</a>
+  <?php if ($showDynamics): ?><a href="#dynamics">Replication dynamics</a><?php endif; ?>
+  <a href="#elements">Elements</a>
+  <a href="#identifiers">Identifiers</a>
+  <a href="#data">Data</a>
+</nav>
+
+<?php if ($jbAssembly !== null): ?>
+<h2 id="genome">In the genome</h2>
+<figure id="oridb-browser" class="jbpanel"
+        data-config="<?= h(Data::asset('assets/jbrowse.json')) ?>"
+        data-bundle="<?= h(Data::asset('assets/vendor/jbrowse-lgv-4.3.0.umd.min.js')) ?>"
+        data-assembly="<?= h($jbAssembly) ?>"
+        data-accession="<?= h($origin['accession']) ?>"
+        data-loc="<?= h($jbLoc) ?>"
+        data-highlight="<?= h($jbHighlight) ?>">
+  <div class="jb-slot" hidden></div>
+  <div class="jb-placeholder">
+    <p class="small">
+      <?= h((string) count($jbDefaults)) ?> track<?= count($jbDefaults) === 1 ? '' : 's' ?>
+      over <span class="mono"><?= h($jbLoc) ?></span>, with this origin marked:
+      <?= h(implode(', ', $jbNames)) ?><?= $jbHasSignal ? '' :
+          ' &mdash; the OriDB records over the reference sequence, because no genome-wide'
+          . ' dataset is served on this assembly yet' ?>.
+      The browser code is 5.7&nbsp;MB, about 1.4&nbsp;MB if your connection is
+      compressed, so it loads only when you ask for it.
+    </p>
+    <button type="button" class="jb-load" hidden>Show the data here</button>
+    <noscript><p class="small">This panel needs JavaScript. The same tracks are in the
+      <a href="<?= h(Data::browserUrl($origin)) ?>" rel="noopener">UCSC browser</a> and on the
+      <a href="datahub.php">data hub</a> page.</p></noscript>
+    <p class="jb-note small"></p>
+  </div>
+  <figcaption class="small">
+    Drawn from the <a href="datahub.php">OriDB data hub</a>, the same files the UCSC link
+    above loads; the panel reads them directly in your browser. It is a view of the data,
+    not a workspace &mdash; for sessions, more tracks and your own files, open the hub in
+    <a href="<?= h(Data::browserUrl($origin)) ?>" rel="noopener">UCSC</a>.
+  </figcaption>
+</figure>
+<script src="<?= h(Data::asset('assets/origin-browser.js')) ?>" defer></script>
+<?php endif; ?>
+
 <?php
-$support = Data::supportFor($accession);
 $counted = array_filter($support, static fn (array $r): bool => $r['counts_towards_tier'] === 'yes');
 $yes = array_filter($counted, static fn (array $r): bool => $r['supported'] === 'yes');
 $kinds = array_unique(array_column($yes, 'measures'));
 ?>
-<h2>How this site is tiered</h2>
+<h2 id="evidence">Evidence</h2>
 <?php if ($support === []): ?>
   <p class="small">
     No modern dataset in the registry covers <em><?= h($origin['species']) ?></em> yet, so this
     site is shown as <strong>not assessed</strong>. That records missing coverage, not a
     negative result: nothing has looked here.
+    <a href="about.php#tiering">How the tiers are assigned</a>.
   </p>
 <?php else: ?>
+<h3>Genome-wide datasets</h3>
 <p class="small">
-  Every registered dataset is tested against every site, and all of them are listed below
-  whether or not they support this one &mdash; a dataset that looked and found nothing says
-  something different from a dataset that never looked. A site is <strong>confirmed</strong>
-  on direct experimental evidence alone, and <strong>likely</strong> when at least two
-  datasets support it and at least one of those measures licensing.
+  All <?= h((string) count($support)) ?> registered datasets are listed, supporting or not:
+  a dataset that looked and found nothing says something different from one that never looked.
+  <a href="about.php#tiering">How a tier is assigned</a>.
 </p>
 <table>
   <thead><tr><th>Dataset</th><th>Measures</th><th>Supports this site</th>
@@ -105,16 +175,13 @@ $kinds = array_unique(array_column($yes, 'measures'));
   towards the tier support this site<?= $kinds !== [] ? ' (' . h(implode(', ', $kinds)) . ')' : '' ?>.
   <?php if (($origin['ars_negative'] ?? 'no') === 'yes'): ?>
     This site also lies inside a fragment that was cloned and did not support autonomous
-    replication, listed with the evidence below. That result is carried as a flag and never
-    as a tier: it describes the fragment that was tested, and a site can hold a positive and
-    a negative assay at once.
+    replication, listed with the assay records below; that is carried as a flag and never
+    as a tier.
   <?php endif; ?>
-  <a href="https://github.com/DNAReplicationLab/oridb-v3/blob/main/docs/tier-rebuild.md">How
-  the tiers are built</a>.
 </p>
 <?php endif; ?>
 
-<h2>Supporting evidence</h2>
+<h3>Assay records</h3>
 <p class="small">
   <?= h((string) count($evidence)) ?> experimental record<?= count($evidence) === 1 ? '' : 's' ?>
 recorded for this site. Each record is an individual assay reported by the cited study.
@@ -175,19 +242,17 @@ $dyn = [
         'column'  => 'replication_time_call',
     ],
 ];
-// The assays are cerevisiae-wide, so the section is shown for every cerevisiae
-// origin, with or without values: a missing value is itself a result. No
-// equivalent pombe dataset is loaded yet, so the section is omitted there.
-$showDynamics = str_contains($origin['species'], 'cerevisiae');
+// $showDynamics is set at the top of the page: the assays are cerevisiae-wide, so
+// the section is shown for every cerevisiae origin, with or without values - a
+// missing value is itself a result - and omitted where no such dataset is loaded.
 ?>
 <?php if ($showDynamics): ?>
-<h2>Replication dynamics</h2>
+<h2 id="dynamics">Replication dynamics</h2>
 <p class="small">
-  How often this origin fires, and when the surrounding DNA is replicated. Each value is
-  read from a genome-wide dataset re-analysed on <?= h($origin['assembly']) ?> and is
-  attached to this origin only where the origin and the call are each other&rsquo;s nearest
-  neighbour and lie within the measured positional error of that assay, so the distance is
-  published with the value.
+  How often this origin fires, and when the surrounding DNA is replicated, read from
+  genome-wide datasets re-analysed on <?= h($origin['assembly']) ?>.
+  <a href="about.php#dynamics">How a value is attached to an origin, and why a blank is
+  not a zero</a>.
 </p>
 <table>
   <thead><tr><th>Measurement</th><th class="num">Value</th><th>Assigned call</th>
@@ -251,27 +316,17 @@ $showDynamics = str_contains($origin['species'], 'cerevisiae');
   </tbody>
 </table>
 <p class="small">
-  <strong>Read these with their qualifications.</strong>
-  A blank is not a zero. <em>Not resolved</em> means the experiment produced no call here at
-  all, which for both of these assays happens to origins that fire late or in few cells, so
-  those origins are unmeasured rather than inactive. <em>Not assigned</em> means a call does
-  lie within range &mdash; and so counts towards the tier above &mdash; but it is not
-  unambiguously this origin's: a value is attached only where the origin and the call are
-  each other's nearest, which is what stops a neighbour's activity being reported here.
-  The efficiency is the raw OEM, without the deconvolution the original study applied, so
-  values are under-estimates close to a termination zone.
-  The replication time is a <em>composite</em> and not a firing time &mdash; DNA here is
-  replicated either by this origin or by a fork arriving from a neighbour, and an early
-  value can be produced by either.
-  <a href="https://github.com/DNAReplicationLab/oridb-v3/blob/main/docs/origin_activity_timing.md">How
-  these values are assigned</a>, and both datasets are browsable in the
-  <a href="datahub.php">data hub</a>.
+  A blank is not a zero, and the two blanks mean different things: <em>not resolved</em> is
+  an experiment that produced no call here, <em>not assigned</em> is a call that lies in
+  range but belongs to a neighbour.
+  <a href="about.php#dynamics">What these values do and do not say</a>; both datasets are
+  browsable in the <a href="datahub.php">data hub</a>.
 </p>
 <?php endif; ?>
 
-<h2>Origin elements</h2>
+<h2 id="elements">Origin elements</h2>
 <?php
-$elements = Data::elementsFor($accession);
+// $elements is read at the top of the page, for the summary block.
 // Only an element with a motif window can be aligned under a logo, and only the
 // two classes with a matrix have one to be aligned against. Everything else - a
 // B3, or a literature element published without a scored window - is still
@@ -335,27 +390,14 @@ $motifs = [
 
   <?php if ($motifs['A'] !== null && $byClass['A'] !== []):
       $motifA = $motifs['A'];
-      $regionsA = motif_regions($motifA);
-      $coreA = motif_region($regionsA, 'core');
-      $b1A = motif_region($regionsA, 'b1'); ?>
+      $b1A = motif_region(motif_regions($motifA), 'b1'); ?>
     <h3>A and B1 elements</h3>
     <p class="small">
-      The <?= h((string) $motifA['width']) ?> bp window below spans both elements: the A
-      element &mdash; the ORC-binding element the ACS motif matches &mdash; at columns
-      <?= h((string) $coreA['start']) ?>&ndash;<?= h((string) $coreA['end']) ?>, and
-      <?php if ($b1A !== null): ?>
-        the B1 region at columns <?= h((string) $b1A['start']) ?>&ndash;<?= h((string) $b1A['end']) ?>,
-        which the matrix recovers as a separate run of conserved columns past a trough at
-        background. Both are marked on the rows.
-      <?php else: ?>
-        no second conserved run is resolved in this matrix.
-      <?php endif; ?>
-      Each element is shown on its T-rich strand, aligned on the A core; the shaded run is
-      the sequence as that study published it and the rest is genomic context. Bases
-      agreeing with the consensus are in black, the rest grey.
-      <strong>Confirmed elements are in bold</strong> and labelled
-      <span class="ev">confirmed</span> beside the score; the others are predictions.
-      <a href="about.php#elements">How the motif is built and scored</a>.
+      <?= h((string) count($byClass['A'])) ?> element<?= count($byClass['A']) === 1 ? '' : 's' ?>
+      aligned on the A core in the <?= h((string) $motifA['width']) ?> bp window, which spans
+      the A element<?= $b1A !== null ? ' and the B1 region' : '' ?>; confirmed elements are in
+      bold.
+      <a href="about.php#elements">What the panel shows, and how the score is computed</a>.
     </p>
     <?php motif_panel(
         $motifA,
@@ -367,22 +409,12 @@ $motifs = [
   <?php endif; ?>
 
   <?php if ($motifs['B2'] !== null && $byClass['B2'] !== []):
-      $motifB = $motifs['B2'];
-      $regionsB = motif_regions($motifB);
-      $blockB = motif_region($regionsB, 'core'); ?>
+      $motifB = $motifs['B2']; ?>
     <h3>B2 elements</h3>
     <p class="small">
-      B2 is a distinct element 3' of the A element, with its own matrix: these rows are
-      scored against the B2 motif, not against the ACS motif.
-      <?php if ($blockB !== null): ?>
-        Its conserved block falls at columns <?= h((string) $blockB['start']) ?>&ndash;<?= h((string) $blockB['end']) ?>
-        of the <?= h((string) $motifB['width']) ?> bp window and is marked on the rows;
-      <?php else: ?>
-        The window is <?= h((string) $motifB['width']) ?> bp wide;
-      <?php endif; ?>
-      the matrix carries <?= h((string) $motifB['information_content_bits']) ?> bits in all,
-      so agreement is weaker and more spread out than for the A element. Shading, tinting
-      and scores read as in the panel above.
+      <?= h((string) count($byClass['B2'])) ?> element<?= count($byClass['B2']) === 1 ? '' : 's' ?>
+      scored against the B2 matrix, which is a different motif from the ACS and not
+      comparable with it. Shading and scores read as in the panel above.
       <a href="about.php#elements">What the B2 element is</a>.
     </p>
     <?php motif_panel(
@@ -394,7 +426,10 @@ $motifs = [
     ); ?>
   <?php endif; ?>
 
-  <h3>Element records</h3>
+  <details class="longtail">
+  <summary><strong>Element records</strong>
+    <span class="small"><?= h((string) count($elements)) ?> record<?= count($elements) === 1 ? '' : 's' ?>,
+    with coordinates, strand, study and placement</span></summary>
   <table>
     <thead><tr><th>Element</th><th>Position</th><th class="num">Length</th><th>Strand</th>
                <th>Class</th><th>Evidence</th><th>Study</th><th>Placement</th></tr></thead>
@@ -417,10 +452,48 @@ $motifs = [
     <?php endforeach; ?>
     </tbody>
   </table>
+  </details>
 <?php endif; ?>
 
-<h2>Machine-readable</h2>
+<h2 id="identifiers">Identifiers and provenance</h2>
+<dl class="facts">
+  <dt>Systematic name</dt><dd class="mono"><?= h($origin['systematic']) ?></dd>
+  <?php if ($origin['other_names'] !== ''): ?>
+    <dt>Other names</dt><dd><?= h(str_replace(',', ', ', $origin['other_names'])) ?></dd>
+  <?php endif; ?>
+  <dt>OriDB v2 record</dt><dd class="mono"><?= h($origin['legacy_id']) ?></dd>
+  <?php if (($origin['lift_status'] ?? '') !== '' && $origin['lift_status'] !== 'not-required'): ?>
+    <dt>Original position</dt>
+    <dd class="mono"><?= h($origin['source_chromosome']) ?>:<?= h(bp($origin['source_start'])) ?>&ndash;<?= h(bp($origin['source_end'])) ?>
+        <span class="small">(<?= h($origin['source_assembly']) ?>, as recorded in OriDB v2)</span></dd>
+    <dt>Lift check</dt>
+    <dd>
+      <?php
+      $msg = [
+          'identical' => 'sequence identical in both assemblies',
+          'same-length-mismatch' => 'same length, but the assembly sequence was revised',
+          'length-changed' => 'an insertion or deletion falls inside this interval, so its length changed',
+          'unmapped' => 'no alignment in the chain file',
+          'unverified' => 'lifted, but not checked against the sequence',
+      ][$origin['lift_status']] ?? $origin['lift_status'];
+      ?>
+      <?= h($msg) ?>
+      <?php if ($origin['lift_status'] === 'length-changed'): ?>
+        <span class="small">(<?= h(bp((int) $origin['source_end'] - (int) $origin['source_start'] + 1)) ?> bp
+        &rarr; <?= h(bp($width)) ?> bp)</span>
+      <?php endif; ?>
+    </dd>
+  <?php endif; ?>
+  <dt>Coordinates</dt>
+  <dd class="small"><?= h(Data::release()['coordinate_convention']) ?>;
+      the accession is permanent, <a href="about.php">as explained on About</a>.</dd>
+</dl>
+
+<h2 id="data">Data for this origin</h2>
 <p class="small">
-  <a href="<?= h(u('api/origin.php', ['id' => $accession])) ?>">JSON record</a> for this origin.
+  <a href="<?= h(u('api/origin.php', ['id' => $accession])) ?>">JSON record</a> for this
+  origin, the same fields the pages above are drawn from. The whole release is on the
+  <a href="downloads.php">downloads page</a>, and OriDB's records are also a browser track
+  in the <a href="datahub.php">data hub</a>.
 </p>
 <?php require ORIDB_APP_DIR . '/footer.php'; ?>

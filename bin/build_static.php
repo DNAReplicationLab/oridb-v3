@@ -129,9 +129,18 @@ foreach (Data::origins() as $o) {
 if (!is_dir($out . '/assets')) {
     mkdir($out . '/assets', 0o755, true);
 }
-foreach (glob($root . '/public/assets/*') as $asset) {
-    copy($asset, $out . '/assets/' . basename($asset));
-}
+// Recursive: assets/ gained a subdirectory when the browser bundle was vendored,
+// and a flat copy() silently left the static build without it.
+$copyTree = static function (string $from, string $to) use (&$copyTree): void {
+    if (!is_dir($to)) {
+        mkdir($to, 0o755, true);
+    }
+    foreach (glob($from . '/*') ?: [] as $item) {
+        $target = $to . '/' . basename($item);
+        is_dir($item) ? $copyTree($item, $target) : copy($item, $target);
+    }
+};
+$copyTree($root . '/public/assets', $out . '/assets');
 foreach (Data::speciesList() as $species) {
     $slug = strtolower(str_replace(' ', '-', $species));
     file_put_contents($out . "/oridb-origins-{$slug}.bed", render($root, 'export.php', ['format' => 'bed', 'species' => $species]));
