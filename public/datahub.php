@@ -47,8 +47,19 @@ $bytes = static function (int $n): string {
 <p>Or open an assembly directly, which adds the hub and takes you straight to the tracks:</p>
 <ul>
   <?php foreach ($hub['genomes'] as $g): ?>
-  <li><a href="<?= h('https://genome.ucsc.edu/cgi-bin/hgTracks?db=' . rawurlencode($g['genome'])
-        . '&hubUrl=' . rawurlencode($meta['url'])) ?>"><?= h($g['genome']) ?> with the hub loaded</a></li>
+  <?php
+  // Which parameter opens the assembly is decided in bin/build_datahub.php, from the
+  // hub's own genomes.txt: db= for a UCSC database, genome= for a GenArk assembly or
+  // one the hub supplies itself. Sending the wrong one loads no assembly and draws no
+  // tracks, with no error anywhere.
+  $param = ($g['ucsc_param'] ?? 'db') . '=';
+  $curated = $g['assembly'] ?? $g['genome'];
+  ?>
+  <li><a href="<?= h('https://genome.ucsc.edu/cgi-bin/hgTracks?' . $param . rawurlencode($g['genome'])
+        . '&hubUrl=' . rawurlencode($meta['url'])) ?>"><?= h($g['genome']) ?> with the hub loaded</a><?php
+      if ($curated !== $g['genome']): ?> <span class="small">&mdash; UCSC&rsquo;s copy of
+      <span class="mono"><?= h($curated) ?></span>, the assembly these records are curated
+      on, with its gene annotation alongside</span><?php endif; ?></li>
   <?php endforeach; ?>
 </ul>
 <p class="small">

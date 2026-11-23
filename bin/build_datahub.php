@@ -359,7 +359,23 @@ foreach ($genomeStanzas as $g) {
             'groups' => $groups,
         ];
     }
-    $genomes[] = ['genome' => $g['genome'], 'datasets' => $out];
+    // Which URL parameter opens this genome at UCSC. `db=` names a UCSC database and
+    // nothing else; an assembly the hub supplies itself, and an accession-named GenArk
+    // assembly that UCSC hosts but does not have a database for, are both addressed as
+    // `genome=`. Sending db= for either loads no assembly and shows no tracks, silently.
+    // The distinction is recorded here rather than guessed at by the page.
+    $isAccession = (bool) preg_match('/^GC[AF]_/', $g['genome']);
+    $genomes[] = [
+        'genome' => $g['genome'],
+        'assembly_hub' => isset($g['twoBitPath']),
+        'genark' => $isAccession && !isset($g['twoBitPath']),
+        'ucsc_param' => (isset($g['twoBitPath']) || $isAccession) ? 'genome' : 'db',
+        // The assembly these data are curated on, which is not always what UCSC calls
+        // the genome: OriDB's pombe records say ASM294v2, UCSC's GenArk copy of the same
+        // assembly is GCF_000002945.1. Taken from the datasets themselves.
+        'assembly' => $out[0]['assembly'] ?? $g['genome'],
+        'datasets' => $out,
+    ];
 }
 
 if ($errors !== []) {

@@ -1,5 +1,5 @@
 {
-    "generated": "2026-11-23T13:03:36+00:00",
+    "generated": "2026-11-23T19:09:01+00:00",
     "hub": {
         "base_url": "https://dnareplicationlab.github.io/oridb-data-hub/",
         "url": "https://dnareplicationlab.github.io/oridb-data-hub/hub.txt"
@@ -37,10 +37,10 @@
                 "adapter": {
                     "type": "TwoBitAdapter",
                     "twoBitLocation": {
-                        "uri": "https://dnareplicationlab.github.io/oridb-data-hub/ASM294v2/ASM294v2.2bit"
+                        "uri": "https://dnareplicationlab.github.io/oridb-data-hub/GCF_000002945.1/GCF_000002945.1.2bit"
                     },
                     "chromSizesLocation": {
-                        "uri": "https://dnareplicationlab.github.io/oridb-data-hub/ASM294v2.chrom.sizes"
+                        "uri": "https://dnareplicationlab.github.io/oridb-data-hub/GCF_000002945.1.chrom.sizes"
                     }
                 }
             },
@@ -48,7 +48,7 @@
                 "adapter": {
                     "type": "RefNameAliasAdapter",
                     "location": {
-                        "uri": "https://dnareplicationlab.github.io/oridb-data-hub/ASM294v2/ASM294v2.refNameAliases.txt"
+                        "uri": "https://dnareplicationlab.github.io/oridb-data-hub/GCF_000002945.1/GCF_000002945.1.refNameAliases.txt"
                     }
                 }
             }
@@ -496,7 +496,7 @@
                 "adapter": {
                     "type": "BigBedAdapter",
                     "bigBedLocation": {
-                        "uri": "https://dnareplicationlab.github.io/oridb-data-hub/ASM294v2/oridb_v3/origins.bb"
+                        "uri": "https://dnareplicationlab.github.io/oridb-data-hub/GCF_000002945.1/oridb_v3/origins.bb"
                     }
                 },
                 "displays": [
@@ -524,7 +524,7 @@
                 "adapter": {
                     "type": "BigWigAdapter",
                     "bigWigLocation": {
-                        "uri": "https://dnareplicationlab.github.io/oridb-data-hub/ASM294v2/daigaku2015/puseq.trep.bw"
+                        "uri": "https://dnareplicationlab.github.io/oridb-data-hub/GCF_000002945.1/daigaku2015/puseq.trep.bw"
                     }
                 }
             },
@@ -542,7 +542,7 @@
                 "adapter": {
                     "type": "BigWigAdapter",
                     "bigWigLocation": {
-                        "uri": "https://dnareplicationlab.github.io/oridb-data-hub/ASM294v2/daigaku2015/puseq.leftward_fork.bw"
+                        "uri": "https://dnareplicationlab.github.io/oridb-data-hub/GCF_000002945.1/daigaku2015/puseq.leftward_fork.bw"
                     }
                 }
             },
@@ -560,7 +560,7 @@
                 "adapter": {
                     "type": "BigBedAdapter",
                     "bigBedLocation": {
-                        "uri": "https://dnareplicationlab.github.io/oridb-data-hub/ASM294v2/daigaku2015/puseq.origins.bb"
+                        "uri": "https://dnareplicationlab.github.io/oridb-data-hub/GCF_000002945.1/daigaku2015/puseq.origins.bb"
                     }
                 },
                 "displays": [
@@ -588,7 +588,7 @@
                 "adapter": {
                     "type": "BigWigAdapter",
                     "bigWigLocation": {
-                        "uri": "https://dnareplicationlab.github.io/oridb-data-hub/ASM294v2/daigaku2015/puseq.termination.bw"
+                        "uri": "https://dnareplicationlab.github.io/oridb-data-hub/GCF_000002945.1/daigaku2015/puseq.termination.bw"
                     }
                 }
             },
@@ -606,7 +606,7 @@
                 "adapter": {
                     "type": "BigWigAdapter",
                     "bigWigLocation": {
-                        "uri": "https://dnareplicationlab.github.io/oridb-data-hub/ASM294v2/foss2021/mcm2chec.hu_rep1.all.bw"
+                        "uri": "https://dnareplicationlab.github.io/oridb-data-hub/GCF_000002945.1/foss2021/mcm2chec.hu_rep1.all.bw"
                     }
                 }
             },
@@ -624,7 +624,7 @@
                 "adapter": {
                     "type": "BigWigAdapter",
                     "bigWigLocation": {
-                        "uri": "https://dnareplicationlab.github.io/oridb-data-hub/ASM294v2/foss2021/mcm2chec.g1_rep1.all.bw"
+                        "uri": "https://dnareplicationlab.github.io/oridb-data-hub/GCF_000002945.1/foss2021/mcm2chec.g1_rep1.all.bw"
                     }
                 }
             },
@@ -642,7 +642,7 @@
                 "adapter": {
                     "type": "BigWigAdapter",
                     "bigWigLocation": {
-                        "uri": "https://dnareplicationlab.github.io/oridb-data-hub/ASM294v2/foss2021/mcm2chec.hu_rep1.51_100bp.bw"
+                        "uri": "https://dnareplicationlab.github.io/oridb-data-hub/GCF_000002945.1/foss2021/mcm2chec.hu_rep1.51_100bp.bw"
                     }
                 }
             },
@@ -660,7 +660,7 @@
                 "adapter": {
                     "type": "BigWigAdapter",
                     "bigWigLocation": {
-                        "uri": "https://dnareplicationlab.github.io/oridb-data-hub/ASM294v2/foss2021/mcm2chec.g1_rep1.51_100bp.bw"
+                        "uri": "https://dnareplicationlab.github.io/oridb-data-hub/GCF_000002945.1/foss2021/mcm2chec.g1_rep1.51_100bp.bw"
                     }
                 }
             },
@@ -678,7 +678,7 @@
                 "adapter": {
                     "type": "BigWigAdapter",
                     "bigWigLocation": {
-                        "uri": "https://dnareplicationlab.github.io/oridb-data-hub/ASM294v2/foss2021/mcm2chec.hu_rep1.151_200bp.bw"
+                        "uri": "https://dnareplicationlab.github.io/oridb-data-hub/GCF_000002945.1/foss2021/mcm2chec.hu_rep1.151_200bp.bw"
                     }
                 }
             },
@@ -696,7 +696,7 @@
                 "adapter": {
                     "type": "BigWigAdapter",
                     "bigWigLocation": {
-                        "uri": "https://dnareplicationlab.github.io/oridb-data-hub/ASM294v2/foss2021/mcm2chec.g1_rep1.151_200bp.bw"
+                        "uri": "https://dnareplicationlab.github.io/oridb-data-hub/GCF_000002945.1/foss2021/mcm2chec.g1_rep1.151_200bp.bw"
                     }
                 }
             },
@@ -714,7 +714,7 @@
                 "adapter": {
                     "type": "BigWigAdapter",
                     "bigWigLocation": {
-                        "uri": "https://dnareplicationlab.github.io/oridb-data-hub/ASM294v2/foss2021/mcm2chec.hu_rep2.all.bw"
+                        "uri": "https://dnareplicationlab.github.io/oridb-data-hub/GCF_000002945.1/foss2021/mcm2chec.hu_rep2.all.bw"
                     }
                 }
             },
@@ -732,7 +732,7 @@
                 "adapter": {
                     "type": "BigWigAdapter",
                     "bigWigLocation": {
-                        "uri": "https://dnareplicationlab.github.io/oridb-data-hub/ASM294v2/foss2021/free_mnase.rep1.bw"
+                        "uri": "https://dnareplicationlab.github.io/oridb-data-hub/GCF_000002945.1/foss2021/free_mnase.rep1.bw"
                     }
                 }
             }

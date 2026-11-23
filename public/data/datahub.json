@@ -1,5 +1,5 @@
 {
-    "generated": "2026-11-23T13:03:36Z",
+    "generated": "2026-11-23T19:09:01Z",
     "hub": {
         "name": "oridb_data_hub",
         "shortLabel": "OriDB data hub",
@@ -12,6 +12,10 @@
     "genomes": [
         {
             "genome": "sacCer3",
+            "assembly_hub": false,
+            "genark": false,
+            "ucsc_param": "db",
+            "assembly": "sacCer3",
             "datasets": [
                 {
                     "id": "oridb_v3",
@@ -472,7 +476,11 @@
             ]
         },
         {
-            "genome": "ASM294v2",
+            "genome": "GCF_000002945.1",
+            "assembly_hub": false,
+            "genark": true,
+            "ucsc_param": "genome",
+            "assembly": "ASM294v2",
             "datasets": [
                 {
                     "id": "oridb_v3",
@@ -506,7 +514,7 @@
                                     "longLabel": "OriDB v3 origin records, coloured by evidence tier: green confirmed, blue likely, grey unsupported or not assessed",
                                     "type": "bigBed 9 +",
                                     "file": "origins.bb",
-                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/ASM294v2/oridb_v3/origins.bb",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/GCF_000002945.1/oridb_v3/origins.bb",
                                     "bytes": 86634
                                 }
                             ]
@@ -520,10 +528,10 @@
                                 {
                                     "track": "oridb_v3_origins",
                                     "shortLabel": "OriDB origins",
-                                    "longLabel": "OriDB v3 origin records on ASM294v2; no quantitative dataset is served on this assembly yet, so these intervals and the sequence are what the hub carries for S. pombe",
+                                    "longLabel": "OriDB v3 origin records on ASM294v2, drawn on UCSC's GenArk copy of that assembly (GCF_000002945.1); coloured by evidence tier",
                                     "type": "bigBed 9 +",
                                     "file": "origins.bb",
-                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/ASM294v2/oridb_v3/origins.bb",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/GCF_000002945.1/oridb_v3/origins.bb",
                                     "bytes": 86634
                                 }
                             ]
@@ -564,7 +572,7 @@
                                     "longLabel": "Replication timing: Trep in minutes from polymerase usage (Daigaku et al. 2015); early replication plots high",
                                     "type": "bigWig",
                                     "file": "puseq.trep.bw",
-                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/ASM294v2/daigaku2015/puseq.trep.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/GCF_000002945.1/daigaku2015/puseq.trep.bw",
                                     "bytes": 159180
                                 },
                                 {
@@ -573,7 +581,7 @@
                                     "longLabel": "Fraction of forks moving leftward, from polymerase usage (Daigaku et al. 2015)",
                                     "type": "bigWig",
                                     "file": "puseq.leftward_fork.bw",
-                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/ASM294v2/daigaku2015/puseq.leftward_fork.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/GCF_000002945.1/daigaku2015/puseq.leftward_fork.bw",
                                     "bytes": 151410
                                 },
                                 {
@@ -582,7 +590,7 @@
                                     "longLabel": "Origin calls with firing efficiency from polymerase usage (Daigaku et al. 2015)",
                                     "type": "bigBed 6 +",
                                     "file": "puseq.origins.bb",
-                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/ASM294v2/daigaku2015/puseq.origins.bb",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/GCF_000002945.1/daigaku2015/puseq.origins.bb",
                                     "bytes": 71095
                                 }
                             ]
@@ -599,7 +607,7 @@
                                     "longLabel": "Trep in minutes after release, 1 kb bins (Daigaku et al. 2015)",
                                     "type": "bigWig",
                                     "file": "puseq.trep.bw",
-                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/ASM294v2/daigaku2015/puseq.trep.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/GCF_000002945.1/daigaku2015/puseq.trep.bw",
                                     "bytes": 159180
                                 }
                             ]
@@ -616,7 +624,7 @@
                                     "longLabel": "Fraction of replication forks moving leftward, 1 kb bins (Daigaku et al. 2015)",
                                     "type": "bigWig",
                                     "file": "puseq.leftward_fork.bw",
-                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/ASM294v2/daigaku2015/puseq.leftward_fork.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/GCF_000002945.1/daigaku2015/puseq.leftward_fork.bw",
                                     "bytes": 151410
                                 }
                             ]
@@ -633,7 +641,7 @@
                                     "longLabel": "Termination events as a percentage per window (Daigaku et al. 2015)",
                                     "type": "bigWig",
                                     "file": "puseq.termination.bw",
-                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/ASM294v2/daigaku2015/puseq.termination.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/GCF_000002945.1/daigaku2015/puseq.termination.bw",
                                     "bytes": 365845
                                 }
                             ]
@@ -650,7 +658,7 @@
                                     "longLabel": "Origin calls with firing efficiency from polymerase usage (Daigaku et al. 2015); shaded by efficiency, 0.07 to 83.8 per cent",
                                     "type": "bigBed 6 +",
                                     "file": "puseq.origins.bb",
-                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/ASM294v2/daigaku2015/puseq.origins.bb",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/GCF_000002945.1/daigaku2015/puseq.origins.bb",
                                     "bytes": 71095
                                 }
                             ]
@@ -691,7 +699,7 @@
                                     "longLabel": "MCM2-7 occupancy by chromatin endogenous cleavage in hydroxyurea (Foss et al. 2021); 1 is average coverage",
                                     "type": "bigWig",
                                     "file": "mcm2chec.hu_rep1.all.bw",
-                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/ASM294v2/foss2021/mcm2chec.hu_rep1.all.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/GCF_000002945.1/foss2021/mcm2chec.hu_rep1.all.bw",
                                     "bytes": 3977242
                                 }
                             ]
@@ -708,7 +716,7 @@
                                     "longLabel": "Mcm2-ChEC, hydroxyurea, replicate 1, all fragment sizes",
                                     "type": "bigWig",
                                     "file": "mcm2chec.hu_rep1.all.bw",
-                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/ASM294v2/foss2021/mcm2chec.hu_rep1.all.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/GCF_000002945.1/foss2021/mcm2chec.hu_rep1.all.bw",
                                     "bytes": 3977242
                                 },
                                 {
@@ -717,7 +725,7 @@
                                     "longLabel": "Mcm2-ChEC, G1 arrest, replicate 1, all fragment sizes",
                                     "type": "bigWig",
                                     "file": "mcm2chec.g1_rep1.all.bw",
-                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/ASM294v2/foss2021/mcm2chec.g1_rep1.all.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/GCF_000002945.1/foss2021/mcm2chec.g1_rep1.all.bw",
                                     "bytes": 3953348
                                 }
                             ]
@@ -734,7 +742,7 @@
                                     "longLabel": "Mcm2-ChEC, hydroxyurea, 51-100 bp fragments",
                                     "type": "bigWig",
                                     "file": "mcm2chec.hu_rep1.51_100bp.bw",
-                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/ASM294v2/foss2021/mcm2chec.hu_rep1.51_100bp.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/GCF_000002945.1/foss2021/mcm2chec.hu_rep1.51_100bp.bw",
                                     "bytes": 3702908
                                 },
                                 {
@@ -743,7 +751,7 @@
                                     "longLabel": "Mcm2-ChEC, G1 arrest, 51-100 bp fragments",
                                     "type": "bigWig",
                                     "file": "mcm2chec.g1_rep1.51_100bp.bw",
-                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/ASM294v2/foss2021/mcm2chec.g1_rep1.51_100bp.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/GCF_000002945.1/foss2021/mcm2chec.g1_rep1.51_100bp.bw",
                                     "bytes": 3665217
                                 }
                             ]
@@ -760,7 +768,7 @@
                                     "longLabel": "Mcm2-ChEC, hydroxyurea, 151-200 bp fragments",
                                     "type": "bigWig",
                                     "file": "mcm2chec.hu_rep1.151_200bp.bw",
-                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/ASM294v2/foss2021/mcm2chec.hu_rep1.151_200bp.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/GCF_000002945.1/foss2021/mcm2chec.hu_rep1.151_200bp.bw",
                                     "bytes": 3604210
                                 },
                                 {
@@ -769,7 +777,7 @@
                                     "longLabel": "Mcm2-ChEC, G1 arrest, 151-200 bp fragments",
                                     "type": "bigWig",
                                     "file": "mcm2chec.g1_rep1.151_200bp.bw",
-                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/ASM294v2/foss2021/mcm2chec.g1_rep1.151_200bp.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/GCF_000002945.1/foss2021/mcm2chec.g1_rep1.151_200bp.bw",
                                     "bytes": 3700841
                                 }
                             ]
@@ -786,7 +794,7 @@
                                     "longLabel": "Mcm2-ChEC, hydroxyurea, replicate 1",
                                     "type": "bigWig",
                                     "file": "mcm2chec.hu_rep1.all.bw",
-                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/ASM294v2/foss2021/mcm2chec.hu_rep1.all.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/GCF_000002945.1/foss2021/mcm2chec.hu_rep1.all.bw",
                                     "bytes": 3977242
                                 },
                                 {
@@ -795,7 +803,7 @@
                                     "longLabel": "Mcm2-ChEC, hydroxyurea, replicate 2",
                                     "type": "bigWig",
                                     "file": "mcm2chec.hu_rep2.all.bw",
-                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/ASM294v2/foss2021/mcm2chec.hu_rep2.all.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/GCF_000002945.1/foss2021/mcm2chec.hu_rep2.all.bw",
                                     "bytes": 4003936
                                 }
                             ]
@@ -812,7 +820,7 @@
                                     "longLabel": "Free MNase control, replicate 1",
                                     "type": "bigWig",
                                     "file": "free_mnase.rep1.bw",
-                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/ASM294v2/foss2021/free_mnase.rep1.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/GCF_000002945.1/foss2021/free_mnase.rep1.bw",
                                     "bytes": 3837435
                                 }
                             ]

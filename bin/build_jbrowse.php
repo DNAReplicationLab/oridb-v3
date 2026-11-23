@@ -71,7 +71,13 @@ $out = [
 
 $missing = [];
 foreach ($hub['genomes'] as $g) {
+    // Two names, and they are not always the same. $genome is what the hub calls the
+    // assembly - for pombe, UCSC's GenArk accession - and so where the files live.
+    // $assembly is the assembly the records are curated on, which is what an origin
+    // page asks for when it looks up its own assembly field. Keying the config on the
+    // curated name is what lets the hub rename a genome without breaking the panel.
     $genome = $g['genome'];
+    $assembly = $g['assembly'] ?? $genome;
     $twoBit = "{$genome}/{$genome}.2bit";
     $alias  = "{$genome}/{$genome}.refNameAliases.txt";
     foreach ([$twoBit, $alias, "{$genome}.chrom.sizes"] as $rel) {
@@ -80,11 +86,11 @@ foreach ($hub['genomes'] as $g) {
         }
     }
 
-    $out['assemblies'][$genome] = [
-        'name' => $genome,
+    $out['assemblies'][$assembly] = [
+        'name' => $assembly,
         'sequence' => [
             'type' => 'ReferenceSequenceTrack',
-            'trackId' => $genome . '-ref',
+            'trackId' => $assembly . '-ref',
             'adapter' => [
                 'type' => 'TwoBitAdapter',
                 'twoBitLocation' => ['uri' => $base . $twoBit],
@@ -114,17 +120,17 @@ foreach ($hub['genomes'] as $g) {
                 if (!isset($byUrl[$t['url']])) {
                     $byUrl[$t['url']] = [
                         'type' => $a['track'],
-                        'trackId' => $genome . '-' . $t['track'],
+                        'trackId' => $assembly . '-' . $t['track'],
                         'name' => $t['shortLabel'],
                         'description' => $t['longLabel'],
-                        'assemblyNames' => [$genome],
+                        'assemblyNames' => [$assembly],
                         'category' => [$ds['title']],
                         'adapter' => $a['adapter'],
                     ];
                     if (str_ends_with((string) $t['file'], 'origins.bb')) {
                         $byUrl[$t['url']]['displays'] = [[
                             'type' => 'LinearBasicDisplay',
-                            'displayId' => $genome . '-' . $t['track'] . '-display',
+                            'displayId' => $assembly . '-' . $t['track'] . '-display',
                             'renderer' => ['type' => 'SvgFeatureRenderer',
                                            'color1' => TIER_COLOUR_JEXL],
                         ]];
@@ -136,8 +142,8 @@ foreach ($hub['genomes'] as $g) {
             }
         }
     }
-    $out['tracks'][$genome] = array_values($byUrl);
-    $out['defaults'][$genome] = array_values(array_unique($defaults));
+    $out['tracks'][$assembly] = array_values($byUrl);
+    $out['defaults'][$assembly] = array_values(array_unique($defaults));
 }
 
 if ($missing !== []) {
@@ -150,8 +156,8 @@ if ($missing !== []) {
 file_put_contents($root . '/public/assets/jbrowse.json',
     json_encode($out, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES) . "\n");
 
-foreach ($out['tracks'] as $genome => $tracks) {
+foreach ($out['tracks'] as $assembly => $tracks) {
     printf("%s: %d track(s), %d drawn by default\n",
-        $genome, count($tracks), count($out['defaults'][$genome]));
+        $assembly, count($tracks), count($out['defaults'][$assembly]));
 }
 echo "-> public/assets/jbrowse.json\n";
