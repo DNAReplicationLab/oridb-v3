@@ -277,9 +277,10 @@ host chosen for range requests, and archive an identical copy in Zenodo for the 
 
 ## Risks specific to this account
 
-- **Do not reuse the v2 database user.** The v2 credentials are in cleartext in
-  `utilities/ori_connect.php` and must be rotated before any of that code is published.
-  The trial needs no database at all, which is one reason to start this way.
+- **Do not reuse the v2 database user.** Treat the v2 database credentials as compromised
+  and rotate them, independently of anything v3 does; the v2 code configures its connection
+  in cleartext, so publishing any of that tree would disclose them. The trial needs no
+  database at all, which is one reason to start this way.
 - **`.htaccess` inheritance.** A subdomain under `public_html` would inherit the parent's
   `.htaccess`; one outside it does not. Another reason to place the checkout in
   `~/repositories`.

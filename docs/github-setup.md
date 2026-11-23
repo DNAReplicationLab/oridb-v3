@@ -1,5 +1,22 @@
 # Getting the trial repository onto GitHub
 
+**Steps 1–9 are done**: the repository is live at `github.com/DNAReplicationLab/oridb-v3`,
+pushed, with the checks and the preview site running and the hosting account connected. They
+are kept because they are the record of how it was set up and what a second maintainer, or a
+rebuild on another machine, would have to repeat. What is still worth reading is at the end.
+
+| | Step | When you need it |
+|---|---|---|
+| ✓ | 1–2. Git identity, SSH key | Once per machine. A new maintainer starts here |
+| ✓ | 3. Get the files | Now a clone, not an unpacking |
+| ✓ | 4. Check nothing sensitive is committed | Before any first commit, including a new repository |
+| ✓ | 5–7. First commit, empty repository, push | Done once, in Nov 2026 |
+| ✓ | 8. Automated checks and preview site | Done; the enabling clicks are recorded there |
+| ✓ | 9. Connect the hosting account | Done |
+| | **[10. Working on it from here](#10-working-on-it-from-here)** | Every change: branch, pull request, refresh the live site |
+| | **[11. Open Discussions](#11-open-discussions-so-reviewers-can-comment)** | **Not yet done** — what reviewers need to comment on the site |
+| | **[12. Marking a release](#12-marking-a-release)** | When the trial is citable |
+
 Written for a Mac with Git already installed (2.54, Apple Git) but with no global Git
 identity, no SSH key and no `gh` command line tool — which is the state this machine was
 in when these notes were written. Every step is either the Terminal or the GitHub website;
@@ -62,17 +79,23 @@ authenticity on first connection is normal — answer `yes`.
 
 ## 3. Put the files where you want them
 
-Unpack the trial repository somewhere you will keep it — not in Downloads, and ideally
-not inside OneDrive, which can corrupt a `.git` directory by syncing it mid-write.
+Put the repository somewhere you will keep it — not in Downloads, and ideally not inside
+OneDrive, which can corrupt a `.git` directory by syncing it mid-write.
 
 ```bash
 mkdir -p ~/code && cd ~/code
-tar -xzf ~/Downloads/oridb-v3-trial.tar.gz
+git clone git@github.com:DNAReplicationLab/oridb-v3.git
 cd oridb-v3
 ls
 ```
 
-You should see `bin data docs public src LICENSE README.md`.
+You should see `LICENSE README.md bin docs public reference`. The application and the
+released data are both inside `public/`, as `public/app` and `public/data`, each with a
+deny-all `.htaccess` — see the README for why.
+
+The first time, in November 2026, there was no repository to clone and the files were
+unpacked from a tarball; everything below describes that case, which is what a rebuild from
+nothing would face again.
 
 ## 4. Check that nothing sensitive is about to be committed
 
@@ -90,22 +113,25 @@ find . -name '*.sql' -o -name '*.tar' -o -name 'ori_connect.php' | grep . || ech
 git status --porcelain --untracked-files=all | wc -l
 ```
 
-The first command is expected to return exactly nine hits, all harmless — read them and
-satisfy yourself:
+The first command returns a handful of hits, all harmless. Read every one rather than
+counting them — the expected set grows as files are added, and a count that has to be
+maintained is a count that will be wrong. As of this release there are eleven:
 
-- `public/app/config.php.dist` (two hits) — a template naming the environment variable
+- `public/app/config.php.dist` (two) — a template naming the environment variable
   `ORIDB_DB_PASSWORD`, with no value in it
-- `bin/smoke_test.php` and `docs/page-structure.md` — the string `../../etc/passwd`, which
-  is hostile input the test suite deliberately feeds to the pages
-- `docs/github-setup.md` (three hits) and `docs/deployment-ukhost4u.md` (one) — the
-  documentation describing the check you are running and when a key is needed
+- `bin/smoke_test.php` and `docs/page-structure.md` (one each) — the string
+  `../../etc/passwd`, which is hostile input the test suite deliberately feeds to the pages
+- `public/assets/vendor/jbrowse-lgv-4.3.0.umd.min.js` (two) — incidental matches inside the
+  vendored browser bundle
+- `docs/github-setup.md` (four) and `docs/deployment-ukhost4u.md` (one) — the documentation
+  describing the check you are running and when a key is needed
 
 Anything else is a real finding. Stop and read it before you continue.
 
-**Never add `nieduszy_oridb.sql` or `oridb.tar` to this repository.** The v2 tree contains
-live credentials in `utilities/ori_connect.php`, and those credentials still need rotating
-regardless of what happens to v3. The shipped `.gitignore` excludes `*.sql` and `*.tar` so
-a stray copy cannot be committed by accident.
+**Never add the v2 dump or the v2 code tree to this repository.** The v2 code configures its
+own database connection and must not be published from here under any circumstances; the
+shipped `.gitignore` excludes `*.sql` and `*.tar` so a stray copy cannot be committed by
+accident, and the `find` above names the v2 connection file so a copy of it is noticed.
 
 ## 5. Make the first commit
 
@@ -121,8 +147,10 @@ Check what you committed:
 git log --stat --oneline | head -40
 ```
 
-37 files, under 300 KB in total. If you see hundreds, or a file of several megabytes, something
-unwanted was picked up — `git reset` and look at step 4 again.
+At that first commit: 37 files, under 300 KB. The repository now tracks 89 files and about
+9.7 MB, nearly all of it one deliberate file — the 5.7 MB vendored JBrowse bundle under
+`public/assets/vendor/`. On a fresh commit, anything else of several megabytes was picked up
+by accident: `git reset` and look at step 4 again.
 
 ## 6. Create the empty repository on GitHub
 
@@ -153,7 +181,7 @@ The repository ships two workflows in `.github/workflows/`.
 
 **Tests** (`test.yml`) run on every push with no setup: PHP 8.1, 8.3 and 8.4 in parallel,
 linting every file, running `bin/smoke_test.php`, and verifying the data checksums recorded
-in `data/release.json`. Watch the first run under the *Actions* tab. If Actions are
+in `public/data/release.json`. Watch the first run under the *Actions* tab. If Actions are
 disabled by an organisation policy, enable them at *Settings* → *Actions* → *General* →
 *Allow all actions*.
 
@@ -240,7 +268,7 @@ git push origin v3.0.0-trial.1
 
 Connect the repository to Zenodo (zenodo.org → *GitHub* → flip the switch for
 `DNAReplicationLab/oridb-v3`) **before** pushing the tag, and Zenodo archives that tag automatically and
-mints a DOI. The checksums in `data/release.json` are what tie the Zenodo copy to the
+mints a DOI. The checksums in `public/data/release.json` are what tie the Zenodo copy to the
 served one.
 
 ---
@@ -253,4 +281,5 @@ served one.
 | `Updates were rejected because the remote contains work that you do not have locally` | The GitHub repository was initialised with a README | Delete it and recreate it empty, or `git pull --rebase origin main` and push again |
 | `public/app/config.local.php` shows in `git status` | You created a local config | Correct — it is gitignored; if it appears, you added it with `git add -f` |
 | Pages workflow succeeds but the URL 404s | Pages source still set to a branch | *Settings* → *Pages* → Source: GitHub Actions, then re-run |
-| Tests fail on `Verify released data checksums` | `public/data/*.tsv` edited by hand | Regenerate with `bin/build_from_v2.py`, which rewrites the checksums |
+| Tests fail on `Verify released data checksums` | `public/data/*.tsv` edited by hand | Regenerate with `bin/build_all.sh`, which runs all five steps and rewrites the checksums; `build_from_v2.py` alone produces an unlifted, untiered release |
+| Reviewers cannot find where to comment | Discussions never enabled | Step 11. The site footer links to Discussions whether or not it is on, so enable it before circulating the site for review |
