@@ -1,5 +1,5 @@
 {
-    "generated": "2026-11-22T14:15:22Z",
+    "generated": "2026-11-23T13:03:36Z",
     "hub": {
         "name": "oridb_data_hub",
         "shortLabel": "OriDB data hub",
@@ -529,14 +529,303 @@
                             ]
                         }
                     ]
+                },
+                {
+                    "id": "daigaku2015",
+                    "title": "Polymerase usage sequencing (Pu-seq) in S. pombe (Daigaku et al. 2015), the published derived profiles on ASM294v2",
+                    "organism": "Schizosaccharomyces pombe",
+                    "assembly": "ASM294v2",
+                    "bin_size_bp": 1000,
+                    "measurement": "replication timing, fork direction, termination and origin efficiency",
+                    "scale": "see each track; the units differ between them",
+                    "source": {
+                        "doi": "10.1038/nsmb.2962",
+                        "pubmed": "25664722",
+                        "archive_series": [
+                            "GSE62108"
+                        ],
+                        "n_runs": 0,
+                        "n_samples_used": 0,
+                        "n_samples_excluded": 0,
+                        "exclusion_reason": ""
+                    },
+                    "n_samples": 0,
+                    "calls": null,
+                    "groups": [
+                        {
+                            "track": "oridb_overview",
+                            "shortLabel": "OriDB overview",
+                            "longLabel": "OriDB overview: one reference track per measurement type, drawn by default",
+                            "container": "",
+                            "tracks": [
+                                {
+                                    "track": "ov_sp_timing",
+                                    "shortLabel": "Timing (Trep, Pu-seq)",
+                                    "longLabel": "Replication timing: Trep in minutes from polymerase usage (Daigaku et al. 2015); early replication plots high",
+                                    "type": "bigWig",
+                                    "file": "puseq.trep.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/ASM294v2/daigaku2015/puseq.trep.bw",
+                                    "bytes": 159180
+                                },
+                                {
+                                    "track": "ov_sp_fd",
+                                    "shortLabel": "Fork direction (Pu-seq)",
+                                    "longLabel": "Fraction of forks moving leftward, from polymerase usage (Daigaku et al. 2015)",
+                                    "type": "bigWig",
+                                    "file": "puseq.leftward_fork.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/ASM294v2/daigaku2015/puseq.leftward_fork.bw",
+                                    "bytes": 151410
+                                },
+                                {
+                                    "track": "ov_sp_init",
+                                    "shortLabel": "Pu-seq origins",
+                                    "longLabel": "Origin calls with firing efficiency from polymerase usage (Daigaku et al. 2015)",
+                                    "type": "bigBed 6 +",
+                                    "file": "puseq.origins.bb",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/ASM294v2/daigaku2015/puseq.origins.bb",
+                                    "bytes": 71095
+                                }
+                            ]
+                        },
+                        {
+                            "track": "daigaku2015_trep",
+                            "shortLabel": "Trep (Pu-seq)",
+                            "longLabel": "Replication timing: Trep in minutes from polymerase usage (Daigaku et al. 2015); early replication plots high",
+                            "container": "multiWig",
+                            "tracks": [
+                                {
+                                    "track": "trep_puseq_trep",
+                                    "shortLabel": "Trep (Pu-seq)",
+                                    "longLabel": "Trep in minutes after release, 1 kb bins (Daigaku et al. 2015)",
+                                    "type": "bigWig",
+                                    "file": "puseq.trep.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/ASM294v2/daigaku2015/puseq.trep.bw",
+                                    "bytes": 159180
+                                }
+                            ]
+                        },
+                        {
+                            "track": "daigaku2015_forkdir",
+                            "shortLabel": "Fork direction",
+                            "longLabel": "Fraction of forks moving leftward, from polymerase usage (Daigaku et al. 2015); 0.5 is no net direction",
+                            "container": "multiWig",
+                            "tracks": [
+                                {
+                                    "track": "forkdir_puseq_leftward_fork",
+                                    "shortLabel": "Leftward forks",
+                                    "longLabel": "Fraction of replication forks moving leftward, 1 kb bins (Daigaku et al. 2015)",
+                                    "type": "bigWig",
+                                    "file": "puseq.leftward_fork.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/ASM294v2/daigaku2015/puseq.leftward_fork.bw",
+                                    "bytes": 151410
+                                }
+                            ]
+                        },
+                        {
+                            "track": "daigaku2015_termination",
+                            "shortLabel": "Termination",
+                            "longLabel": "Percentage of termination events, from polymerase usage (Daigaku et al. 2015); published as a 1 kb window every 300 bp and drawn in 300 bp bins at the window centre",
+                            "container": "multiWig",
+                            "tracks": [
+                                {
+                                    "track": "termination_puseq_termination",
+                                    "shortLabel": "Termination",
+                                    "longLabel": "Termination events as a percentage per window (Daigaku et al. 2015)",
+                                    "type": "bigWig",
+                                    "file": "puseq.termination.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/ASM294v2/daigaku2015/puseq.termination.bw",
+                                    "bytes": 365845
+                                }
+                            ]
+                        },
+                        {
+                            "track": "oridb_initiation",
+                            "shortLabel": "Initiation mapping",
+                            "longLabel": "Origin position and efficiency: initiation site and zone mapping",
+                            "container": "",
+                            "tracks": [
+                                {
+                                    "track": "daigaku2015_origins",
+                                    "shortLabel": "Pu-seq origins",
+                                    "longLabel": "Origin calls with firing efficiency from polymerase usage (Daigaku et al. 2015); shaded by efficiency, 0.07 to 83.8 per cent",
+                                    "type": "bigBed 6 +",
+                                    "file": "puseq.origins.bb",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/ASM294v2/daigaku2015/puseq.origins.bb",
+                                    "bytes": 71095
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": "foss2021",
+                    "title": "Mcm2-ChEC in S. pombe (Foss et al. 2021), per-base read depths binned to 25 bp on ASM294v2",
+                    "organism": "Schizosaccharomyces pombe",
+                    "assembly": "ASM294v2",
+                    "bin_size_bp": 25,
+                    "measurement": "MCM2-7 occupancy by chromatin endogenous cleavage (ChEC)",
+                    "scale": "read depth divided by the genome-wide mean depth of that library; 1 = average coverage",
+                    "source": {
+                        "doi": "10.1371/journal.pgen.1009714",
+                        "pubmed": "34473702",
+                        "archive_series": [
+                            "GSE150800"
+                        ],
+                        "n_runs": 0,
+                        "n_samples_used": 0,
+                        "n_samples_excluded": 0,
+                        "exclusion_reason": ""
+                    },
+                    "n_samples": 0,
+                    "calls": null,
+                    "groups": [
+                        {
+                            "track": "oridb_overview",
+                            "shortLabel": "OriDB overview",
+                            "longLabel": "OriDB overview: one reference track per measurement type, drawn by default",
+                            "container": "",
+                            "tracks": [
+                                {
+                                    "track": "ov_sp_mcm",
+                                    "shortLabel": "Mcm2 occupancy (ChEC)",
+                                    "longLabel": "MCM2-7 occupancy by chromatin endogenous cleavage in hydroxyurea (Foss et al. 2021); 1 is average coverage",
+                                    "type": "bigWig",
+                                    "file": "mcm2chec.hu_rep1.all.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/ASM294v2/foss2021/mcm2chec.hu_rep1.all.bw",
+                                    "bytes": 3977242
+                                }
+                            ]
+                        },
+                        {
+                            "track": "foss2021_mcm_all",
+                            "shortLabel": "Mcm2 HU vs G1",
+                            "longLabel": "Mcm2-ChEC occupancy in hydroxyurea and in G1, all fragment sizes (Foss et al. 2021); 1 is average coverage for that library",
+                            "container": "multiWig",
+                            "tracks": [
+                                {
+                                    "track": "mcm_all_mcm2chec_hu_rep1_all",
+                                    "shortLabel": "Mcm2 HU rep1",
+                                    "longLabel": "Mcm2-ChEC, hydroxyurea, replicate 1, all fragment sizes",
+                                    "type": "bigWig",
+                                    "file": "mcm2chec.hu_rep1.all.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/ASM294v2/foss2021/mcm2chec.hu_rep1.all.bw",
+                                    "bytes": 3977242
+                                },
+                                {
+                                    "track": "mcm_all_mcm2chec_g1_rep1_all",
+                                    "shortLabel": "Mcm2 G1 rep1",
+                                    "longLabel": "Mcm2-ChEC, G1 arrest, replicate 1, all fragment sizes",
+                                    "type": "bigWig",
+                                    "file": "mcm2chec.g1_rep1.all.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/ASM294v2/foss2021/mcm2chec.g1_rep1.all.bw",
+                                    "bytes": 3953348
+                                }
+                            ]
+                        },
+                        {
+                            "track": "foss2021_mcm_51_100",
+                            "shortLabel": "Mcm2 51-100 bp",
+                            "longLabel": "Mcm2-ChEC occupancy from 51-100 bp fragments, HU against G1 (Foss et al. 2021); the fragment class closest to a single MCM footprint",
+                            "container": "multiWig",
+                            "tracks": [
+                                {
+                                    "track": "mcm_51_100_mcm2chec_hu_rep1_51_100bp",
+                                    "shortLabel": "HU 51-100 bp",
+                                    "longLabel": "Mcm2-ChEC, hydroxyurea, 51-100 bp fragments",
+                                    "type": "bigWig",
+                                    "file": "mcm2chec.hu_rep1.51_100bp.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/ASM294v2/foss2021/mcm2chec.hu_rep1.51_100bp.bw",
+                                    "bytes": 3702908
+                                },
+                                {
+                                    "track": "mcm_51_100_mcm2chec_g1_rep1_51_100bp",
+                                    "shortLabel": "G1 51-100 bp",
+                                    "longLabel": "Mcm2-ChEC, G1 arrest, 51-100 bp fragments",
+                                    "type": "bigWig",
+                                    "file": "mcm2chec.g1_rep1.51_100bp.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/ASM294v2/foss2021/mcm2chec.g1_rep1.51_100bp.bw",
+                                    "bytes": 3665217
+                                }
+                            ]
+                        },
+                        {
+                            "track": "foss2021_mcm_151_200",
+                            "shortLabel": "Mcm2 151-200 bp",
+                            "longLabel": "Mcm2-ChEC occupancy from 151-200 bp fragments, HU against G1 (Foss et al. 2021)",
+                            "container": "multiWig",
+                            "tracks": [
+                                {
+                                    "track": "mcm_151_200_mcm2chec_hu_rep1_151_200bp",
+                                    "shortLabel": "HU 151-200 bp",
+                                    "longLabel": "Mcm2-ChEC, hydroxyurea, 151-200 bp fragments",
+                                    "type": "bigWig",
+                                    "file": "mcm2chec.hu_rep1.151_200bp.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/ASM294v2/foss2021/mcm2chec.hu_rep1.151_200bp.bw",
+                                    "bytes": 3604210
+                                },
+                                {
+                                    "track": "mcm_151_200_mcm2chec_g1_rep1_151_200bp",
+                                    "shortLabel": "G1 151-200 bp",
+                                    "longLabel": "Mcm2-ChEC, G1 arrest, 151-200 bp fragments",
+                                    "type": "bigWig",
+                                    "file": "mcm2chec.g1_rep1.151_200bp.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/ASM294v2/foss2021/mcm2chec.g1_rep1.151_200bp.bw",
+                                    "bytes": 3700841
+                                }
+                            ]
+                        },
+                        {
+                            "track": "foss2021_mcm_reps",
+                            "shortLabel": "Mcm2 HU replicates",
+                            "longLabel": "The two hydroxyurea replicates against each other (Foss et al. 2021); rep2 was sequenced about three times as deeply, which the scaling removes",
+                            "container": "multiWig",
+                            "tracks": [
+                                {
+                                    "track": "mcm_reps_mcm2chec_hu_rep1_all",
+                                    "shortLabel": "HU rep1",
+                                    "longLabel": "Mcm2-ChEC, hydroxyurea, replicate 1",
+                                    "type": "bigWig",
+                                    "file": "mcm2chec.hu_rep1.all.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/ASM294v2/foss2021/mcm2chec.hu_rep1.all.bw",
+                                    "bytes": 3977242
+                                },
+                                {
+                                    "track": "mcm_reps_mcm2chec_hu_rep2_all",
+                                    "shortLabel": "HU rep2",
+                                    "longLabel": "Mcm2-ChEC, hydroxyurea, replicate 2",
+                                    "type": "bigWig",
+                                    "file": "mcm2chec.hu_rep2.all.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/ASM294v2/foss2021/mcm2chec.hu_rep2.all.bw",
+                                    "bytes": 4003936
+                                }
+                            ]
+                        },
+                        {
+                            "track": "foss2021_mnase_control",
+                            "shortLabel": "Free MNase control",
+                            "longLabel": "Free MNase without a tethered protein (Foss et al. 2021): the accessibility background that Mcm2-ChEC signal is read against",
+                            "container": "multiWig",
+                            "tracks": [
+                                {
+                                    "track": "mnase_control_free_mnase_rep1",
+                                    "shortLabel": "Free MNase",
+                                    "longLabel": "Free MNase control, replicate 1",
+                                    "type": "bigWig",
+                                    "file": "free_mnase.rep1.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/ASM294v2/foss2021/free_mnase.rep1.bw",
+                                    "bytes": 3837435
+                                }
+                            ]
+                        }
+                    ]
                 }
             ]
         }
     ],
     "counts": {
         "genomes": 2,
-        "datasets": 4,
-        "tracks": 30,
-        "files": 30
+        "datasets": 6,
+        "tracks": 47,
+        "files": 47
     }
 }

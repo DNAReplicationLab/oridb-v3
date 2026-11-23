@@ -1,5 +1,5 @@
 {
-    "generated": "2026-11-22T14:15:22+00:00",
+    "generated": "2026-11-23T13:03:36+00:00",
     "hub": {
         "base_url": "https://dnareplicationlab.github.io/oridb-data-hub/",
         "url": "https://dnareplicationlab.github.io/oridb-data-hub/hub.txt"
@@ -509,6 +509,232 @@
                         }
                     }
                 ]
+            },
+            {
+                "type": "QuantitativeTrack",
+                "trackId": "ASM294v2-ov_sp_timing",
+                "name": "Timing (Trep, Pu-seq)",
+                "description": "Replication timing: Trep in minutes from polymerase usage (Daigaku et al. 2015); early replication plots high",
+                "assemblyNames": [
+                    "ASM294v2"
+                ],
+                "category": [
+                    "Polymerase usage sequencing (Pu-seq) in S. pombe (Daigaku et al. 2015), the published derived profiles on ASM294v2"
+                ],
+                "adapter": {
+                    "type": "BigWigAdapter",
+                    "bigWigLocation": {
+                        "uri": "https://dnareplicationlab.github.io/oridb-data-hub/ASM294v2/daigaku2015/puseq.trep.bw"
+                    }
+                }
+            },
+            {
+                "type": "QuantitativeTrack",
+                "trackId": "ASM294v2-ov_sp_fd",
+                "name": "Fork direction (Pu-seq)",
+                "description": "Fraction of forks moving leftward, from polymerase usage (Daigaku et al. 2015)",
+                "assemblyNames": [
+                    "ASM294v2"
+                ],
+                "category": [
+                    "Polymerase usage sequencing (Pu-seq) in S. pombe (Daigaku et al. 2015), the published derived profiles on ASM294v2"
+                ],
+                "adapter": {
+                    "type": "BigWigAdapter",
+                    "bigWigLocation": {
+                        "uri": "https://dnareplicationlab.github.io/oridb-data-hub/ASM294v2/daigaku2015/puseq.leftward_fork.bw"
+                    }
+                }
+            },
+            {
+                "type": "FeatureTrack",
+                "trackId": "ASM294v2-ov_sp_init",
+                "name": "Pu-seq origins",
+                "description": "Origin calls with firing efficiency from polymerase usage (Daigaku et al. 2015)",
+                "assemblyNames": [
+                    "ASM294v2"
+                ],
+                "category": [
+                    "Polymerase usage sequencing (Pu-seq) in S. pombe (Daigaku et al. 2015), the published derived profiles on ASM294v2"
+                ],
+                "adapter": {
+                    "type": "BigBedAdapter",
+                    "bigBedLocation": {
+                        "uri": "https://dnareplicationlab.github.io/oridb-data-hub/ASM294v2/daigaku2015/puseq.origins.bb"
+                    }
+                },
+                "displays": [
+                    {
+                        "type": "LinearBasicDisplay",
+                        "displayId": "ASM294v2-ov_sp_init-display",
+                        "renderer": {
+                            "type": "SvgFeatureRenderer",
+                            "color1": "jexl:get(feature,'tier')=='Confirmed'?'#1a7f4b':get(feature,'tier')=='Likely'?'#2f7d9b':get(feature,'tier')=='Unsupported'?'#8a8f98':'#c7ccd3'"
+                        }
+                    }
+                ]
+            },
+            {
+                "type": "QuantitativeTrack",
+                "trackId": "ASM294v2-termination_puseq_termination",
+                "name": "Termination",
+                "description": "Termination events as a percentage per window (Daigaku et al. 2015)",
+                "assemblyNames": [
+                    "ASM294v2"
+                ],
+                "category": [
+                    "Polymerase usage sequencing (Pu-seq) in S. pombe (Daigaku et al. 2015), the published derived profiles on ASM294v2"
+                ],
+                "adapter": {
+                    "type": "BigWigAdapter",
+                    "bigWigLocation": {
+                        "uri": "https://dnareplicationlab.github.io/oridb-data-hub/ASM294v2/daigaku2015/puseq.termination.bw"
+                    }
+                }
+            },
+            {
+                "type": "QuantitativeTrack",
+                "trackId": "ASM294v2-ov_sp_mcm",
+                "name": "Mcm2 occupancy (ChEC)",
+                "description": "MCM2-7 occupancy by chromatin endogenous cleavage in hydroxyurea (Foss et al. 2021); 1 is average coverage",
+                "assemblyNames": [
+                    "ASM294v2"
+                ],
+                "category": [
+                    "Mcm2-ChEC in S. pombe (Foss et al. 2021), per-base read depths binned to 25 bp on ASM294v2"
+                ],
+                "adapter": {
+                    "type": "BigWigAdapter",
+                    "bigWigLocation": {
+                        "uri": "https://dnareplicationlab.github.io/oridb-data-hub/ASM294v2/foss2021/mcm2chec.hu_rep1.all.bw"
+                    }
+                }
+            },
+            {
+                "type": "QuantitativeTrack",
+                "trackId": "ASM294v2-mcm_all_mcm2chec_g1_rep1_all",
+                "name": "Mcm2 G1 rep1",
+                "description": "Mcm2-ChEC, G1 arrest, replicate 1, all fragment sizes",
+                "assemblyNames": [
+                    "ASM294v2"
+                ],
+                "category": [
+                    "Mcm2-ChEC in S. pombe (Foss et al. 2021), per-base read depths binned to 25 bp on ASM294v2"
+                ],
+                "adapter": {
+                    "type": "BigWigAdapter",
+                    "bigWigLocation": {
+                        "uri": "https://dnareplicationlab.github.io/oridb-data-hub/ASM294v2/foss2021/mcm2chec.g1_rep1.all.bw"
+                    }
+                }
+            },
+            {
+                "type": "QuantitativeTrack",
+                "trackId": "ASM294v2-mcm_51_100_mcm2chec_hu_rep1_51_100bp",
+                "name": "HU 51-100 bp",
+                "description": "Mcm2-ChEC, hydroxyurea, 51-100 bp fragments",
+                "assemblyNames": [
+                    "ASM294v2"
+                ],
+                "category": [
+                    "Mcm2-ChEC in S. pombe (Foss et al. 2021), per-base read depths binned to 25 bp on ASM294v2"
+                ],
+                "adapter": {
+                    "type": "BigWigAdapter",
+                    "bigWigLocation": {
+                        "uri": "https://dnareplicationlab.github.io/oridb-data-hub/ASM294v2/foss2021/mcm2chec.hu_rep1.51_100bp.bw"
+                    }
+                }
+            },
+            {
+                "type": "QuantitativeTrack",
+                "trackId": "ASM294v2-mcm_51_100_mcm2chec_g1_rep1_51_100bp",
+                "name": "G1 51-100 bp",
+                "description": "Mcm2-ChEC, G1 arrest, 51-100 bp fragments",
+                "assemblyNames": [
+                    "ASM294v2"
+                ],
+                "category": [
+                    "Mcm2-ChEC in S. pombe (Foss et al. 2021), per-base read depths binned to 25 bp on ASM294v2"
+                ],
+                "adapter": {
+                    "type": "BigWigAdapter",
+                    "bigWigLocation": {
+                        "uri": "https://dnareplicationlab.github.io/oridb-data-hub/ASM294v2/foss2021/mcm2chec.g1_rep1.51_100bp.bw"
+                    }
+                }
+            },
+            {
+                "type": "QuantitativeTrack",
+                "trackId": "ASM294v2-mcm_151_200_mcm2chec_hu_rep1_151_200bp",
+                "name": "HU 151-200 bp",
+                "description": "Mcm2-ChEC, hydroxyurea, 151-200 bp fragments",
+                "assemblyNames": [
+                    "ASM294v2"
+                ],
+                "category": [
+                    "Mcm2-ChEC in S. pombe (Foss et al. 2021), per-base read depths binned to 25 bp on ASM294v2"
+                ],
+                "adapter": {
+                    "type": "BigWigAdapter",
+                    "bigWigLocation": {
+                        "uri": "https://dnareplicationlab.github.io/oridb-data-hub/ASM294v2/foss2021/mcm2chec.hu_rep1.151_200bp.bw"
+                    }
+                }
+            },
+            {
+                "type": "QuantitativeTrack",
+                "trackId": "ASM294v2-mcm_151_200_mcm2chec_g1_rep1_151_200bp",
+                "name": "G1 151-200 bp",
+                "description": "Mcm2-ChEC, G1 arrest, 151-200 bp fragments",
+                "assemblyNames": [
+                    "ASM294v2"
+                ],
+                "category": [
+                    "Mcm2-ChEC in S. pombe (Foss et al. 2021), per-base read depths binned to 25 bp on ASM294v2"
+                ],
+                "adapter": {
+                    "type": "BigWigAdapter",
+                    "bigWigLocation": {
+                        "uri": "https://dnareplicationlab.github.io/oridb-data-hub/ASM294v2/foss2021/mcm2chec.g1_rep1.151_200bp.bw"
+                    }
+                }
+            },
+            {
+                "type": "QuantitativeTrack",
+                "trackId": "ASM294v2-mcm_reps_mcm2chec_hu_rep2_all",
+                "name": "HU rep2",
+                "description": "Mcm2-ChEC, hydroxyurea, replicate 2",
+                "assemblyNames": [
+                    "ASM294v2"
+                ],
+                "category": [
+                    "Mcm2-ChEC in S. pombe (Foss et al. 2021), per-base read depths binned to 25 bp on ASM294v2"
+                ],
+                "adapter": {
+                    "type": "BigWigAdapter",
+                    "bigWigLocation": {
+                        "uri": "https://dnareplicationlab.github.io/oridb-data-hub/ASM294v2/foss2021/mcm2chec.hu_rep2.all.bw"
+                    }
+                }
+            },
+            {
+                "type": "QuantitativeTrack",
+                "trackId": "ASM294v2-mnase_control_free_mnase_rep1",
+                "name": "Free MNase",
+                "description": "Free MNase control, replicate 1",
+                "assemblyNames": [
+                    "ASM294v2"
+                ],
+                "category": [
+                    "Mcm2-ChEC in S. pombe (Foss et al. 2021), per-base read depths binned to 25 bp on ASM294v2"
+                ],
+                "adapter": {
+                    "type": "BigWigAdapter",
+                    "bigWigLocation": {
+                        "uri": "https://dnareplicationlab.github.io/oridb-data-hub/ASM294v2/foss2021/free_mnase.rep1.bw"
+                    }
+                }
             }
         ]
     },
@@ -520,7 +746,11 @@
             "sacCer3-ov_init"
         ],
         "ASM294v2": [
-            "ASM294v2-ov_origins"
+            "ASM294v2-ov_origins",
+            "ASM294v2-ov_sp_timing",
+            "ASM294v2-ov_sp_fd",
+            "ASM294v2-ov_sp_init",
+            "ASM294v2-ov_sp_mcm"
         ]
     }
 }
