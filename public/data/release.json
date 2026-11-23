@@ -1,6 +1,6 @@
 {
   "release": "3.0.0-trial.1",
-  "generated": "2026-11-21",
+  "generated": "2026-11-23",
   "description": "OriDB v3.0: every origin OriDB v2 held, carried forward with its evidence records, with ARS assays published since added, and with the tier recomputed from modern data.",
   "inclusion_rule": "An origin is Confirmed if its interval overlaps at least one plasmid (ARS) assay positive or one 2D gel electrophoresis record, whether that record comes from OriDB v2 or from the assays curated since. The remaining tiers are set by bin/build_tiers.py from the evidence matrix; see docs/tier-rebuild.md.",
   "curated_assays": {
@@ -90,7 +90,7 @@
       "rows": 822
     },
     "studies.tsv": {
-      "md5": "559fb44f88da59392d33723b3e2456d1",
+      "md5": "8f920c3e7f8112708a6dea328df91679",
       "rows": 56
     },
     "refuted_fragments.tsv": {

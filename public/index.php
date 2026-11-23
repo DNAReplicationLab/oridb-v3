@@ -51,6 +51,10 @@ require ORIDB_APP_DIR . '/header.php';
   <li><a href="browse.php">Browse</a> the origin list by species and chromosome.</li>
   <li><a href="search.php">Search</a> by name, accession or genomic interval.</li>
   <li><a href="downloads.php">Download</a> the release as TSV, BED or JSON.</li>
+  <li><a href="datahub.php">Data hub</a> &mdash; the genome-wide profiles the origin calls were
+      made from, as a UCSC track hub.</li>
+  <li><a href="studies.php">Studies</a> &mdash; every publication the records trace to, and what
+      each one contributed.</li>
   <li><a href="about.php">About</a> the rebuild, its scope and its known gaps.</li>
 </ul>
 <?php require ORIDB_APP_DIR . '/footer.php'; ?>

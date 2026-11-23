@@ -73,14 +73,29 @@ $map = [];
 foreach (Data::origins() as $o) {
     $map['api/origin.php?id=' . $o['accession']] = 'api/origin-' . $o['accession'] . '.json';
 }
+// Every export the Downloads page offers, declared once and used twice: to alias the
+// link and to write the file. They were two separate lists, and the per-species TSV
+// and the legacy-name BEDs were in the page but not in the mirror, so the mirror
+// carried links to files it had never written. One list cannot drift from itself.
+$exports = [];
 foreach (Data::speciesList() as $species) {
     $slug = strtolower(str_replace(' ', '-', $species));
-    $map['export.php?' . http_build_query(['format' => 'bed', 'species' => $species])]
-        = "oridb-origins-{$slug}.bed";
+    $exports["oridb-origins-{$slug}.bed"] = ['format' => 'bed', 'species' => $species];
+    $exports["oridb-origins-{$slug}-legacy-names.bed"] =
+        ['format' => 'bed', 'species' => $species, 'names' => 'legacy'];
+    $exports["oridb-origins-{$slug}-both-names.bed"] =
+        ['format' => 'bed', 'species' => $species, 'names' => 'both'];
+    $exports["oridb-origins-{$slug}.tsv"] = ['format' => 'tsv', 'species' => $species];
+    $exports["oridb-origins-{$slug}.json"] = ['format' => 'json', 'species' => $species];
 }
-$map['export.php?format=elements'] = 'oridb-elements.bed';
-$map['export.php?format=json'] = 'oridb-origins.json';
-$map['export.php?format=tsv'] = 'oridb-origins.tsv';
+$exports['oridb-elements.bed'] = ['format' => 'elements'];
+$exports['oridb-evidence-matrix.tsv'] = ['format' => 'matrix'];
+$exports['oridb-refuted-fragments.tsv'] = ['format' => 'refuted'];
+$exports['oridb-origins.tsv'] = ['format' => 'tsv'];
+$exports['oridb-origins.json'] = ['format' => 'json'];
+foreach ($exports as $file => $query) {
+    $map['export.php?' . http_build_query($query)] = $file;
+}
 
 foreach ($targets as [$page, $query]) {
     $map[$page . '?' . http_build_query(array_filter($query, static fn ($v): bool => (string) $v !== ''))]
@@ -141,13 +156,36 @@ $copyTree = static function (string $from, string $to) use (&$copyTree): void {
     }
 };
 $copyTree($root . '/public/assets', $out . '/assets');
-foreach (Data::speciesList() as $species) {
-    $slug = strtolower(str_replace(' ', '-', $species));
-    file_put_contents($out . "/oridb-origins-{$slug}.bed", render($root, 'export.php', ['format' => 'bed', 'species' => $species]));
+foreach ($exports as $file => $query) {
+    file_put_contents($out . '/' . $file, render($root, 'export.php', $query));
 }
-file_put_contents($out . '/oridb-elements.bed', render($root, 'export.php', ['format' => 'elements']));
-file_put_contents($out . '/oridb-origins.json', render($root, 'export.php', ['format' => 'json']));
-file_put_contents($out . '/oridb-origins.tsv', render($root, 'export.php', ['format' => 'tsv']));
 file_put_contents($out . '/.nojekyll', '');
 
-printf("Wrote %d HTML pages plus assets and exports to %s\n", $written, $out);
+// Every internal link in the mirror must resolve to something written. This is the
+// check that would have caught an export listed on a page but never rendered, and a
+// page linked from the nav but not in $targets. External links, anchors and mailto
+// are not ours to verify.
+$missing = [];
+foreach (glob($out . '/*.html') ?: [] as $file) {
+    preg_match_all('/href="([^"#:]+)(?:#[^"]*)?"/', (string) file_get_contents($file), $m);
+    foreach ($m[1] as $href) {
+        // Assets carry a ?v=<hash> for cache busting; the file on disk does not.
+        $href = explode('?', $href)[0];
+        if ($href === '' || str_starts_with($href, '//')) {
+            continue;
+        }
+        if (!file_exists($out . '/' . $href)) {
+            $missing[$href][] = basename($file);
+        }
+    }
+}
+if ($missing !== []) {
+    foreach ($missing as $href => $pages) {
+        fwrite(STDERR, "broken link: {$href} (from " . implode(', ', array_unique($pages)) . ")\n");
+    }
+    fwrite(STDERR, count($missing) . " unresolved internal link target(s)\n");
+    exit(1);
+}
+
+printf("Wrote %d HTML pages plus %d exports and assets to %s; every internal link resolves\n",
+       $written, count($exports), $out);

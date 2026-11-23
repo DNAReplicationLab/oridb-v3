@@ -157,8 +157,17 @@ says each note records "how [a layer] was produced".
 - The banner on every page reads "every OriDB origin, with its tier recomputed". No tier
   was recomputed for *S. pombe*: 693 of its 741 sites are *not assessed* because no
   registered dataset covers the species.
-- The home page's "Start here" list offers Browse, Search, Downloads and About, omitting
-  Data hub and Studies, which are both in the nav.
+- ~~The home page's "Start here" list offers Browse, Search, Downloads and About, omitting
+  Data hub and Studies, which are both in the nav.~~ Fixed 23 November 2026.
+
+A later round of changes, 23 November 2026, also sectioned Downloads and Studies by species
+behind the same floating strip, gave the element BED its class in column 4 and its evidence
+in the score, filled the 26 missing study DOIs from PubMed with each confirmed against
+Crossref, added a species filter to Search, and pointed the footer at GitHub Discussions.
+Making the static mirror render every export the Downloads page links then revealed that the
+Development page linked 51 v2 source-record ids - `sc_cloned_no_ori:39` and the like - to
+origin pages that do not exist. Those are now printed as the identifiers they are, and
+`bin/build_static.php` fails the build on any unresolved internal link.
 
 ---
 

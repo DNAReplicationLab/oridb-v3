@@ -334,25 +334,32 @@ def main(dump_path: str) -> None:
 
     cited = sorted({e['pmid'] for e in evidence if e['pmid']})
     by_pmid = {str(r['pubmed_id']): r for r in tables['local_pubmed']}
-    # v2's cached PubMed table stops in 2012; later studies come from the committed cache.
+    # v2's cached PubMed table stops in 2012, so a later study comes from the committed
+    # cache outright. The cache also SUPPLEMENTS a v2 record: v2 carries no DOI for the
+    # pre-2002 literature, where the journals have since registered one retrospectively,
+    # so a cache row with only a DOI fills that field and leaves the rest of the v2
+    # record alone. Only an empty field is ever filled - the cache never overwrites v2.
+    FIELDS = ('pmid', 'doi', 'year', 'journal', 'first_author', 'n_authors', 'title')
     cache = {r['pmid']: r for r in read_reference(PUBMED_CACHE)}
     studies = []
     for pmid in cited:
         if pmid not in by_pmid and pmid in cache:
-            studies.append({k: cache[pmid][k] for k in
-                            ('pmid', 'doi', 'year', 'journal', 'first_author',
-                             'n_authors', 'title')})
+            studies.append({k: cache[pmid][k] for k in FIELDS})
             continue
         r = by_pmid.get(pmid)
         authors = [a.strip() for a in unescape(str(r['author_list'])).split(';') if a.strip()] if r else []
-        studies.append(dict(
+        study = dict(
             pmid=pmid,
             doi=unescape(str(r['doi'])) if r else '',
             year=unescape(str(r['date']))[:4] if r else '',
             journal=unescape(str(r['journal'])) if r else '',
             first_author=authors[0] if authors else '',
             n_authors=str(len(authors)),
-            title=unescape(str(r['article_title'])) if r else ''))
+            title=unescape(str(r['article_title'])) if r else '')
+        for field in FIELDS:
+            if study[field] == '' and cache.get(pmid, {}).get(field, '') != '':
+                study[field] = cache[pmid][field]
+        studies.append(study)
 
     def write_tsv(name: str, rows: list[dict[str, str]]) -> None:
         path = data_dir / name

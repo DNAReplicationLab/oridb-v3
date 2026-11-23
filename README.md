@@ -207,6 +207,20 @@ Systematic names (`I-1`, `X-212`) are **not** recomputed. They are coordinate-de
 from the v2 build that appear in the literature, so they stay fixed, and a name need not match
 the lifted midpoint.
 
+## Comments and corrections
+
+The point of a trial release is to be argued with, so the footer of every page points at
+[Discussions](https://github.com/DNAReplicationLab/oridb-v3/discussions): a correction to a
+record, an argument about a tier, or anything on the site that reads wrongly. A reviewer
+needs a free GitHub account and nothing else — no clone, no checkout. Quote the accession
+where there is one; the accession is permanent, the URL is not. A thread that turns out to
+be a real correction converts to an issue from its own menu. Turning Discussions on is step
+11 of [`docs/github-setup.md`](docs/github-setup.md), with the categories the footer assumes.
+
+The questions a curator still has to answer are published as *known issues* on the
+Development page, generated from `release.json`, so they can be checked rather than taken on
+trust.
+
 ## What is deliberately not here yet
 
 - **Genome-wide data for *S. pombe*.** Every registered dataset covers budding yeast, so

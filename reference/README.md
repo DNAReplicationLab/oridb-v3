@@ -32,3 +32,20 @@ nuclear chromosomes.
   Keyed by the v2 table and row id; the position and PMID are repeated so the build can
   refuse an annotation that no longer matches its record. Current content: 42 records from
   Additional file 10 of Xu et al. 2006 (PMID 17067396), where "+" is stored as `strong`.
+
+`pubmed_cache.tsv`
+: Citation records keyed by PMID, read by `bin/build_from_v2.py`, doing two jobs. A row with
+  every field **stands in** for a study v2 never held, because v2's cached PubMed table stops
+  in 2012. A row carrying only a `doi` **supplements** the v2 record, filling that one field
+  and leaving the rest alone — v2 stored no DOI for the pre-2002 literature, where the
+  journals have since registered one. The build only ever fills an empty field; the cache
+  never overwrites v2. The `source` column says where each row came from and how it was
+  checked, so an added citation can be audited rather than trusted. Current content: 6 full
+  records and 26 DOI-only rows.
+
+`sgd_saccer3_ars_features.bed`
+: The SGD replication-origin annotation OriDB's intervals are compared against, extracted
+  from UCSC's `sgdOther` table for sacCer3 by taking every feature whose name begins with
+  `ARS` (389 of them, retrieved 2026-11-22). Committed so that `bin/compare_sgd.py` is
+  reproducible offline; refresh it from UCSC when SGD's annotation changes. BED, so 0-based
+  half-open, where the released tables are 1-based and fully closed.

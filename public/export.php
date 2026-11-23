@@ -81,15 +81,40 @@ if ($format === 'matrix' || $format === 'refuted') {
 if ($format === 'elements') {
     header('Content-Type: text/plain; charset=utf-8');
     header('Content-Disposition: attachment; filename="oridb-elements-' . $stamp . '.bed"');
+    // A bare accession in column 4 said nothing about what the feature is, and the
+    // score was a hard zero. The class is appended to the name, where a browser shows
+    // it as the feature label, and the score carries the evidence, so confirmed and
+    // predicted elements shade apart under useScore. Both are also named columns in
+    // elements.tsv, for anything that would rather parse than read.
+    $elementShade = ['confirmed' => 1000, 'predicted' => 500];
+    // Not placed in this assembly; see anchor_status in elements.tsv.
+    $placed = array_values(array_filter(
+        Data::elements(),
+        static fn (array $e): bool => $e['start'] !== ''
+    ));
+    $byClass = [];
+    foreach ($placed as $e) {
+        $key = $e['element_class'] . ' ' . $e['element_type'];
+        $byClass[$key] = ($byClass[$key] ?? 0) + 1;
+    }
+    ksort($byClass);
+    $breakdown = [];
+    foreach ($byClass as $key => $n) {
+        $breakdown[] = $n . ' ' . $key;
+    }
     echo "# OriDB {$release['release']} - origin elements (A, B2 and B3) - assembly "
         . Data::elementAssembly() . "\n";
-    echo 'track name="OriDB origin elements" description="OriDB ' . $release['release'] . '" visibility=2' . "\n";
-    foreach (Data::elements() as $e) {
-        if ($e['start'] === '') {
-            continue; // not placed in this assembly; see anchor_status in elements.tsv
-        }
+    echo '# ' . implode(', ', $breakdown) . "\n";
+    echo "# column 4 is the element accession with its class appended; column 5 is 1000 for a\n";
+    echo "# confirmed element and 500 for a predicted one. Class, evidence, the origin it lies\n";
+    echo "# in and the motif score are named columns in elements.tsv.\n";
+    echo 'track name="OriDB origin elements" description="OriDB ' . $release['release']
+       . ' - origin elements" visibility=2 useScore=1' . "\n";
+    foreach ($placed as $e) {
         echo implode("\t", [$e['chromosome'], (int) $e['start'] - 1, (int) $e['end'],
-                             $e['accession'], 0, $e['strand'] ?: '.']), "\n";
+                            $e['accession'] . '_' . $e['element_class'],
+                            $elementShade[$e['element_type']] ?? 500,
+                            $e['strand'] ?: '.']), "\n";
     }
     exit;
 }

@@ -101,9 +101,20 @@ require ORIDB_APP_DIR . '/header.php';
     <?php if ($accessions !== []): ?>
       <div class="small" style="margin-top:.35rem">
         <?php foreach ($accessions as $i => $acc): ?>
-          <a class="mono" href="<?= h(u('origin.php', ['id' => $acc])) ?>"><?= h($acc) ?></a><?php
+          <?php
+          // Not every affected record is an origin. A lift or a refuted-fragment
+          // issue names the v2 source record it came from - sc_cloned_no_ori:39,
+          // Liachko2013_S3:024 - which has no page, so linking it gave a 404. Those
+          // are printed as the identifiers they are; only an accession that resolves
+          // to an origin is a link.
           $o = Data::origin($acc);
-          if ($o !== null && $o['name'] !== '') { echo ' (' . h($o['name']) . ')'; }
+          if ($o !== null) {
+              echo '<a class="mono" href="' . h(u('origin.php', ['id' => $acc])) . '">'
+                 . h($acc) . '</a>';
+              if ($o['name'] !== '') { echo ' (' . h($o['name']) . ')'; }
+          } else {
+              echo '<span class="mono">' . h($acc) . '</span>';
+          }
           echo $i < count($accessions) - 1 ? ', ' : '';
         ?>
         <?php endforeach; ?>

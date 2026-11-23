@@ -112,7 +112,7 @@ a stray copy cannot be committed by accident.
 ```bash
 git init
 git add .
-git commit -m "OriDB v3.0 trial: Confirmed origin tier, flat-file PHP application"
+git commit -m "OriDB v3.0 trial: every origin tier, flat-file PHP application"
 ```
 
 Check what you committed:
@@ -201,12 +201,40 @@ git checkout main && git pull
 To refresh the site on UKhost4U afterwards: cPanel → *Git Version Control* → *Manage* →
 *Update from Remote*.
 
-## 11. Marking a release
+## 11. Open Discussions, so reviewers can comment
+
+The footer of every page points colleagues at GitHub Discussions. Discussions is off by
+default and cannot be enabled from a file in the repository, so this is four clicks, once:
+
+1. Repository → **Settings** → *General* → *Features* → tick **Discussions**, then
+   **Set up discussions**. The welcome post it offers can be deleted.
+2. Discussions tab → the pencil beside *Categories* → make the set match what the footer
+   asks for. Suggested:
+
+   | Category | Format | For |
+   |---|---|---|
+   | Data corrections | Open-ended | A record that is wrong: the accession, what is wrong, and the source that says so |
+   | Tier arguments | Open-ended | Whether a particular site belongs in the tier it is in |
+   | Site feedback | Open-ended | Anything on the pages that reads wrongly or does not work |
+   | Questions | Q&A | How to read something, or how to get at the data |
+
+   Delete *Announcements*, *Ideas*, *Polls* and *Show and tell* unless you want them; a
+   short list is what makes people post in the right place.
+3. Settings → *Moderation options* → decide whether posting is open to anyone with a GitHub
+   account (the default, and what the footer promises) or restricted.
+4. Watch the repository (**Watch** → *Custom* → tick *Discussions*) or nothing will reach
+   your inbox.
+
+A thread that turns out to be a real correction converts to an issue from the thread's own
+menu (**⋯** → *Create issue from discussion*), which is how a comment becomes tracked work
+without the reviewer having to know that distinction exists.
+
+## 12. Marking a release
 
 When the trial is settled enough to cite:
 
 ```bash
-git tag -a v3.0.0-trial.1 -m "First trial release: Confirmed origin tier"
+git tag -a v3.0.0-trial.1 -m "First trial release: every origin tier, recomputed"
 git push origin v3.0.0-trial.1
 ```
 

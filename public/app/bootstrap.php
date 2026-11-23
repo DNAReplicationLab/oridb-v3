@@ -38,6 +38,27 @@ function bp(int|string $n): string
     return number_format((int) $n);
 }
 
+/**
+ * "Saccharomyces cerevisiae" to "S. cerevisiae". Three pages abbreviated species
+ * names with their own copy of this, which is two copies too many; a name that is
+ * one word is returned unchanged rather than mangled.
+ */
+function species_abbrev(string $species): string
+{
+    $parts = explode(' ', $species);
+    return count($parts) > 1 ? substr($parts[0], 0, 1) . '. ' . $parts[1] : $species;
+}
+
+/**
+ * An id for a species section, so a page can be sectioned by species and linked
+ * into. Derived from the name, never a fixed list: a third species sections
+ * itself.
+ */
+function species_slug(string $species): string
+{
+    return 'sp-' . strtolower(preg_replace('/[^A-Za-z0-9]+/', '-', $species) ?? '');
+}
+
 function send_404(string $message = 'Not found'): never
 {
     http_response_code(404);

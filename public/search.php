@@ -8,18 +8,26 @@ $results = [];
 $error   = '';
 $total   = count(Data::origins());
 
+// Both species name their chromosomes with roman numerals, so a bare "chrIII" or
+// "III" is ambiguous between them and a name like ARS1 can recur. The filter is
+// optional and empty means every species, so no existing link changes meaning.
+$speciesList = Data::speciesList();
+$species = isset($_GET['species']) && in_array($_GET['species'], $speciesList, true)
+    ? (string) $_GET['species']
+    : '';
+
 if ($region !== '') {
     // Accept "chrIV:100000-200000", "chrIV 100000 200000" or bare "chrIV".
     if (preg_match('/^\s*([A-Za-z0-9_.]+)\s*(?::|\s)?\s*([\d,]*)\s*(?:-|\.\.|\s)?\s*([\d,]*)\s*$/', $region, $m) === 1) {
         $chr  = $m[1];
         $from = $m[2] !== '' ? (int) str_replace(',', '', $m[2]) : null;
         $to   = $m[3] !== '' ? (int) str_replace(',', '', $m[3]) : null;
-        $results = Data::query(chromosome: $chr, from: $from, to: $to);
+        $results = Data::query(species: $species ?: null, chromosome: $chr, from: $from, to: $to);
     } else {
         $error = 'Could not read that as a region. Try chrIV:100000-200000.';
     }
 } elseif ($q !== '') {
-    $results = Data::query(text: $q);
+    $results = Data::query(species: $species ?: null, text: $q);
 }
 
 $title = 'Search';
@@ -38,11 +46,28 @@ require ORIDB_APP_DIR . '/header.php';
   </div>
 <?php else: ?>
 
+<?php
+// The same control on both forms, so the choice does not depend on which box the
+// reader used. It is a plain select with an "any" option, not a default species:
+// defaulting would quietly hide half the database.
+$speciesSelect = static function (string $id) use ($speciesList, $species): void { ?>
+  <div>
+    <label for="<?= h($id) ?>">Species</label>
+    <select name="species" id="<?= h($id) ?>">
+      <option value="">any</option>
+      <?php foreach ($speciesList as $s): ?>
+        <option value="<?= h($s) ?>"<?= $s === $species ? ' selected' : '' ?>><?= h($s) ?></option>
+      <?php endforeach; ?>
+    </select>
+  </div>
+<?php }; ?>
+
 <form class="filters" method="get" action="search.php">
   <div>
     <label for="q">Name or accession</label>
     <input type="text" name="q" id="q" value="<?= h($q) ?>" placeholder="ARS305, ODB-SC-0042, IV-62" size="28">
   </div>
+  <?php $speciesSelect('species-q'); ?>
   <button type="submit">Search</button>
 </form>
 
@@ -51,6 +76,7 @@ require ORIDB_APP_DIR . '/header.php';
     <label for="region">Genomic region</label>
     <input type="text" name="region" id="region" value="<?= h($region) ?>" placeholder="chrIV:100000-200000" size="28">
   </div>
+  <?php $speciesSelect('species-region'); ?>
   <button type="submit">Search</button>
 </form>
 
