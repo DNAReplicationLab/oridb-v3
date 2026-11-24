@@ -118,6 +118,25 @@ foreach ($hub['genomes'] as $g) {
                 }
                 $isOverview = $group['track'] === 'oridb_overview';
                 if (!isset($byUrl[$t['url']])) {
+                    // How a quantitative track is drawn. `autoscale: local` is
+                    // JBrowse's default and is stated anyway, because it is the
+                    // behaviour the panel depends on: the y-axis takes the range of
+                    // the data in the window, not of the whole genome, so a 5 kb view
+                    // of one origin is not flattened by a peak on another chromosome.
+                    // `inverted` turns the axis over for a track the hub marked
+                    // negateValues, so an early replication time is a peak and an
+                    // origin reads as one.
+                    $display = null;
+                    if ($a['track'] === 'QuantitativeTrack') {
+                        $display = [
+                            'type' => 'LinearWiggleDisplay',
+                            'displayId' => $assembly . '-' . $t['track'] . '-display',
+                            'autoscale' => 'local',
+                        ];
+                        if ($t['negated'] ?? false) {
+                            $display['inverted'] = true;
+                        }
+                    }
                     $byUrl[$t['url']] = [
                         'type' => $a['track'],
                         'trackId' => $assembly . '-' . $t['track'],
@@ -127,6 +146,9 @@ foreach ($hub['genomes'] as $g) {
                         'category' => [$ds['title']],
                         'adapter' => $a['adapter'],
                     ];
+                    if ($display !== null) {
+                        $byUrl[$t['url']]['displays'] = [$display];
+                    }
                     if (str_ends_with((string) $t['file'], 'origins.bb')) {
                         $byUrl[$t['url']]['displays'] = [[
                             'type' => 'LinearBasicDisplay',

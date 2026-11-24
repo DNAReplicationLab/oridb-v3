@@ -149,6 +149,8 @@ $kinds = array_unique(array_column($yes, 'measures'));
 <p class="small">
   All <?= h((string) count($support)) ?> registered datasets are listed, supporting or not:
   a dataset that looked and found nothing says something different from one that never looked.
+  <em>none</em> in this table is that first case &mdash; the dataset resolved no call here;
+  <em>N/A</em> elsewhere on the page means a value was never recorded.
   <a href="about.php#tiering">How a tier is assigned</a>.
 </p>
 <table>
@@ -163,9 +165,9 @@ $kinds = array_unique(array_column($yes, 'measures'));
       <td><?= $r['supported'] === 'yes'
             ? '<strong>yes</strong>'
             : '<span class="small">no</span>' ?></td>
-      <td class="mono"><?= $r['call'] !== '' ? h($r['call']) : '<span class="small">&ndash;</span>' ?></td>
+      <td class="mono"><?= $r['call'] !== '' ? h($r['call']) : '<span class="small">none</span>' ?></td>
       <td class="num"><?= $r['distance_bp'] !== '' ? h(bp((int) $r['distance_bp'])) . ' bp'
-            : '<span class="small">&ndash;</span>' ?></td>
+            : '<span class="small">none</span>' ?></td>
       <td><?= cite_pmid($r['study_pmid']) ?></td>
     </tr>
   <?php endforeach; ?>
@@ -195,8 +197,8 @@ recorded for this site. Each record is an individual assay reported by the cited
       <td><?= h($e['method']) ?></td>
       <td class="mono"><?= h($e['chromosome']) ?>:<?= h(bp($e['start'])) ?>&ndash;<?= h(bp($e['end'])) ?></td>
       <td class="num"><?= h(bp((int) $e['end'] - (int) $e['start'] + 1)) ?></td>
-      <td><?= $e['detail'] !== '' ? h($e['detail']) : '<span class="small">&ndash;</span>' ?></td>
-      <td><?= ($e['strength'] ?? '') !== '' ? h($e['strength']) : '<span class="small">&ndash;</span>' ?></td>
+      <td><?= $e['detail'] !== '' ? h($e['detail']) : '<span class="small">N/A</span>' ?></td>
+      <td><?= ($e['strength'] ?? '') !== '' ? h($e['strength']) : '<span class="small">N/A</span>' ?></td>
       <td><?= cite_pmid((string) $e['pmid']) ?></td>
     </tr>
   <?php endforeach; ?>
@@ -304,13 +306,13 @@ $dyn = [
             <?php endif; ?>
           </span>
         <?php else: ?>
-          <span class="small">&ndash;</span>
+          <span class="small">none</span>
         <?php endif; ?>
       </td>
       <td class="num"><?= $d['dist'] !== ''
             ? h(bp((int) $d['dist'])) . ' bp'
             : ($near !== null ? '<span class="small">(' . h(bp((int) $near['distance_bp'])) . ' bp)</span>'
-                              : '<span class="small">&ndash;</span>') ?></td>
+                              : '<span class="small">none</span>') ?></td>
       <td><?= h($d['assay']) ?><br><span class="small"><?= cite_pmid($d['pmid']) ?></span></td>
     </tr>
   <?php endforeach; ?>

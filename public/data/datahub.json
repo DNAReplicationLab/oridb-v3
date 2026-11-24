@@ -1,5 +1,5 @@
 {
-    "generated": "2026-11-23T19:09:01Z",
+    "generated": "2026-11-24T10:20:06Z",
     "hub": {
         "name": "oridb_data_hub",
         "shortLabel": "OriDB data hub",
@@ -50,7 +50,8 @@
                                     "type": "bigBed 9 +",
                                     "file": "origins.bb",
                                     "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/oridb_v3/origins.bb",
-                                    "bytes": 111517
+                                    "bytes": 111517,
+                                    "negated": false
                                 }
                             ]
                         },
@@ -67,7 +68,8 @@
                                     "type": "bigBed 9 +",
                                     "file": "origins.bb",
                                     "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/oridb_v3/origins.bb",
-                                    "bytes": 111517
+                                    "bytes": 111517,
+                                    "negated": false
                                 },
                                 {
                                     "track": "oridb_v3_elements",
@@ -76,7 +78,8 @@
                                     "type": "bigBed 9 +",
                                     "file": "elements.bb",
                                     "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/oridb_v3/elements.bb",
-                                    "bytes": 173023
+                                    "bytes": 173023,
+                                    "negated": false
                                 },
                                 {
                                     "track": "oridb_v3_refuted",
@@ -85,7 +88,8 @@
                                     "type": "bigBed 9 +",
                                     "file": "refuted_fragments.bb",
                                     "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/oridb_v3/refuted_fragments.bb",
-                                    "bytes": 81498
+                                    "bytes": 81498,
+                                    "negated": false
                                 }
                             ]
                         }
@@ -127,7 +131,8 @@
                                     "type": "bigWig",
                                     "file": "syncseq.trep.bw",
                                     "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/muller2014/syncseq.trep.bw",
-                                    "bytes": 74713
+                                    "bytes": 74713,
+                                    "negated": true
                                 }
                             ]
                         },
@@ -144,7 +149,8 @@
                                     "type": "bigWig",
                                     "file": "syncseq_AUY077_90min.smooth.bw",
                                     "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/muller2014/syncseq_AUY077_90min.smooth.bw",
-                                    "bytes": 62142
+                                    "bytes": 62142,
+                                    "negated": false
                                 },
                                 {
                                     "track": "timecourse_syncseq_AUY077_50min_smooth",
@@ -153,7 +159,8 @@
                                     "type": "bigWig",
                                     "file": "syncseq_AUY077_50min.smooth.bw",
                                     "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/muller2014/syncseq_AUY077_50min.smooth.bw",
-                                    "bytes": 90277
+                                    "bytes": 90277,
+                                    "negated": false
                                 },
                                 {
                                     "track": "timecourse_syncseq_AUY077_45min_smooth",
@@ -162,7 +169,8 @@
                                     "type": "bigWig",
                                     "file": "syncseq_AUY077_45min.smooth.bw",
                                     "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/muller2014/syncseq_AUY077_45min.smooth.bw",
-                                    "bytes": 92209
+                                    "bytes": 92209,
+                                    "negated": false
                                 },
                                 {
                                     "track": "timecourse_syncseq_AUY077_40min_smooth",
@@ -171,7 +179,8 @@
                                     "type": "bigWig",
                                     "file": "syncseq_AUY077_40min.smooth.bw",
                                     "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/muller2014/syncseq_AUY077_40min.smooth.bw",
-                                    "bytes": 91878
+                                    "bytes": 91878,
+                                    "negated": false
                                 },
                                 {
                                     "track": "timecourse_syncseq_AUY077_35min_smooth",
@@ -180,7 +189,8 @@
                                     "type": "bigWig",
                                     "file": "syncseq_AUY077_35min.smooth.bw",
                                     "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/muller2014/syncseq_AUY077_35min.smooth.bw",
-                                    "bytes": 89337
+                                    "bytes": 89337,
+                                    "negated": false
                                 },
                                 {
                                     "track": "timecourse_syncseq_AUY077_30min_smooth",
@@ -189,7 +199,8 @@
                                     "type": "bigWig",
                                     "file": "syncseq_AUY077_30min.smooth.bw",
                                     "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/muller2014/syncseq_AUY077_30min.smooth.bw",
-                                    "bytes": 84642
+                                    "bytes": 84642,
+                                    "negated": false
                                 },
                                 {
                                     "track": "timecourse_syncseq_AUY077_25min_smooth",
@@ -198,7 +209,8 @@
                                     "type": "bigWig",
                                     "file": "syncseq_AUY077_25min.smooth.bw",
                                     "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/muller2014/syncseq_AUY077_25min.smooth.bw",
-                                    "bytes": 78948
+                                    "bytes": 78948,
+                                    "negated": false
                                 }
                             ]
                         },
@@ -215,7 +227,8 @@
                                     "type": "bigWig",
                                     "file": "sortseq_T9475_SOLiD.smooth.bw",
                                     "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/muller2014/sortseq_T9475_SOLiD.smooth.bw",
-                                    "bytes": 91847
+                                    "bytes": 91847,
+                                    "negated": false
                                 },
                                 {
                                     "track": "sortseq_ploidy_sortseq_T7107_SOLiD_smooth",
@@ -224,7 +237,8 @@
                                     "type": "bigWig",
                                     "file": "sortseq_T7107_SOLiD.smooth.bw",
                                     "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/muller2014/sortseq_T7107_SOLiD.smooth.bw",
-                                    "bytes": 91830
+                                    "bytes": 91830,
+                                    "negated": false
                                 }
                             ]
                         },
@@ -241,7 +255,8 @@
                                     "type": "bigWig",
                                     "file": "sortseq_T9475_SOLiD.smooth.bw",
                                     "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/muller2014/sortseq_T9475_SOLiD.smooth.bw",
-                                    "bytes": 91847
+                                    "bytes": 91847,
+                                    "negated": false
                                 },
                                 {
                                     "track": "sortseq_platform_sortseq_T9475_Illumina_smooth",
@@ -250,7 +265,8 @@
                                     "type": "bigWig",
                                     "file": "sortseq_T9475_Illumina.smooth.bw",
                                     "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/muller2014/sortseq_T9475_Illumina.smooth.bw",
-                                    "bytes": 90818
+                                    "bytes": 90818,
+                                    "negated": false
                                 }
                             ]
                         },
@@ -267,7 +283,8 @@
                                     "type": "bigWig",
                                     "file": "mfaseq_T7107.smooth.bw",
                                     "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/muller2014/mfaseq_T7107.smooth.bw",
-                                    "bytes": 82480
+                                    "bytes": 82480,
+                                    "negated": false
                                 }
                             ]
                         },
@@ -284,7 +301,8 @@
                                     "type": "bigWig",
                                     "file": "hu_CAY106.smooth.bw",
                                     "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/muller2014/hu_CAY106.smooth.bw",
-                                    "bytes": 87925
+                                    "bytes": 87925,
+                                    "negated": false
                                 }
                             ]
                         },
@@ -301,7 +319,8 @@
                                     "type": "bigWig",
                                     "file": "syncseq.trep.bw",
                                     "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/muller2014/syncseq.trep.bw",
-                                    "bytes": 74713
+                                    "bytes": 74713,
+                                    "negated": true
                                 }
                             ]
                         },
@@ -319,6 +338,7 @@
                                     "file": "syncseq.trep.peaks.bb",
                                     "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/muller2014/syncseq.trep.peaks.bb",
                                     "bytes": 34666,
+                                    "negated": false,
                                     "bed": "syncseq.trep.peaks.bed",
                                     "bed_url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/muller2014/syncseq.trep.peaks.bed",
                                     "rows": 212
@@ -366,7 +386,8 @@
                                     "type": "bigWig",
                                     "file": "okseq.directionality.bw",
                                     "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/mcguffee2013/okseq.directionality.bw",
-                                    "bytes": 452286
+                                    "bytes": 452286,
+                                    "negated": false
                                 },
                                 {
                                     "track": "ov_init",
@@ -376,6 +397,7 @@
                                     "file": "okseq.initiation_sites.bb",
                                     "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/mcguffee2013/okseq.initiation_sites.bb",
                                     "bytes": 51877,
+                                    "negated": false,
                                     "bed": "okseq.initiation_sites.bed",
                                     "bed_url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/mcguffee2013/okseq.initiation_sites.bed",
                                     "rows": 383
@@ -395,7 +417,8 @@
                                     "type": "bigWig",
                                     "file": "okseq.directionality.bw",
                                     "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/mcguffee2013/okseq.directionality.bw",
-                                    "bytes": 452286
+                                    "bytes": 452286,
+                                    "negated": false
                                 }
                             ]
                         },
@@ -412,7 +435,8 @@
                                     "type": "bigWig",
                                     "file": "okseq.derivative.bw",
                                     "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/mcguffee2013/okseq.derivative.bw",
-                                    "bytes": 455882
+                                    "bytes": 455882,
+                                    "negated": false
                                 },
                                 {
                                     "track": "initiation_okseq_oem",
@@ -421,7 +445,8 @@
                                     "type": "bigWig",
                                     "file": "okseq.oem.bw",
                                     "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/mcguffee2013/okseq.oem.bw",
-                                    "bytes": 443653
+                                    "bytes": 443653,
+                                    "negated": false
                                 }
                             ]
                         },
@@ -438,7 +463,8 @@
                                     "type": "bigWig",
                                     "file": "okseq.watson.bw",
                                     "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/mcguffee2013/okseq.watson.bw",
-                                    "bytes": 444749
+                                    "bytes": 444749,
+                                    "negated": false
                                 },
                                 {
                                     "track": "strands_okseq_crick",
@@ -447,7 +473,8 @@
                                     "type": "bigWig",
                                     "file": "okseq.crick.bw",
                                     "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/mcguffee2013/okseq.crick.bw",
-                                    "bytes": 444852
+                                    "bytes": 444852,
+                                    "negated": false
                                 }
                             ]
                         },
@@ -465,6 +492,7 @@
                                     "file": "okseq.initiation_sites.bb",
                                     "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/mcguffee2013/okseq.initiation_sites.bb",
                                     "bytes": 51877,
+                                    "negated": false,
                                     "bed": "okseq.initiation_sites.bed",
                                     "bed_url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/mcguffee2013/okseq.initiation_sites.bed",
                                     "rows": 383
@@ -515,7 +543,8 @@
                                     "type": "bigBed 9 +",
                                     "file": "origins.bb",
                                     "url": "https://dnareplicationlab.github.io/oridb-data-hub/GCF_000002945.1/oridb_v3/origins.bb",
-                                    "bytes": 86634
+                                    "bytes": 86634,
+                                    "negated": false
                                 }
                             ]
                         },
@@ -532,7 +561,8 @@
                                     "type": "bigBed 9 +",
                                     "file": "origins.bb",
                                     "url": "https://dnareplicationlab.github.io/oridb-data-hub/GCF_000002945.1/oridb_v3/origins.bb",
-                                    "bytes": 86634
+                                    "bytes": 86634,
+                                    "negated": false
                                 }
                             ]
                         }
@@ -573,7 +603,8 @@
                                     "type": "bigWig",
                                     "file": "puseq.trep.bw",
                                     "url": "https://dnareplicationlab.github.io/oridb-data-hub/GCF_000002945.1/daigaku2015/puseq.trep.bw",
-                                    "bytes": 159180
+                                    "bytes": 159180,
+                                    "negated": true
                                 },
                                 {
                                     "track": "ov_sp_fd",
@@ -582,7 +613,8 @@
                                     "type": "bigWig",
                                     "file": "puseq.leftward_fork.bw",
                                     "url": "https://dnareplicationlab.github.io/oridb-data-hub/GCF_000002945.1/daigaku2015/puseq.leftward_fork.bw",
-                                    "bytes": 151410
+                                    "bytes": 151410,
+                                    "negated": false
                                 },
                                 {
                                     "track": "ov_sp_init",
@@ -591,7 +623,8 @@
                                     "type": "bigBed 6 +",
                                     "file": "puseq.origins.bb",
                                     "url": "https://dnareplicationlab.github.io/oridb-data-hub/GCF_000002945.1/daigaku2015/puseq.origins.bb",
-                                    "bytes": 71095
+                                    "bytes": 71095,
+                                    "negated": false
                                 }
                             ]
                         },
@@ -608,7 +641,8 @@
                                     "type": "bigWig",
                                     "file": "puseq.trep.bw",
                                     "url": "https://dnareplicationlab.github.io/oridb-data-hub/GCF_000002945.1/daigaku2015/puseq.trep.bw",
-                                    "bytes": 159180
+                                    "bytes": 159180,
+                                    "negated": true
                                 }
                             ]
                         },
@@ -625,7 +659,8 @@
                                     "type": "bigWig",
                                     "file": "puseq.leftward_fork.bw",
                                     "url": "https://dnareplicationlab.github.io/oridb-data-hub/GCF_000002945.1/daigaku2015/puseq.leftward_fork.bw",
-                                    "bytes": 151410
+                                    "bytes": 151410,
+                                    "negated": false
                                 }
                             ]
                         },
@@ -642,7 +677,8 @@
                                     "type": "bigWig",
                                     "file": "puseq.termination.bw",
                                     "url": "https://dnareplicationlab.github.io/oridb-data-hub/GCF_000002945.1/daigaku2015/puseq.termination.bw",
-                                    "bytes": 365845
+                                    "bytes": 365845,
+                                    "negated": false
                                 }
                             ]
                         },
@@ -659,7 +695,8 @@
                                     "type": "bigBed 6 +",
                                     "file": "puseq.origins.bb",
                                     "url": "https://dnareplicationlab.github.io/oridb-data-hub/GCF_000002945.1/daigaku2015/puseq.origins.bb",
-                                    "bytes": 71095
+                                    "bytes": 71095,
+                                    "negated": false
                                 }
                             ]
                         }
@@ -700,7 +737,8 @@
                                     "type": "bigWig",
                                     "file": "mcm2chec.hu_rep1.all.bw",
                                     "url": "https://dnareplicationlab.github.io/oridb-data-hub/GCF_000002945.1/foss2021/mcm2chec.hu_rep1.all.bw",
-                                    "bytes": 3977242
+                                    "bytes": 3977242,
+                                    "negated": false
                                 }
                             ]
                         },
@@ -717,7 +755,8 @@
                                     "type": "bigWig",
                                     "file": "mcm2chec.hu_rep1.all.bw",
                                     "url": "https://dnareplicationlab.github.io/oridb-data-hub/GCF_000002945.1/foss2021/mcm2chec.hu_rep1.all.bw",
-                                    "bytes": 3977242
+                                    "bytes": 3977242,
+                                    "negated": false
                                 },
                                 {
                                     "track": "mcm_all_mcm2chec_g1_rep1_all",
@@ -726,7 +765,8 @@
                                     "type": "bigWig",
                                     "file": "mcm2chec.g1_rep1.all.bw",
                                     "url": "https://dnareplicationlab.github.io/oridb-data-hub/GCF_000002945.1/foss2021/mcm2chec.g1_rep1.all.bw",
-                                    "bytes": 3953348
+                                    "bytes": 3953348,
+                                    "negated": false
                                 }
                             ]
                         },
@@ -743,7 +783,8 @@
                                     "type": "bigWig",
                                     "file": "mcm2chec.hu_rep1.51_100bp.bw",
                                     "url": "https://dnareplicationlab.github.io/oridb-data-hub/GCF_000002945.1/foss2021/mcm2chec.hu_rep1.51_100bp.bw",
-                                    "bytes": 3702908
+                                    "bytes": 3702908,
+                                    "negated": false
                                 },
                                 {
                                     "track": "mcm_51_100_mcm2chec_g1_rep1_51_100bp",
@@ -752,7 +793,8 @@
                                     "type": "bigWig",
                                     "file": "mcm2chec.g1_rep1.51_100bp.bw",
                                     "url": "https://dnareplicationlab.github.io/oridb-data-hub/GCF_000002945.1/foss2021/mcm2chec.g1_rep1.51_100bp.bw",
-                                    "bytes": 3665217
+                                    "bytes": 3665217,
+                                    "negated": false
                                 }
                             ]
                         },
@@ -769,7 +811,8 @@
                                     "type": "bigWig",
                                     "file": "mcm2chec.hu_rep1.151_200bp.bw",
                                     "url": "https://dnareplicationlab.github.io/oridb-data-hub/GCF_000002945.1/foss2021/mcm2chec.hu_rep1.151_200bp.bw",
-                                    "bytes": 3604210
+                                    "bytes": 3604210,
+                                    "negated": false
                                 },
                                 {
                                     "track": "mcm_151_200_mcm2chec_g1_rep1_151_200bp",
@@ -778,7 +821,8 @@
                                     "type": "bigWig",
                                     "file": "mcm2chec.g1_rep1.151_200bp.bw",
                                     "url": "https://dnareplicationlab.github.io/oridb-data-hub/GCF_000002945.1/foss2021/mcm2chec.g1_rep1.151_200bp.bw",
-                                    "bytes": 3700841
+                                    "bytes": 3700841,
+                                    "negated": false
                                 }
                             ]
                         },
@@ -795,7 +839,8 @@
                                     "type": "bigWig",
                                     "file": "mcm2chec.hu_rep1.all.bw",
                                     "url": "https://dnareplicationlab.github.io/oridb-data-hub/GCF_000002945.1/foss2021/mcm2chec.hu_rep1.all.bw",
-                                    "bytes": 3977242
+                                    "bytes": 3977242,
+                                    "negated": false
                                 },
                                 {
                                     "track": "mcm_reps_mcm2chec_hu_rep2_all",
@@ -804,7 +849,8 @@
                                     "type": "bigWig",
                                     "file": "mcm2chec.hu_rep2.all.bw",
                                     "url": "https://dnareplicationlab.github.io/oridb-data-hub/GCF_000002945.1/foss2021/mcm2chec.hu_rep2.all.bw",
-                                    "bytes": 4003936
+                                    "bytes": 4003936,
+                                    "negated": false
                                 }
                             ]
                         },
@@ -821,7 +867,8 @@
                                     "type": "bigWig",
                                     "file": "free_mnase.rep1.bw",
                                     "url": "https://dnareplicationlab.github.io/oridb-data-hub/GCF_000002945.1/foss2021/free_mnase.rep1.bw",
-                                    "bytes": 3837435
+                                    "bytes": 3837435,
+                                    "negated": false
                                 }
                             ]
                         }

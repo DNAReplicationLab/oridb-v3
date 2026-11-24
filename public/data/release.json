@@ -1,699 +1,699 @@
 {
-  "release": "3.0.0-trial.1",
-  "generated": "2026-11-23",
-  "description": "OriDB v3.0: every origin OriDB v2 held, carried forward with its evidence records, with ARS assays published since added, and with the tier recomputed from modern data.",
-  "inclusion_rule": "An origin is Confirmed if its interval overlaps at least one plasmid (ARS) assay positive or one 2D gel electrophoresis record, whether that record comes from OriDB v2 or from the assays curated since. The remaining tiers are set by bin/build_tiers.py from the evidence matrix; see docs/tier-rebuild.md.",
-  "curated_assays": {
-    "file": "reference/curated_ars_assays.tsv",
-    "n": 160,
-    "n_positive": 88,
-    "n_negative": 72,
-    "n_attached_to_a_site": 123,
-    "n_negative_without_a_site": 36,
-    "held": [
-      "Liachko2013_S3:138"
-    ],
-    "sites_confirmed": [
-      "ODB-SC-0021",
-      "ODB-SC-0231",
-      "ODB-SC-0269",
-      "ODB-SC-0502",
-      "ODB-SC-0506",
-      "ODB-SC-0512",
-      "ODB-SC-0572",
-      "ODB-SC-0688",
-      "ODB-SC-0708",
-      "ODB-SC-0781",
-      "ODB-SC-0791"
-    ],
-    "sites_retested_negative": [
-      "ODB-SC-0011",
-      "ODB-SC-0020",
-      "ODB-SC-0035",
-      "ODB-SC-0046",
-      "ODB-SC-0053",
-      "ODB-SC-0063",
-      "ODB-SC-0071",
-      "ODB-SC-0075",
-      "ODB-SC-0080",
-      "ODB-SC-0092",
-      "ODB-SC-0120",
-      "ODB-SC-0138",
-      "ODB-SC-0170",
-      "ODB-SC-0173",
-      "ODB-SC-0179",
-      "ODB-SC-0211",
-      "ODB-SC-0213",
-      "ODB-SC-0224",
-      "ODB-SC-0237",
-      "ODB-SC-0284",
-      "ODB-SC-0343",
-      "ODB-SC-0352",
-      "ODB-SC-0389",
-      "ODB-SC-0430",
-      "ODB-SC-0447",
-      "ODB-SC-0698"
-    ],
-    "strength": {
-      "file": "reference/ars_assay_strength.tsv",
-      "values": [
-        "strong",
-        "weak",
-        "very weak"
-      ],
-      "n_v2_records_annotated": 42,
-      "n_records_with_a_strength": 133
-    }
-  },
-  "assemblies": {
-    "ASM294v2": {
-      "species": "Schizosaccharomyces pombe",
-      "ucsc_db": "GCA_000002945.3",
-      "sequence_naming": "PomBase roman (I, II, III)",
-      "note": "Current assembly; no lift-over required."
-    },
-    "sacCer3": {
-      "species": "Saccharomyces cerevisiae",
-      "ucsc_db": "sacCer3",
-      "sequence_naming": "UCSC roman (chrI..chrXVI)",
-      "note": "Lifted from sacCer1 with the UCSC chain file. Each record keeps its original sacCer1 position in source_chromosome/source_start/source_end and the outcome of a base-for-base sequence check in lift_status."
-    }
-  },
-  "coordinate_convention": "1-based, fully closed intervals",
-  "files": {
-    "origins.tsv": {
-      "md5": "33cb8e3c99b458c185a1b40536f0f862",
-      "rows": 1580
-    },
-    "evidence.tsv": {
-      "md5": "65bc78101ab40e32ad09a3018adf4f01",
-      "rows": 822
-    },
-    "studies.tsv": {
-      "md5": "8f920c3e7f8112708a6dea328df91679",
-      "rows": 56
-    },
-    "refuted_fragments.tsv": {
-      "md5": "1074e1015bedb9a2528c2cd9a673a89e",
-      "rows": 296
-    },
-    "elements.tsv": {
-      "md5": "fb9ec99262895e695e6312f1c5f6676a",
-      "rows": 1667
-    },
-    "evidence_matrix.tsv": {
-      "md5": "fca65420b1319f5faed905327ddf3b88",
-      "rows": 4195
-    }
-  },
-  "provenance": {
-    "source": "nieduszy_oridb MySQL dump (OriDB v2.1.0 cerevisiae / v1.0.0 pombe)",
-    "source_tables": [
-      "local_pubmed",
-      "sc_2D_gel",
-      "sc_cloned_no_ori",
-      "sc_cloned_ori",
-      "sc_ori",
-      "sp_2D_gel",
-      "sp_ori"
-    ],
-    "curated_files": [
-      "reference/curated_ars_assays.tsv",
-      "reference/ars_assay_strength.tsv"
-    ]
-  },
-  "known_issues": [
-    {
-      "text": "sc_cloned_no_ori:161 (12:778-1006599, 1005822 bp) is too wide to be a cloned fragment - the other 224 records have a median width of 4,685 bp - so it is excluded from the refuted layer. Left in, it would mark every origin on that chromosome as ARS-negative. It needs correction or withdrawal at source.",
-      "accessions": []
-    },
-    {
-      "text": "v2 origins that overlap direct experimental evidence yet were not Confirmed in v2, so v3 now promotes them: sc_ori 79 (Dubious), sc_ori 84 (Dubious), sc_ori 741 (Likely). Each needs curator review against the source publication.",
-      "accessions": []
-    },
-    {
-      "text": "28 evidence records carry no PubMed ID in v2 and need a citation assigned. The origins they support are:",
-      "accessions": [
-        "ODB-SC-0087",
-        "ODB-SC-0088",
-        "ODB-SC-0089",
-        "ODB-SC-0090",
-        "ODB-SC-0091",
-        "ODB-SC-0092",
-        "ODB-SC-0096",
-        "ODB-SC-0102",
-        "ODB-SC-0104",
-        "ODB-SC-0109",
-        "ODB-SC-0144",
-        "ODB-SC-0211",
-        "ODB-SC-0212",
-        "ODB-SC-0213",
-        "ODB-SC-0237",
-        "ODB-SC-0239",
-        "ODB-SC-0241",
-        "ODB-SC-0244",
-        "ODB-SC-0284",
-        "ODB-SC-0332",
-        "ODB-SC-0335",
-        "ODB-SC-0723",
-        "ODB-SP-0069",
-        "ODB-SP-0075",
-        "ODB-SP-0231"
-      ]
-    },
-    {
-      "text": "26 Confirmed origins were re-tested on a fragment covering the whole site and did not support plasmid replication. The earlier positive and the later negative are both recorded, the site carries the ARS-negative flag, and the tier is unchanged: whether such a site should remain Confirmed has not been decided. The assays differ (vector, host strain), and several of the earlier positives were themselves graded weak or very weak. The origins are:",
-      "accessions": [
-        "ODB-SC-0011",
-        "ODB-SC-0020",
-        "ODB-SC-0035",
-        "ODB-SC-0046",
-        "ODB-SC-0053",
-        "ODB-SC-0063",
-        "ODB-SC-0071",
-        "ODB-SC-0075",
-        "ODB-SC-0080",
-        "ODB-SC-0092",
-        "ODB-SC-0120",
-        "ODB-SC-0138",
-        "ODB-SC-0170",
-        "ODB-SC-0173",
-        "ODB-SC-0179",
-        "ODB-SC-0211",
-        "ODB-SC-0213",
-        "ODB-SC-0224",
-        "ODB-SC-0237",
-        "ODB-SC-0284",
-        "ODB-SC-0343",
-        "ODB-SC-0352",
-        "ODB-SC-0389",
-        "ODB-SC-0430",
-        "ODB-SC-0447",
-        "ODB-SC-0698"
-      ]
-    },
-    {
-      "text": "Held back from curated_ars_assays.tsv: Liachko2013_S3:138 (chrXIV:443296-443971 on sacCer1, positive, strong) - Strong positive at no OriDB site: no ARS-seq contig, no Ok-seq peak, best Foss MCM rank within 500 bp is 1,727. Held back by curator decision (21 Nov 2026) until the locus has been reviewed; no site is created.",
-      "accessions": []
-    },
-    {
-      "text": "192 lifted cerevisiae intervals do not have identical sequence in sacCer3 - substitutions, or an indel that changes interval length. Each mapping was checked and is correctly placed; it is the 2003 assembly sequence that was revised. Intervals whose length changed are worth a curator review. The origins affected are:",
-      "accessions": [
-        "Liachko2013_S3:024",
-        "Liachko2013_S3:054",
-        "Liachko2013_S3:104",
-        "ODB-SC-0002",
-        "ODB-SC-0007",
-        "ODB-SC-0009",
-        "ODB-SC-0014",
-        "ODB-SC-0017",
-        "ODB-SC-0021",
-        "ODB-SC-0025",
-        "ODB-SC-0027",
-        "ODB-SC-0028",
-        "ODB-SC-0029",
-        "ODB-SC-0030",
-        "ODB-SC-0040",
-        "ODB-SC-0041",
-        "ODB-SC-0044",
-        "ODB-SC-0052",
-        "ODB-SC-0054",
-        "ODB-SC-0064",
-        "ODB-SC-0069",
-        "ODB-SC-0070",
-        "ODB-SC-0076",
-        "ODB-SC-0080",
-        "ODB-SC-0081",
-        "ODB-SC-0082",
-        "ODB-SC-0095",
-        "ODB-SC-0101",
-        "ODB-SC-0102",
-        "ODB-SC-0112",
-        "ODB-SC-0131",
-        "ODB-SC-0140",
-        "ODB-SC-0144",
-        "ODB-SC-0150",
-        "ODB-SC-0164",
-        "ODB-SC-0206",
-        "ODB-SC-0208",
-        "ODB-SC-0213",
-        "ODB-SC-0215",
-        "ODB-SC-0253",
-        "ODB-SC-0255",
-        "ODB-SC-0256",
-        "ODB-SC-0258",
-        "ODB-SC-0261",
-        "ODB-SC-0263",
-        "ODB-SC-0264",
-        "ODB-SC-0283",
-        "ODB-SC-0287",
-        "ODB-SC-0290",
-        "ODB-SC-0308",
-        "ODB-SC-0316",
-        "ODB-SC-0326",
-        "ODB-SC-0327",
-        "ODB-SC-0328",
-        "ODB-SC-0329",
-        "ODB-SC-0340",
-        "ODB-SC-0341",
-        "ODB-SC-0358",
-        "ODB-SC-0362",
-        "ODB-SC-0394",
-        "ODB-SC-0421",
-        "ODB-SC-0422",
-        "ODB-SC-0423",
-        "ODB-SC-0426",
-        "ODB-SC-0427",
-        "ODB-SC-0428",
-        "ODB-SC-0439",
-        "ODB-SC-0449",
-        "ODB-SC-0455",
-        "ODB-SC-0459",
-        "ODB-SC-0462",
-        "ODB-SC-0473",
-        "ODB-SC-0488",
-        "ODB-SC-0489",
-        "ODB-SC-0499",
-        "ODB-SC-0500",
-        "ODB-SC-0516",
-        "ODB-SC-0557",
-        "ODB-SC-0561",
-        "ODB-SC-0576",
-        "ODB-SC-0652",
-        "ODB-SC-0658",
-        "ODB-SC-0661",
-        "ODB-SC-0673",
-        "ODB-SC-0680",
-        "ODB-SC-0690",
-        "ODB-SC-0691",
-        "ODB-SC-0717",
-        "ODB-SC-0796",
-        "ODB-SC-0814",
-        "sc_cloned_no_ori:103",
-        "sc_cloned_no_ori:111",
-        "sc_cloned_no_ori:125",
-        "sc_cloned_no_ori:134",
-        "sc_cloned_no_ori:136",
-        "sc_cloned_no_ori:141",
-        "sc_cloned_no_ori:142",
-        "sc_cloned_no_ori:159",
-        "sc_cloned_no_ori:160",
-        "sc_cloned_no_ori:168",
-        "sc_cloned_no_ori:17",
-        "sc_cloned_no_ori:175",
-        "sc_cloned_no_ori:195",
-        "sc_cloned_no_ori:198",
-        "sc_cloned_no_ori:2",
-        "sc_cloned_no_ori:201",
-        "sc_cloned_no_ori:203",
-        "sc_cloned_no_ori:204",
-        "sc_cloned_no_ori:217",
-        "sc_cloned_no_ori:221",
-        "sc_cloned_no_ori:222",
-        "sc_cloned_no_ori:23",
-        "sc_cloned_no_ori:24",
-        "sc_cloned_no_ori:26",
-        "sc_cloned_no_ori:27",
-        "sc_cloned_no_ori:28",
-        "sc_cloned_no_ori:29",
-        "sc_cloned_no_ori:30",
-        "sc_cloned_no_ori:31",
-        "sc_cloned_no_ori:32",
-        "sc_cloned_no_ori:35",
-        "sc_cloned_no_ori:36",
-        "sc_cloned_no_ori:37",
-        "sc_cloned_no_ori:38",
-        "sc_cloned_no_ori:39",
-        "sc_cloned_no_ori:44",
-        "sc_cloned_no_ori:45",
-        "sc_cloned_no_ori:52",
-        "sc_cloned_no_ori:58",
-        "sc_cloned_no_ori:6",
-        "sc_cloned_no_ori:60",
-        "sc_cloned_no_ori:64",
-        "sc_cloned_no_ori:85",
-        "sc_cloned_no_ori:86",
-        "sc_cloned_no_ori:9",
-        "sc_cloned_no_ori:90",
-        "sc_cloned_no_ori:91",
-        "sc_cloned_no_ori:95"
-      ]
-    },
-    {
-      "id": "elements-unplaced",
-      "text": "3 of 1667 origin elements could not be placed in sacCer3 from their sequence alone - either the sequence does not occur in the current assembly, or it occurs several times with none near the coordinate v2 recorded. They are published without coordinates rather than placed on a guess; see anchor_status in elements.tsv.",
-      "accessions": []
-    },
-    {
-      "id": "sgd-coordinates",
-      "accessions": [],
-      "text": "OriDB intervals and the ARS features SGD and UCSC show for sacCer3 should describe the same object - the assayed fragment - and mostly they differ in a way that looks like a coordinate error rather than biology. Of the 424 Confirmed cerevisiae origins, 292 overlap one of the 389 ARS features in UCSC's sgdOther table for sacCer3, in 350 origin-feature pairs. 259 of those pairs share an IDENTICAL end coordinate and differ only at the start, and in 258 of them the SGD feature begins inside the OriDB interval: 244 by exactly 2 bp and 14 by 1 bp. When the v2 source records were examined, 194 of the 2 bp cases had an OriDB start that is the position of a PCR primer located in the genome by its own sequence, so the SGD feature begins two bases inside the primer that defined the fragment; that figure has not been recomputed against this release. None of this has been confirmed with SGD and it should be raised with them before either set is treated as authoritative at base resolution. Separately, 132 Confirmed origins overlap no SGD ARS feature and 47 SGD ARS features overlap no Confirmed origin."
-    }
-  ],
-  "lift": {
-    "from": "sacCer1",
-    "to": "sacCer3",
-    "chain": "reference/sacCer1ToSacCer3.over.chain.gz",
-    "chain_md5": "c3aa03bde2422b6c083f478ac42d4cdc",
-    "chain_source": "https://hgdownload.soe.ucsc.edu/goldenPath/sacCer1/liftOver/sacCer1ToSacCer3.over.chain.gz",
-    "tool": "pyliftover",
-    "sequence_verified": true,
-    "record_counts": {
-      "identical": 1705,
-      "length-changed": 108,
-      "same-length-mismatch": 84
-    },
-    "note": "Systematic names are NOT recomputed. They are coordinate-derived labels from the v2 build and are cited as such in the literature, so they stay fixed; a name like X-212 therefore need not match the lifted midpoint."
-  },
-  "acs_motif": {
-    "width": 33,
-    "window": "-3 to +29",
-    "core_columns": [
-      4,
-      14
-    ],
-    "consensus": "WWWWTTTAYnTTTWKnnnnnnnnnnnnnnnWTn",
-    "derivation": "Position weight matrix built from the experimentally confirmed A elements, extended into sacCer3 either side of the 11 bp core. The window was chosen by information content, not assumed: it runs from 3 bp upstream of the core to 19 bp downstream, and includes the WTW motif that Chang et al. (PMID 18573888) place 17-19 bp from the ACS, which this matrix reproduces independently. Information content is measured against the sacCer3 base composition, not a uniform background, and the logo is drawn on the same scale.",
-    "training_elements": 68,
-    "excluded_elements": [],
-    "information_content_bits": 16.5,
-    "information_by_column": [
-      0.32,
-      0.33,
-      0.77,
-      0.45,
-      1.36,
-      1.05,
-      0.9,
-      1.13,
-      0.61,
-      0.41,
-      1.43,
-      1.51,
-      1.5,
-      0.58,
-      1.06,
-      0.47,
-      0.46,
-      0.01,
-      0.1,
-      0.03,
-      0.09,
-      0.02,
-      0.18,
-      0.06,
-      0.01,
-      0.02,
-      0.03,
-      0.01,
-      0.03,
-      0.06,
-      0.34,
-      0.82,
-      0.36
-    ],
-    "background": {
-      "A": 0.309,
-      "C": 0.1917,
-      "G": 0.1913,
-      "T": 0.308
-    },
-    "logo": "assets/acs_logo.svg",
-    "logo_column_width": 18,
-    "logo_left_pad": 62,
-    "applies_to_element_class": "A"
-  },
-  "b2_motif": {
-    "width": 33,
-    "applies_to_element_class": "B2",
-    "consensus": "nnnnnnnnnnnnnnnnnnnnnnAAAWnWnnnnn",
-    "derivation": "Position weight matrix built from the placed B2 elements of Reuter et al. 2024 (PMID 39181881), extended into sacCer3 around the published interval and measured against the sacCer3 base composition, by the same recipe as the ACS matrix. B2 is a distinct element from the A element and is scored against this matrix, not against the ACS matrix.",
-    "training_elements": 303,
-    "information_content_bits": 9.24,
-    "information_by_column": [
-      0.05,
-      0.17,
-      0.33,
-      0.35,
-      0.3,
-      0.27,
-      0.09,
-      0.13,
-      0.07,
-      0.09,
-      0.07,
-      0.17,
-      0.12,
-      0.09,
-      0.11,
-      0.1,
-      0.14,
-      0.16,
-      0.27,
-      0.22,
-      0.18,
-      0.2,
-      0.8,
-      1.04,
-      0.94,
-      0.54,
-      0.53,
-      0.3,
-      0.17,
-      0.26,
-      0.3,
-      0.25,
-      0.43
-    ],
-    "background": {
-      "A": 0.309,
-      "C": 0.1917,
-      "G": 0.1913,
-      "T": 0.308
-    },
-    "logo": "assets/b2_logo.svg",
-    "logo_column_width": 18,
-    "logo_left_pad": 62
-  },
-  "elements": {
-    "description": "A and B2 elements from the four OriDB v2 element tables and from Reuter et al. 2024, each located in sacCer3 by its stored sequence rather than by its stored coordinates.",
-    "studies": {
-      "sc_confirmed_ACS": {
-        "element_type": "confirmed",
-        "pmid": "",
-        "source_assembly": "sacCer1"
-      },
-      "Nieduszynski2006_ACS": {
-        "element_type": "predicted",
-        "pmid": "16847347",
-        "source_assembly": "sacCer1"
-      },
-      "Eaton2010_ACS": {
-        "element_type": "predicted",
-        "pmid": "20351051",
-        "source_assembly": "sacCer1"
-      },
-      "Xu2006_ACS": {
-        "element_type": "predicted",
-        "pmid": "17067396",
-        "source_assembly": "sacCer2"
-      }
-    },
-    "anchor_status_counts": {
-      "unique": 1408,
-      "resolved-by-proximity": 256,
-      "ambiguous": 1,
-      "unanchored": 2
-    },
-    "link_counts": {
-      "contained": 1557,
-      "overlapping": 18,
-      "unlinked": 92
-    }
-  },
-  "per_origin_values": {
-    "description": "Two per-origin values read off modern genome-wide call sets: how often an origin fires, and when the DNA at it is replicated. They apply to Saccharomyces cerevisiae origins on sacCer3 only; S. pombe rows carry no value.",
-    "columns": {
-      "okseq_activity_oem": {
-        "meaning": "Origin efficiency (OEM) of the Okazaki-fragment initiation zone assigned to this origin: the fraction of cells in which the origin fires.",
-        "units": "fraction of cells, 0 to 1",
-        "caveat": "Raw OEM; the deconvolution correction of the original paper is not applied, so values near termination zones are under-estimates."
-      },
-      "okseq_call": {
-        "meaning": "Identifier of the initiation zone the value came from."
-      },
-      "okseq_distance_bp": {
-        "meaning": "Distance from the origin midpoint to that zone's derivative peak, so a user can see how well supported the value is."
-      },
-      "median_replication_time_composite_min": {
-        "meaning": "MEDIAN REPLICATION TIME at the timing peak assigned to this origin - the time by which half the cells have replicated the DNA there.",
-        "units": "minutes after release from alpha-factor arrest",
-        "caveat": "THIS IS NOT THE FIRING TIME of the origin. It is a composite of the firing-time distribution of this origin and the passive-replication-time distribution produced by forks from neighbouring origins, and must be labelled as such wherever it is shown."
-      },
-      "replication_time_call": {
-        "meaning": "Identifier of the timing peak the value came from."
-      },
-      "replication_time_distance_bp": {
-        "meaning": "Distance from the origin midpoint to the midpoint of that timing peak."
-      }
-    },
-    "empty_is_not_zero": "An origin with no qualifying call has an EMPTY value, never a zero. Both are firing assays: no call means the origin was not detected firing in that experiment, which is a real and interesting state - it may be licensed but rarely activated - and is not a measurement of zero activity or of a replication time of zero.",
-    "assignment_rule": {
-      "summary": "An origin takes the value of its nearest call only when the pairing is mutually nearest and within a distance cap set by that assay's measured positional error.",
-      "distance": "From the origin midpoint to the call's anchor point, which is the same point against which that dataset's positional error was measured in docs/study_resolution.csv: the derivative peak for an Ok-seq initiation zone, and the midpoint of the 1-minute band for a timing peak.",
-      "mutual_nearest": "The call must be the origin's nearest call AND the origin must be that call's nearest origin. This is what stops a value being attributed from a call that in fact belongs to a neighbouring origin; it also means no call ever supplies two origins.",
-      "cap_basis": "The 75th percentile of the assay's measured positional error (docs/study_resolution.csv). The median is the typical displacement of a true pairing and the p90 is dominated by origins the assay does not detect at all, so the p75 is the distance within which a call still plausibly belongs to this origin. Both caps are well inside half the median spacing between neighbouring origins (16,671 bp), so a capped call cannot reach past a neighbour.",
-      "caps_bp": {
-        "okseq": 1160,
-        "replication_time": 5520
-      },
-      "documentation": "docs/origin_activity_timing.md"
-    },
-    "datasets": {
-      "okseq": {
-        "calls": "docs/mcguffee2013_okseq_initiation_sites.bed",
-        "n_calls": 383,
-        "dataset_id": "mcguffee2013-saccer3",
-        "title": "Okazaki-fragment sequencing (McGuffee, Smith & Whitehouse 2013), re-analysed on sacCer3",
-        "pmid": "23562327",
-        "doi": "10.1016/j.molcel.2013.03.004",
-        "archive_series": [
-          "GSE40696"
+    "release": "3.0.0-trial.1",
+    "generated": "2026-11-23",
+    "description": "OriDB v3.0: every origin OriDB v2 held, carried forward with its evidence records, with ARS assays published since added, and with the tier recomputed from modern data.",
+    "inclusion_rule": "An origin is Confirmed if its interval overlaps at least one plasmid (ARS) assay positive or one 2D gel electrophoresis record, whether that record comes from OriDB v2 or from the assays curated since. The remaining tiers are set by bin/build_tiers.py from the evidence matrix; see docs/tier-rebuild.md.",
+    "curated_assays": {
+        "file": "reference/curated_ars_assays.tsv",
+        "n": 160,
+        "n_positive": 88,
+        "n_negative": 72,
+        "n_attached_to_a_site": 123,
+        "n_negative_without_a_site": 36,
+        "held": [
+            "Liachko2013_S3:138"
         ],
-        "hub_track": "sacCer3/mcguffee2013/okseq.initiation_sites.bb",
-        "call_definition": "maxima of the derivative of fork directionality, OEM > 0.05"
-      },
-      "replication_time": {
-        "calls": "docs/muller2014_trep_peaks.bed",
-        "n_calls": 212,
-        "dataset_id": "muller2014-saccer3",
-        "title": "The dynamics of genome replication using deep sequencing (Muller et al. 2014), reprocessed on sacCer3",
-        "pmid": "24089142",
-        "doi": "10.1093/nar/gkt878",
-        "archive_series": [
-          "GSE42243",
-          "GSE48212"
+        "sites_confirmed": [
+            "ODB-SC-0021",
+            "ODB-SC-0231",
+            "ODB-SC-0269",
+            "ODB-SC-0502",
+            "ODB-SC-0506",
+            "ODB-SC-0512",
+            "ODB-SC-0572",
+            "ODB-SC-0688",
+            "ODB-SC-0708",
+            "ODB-SC-0781",
+            "ODB-SC-0791"
         ],
-        "hub_track": "sacCer3/muller2014/syncseq.trep.bw",
-        "call_definition": "local minima of the smoothed sync-seq Trep profile; the called interval is the band within 1 minute of the trough"
-      }
+        "sites_retested_negative": [
+            "ODB-SC-0011",
+            "ODB-SC-0020",
+            "ODB-SC-0035",
+            "ODB-SC-0046",
+            "ODB-SC-0053",
+            "ODB-SC-0063",
+            "ODB-SC-0071",
+            "ODB-SC-0075",
+            "ODB-SC-0080",
+            "ODB-SC-0092",
+            "ODB-SC-0120",
+            "ODB-SC-0138",
+            "ODB-SC-0170",
+            "ODB-SC-0173",
+            "ODB-SC-0179",
+            "ODB-SC-0211",
+            "ODB-SC-0213",
+            "ODB-SC-0224",
+            "ODB-SC-0237",
+            "ODB-SC-0284",
+            "ODB-SC-0343",
+            "ODB-SC-0352",
+            "ODB-SC-0389",
+            "ODB-SC-0430",
+            "ODB-SC-0447",
+            "ODB-SC-0698"
+        ],
+        "strength": {
+            "file": "reference/ars_assay_strength.tsv",
+            "values": [
+                "strong",
+                "weak",
+                "very weak"
+            ],
+            "n_v2_records_annotated": 42,
+            "n_records_with_a_strength": 133
+        }
     },
-    "counts": {
-      "cerevisiae_origins": 829,
-      "okseq": {
-        "assigned": 283,
-        "rejected_by_cap": 44,
-        "rejected_by_mutual_test": 8,
-        "rejected_by_both": 494,
-        "no_call_on_sequence": 0
-      },
-      "replication_time": {
-        "assigned": 210,
-        "rejected_by_cap": 1,
-        "rejected_by_mutual_test": 71,
-        "rejected_by_both": 547,
-        "no_call_on_sequence": 0
-      }
-    }
-  },
-  "tiers": {
-    "rule": {
-      "Confirmed": "a positive plasmid (ARS) assay or a 2D gel record at this site",
-      "Likely": "at least two datasets support the site and at least one measures licensing; firing assays share a blind spot, so two of them are not enough, and requiring one of each would make the tier mean \"active\"",
-      "Unsupported": "datasets cover this species and fewer than that support the site",
-      "Not assessed": "no dataset in the registry covers this species yet"
+    "assemblies": {
+        "ASM294v2": {
+            "species": "Schizosaccharomyces pombe",
+            "ucsc_db": "GCA_000002945.3",
+            "sequence_naming": "PomBase roman (I, II, III)",
+            "note": "Current assembly; no lift-over required."
+        },
+        "sacCer3": {
+            "species": "Saccharomyces cerevisiae",
+            "ucsc_db": "sacCer3",
+            "sequence_naming": "UCSC roman (chrI..chrXVI)",
+            "note": "Lifted from sacCer1 with the UCSC chain file. Each record keeps its original sacCer1 position in source_chromosome/source_start/source_end and the outcome of a base-for-base sequence check in lift_status."
+        }
     },
-    "refutation": "a negative ARS assay is carried as the ars_negative flag, never as a tier: it describes a tested interval, and a site can hold a positive and a negative assay at once",
-    "datasets": [
-      {
-        "dataset_id": "foss2024_mcm",
-        "study_pmid": "38315095",
-        "species": "Saccharomyces cerevisiae",
-        "measures": "licensing",
-        "counts_towards_tier": "yes",
-        "support_window_bp": "500",
-        "rank_max": "500"
-      },
-      {
-        "dataset_id": "mcguffee2013_okseq",
-        "study_pmid": "23562327",
-        "species": "Saccharomyces cerevisiae",
-        "measures": "firing",
-        "counts_towards_tier": "yes",
-        "support_window_bp": "1160",
-        "rank_max": ""
-      },
-      {
-        "dataset_id": "reuter2024_mcm",
-        "study_pmid": "39181881",
-        "species": "Saccharomyces cerevisiae",
-        "measures": "licensing",
-        "counts_towards_tier": "yes",
-        "support_window_bp": "500",
-        "rank_max": ""
-      },
-      {
-        "dataset_id": "reuter2024_orc_nonorigin",
-        "study_pmid": "39181881",
-        "species": "Saccharomyces cerevisiae",
-        "measures": "orc-without-mcm",
-        "counts_towards_tier": "no",
-        "support_window_bp": "500",
-        "rank_max": ""
-      },
-      {
-        "dataset_id": "muller2014_trep",
-        "study_pmid": "24089142",
-        "species": "Saccharomyces cerevisiae",
-        "measures": "timing",
-        "counts_towards_tier": "no",
-        "support_window_bp": "5520",
-        "rank_max": ""
-      }
+    "coordinate_convention": "1-based, fully closed intervals",
+    "files": {
+        "origins.tsv": {
+            "md5": "33cb8e3c99b458c185a1b40536f0f862",
+            "rows": 1580
+        },
+        "evidence.tsv": {
+            "md5": "65bc78101ab40e32ad09a3018adf4f01",
+            "rows": 822
+        },
+        "studies.tsv": {
+            "md5": "8f920c3e7f8112708a6dea328df91679",
+            "rows": 56
+        },
+        "refuted_fragments.tsv": {
+            "md5": "6995fa025435ca71e944fb669bc0ce11",
+            "rows": 296
+        },
+        "elements.tsv": {
+            "md5": "fb9ec99262895e695e6312f1c5f6676a",
+            "rows": 1667
+        },
+        "evidence_matrix.tsv": {
+            "md5": "fca65420b1319f5faed905327ddf3b88",
+            "rows": 4195
+        }
+    },
+    "provenance": {
+        "source": "nieduszy_oridb MySQL dump (OriDB v2.1.0 cerevisiae / v1.0.0 pombe)",
+        "source_tables": [
+            "local_pubmed",
+            "sc_2D_gel",
+            "sc_cloned_no_ori",
+            "sc_cloned_ori",
+            "sc_ori",
+            "sp_2D_gel",
+            "sp_ori"
+        ],
+        "curated_files": [
+            "reference/curated_ars_assays.tsv",
+            "reference/ars_assay_strength.tsv"
+        ]
+    },
+    "known_issues": [
+        {
+            "text": "sc_cloned_no_ori:161 (12:778-1006599, 1005822 bp) is too wide to be a cloned fragment - the other 224 records have a median width of 4,685 bp - so it is excluded from the refuted layer. Left in, it would mark every origin on that chromosome as ARS-negative. It needs correction or withdrawal at source.",
+            "accessions": []
+        },
+        {
+            "text": "v2 origins that overlap direct experimental evidence yet were not Confirmed in v2, so v3 now promotes them: sc_ori 79 (Dubious), sc_ori 84 (Dubious), sc_ori 741 (Likely). Each needs curator review against the source publication.",
+            "accessions": []
+        },
+        {
+            "text": "28 evidence records carry no PubMed ID in v2 and need a citation assigned. The origins they support are:",
+            "accessions": [
+                "ODB-SC-0087",
+                "ODB-SC-0088",
+                "ODB-SC-0089",
+                "ODB-SC-0090",
+                "ODB-SC-0091",
+                "ODB-SC-0092",
+                "ODB-SC-0096",
+                "ODB-SC-0102",
+                "ODB-SC-0104",
+                "ODB-SC-0109",
+                "ODB-SC-0144",
+                "ODB-SC-0211",
+                "ODB-SC-0212",
+                "ODB-SC-0213",
+                "ODB-SC-0237",
+                "ODB-SC-0239",
+                "ODB-SC-0241",
+                "ODB-SC-0244",
+                "ODB-SC-0284",
+                "ODB-SC-0332",
+                "ODB-SC-0335",
+                "ODB-SC-0723",
+                "ODB-SP-0069",
+                "ODB-SP-0075",
+                "ODB-SP-0231"
+            ]
+        },
+        {
+            "text": "26 Confirmed origins were re-tested on a fragment covering the whole site and did not support plasmid replication. The earlier positive and the later negative are both recorded, the site carries the ARS-negative flag, and the tier is unchanged: whether such a site should remain Confirmed has not been decided. The assays differ (vector, host strain), and several of the earlier positives were themselves graded weak or very weak. The origins are:",
+            "accessions": [
+                "ODB-SC-0011",
+                "ODB-SC-0020",
+                "ODB-SC-0035",
+                "ODB-SC-0046",
+                "ODB-SC-0053",
+                "ODB-SC-0063",
+                "ODB-SC-0071",
+                "ODB-SC-0075",
+                "ODB-SC-0080",
+                "ODB-SC-0092",
+                "ODB-SC-0120",
+                "ODB-SC-0138",
+                "ODB-SC-0170",
+                "ODB-SC-0173",
+                "ODB-SC-0179",
+                "ODB-SC-0211",
+                "ODB-SC-0213",
+                "ODB-SC-0224",
+                "ODB-SC-0237",
+                "ODB-SC-0284",
+                "ODB-SC-0343",
+                "ODB-SC-0352",
+                "ODB-SC-0389",
+                "ODB-SC-0430",
+                "ODB-SC-0447",
+                "ODB-SC-0698"
+            ]
+        },
+        {
+            "text": "Held back from curated_ars_assays.tsv: Liachko2013_S3:138 (chrXIV:443296-443971 on sacCer1, positive, strong) - Strong positive at no OriDB site: no ARS-seq contig, no Ok-seq peak, best Foss MCM rank within 500 bp is 1,727. Held back by curator decision (21 Nov 2026) until the locus has been reviewed; no site is created.",
+            "accessions": []
+        },
+        {
+            "text": "192 lifted cerevisiae intervals do not have identical sequence in sacCer3 - substitutions, or an indel that changes interval length. Each mapping was checked and is correctly placed; it is the 2003 assembly sequence that was revised. Intervals whose length changed are worth a curator review. The origins affected are:",
+            "accessions": [
+                "Liachko2013_S3:024",
+                "Liachko2013_S3:054",
+                "Liachko2013_S3:104",
+                "ODB-SC-0002",
+                "ODB-SC-0007",
+                "ODB-SC-0009",
+                "ODB-SC-0014",
+                "ODB-SC-0017",
+                "ODB-SC-0021",
+                "ODB-SC-0025",
+                "ODB-SC-0027",
+                "ODB-SC-0028",
+                "ODB-SC-0029",
+                "ODB-SC-0030",
+                "ODB-SC-0040",
+                "ODB-SC-0041",
+                "ODB-SC-0044",
+                "ODB-SC-0052",
+                "ODB-SC-0054",
+                "ODB-SC-0064",
+                "ODB-SC-0069",
+                "ODB-SC-0070",
+                "ODB-SC-0076",
+                "ODB-SC-0080",
+                "ODB-SC-0081",
+                "ODB-SC-0082",
+                "ODB-SC-0095",
+                "ODB-SC-0101",
+                "ODB-SC-0102",
+                "ODB-SC-0112",
+                "ODB-SC-0131",
+                "ODB-SC-0140",
+                "ODB-SC-0144",
+                "ODB-SC-0150",
+                "ODB-SC-0164",
+                "ODB-SC-0206",
+                "ODB-SC-0208",
+                "ODB-SC-0213",
+                "ODB-SC-0215",
+                "ODB-SC-0253",
+                "ODB-SC-0255",
+                "ODB-SC-0256",
+                "ODB-SC-0258",
+                "ODB-SC-0261",
+                "ODB-SC-0263",
+                "ODB-SC-0264",
+                "ODB-SC-0283",
+                "ODB-SC-0287",
+                "ODB-SC-0290",
+                "ODB-SC-0308",
+                "ODB-SC-0316",
+                "ODB-SC-0326",
+                "ODB-SC-0327",
+                "ODB-SC-0328",
+                "ODB-SC-0329",
+                "ODB-SC-0340",
+                "ODB-SC-0341",
+                "ODB-SC-0358",
+                "ODB-SC-0362",
+                "ODB-SC-0394",
+                "ODB-SC-0421",
+                "ODB-SC-0422",
+                "ODB-SC-0423",
+                "ODB-SC-0426",
+                "ODB-SC-0427",
+                "ODB-SC-0428",
+                "ODB-SC-0439",
+                "ODB-SC-0449",
+                "ODB-SC-0455",
+                "ODB-SC-0459",
+                "ODB-SC-0462",
+                "ODB-SC-0473",
+                "ODB-SC-0488",
+                "ODB-SC-0489",
+                "ODB-SC-0499",
+                "ODB-SC-0500",
+                "ODB-SC-0516",
+                "ODB-SC-0557",
+                "ODB-SC-0561",
+                "ODB-SC-0576",
+                "ODB-SC-0652",
+                "ODB-SC-0658",
+                "ODB-SC-0661",
+                "ODB-SC-0673",
+                "ODB-SC-0680",
+                "ODB-SC-0690",
+                "ODB-SC-0691",
+                "ODB-SC-0717",
+                "ODB-SC-0796",
+                "ODB-SC-0814",
+                "sc_cloned_no_ori:103",
+                "sc_cloned_no_ori:111",
+                "sc_cloned_no_ori:125",
+                "sc_cloned_no_ori:134",
+                "sc_cloned_no_ori:136",
+                "sc_cloned_no_ori:141",
+                "sc_cloned_no_ori:142",
+                "sc_cloned_no_ori:159",
+                "sc_cloned_no_ori:160",
+                "sc_cloned_no_ori:168",
+                "sc_cloned_no_ori:17",
+                "sc_cloned_no_ori:175",
+                "sc_cloned_no_ori:195",
+                "sc_cloned_no_ori:198",
+                "sc_cloned_no_ori:2",
+                "sc_cloned_no_ori:201",
+                "sc_cloned_no_ori:203",
+                "sc_cloned_no_ori:204",
+                "sc_cloned_no_ori:217",
+                "sc_cloned_no_ori:221",
+                "sc_cloned_no_ori:222",
+                "sc_cloned_no_ori:23",
+                "sc_cloned_no_ori:24",
+                "sc_cloned_no_ori:26",
+                "sc_cloned_no_ori:27",
+                "sc_cloned_no_ori:28",
+                "sc_cloned_no_ori:29",
+                "sc_cloned_no_ori:30",
+                "sc_cloned_no_ori:31",
+                "sc_cloned_no_ori:32",
+                "sc_cloned_no_ori:35",
+                "sc_cloned_no_ori:36",
+                "sc_cloned_no_ori:37",
+                "sc_cloned_no_ori:38",
+                "sc_cloned_no_ori:39",
+                "sc_cloned_no_ori:44",
+                "sc_cloned_no_ori:45",
+                "sc_cloned_no_ori:52",
+                "sc_cloned_no_ori:58",
+                "sc_cloned_no_ori:6",
+                "sc_cloned_no_ori:60",
+                "sc_cloned_no_ori:64",
+                "sc_cloned_no_ori:85",
+                "sc_cloned_no_ori:86",
+                "sc_cloned_no_ori:9",
+                "sc_cloned_no_ori:90",
+                "sc_cloned_no_ori:91",
+                "sc_cloned_no_ori:95"
+            ]
+        },
+        {
+            "id": "elements-unplaced",
+            "text": "3 of 1667 origin elements could not be placed in sacCer3 from their sequence alone - either the sequence does not occur in the current assembly, or it occurs several times with none near the coordinate v2 recorded. They are published without coordinates rather than placed on a guess; see anchor_status in elements.tsv.",
+            "accessions": []
+        },
+        {
+            "id": "sgd-coordinates",
+            "accessions": [],
+            "text": "OriDB intervals and the ARS features SGD and UCSC show for sacCer3 should describe the same object - the assayed fragment - and mostly they differ in a way that looks like a coordinate error rather than biology. Of the 424 Confirmed cerevisiae origins, 292 overlap one of the 389 ARS features in UCSC's sgdOther table for sacCer3, in 350 origin-feature pairs. 259 of those pairs share an IDENTICAL end coordinate and differ only at the start, and in 258 of them the SGD feature begins inside the OriDB interval: 244 by exactly 2 bp and 14 by 1 bp. When the v2 source records were examined, 194 of the 2 bp cases had an OriDB start that is the position of a PCR primer located in the genome by its own sequence, so the SGD feature begins two bases inside the primer that defined the fragment; that figure has not been recomputed against this release. None of this has been confirmed with SGD and it should be raised with them before either set is treated as authoritative at base resolution. Separately, 132 Confirmed origins overlap no SGD ARS feature and 47 SGD ARS features overlap no Confirmed origin."
+        }
     ],
-    "novel_sites": {
-      "n": 10,
-      "rule": "a cluster of calls within 1160 bp from at least two datasets, one of them licensing, matching no site carried from v2",
-      "accessions": [
-        "ODB-SC-0830",
-        "ODB-SC-0831",
-        "ODB-SC-0832",
-        "ODB-SC-0833",
-        "ODB-SC-0834",
-        "ODB-SC-0835",
-        "ODB-SC-0836",
-        "ODB-SC-0837",
-        "ODB-SC-0838",
-        "ODB-SC-0839"
-      ]
+    "lift": {
+        "from": "sacCer1",
+        "to": "sacCer3",
+        "chain": "reference/sacCer1ToSacCer3.over.chain.gz",
+        "chain_md5": "c3aa03bde2422b6c083f478ac42d4cdc",
+        "chain_source": "https://hgdownload.soe.ucsc.edu/goldenPath/sacCer1/liftOver/sacCer1ToSacCer3.over.chain.gz",
+        "tool": "pyliftover",
+        "sequence_verified": true,
+        "record_counts": {
+            "identical": 1705,
+            "length-changed": 108,
+            "same-length-mismatch": 84
+        },
+        "note": "Systematic names are NOT recomputed. They are coordinate-derived labels from the v2 build and are cited as such in the literature, so they stay fixed; a name like X-212 therefore need not match the lifted midpoint."
     },
-    "counts": {
-      "Saccharomyces cerevisiae | Confirmed": 424,
-      "Saccharomyces cerevisiae | Likely": 35,
-      "Saccharomyces cerevisiae | Unsupported": 380,
-      "Schizosaccharomyces pombe | Confirmed": 48,
-      "Schizosaccharomyces pombe | Not assessed": 693
+    "acs_motif": {
+        "width": 33,
+        "window": "-3 to +29",
+        "core_columns": [
+            4,
+            14
+        ],
+        "consensus": "WWWWTTTAYnTTTWKnnnnnnnnnnnnnnnWTn",
+        "derivation": "Position weight matrix built from the experimentally confirmed A elements, extended into sacCer3 either side of the 11 bp core. The window was chosen by information content, not assumed: it runs from 3 bp upstream of the core to 19 bp downstream, and includes the WTW motif that Chang et al. (PMID 18573888) place 17-19 bp from the ACS, which this matrix reproduces independently. Information content is measured against the sacCer3 base composition, not a uniform background, and the logo is drawn on the same scale.",
+        "training_elements": 68,
+        "excluded_elements": [],
+        "information_content_bits": 16.5,
+        "information_by_column": [
+            0.32,
+            0.33,
+            0.77,
+            0.45,
+            1.36,
+            1.05,
+            0.9,
+            1.13,
+            0.61,
+            0.41,
+            1.43,
+            1.51,
+            1.5,
+            0.58,
+            1.06,
+            0.47,
+            0.46,
+            0.01,
+            0.1,
+            0.03,
+            0.09,
+            0.02,
+            0.18,
+            0.06,
+            0.01,
+            0.02,
+            0.03,
+            0.01,
+            0.03,
+            0.06,
+            0.34,
+            0.82,
+            0.36
+        ],
+        "background": {
+            "A": 0.309,
+            "C": 0.1917,
+            "G": 0.1913,
+            "T": 0.308
+        },
+        "logo": "assets/acs_logo.svg",
+        "logo_column_width": 18,
+        "logo_left_pad": 62,
+        "applies_to_element_class": "A"
     },
-    "refuted": {
-      "n_fragments": 296,
-      "n_fragments_without_a_site": 112,
-      "n_sites_flagged": 147
+    "b2_motif": {
+        "width": 33,
+        "applies_to_element_class": "B2",
+        "consensus": "nnnnnnnnnnnnnnnnnnnnnnAAAWnWnnnnn",
+        "derivation": "Position weight matrix built from the placed B2 elements of Reuter et al. 2024 (PMID 39181881), extended into sacCer3 around the published interval and measured against the sacCer3 base composition, by the same recipe as the ACS matrix. B2 is a distinct element from the A element and is scored against this matrix, not against the ACS matrix.",
+        "training_elements": 303,
+        "information_content_bits": 9.24,
+        "information_by_column": [
+            0.05,
+            0.17,
+            0.33,
+            0.35,
+            0.3,
+            0.27,
+            0.09,
+            0.13,
+            0.07,
+            0.09,
+            0.07,
+            0.17,
+            0.12,
+            0.09,
+            0.11,
+            0.1,
+            0.14,
+            0.16,
+            0.27,
+            0.22,
+            0.18,
+            0.2,
+            0.8,
+            1.04,
+            0.94,
+            0.54,
+            0.53,
+            0.3,
+            0.17,
+            0.26,
+            0.3,
+            0.25,
+            0.43
+        ],
+        "background": {
+            "A": 0.309,
+            "C": 0.1917,
+            "G": 0.1913,
+            "T": 0.308
+        },
+        "logo": "assets/b2_logo.svg",
+        "logo_column_width": 18,
+        "logo_left_pad": 62
+    },
+    "elements": {
+        "description": "A and B2 elements from the four OriDB v2 element tables and from Reuter et al. 2024, each located in sacCer3 by its stored sequence rather than by its stored coordinates.",
+        "studies": {
+            "sc_confirmed_ACS": {
+                "element_type": "confirmed",
+                "pmid": "",
+                "source_assembly": "sacCer1"
+            },
+            "Nieduszynski2006_ACS": {
+                "element_type": "predicted",
+                "pmid": "16847347",
+                "source_assembly": "sacCer1"
+            },
+            "Eaton2010_ACS": {
+                "element_type": "predicted",
+                "pmid": "20351051",
+                "source_assembly": "sacCer1"
+            },
+            "Xu2006_ACS": {
+                "element_type": "predicted",
+                "pmid": "17067396",
+                "source_assembly": "sacCer2"
+            }
+        },
+        "anchor_status_counts": {
+            "unique": 1408,
+            "resolved-by-proximity": 256,
+            "ambiguous": 1,
+            "unanchored": 2
+        },
+        "link_counts": {
+            "contained": 1557,
+            "overlapping": 18,
+            "unlinked": 92
+        }
+    },
+    "per_origin_values": {
+        "description": "Two per-origin values read off modern genome-wide call sets: how often an origin fires, and when the DNA at it is replicated. They apply to Saccharomyces cerevisiae origins on sacCer3 only; S. pombe rows carry no value.",
+        "columns": {
+            "okseq_activity_oem": {
+                "meaning": "Origin efficiency (OEM) of the Okazaki-fragment initiation zone assigned to this origin: the fraction of cells in which the origin fires.",
+                "units": "fraction of cells, 0 to 1",
+                "caveat": "Raw OEM; the deconvolution correction of the original paper is not applied, so values near termination zones are under-estimates."
+            },
+            "okseq_call": {
+                "meaning": "Identifier of the initiation zone the value came from."
+            },
+            "okseq_distance_bp": {
+                "meaning": "Distance from the origin midpoint to that zone's derivative peak, so a user can see how well supported the value is."
+            },
+            "median_replication_time_composite_min": {
+                "meaning": "MEDIAN REPLICATION TIME at the timing peak assigned to this origin - the time by which half the cells have replicated the DNA there.",
+                "units": "minutes after release from alpha-factor arrest",
+                "caveat": "THIS IS NOT THE FIRING TIME of the origin. It is a composite of the firing-time distribution of this origin and the passive-replication-time distribution produced by forks from neighbouring origins, and must be labelled as such wherever it is shown."
+            },
+            "replication_time_call": {
+                "meaning": "Identifier of the timing peak the value came from."
+            },
+            "replication_time_distance_bp": {
+                "meaning": "Distance from the origin midpoint to the midpoint of that timing peak."
+            }
+        },
+        "empty_is_not_zero": "An origin with no qualifying call has an EMPTY value, never a zero. Both are firing assays: no call means the origin was not detected firing in that experiment, which is a real and interesting state - it may be licensed but rarely activated - and is not a measurement of zero activity or of a replication time of zero.",
+        "assignment_rule": {
+            "summary": "An origin takes the value of its nearest call only when the pairing is mutually nearest and within a distance cap set by that assay's measured positional error.",
+            "distance": "From the origin midpoint to the call's anchor point, which is the same point against which that dataset's positional error was measured in docs/study_resolution.csv: the derivative peak for an Ok-seq initiation zone, and the midpoint of the 1-minute band for a timing peak.",
+            "mutual_nearest": "The call must be the origin's nearest call AND the origin must be that call's nearest origin. This is what stops a value being attributed from a call that in fact belongs to a neighbouring origin; it also means no call ever supplies two origins.",
+            "cap_basis": "The 75th percentile of the assay's measured positional error (docs/study_resolution.csv). The median is the typical displacement of a true pairing and the p90 is dominated by origins the assay does not detect at all, so the p75 is the distance within which a call still plausibly belongs to this origin. Both caps are well inside half the median spacing between neighbouring origins (16,671 bp), so a capped call cannot reach past a neighbour.",
+            "caps_bp": {
+                "okseq": 1160,
+                "replication_time": 5520
+            },
+            "documentation": "docs/origin_activity_timing.md"
+        },
+        "datasets": {
+            "okseq": {
+                "calls": "docs/mcguffee2013_okseq_initiation_sites.bed",
+                "n_calls": 383,
+                "dataset_id": "mcguffee2013-saccer3",
+                "title": "Okazaki-fragment sequencing (McGuffee, Smith & Whitehouse 2013), re-analysed on sacCer3",
+                "pmid": "23562327",
+                "doi": "10.1016/j.molcel.2013.03.004",
+                "archive_series": [
+                    "GSE40696"
+                ],
+                "hub_track": "sacCer3/mcguffee2013/okseq.initiation_sites.bb",
+                "call_definition": "maxima of the derivative of fork directionality, OEM > 0.05"
+            },
+            "replication_time": {
+                "calls": "docs/muller2014_trep_peaks.bed",
+                "n_calls": 212,
+                "dataset_id": "muller2014-saccer3",
+                "title": "The dynamics of genome replication using deep sequencing (Muller et al. 2014), reprocessed on sacCer3",
+                "pmid": "24089142",
+                "doi": "10.1093/nar/gkt878",
+                "archive_series": [
+                    "GSE42243",
+                    "GSE48212"
+                ],
+                "hub_track": "sacCer3/muller2014/syncseq.trep.bw",
+                "call_definition": "local minima of the smoothed sync-seq Trep profile; the called interval is the band within 1 minute of the trough"
+            }
+        },
+        "counts": {
+            "cerevisiae_origins": 829,
+            "okseq": {
+                "assigned": 283,
+                "rejected_by_cap": 44,
+                "rejected_by_mutual_test": 8,
+                "rejected_by_both": 494,
+                "no_call_on_sequence": 0
+            },
+            "replication_time": {
+                "assigned": 210,
+                "rejected_by_cap": 1,
+                "rejected_by_mutual_test": 71,
+                "rejected_by_both": 547,
+                "no_call_on_sequence": 0
+            }
+        }
+    },
+    "tiers": {
+        "rule": {
+            "Confirmed": "a positive plasmid (ARS) assay or a 2D gel record at this site",
+            "Likely": "at least two datasets support the site and at least one measures licensing; firing assays share a blind spot, so two of them are not enough, and requiring one of each would make the tier mean \"active\"",
+            "Unsupported": "datasets cover this species and fewer than that support the site",
+            "Not assessed": "no dataset in the registry covers this species yet"
+        },
+        "refutation": "a negative ARS assay is carried as the ars_negative flag, never as a tier: it describes a tested interval, and a site can hold a positive and a negative assay at once",
+        "datasets": [
+            {
+                "dataset_id": "foss2024_mcm",
+                "study_pmid": "38315095",
+                "species": "Saccharomyces cerevisiae",
+                "measures": "licensing",
+                "counts_towards_tier": "yes",
+                "support_window_bp": "500",
+                "rank_max": "500"
+            },
+            {
+                "dataset_id": "mcguffee2013_okseq",
+                "study_pmid": "23562327",
+                "species": "Saccharomyces cerevisiae",
+                "measures": "firing",
+                "counts_towards_tier": "yes",
+                "support_window_bp": "1160",
+                "rank_max": ""
+            },
+            {
+                "dataset_id": "reuter2024_mcm",
+                "study_pmid": "39181881",
+                "species": "Saccharomyces cerevisiae",
+                "measures": "licensing",
+                "counts_towards_tier": "yes",
+                "support_window_bp": "500",
+                "rank_max": ""
+            },
+            {
+                "dataset_id": "reuter2024_orc_nonorigin",
+                "study_pmid": "39181881",
+                "species": "Saccharomyces cerevisiae",
+                "measures": "orc-without-mcm",
+                "counts_towards_tier": "no",
+                "support_window_bp": "500",
+                "rank_max": ""
+            },
+            {
+                "dataset_id": "muller2014_trep",
+                "study_pmid": "24089142",
+                "species": "Saccharomyces cerevisiae",
+                "measures": "timing",
+                "counts_towards_tier": "no",
+                "support_window_bp": "5520",
+                "rank_max": ""
+            }
+        ],
+        "novel_sites": {
+            "n": 10,
+            "rule": "a cluster of calls within 1160 bp from at least two datasets, one of them licensing, matching no site carried from v2",
+            "accessions": [
+                "ODB-SC-0830",
+                "ODB-SC-0831",
+                "ODB-SC-0832",
+                "ODB-SC-0833",
+                "ODB-SC-0834",
+                "ODB-SC-0835",
+                "ODB-SC-0836",
+                "ODB-SC-0837",
+                "ODB-SC-0838",
+                "ODB-SC-0839"
+            ]
+        },
+        "counts": {
+            "Saccharomyces cerevisiae | Confirmed": 424,
+            "Saccharomyces cerevisiae | Likely": 35,
+            "Saccharomyces cerevisiae | Unsupported": 380,
+            "Schizosaccharomyces pombe | Confirmed": 48,
+            "Schizosaccharomyces pombe | Not assessed": 693
+        },
+        "refuted": {
+            "n_fragments": 296,
+            "n_fragments_without_a_site": 112,
+            "n_sites_flagged": 147
+        }
+    },
+    "sgd_comparison": {
+        "features": "reference/sgd_saccer3_ars_features.bed",
+        "feature_source": "UCSC sgdOther for sacCer3, features named ARS*",
+        "counts": {
+            "n_confirmed": 424,
+            "n_features": 389,
+            "n_with_feature": 292,
+            "n_pairs": 350,
+            "n_same_end": 259,
+            "n_same_end_inside": 258,
+            "n_offset_2": 244,
+            "n_offset_1": 14,
+            "n_without_feature": 132,
+            "n_features_unmatched": 47
+        }
     }
-  },
-  "sgd_comparison": {
-    "features": "reference/sgd_saccer3_ars_features.bed",
-    "feature_source": "UCSC sgdOther for sacCer3, features named ARS*",
-    "counts": {
-      "n_confirmed": 424,
-      "n_features": 389,
-      "n_with_feature": 292,
-      "n_pairs": 350,
-      "n_same_end": 259,
-      "n_same_end_inside": 258,
-      "n_offset_2": 244,
-      "n_offset_1": 14,
-      "n_without_feature": 132,
-      "n_features_unmatched": 47
-    }
-  }
 }

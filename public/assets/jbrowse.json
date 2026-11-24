@@ -1,5 +1,5 @@
 {
-    "generated": "2026-11-23T19:09:01+00:00",
+    "generated": "2026-11-24T10:20:06+00:00",
     "hub": {
         "base_url": "https://dnareplicationlab.github.io/oridb-data-hub/",
         "url": "https://dnareplicationlab.github.io/oridb-data-hub/hub.txt"
@@ -136,7 +136,15 @@
                     "bigWigLocation": {
                         "uri": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/muller2014/syncseq.trep.bw"
                     }
-                }
+                },
+                "displays": [
+                    {
+                        "type": "LinearWiggleDisplay",
+                        "displayId": "sacCer3-ov_timing-display",
+                        "autoscale": "local",
+                        "inverted": true
+                    }
+                ]
             },
             {
                 "type": "QuantitativeTrack",
@@ -154,7 +162,14 @@
                     "bigWigLocation": {
                         "uri": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/muller2014/syncseq_AUY077_90min.smooth.bw"
                     }
-                }
+                },
+                "displays": [
+                    {
+                        "type": "LinearWiggleDisplay",
+                        "displayId": "sacCer3-timecourse_syncseq_AUY077_90min_smooth-display",
+                        "autoscale": "local"
+                    }
+                ]
             },
             {
                 "type": "QuantitativeTrack",
@@ -172,7 +187,14 @@
                     "bigWigLocation": {
                         "uri": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/muller2014/syncseq_AUY077_50min.smooth.bw"
                     }
-                }
+                },
+                "displays": [
+                    {
+                        "type": "LinearWiggleDisplay",
+                        "displayId": "sacCer3-timecourse_syncseq_AUY077_50min_smooth-display",
+                        "autoscale": "local"
+                    }
+                ]
             },
             {
                 "type": "QuantitativeTrack",
@@ -190,7 +212,14 @@
                     "bigWigLocation": {
                         "uri": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/muller2014/syncseq_AUY077_45min.smooth.bw"
                     }
-                }
+                },
+                "displays": [
+                    {
+                        "type": "LinearWiggleDisplay",
+                        "displayId": "sacCer3-timecourse_syncseq_AUY077_45min_smooth-display",
+                        "autoscale": "local"
+                    }
+                ]
             },
             {
                 "type": "QuantitativeTrack",
@@ -208,7 +237,14 @@
                     "bigWigLocation": {
                         "uri": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/muller2014/syncseq_AUY077_40min.smooth.bw"
                     }
-                }
+                },
+                "displays": [
+                    {
+                        "type": "LinearWiggleDisplay",
+                        "displayId": "sacCer3-timecourse_syncseq_AUY077_40min_smooth-display",
+                        "autoscale": "local"
+                    }
+                ]
             },
             {
                 "type": "QuantitativeTrack",
@@ -226,7 +262,14 @@
                     "bigWigLocation": {
                         "uri": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/muller2014/syncseq_AUY077_35min.smooth.bw"
                     }
-                }
+                },
+                "displays": [
+                    {
+                        "type": "LinearWiggleDisplay",
+                        "displayId": "sacCer3-timecourse_syncseq_AUY077_35min_smooth-display",
+                        "autoscale": "local"
+                    }
+                ]
             },
             {
                 "type": "QuantitativeTrack",
@@ -244,7 +287,14 @@
                     "bigWigLocation": {
                         "uri": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/muller2014/syncseq_AUY077_30min.smooth.bw"
                     }
-                }
+                },
+                "displays": [
+                    {
+                        "type": "LinearWiggleDisplay",
+                        "displayId": "sacCer3-timecourse_syncseq_AUY077_30min_smooth-display",
+                        "autoscale": "local"
+                    }
+                ]
             },
             {
                 "type": "QuantitativeTrack",
@@ -262,7 +312,14 @@
                     "bigWigLocation": {
                         "uri": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/muller2014/syncseq_AUY077_25min.smooth.bw"
                     }
-                }
+                },
+                "displays": [
+                    {
+                        "type": "LinearWiggleDisplay",
+                        "displayId": "sacCer3-timecourse_syncseq_AUY077_25min_smooth-display",
+                        "autoscale": "local"
+                    }
+                ]
             },
             {
                 "type": "QuantitativeTrack",
@@ -280,7 +337,14 @@
                     "bigWigLocation": {
                         "uri": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/muller2014/sortseq_T9475_SOLiD.smooth.bw"
                     }
-                }
+                },
+                "displays": [
+                    {
+                        "type": "LinearWiggleDisplay",
+                        "displayId": "sacCer3-sortseq_ploidy_sortseq_T9475_SOLiD_smooth-display",
+                        "autoscale": "local"
+                    }
+                ]
             },
             {
                 "type": "QuantitativeTrack",
@@ -298,7 +362,14 @@
                     "bigWigLocation": {
                         "uri": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/muller2014/sortseq_T7107_SOLiD.smooth.bw"
                     }
-                }
+                },
+                "displays": [
+                    {
+                        "type": "LinearWiggleDisplay",
+                        "displayId": "sacCer3-sortseq_ploidy_sortseq_T7107_SOLiD_smooth-display",
+                        "autoscale": "local"
+                    }
+                ]
             },
             {
                 "type": "QuantitativeTrack",
@@ -316,7 +387,14 @@
                     "bigWigLocation": {
                         "uri": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/muller2014/sortseq_T9475_Illumina.smooth.bw"
                     }
-                }
+                },
+                "displays": [
+                    {
+                        "type": "LinearWiggleDisplay",
+                        "displayId": "sacCer3-sortseq_platform_sortseq_T9475_Illumina_smooth-display",
+                        "autoscale": "local"
+                    }
+                ]
             },
             {
                 "type": "QuantitativeTrack",
@@ -334,7 +412,14 @@
                     "bigWigLocation": {
                         "uri": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/muller2014/mfaseq_T7107.smooth.bw"
                     }
-                }
+                },
+                "displays": [
+                    {
+                        "type": "LinearWiggleDisplay",
+                        "displayId": "sacCer3-mfaseq_mfaseq_T7107_smooth-display",
+                        "autoscale": "local"
+                    }
+                ]
             },
             {
                 "type": "QuantitativeTrack",
@@ -352,7 +437,14 @@
                     "bigWigLocation": {
                         "uri": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/muller2014/hu_CAY106.smooth.bw"
                     }
-                }
+                },
+                "displays": [
+                    {
+                        "type": "LinearWiggleDisplay",
+                        "displayId": "sacCer3-hu_hu_CAY106_smooth-display",
+                        "autoscale": "local"
+                    }
+                ]
             },
             {
                 "type": "FeatureTrack",
@@ -388,7 +480,14 @@
                     "bigWigLocation": {
                         "uri": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/mcguffee2013/okseq.directionality.bw"
                     }
-                }
+                },
+                "displays": [
+                    {
+                        "type": "LinearWiggleDisplay",
+                        "displayId": "sacCer3-ov_fd-display",
+                        "autoscale": "local"
+                    }
+                ]
             },
             {
                 "type": "FeatureTrack",
@@ -424,7 +523,14 @@
                     "bigWigLocation": {
                         "uri": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/mcguffee2013/okseq.derivative.bw"
                     }
-                }
+                },
+                "displays": [
+                    {
+                        "type": "LinearWiggleDisplay",
+                        "displayId": "sacCer3-initiation_okseq_derivative-display",
+                        "autoscale": "local"
+                    }
+                ]
             },
             {
                 "type": "QuantitativeTrack",
@@ -442,7 +548,14 @@
                     "bigWigLocation": {
                         "uri": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/mcguffee2013/okseq.oem.bw"
                     }
-                }
+                },
+                "displays": [
+                    {
+                        "type": "LinearWiggleDisplay",
+                        "displayId": "sacCer3-initiation_okseq_oem-display",
+                        "autoscale": "local"
+                    }
+                ]
             },
             {
                 "type": "QuantitativeTrack",
@@ -460,7 +573,14 @@
                     "bigWigLocation": {
                         "uri": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/mcguffee2013/okseq.watson.bw"
                     }
-                }
+                },
+                "displays": [
+                    {
+                        "type": "LinearWiggleDisplay",
+                        "displayId": "sacCer3-strands_okseq_watson-display",
+                        "autoscale": "local"
+                    }
+                ]
             },
             {
                 "type": "QuantitativeTrack",
@@ -478,7 +598,14 @@
                     "bigWigLocation": {
                         "uri": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/mcguffee2013/okseq.crick.bw"
                     }
-                }
+                },
+                "displays": [
+                    {
+                        "type": "LinearWiggleDisplay",
+                        "displayId": "sacCer3-strands_okseq_crick-display",
+                        "autoscale": "local"
+                    }
+                ]
             }
         ],
         "ASM294v2": [
@@ -526,7 +653,15 @@
                     "bigWigLocation": {
                         "uri": "https://dnareplicationlab.github.io/oridb-data-hub/GCF_000002945.1/daigaku2015/puseq.trep.bw"
                     }
-                }
+                },
+                "displays": [
+                    {
+                        "type": "LinearWiggleDisplay",
+                        "displayId": "ASM294v2-ov_sp_timing-display",
+                        "autoscale": "local",
+                        "inverted": true
+                    }
+                ]
             },
             {
                 "type": "QuantitativeTrack",
@@ -544,7 +679,14 @@
                     "bigWigLocation": {
                         "uri": "https://dnareplicationlab.github.io/oridb-data-hub/GCF_000002945.1/daigaku2015/puseq.leftward_fork.bw"
                     }
-                }
+                },
+                "displays": [
+                    {
+                        "type": "LinearWiggleDisplay",
+                        "displayId": "ASM294v2-ov_sp_fd-display",
+                        "autoscale": "local"
+                    }
+                ]
             },
             {
                 "type": "FeatureTrack",
@@ -590,7 +732,14 @@
                     "bigWigLocation": {
                         "uri": "https://dnareplicationlab.github.io/oridb-data-hub/GCF_000002945.1/daigaku2015/puseq.termination.bw"
                     }
-                }
+                },
+                "displays": [
+                    {
+                        "type": "LinearWiggleDisplay",
+                        "displayId": "ASM294v2-termination_puseq_termination-display",
+                        "autoscale": "local"
+                    }
+                ]
             },
             {
                 "type": "QuantitativeTrack",
@@ -608,7 +757,14 @@
                     "bigWigLocation": {
                         "uri": "https://dnareplicationlab.github.io/oridb-data-hub/GCF_000002945.1/foss2021/mcm2chec.hu_rep1.all.bw"
                     }
-                }
+                },
+                "displays": [
+                    {
+                        "type": "LinearWiggleDisplay",
+                        "displayId": "ASM294v2-ov_sp_mcm-display",
+                        "autoscale": "local"
+                    }
+                ]
             },
             {
                 "type": "QuantitativeTrack",
@@ -626,7 +782,14 @@
                     "bigWigLocation": {
                         "uri": "https://dnareplicationlab.github.io/oridb-data-hub/GCF_000002945.1/foss2021/mcm2chec.g1_rep1.all.bw"
                     }
-                }
+                },
+                "displays": [
+                    {
+                        "type": "LinearWiggleDisplay",
+                        "displayId": "ASM294v2-mcm_all_mcm2chec_g1_rep1_all-display",
+                        "autoscale": "local"
+                    }
+                ]
             },
             {
                 "type": "QuantitativeTrack",
@@ -644,7 +807,14 @@
                     "bigWigLocation": {
                         "uri": "https://dnareplicationlab.github.io/oridb-data-hub/GCF_000002945.1/foss2021/mcm2chec.hu_rep1.51_100bp.bw"
                     }
-                }
+                },
+                "displays": [
+                    {
+                        "type": "LinearWiggleDisplay",
+                        "displayId": "ASM294v2-mcm_51_100_mcm2chec_hu_rep1_51_100bp-display",
+                        "autoscale": "local"
+                    }
+                ]
             },
             {
                 "type": "QuantitativeTrack",
@@ -662,7 +832,14 @@
                     "bigWigLocation": {
                         "uri": "https://dnareplicationlab.github.io/oridb-data-hub/GCF_000002945.1/foss2021/mcm2chec.g1_rep1.51_100bp.bw"
                     }
-                }
+                },
+                "displays": [
+                    {
+                        "type": "LinearWiggleDisplay",
+                        "displayId": "ASM294v2-mcm_51_100_mcm2chec_g1_rep1_51_100bp-display",
+                        "autoscale": "local"
+                    }
+                ]
             },
             {
                 "type": "QuantitativeTrack",
@@ -680,7 +857,14 @@
                     "bigWigLocation": {
                         "uri": "https://dnareplicationlab.github.io/oridb-data-hub/GCF_000002945.1/foss2021/mcm2chec.hu_rep1.151_200bp.bw"
                     }
-                }
+                },
+                "displays": [
+                    {
+                        "type": "LinearWiggleDisplay",
+                        "displayId": "ASM294v2-mcm_151_200_mcm2chec_hu_rep1_151_200bp-display",
+                        "autoscale": "local"
+                    }
+                ]
             },
             {
                 "type": "QuantitativeTrack",
@@ -698,7 +882,14 @@
                     "bigWigLocation": {
                         "uri": "https://dnareplicationlab.github.io/oridb-data-hub/GCF_000002945.1/foss2021/mcm2chec.g1_rep1.151_200bp.bw"
                     }
-                }
+                },
+                "displays": [
+                    {
+                        "type": "LinearWiggleDisplay",
+                        "displayId": "ASM294v2-mcm_151_200_mcm2chec_g1_rep1_151_200bp-display",
+                        "autoscale": "local"
+                    }
+                ]
             },
             {
                 "type": "QuantitativeTrack",
@@ -716,7 +907,14 @@
                     "bigWigLocation": {
                         "uri": "https://dnareplicationlab.github.io/oridb-data-hub/GCF_000002945.1/foss2021/mcm2chec.hu_rep2.all.bw"
                     }
-                }
+                },
+                "displays": [
+                    {
+                        "type": "LinearWiggleDisplay",
+                        "displayId": "ASM294v2-mcm_reps_mcm2chec_hu_rep2_all-display",
+                        "autoscale": "local"
+                    }
+                ]
             },
             {
                 "type": "QuantitativeTrack",
@@ -734,7 +932,14 @@
                     "bigWigLocation": {
                         "uri": "https://dnareplicationlab.github.io/oridb-data-hub/GCF_000002945.1/foss2021/free_mnase.rep1.bw"
                     }
-                }
+                },
+                "displays": [
+                    {
+                        "type": "LinearWiggleDisplay",
+                        "displayId": "ASM294v2-mnase_control_free_mnase_rep1-display",
+                        "autoscale": "local"
+                    }
+                ]
             }
         ]
     },

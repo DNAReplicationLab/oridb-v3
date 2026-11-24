@@ -270,6 +270,13 @@ foreach ($genomeStanzas as $g) {
         $dataset = str_contains($url, '/') ? explode('/', $url)[0] : '';
         $rel = hub_join($tdbDir, $url);
         $size = hub_size($src, $rel);
+        // `negateValues on` is how a trackDb says this profile reads better upside
+        // down: a replication time, where early is a small number and should plot
+        // high. The setting may sit on the subtrack or on the container it belongs
+        // to, and an embedded viewer has to be told the same thing, so the flag
+        // travels with the track instead of being guessed at from its name.
+        $container = $byName[$group] ?? [];
+        $negated = ($s['negateValues'] ?? $container['negateValues'] ?? 'off') === 'on';
         $entry = [
             'track' => $s['track'],
             'shortLabel' => $s['shortLabel'] ?? $s['track'],
@@ -278,6 +285,7 @@ foreach ($genomeStanzas as $g) {
             'file' => basename($url),
             'url' => $served === '' ? '' : $served . $url,
             'bytes' => $size,
+            'negated' => $negated,
         ];
         if ($size > 0) {
             $nFiles++;
