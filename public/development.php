@@ -126,12 +126,14 @@ require ORIDB_APP_DIR . '/header.php';
 
 <h2>What is deliberately not here yet</h2>
 <ul>
-  <li><strong>Genome-wide data for <em>S.&nbsp;pombe</em>.</strong> Every dataset in the registry
-      that decides a tier covers budding yeast, so every fission yeast site that is not Confirmed
-      is shown as <em>not assessed</em> rather than placed in a tier, and the
-      <a href="datahub.php">data hub</a> serves OriDB's own records on that assembly but no
-      measured profile yet. Adding a fission yeast dataset is the next thing that would change a
-      large number of records.</li>
+  <li><strong>Registered evidence for <em>S.&nbsp;pombe</em>.</strong> The
+      <a href="datahub.php">data hub</a> now serves fission yeast profiles &mdash; polymerase
+      usage, replication timing, termination and MCM occupancy &mdash; but none of them is yet a
+      registered dataset in the tier rule, so every fission yeast site that is not Confirmed is
+      still shown as <em>not assessed</em>. What is missing is a call set for the licensing axis:
+      MCM sites have to be called from the occupancy signal before a site can be corroborated by
+      two assays that fail differently, which is what <em>likely</em> requires. That is the next
+      thing that would change a large number of records.</li>
   <li><strong>A database back end.</strong> The trial is flat files on purpose: it keeps the
       release reproducible and checksummed while the schema is still moving.</li>
   <li><strong>Stable URLs.</strong> Accessions are permanent; the paths that serve them are not

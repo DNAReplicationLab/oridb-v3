@@ -46,9 +46,12 @@ require ORIDB_APP_DIR . '/header.php';
   <dd>Those datasets cover this species and do not support this site. This is a statement
       about the evidence, not a claim that no origin is here.</dd>
   <dt><span class="tag unassessed">Not assessed</span></dt>
-  <dd>No dataset in the registry covers that species yet, so nothing has looked. Every
-      <em>S.&nbsp;pombe</em> site that is not confirmed sits here until a fission yeast dataset
-      is added.</dd>
+  <dd>No dataset in the <em>registry</em> covers that species yet, so no tier has been
+      computed. Every <em>S.&nbsp;pombe</em> site that is not confirmed sits here. That is now a
+      statement about the registry rather than about the literature: fission yeast profiles are
+      served in the <a href="datahub.php">data hub</a> and drawn on the origin pages, but a
+      profile is not evidence until it is reduced to a call set and registered, with its
+      measured positional error.</dd>
 </dl>
 <p>
   A site that was cloned and failed to support replication carries a separate

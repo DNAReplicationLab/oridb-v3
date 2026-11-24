@@ -100,7 +100,7 @@ require ORIDB_APP_DIR . '/header.php';
 /**
  * One table, rendered per section. The Elements column is dropped where no
  * element in the release belongs to that species, rather than printed as a
- * column of dashes: the element layer is cerevisiae-only, and a column that
+ * column of N/A: the element layer is cerevisiae-only, and a column that
  * cannot hold a value for this species says something untrue about the gap.
  */
 $table = static function (array $rows, bool $withElements) use ($counts, $elementCounts, $datasetCounts): void { ?>
@@ -122,15 +122,16 @@ $table = static function (array $rows, bool $withElements) use ($counts, $elemen
       <td><?= h($s['title']) ?></td>
       <td class="small"><?= h($s['journal']) ?></td>
       <?php
-      // A dash, not a zero: this study took a different route in, and a zero
-      // would read as a study that looked and found nothing.
+      // N/A, not a zero: this study took a different route in, and a zero would
+      // read as a study that looked and found nothing. It is not a dash either,
+      // which in a column of numbers reads as a minus sign.
       $cells = [count($counts[$s['pmid']] ?? [])];
       if ($withElements) {
           $cells[] = $elementCounts[$s['pmid']] ?? 0;
       }
       $cells[] = $datasetCounts[$s['pmid']] ?? 0;
       foreach ($cells as $n): ?>
-        <td class="num"><?= $n > 0 ? h(bp($n)) : '<span class="small">&ndash;</span>' ?></td>
+        <td class="num"><?= $n > 0 ? h(bp($n)) : '<span class="small">N/A</span>' ?></td>
       <?php endforeach; ?>
     </tr>
   <?php endforeach; ?>

@@ -206,7 +206,8 @@ recorded for this site. Each record is an individual assay reported by the cited
 </table>
 <p class="small">
   Strength is the grade the cited study gave a positive ARS assay (strong, weak or very
-  weak colony growth). A dash means the study reported no grade, not that the assay was weak.
+  weak colony growth). <em>N/A</em> means the study reported no grade, which is not the same
+  as a weak assay: most ARS assays were published as a positive result without a grade.
 </p>
 
 <?php
