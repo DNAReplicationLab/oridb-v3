@@ -153,10 +153,20 @@ foreach ($hub['genomes'] as $g) {
                     // used as `minScore`. The upper bound is deliberately NOT used -
                     // the maximum stays on local autoscale, so a window still fills
                     // the panel. And `graphTypeDefault points` is a trackDb saying
-                    // this profile is a continuous trace; JBrowse has no points
-                    // renderer, and a line is what that means here - a filled area
-                    // under a replication time would be a block of colour whose
-                    // height is the only part carrying information.
+                    // this profile is a continuous trace rather than a
+                    // bar chart, and is drawn here by turning the fill off: a filled
+                    // area under a replication time is a block of colour whose top
+                    // edge is the only part carrying information.
+                    //
+                    // The fill is turned off on the XY plot rather than by asking for
+                    // JBrowse's own line renderer, which cannot be used on a track
+                    // that is drawn upside down. In 4.3.0 LinePlotRenderer computes
+                    // its own pixel position, `height - (value - min) * scale`, and
+                    // never reads `inverted`; the y-axis labels are drawn by the
+                    // display, which does read it, so the two disagree and an early
+                    // replication time is drawn as a trough against an axis that says
+                    // it is a peak. The XY plot takes `inverted` as a render prop and
+                    // honours it.
                     $display = null;
                     if ($a['track'] === 'QuantitativeTrack') {
                         $display = [
@@ -173,7 +183,7 @@ foreach ($hub['genomes'] as $g) {
                             $display['minScore'] = $floor;
                         }
                         if (($t['graphType'] ?? '') === 'points') {
-                            $display['defaultRendering'] = 'line';
+                            $display['renderers'] = ['XYPlotRenderer' => ['filled' => false]];
                         }
                     }
                     $byUrl[$t['url']] = [

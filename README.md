@@ -180,9 +180,11 @@ and which handful to draw by default — the last taken from the hub's own *over
 section rather than chosen here. How a profile is drawn is also the hub's decision, not
 this repository's: `negateValues` turns the y-axis over so an early replication time reads
 as a peak, the lower bound of `viewLimits` becomes the floor of that axis so a profile that
-never approaches zero is not drawn from zero, and `graphTypeDefault points` is drawn as a
-line rather than a filled area. The upper bound is deliberately left to autoscale, so a
-window still fills the panel. `build_oridb_tracks.py` goes the other way, rendering
+never approaches zero is not drawn from zero, and `graphTypeDefault points` turns the fill
+off, leaving a trace rather than a block of colour. The upper bound is deliberately left to
+autoscale, so a window still fills the panel. The fill is turned off on the XY plot rather
+than by selecting JBrowse's `line` rendering, which in 4.3.0 ignores `inverted` and so
+draws an upside-down profile against a correctly labelled axis. `build_oridb_tracks.py` goes the other way, rendering
 this database's origins, elements and ARS-negative fragments as bigBed **into the hub**,
 so the records can be drawn beside the data they were called from. Run it once per
 assembly, then regenerate the hub's trackDb with the hub's own `bin/make_trackhub.py`.
