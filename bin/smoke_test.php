@@ -364,6 +364,45 @@ if ($withValue === 0) {
     printf("ok    %d origin(s) carry an activity or a replication time\n", $withValue);
 }
 
+// A rank is derived from the values, so it can be left behind by a rebuild and
+// go on looking plausible: a stale rank is wrong in a way no reader can see.
+// Check the two that matter - every value has a rank and no blank does - and
+// that the best-ranked origin really is the best one.
+foreach ([['okseq_activity_oem', 'okseq_activity', 'high'],
+          ['median_replication_time_composite_min', 'replication_time', 'low']] as [$valueCol, $prefix, $better]) {
+    $values = [];
+    $best = null;
+    $mismatched = 0;
+    foreach ($origins as $o) {
+        $hasValue = ($o[$valueCol] ?? '') !== '';
+        $hasRank = ($o[$prefix . '_rank'] ?? '') !== '';
+        if ($hasValue !== $hasRank) {
+            $mismatched++;
+        } elseif ($hasValue) {
+            // Ties share a rank, so the ranks are counted as a list rather than
+            // keyed by rank, which would quietly drop every origin after a tie.
+            $values[] = (float) $o[$valueCol];
+            if ((int) $o[$prefix . '_rank'] === 1) {
+                $best = (float) $o[$valueCol];
+            }
+        }
+    }
+    if ($mismatched > 0) {
+        printf("FAIL  %d origin(s) have a %s but no rank, or the other way about - "
+             . "run bin/build_origin_ranks.py\n", $mismatched, $valueCol);
+        $failures++;
+        continue;
+    }
+    $extreme = $values === [] ? null : ($better === 'high' ? max($values) : min($values));
+    if ($best === null || $best !== $extreme) {
+        printf("FAIL  the origin ranked 1 by %s is not the %s one - "
+             . "run bin/build_origin_ranks.py\n", $prefix, $better === 'high' ? 'highest' : 'lowest');
+        $failures++;
+    } else {
+        printf("ok    %d origin(s) ranked by %s, best = %s\n", count($values), $prefix, (string) $best);
+    }
+}
+
 // The tier is derived from the matrix, so every site of a species some dataset
 // covers must appear in it. A species with no dataset has no rows by definition.
 $inMatrix = [];

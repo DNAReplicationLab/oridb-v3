@@ -176,12 +176,17 @@ IUPAC = {'W': 'AT', 'Y': 'CT', 'R': 'AG', 'A': 'A', 'C': 'C', 'G': 'G', 'T': 'T'
 # Dropping weak-scoring ones would bias the matrix towards its own consensus.
 
 
-def load_builder():
-    """Reuse the dump parser from build_from_v2.py rather than duplicating it."""
-    spec = importlib.util.spec_from_file_location('b', ROOT / 'bin' / 'build_from_v2.py')
+def load_sibling(name: str):
+    """Reuse a sibling script's code rather than duplicating it."""
+    spec = importlib.util.spec_from_file_location(name, ROOT / 'bin' / (name + '.py'))
     mod = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(mod)
     return mod
+
+
+def load_builder():
+    """Reuse the dump parser from build_from_v2.py rather than duplicating it."""
+    return load_sibling('build_from_v2')
 
 
 def rc(s: str) -> str:
@@ -844,6 +849,15 @@ def main() -> None:
         orow['median_replication_time_composite_min'] = trep_hit[0]['value'] if trep_hit else ''
         orow['replication_time_call'] = trep_hit[0]['name'] if trep_hit else ''
         orow['replication_time_distance_bp'] = str(trep_hit[1]) if trep_hit else ''
+    # Where each value sits among the origins that carry the same measurement.
+    # Done here, in the same pass that writes the values, so a rebuild can never
+    # leave a rank behind that belongs to the values of a previous release;
+    # bin/build_origin_ranks.py is the same code run on its own.
+    ranks = load_sibling('build_origin_ranks')
+    rank_counts = ranks.apply_ranks(origin_header, origin_rows)
+    for prefix, per_species in sorted(rank_counts.items()):
+        for species, n in per_species.items():
+            print(f'  ranked {n:5d} {species} origin(s) by {prefix}')
     write_tsv(DATA / 'origins.tsv', origin_header, origin_rows)
 
     # ---- release metadata ----------------------------------------------------
@@ -996,6 +1010,7 @@ def main() -> None:
             'replication_time': trep_tally,
         },
     }
+    ranks.document(rel, rank_counts)
     rel['files']['origins.tsv'] = {
         'md5': hashlib.md5((DATA / 'origins.tsv').read_bytes()).hexdigest(),
         'rows': len(origin_rows),

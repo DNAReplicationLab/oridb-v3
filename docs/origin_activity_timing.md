@@ -161,12 +161,40 @@ this origin's firing, if any, was below what the experiment could resolve. A use
 on activity should therefore treat the 150 origins without a value as *unmeasured*, not as
 the bottom of the activity range.
 
+## Rank
+
+Each value is published with a rank, because the figure alone does not tell a reader
+whether it is high or low: an OEM of 0.31 is a middling origin and a Trep of 31 minutes is
+an early one.
+
+* The population is the origins **of the same species that carry that measurement** — 283
+  for efficiency and 210 for replication time, against 839 cerevisiae origins in the
+  release. Ranking against the release instead would turn an origin the assay never
+  resolved into a poor one, which is the error this document exists to prevent.
+* Rank 1 is the **highest** efficiency and the **earliest** replication time. Ties share
+  the better rank, so two origins at rank 4 are followed by rank 6.
+* The percentile is the rank as a percentage of the population, rounded **up**, so the best
+  origin of 283 reads as the top 1% and no origin is ever reported better than it is.
+
+The ranks are columns of `origins.tsv` (`okseq_activity_rank`, `_rank_of`, `_percentile`
+and the `replication_time_` equivalents), so the page, the API and a download agree. An
+origin without a value has empty rank columns; it is not ranked last.
+
 ## Reproducing
 
 The values are produced by step 3 of the pipeline, not by hand:
 
 ```bash
 python3 bin/build_elements.py /path/to/nieduszy_oridb.sql --sacCer3 DIR
+```
+
+That step calls `bin/build_origin_ranks.py` for the ranks; to recompute them alone, from a
+committed `origins.tsv` and without the dump:
+
+```bash
+python3 bin/build_origin_ranks.py          # rewrite the rank columns
+python3 bin/build_origin_ranks.py --check  # report stale ranks, write nothing
+php bin/refresh_release_checksums.php      # the md5 in release.json
 ```
 
 The rule, the caps, the datasets and the counts above are written into

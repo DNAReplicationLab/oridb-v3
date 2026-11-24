@@ -41,6 +41,22 @@ $hub = json_decode((string) file_get_contents($hubFile), true, 512, JSON_THROW_O
 $base = rtrim((string) $hub['hub']['base_url'], '/') . '/';
 
 /** A hub track's `type` line decides which JBrowse track and adapter it becomes. */
+/**
+ * The lower bound of a trackDb `viewLimits`, in the values the file actually holds.
+ *
+ * A negated track is stored the right way up and turned over for display, so UCSC's
+ * limits are written in the negated space: `viewLimits -85:-25` on a replication time
+ * means the file runs from 25 to 85 minutes, and the floor is 25, not -85.
+ */
+function view_limit_floor(string $viewLimits, bool $negated): ?float
+{
+    if (!preg_match('/^\s*(-?[\d.]+)\s*:\s*(-?[\d.]+)\s*$/', $viewLimits, $m)) {
+        return null;
+    }
+    [$low, $high] = [(float) $m[1], (float) $m[2]];
+    return $negated ? -max($low, $high) : min($low, $high);
+}
+
 function adapter_for(string $type, string $url): ?array
 {
     if (str_starts_with($type, 'bigWig')) {
@@ -126,6 +142,21 @@ foreach ($hub['genomes'] as $g) {
                     // `inverted` turns the axis over for a track the hub marked
                     // negateValues, so an early replication time is a peak and an
                     // origin reads as one.
+                    //
+                    // Two further settings come from the hub rather than from a
+                    // judgement made here. A floor, because JBrowse pulls a linear
+                    // y-axis down to zero whenever the data are all positive, and a
+                    // replication time that runs from 27 to 83 minutes is then drawn
+                    // in the top two thirds of the panel with the origins flattened
+                    // against the frame: the hub's `viewLimits` already states the
+                    // range the profile is worth reading over, so its lower bound is
+                    // used as `minScore`. The upper bound is deliberately NOT used -
+                    // the maximum stays on local autoscale, so a window still fills
+                    // the panel. And `graphTypeDefault points` is a trackDb saying
+                    // this profile is a continuous trace; JBrowse has no points
+                    // renderer, and a line is what that means here - a filled area
+                    // under a replication time would be a block of colour whose
+                    // height is the only part carrying information.
                     $display = null;
                     if ($a['track'] === 'QuantitativeTrack') {
                         $display = [
@@ -133,8 +164,16 @@ foreach ($hub['genomes'] as $g) {
                             'displayId' => $assembly . '-' . $t['track'] . '-display',
                             'autoscale' => 'local',
                         ];
-                        if ($t['negated'] ?? false) {
+                        $inverted = (bool) ($t['negated'] ?? false);
+                        if ($inverted) {
                             $display['inverted'] = true;
+                        }
+                        $floor = view_limit_floor((string) ($t['viewLimits'] ?? ''), $inverted);
+                        if ($floor !== null) {
+                            $display['minScore'] = $floor;
+                        }
+                        if (($t['graphType'] ?? '') === 'points') {
+                            $display['defaultRendering'] = 'line';
                         }
                     }
                     $byUrl[$t['url']] = [

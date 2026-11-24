@@ -159,6 +159,17 @@ require ORIDB_APP_DIR . '/header.php';
   origin that holds it.
 </p>
 <p>
+  Each value is also given as a <strong>rank</strong>, because the number on its own says
+  little: an efficiency of 0.31 is a middling origin and a replication time of 31 minutes is
+  an early one, and nothing in the figure itself tells a reader which. An origin is ranked
+  against the origins <strong>of the same species that carry the same measurement</strong>
+  &mdash; not against the release, since an origin the assay never resolved would otherwise
+  be counted as a poor one &mdash; and the size of that population is shown beside the rank.
+  Rank 1 is the most efficient origin, and the earliest replicating one; ties share a rank.
+  The ranks are published as columns of <code>origins.tsv</code>, so a download says the same
+  as the page.
+</p>
+<p>
   Two further qualifications. The efficiency is the <strong>raw OEM</strong>, without the
   deconvolution the original study applied, so values are under-estimates close to a
   termination zone. The replication time is a <strong>composite</strong> and not a firing

@@ -230,6 +230,7 @@ $dyn = [
         'assay'   => 'Okazaki-fragment sequencing',
         'dataset' => 'mcguffee2013_okseq',
         'column'  => 'okseq_call',
+        'prefix'  => 'okseq_activity',
     ],
     [
         'label'   => 'Median replication time',
@@ -244,6 +245,7 @@ $dyn = [
         'assay'   => 'sync-seq replication profiling',
         'dataset' => 'muller2014_trep',
         'column'  => 'replication_time_call',
+        'prefix'  => 'replication_time',
     ],
 ];
 // $showDynamics is set at the top of the page: the assays are cerevisiae-wide, so
@@ -259,7 +261,8 @@ $dyn = [
   not a zero</a>.
 </p>
 <table>
-  <thead><tr><th>Measurement</th><th class="num">Value</th><th>Assigned call</th>
+  <thead><tr><th>Measurement</th><th class="num">Value</th><th class="num">Rank</th>
+             <th>Assigned call</th>
              <th class="num">Distance</th><th>Assay</th></tr></thead>
   <tbody>
   <?php foreach ($dyn as $d): ?>
@@ -293,6 +296,27 @@ $dyn = [
           <span class="small">not resolved</span>
         <?php endif; ?>
       </td>
+      <?php
+      // The rank is computed over the origins that carry the SAME measurement,
+      // not over the release, and the denominator is shown for that reason: a
+      // reader can see at once how few origins have an efficiency at all. The
+      // columns come from public/data/origins.tsv, so a download and a page
+      // cannot disagree about them.
+      $rank   = (string) ($origin[$d['prefix'] . '_rank'] ?? '');
+      $rankOf = (string) ($origin[$d['prefix'] . '_rank_of'] ?? '');
+      $pct    = (string) ($origin[$d['prefix'] . '_percentile'] ?? '');
+      ?>
+      <td class="num">
+        <?php if ($rank !== '' && $rankOf !== ''): ?>
+          <strong><?= h($rank) ?></strong>
+          <span class="small">of <?= h($rankOf) ?></span>
+          <?php if ($pct !== ''): ?>
+            <br><span class="small">top <?= h($pct) ?>%</span>
+          <?php endif; ?>
+        <?php else: ?>
+          <span class="small">N/A</span>
+        <?php endif; ?>
+      </td>
       <td class="mono">
         <?php if ($d['call'] !== ''): ?>
           <?= h($d['call']) ?>
@@ -323,6 +347,9 @@ $dyn = [
   A blank is not a zero, and the two blanks mean different things: <em>not resolved</em> is
   an experiment that produced no call here, <em>not assigned</em> is a call that lies in
   range but belongs to a neighbour.
+  Rank is against the other origins that carry the same measurement, not against the whole
+  release: for firing efficiency the most efficient origin ranks 1, for replication time the
+  earliest does, and ties share a rank.
   <a href="about.php#dynamics">What these values do and do not say</a>; both datasets are
   browsable in the <a href="datahub.php">data hub</a>.
 </p>

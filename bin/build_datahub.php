@@ -277,6 +277,14 @@ foreach ($genomeStanzas as $g) {
         // travels with the track instead of being guessed at from its name.
         $container = $byName[$group] ?? [];
         $negated = ($s['negateValues'] ?? $container['negateValues'] ?? 'off') === 'on';
+        // Two more settings travel with the track for the same reason, so that the
+        // hub stays the one place a profile's appearance is decided. `viewLimits`
+        // is the range this profile is worth reading over - a replication time
+        // that never falls below 25 minutes should not be drawn from zero - and
+        // `graphTypeDefault points` is how a trackDb says this is a continuous
+        // trace rather than a bar chart.
+        $viewLimits = (string) ($s['viewLimits'] ?? $container['viewLimits'] ?? '');
+        $graphType = (string) ($s['graphTypeDefault'] ?? $container['graphTypeDefault'] ?? '');
         $entry = [
             'track' => $s['track'],
             'shortLabel' => $s['shortLabel'] ?? $s['track'],
@@ -286,6 +294,8 @@ foreach ($genomeStanzas as $g) {
             'url' => $served === '' ? '' : $served . $url,
             'bytes' => $size,
             'negated' => $negated,
+            'viewLimits' => $viewLimits,
+            'graphType' => $graphType,
         ];
         if ($size > 0) {
             $nFiles++;

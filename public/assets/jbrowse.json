@@ -1,5 +1,5 @@
 {
-    "generated": "2026-11-24T10:20:06+00:00",
+    "generated": "2026-11-24T11:11:29+00:00",
     "hub": {
         "base_url": "https://dnareplicationlab.github.io/oridb-data-hub/",
         "url": "https://dnareplicationlab.github.io/oridb-data-hub/hub.txt"
@@ -142,7 +142,9 @@
                         "type": "LinearWiggleDisplay",
                         "displayId": "sacCer3-ov_timing-display",
                         "autoscale": "local",
-                        "inverted": true
+                        "inverted": true,
+                        "minScore": 25,
+                        "defaultRendering": "line"
                     }
                 ]
             },
@@ -167,7 +169,8 @@
                     {
                         "type": "LinearWiggleDisplay",
                         "displayId": "sacCer3-timecourse_syncseq_AUY077_90min_smooth-display",
-                        "autoscale": "local"
+                        "autoscale": "local",
+                        "minScore": 0.9
                     }
                 ]
             },
@@ -192,7 +195,8 @@
                     {
                         "type": "LinearWiggleDisplay",
                         "displayId": "sacCer3-timecourse_syncseq_AUY077_50min_smooth-display",
-                        "autoscale": "local"
+                        "autoscale": "local",
+                        "minScore": 0.9
                     }
                 ]
             },
@@ -217,7 +221,8 @@
                     {
                         "type": "LinearWiggleDisplay",
                         "displayId": "sacCer3-timecourse_syncseq_AUY077_45min_smooth-display",
-                        "autoscale": "local"
+                        "autoscale": "local",
+                        "minScore": 0.9
                     }
                 ]
             },
@@ -242,7 +247,8 @@
                     {
                         "type": "LinearWiggleDisplay",
                         "displayId": "sacCer3-timecourse_syncseq_AUY077_40min_smooth-display",
-                        "autoscale": "local"
+                        "autoscale": "local",
+                        "minScore": 0.9
                     }
                 ]
             },
@@ -267,7 +273,8 @@
                     {
                         "type": "LinearWiggleDisplay",
                         "displayId": "sacCer3-timecourse_syncseq_AUY077_35min_smooth-display",
-                        "autoscale": "local"
+                        "autoscale": "local",
+                        "minScore": 0.9
                     }
                 ]
             },
@@ -292,7 +299,8 @@
                     {
                         "type": "LinearWiggleDisplay",
                         "displayId": "sacCer3-timecourse_syncseq_AUY077_30min_smooth-display",
-                        "autoscale": "local"
+                        "autoscale": "local",
+                        "minScore": 0.9
                     }
                 ]
             },
@@ -317,7 +325,8 @@
                     {
                         "type": "LinearWiggleDisplay",
                         "displayId": "sacCer3-timecourse_syncseq_AUY077_25min_smooth-display",
-                        "autoscale": "local"
+                        "autoscale": "local",
+                        "minScore": 0.9
                     }
                 ]
             },
@@ -342,7 +351,9 @@
                     {
                         "type": "LinearWiggleDisplay",
                         "displayId": "sacCer3-sortseq_ploidy_sortseq_T9475_SOLiD_smooth-display",
-                        "autoscale": "local"
+                        "autoscale": "local",
+                        "minScore": 0.9,
+                        "defaultRendering": "line"
                     }
                 ]
             },
@@ -367,7 +378,9 @@
                     {
                         "type": "LinearWiggleDisplay",
                         "displayId": "sacCer3-sortseq_ploidy_sortseq_T7107_SOLiD_smooth-display",
-                        "autoscale": "local"
+                        "autoscale": "local",
+                        "minScore": 0.9,
+                        "defaultRendering": "line"
                     }
                 ]
             },
@@ -392,7 +405,9 @@
                     {
                         "type": "LinearWiggleDisplay",
                         "displayId": "sacCer3-sortseq_platform_sortseq_T9475_Illumina_smooth-display",
-                        "autoscale": "local"
+                        "autoscale": "local",
+                        "minScore": 0.9,
+                        "defaultRendering": "line"
                     }
                 ]
             },
@@ -417,7 +432,9 @@
                     {
                         "type": "LinearWiggleDisplay",
                         "displayId": "sacCer3-mfaseq_mfaseq_T7107_smooth-display",
-                        "autoscale": "local"
+                        "autoscale": "local",
+                        "minScore": 0.9,
+                        "defaultRendering": "line"
                     }
                 ]
             },
@@ -442,7 +459,9 @@
                     {
                         "type": "LinearWiggleDisplay",
                         "displayId": "sacCer3-hu_hu_CAY106_smooth-display",
-                        "autoscale": "local"
+                        "autoscale": "local",
+                        "minScore": 0.9,
+                        "defaultRendering": "line"
                     }
                 ]
             },
@@ -485,7 +504,8 @@
                     {
                         "type": "LinearWiggleDisplay",
                         "displayId": "sacCer3-ov_fd-display",
-                        "autoscale": "local"
+                        "autoscale": "local",
+                        "minScore": -1
                     }
                 ]
             },
@@ -528,7 +548,8 @@
                     {
                         "type": "LinearWiggleDisplay",
                         "displayId": "sacCer3-initiation_okseq_derivative-display",
-                        "autoscale": "local"
+                        "autoscale": "local",
+                        "minScore": -0.5
                     }
                 ]
             },
@@ -553,7 +574,8 @@
                     {
                         "type": "LinearWiggleDisplay",
                         "displayId": "sacCer3-initiation_okseq_oem-display",
-                        "autoscale": "local"
+                        "autoscale": "local",
+                        "minScore": -0.5
                     }
                 ]
             },
@@ -578,7 +600,8 @@
                     {
                         "type": "LinearWiggleDisplay",
                         "displayId": "sacCer3-strands_okseq_watson-display",
-                        "autoscale": "local"
+                        "autoscale": "local",
+                        "minScore": 0
                     }
                 ]
             },
@@ -603,7 +626,8 @@
                     {
                         "type": "LinearWiggleDisplay",
                         "displayId": "sacCer3-strands_okseq_crick-display",
-                        "autoscale": "local"
+                        "autoscale": "local",
+                        "minScore": 0
                     }
                 ]
             }
@@ -659,7 +683,9 @@
                         "type": "LinearWiggleDisplay",
                         "displayId": "ASM294v2-ov_sp_timing-display",
                         "autoscale": "local",
-                        "inverted": true
+                        "inverted": true,
+                        "minScore": 20,
+                        "defaultRendering": "line"
                     }
                 ]
             },
@@ -684,7 +710,8 @@
                     {
                         "type": "LinearWiggleDisplay",
                         "displayId": "ASM294v2-ov_sp_fd-display",
-                        "autoscale": "local"
+                        "autoscale": "local",
+                        "minScore": 0
                     }
                 ]
             },
@@ -737,7 +764,8 @@
                     {
                         "type": "LinearWiggleDisplay",
                         "displayId": "ASM294v2-termination_puseq_termination-display",
-                        "autoscale": "local"
+                        "autoscale": "local",
+                        "minScore": 0
                     }
                 ]
             },
@@ -762,7 +790,8 @@
                     {
                         "type": "LinearWiggleDisplay",
                         "displayId": "ASM294v2-ov_sp_mcm-display",
-                        "autoscale": "local"
+                        "autoscale": "local",
+                        "minScore": 0
                     }
                 ]
             },
@@ -787,7 +816,8 @@
                     {
                         "type": "LinearWiggleDisplay",
                         "displayId": "ASM294v2-mcm_all_mcm2chec_g1_rep1_all-display",
-                        "autoscale": "local"
+                        "autoscale": "local",
+                        "minScore": 0
                     }
                 ]
             },
@@ -812,7 +842,8 @@
                     {
                         "type": "LinearWiggleDisplay",
                         "displayId": "ASM294v2-mcm_51_100_mcm2chec_hu_rep1_51_100bp-display",
-                        "autoscale": "local"
+                        "autoscale": "local",
+                        "minScore": 0
                     }
                 ]
             },
@@ -837,7 +868,8 @@
                     {
                         "type": "LinearWiggleDisplay",
                         "displayId": "ASM294v2-mcm_51_100_mcm2chec_g1_rep1_51_100bp-display",
-                        "autoscale": "local"
+                        "autoscale": "local",
+                        "minScore": 0
                     }
                 ]
             },
@@ -862,7 +894,8 @@
                     {
                         "type": "LinearWiggleDisplay",
                         "displayId": "ASM294v2-mcm_151_200_mcm2chec_hu_rep1_151_200bp-display",
-                        "autoscale": "local"
+                        "autoscale": "local",
+                        "minScore": 0
                     }
                 ]
             },
@@ -887,7 +920,8 @@
                     {
                         "type": "LinearWiggleDisplay",
                         "displayId": "ASM294v2-mcm_151_200_mcm2chec_g1_rep1_151_200bp-display",
-                        "autoscale": "local"
+                        "autoscale": "local",
+                        "minScore": 0
                     }
                 ]
             },
@@ -912,7 +946,8 @@
                     {
                         "type": "LinearWiggleDisplay",
                         "displayId": "ASM294v2-mcm_reps_mcm2chec_hu_rep2_all-display",
-                        "autoscale": "local"
+                        "autoscale": "local",
+                        "minScore": 0
                     }
                 ]
             },
@@ -937,7 +972,8 @@
                     {
                         "type": "LinearWiggleDisplay",
                         "displayId": "ASM294v2-mnase_control_free_mnase_rep1-display",
-                        "autoscale": "local"
+                        "autoscale": "local",
+                        "minScore": 0
                     }
                 ]
             }

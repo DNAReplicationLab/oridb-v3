@@ -137,7 +137,11 @@ bin/build_all.sh /path/to/nieduszy_oridb.sql SACCER1_FASTA_DIR SACCER3_FASTA_DIR
    interval base for base, recording the outcome per record in `lift_status`. *S. pombe* is
    ASM294v2 already and is passed through untouched.
 3. `build_elements.py` locates every element by its stored sequence, derives the motifs,
-   scores each record, and assigns the per-origin activity and replication time.
+   scores each record, and assigns the per-origin activity and replication time. It then
+   calls `build_origin_ranks.py`, which ranks each origin against the others carrying the
+   same measurement; that script also runs on its own (`--check` reports stale ranks
+   without writing), which is how the ranks are refreshed without rebuilding the element
+   layer.
 4. `build_tiers.py` evaluates every registered dataset against every site and derives the
    tier.
 5. `compare_sgd.py` compares the Confirmed cerevisiae intervals with SGD's ARS features
@@ -173,7 +177,12 @@ python3 bin/build_oridb_tracks.py --assembly sacCer3 \
 `build_jbrowse.php` turns the hub description into `public/assets/jbrowse.json`, which the
 browser panel on an origin page reads: the assemblies, their sequence files, every track,
 and which handful to draw by default — the last taken from the hub's own *overview*
-section rather than chosen here. `build_oridb_tracks.py` goes the other way, rendering
+section rather than chosen here. How a profile is drawn is also the hub's decision, not
+this repository's: `negateValues` turns the y-axis over so an early replication time reads
+as a peak, the lower bound of `viewLimits` becomes the floor of that axis so a profile that
+never approaches zero is not drawn from zero, and `graphTypeDefault points` is drawn as a
+line rather than a filled area. The upper bound is deliberately left to autoscale, so a
+window still fills the panel. `build_oridb_tracks.py` goes the other way, rendering
 this database's origins, elements and ARS-negative fragments as bigBed **into the hub**,
 so the records can be drawn beside the data they were called from. Run it once per
 assembly, then regenerate the hub's trackDb with the hub's own `bin/make_trackhub.py`.

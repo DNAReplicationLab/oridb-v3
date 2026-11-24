@@ -82,7 +82,7 @@
     "coordinate_convention": "1-based, fully closed intervals",
     "files": {
         "origins.tsv": {
-            "md5": "33cb8e3c99b458c185a1b40536f0f862",
+            "md5": "ba1aaf78258c28c94952079bab778e71",
             "rows": 1580
         },
         "evidence.tsv": {
@@ -593,6 +593,27 @@
                 "rejected_by_mutual_test": 71,
                 "rejected_by_both": 547,
                 "no_call_on_sequence": 0
+            }
+        },
+        "ranks": {
+            "description": "Where this origin sits among the origins that carry the same measurement. Derived from the value columns by bin/build_origin_ranks.py; no new measurement is involved.",
+            "population": "Origins OF THE SAME SPECIES that carry a value for that measurement, which is fewer than the origins in the release. An origin the assay did not resolve is NOT ranked last - it is not ranked at all, and its rank columns are empty.",
+            "direction": "Rank 1 is the highest firing efficiency, and the earliest replication time. Ties share the better rank, so two origins at rank 4 are followed by rank 6.",
+            "columns": {
+                "okseq_activity_rank": "Rank by firing efficiency, 1 = most efficient.",
+                "okseq_activity_rank_of": "Size of the population that rank is out of.",
+                "okseq_activity_percentile": "That rank as a percentage of the population, rounded up to a whole percent: 13 means this origin is among the top 13% for firing efficiency.",
+                "replication_time_rank": "Rank by median replication time, 1 = earliest.",
+                "replication_time_rank_of": "Size of the population that rank is out of.",
+                "replication_time_percentile": "That rank as a percentage of the population, rounded up to a whole percent: 13 means this origin is among the earliest 13%."
+            },
+            "population_sizes": {
+                "okseq_activity": {
+                    "Saccharomyces cerevisiae": 283
+                },
+                "replication_time": {
+                    "Saccharomyces cerevisiae": 210
+                }
             }
         }
     },
