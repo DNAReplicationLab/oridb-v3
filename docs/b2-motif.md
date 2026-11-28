@@ -85,29 +85,69 @@ maximises its own score, and was rejected for that reason.
 A B3 element has no matrix at all: it is an Abf1p-binding site, a protein recognition
 sequence rather than a degenerate consensus.
 
+## Known defect: a one-base off-by-one in the B2 intervals
+
+**The matrix described above is built on a misregistered training set and will be
+rebuilt.** The B2 intervals of Reuter et al. 2024 are 1-based inclusive and **32 bp**
+wide; the ingest that produced `reference/reuter2024_B2_elements.tsv` read them as
+half-open and added one to the start, storing a **31 bp** element. Dropping the first
+base of a genomic interval removes the 5' flank of a plus-strand element but the 3' base
+of a minus-strand one, so the two strands end up one base apart in any window anchored on
+the element.
+
+The evidence, measured on the conserved T of the B2 motif:
+
+| frame | n | T at element position 26 | at 27 |
+|---|---:|---:|---:|
+| as stored, 31 bp, plus-strand calls | 161 | 0.78 | 0.11 |
+| as stored, 31 bp, minus-strand calls | 142 | 0.04 | 0.70 |
+| published interval read as 1-based 32 bp, plus | 154 | 0.01 | 0.77 |
+| published interval read as 1-based 32 bp, minus | 138 | 0.03 | 0.69 |
+
+Read as a 1-based inclusive 32-mer and reverse-complemented on the minus strand, the two
+strands agree: the conserved T is at position 27 on both. The sequences the author
+exported for the published figure are these 32-mers, and their coordinates resolve to
+them directly in the UCSC browser.
+
+Consequences, all of them fixable by correcting the interval at ingest:
+
+- every B2 element in `elements.tsv` is stored one base short, missing the first base of
+  the published interval (the 5' base on a plus-strand call, the 3' base on a minus-strand
+  one);
+- the matrix above is trained on two frames one base apart, which splits the conserved T
+  between columns 28 and 29 (A 0.47 / T 0.43 where the true column is ~0.75 T) and costs
+  about 1.3 bits;
+- recomputed from sacCer3 on the corrected 32 bp intervals, the matrix comes to **10.88
+  bits** over 32 columns from the 292 records whose published interval is 32 bp wide, with
+  the T restored at column 27 (0.75 bits).
+
+Eleven records need individual attention: ten carry a published interval of 31 bp and one
+of 33 bp, and in the four of those that appear in the author's exported set the published
+start is one base high, i.e. the same off-by-one applied a stage earlier.
+
 ## Comparison with the published figure
 
 The B2 logo in Reuter et al. 2024 was made in WebLogo from the FIMO-identified sequences at
 the class C1 origins of their Figure 2 &mdash; **58 sequences**, supplied by the author as
-32-mers &mdash; with a yeast base composition as background. The OriDB logo is trained on
-all 303 placed B2 records and looks flatter. The two were checked
-against each other directly:
+32-mers &mdash; with a yeast base composition as background. The two were checked against
+each other directly:
 
 - **Same records.** 55 of the 58 published sequences match a record in
   `reuter2024_B2_elements.tsv` at exactly the same coordinates and in the same orientation,
-  base for base. The other 3 sit within a few bp of a record in the larger set. There is no
-  strand or placement discrepancy between the figure and the database.
-- **One base of frame.** The published 32-mer is one base shorter at the 5' end than the
-  OriDB window, so published column *n* is OriDB column *n*+1. That alone shifts the
-  conserved block by one position between the two pictures.
-- **Sharpness is sample size.** Recomputed on the OriDB window with the OriDB recipe, the
-  58 published sequences give 11.18 bits against 9.24 bits for all
-  303. Drawing 58 of the 303 at random 200 times
+  base for base; all 58 are 32 bp and their headers are 1-based inclusive 32 bp intervals.
+  The other 3 sit within a few bp of a record in the larger set.
+- **The visible difference is the off-by-one above.** The published logo has a prominent T
+  at its column 27 which the OriDB logo does not show. That is not a sampling effect: it is
+  the conserved T split across two columns by the strand misregistration. Realigning the
+  minus-strand calls by one base restores it (0.43 to 0.74 of records carrying T) and lifts
+  the matrix from 8.76 to 10.11 bits over the 31 shared columns.
+- **The residual difference is sample size.** Once realigned, the full set gives 10.11 bits
+  against 10.70 for the 58 over the same columns. Drawing 58 of the 303 at random 200 times
   gives 9.83 bits on average (sd 0.48, range 8.42&ndash;11.08), so a set of 58 is expected
-  to look sharper than the full set; the C1 subset is at the sharp end of that distribution,
-  consistent with C1 being the better-defined origin class, but not a different motif.
-- **Same profile.** Across the 32 shared columns the per-column information profiles
-  correlate at r = 0.85.
+  to look sharper; the C1 subset sits at the sharp end of that distribution, consistent with
+  C1 being the better-defined origin class.
+- **The A elements are unaffected.** The Reuter A elements show no strand asymmetry: both
+  strands peak at the same columns (5, 12, 13). The defect is specific to the B2 table.
 - **Different palette.** OriDB draws A green, C blue, G orange, T red; the WebLogo default
   in the published figure draws A red and T green. The same column can therefore look quite
   different in the two pictures.
@@ -115,7 +155,8 @@ against each other directly:
 ### Information by column
 
 Both columns use the same measure, relative entropy against the sacCer3 base composition.
-The published column is blank where the 32-mer does not reach.
+The OriDB column is the matrix **as currently built**, i.e. before the off-by-one above is
+corrected; the published column is blank where the 32-mer does not reach.
 
 | Column | Consensus | OriDB (n=303) | Published 58 |
 |---:|:--:|---:|---:|

@@ -318,12 +318,18 @@ if ($b2 !== null):
         <span class="mono">n</span>. The block is derived from the matrix, so a rebuild moves
         it.</li>
   <?php endif; ?>
-  <li>The published B2 logo of Reuter et&nbsp;al. 2024 is a WebLogo of the subset of calls at
-      their class&nbsp;C1 origins, 58 sequences one base narrower than this window. That logo is
-      the sharper of the two, as a logo over 58 sequences generally is: recomputed on this
-      window it comes to 11.2 bits against 9.2 bits here, and its column profile agrees with
-      this one once the extra upstream base is accounted for. The difference is the size of the
-      training set, not a different motif.</li>
+  <li><strong>Known defect, to be rebuilt.</strong> The published B2 intervals are 1-based
+      inclusive and 32&nbsp;bp wide; the ingest read them as half-open and stored a 31&nbsp;bp
+      element. Dropping the first base of an interval removes the 5' flank of a plus-strand
+      element but the 3' base of a minus-strand one, so the two strands sit one base apart in
+      this window and the conserved T of the motif is split between two columns instead of
+      standing as the tall T the published logo shows. Read as 32&nbsp;bp, both strands put
+      that T at position 27 and the matrix comes to 10.9 bits. The element coordinates are
+      affected too: each is one base short at the start of the published interval.</li>
+  <li>The published B2 logo of Reuter et&nbsp;al. 2024 is a WebLogo of the 58 calls at their
+      class&nbsp;C1 origins. Once the defect above is corrected, what remains between the two
+      logos is sample size: 10.1 bits here against 10.7 for the 58 over the same columns, and
+      a random 58 of these records averages 9.8 bits. It is the same motif.</li>
   <li>A <strong>confirmed</strong> B2 element is <em>not</em> part of this training set and is
       not aligned under the logo. These are functionally defined footprints read from the
       literature, between 7 and 23&nbsp;bp as published, and a footprint carries no fixed
