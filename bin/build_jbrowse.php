@@ -125,6 +125,7 @@ foreach ($hub['genomes'] as $g) {
     // overview - and two tracks over one file would just be the same picture twice.
     $byUrl = [];
     $defaults = [];
+    $priority = [];
     $multi = [];
     foreach ($g['datasets'] as $ds) {
         foreach ($ds['groups'] as $group) {
@@ -220,6 +221,7 @@ foreach ($hub['genomes'] as $g) {
                 }
                 if (($isOverview && !$overlay) || ($t['panel_default'] ?? false)) {
                     $defaults[] = $byUrl[$t['url']]['trackId'];
+                    $priority[$byUrl[$t['url']]['trackId']] = $t['priority'] ?? 99;
                 }
             }
             // An overview container holding more than one bigWig is drawn as ONE
@@ -262,6 +264,7 @@ foreach ($hub['genomes'] as $g) {
                         ]],
                     ];
                     $defaults[] = $id;
+                    $priority[$id] = $group['tracks'][0]['priority'] ?? 99;
                 }
             }
         }
@@ -269,6 +272,11 @@ foreach ($hub['genomes'] as $g) {
     // Overlaid tracks first: they are the ones the panel draws, and a reader opening
     // the selector should meet them before the eighteen single files behind them.
     $out['tracks'][$assembly] = array_merge($multi, array_values($byUrl));
+    // The panel draws its default tracks in the order of this list, so it is sorted
+    // by the hub's own `priority` rather than by the order the datasets happened to
+    // be read in. Annotation takes the first priorities, so genes head the panel and
+    // the measurements follow in the order the events they capture occur.
+    uasort($defaults, fn($a, $b) => $priority[$a] <=> $priority[$b]);
     $out['defaults'][$assembly] = array_values(array_unique($defaults));
 }
 

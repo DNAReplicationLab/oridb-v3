@@ -1,5 +1,5 @@
 {
-    "generated": "2026-11-28T12:57:16+00:00",
+    "generated": "2026-11-28T13:55:49+00:00",
     "hub": {
         "base_url": "https://dnareplicationlab.github.io/oridb-data-hub/",
         "url": "https://dnareplicationlab.github.io/oridb-data-hub/hub.txt"
@@ -59,7 +59,7 @@
             {
                 "type": "MultiQuantitativeTrack",
                 "trackId": "sacCer3-ov_mcm",
-                "name": "MCM4 strands",
+                "name": "MCM4 strands (Reuter 2024)",
                 "description": "MCM2-7 occupancy at licensed origins, from Mcm4-Flag ChIP-exo in G1-arrested cells (Reuter et al. 2024): plus-strand coverage above the axis and minus below, replicate 1; the gap between the two peaks is the protected footprint",
                 "assemblyNames": [
                     "sacCer3"
@@ -103,7 +103,7 @@
             {
                 "type": "FeatureTrack",
                 "trackId": "sacCer3-ov_origins",
-                "name": "OriDB origins",
+                "name": "Origins (OriDB v3)",
                 "description": "OriDB v3 origin records, coloured by evidence tier: green confirmed, blue likely, grey unsupported or not assessed",
                 "assemblyNames": [
                     "sacCer3"
@@ -131,7 +131,7 @@
             {
                 "type": "FeatureTrack",
                 "trackId": "sacCer3-oridb_v3_elements",
-                "name": "Origin elements",
+                "name": "Elements (OriDB v3)",
                 "description": "OriDB v3 origin elements: A elements in blue and all B elements (B2, B3) in brown, the colours the origin pages use; the class is in the elementClass field and the score is the motif score as a percentage of the matrix maximum",
                 "assemblyNames": [
                     "sacCer3"
@@ -149,7 +149,7 @@
             {
                 "type": "FeatureTrack",
                 "trackId": "sacCer3-oridb_v3_refuted",
-                "name": "ARS-negative fragments",
+                "name": "ARS-negative (OriDB v3)",
                 "description": "Fragments that were cloned and did not support autonomous replication; a flag on the sites inside them, never a tier",
                 "assemblyNames": [
                     "sacCer3"
@@ -163,541 +163,6 @@
                         "uri": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/oridb_v3/refuted_fragments.bb"
                     }
                 }
-            },
-            {
-                "type": "QuantitativeTrack",
-                "trackId": "sacCer3-ov_timing",
-                "name": "Timing (Trep)",
-                "description": "Replication timing: Trep in minutes from sync-seq (Muller et al. 2014); early replication plots high",
-                "assemblyNames": [
-                    "sacCer3"
-                ],
-                "category": [
-                    "The dynamics of genome replication using deep sequencing (Muller et al. 2014), reprocessed on sacCer3"
-                ],
-                "adapter": {
-                    "type": "BigWigAdapter",
-                    "bigWigLocation": {
-                        "uri": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/muller2014/syncseq.trep.bw"
-                    }
-                },
-                "displays": [
-                    {
-                        "type": "LinearWiggleDisplay",
-                        "displayId": "sacCer3-ov_timing-display",
-                        "autoscale": "local",
-                        "inverted": true,
-                        "minScore": 25,
-                        "renderers": {
-                            "XYPlotRenderer": {
-                                "filled": false
-                            }
-                        }
-                    }
-                ]
-            },
-            {
-                "type": "QuantitativeTrack",
-                "trackId": "sacCer3-timecourse_syncseq_AUY077_90min_smooth",
-                "name": "1 90 min",
-                "description": "Muller et al. (2014): time course 90 min post alpha-factor release",
-                "assemblyNames": [
-                    "sacCer3"
-                ],
-                "category": [
-                    "The dynamics of genome replication using deep sequencing (Muller et al. 2014), reprocessed on sacCer3"
-                ],
-                "adapter": {
-                    "type": "BigWigAdapter",
-                    "bigWigLocation": {
-                        "uri": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/muller2014/syncseq_AUY077_90min.smooth.bw"
-                    }
-                },
-                "displays": [
-                    {
-                        "type": "LinearWiggleDisplay",
-                        "displayId": "sacCer3-timecourse_syncseq_AUY077_90min_smooth-display",
-                        "autoscale": "local",
-                        "minScore": 0.9
-                    }
-                ]
-            },
-            {
-                "type": "QuantitativeTrack",
-                "trackId": "sacCer3-timecourse_syncseq_AUY077_50min_smooth",
-                "name": "2 50 min",
-                "description": "Muller et al. (2014): time course 50 min post alpha-factor release",
-                "assemblyNames": [
-                    "sacCer3"
-                ],
-                "category": [
-                    "The dynamics of genome replication using deep sequencing (Muller et al. 2014), reprocessed on sacCer3"
-                ],
-                "adapter": {
-                    "type": "BigWigAdapter",
-                    "bigWigLocation": {
-                        "uri": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/muller2014/syncseq_AUY077_50min.smooth.bw"
-                    }
-                },
-                "displays": [
-                    {
-                        "type": "LinearWiggleDisplay",
-                        "displayId": "sacCer3-timecourse_syncseq_AUY077_50min_smooth-display",
-                        "autoscale": "local",
-                        "minScore": 0.9
-                    }
-                ]
-            },
-            {
-                "type": "QuantitativeTrack",
-                "trackId": "sacCer3-timecourse_syncseq_AUY077_45min_smooth",
-                "name": "3 45 min",
-                "description": "Muller et al. (2014): time course 45 min post alpha-factor release",
-                "assemblyNames": [
-                    "sacCer3"
-                ],
-                "category": [
-                    "The dynamics of genome replication using deep sequencing (Muller et al. 2014), reprocessed on sacCer3"
-                ],
-                "adapter": {
-                    "type": "BigWigAdapter",
-                    "bigWigLocation": {
-                        "uri": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/muller2014/syncseq_AUY077_45min.smooth.bw"
-                    }
-                },
-                "displays": [
-                    {
-                        "type": "LinearWiggleDisplay",
-                        "displayId": "sacCer3-timecourse_syncseq_AUY077_45min_smooth-display",
-                        "autoscale": "local",
-                        "minScore": 0.9
-                    }
-                ]
-            },
-            {
-                "type": "QuantitativeTrack",
-                "trackId": "sacCer3-timecourse_syncseq_AUY077_40min_smooth",
-                "name": "4 40 min",
-                "description": "Muller et al. (2014): time course 40 min post alpha-factor release",
-                "assemblyNames": [
-                    "sacCer3"
-                ],
-                "category": [
-                    "The dynamics of genome replication using deep sequencing (Muller et al. 2014), reprocessed on sacCer3"
-                ],
-                "adapter": {
-                    "type": "BigWigAdapter",
-                    "bigWigLocation": {
-                        "uri": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/muller2014/syncseq_AUY077_40min.smooth.bw"
-                    }
-                },
-                "displays": [
-                    {
-                        "type": "LinearWiggleDisplay",
-                        "displayId": "sacCer3-timecourse_syncseq_AUY077_40min_smooth-display",
-                        "autoscale": "local",
-                        "minScore": 0.9
-                    }
-                ]
-            },
-            {
-                "type": "QuantitativeTrack",
-                "trackId": "sacCer3-timecourse_syncseq_AUY077_35min_smooth",
-                "name": "5 35 min",
-                "description": "Muller et al. (2014): time course 35 min post alpha-factor release",
-                "assemblyNames": [
-                    "sacCer3"
-                ],
-                "category": [
-                    "The dynamics of genome replication using deep sequencing (Muller et al. 2014), reprocessed on sacCer3"
-                ],
-                "adapter": {
-                    "type": "BigWigAdapter",
-                    "bigWigLocation": {
-                        "uri": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/muller2014/syncseq_AUY077_35min.smooth.bw"
-                    }
-                },
-                "displays": [
-                    {
-                        "type": "LinearWiggleDisplay",
-                        "displayId": "sacCer3-timecourse_syncseq_AUY077_35min_smooth-display",
-                        "autoscale": "local",
-                        "minScore": 0.9
-                    }
-                ]
-            },
-            {
-                "type": "QuantitativeTrack",
-                "trackId": "sacCer3-timecourse_syncseq_AUY077_30min_smooth",
-                "name": "6 30 min",
-                "description": "Muller et al. (2014): time course 30 min post alpha-factor release",
-                "assemblyNames": [
-                    "sacCer3"
-                ],
-                "category": [
-                    "The dynamics of genome replication using deep sequencing (Muller et al. 2014), reprocessed on sacCer3"
-                ],
-                "adapter": {
-                    "type": "BigWigAdapter",
-                    "bigWigLocation": {
-                        "uri": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/muller2014/syncseq_AUY077_30min.smooth.bw"
-                    }
-                },
-                "displays": [
-                    {
-                        "type": "LinearWiggleDisplay",
-                        "displayId": "sacCer3-timecourse_syncseq_AUY077_30min_smooth-display",
-                        "autoscale": "local",
-                        "minScore": 0.9
-                    }
-                ]
-            },
-            {
-                "type": "QuantitativeTrack",
-                "trackId": "sacCer3-timecourse_syncseq_AUY077_25min_smooth",
-                "name": "7 25 min",
-                "description": "Muller et al. (2014): time course 25 min post alpha-factor release",
-                "assemblyNames": [
-                    "sacCer3"
-                ],
-                "category": [
-                    "The dynamics of genome replication using deep sequencing (Muller et al. 2014), reprocessed on sacCer3"
-                ],
-                "adapter": {
-                    "type": "BigWigAdapter",
-                    "bigWigLocation": {
-                        "uri": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/muller2014/syncseq_AUY077_25min.smooth.bw"
-                    }
-                },
-                "displays": [
-                    {
-                        "type": "LinearWiggleDisplay",
-                        "displayId": "sacCer3-timecourse_syncseq_AUY077_25min_smooth-display",
-                        "autoscale": "local",
-                        "minScore": 0.9
-                    }
-                ]
-            },
-            {
-                "type": "QuantitativeTrack",
-                "trackId": "sacCer3-sortseq_ploidy_sortseq_T9475_SOLiD_smooth",
-                "name": "1 diploid",
-                "description": "Muller et al. (2014): diploid (T9475) sort-seq replication profile, SOLiD",
-                "assemblyNames": [
-                    "sacCer3"
-                ],
-                "category": [
-                    "The dynamics of genome replication using deep sequencing (Muller et al. 2014), reprocessed on sacCer3"
-                ],
-                "adapter": {
-                    "type": "BigWigAdapter",
-                    "bigWigLocation": {
-                        "uri": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/muller2014/sortseq_T9475_SOLiD.smooth.bw"
-                    }
-                },
-                "displays": [
-                    {
-                        "type": "LinearWiggleDisplay",
-                        "displayId": "sacCer3-sortseq_ploidy_sortseq_T9475_SOLiD_smooth-display",
-                        "autoscale": "local",
-                        "minScore": 0.9,
-                        "renderers": {
-                            "XYPlotRenderer": {
-                                "filled": false
-                            }
-                        }
-                    }
-                ]
-            },
-            {
-                "type": "QuantitativeTrack",
-                "trackId": "sacCer3-sortseq_ploidy_sortseq_T7107_SOLiD_smooth",
-                "name": "2 haploid",
-                "description": "Muller et al. (2014): haploid (T7107) sort-seq replication profile, SOLiD",
-                "assemblyNames": [
-                    "sacCer3"
-                ],
-                "category": [
-                    "The dynamics of genome replication using deep sequencing (Muller et al. 2014), reprocessed on sacCer3"
-                ],
-                "adapter": {
-                    "type": "BigWigAdapter",
-                    "bigWigLocation": {
-                        "uri": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/muller2014/sortseq_T7107_SOLiD.smooth.bw"
-                    }
-                },
-                "displays": [
-                    {
-                        "type": "LinearWiggleDisplay",
-                        "displayId": "sacCer3-sortseq_ploidy_sortseq_T7107_SOLiD_smooth-display",
-                        "autoscale": "local",
-                        "minScore": 0.9,
-                        "renderers": {
-                            "XYPlotRenderer": {
-                                "filled": false
-                            }
-                        }
-                    }
-                ]
-            },
-            {
-                "type": "QuantitativeTrack",
-                "trackId": "sacCer3-sortseq_platform_sortseq_T9475_Illumina_smooth",
-                "name": "2 Illumina",
-                "description": "Muller et al. (2014): diploid (T9475) sort-seq replication profile, Illumina",
-                "assemblyNames": [
-                    "sacCer3"
-                ],
-                "category": [
-                    "The dynamics of genome replication using deep sequencing (Muller et al. 2014), reprocessed on sacCer3"
-                ],
-                "adapter": {
-                    "type": "BigWigAdapter",
-                    "bigWigLocation": {
-                        "uri": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/muller2014/sortseq_T9475_Illumina.smooth.bw"
-                    }
-                },
-                "displays": [
-                    {
-                        "type": "LinearWiggleDisplay",
-                        "displayId": "sacCer3-sortseq_platform_sortseq_T9475_Illumina_smooth-display",
-                        "autoscale": "local",
-                        "minScore": 0.9,
-                        "renderers": {
-                            "XYPlotRenderer": {
-                                "filled": false
-                            }
-                        }
-                    }
-                ]
-            },
-            {
-                "type": "QuantitativeTrack",
-                "trackId": "sacCer3-mfaseq_mfaseq_T7107_smooth",
-                "name": "MFA-seq",
-                "description": "Muller et al. (2014): MFA-seq replication profile, exponential vs stationary phase",
-                "assemblyNames": [
-                    "sacCer3"
-                ],
-                "category": [
-                    "The dynamics of genome replication using deep sequencing (Muller et al. 2014), reprocessed on sacCer3"
-                ],
-                "adapter": {
-                    "type": "BigWigAdapter",
-                    "bigWigLocation": {
-                        "uri": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/muller2014/mfaseq_T7107.smooth.bw"
-                    }
-                },
-                "displays": [
-                    {
-                        "type": "LinearWiggleDisplay",
-                        "displayId": "sacCer3-mfaseq_mfaseq_T7107_smooth-display",
-                        "autoscale": "local",
-                        "minScore": 0.9,
-                        "renderers": {
-                            "XYPlotRenderer": {
-                                "filled": false
-                            }
-                        }
-                    }
-                ]
-            },
-            {
-                "type": "QuantitativeTrack",
-                "trackId": "sacCer3-hu_hu_CAY106_smooth",
-                "name": "HU 60 min",
-                "description": "Muller et al. (2014): HU-stalled fork origin mapping, 60 min after release (CAY106)",
-                "assemblyNames": [
-                    "sacCer3"
-                ],
-                "category": [
-                    "The dynamics of genome replication using deep sequencing (Muller et al. 2014), reprocessed on sacCer3"
-                ],
-                "adapter": {
-                    "type": "BigWigAdapter",
-                    "bigWigLocation": {
-                        "uri": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/muller2014/hu_CAY106.smooth.bw"
-                    }
-                },
-                "displays": [
-                    {
-                        "type": "LinearWiggleDisplay",
-                        "displayId": "sacCer3-hu_hu_CAY106_smooth-display",
-                        "autoscale": "local",
-                        "minScore": 0.9,
-                        "renderers": {
-                            "XYPlotRenderer": {
-                                "filled": false
-                            }
-                        }
-                    }
-                ]
-            },
-            {
-                "type": "FeatureTrack",
-                "trackId": "sacCer3-muller2014_trep_peaks",
-                "name": "Trep peaks",
-                "description": "Origin calls from the Muller et al. (2014) Trep profile: local minima of replication time, called by OriDB",
-                "assemblyNames": [
-                    "sacCer3"
-                ],
-                "category": [
-                    "The dynamics of genome replication using deep sequencing (Muller et al. 2014), reprocessed on sacCer3"
-                ],
-                "adapter": {
-                    "type": "BigBedAdapter",
-                    "bigBedLocation": {
-                        "uri": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/muller2014/syncseq.trep.peaks.bb"
-                    }
-                }
-            },
-            {
-                "type": "QuantitativeTrack",
-                "trackId": "sacCer3-ov_fd",
-                "name": "Fork direction",
-                "description": "Replication fork directionality from Okazaki fragment strand ratio (McGuffee et al. 2013)",
-                "assemblyNames": [
-                    "sacCer3"
-                ],
-                "category": [
-                    "Okazaki-fragment sequencing (McGuffee, Smith & Whitehouse 2013), re-analysed on sacCer3"
-                ],
-                "adapter": {
-                    "type": "BigWigAdapter",
-                    "bigWigLocation": {
-                        "uri": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/mcguffee2013/okseq.directionality.bw"
-                    }
-                },
-                "displays": [
-                    {
-                        "type": "LinearWiggleDisplay",
-                        "displayId": "sacCer3-ov_fd-display",
-                        "autoscale": "local",
-                        "minScore": -1
-                    }
-                ]
-            },
-            {
-                "type": "FeatureTrack",
-                "trackId": "sacCer3-ov_init",
-                "name": "Initiation zones",
-                "description": "Initiation zones called from the Okazaki-fragment initiation signal (McGuffee et al. 2013)",
-                "assemblyNames": [
-                    "sacCer3"
-                ],
-                "category": [
-                    "Okazaki-fragment sequencing (McGuffee, Smith & Whitehouse 2013), re-analysed on sacCer3"
-                ],
-                "adapter": {
-                    "type": "BigBedAdapter",
-                    "bigBedLocation": {
-                        "uri": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/mcguffee2013/okseq.initiation_sites.bb"
-                    }
-                }
-            },
-            {
-                "type": "QuantitativeTrack",
-                "trackId": "sacCer3-initiation_okseq_derivative",
-                "name": "d(FD)/dx",
-                "description": "Derivative of fork directionality per kb; maxima are initiation sites",
-                "assemblyNames": [
-                    "sacCer3"
-                ],
-                "category": [
-                    "Okazaki-fragment sequencing (McGuffee, Smith & Whitehouse 2013), re-analysed on sacCer3"
-                ],
-                "adapter": {
-                    "type": "BigWigAdapter",
-                    "bigWigLocation": {
-                        "uri": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/mcguffee2013/okseq.derivative.bw"
-                    }
-                },
-                "displays": [
-                    {
-                        "type": "LinearWiggleDisplay",
-                        "displayId": "sacCer3-initiation_okseq_derivative-display",
-                        "autoscale": "local",
-                        "minScore": -0.5
-                    }
-                ]
-            },
-            {
-                "type": "QuantitativeTrack",
-                "trackId": "sacCer3-initiation_okseq_oem",
-                "name": "OEM",
-                "description": "Origin efficiency metric over 10 kb quadrants, raw (not deconvolved)",
-                "assemblyNames": [
-                    "sacCer3"
-                ],
-                "category": [
-                    "Okazaki-fragment sequencing (McGuffee, Smith & Whitehouse 2013), re-analysed on sacCer3"
-                ],
-                "adapter": {
-                    "type": "BigWigAdapter",
-                    "bigWigLocation": {
-                        "uri": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/mcguffee2013/okseq.oem.bw"
-                    }
-                },
-                "displays": [
-                    {
-                        "type": "LinearWiggleDisplay",
-                        "displayId": "sacCer3-initiation_okseq_oem-display",
-                        "autoscale": "local",
-                        "minScore": -0.5
-                    }
-                ]
-            },
-            {
-                "type": "QuantitativeTrack",
-                "trackId": "sacCer3-strands_okseq_watson",
-                "name": "Watson",
-                "description": "Okazaki fragments on the Watson strand (leftward-moving forks)",
-                "assemblyNames": [
-                    "sacCer3"
-                ],
-                "category": [
-                    "Okazaki-fragment sequencing (McGuffee, Smith & Whitehouse 2013), re-analysed on sacCer3"
-                ],
-                "adapter": {
-                    "type": "BigWigAdapter",
-                    "bigWigLocation": {
-                        "uri": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/mcguffee2013/okseq.watson.bw"
-                    }
-                },
-                "displays": [
-                    {
-                        "type": "LinearWiggleDisplay",
-                        "displayId": "sacCer3-strands_okseq_watson-display",
-                        "autoscale": "local",
-                        "minScore": 0
-                    }
-                ]
-            },
-            {
-                "type": "QuantitativeTrack",
-                "trackId": "sacCer3-strands_okseq_crick",
-                "name": "Crick",
-                "description": "Okazaki fragments on the Crick strand (rightward-moving forks)",
-                "assemblyNames": [
-                    "sacCer3"
-                ],
-                "category": [
-                    "Okazaki-fragment sequencing (McGuffee, Smith & Whitehouse 2013), re-analysed on sacCer3"
-                ],
-                "adapter": {
-                    "type": "BigWigAdapter",
-                    "bigWigLocation": {
-                        "uri": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/mcguffee2013/okseq.crick.bw"
-                    }
-                },
-                "displays": [
-                    {
-                        "type": "LinearWiggleDisplay",
-                        "displayId": "sacCer3-strands_okseq_crick-display",
-                        "autoscale": "local",
-                        "minScore": 0
-                    }
-                ]
             },
             {
                 "type": "QuantitativeTrack",
@@ -1184,8 +649,543 @@
             },
             {
                 "type": "FeatureTrack",
+                "trackId": "sacCer3-ov_init",
+                "name": "Init zones (McGuffee 2013)",
+                "description": "Initiation zones called from the Okazaki-fragment initiation signal (McGuffee et al. 2013)",
+                "assemblyNames": [
+                    "sacCer3"
+                ],
+                "category": [
+                    "Okazaki-fragment sequencing (McGuffee, Smith & Whitehouse 2013), re-analysed on sacCer3"
+                ],
+                "adapter": {
+                    "type": "BigBedAdapter",
+                    "bigBedLocation": {
+                        "uri": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/mcguffee2013/okseq.initiation_sites.bb"
+                    }
+                }
+            },
+            {
+                "type": "QuantitativeTrack",
+                "trackId": "sacCer3-ov_fd",
+                "name": "Fork dir (McGuffee 2013)",
+                "description": "Replication fork directionality from Okazaki fragment strand ratio (McGuffee et al. 2013)",
+                "assemblyNames": [
+                    "sacCer3"
+                ],
+                "category": [
+                    "Okazaki-fragment sequencing (McGuffee, Smith & Whitehouse 2013), re-analysed on sacCer3"
+                ],
+                "adapter": {
+                    "type": "BigWigAdapter",
+                    "bigWigLocation": {
+                        "uri": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/mcguffee2013/okseq.directionality.bw"
+                    }
+                },
+                "displays": [
+                    {
+                        "type": "LinearWiggleDisplay",
+                        "displayId": "sacCer3-ov_fd-display",
+                        "autoscale": "local",
+                        "minScore": -1
+                    }
+                ]
+            },
+            {
+                "type": "QuantitativeTrack",
+                "trackId": "sacCer3-initiation_okseq_derivative",
+                "name": "d(FD)/dx",
+                "description": "Derivative of fork directionality per kb; maxima are initiation sites",
+                "assemblyNames": [
+                    "sacCer3"
+                ],
+                "category": [
+                    "Okazaki-fragment sequencing (McGuffee, Smith & Whitehouse 2013), re-analysed on sacCer3"
+                ],
+                "adapter": {
+                    "type": "BigWigAdapter",
+                    "bigWigLocation": {
+                        "uri": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/mcguffee2013/okseq.derivative.bw"
+                    }
+                },
+                "displays": [
+                    {
+                        "type": "LinearWiggleDisplay",
+                        "displayId": "sacCer3-initiation_okseq_derivative-display",
+                        "autoscale": "local",
+                        "minScore": -0.5
+                    }
+                ]
+            },
+            {
+                "type": "QuantitativeTrack",
+                "trackId": "sacCer3-initiation_okseq_oem",
+                "name": "OEM",
+                "description": "Origin efficiency metric over 10 kb quadrants, raw (not deconvolved)",
+                "assemblyNames": [
+                    "sacCer3"
+                ],
+                "category": [
+                    "Okazaki-fragment sequencing (McGuffee, Smith & Whitehouse 2013), re-analysed on sacCer3"
+                ],
+                "adapter": {
+                    "type": "BigWigAdapter",
+                    "bigWigLocation": {
+                        "uri": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/mcguffee2013/okseq.oem.bw"
+                    }
+                },
+                "displays": [
+                    {
+                        "type": "LinearWiggleDisplay",
+                        "displayId": "sacCer3-initiation_okseq_oem-display",
+                        "autoscale": "local",
+                        "minScore": -0.5
+                    }
+                ]
+            },
+            {
+                "type": "QuantitativeTrack",
+                "trackId": "sacCer3-strands_okseq_watson",
+                "name": "Watson",
+                "description": "Okazaki fragments on the Watson strand (leftward-moving forks)",
+                "assemblyNames": [
+                    "sacCer3"
+                ],
+                "category": [
+                    "Okazaki-fragment sequencing (McGuffee, Smith & Whitehouse 2013), re-analysed on sacCer3"
+                ],
+                "adapter": {
+                    "type": "BigWigAdapter",
+                    "bigWigLocation": {
+                        "uri": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/mcguffee2013/okseq.watson.bw"
+                    }
+                },
+                "displays": [
+                    {
+                        "type": "LinearWiggleDisplay",
+                        "displayId": "sacCer3-strands_okseq_watson-display",
+                        "autoscale": "local",
+                        "minScore": 0
+                    }
+                ]
+            },
+            {
+                "type": "QuantitativeTrack",
+                "trackId": "sacCer3-strands_okseq_crick",
+                "name": "Crick",
+                "description": "Okazaki fragments on the Crick strand (rightward-moving forks)",
+                "assemblyNames": [
+                    "sacCer3"
+                ],
+                "category": [
+                    "Okazaki-fragment sequencing (McGuffee, Smith & Whitehouse 2013), re-analysed on sacCer3"
+                ],
+                "adapter": {
+                    "type": "BigWigAdapter",
+                    "bigWigLocation": {
+                        "uri": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/mcguffee2013/okseq.crick.bw"
+                    }
+                },
+                "displays": [
+                    {
+                        "type": "LinearWiggleDisplay",
+                        "displayId": "sacCer3-strands_okseq_crick-display",
+                        "autoscale": "local",
+                        "minScore": 0
+                    }
+                ]
+            },
+            {
+                "type": "QuantitativeTrack",
+                "trackId": "sacCer3-ov_timing",
+                "name": "Trep (Muller 2014)",
+                "description": "Replication timing: Trep in minutes from sync-seq (Muller et al. 2014); early replication plots high",
+                "assemblyNames": [
+                    "sacCer3"
+                ],
+                "category": [
+                    "The dynamics of genome replication using deep sequencing (Muller et al. 2014), reprocessed on sacCer3"
+                ],
+                "adapter": {
+                    "type": "BigWigAdapter",
+                    "bigWigLocation": {
+                        "uri": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/muller2014/syncseq.trep.bw"
+                    }
+                },
+                "displays": [
+                    {
+                        "type": "LinearWiggleDisplay",
+                        "displayId": "sacCer3-ov_timing-display",
+                        "autoscale": "local",
+                        "inverted": true,
+                        "minScore": 25,
+                        "renderers": {
+                            "XYPlotRenderer": {
+                                "filled": false
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "type": "QuantitativeTrack",
+                "trackId": "sacCer3-timecourse_syncseq_AUY077_90min_smooth",
+                "name": "1 90 min",
+                "description": "Muller et al. (2014): time course 90 min post alpha-factor release",
+                "assemblyNames": [
+                    "sacCer3"
+                ],
+                "category": [
+                    "The dynamics of genome replication using deep sequencing (Muller et al. 2014), reprocessed on sacCer3"
+                ],
+                "adapter": {
+                    "type": "BigWigAdapter",
+                    "bigWigLocation": {
+                        "uri": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/muller2014/syncseq_AUY077_90min.smooth.bw"
+                    }
+                },
+                "displays": [
+                    {
+                        "type": "LinearWiggleDisplay",
+                        "displayId": "sacCer3-timecourse_syncseq_AUY077_90min_smooth-display",
+                        "autoscale": "local",
+                        "minScore": 0.9
+                    }
+                ]
+            },
+            {
+                "type": "QuantitativeTrack",
+                "trackId": "sacCer3-timecourse_syncseq_AUY077_50min_smooth",
+                "name": "2 50 min",
+                "description": "Muller et al. (2014): time course 50 min post alpha-factor release",
+                "assemblyNames": [
+                    "sacCer3"
+                ],
+                "category": [
+                    "The dynamics of genome replication using deep sequencing (Muller et al. 2014), reprocessed on sacCer3"
+                ],
+                "adapter": {
+                    "type": "BigWigAdapter",
+                    "bigWigLocation": {
+                        "uri": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/muller2014/syncseq_AUY077_50min.smooth.bw"
+                    }
+                },
+                "displays": [
+                    {
+                        "type": "LinearWiggleDisplay",
+                        "displayId": "sacCer3-timecourse_syncseq_AUY077_50min_smooth-display",
+                        "autoscale": "local",
+                        "minScore": 0.9
+                    }
+                ]
+            },
+            {
+                "type": "QuantitativeTrack",
+                "trackId": "sacCer3-timecourse_syncseq_AUY077_45min_smooth",
+                "name": "3 45 min",
+                "description": "Muller et al. (2014): time course 45 min post alpha-factor release",
+                "assemblyNames": [
+                    "sacCer3"
+                ],
+                "category": [
+                    "The dynamics of genome replication using deep sequencing (Muller et al. 2014), reprocessed on sacCer3"
+                ],
+                "adapter": {
+                    "type": "BigWigAdapter",
+                    "bigWigLocation": {
+                        "uri": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/muller2014/syncseq_AUY077_45min.smooth.bw"
+                    }
+                },
+                "displays": [
+                    {
+                        "type": "LinearWiggleDisplay",
+                        "displayId": "sacCer3-timecourse_syncseq_AUY077_45min_smooth-display",
+                        "autoscale": "local",
+                        "minScore": 0.9
+                    }
+                ]
+            },
+            {
+                "type": "QuantitativeTrack",
+                "trackId": "sacCer3-timecourse_syncseq_AUY077_40min_smooth",
+                "name": "4 40 min",
+                "description": "Muller et al. (2014): time course 40 min post alpha-factor release",
+                "assemblyNames": [
+                    "sacCer3"
+                ],
+                "category": [
+                    "The dynamics of genome replication using deep sequencing (Muller et al. 2014), reprocessed on sacCer3"
+                ],
+                "adapter": {
+                    "type": "BigWigAdapter",
+                    "bigWigLocation": {
+                        "uri": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/muller2014/syncseq_AUY077_40min.smooth.bw"
+                    }
+                },
+                "displays": [
+                    {
+                        "type": "LinearWiggleDisplay",
+                        "displayId": "sacCer3-timecourse_syncseq_AUY077_40min_smooth-display",
+                        "autoscale": "local",
+                        "minScore": 0.9
+                    }
+                ]
+            },
+            {
+                "type": "QuantitativeTrack",
+                "trackId": "sacCer3-timecourse_syncseq_AUY077_35min_smooth",
+                "name": "5 35 min",
+                "description": "Muller et al. (2014): time course 35 min post alpha-factor release",
+                "assemblyNames": [
+                    "sacCer3"
+                ],
+                "category": [
+                    "The dynamics of genome replication using deep sequencing (Muller et al. 2014), reprocessed on sacCer3"
+                ],
+                "adapter": {
+                    "type": "BigWigAdapter",
+                    "bigWigLocation": {
+                        "uri": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/muller2014/syncseq_AUY077_35min.smooth.bw"
+                    }
+                },
+                "displays": [
+                    {
+                        "type": "LinearWiggleDisplay",
+                        "displayId": "sacCer3-timecourse_syncseq_AUY077_35min_smooth-display",
+                        "autoscale": "local",
+                        "minScore": 0.9
+                    }
+                ]
+            },
+            {
+                "type": "QuantitativeTrack",
+                "trackId": "sacCer3-timecourse_syncseq_AUY077_30min_smooth",
+                "name": "6 30 min",
+                "description": "Muller et al. (2014): time course 30 min post alpha-factor release",
+                "assemblyNames": [
+                    "sacCer3"
+                ],
+                "category": [
+                    "The dynamics of genome replication using deep sequencing (Muller et al. 2014), reprocessed on sacCer3"
+                ],
+                "adapter": {
+                    "type": "BigWigAdapter",
+                    "bigWigLocation": {
+                        "uri": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/muller2014/syncseq_AUY077_30min.smooth.bw"
+                    }
+                },
+                "displays": [
+                    {
+                        "type": "LinearWiggleDisplay",
+                        "displayId": "sacCer3-timecourse_syncseq_AUY077_30min_smooth-display",
+                        "autoscale": "local",
+                        "minScore": 0.9
+                    }
+                ]
+            },
+            {
+                "type": "QuantitativeTrack",
+                "trackId": "sacCer3-timecourse_syncseq_AUY077_25min_smooth",
+                "name": "7 25 min",
+                "description": "Muller et al. (2014): time course 25 min post alpha-factor release",
+                "assemblyNames": [
+                    "sacCer3"
+                ],
+                "category": [
+                    "The dynamics of genome replication using deep sequencing (Muller et al. 2014), reprocessed on sacCer3"
+                ],
+                "adapter": {
+                    "type": "BigWigAdapter",
+                    "bigWigLocation": {
+                        "uri": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/muller2014/syncseq_AUY077_25min.smooth.bw"
+                    }
+                },
+                "displays": [
+                    {
+                        "type": "LinearWiggleDisplay",
+                        "displayId": "sacCer3-timecourse_syncseq_AUY077_25min_smooth-display",
+                        "autoscale": "local",
+                        "minScore": 0.9
+                    }
+                ]
+            },
+            {
+                "type": "QuantitativeTrack",
+                "trackId": "sacCer3-sortseq_ploidy_sortseq_T9475_SOLiD_smooth",
+                "name": "1 diploid",
+                "description": "Muller et al. (2014): diploid (T9475) sort-seq replication profile, SOLiD",
+                "assemblyNames": [
+                    "sacCer3"
+                ],
+                "category": [
+                    "The dynamics of genome replication using deep sequencing (Muller et al. 2014), reprocessed on sacCer3"
+                ],
+                "adapter": {
+                    "type": "BigWigAdapter",
+                    "bigWigLocation": {
+                        "uri": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/muller2014/sortseq_T9475_SOLiD.smooth.bw"
+                    }
+                },
+                "displays": [
+                    {
+                        "type": "LinearWiggleDisplay",
+                        "displayId": "sacCer3-sortseq_ploidy_sortseq_T9475_SOLiD_smooth-display",
+                        "autoscale": "local",
+                        "minScore": 0.9,
+                        "renderers": {
+                            "XYPlotRenderer": {
+                                "filled": false
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "type": "QuantitativeTrack",
+                "trackId": "sacCer3-sortseq_ploidy_sortseq_T7107_SOLiD_smooth",
+                "name": "2 haploid",
+                "description": "Muller et al. (2014): haploid (T7107) sort-seq replication profile, SOLiD",
+                "assemblyNames": [
+                    "sacCer3"
+                ],
+                "category": [
+                    "The dynamics of genome replication using deep sequencing (Muller et al. 2014), reprocessed on sacCer3"
+                ],
+                "adapter": {
+                    "type": "BigWigAdapter",
+                    "bigWigLocation": {
+                        "uri": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/muller2014/sortseq_T7107_SOLiD.smooth.bw"
+                    }
+                },
+                "displays": [
+                    {
+                        "type": "LinearWiggleDisplay",
+                        "displayId": "sacCer3-sortseq_ploidy_sortseq_T7107_SOLiD_smooth-display",
+                        "autoscale": "local",
+                        "minScore": 0.9,
+                        "renderers": {
+                            "XYPlotRenderer": {
+                                "filled": false
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "type": "QuantitativeTrack",
+                "trackId": "sacCer3-sortseq_platform_sortseq_T9475_Illumina_smooth",
+                "name": "2 Illumina",
+                "description": "Muller et al. (2014): diploid (T9475) sort-seq replication profile, Illumina",
+                "assemblyNames": [
+                    "sacCer3"
+                ],
+                "category": [
+                    "The dynamics of genome replication using deep sequencing (Muller et al. 2014), reprocessed on sacCer3"
+                ],
+                "adapter": {
+                    "type": "BigWigAdapter",
+                    "bigWigLocation": {
+                        "uri": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/muller2014/sortseq_T9475_Illumina.smooth.bw"
+                    }
+                },
+                "displays": [
+                    {
+                        "type": "LinearWiggleDisplay",
+                        "displayId": "sacCer3-sortseq_platform_sortseq_T9475_Illumina_smooth-display",
+                        "autoscale": "local",
+                        "minScore": 0.9,
+                        "renderers": {
+                            "XYPlotRenderer": {
+                                "filled": false
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "type": "QuantitativeTrack",
+                "trackId": "sacCer3-mfaseq_mfaseq_T7107_smooth",
+                "name": "MFA-seq",
+                "description": "Muller et al. (2014): MFA-seq replication profile, exponential vs stationary phase",
+                "assemblyNames": [
+                    "sacCer3"
+                ],
+                "category": [
+                    "The dynamics of genome replication using deep sequencing (Muller et al. 2014), reprocessed on sacCer3"
+                ],
+                "adapter": {
+                    "type": "BigWigAdapter",
+                    "bigWigLocation": {
+                        "uri": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/muller2014/mfaseq_T7107.smooth.bw"
+                    }
+                },
+                "displays": [
+                    {
+                        "type": "LinearWiggleDisplay",
+                        "displayId": "sacCer3-mfaseq_mfaseq_T7107_smooth-display",
+                        "autoscale": "local",
+                        "minScore": 0.9,
+                        "renderers": {
+                            "XYPlotRenderer": {
+                                "filled": false
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "type": "QuantitativeTrack",
+                "trackId": "sacCer3-hu_hu_CAY106_smooth",
+                "name": "HU 60 min",
+                "description": "Muller et al. (2014): HU-stalled fork origin mapping, 60 min after release (CAY106)",
+                "assemblyNames": [
+                    "sacCer3"
+                ],
+                "category": [
+                    "The dynamics of genome replication using deep sequencing (Muller et al. 2014), reprocessed on sacCer3"
+                ],
+                "adapter": {
+                    "type": "BigWigAdapter",
+                    "bigWigLocation": {
+                        "uri": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/muller2014/hu_CAY106.smooth.bw"
+                    }
+                },
+                "displays": [
+                    {
+                        "type": "LinearWiggleDisplay",
+                        "displayId": "sacCer3-hu_hu_CAY106_smooth-display",
+                        "autoscale": "local",
+                        "minScore": 0.9,
+                        "renderers": {
+                            "XYPlotRenderer": {
+                                "filled": false
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "type": "FeatureTrack",
+                "trackId": "sacCer3-muller2014_trep_peaks",
+                "name": "Trep peaks (Muller 2014)",
+                "description": "Origin calls from the Muller et al. (2014) Trep profile: local minima of replication time, called by OriDB",
+                "assemblyNames": [
+                    "sacCer3"
+                ],
+                "category": [
+                    "The dynamics of genome replication using deep sequencing (Muller et al. 2014), reprocessed on sacCer3"
+                ],
+                "adapter": {
+                    "type": "BigBedAdapter",
+                    "bigBedLocation": {
+                        "uri": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/muller2014/syncseq.trep.peaks.bb"
+                    }
+                }
+            },
+            {
+                "type": "FeatureTrack",
                 "trackId": "sacCer3-sgd_protein_coding",
-                "name": "SGD genes",
+                "name": "Genes (SGD)",
                 "description": "Protein-coding genes from SGD (R64-4-1): 5,783 Verified in green, 147 Uncharacterized in blue, 683 Dubious in grey; CDS blocks, so introns are drawn",
                 "assemblyNames": [
                     "sacCer3"
@@ -1202,9 +1202,9 @@
             },
             {
                 "type": "FeatureTrack",
-                "trackId": "sacCer3-sgd_trna",
-                "name": "SGD tRNA genes",
-                "description": "tRNA genes from SGD (R64-4-1): 299 genes with their exon structure, so the intron-containing tRNAs are drawn as two blocks",
+                "trackId": "sacCer3-sgd_rna_genes",
+                "name": "RNA genes (SGD)",
+                "description": "Non-coding RNA genes from SGD (R64-4-1): 299 tRNA in purple, 77 snoRNA orange, 31 ncRNA green, 24 rRNA pink, 6 snRNA yellow and 1 telomerase RNA grey, with their exon structure",
                 "assemblyNames": [
                     "sacCer3"
                 ],
@@ -1214,7 +1214,7 @@
                 "adapter": {
                     "type": "BigBedAdapter",
                     "bigBedLocation": {
-                        "uri": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/sgd/sgd.trna.bb"
+                        "uri": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/sgd/sgd.rna_genes.bb"
                     }
                 }
             }
@@ -1223,7 +1223,7 @@
             {
                 "type": "FeatureTrack",
                 "trackId": "ASM294v2-ov_origins",
-                "name": "OriDB origins",
+                "name": "Origins (OriDB v3)",
                 "description": "OriDB v3 origin records, coloured by evidence tier: green confirmed, blue likely, grey unsupported or not assessed",
                 "assemblyNames": [
                     "ASM294v2"
@@ -1250,120 +1250,8 @@
             },
             {
                 "type": "QuantitativeTrack",
-                "trackId": "ASM294v2-ov_sp_timing",
-                "name": "Timing (Trep, Pu-seq)",
-                "description": "Replication timing: Trep in minutes from polymerase usage (Daigaku et al. 2015); early replication plots high",
-                "assemblyNames": [
-                    "ASM294v2"
-                ],
-                "category": [
-                    "Polymerase usage sequencing (Pu-seq) in S. pombe (Daigaku et al. 2015), the published derived profiles on ASM294v2"
-                ],
-                "adapter": {
-                    "type": "BigWigAdapter",
-                    "bigWigLocation": {
-                        "uri": "https://dnareplicationlab.github.io/oridb-data-hub/GCF_000002945.1/daigaku2015/puseq.trep.bw"
-                    }
-                },
-                "displays": [
-                    {
-                        "type": "LinearWiggleDisplay",
-                        "displayId": "ASM294v2-ov_sp_timing-display",
-                        "autoscale": "local",
-                        "inverted": true,
-                        "minScore": 20,
-                        "renderers": {
-                            "XYPlotRenderer": {
-                                "filled": false
-                            }
-                        }
-                    }
-                ]
-            },
-            {
-                "type": "QuantitativeTrack",
-                "trackId": "ASM294v2-ov_sp_fd",
-                "name": "Fork direction (Pu-seq)",
-                "description": "Fraction of forks moving leftward, from polymerase usage (Daigaku et al. 2015)",
-                "assemblyNames": [
-                    "ASM294v2"
-                ],
-                "category": [
-                    "Polymerase usage sequencing (Pu-seq) in S. pombe (Daigaku et al. 2015), the published derived profiles on ASM294v2"
-                ],
-                "adapter": {
-                    "type": "BigWigAdapter",
-                    "bigWigLocation": {
-                        "uri": "https://dnareplicationlab.github.io/oridb-data-hub/GCF_000002945.1/daigaku2015/puseq.leftward_fork.bw"
-                    }
-                },
-                "displays": [
-                    {
-                        "type": "LinearWiggleDisplay",
-                        "displayId": "ASM294v2-ov_sp_fd-display",
-                        "autoscale": "local",
-                        "minScore": 0
-                    }
-                ]
-            },
-            {
-                "type": "FeatureTrack",
-                "trackId": "ASM294v2-ov_sp_init",
-                "name": "Pu-seq origins",
-                "description": "Origin calls with firing efficiency from polymerase usage (Daigaku et al. 2015)",
-                "assemblyNames": [
-                    "ASM294v2"
-                ],
-                "category": [
-                    "Polymerase usage sequencing (Pu-seq) in S. pombe (Daigaku et al. 2015), the published derived profiles on ASM294v2"
-                ],
-                "adapter": {
-                    "type": "BigBedAdapter",
-                    "bigBedLocation": {
-                        "uri": "https://dnareplicationlab.github.io/oridb-data-hub/GCF_000002945.1/daigaku2015/puseq.origins.bb"
-                    }
-                },
-                "displays": [
-                    {
-                        "type": "LinearBasicDisplay",
-                        "displayId": "ASM294v2-ov_sp_init-display",
-                        "renderer": {
-                            "type": "SvgFeatureRenderer",
-                            "color1": "jexl:get(feature,'tier')=='Confirmed'?'#1a7f4b':get(feature,'tier')=='Likely'?'#2f7d9b':get(feature,'tier')=='Unsupported'?'#8a8f98':'#c7ccd3'"
-                        }
-                    }
-                ]
-            },
-            {
-                "type": "QuantitativeTrack",
-                "trackId": "ASM294v2-termination_puseq_termination",
-                "name": "Termination",
-                "description": "Termination events as a percentage per window (Daigaku et al. 2015)",
-                "assemblyNames": [
-                    "ASM294v2"
-                ],
-                "category": [
-                    "Polymerase usage sequencing (Pu-seq) in S. pombe (Daigaku et al. 2015), the published derived profiles on ASM294v2"
-                ],
-                "adapter": {
-                    "type": "BigWigAdapter",
-                    "bigWigLocation": {
-                        "uri": "https://dnareplicationlab.github.io/oridb-data-hub/GCF_000002945.1/daigaku2015/puseq.termination.bw"
-                    }
-                },
-                "displays": [
-                    {
-                        "type": "LinearWiggleDisplay",
-                        "displayId": "ASM294v2-termination_puseq_termination-display",
-                        "autoscale": "local",
-                        "minScore": 0
-                    }
-                ]
-            },
-            {
-                "type": "QuantitativeTrack",
                 "trackId": "ASM294v2-ov_sp_mcm",
-                "name": "Mcm2 occupancy (ChEC)",
+                "name": "Mcm2 ChEC (Foss 2021)",
                 "description": "MCM2-7 occupancy by chromatin endogenous cleavage in hydroxyurea (Foss et al. 2021); 1 is average coverage",
                 "assemblyNames": [
                     "ASM294v2"
@@ -1567,25 +1455,137 @@
                         "minScore": 0
                     }
                 ]
+            },
+            {
+                "type": "FeatureTrack",
+                "trackId": "ASM294v2-ov_sp_init",
+                "name": "Origins (Daigaku 2015)",
+                "description": "Origin calls with firing efficiency from polymerase usage (Daigaku et al. 2015)",
+                "assemblyNames": [
+                    "ASM294v2"
+                ],
+                "category": [
+                    "Polymerase usage sequencing (Pu-seq) in S. pombe (Daigaku et al. 2015), the published derived profiles on ASM294v2"
+                ],
+                "adapter": {
+                    "type": "BigBedAdapter",
+                    "bigBedLocation": {
+                        "uri": "https://dnareplicationlab.github.io/oridb-data-hub/GCF_000002945.1/daigaku2015/puseq.origins.bb"
+                    }
+                },
+                "displays": [
+                    {
+                        "type": "LinearBasicDisplay",
+                        "displayId": "ASM294v2-ov_sp_init-display",
+                        "renderer": {
+                            "type": "SvgFeatureRenderer",
+                            "color1": "jexl:get(feature,'tier')=='Confirmed'?'#1a7f4b':get(feature,'tier')=='Likely'?'#2f7d9b':get(feature,'tier')=='Unsupported'?'#8a8f98':'#c7ccd3'"
+                        }
+                    }
+                ]
+            },
+            {
+                "type": "QuantitativeTrack",
+                "trackId": "ASM294v2-ov_sp_fd",
+                "name": "Fork dir (Daigaku 2015)",
+                "description": "Fraction of forks moving leftward, from polymerase usage (Daigaku et al. 2015)",
+                "assemblyNames": [
+                    "ASM294v2"
+                ],
+                "category": [
+                    "Polymerase usage sequencing (Pu-seq) in S. pombe (Daigaku et al. 2015), the published derived profiles on ASM294v2"
+                ],
+                "adapter": {
+                    "type": "BigWigAdapter",
+                    "bigWigLocation": {
+                        "uri": "https://dnareplicationlab.github.io/oridb-data-hub/GCF_000002945.1/daigaku2015/puseq.leftward_fork.bw"
+                    }
+                },
+                "displays": [
+                    {
+                        "type": "LinearWiggleDisplay",
+                        "displayId": "ASM294v2-ov_sp_fd-display",
+                        "autoscale": "local",
+                        "minScore": 0
+                    }
+                ]
+            },
+            {
+                "type": "QuantitativeTrack",
+                "trackId": "ASM294v2-ov_sp_timing",
+                "name": "Trep (Daigaku 2015)",
+                "description": "Replication timing: Trep in minutes from polymerase usage (Daigaku et al. 2015); early replication plots high",
+                "assemblyNames": [
+                    "ASM294v2"
+                ],
+                "category": [
+                    "Polymerase usage sequencing (Pu-seq) in S. pombe (Daigaku et al. 2015), the published derived profiles on ASM294v2"
+                ],
+                "adapter": {
+                    "type": "BigWigAdapter",
+                    "bigWigLocation": {
+                        "uri": "https://dnareplicationlab.github.io/oridb-data-hub/GCF_000002945.1/daigaku2015/puseq.trep.bw"
+                    }
+                },
+                "displays": [
+                    {
+                        "type": "LinearWiggleDisplay",
+                        "displayId": "ASM294v2-ov_sp_timing-display",
+                        "autoscale": "local",
+                        "inverted": true,
+                        "minScore": 20,
+                        "renderers": {
+                            "XYPlotRenderer": {
+                                "filled": false
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "type": "QuantitativeTrack",
+                "trackId": "ASM294v2-termination_puseq_termination",
+                "name": "Termination",
+                "description": "Termination events as a percentage per window (Daigaku et al. 2015)",
+                "assemblyNames": [
+                    "ASM294v2"
+                ],
+                "category": [
+                    "Polymerase usage sequencing (Pu-seq) in S. pombe (Daigaku et al. 2015), the published derived profiles on ASM294v2"
+                ],
+                "adapter": {
+                    "type": "BigWigAdapter",
+                    "bigWigLocation": {
+                        "uri": "https://dnareplicationlab.github.io/oridb-data-hub/GCF_000002945.1/daigaku2015/puseq.termination.bw"
+                    }
+                },
+                "displays": [
+                    {
+                        "type": "LinearWiggleDisplay",
+                        "displayId": "ASM294v2-termination_puseq_termination-display",
+                        "autoscale": "local",
+                        "minScore": 0
+                    }
+                ]
             }
         ]
     },
     "defaults": {
         "sacCer3": [
-            "sacCer3-ov_origins",
-            "sacCer3-ov_timing",
-            "sacCer3-ov_fd",
-            "sacCer3-ov_init",
-            "sacCer3-ov_mcm",
             "sacCer3-sgd_protein_coding",
-            "sacCer3-sgd_trna"
+            "sacCer3-sgd_rna_genes",
+            "sacCer3-ov_origins",
+            "sacCer3-ov_mcm",
+            "sacCer3-ov_init",
+            "sacCer3-ov_fd",
+            "sacCer3-ov_timing"
         ],
         "ASM294v2": [
             "ASM294v2-ov_origins",
-            "ASM294v2-ov_sp_timing",
-            "ASM294v2-ov_sp_fd",
+            "ASM294v2-ov_sp_mcm",
             "ASM294v2-ov_sp_init",
-            "ASM294v2-ov_sp_mcm"
+            "ASM294v2-ov_sp_fd",
+            "ASM294v2-ov_sp_timing"
         ]
     }
 }

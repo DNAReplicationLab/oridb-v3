@@ -1,5 +1,5 @@
 {
-    "generated": "2026-11-28T12:57:16Z",
+    "generated": "2026-11-28T13:55:49Z",
     "hub": {
         "name": "oridb_data_hub",
         "shortLabel": "OriDB data hub",
@@ -46,7 +46,7 @@
                             "tracks": [
                                 {
                                     "track": "ov_origins",
-                                    "shortLabel": "OriDB origins",
+                                    "shortLabel": "Origins (OriDB v3)",
                                     "longLabel": "OriDB v3 origin records, coloured by evidence tier: green confirmed, blue likely, grey unsupported or not assessed",
                                     "type": "bigBed 9 +",
                                     "file": "origins.bb",
@@ -55,7 +55,8 @@
                                     "negated": false,
                                     "viewLimits": "",
                                     "graphType": "",
-                                    "panel_default": false
+                                    "panel_default": false,
+                                    "priority": 3
                                 }
                             ]
                         },
@@ -68,7 +69,7 @@
                             "tracks": [
                                 {
                                     "track": "oridb_v3_origins",
-                                    "shortLabel": "OriDB origins",
+                                    "shortLabel": "Origins (OriDB v3)",
                                     "longLabel": "OriDB v3 origin records on sacCer3, coloured by evidence tier; the name links to the OriDB page",
                                     "type": "bigBed 9 +",
                                     "file": "origins.bb",
@@ -77,11 +78,12 @@
                                     "negated": false,
                                     "viewLimits": "",
                                     "graphType": "",
-                                    "panel_default": false
+                                    "panel_default": false,
+                                    "priority": 1
                                 },
                                 {
                                     "track": "oridb_v3_elements",
-                                    "shortLabel": "Origin elements",
+                                    "shortLabel": "Elements (OriDB v3)",
                                     "longLabel": "OriDB v3 origin elements: A elements in blue and all B elements (B2, B3) in brown, the colours the origin pages use; the class is in the elementClass field and the score is the motif score as a percentage of the matrix maximum",
                                     "type": "bigBed 9 +",
                                     "file": "elements.bb",
@@ -90,11 +92,12 @@
                                     "negated": false,
                                     "viewLimits": "",
                                     "graphType": "",
-                                    "panel_default": false
+                                    "panel_default": false,
+                                    "priority": 2
                                 },
                                 {
                                     "track": "oridb_v3_refuted",
-                                    "shortLabel": "ARS-negative fragments",
+                                    "shortLabel": "ARS-negative (OriDB v3)",
                                     "longLabel": "Fragments that were cloned and did not support autonomous replication; a flag on the sites inside them, never a tier",
                                     "type": "bigBed 9 +",
                                     "file": "refuted_fragments.bb",
@@ -103,315 +106,450 @@
                                     "negated": false,
                                     "viewLimits": "",
                                     "graphType": "",
-                                    "panel_default": false
+                                    "panel_default": false,
+                                    "priority": 3
                                 }
                             ]
                         }
                     ]
                 },
                 {
-                    "id": "muller2014",
-                    "title": "The dynamics of genome replication using deep sequencing (Muller et al. 2014), reprocessed on sacCer3",
+                    "id": "reuter2024",
+                    "title": "ORC and MCM2-7 ChIP-exo in G1 and G2 arrest (Reuter et al. 2024), as deposited on sacCer3",
                     "organism": "Saccharomyces cerevisiae",
                     "assembly": "sacCer3",
-                    "bin_size_bp": 1000,
-                    "measurement": "relative DNA copy number (replication timing)",
-                    "scale": "1 = unreplicated, 2 = fully replicated",
+                    "bin_size_bp": 1,
+                    "measurement": "Orc2 and Mcm4 occupancy by ChIP-exo",
+                    "scale": "combined tracks: CPM with reads extended to ~209 bp, genome-wide mean 17.1 in every sample; strand tracks: coverage per million mapped reads at the 50 bp read length, about 4.2x lower in height for that reason",
                     "source": {
-                        "doi": "10.1093/nar/gkt878",
-                        "pubmed": "24089142",
+                        "doi": "10.1038/s41467-024-51538-9",
+                        "pubmed": "39181881",
                         "archive_series": [
-                            "GSE42243",
-                            "GSE48212"
+                            "GSE240779",
+                            "GSE173527"
                         ],
-                        "n_runs": 18,
-                        "n_samples_used": 0,
-                        "n_samples_excluded": 0,
-                        "exclusion_reason": ""
+                        "n_runs": 0,
+                        "n_samples_used": 6,
+                        "n_samples_excluded": 2,
+                        "exclusion_reason": "the hub carries the G1 and G2 arrest conditions; the release time course and the per-replicate peak calls were not requested and the peak calls are unfiltered"
                     },
-                    "n_samples": 18,
+                    "n_samples": 6,
                     "calls": null,
                     "groups": [
                         {
-                            "track": "oridb_overview",
-                            "shortLabel": "OriDB overview",
-                            "longLabel": "OriDB overview: one reference track per measurement type, drawn by default",
-                            "container": "",
+                            "track": "ov_mcm",
+                            "shortLabel": "MCM4 strands (Reuter 2024)",
+                            "longLabel": "MCM2-7 occupancy at licensed origins, from Mcm4-Flag ChIP-exo in G1-arrested cells (Reuter et al. 2024): plus-strand coverage above the axis and minus below, replicate 1; the gap between the two peaks is the protected footprint",
+                            "container": "multiWig",
                             "section": "oridb_overview",
                             "tracks": [
                                 {
-                                    "track": "ov_timing",
-                                    "shortLabel": "Timing (Trep)",
-                                    "longLabel": "Replication timing: Trep in minutes from sync-seq (Muller et al. 2014); early replication plots high",
+                                    "track": "ov_mcm_chipexo_mcm4_g1_rep1_pos",
+                                    "shortLabel": "MCM4 plus strand",
+                                    "longLabel": "Mcm4-Flag ChIP-exo, G1 arrest, replicate 1, plus-strand coverage per million mapped reads",
                                     "type": "bigWig",
-                                    "file": "syncseq.trep.bw",
-                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/muller2014/syncseq.trep.bw",
-                                    "bytes": 74713,
-                                    "negated": true,
-                                    "viewLimits": "-85:-25",
-                                    "graphType": "points",
-                                    "panel_default": false
-                                }
-                            ]
-                        },
-                        {
-                            "track": "muller2014_timecourse",
-                            "shortLabel": "Muller timecourse",
-                            "longLabel": "Muller et al. (2014): S. cerevisiae genome replication time course from alpha-factor release",
-                            "container": "multiWig",
-                            "section": "oridb_timing",
-                            "tracks": [
-                                {
-                                    "track": "timecourse_syncseq_AUY077_90min_smooth",
-                                    "shortLabel": "1 90 min",
-                                    "longLabel": "Muller et al. (2014): time course 90 min post alpha-factor release",
-                                    "type": "bigWig",
-                                    "file": "syncseq_AUY077_90min.smooth.bw",
-                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/muller2014/syncseq_AUY077_90min.smooth.bw",
-                                    "bytes": 62142,
+                                    "file": "chipexo.mcm4_g1_rep1.pos.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/reuter2024/chipexo.mcm4_g1_rep1.pos.bw",
+                                    "bytes": 2309351,
                                     "negated": false,
-                                    "viewLimits": "0.9:2.1",
+                                    "viewLimits": "-150:150",
                                     "graphType": "bar",
-                                    "panel_default": false
-                                },
-                                {
-                                    "track": "timecourse_syncseq_AUY077_50min_smooth",
-                                    "shortLabel": "2 50 min",
-                                    "longLabel": "Muller et al. (2014): time course 50 min post alpha-factor release",
-                                    "type": "bigWig",
-                                    "file": "syncseq_AUY077_50min.smooth.bw",
-                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/muller2014/syncseq_AUY077_50min.smooth.bw",
-                                    "bytes": 90277,
-                                    "negated": false,
-                                    "viewLimits": "0.9:2.1",
-                                    "graphType": "bar",
-                                    "panel_default": false
-                                },
-                                {
-                                    "track": "timecourse_syncseq_AUY077_45min_smooth",
-                                    "shortLabel": "3 45 min",
-                                    "longLabel": "Muller et al. (2014): time course 45 min post alpha-factor release",
-                                    "type": "bigWig",
-                                    "file": "syncseq_AUY077_45min.smooth.bw",
-                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/muller2014/syncseq_AUY077_45min.smooth.bw",
-                                    "bytes": 92209,
-                                    "negated": false,
-                                    "viewLimits": "0.9:2.1",
-                                    "graphType": "bar",
-                                    "panel_default": false
-                                },
-                                {
-                                    "track": "timecourse_syncseq_AUY077_40min_smooth",
-                                    "shortLabel": "4 40 min",
-                                    "longLabel": "Muller et al. (2014): time course 40 min post alpha-factor release",
-                                    "type": "bigWig",
-                                    "file": "syncseq_AUY077_40min.smooth.bw",
-                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/muller2014/syncseq_AUY077_40min.smooth.bw",
-                                    "bytes": 91878,
-                                    "negated": false,
-                                    "viewLimits": "0.9:2.1",
-                                    "graphType": "bar",
-                                    "panel_default": false
-                                },
-                                {
-                                    "track": "timecourse_syncseq_AUY077_35min_smooth",
-                                    "shortLabel": "5 35 min",
-                                    "longLabel": "Muller et al. (2014): time course 35 min post alpha-factor release",
-                                    "type": "bigWig",
-                                    "file": "syncseq_AUY077_35min.smooth.bw",
-                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/muller2014/syncseq_AUY077_35min.smooth.bw",
-                                    "bytes": 89337,
-                                    "negated": false,
-                                    "viewLimits": "0.9:2.1",
-                                    "graphType": "bar",
-                                    "panel_default": false
-                                },
-                                {
-                                    "track": "timecourse_syncseq_AUY077_30min_smooth",
-                                    "shortLabel": "6 30 min",
-                                    "longLabel": "Muller et al. (2014): time course 30 min post alpha-factor release",
-                                    "type": "bigWig",
-                                    "file": "syncseq_AUY077_30min.smooth.bw",
-                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/muller2014/syncseq_AUY077_30min.smooth.bw",
-                                    "bytes": 84642,
-                                    "negated": false,
-                                    "viewLimits": "0.9:2.1",
-                                    "graphType": "bar",
-                                    "panel_default": false
-                                },
-                                {
-                                    "track": "timecourse_syncseq_AUY077_25min_smooth",
-                                    "shortLabel": "7 25 min",
-                                    "longLabel": "Muller et al. (2014): time course 25 min post alpha-factor release",
-                                    "type": "bigWig",
-                                    "file": "syncseq_AUY077_25min.smooth.bw",
-                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/muller2014/syncseq_AUY077_25min.smooth.bw",
-                                    "bytes": 78948,
-                                    "negated": false,
-                                    "viewLimits": "0.9:2.1",
-                                    "graphType": "bar",
-                                    "panel_default": false
-                                }
-                            ]
-                        },
-                        {
-                            "track": "muller2014_sortseq_ploidy",
-                            "shortLabel": "Haploid vs diploid",
-                            "longLabel": "Muller et al. (2014): haploid and diploid S. cerevisiae sort-seq replication profiles",
-                            "container": "multiWig",
-                            "section": "oridb_timing",
-                            "tracks": [
-                                {
-                                    "track": "sortseq_ploidy_sortseq_T9475_SOLiD_smooth",
-                                    "shortLabel": "1 diploid",
-                                    "longLabel": "Muller et al. (2014): diploid (T9475) sort-seq replication profile, SOLiD",
-                                    "type": "bigWig",
-                                    "file": "sortseq_T9475_SOLiD.smooth.bw",
-                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/muller2014/sortseq_T9475_SOLiD.smooth.bw",
-                                    "bytes": 91847,
-                                    "negated": false,
-                                    "viewLimits": "0.9:2.1",
-                                    "graphType": "points",
-                                    "panel_default": false
-                                },
-                                {
-                                    "track": "sortseq_ploidy_sortseq_T7107_SOLiD_smooth",
-                                    "shortLabel": "2 haploid",
-                                    "longLabel": "Muller et al. (2014): haploid (T7107) sort-seq replication profile, SOLiD",
-                                    "type": "bigWig",
-                                    "file": "sortseq_T7107_SOLiD.smooth.bw",
-                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/muller2014/sortseq_T7107_SOLiD.smooth.bw",
-                                    "bytes": 91830,
-                                    "negated": false,
-                                    "viewLimits": "0.9:2.1",
-                                    "graphType": "points",
-                                    "panel_default": false
-                                }
-                            ]
-                        },
-                        {
-                            "track": "muller2014_sortseq_platform",
-                            "shortLabel": "SOLiD vs Illumina",
-                            "longLabel": "Muller et al. (2014): technology comparison for diploid S. cerevisiae sort-seq replication profiles",
-                            "container": "multiWig",
-                            "section": "oridb_timing",
-                            "tracks": [
-                                {
-                                    "track": "sortseq_platform_sortseq_T9475_SOLiD_smooth",
-                                    "shortLabel": "1 SOLiD",
-                                    "longLabel": "Muller et al. (2014): diploid (T9475) sort-seq replication profile, SOLiD",
-                                    "type": "bigWig",
-                                    "file": "sortseq_T9475_SOLiD.smooth.bw",
-                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/muller2014/sortseq_T9475_SOLiD.smooth.bw",
-                                    "bytes": 91847,
-                                    "negated": false,
-                                    "viewLimits": "0.9:2.1",
-                                    "graphType": "points",
-                                    "panel_default": false
-                                },
-                                {
-                                    "track": "sortseq_platform_sortseq_T9475_Illumina_smooth",
-                                    "shortLabel": "2 Illumina",
-                                    "longLabel": "Muller et al. (2014): diploid (T9475) sort-seq replication profile, Illumina",
-                                    "type": "bigWig",
-                                    "file": "sortseq_T9475_Illumina.smooth.bw",
-                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/muller2014/sortseq_T9475_Illumina.smooth.bw",
-                                    "bytes": 90818,
-                                    "negated": false,
-                                    "viewLimits": "0.9:2.1",
-                                    "graphType": "points",
-                                    "panel_default": false
-                                }
-                            ]
-                        },
-                        {
-                            "track": "muller2014_mfaseq",
-                            "shortLabel": "MFA-seq",
-                            "longLabel": "Muller et al. (2014): marker frequency analysis, exponential versus stationary phase (T7107)",
-                            "container": "multiWig",
-                            "section": "oridb_timing",
-                            "tracks": [
-                                {
-                                    "track": "mfaseq_mfaseq_T7107_smooth",
-                                    "shortLabel": "MFA-seq",
-                                    "longLabel": "Muller et al. (2014): MFA-seq replication profile, exponential vs stationary phase",
-                                    "type": "bigWig",
-                                    "file": "mfaseq_T7107.smooth.bw",
-                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/muller2014/mfaseq_T7107.smooth.bw",
-                                    "bytes": 82480,
-                                    "negated": false,
-                                    "viewLimits": "0.9:1.5",
-                                    "graphType": "points",
-                                    "panel_default": false
-                                }
-                            ]
-                        },
-                        {
-                            "track": "muller2014_hu",
-                            "shortLabel": "HU origin mapping",
-                            "longLabel": "Muller et al. (2014): origin mapping by replication forks stalled in hydroxyurea (rad53 sml1)",
-                            "container": "multiWig",
-                            "section": "oridb_initiation",
-                            "tracks": [
-                                {
-                                    "track": "hu_hu_CAY106_smooth",
-                                    "shortLabel": "HU 60 min",
-                                    "longLabel": "Muller et al. (2014): HU-stalled fork origin mapping, 60 min after release (CAY106)",
-                                    "type": "bigWig",
-                                    "file": "hu_CAY106.smooth.bw",
-                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/muller2014/hu_CAY106.smooth.bw",
-                                    "bytes": 87925,
-                                    "negated": false,
-                                    "viewLimits": "0.9:2.1",
-                                    "graphType": "points",
-                                    "panel_default": false
-                                }
-                            ]
-                        },
-                        {
-                            "track": "muller2014_trep",
-                            "shortLabel": "Trep",
-                            "longLabel": "Muller et al. (2014): median replication time (Trep, minutes from alpha-factor release)",
-                            "container": "multiWig",
-                            "section": "oridb_timing",
-                            "tracks": [
-                                {
-                                    "track": "trep_syncseq_trep",
-                                    "shortLabel": "Trep",
-                                    "longLabel": "Muller et al. (2014): median replication time from the sync-seq time course",
-                                    "type": "bigWig",
-                                    "file": "syncseq.trep.bw",
-                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/muller2014/syncseq.trep.bw",
-                                    "bytes": 74713,
-                                    "negated": true,
-                                    "viewLimits": "-85:-25",
-                                    "graphType": "points",
-                                    "panel_default": false
-                                }
-                            ]
-                        },
-                        {
-                            "track": "oridb_initiation",
-                            "shortLabel": "Initiation mapping",
-                            "longLabel": "Origin position and efficiency: initiation site and zone mapping",
-                            "container": "",
-                            "section": "oridb_initiation",
-                            "tracks": [
-                                {
-                                    "track": "muller2014_trep_peaks",
-                                    "shortLabel": "Trep peaks",
-                                    "longLabel": "Origin calls from the Muller et al. (2014) Trep profile: local minima of replication time, called by OriDB",
-                                    "type": "bigBed 8 +",
-                                    "file": "syncseq.trep.peaks.bb",
-                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/muller2014/syncseq.trep.peaks.bb",
-                                    "bytes": 34666,
-                                    "negated": false,
-                                    "viewLimits": "",
-                                    "graphType": "",
                                     "panel_default": false,
-                                    "bed": "syncseq.trep.peaks.bed",
-                                    "bed_url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/muller2014/syncseq.trep.peaks.bed",
-                                    "rows": 212
+                                    "priority": 4
+                                },
+                                {
+                                    "track": "ov_mcm_chipexo_mcm4_g1_rep1_neg",
+                                    "shortLabel": "MCM4 minus strand",
+                                    "longLabel": "Mcm4-Flag ChIP-exo, G1 arrest, replicate 1, minus-strand coverage per million mapped reads",
+                                    "type": "bigWig",
+                                    "file": "chipexo.mcm4_g1_rep1.neg.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/reuter2024/chipexo.mcm4_g1_rep1.neg.bw",
+                                    "bytes": 2317913,
+                                    "negated": false,
+                                    "viewLimits": "-150:150",
+                                    "graphType": "bar",
+                                    "panel_default": false,
+                                    "priority": 4
+                                }
+                            ]
+                        },
+                        {
+                            "track": "reuter2024_orc_mcm_g1",
+                            "shortLabel": "ORC2 vs MCM4 G1 (Reuter 2024)",
+                            "longLabel": "Orc2-Flag against Mcm4-Flag ChIP-exo in G1-arrested cells (Reuter et al. 2024): where ORC sits and where the MCM2-7 double hexamer it loaded ends up; CPM, replicate 1 of each",
+                            "container": "multiWig",
+                            "section": "oridb_footprint",
+                            "tracks": [
+                                {
+                                    "track": "orc_mcm_g1_chipexo_orc2_g1_rep1",
+                                    "shortLabel": "ORC2 G1",
+                                    "longLabel": "Orc2-Flag ChIP-exo, G1 arrest, replicate 1",
+                                    "type": "bigWig",
+                                    "file": "chipexo.orc2_g1_rep1.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/reuter2024/chipexo.orc2_g1_rep1.bw",
+                                    "bytes": 4245085,
+                                    "negated": false,
+                                    "viewLimits": "0:600",
+                                    "graphType": "bar",
+                                    "panel_default": false,
+                                    "priority": 10
+                                },
+                                {
+                                    "track": "orc_mcm_g1_chipexo_mcm4_g1_rep1",
+                                    "shortLabel": "MCM4 G1",
+                                    "longLabel": "Mcm4-Flag ChIP-exo, G1 arrest, replicate 1",
+                                    "type": "bigWig",
+                                    "file": "chipexo.mcm4_g1_rep1.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/reuter2024/chipexo.mcm4_g1_rep1.bw",
+                                    "bytes": 3780324,
+                                    "negated": false,
+                                    "viewLimits": "0:600",
+                                    "graphType": "bar",
+                                    "panel_default": false,
+                                    "priority": 10
+                                }
+                            ]
+                        },
+                        {
+                            "track": "reuter2024_orc2_g1_vs_g2",
+                            "shortLabel": "ORC2 G1 vs G2 (Reuter 2024)",
+                            "longLabel": "Orc2-Flag ChIP-exo in G1 against G2 arrest (Reuter et al. 2024): the loss of ORC occupancy at origins once licensing is complete; CPM, replicate 1 of each",
+                            "container": "multiWig",
+                            "section": "oridb_footprint",
+                            "tracks": [
+                                {
+                                    "track": "orc2_g1_vs_g2_chipexo_orc2_g1_rep1",
+                                    "shortLabel": "ORC2 G1",
+                                    "longLabel": "Orc2-Flag ChIP-exo, G1 arrest, replicate 1",
+                                    "type": "bigWig",
+                                    "file": "chipexo.orc2_g1_rep1.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/reuter2024/chipexo.orc2_g1_rep1.bw",
+                                    "bytes": 4245085,
+                                    "negated": false,
+                                    "viewLimits": "0:600",
+                                    "graphType": "bar",
+                                    "panel_default": false,
+                                    "priority": 11
+                                },
+                                {
+                                    "track": "orc2_g1_vs_g2_chipexo_orc2_g2_rep1",
+                                    "shortLabel": "ORC2 G2",
+                                    "longLabel": "Orc2-Flag ChIP-exo, G2 arrest, replicate 1",
+                                    "type": "bigWig",
+                                    "file": "chipexo.orc2_g2_rep1.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/reuter2024/chipexo.orc2_g2_rep1.bw",
+                                    "bytes": 3580397,
+                                    "negated": false,
+                                    "viewLimits": "0:600",
+                                    "graphType": "bar",
+                                    "panel_default": false,
+                                    "priority": 11
+                                }
+                            ]
+                        },
+                        {
+                            "track": "reuter2024_mcm4_g1_reps",
+                            "shortLabel": "MCM4 G1 reps (Reuter 2024)",
+                            "longLabel": "Mcm4-Flag ChIP-exo in G1, the two biological replicates against each other (Reuter et al. 2024); Pearson r = 0.997 genome-wide",
+                            "container": "multiWig",
+                            "section": "oridb_footprint",
+                            "tracks": [
+                                {
+                                    "track": "mcm4_g1_reps_chipexo_mcm4_g1_rep1",
+                                    "shortLabel": "MCM4 G1 rep1",
+                                    "longLabel": "Mcm4-Flag ChIP-exo, G1 arrest, replicate 1",
+                                    "type": "bigWig",
+                                    "file": "chipexo.mcm4_g1_rep1.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/reuter2024/chipexo.mcm4_g1_rep1.bw",
+                                    "bytes": 3780324,
+                                    "negated": false,
+                                    "viewLimits": "0:600",
+                                    "graphType": "points",
+                                    "panel_default": false,
+                                    "priority": 12
+                                },
+                                {
+                                    "track": "mcm4_g1_reps_chipexo_mcm4_g1_rep2",
+                                    "shortLabel": "MCM4 G1 rep2",
+                                    "longLabel": "Mcm4-Flag ChIP-exo, G1 arrest, replicate 2",
+                                    "type": "bigWig",
+                                    "file": "chipexo.mcm4_g1_rep2.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/reuter2024/chipexo.mcm4_g1_rep2.bw",
+                                    "bytes": 3365418,
+                                    "negated": false,
+                                    "viewLimits": "0:600",
+                                    "graphType": "points",
+                                    "panel_default": false,
+                                    "priority": 12
+                                }
+                            ]
+                        },
+                        {
+                            "track": "reuter2024_orc2_g1_reps",
+                            "shortLabel": "ORC2 G1 reps (Reuter 2024)",
+                            "longLabel": "Orc2-Flag ChIP-exo in G1, the two biological replicates against each other (Reuter et al. 2024); Pearson r = 0.9925 genome-wide",
+                            "container": "multiWig",
+                            "section": "oridb_footprint",
+                            "tracks": [
+                                {
+                                    "track": "orc2_g1_reps_chipexo_orc2_g1_rep1",
+                                    "shortLabel": "ORC2 G1 rep1",
+                                    "longLabel": "Orc2-Flag ChIP-exo, G1 arrest, replicate 1",
+                                    "type": "bigWig",
+                                    "file": "chipexo.orc2_g1_rep1.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/reuter2024/chipexo.orc2_g1_rep1.bw",
+                                    "bytes": 4245085,
+                                    "negated": false,
+                                    "viewLimits": "0:600",
+                                    "graphType": "points",
+                                    "panel_default": false,
+                                    "priority": 13
+                                },
+                                {
+                                    "track": "orc2_g1_reps_chipexo_orc2_g1_rep2",
+                                    "shortLabel": "ORC2 G1 rep2",
+                                    "longLabel": "Orc2-Flag ChIP-exo, G1 arrest, replicate 2",
+                                    "type": "bigWig",
+                                    "file": "chipexo.orc2_g1_rep2.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/reuter2024/chipexo.orc2_g1_rep2.bw",
+                                    "bytes": 5996061,
+                                    "negated": false,
+                                    "viewLimits": "0:600",
+                                    "graphType": "points",
+                                    "panel_default": false,
+                                    "priority": 13
+                                }
+                            ]
+                        },
+                        {
+                            "track": "reuter2024_orc2_g2_reps",
+                            "shortLabel": "ORC2 G2 reps (Reuter 2024)",
+                            "longLabel": "Orc2-Flag ChIP-exo in G2, the two biological replicates against each other (Reuter et al. 2024); Pearson r = 0.9945 genome-wide",
+                            "container": "multiWig",
+                            "section": "oridb_footprint",
+                            "tracks": [
+                                {
+                                    "track": "orc2_g2_reps_chipexo_orc2_g2_rep1",
+                                    "shortLabel": "ORC2 G2 rep1",
+                                    "longLabel": "Orc2-Flag ChIP-exo, G2 arrest, replicate 1",
+                                    "type": "bigWig",
+                                    "file": "chipexo.orc2_g2_rep1.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/reuter2024/chipexo.orc2_g2_rep1.bw",
+                                    "bytes": 3580397,
+                                    "negated": false,
+                                    "viewLimits": "0:600",
+                                    "graphType": "points",
+                                    "panel_default": false,
+                                    "priority": 14
+                                },
+                                {
+                                    "track": "orc2_g2_reps_chipexo_orc2_g2_rep2",
+                                    "shortLabel": "ORC2 G2 rep2",
+                                    "longLabel": "Orc2-Flag ChIP-exo, G2 arrest, replicate 2",
+                                    "type": "bigWig",
+                                    "file": "chipexo.orc2_g2_rep2.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/reuter2024/chipexo.orc2_g2_rep2.bw",
+                                    "bytes": 2988690,
+                                    "negated": false,
+                                    "viewLimits": "0:600",
+                                    "graphType": "points",
+                                    "panel_default": false,
+                                    "priority": 14
+                                }
+                            ]
+                        },
+                        {
+                            "track": "reuter2024_mcm4_g1_strand",
+                            "shortLabel": "MCM4 G1 strands (Reuter 2024)",
+                            "longLabel": "Mcm4-Flag, G1 arrest (Reuter et al. 2024): plus-strand coverage above the axis and minus-strand below, both replicates; the gap between the two strand peaks is the protected footprint",
+                            "container": "multiWig",
+                            "section": "oridb_footprint",
+                            "tracks": [
+                                {
+                                    "track": "mcm4_g1_strand_chipexo_mcm4_g1_rep1_pos",
+                                    "shortLabel": "rep1 plus",
+                                    "longLabel": "Mcm4-Flag, G1 arrest, replicate 1, plus-strand read coverage per million mapped reads; exonuclease stop points mark one edge of the footprint",
+                                    "type": "bigWig",
+                                    "file": "chipexo.mcm4_g1_rep1.pos.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/reuter2024/chipexo.mcm4_g1_rep1.pos.bw",
+                                    "bytes": 2309351,
+                                    "negated": false,
+                                    "viewLimits": "-150:150",
+                                    "graphType": "bar",
+                                    "panel_default": false,
+                                    "priority": 15
+                                },
+                                {
+                                    "track": "mcm4_g1_strand_chipexo_mcm4_g1_rep1_neg",
+                                    "shortLabel": "rep1 minus",
+                                    "longLabel": "Mcm4-Flag, G1 arrest, replicate 1, minus-strand read coverage per million mapped reads; exonuclease stop points mark one edge of the footprint",
+                                    "type": "bigWig",
+                                    "file": "chipexo.mcm4_g1_rep1.neg.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/reuter2024/chipexo.mcm4_g1_rep1.neg.bw",
+                                    "bytes": 2317913,
+                                    "negated": false,
+                                    "viewLimits": "-150:150",
+                                    "graphType": "bar",
+                                    "panel_default": false,
+                                    "priority": 15
+                                },
+                                {
+                                    "track": "mcm4_g1_strand_chipexo_mcm4_g1_rep2_pos",
+                                    "shortLabel": "rep2 plus",
+                                    "longLabel": "Mcm4-Flag, G1 arrest, replicate 2, plus-strand read coverage per million mapped reads; exonuclease stop points mark one edge of the footprint",
+                                    "type": "bigWig",
+                                    "file": "chipexo.mcm4_g1_rep2.pos.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/reuter2024/chipexo.mcm4_g1_rep2.pos.bw",
+                                    "bytes": 2084382,
+                                    "negated": false,
+                                    "viewLimits": "-150:150",
+                                    "graphType": "bar",
+                                    "panel_default": false,
+                                    "priority": 15
+                                },
+                                {
+                                    "track": "mcm4_g1_strand_chipexo_mcm4_g1_rep2_neg",
+                                    "shortLabel": "rep2 minus",
+                                    "longLabel": "Mcm4-Flag, G1 arrest, replicate 2, minus-strand read coverage per million mapped reads; exonuclease stop points mark one edge of the footprint",
+                                    "type": "bigWig",
+                                    "file": "chipexo.mcm4_g1_rep2.neg.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/reuter2024/chipexo.mcm4_g1_rep2.neg.bw",
+                                    "bytes": 2092537,
+                                    "negated": false,
+                                    "viewLimits": "-150:150",
+                                    "graphType": "bar",
+                                    "panel_default": false,
+                                    "priority": 15
+                                }
+                            ]
+                        },
+                        {
+                            "track": "reuter2024_orc2_g1_strand",
+                            "shortLabel": "ORC2 G1 strands (Reuter 2024)",
+                            "longLabel": "Orc2-Flag, G1 arrest (Reuter et al. 2024): plus-strand coverage above the axis and minus-strand below, both replicates; the gap between the two strand peaks is the protected footprint",
+                            "container": "multiWig",
+                            "section": "oridb_footprint",
+                            "tracks": [
+                                {
+                                    "track": "orc2_g1_strand_chipexo_orc2_g1_rep1_pos",
+                                    "shortLabel": "rep1 plus",
+                                    "longLabel": "Orc2-Flag, G1 arrest, replicate 1, plus-strand read coverage per million mapped reads; exonuclease stop points mark one edge of the footprint",
+                                    "type": "bigWig",
+                                    "file": "chipexo.orc2_g1_rep1.pos.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/reuter2024/chipexo.orc2_g1_rep1.pos.bw",
+                                    "bytes": 2421729,
+                                    "negated": false,
+                                    "viewLimits": "-150:150",
+                                    "graphType": "bar",
+                                    "panel_default": false,
+                                    "priority": 16
+                                },
+                                {
+                                    "track": "orc2_g1_strand_chipexo_orc2_g1_rep1_neg",
+                                    "shortLabel": "rep1 minus",
+                                    "longLabel": "Orc2-Flag, G1 arrest, replicate 1, minus-strand read coverage per million mapped reads; exonuclease stop points mark one edge of the footprint",
+                                    "type": "bigWig",
+                                    "file": "chipexo.orc2_g1_rep1.neg.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/reuter2024/chipexo.orc2_g1_rep1.neg.bw",
+                                    "bytes": 2434782,
+                                    "negated": false,
+                                    "viewLimits": "-150:150",
+                                    "graphType": "bar",
+                                    "panel_default": false,
+                                    "priority": 16
+                                },
+                                {
+                                    "track": "orc2_g1_strand_chipexo_orc2_g1_rep2_pos",
+                                    "shortLabel": "rep2 plus",
+                                    "longLabel": "Orc2-Flag, G1 arrest, replicate 2, plus-strand read coverage per million mapped reads; exonuclease stop points mark one edge of the footprint",
+                                    "type": "bigWig",
+                                    "file": "chipexo.orc2_g1_rep2.pos.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/reuter2024/chipexo.orc2_g1_rep2.pos.bw",
+                                    "bytes": 3303175,
+                                    "negated": false,
+                                    "viewLimits": "-150:150",
+                                    "graphType": "bar",
+                                    "panel_default": false,
+                                    "priority": 16
+                                },
+                                {
+                                    "track": "orc2_g1_strand_chipexo_orc2_g1_rep2_neg",
+                                    "shortLabel": "rep2 minus",
+                                    "longLabel": "Orc2-Flag, G1 arrest, replicate 2, minus-strand read coverage per million mapped reads; exonuclease stop points mark one edge of the footprint",
+                                    "type": "bigWig",
+                                    "file": "chipexo.orc2_g1_rep2.neg.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/reuter2024/chipexo.orc2_g1_rep2.neg.bw",
+                                    "bytes": 3315124,
+                                    "negated": false,
+                                    "viewLimits": "-150:150",
+                                    "graphType": "bar",
+                                    "panel_default": false,
+                                    "priority": 16
+                                }
+                            ]
+                        },
+                        {
+                            "track": "reuter2024_orc2_g2_strand",
+                            "shortLabel": "ORC2 G2 strands (Reuter 2024)",
+                            "longLabel": "Orc2-Flag, G2 arrest (Reuter et al. 2024): plus-strand coverage above the axis and minus-strand below, both replicates; the gap between the two strand peaks is the protected footprint",
+                            "container": "multiWig",
+                            "section": "oridb_footprint",
+                            "tracks": [
+                                {
+                                    "track": "orc2_g2_strand_chipexo_orc2_g2_rep1_pos",
+                                    "shortLabel": "rep1 plus",
+                                    "longLabel": "Orc2-Flag, G2 arrest, replicate 1, plus-strand read coverage per million mapped reads; exonuclease stop points mark one edge of the footprint",
+                                    "type": "bigWig",
+                                    "file": "chipexo.orc2_g2_rep1.pos.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/reuter2024/chipexo.orc2_g2_rep1.pos.bw",
+                                    "bytes": 2154773,
+                                    "negated": false,
+                                    "viewLimits": "-150:150",
+                                    "graphType": "bar",
+                                    "panel_default": false,
+                                    "priority": 17
+                                },
+                                {
+                                    "track": "orc2_g2_strand_chipexo_orc2_g2_rep1_neg",
+                                    "shortLabel": "rep1 minus",
+                                    "longLabel": "Orc2-Flag, G2 arrest, replicate 1, minus-strand read coverage per million mapped reads; exonuclease stop points mark one edge of the footprint",
+                                    "type": "bigWig",
+                                    "file": "chipexo.orc2_g2_rep1.neg.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/reuter2024/chipexo.orc2_g2_rep1.neg.bw",
+                                    "bytes": 2157225,
+                                    "negated": false,
+                                    "viewLimits": "-150:150",
+                                    "graphType": "bar",
+                                    "panel_default": false,
+                                    "priority": 17
+                                },
+                                {
+                                    "track": "orc2_g2_strand_chipexo_orc2_g2_rep2_pos",
+                                    "shortLabel": "rep2 plus",
+                                    "longLabel": "Orc2-Flag, G2 arrest, replicate 2, plus-strand read coverage per million mapped reads; exonuclease stop points mark one edge of the footprint",
+                                    "type": "bigWig",
+                                    "file": "chipexo.orc2_g2_rep2.pos.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/reuter2024/chipexo.orc2_g2_rep2.pos.bw",
+                                    "bytes": 1876812,
+                                    "negated": false,
+                                    "viewLimits": "-150:150",
+                                    "graphType": "bar",
+                                    "panel_default": false,
+                                    "priority": 17
+                                },
+                                {
+                                    "track": "orc2_g2_strand_chipexo_orc2_g2_rep2_neg",
+                                    "shortLabel": "rep2 minus",
+                                    "longLabel": "Orc2-Flag, G2 arrest, replicate 2, minus-strand read coverage per million mapped reads; exonuclease stop points mark one edge of the footprint",
+                                    "type": "bigWig",
+                                    "file": "chipexo.orc2_g2_rep2.neg.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/reuter2024/chipexo.orc2_g2_rep2.neg.bw",
+                                    "bytes": 1879396,
+                                    "negated": false,
+                                    "viewLimits": "-150:150",
+                                    "graphType": "bar",
+                                    "panel_default": false,
+                                    "priority": 17
                                 }
                             ]
                         }
@@ -451,21 +589,8 @@
                             "section": "oridb_overview",
                             "tracks": [
                                 {
-                                    "track": "ov_fd",
-                                    "shortLabel": "Fork direction",
-                                    "longLabel": "Replication fork directionality from Okazaki fragment strand ratio (McGuffee et al. 2013)",
-                                    "type": "bigWig",
-                                    "file": "okseq.directionality.bw",
-                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/mcguffee2013/okseq.directionality.bw",
-                                    "bytes": 452286,
-                                    "negated": false,
-                                    "viewLimits": "-1:1",
-                                    "graphType": "bar",
-                                    "panel_default": false
-                                },
-                                {
                                     "track": "ov_init",
-                                    "shortLabel": "Initiation zones",
+                                    "shortLabel": "Init zones (McGuffee 2013)",
                                     "longLabel": "Initiation zones called from the Okazaki-fragment initiation signal (McGuffee et al. 2013)",
                                     "type": "bigBed 8 +",
                                     "file": "okseq.initiation_sites.bb",
@@ -475,15 +600,30 @@
                                     "viewLimits": "",
                                     "graphType": "",
                                     "panel_default": false,
+                                    "priority": 5,
                                     "bed": "okseq.initiation_sites.bed",
                                     "bed_url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/mcguffee2013/okseq.initiation_sites.bed",
                                     "rows": 383
+                                },
+                                {
+                                    "track": "ov_fd",
+                                    "shortLabel": "Fork dir (McGuffee 2013)",
+                                    "longLabel": "Replication fork directionality from Okazaki fragment strand ratio (McGuffee et al. 2013)",
+                                    "type": "bigWig",
+                                    "file": "okseq.directionality.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/mcguffee2013/okseq.directionality.bw",
+                                    "bytes": 452286,
+                                    "negated": false,
+                                    "viewLimits": "-1:1",
+                                    "graphType": "bar",
+                                    "panel_default": false,
+                                    "priority": 6
                                 }
                             ]
                         },
                         {
                             "track": "mcguffee2013_fd",
-                            "shortLabel": "Fork direction",
+                            "shortLabel": "Fork dir (McGuffee 2013)",
                             "longLabel": "McGuffee et al. (2013): replication fork directionality from Okazaki fragment strand ratio, wild type",
                             "container": "multiWig",
                             "section": "oridb_forkdir",
@@ -499,13 +639,14 @@
                                     "negated": false,
                                     "viewLimits": "-1:1",
                                     "graphType": "bar",
-                                    "panel_default": false
+                                    "panel_default": false,
+                                    "priority": 1
                                 }
                             ]
                         },
                         {
                             "track": "mcguffee2013_initiation",
-                            "shortLabel": "Initiation signal",
+                            "shortLabel": "Init signal (McGuffee 2013)",
                             "longLabel": "McGuffee et al. (2013): initiation signal - derivative of fork directionality, and origin efficiency (OEM)",
                             "container": "multiWig",
                             "section": "oridb_initiation",
@@ -521,7 +662,8 @@
                                     "negated": false,
                                     "viewLimits": "-0.5:0.7",
                                     "graphType": "bar",
-                                    "panel_default": false
+                                    "panel_default": false,
+                                    "priority": 2
                                 },
                                 {
                                     "track": "initiation_okseq_oem",
@@ -534,13 +676,14 @@
                                     "negated": false,
                                     "viewLimits": "-0.5:0.7",
                                     "graphType": "bar",
-                                    "panel_default": false
+                                    "panel_default": false,
+                                    "priority": 2
                                 }
                             ]
                         },
                         {
                             "track": "mcguffee2013_strands",
-                            "shortLabel": "Okazaki strands",
+                            "shortLabel": "Okazaki (McGuffee 2013)",
                             "longLabel": "McGuffee et al. (2013): Okazaki fragment coverage by strand, fragments per million, 250 bp windows",
                             "container": "multiWig",
                             "section": "oridb_forkdir",
@@ -556,7 +699,8 @@
                                     "negated": false,
                                     "viewLimits": "0:6000",
                                     "graphType": "bar",
-                                    "panel_default": false
+                                    "panel_default": false,
+                                    "priority": 3
                                 },
                                 {
                                     "track": "strands_okseq_crick",
@@ -569,7 +713,8 @@
                                     "negated": false,
                                     "viewLimits": "0:6000",
                                     "graphType": "bar",
-                                    "panel_default": false
+                                    "panel_default": false,
+                                    "priority": 3
                                 }
                             ]
                         },
@@ -582,7 +727,7 @@
                             "tracks": [
                                 {
                                     "track": "mcguffee2013_init_sites",
-                                    "shortLabel": "Initiation zones",
+                                    "shortLabel": "Init zones (McGuffee 2013)",
                                     "longLabel": "Initiation zones called from Okazaki fragment directionality (McGuffee et al. 2013, re-analysed by OriDB); score = 1000 x OEM",
                                     "type": "bigBed 8 +",
                                     "file": "okseq.initiation_sites.bb",
@@ -592,6 +737,7 @@
                                     "viewLimits": "",
                                     "graphType": "",
                                     "panel_default": false,
+                                    "priority": 4,
                                     "bed": "okseq.initiation_sites.bed",
                                     "bed_url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/mcguffee2013/okseq.initiation_sites.bed",
                                     "rows": 383
@@ -601,418 +747,324 @@
                     ]
                 },
                 {
-                    "id": "reuter2024",
-                    "title": "ORC and MCM2-7 ChIP-exo in G1 and G2 arrest (Reuter et al. 2024), as deposited on sacCer3",
+                    "id": "muller2014",
+                    "title": "The dynamics of genome replication using deep sequencing (Muller et al. 2014), reprocessed on sacCer3",
                     "organism": "Saccharomyces cerevisiae",
                     "assembly": "sacCer3",
-                    "bin_size_bp": 1,
-                    "measurement": "Orc2 and Mcm4 occupancy by ChIP-exo",
-                    "scale": "combined tracks: CPM with reads extended to ~209 bp, genome-wide mean 17.1 in every sample; strand tracks: coverage per million mapped reads at the 50 bp read length, about 4.2x lower in height for that reason",
+                    "bin_size_bp": 1000,
+                    "measurement": "relative DNA copy number (replication timing)",
+                    "scale": "1 = unreplicated, 2 = fully replicated",
                     "source": {
-                        "doi": "10.1038/s41467-024-51538-9",
-                        "pubmed": "39181881",
+                        "doi": "10.1093/nar/gkt878",
+                        "pubmed": "24089142",
                         "archive_series": [
-                            "GSE240779",
-                            "GSE173527"
+                            "GSE42243",
+                            "GSE48212"
                         ],
-                        "n_runs": 0,
-                        "n_samples_used": 6,
-                        "n_samples_excluded": 2,
-                        "exclusion_reason": "the hub carries the G1 and G2 arrest conditions; the release time course and the per-replicate peak calls were not requested and the peak calls are unfiltered"
+                        "n_runs": 18,
+                        "n_samples_used": 0,
+                        "n_samples_excluded": 0,
+                        "exclusion_reason": ""
                     },
-                    "n_samples": 6,
+                    "n_samples": 18,
                     "calls": null,
                     "groups": [
                         {
-                            "track": "ov_mcm",
-                            "shortLabel": "MCM4 strands",
-                            "longLabel": "MCM2-7 occupancy at licensed origins, from Mcm4-Flag ChIP-exo in G1-arrested cells (Reuter et al. 2024): plus-strand coverage above the axis and minus below, replicate 1; the gap between the two peaks is the protected footprint",
-                            "container": "multiWig",
+                            "track": "oridb_overview",
+                            "shortLabel": "OriDB overview",
+                            "longLabel": "OriDB overview: one reference track per measurement type, drawn by default",
+                            "container": "",
                             "section": "oridb_overview",
                             "tracks": [
                                 {
-                                    "track": "ov_mcm_chipexo_mcm4_g1_rep1_pos",
-                                    "shortLabel": "MCM4 plus strand",
-                                    "longLabel": "Mcm4-Flag ChIP-exo, G1 arrest, replicate 1, plus-strand coverage per million mapped reads",
+                                    "track": "ov_timing",
+                                    "shortLabel": "Trep (Muller 2014)",
+                                    "longLabel": "Replication timing: Trep in minutes from sync-seq (Muller et al. 2014); early replication plots high",
                                     "type": "bigWig",
-                                    "file": "chipexo.mcm4_g1_rep1.pos.bw",
-                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/reuter2024/chipexo.mcm4_g1_rep1.pos.bw",
-                                    "bytes": 2309351,
-                                    "negated": false,
-                                    "viewLimits": "-150:150",
-                                    "graphType": "bar",
-                                    "panel_default": false
-                                },
-                                {
-                                    "track": "ov_mcm_chipexo_mcm4_g1_rep1_neg",
-                                    "shortLabel": "MCM4 minus strand",
-                                    "longLabel": "Mcm4-Flag ChIP-exo, G1 arrest, replicate 1, minus-strand coverage per million mapped reads",
-                                    "type": "bigWig",
-                                    "file": "chipexo.mcm4_g1_rep1.neg.bw",
-                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/reuter2024/chipexo.mcm4_g1_rep1.neg.bw",
-                                    "bytes": 2317913,
-                                    "negated": false,
-                                    "viewLimits": "-150:150",
-                                    "graphType": "bar",
-                                    "panel_default": false
-                                }
-                            ]
-                        },
-                        {
-                            "track": "reuter2024_orc_mcm_g1",
-                            "shortLabel": "ORC2 vs MCM4 in G1",
-                            "longLabel": "Orc2-Flag against Mcm4-Flag ChIP-exo in G1-arrested cells (Reuter et al. 2024): where ORC sits and where the MCM2-7 double hexamer it loaded ends up; CPM, replicate 1 of each",
-                            "container": "multiWig",
-                            "section": "oridb_footprint",
-                            "tracks": [
-                                {
-                                    "track": "orc_mcm_g1_chipexo_orc2_g1_rep1",
-                                    "shortLabel": "ORC2 G1",
-                                    "longLabel": "Orc2-Flag ChIP-exo, G1 arrest, replicate 1",
-                                    "type": "bigWig",
-                                    "file": "chipexo.orc2_g1_rep1.bw",
-                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/reuter2024/chipexo.orc2_g1_rep1.bw",
-                                    "bytes": 4245085,
-                                    "negated": false,
-                                    "viewLimits": "0:600",
-                                    "graphType": "bar",
-                                    "panel_default": false
-                                },
-                                {
-                                    "track": "orc_mcm_g1_chipexo_mcm4_g1_rep1",
-                                    "shortLabel": "MCM4 G1",
-                                    "longLabel": "Mcm4-Flag ChIP-exo, G1 arrest, replicate 1",
-                                    "type": "bigWig",
-                                    "file": "chipexo.mcm4_g1_rep1.bw",
-                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/reuter2024/chipexo.mcm4_g1_rep1.bw",
-                                    "bytes": 3780324,
-                                    "negated": false,
-                                    "viewLimits": "0:600",
-                                    "graphType": "bar",
-                                    "panel_default": false
-                                }
-                            ]
-                        },
-                        {
-                            "track": "reuter2024_orc2_g1_vs_g2",
-                            "shortLabel": "ORC2 G1 vs G2",
-                            "longLabel": "Orc2-Flag ChIP-exo in G1 against G2 arrest (Reuter et al. 2024): the loss of ORC occupancy at origins once licensing is complete; CPM, replicate 1 of each",
-                            "container": "multiWig",
-                            "section": "oridb_footprint",
-                            "tracks": [
-                                {
-                                    "track": "orc2_g1_vs_g2_chipexo_orc2_g1_rep1",
-                                    "shortLabel": "ORC2 G1",
-                                    "longLabel": "Orc2-Flag ChIP-exo, G1 arrest, replicate 1",
-                                    "type": "bigWig",
-                                    "file": "chipexo.orc2_g1_rep1.bw",
-                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/reuter2024/chipexo.orc2_g1_rep1.bw",
-                                    "bytes": 4245085,
-                                    "negated": false,
-                                    "viewLimits": "0:600",
-                                    "graphType": "bar",
-                                    "panel_default": false
-                                },
-                                {
-                                    "track": "orc2_g1_vs_g2_chipexo_orc2_g2_rep1",
-                                    "shortLabel": "ORC2 G2",
-                                    "longLabel": "Orc2-Flag ChIP-exo, G2 arrest, replicate 1",
-                                    "type": "bigWig",
-                                    "file": "chipexo.orc2_g2_rep1.bw",
-                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/reuter2024/chipexo.orc2_g2_rep1.bw",
-                                    "bytes": 3580397,
-                                    "negated": false,
-                                    "viewLimits": "0:600",
-                                    "graphType": "bar",
-                                    "panel_default": false
-                                }
-                            ]
-                        },
-                        {
-                            "track": "reuter2024_mcm4_g1_reps",
-                            "shortLabel": "MCM4 G1 replicates",
-                            "longLabel": "Mcm4-Flag ChIP-exo in G1, the two biological replicates against each other (Reuter et al. 2024); Pearson r = 0.997 genome-wide",
-                            "container": "multiWig",
-                            "section": "oridb_footprint",
-                            "tracks": [
-                                {
-                                    "track": "mcm4_g1_reps_chipexo_mcm4_g1_rep1",
-                                    "shortLabel": "MCM4 G1 rep1",
-                                    "longLabel": "Mcm4-Flag ChIP-exo, G1 arrest, replicate 1",
-                                    "type": "bigWig",
-                                    "file": "chipexo.mcm4_g1_rep1.bw",
-                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/reuter2024/chipexo.mcm4_g1_rep1.bw",
-                                    "bytes": 3780324,
-                                    "negated": false,
-                                    "viewLimits": "0:600",
+                                    "file": "syncseq.trep.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/muller2014/syncseq.trep.bw",
+                                    "bytes": 74713,
+                                    "negated": true,
+                                    "viewLimits": "-85:-25",
                                     "graphType": "points",
-                                    "panel_default": false
-                                },
-                                {
-                                    "track": "mcm4_g1_reps_chipexo_mcm4_g1_rep2",
-                                    "shortLabel": "MCM4 G1 rep2",
-                                    "longLabel": "Mcm4-Flag ChIP-exo, G1 arrest, replicate 2",
-                                    "type": "bigWig",
-                                    "file": "chipexo.mcm4_g1_rep2.bw",
-                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/reuter2024/chipexo.mcm4_g1_rep2.bw",
-                                    "bytes": 3365418,
-                                    "negated": false,
-                                    "viewLimits": "0:600",
-                                    "graphType": "points",
-                                    "panel_default": false
+                                    "panel_default": false,
+                                    "priority": 7
                                 }
                             ]
                         },
                         {
-                            "track": "reuter2024_orc2_g1_reps",
-                            "shortLabel": "ORC2 G1 replicates",
-                            "longLabel": "Orc2-Flag ChIP-exo in G1, the two biological replicates against each other (Reuter et al. 2024); Pearson r = 0.9925 genome-wide",
+                            "track": "muller2014_timecourse",
+                            "shortLabel": "Timecourse (Muller 2014)",
+                            "longLabel": "Muller et al. (2014): S. cerevisiae genome replication time course from alpha-factor release",
                             "container": "multiWig",
-                            "section": "oridb_footprint",
+                            "section": "oridb_timing",
                             "tracks": [
                                 {
-                                    "track": "orc2_g1_reps_chipexo_orc2_g1_rep1",
-                                    "shortLabel": "ORC2 G1 rep1",
-                                    "longLabel": "Orc2-Flag ChIP-exo, G1 arrest, replicate 1",
+                                    "track": "timecourse_syncseq_AUY077_90min_smooth",
+                                    "shortLabel": "1 90 min",
+                                    "longLabel": "Muller et al. (2014): time course 90 min post alpha-factor release",
                                     "type": "bigWig",
-                                    "file": "chipexo.orc2_g1_rep1.bw",
-                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/reuter2024/chipexo.orc2_g1_rep1.bw",
-                                    "bytes": 4245085,
+                                    "file": "syncseq_AUY077_90min.smooth.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/muller2014/syncseq_AUY077_90min.smooth.bw",
+                                    "bytes": 62142,
                                     "negated": false,
-                                    "viewLimits": "0:600",
-                                    "graphType": "points",
-                                    "panel_default": false
+                                    "viewLimits": "0.9:2.1",
+                                    "graphType": "bar",
+                                    "panel_default": false,
+                                    "priority": 1
                                 },
                                 {
-                                    "track": "orc2_g1_reps_chipexo_orc2_g1_rep2",
-                                    "shortLabel": "ORC2 G1 rep2",
-                                    "longLabel": "Orc2-Flag ChIP-exo, G1 arrest, replicate 2",
+                                    "track": "timecourse_syncseq_AUY077_50min_smooth",
+                                    "shortLabel": "2 50 min",
+                                    "longLabel": "Muller et al. (2014): time course 50 min post alpha-factor release",
                                     "type": "bigWig",
-                                    "file": "chipexo.orc2_g1_rep2.bw",
-                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/reuter2024/chipexo.orc2_g1_rep2.bw",
-                                    "bytes": 5996061,
+                                    "file": "syncseq_AUY077_50min.smooth.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/muller2014/syncseq_AUY077_50min.smooth.bw",
+                                    "bytes": 90277,
                                     "negated": false,
-                                    "viewLimits": "0:600",
-                                    "graphType": "points",
-                                    "panel_default": false
+                                    "viewLimits": "0.9:2.1",
+                                    "graphType": "bar",
+                                    "panel_default": false,
+                                    "priority": 1
+                                },
+                                {
+                                    "track": "timecourse_syncseq_AUY077_45min_smooth",
+                                    "shortLabel": "3 45 min",
+                                    "longLabel": "Muller et al. (2014): time course 45 min post alpha-factor release",
+                                    "type": "bigWig",
+                                    "file": "syncseq_AUY077_45min.smooth.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/muller2014/syncseq_AUY077_45min.smooth.bw",
+                                    "bytes": 92209,
+                                    "negated": false,
+                                    "viewLimits": "0.9:2.1",
+                                    "graphType": "bar",
+                                    "panel_default": false,
+                                    "priority": 1
+                                },
+                                {
+                                    "track": "timecourse_syncseq_AUY077_40min_smooth",
+                                    "shortLabel": "4 40 min",
+                                    "longLabel": "Muller et al. (2014): time course 40 min post alpha-factor release",
+                                    "type": "bigWig",
+                                    "file": "syncseq_AUY077_40min.smooth.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/muller2014/syncseq_AUY077_40min.smooth.bw",
+                                    "bytes": 91878,
+                                    "negated": false,
+                                    "viewLimits": "0.9:2.1",
+                                    "graphType": "bar",
+                                    "panel_default": false,
+                                    "priority": 1
+                                },
+                                {
+                                    "track": "timecourse_syncseq_AUY077_35min_smooth",
+                                    "shortLabel": "5 35 min",
+                                    "longLabel": "Muller et al. (2014): time course 35 min post alpha-factor release",
+                                    "type": "bigWig",
+                                    "file": "syncseq_AUY077_35min.smooth.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/muller2014/syncseq_AUY077_35min.smooth.bw",
+                                    "bytes": 89337,
+                                    "negated": false,
+                                    "viewLimits": "0.9:2.1",
+                                    "graphType": "bar",
+                                    "panel_default": false,
+                                    "priority": 1
+                                },
+                                {
+                                    "track": "timecourse_syncseq_AUY077_30min_smooth",
+                                    "shortLabel": "6 30 min",
+                                    "longLabel": "Muller et al. (2014): time course 30 min post alpha-factor release",
+                                    "type": "bigWig",
+                                    "file": "syncseq_AUY077_30min.smooth.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/muller2014/syncseq_AUY077_30min.smooth.bw",
+                                    "bytes": 84642,
+                                    "negated": false,
+                                    "viewLimits": "0.9:2.1",
+                                    "graphType": "bar",
+                                    "panel_default": false,
+                                    "priority": 1
+                                },
+                                {
+                                    "track": "timecourse_syncseq_AUY077_25min_smooth",
+                                    "shortLabel": "7 25 min",
+                                    "longLabel": "Muller et al. (2014): time course 25 min post alpha-factor release",
+                                    "type": "bigWig",
+                                    "file": "syncseq_AUY077_25min.smooth.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/muller2014/syncseq_AUY077_25min.smooth.bw",
+                                    "bytes": 78948,
+                                    "negated": false,
+                                    "viewLimits": "0.9:2.1",
+                                    "graphType": "bar",
+                                    "panel_default": false,
+                                    "priority": 1
                                 }
                             ]
                         },
                         {
-                            "track": "reuter2024_orc2_g2_reps",
-                            "shortLabel": "ORC2 G2 replicates",
-                            "longLabel": "Orc2-Flag ChIP-exo in G2, the two biological replicates against each other (Reuter et al. 2024); Pearson r = 0.9945 genome-wide",
+                            "track": "muller2014_sortseq_ploidy",
+                            "shortLabel": "Ploidy (Muller 2014)",
+                            "longLabel": "Muller et al. (2014): haploid and diploid S. cerevisiae sort-seq replication profiles",
                             "container": "multiWig",
-                            "section": "oridb_footprint",
+                            "section": "oridb_timing",
                             "tracks": [
                                 {
-                                    "track": "orc2_g2_reps_chipexo_orc2_g2_rep1",
-                                    "shortLabel": "ORC2 G2 rep1",
-                                    "longLabel": "Orc2-Flag ChIP-exo, G2 arrest, replicate 1",
+                                    "track": "sortseq_ploidy_sortseq_T9475_SOLiD_smooth",
+                                    "shortLabel": "1 diploid",
+                                    "longLabel": "Muller et al. (2014): diploid (T9475) sort-seq replication profile, SOLiD",
                                     "type": "bigWig",
-                                    "file": "chipexo.orc2_g2_rep1.bw",
-                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/reuter2024/chipexo.orc2_g2_rep1.bw",
-                                    "bytes": 3580397,
+                                    "file": "sortseq_T9475_SOLiD.smooth.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/muller2014/sortseq_T9475_SOLiD.smooth.bw",
+                                    "bytes": 91847,
                                     "negated": false,
-                                    "viewLimits": "0:600",
+                                    "viewLimits": "0.9:2.1",
                                     "graphType": "points",
-                                    "panel_default": false
+                                    "panel_default": false,
+                                    "priority": 2
                                 },
                                 {
-                                    "track": "orc2_g2_reps_chipexo_orc2_g2_rep2",
-                                    "shortLabel": "ORC2 G2 rep2",
-                                    "longLabel": "Orc2-Flag ChIP-exo, G2 arrest, replicate 2",
+                                    "track": "sortseq_ploidy_sortseq_T7107_SOLiD_smooth",
+                                    "shortLabel": "2 haploid",
+                                    "longLabel": "Muller et al. (2014): haploid (T7107) sort-seq replication profile, SOLiD",
                                     "type": "bigWig",
-                                    "file": "chipexo.orc2_g2_rep2.bw",
-                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/reuter2024/chipexo.orc2_g2_rep2.bw",
-                                    "bytes": 2988690,
+                                    "file": "sortseq_T7107_SOLiD.smooth.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/muller2014/sortseq_T7107_SOLiD.smooth.bw",
+                                    "bytes": 91830,
                                     "negated": false,
-                                    "viewLimits": "0:600",
+                                    "viewLimits": "0.9:2.1",
                                     "graphType": "points",
-                                    "panel_default": false
+                                    "panel_default": false,
+                                    "priority": 2
                                 }
                             ]
                         },
                         {
-                            "track": "reuter2024_mcm4_g1_strand",
-                            "shortLabel": "MCM4 G1 strand",
-                            "longLabel": "Mcm4-Flag, G1 arrest (Reuter et al. 2024): plus-strand coverage above the axis and minus-strand below, both replicates; the gap between the two strand peaks is the protected footprint",
+                            "track": "muller2014_sortseq_platform",
+                            "shortLabel": "Platform (Muller 2014)",
+                            "longLabel": "Muller et al. (2014): technology comparison for diploid S. cerevisiae sort-seq replication profiles",
                             "container": "multiWig",
-                            "section": "oridb_footprint",
+                            "section": "oridb_timing",
                             "tracks": [
                                 {
-                                    "track": "mcm4_g1_strand_chipexo_mcm4_g1_rep1_pos",
-                                    "shortLabel": "rep1 plus",
-                                    "longLabel": "Mcm4-Flag, G1 arrest, replicate 1, plus-strand read coverage per million mapped reads; exonuclease stop points mark one edge of the footprint",
+                                    "track": "sortseq_platform_sortseq_T9475_SOLiD_smooth",
+                                    "shortLabel": "1 SOLiD",
+                                    "longLabel": "Muller et al. (2014): diploid (T9475) sort-seq replication profile, SOLiD",
                                     "type": "bigWig",
-                                    "file": "chipexo.mcm4_g1_rep1.pos.bw",
-                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/reuter2024/chipexo.mcm4_g1_rep1.pos.bw",
-                                    "bytes": 2309351,
+                                    "file": "sortseq_T9475_SOLiD.smooth.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/muller2014/sortseq_T9475_SOLiD.smooth.bw",
+                                    "bytes": 91847,
                                     "negated": false,
-                                    "viewLimits": "-150:150",
-                                    "graphType": "bar",
-                                    "panel_default": false
+                                    "viewLimits": "0.9:2.1",
+                                    "graphType": "points",
+                                    "panel_default": false,
+                                    "priority": 3
                                 },
                                 {
-                                    "track": "mcm4_g1_strand_chipexo_mcm4_g1_rep1_neg",
-                                    "shortLabel": "rep1 minus",
-                                    "longLabel": "Mcm4-Flag, G1 arrest, replicate 1, minus-strand read coverage per million mapped reads; exonuclease stop points mark one edge of the footprint",
+                                    "track": "sortseq_platform_sortseq_T9475_Illumina_smooth",
+                                    "shortLabel": "2 Illumina",
+                                    "longLabel": "Muller et al. (2014): diploid (T9475) sort-seq replication profile, Illumina",
                                     "type": "bigWig",
-                                    "file": "chipexo.mcm4_g1_rep1.neg.bw",
-                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/reuter2024/chipexo.mcm4_g1_rep1.neg.bw",
-                                    "bytes": 2317913,
+                                    "file": "sortseq_T9475_Illumina.smooth.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/muller2014/sortseq_T9475_Illumina.smooth.bw",
+                                    "bytes": 90818,
                                     "negated": false,
-                                    "viewLimits": "-150:150",
-                                    "graphType": "bar",
-                                    "panel_default": false
-                                },
-                                {
-                                    "track": "mcm4_g1_strand_chipexo_mcm4_g1_rep2_pos",
-                                    "shortLabel": "rep2 plus",
-                                    "longLabel": "Mcm4-Flag, G1 arrest, replicate 2, plus-strand read coverage per million mapped reads; exonuclease stop points mark one edge of the footprint",
-                                    "type": "bigWig",
-                                    "file": "chipexo.mcm4_g1_rep2.pos.bw",
-                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/reuter2024/chipexo.mcm4_g1_rep2.pos.bw",
-                                    "bytes": 2084382,
-                                    "negated": false,
-                                    "viewLimits": "-150:150",
-                                    "graphType": "bar",
-                                    "panel_default": false
-                                },
-                                {
-                                    "track": "mcm4_g1_strand_chipexo_mcm4_g1_rep2_neg",
-                                    "shortLabel": "rep2 minus",
-                                    "longLabel": "Mcm4-Flag, G1 arrest, replicate 2, minus-strand read coverage per million mapped reads; exonuclease stop points mark one edge of the footprint",
-                                    "type": "bigWig",
-                                    "file": "chipexo.mcm4_g1_rep2.neg.bw",
-                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/reuter2024/chipexo.mcm4_g1_rep2.neg.bw",
-                                    "bytes": 2092537,
-                                    "negated": false,
-                                    "viewLimits": "-150:150",
-                                    "graphType": "bar",
-                                    "panel_default": false
+                                    "viewLimits": "0.9:2.1",
+                                    "graphType": "points",
+                                    "panel_default": false,
+                                    "priority": 3
                                 }
                             ]
                         },
                         {
-                            "track": "reuter2024_orc2_g1_strand",
-                            "shortLabel": "ORC2 G1 strand",
-                            "longLabel": "Orc2-Flag, G1 arrest (Reuter et al. 2024): plus-strand coverage above the axis and minus-strand below, both replicates; the gap between the two strand peaks is the protected footprint",
+                            "track": "muller2014_mfaseq",
+                            "shortLabel": "MFA-seq (Muller 2014)",
+                            "longLabel": "Muller et al. (2014): marker frequency analysis, exponential versus stationary phase (T7107)",
                             "container": "multiWig",
-                            "section": "oridb_footprint",
+                            "section": "oridb_timing",
                             "tracks": [
                                 {
-                                    "track": "orc2_g1_strand_chipexo_orc2_g1_rep1_pos",
-                                    "shortLabel": "rep1 plus",
-                                    "longLabel": "Orc2-Flag, G1 arrest, replicate 1, plus-strand read coverage per million mapped reads; exonuclease stop points mark one edge of the footprint",
+                                    "track": "mfaseq_mfaseq_T7107_smooth",
+                                    "shortLabel": "MFA-seq",
+                                    "longLabel": "Muller et al. (2014): MFA-seq replication profile, exponential vs stationary phase",
                                     "type": "bigWig",
-                                    "file": "chipexo.orc2_g1_rep1.pos.bw",
-                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/reuter2024/chipexo.orc2_g1_rep1.pos.bw",
-                                    "bytes": 2421729,
+                                    "file": "mfaseq_T7107.smooth.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/muller2014/mfaseq_T7107.smooth.bw",
+                                    "bytes": 82480,
                                     "negated": false,
-                                    "viewLimits": "-150:150",
-                                    "graphType": "bar",
-                                    "panel_default": false
-                                },
-                                {
-                                    "track": "orc2_g1_strand_chipexo_orc2_g1_rep1_neg",
-                                    "shortLabel": "rep1 minus",
-                                    "longLabel": "Orc2-Flag, G1 arrest, replicate 1, minus-strand read coverage per million mapped reads; exonuclease stop points mark one edge of the footprint",
-                                    "type": "bigWig",
-                                    "file": "chipexo.orc2_g1_rep1.neg.bw",
-                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/reuter2024/chipexo.orc2_g1_rep1.neg.bw",
-                                    "bytes": 2434782,
-                                    "negated": false,
-                                    "viewLimits": "-150:150",
-                                    "graphType": "bar",
-                                    "panel_default": false
-                                },
-                                {
-                                    "track": "orc2_g1_strand_chipexo_orc2_g1_rep2_pos",
-                                    "shortLabel": "rep2 plus",
-                                    "longLabel": "Orc2-Flag, G1 arrest, replicate 2, plus-strand read coverage per million mapped reads; exonuclease stop points mark one edge of the footprint",
-                                    "type": "bigWig",
-                                    "file": "chipexo.orc2_g1_rep2.pos.bw",
-                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/reuter2024/chipexo.orc2_g1_rep2.pos.bw",
-                                    "bytes": 3303175,
-                                    "negated": false,
-                                    "viewLimits": "-150:150",
-                                    "graphType": "bar",
-                                    "panel_default": false
-                                },
-                                {
-                                    "track": "orc2_g1_strand_chipexo_orc2_g1_rep2_neg",
-                                    "shortLabel": "rep2 minus",
-                                    "longLabel": "Orc2-Flag, G1 arrest, replicate 2, minus-strand read coverage per million mapped reads; exonuclease stop points mark one edge of the footprint",
-                                    "type": "bigWig",
-                                    "file": "chipexo.orc2_g1_rep2.neg.bw",
-                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/reuter2024/chipexo.orc2_g1_rep2.neg.bw",
-                                    "bytes": 3315124,
-                                    "negated": false,
-                                    "viewLimits": "-150:150",
-                                    "graphType": "bar",
-                                    "panel_default": false
+                                    "viewLimits": "0.9:1.5",
+                                    "graphType": "points",
+                                    "panel_default": false,
+                                    "priority": 4
                                 }
                             ]
                         },
                         {
-                            "track": "reuter2024_orc2_g2_strand",
-                            "shortLabel": "ORC2 G2 strand",
-                            "longLabel": "Orc2-Flag, G2 arrest (Reuter et al. 2024): plus-strand coverage above the axis and minus-strand below, both replicates; the gap between the two strand peaks is the protected footprint",
+                            "track": "muller2014_hu",
+                            "shortLabel": "HU origins (Muller 2014)",
+                            "longLabel": "Muller et al. (2014): origin mapping by replication forks stalled in hydroxyurea (rad53 sml1)",
                             "container": "multiWig",
-                            "section": "oridb_footprint",
+                            "section": "oridb_initiation",
                             "tracks": [
                                 {
-                                    "track": "orc2_g2_strand_chipexo_orc2_g2_rep1_pos",
-                                    "shortLabel": "rep1 plus",
-                                    "longLabel": "Orc2-Flag, G2 arrest, replicate 1, plus-strand read coverage per million mapped reads; exonuclease stop points mark one edge of the footprint",
+                                    "track": "hu_hu_CAY106_smooth",
+                                    "shortLabel": "HU 60 min",
+                                    "longLabel": "Muller et al. (2014): HU-stalled fork origin mapping, 60 min after release (CAY106)",
                                     "type": "bigWig",
-                                    "file": "chipexo.orc2_g2_rep1.pos.bw",
-                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/reuter2024/chipexo.orc2_g2_rep1.pos.bw",
-                                    "bytes": 2154773,
+                                    "file": "hu_CAY106.smooth.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/muller2014/hu_CAY106.smooth.bw",
+                                    "bytes": 87925,
                                     "negated": false,
-                                    "viewLimits": "-150:150",
-                                    "graphType": "bar",
-                                    "panel_default": false
-                                },
+                                    "viewLimits": "0.9:2.1",
+                                    "graphType": "points",
+                                    "panel_default": false,
+                                    "priority": 5
+                                }
+                            ]
+                        },
+                        {
+                            "track": "muller2014_trep",
+                            "shortLabel": "Trep (Muller 2014)",
+                            "longLabel": "Muller et al. (2014): median replication time (Trep, minutes from alpha-factor release)",
+                            "container": "multiWig",
+                            "section": "oridb_timing",
+                            "tracks": [
                                 {
-                                    "track": "orc2_g2_strand_chipexo_orc2_g2_rep1_neg",
-                                    "shortLabel": "rep1 minus",
-                                    "longLabel": "Orc2-Flag, G2 arrest, replicate 1, minus-strand read coverage per million mapped reads; exonuclease stop points mark one edge of the footprint",
+                                    "track": "trep_syncseq_trep",
+                                    "shortLabel": "Trep",
+                                    "longLabel": "Muller et al. (2014): median replication time from the sync-seq time course",
                                     "type": "bigWig",
-                                    "file": "chipexo.orc2_g2_rep1.neg.bw",
-                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/reuter2024/chipexo.orc2_g2_rep1.neg.bw",
-                                    "bytes": 2157225,
-                                    "negated": false,
-                                    "viewLimits": "-150:150",
-                                    "graphType": "bar",
-                                    "panel_default": false
-                                },
+                                    "file": "syncseq.trep.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/muller2014/syncseq.trep.bw",
+                                    "bytes": 74713,
+                                    "negated": true,
+                                    "viewLimits": "-85:-25",
+                                    "graphType": "points",
+                                    "panel_default": false,
+                                    "priority": 6
+                                }
+                            ]
+                        },
+                        {
+                            "track": "oridb_initiation",
+                            "shortLabel": "Initiation mapping",
+                            "longLabel": "Origin position and efficiency: initiation site and zone mapping",
+                            "container": "",
+                            "section": "oridb_initiation",
+                            "tracks": [
                                 {
-                                    "track": "orc2_g2_strand_chipexo_orc2_g2_rep2_pos",
-                                    "shortLabel": "rep2 plus",
-                                    "longLabel": "Orc2-Flag, G2 arrest, replicate 2, plus-strand read coverage per million mapped reads; exonuclease stop points mark one edge of the footprint",
-                                    "type": "bigWig",
-                                    "file": "chipexo.orc2_g2_rep2.pos.bw",
-                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/reuter2024/chipexo.orc2_g2_rep2.pos.bw",
-                                    "bytes": 1876812,
+                                    "track": "muller2014_trep_peaks",
+                                    "shortLabel": "Trep peaks (Muller 2014)",
+                                    "longLabel": "Origin calls from the Muller et al. (2014) Trep profile: local minima of replication time, called by OriDB",
+                                    "type": "bigBed 8 +",
+                                    "file": "syncseq.trep.peaks.bb",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/muller2014/syncseq.trep.peaks.bb",
+                                    "bytes": 34666,
                                     "negated": false,
-                                    "viewLimits": "-150:150",
-                                    "graphType": "bar",
-                                    "panel_default": false
-                                },
-                                {
-                                    "track": "orc2_g2_strand_chipexo_orc2_g2_rep2_neg",
-                                    "shortLabel": "rep2 minus",
-                                    "longLabel": "Orc2-Flag, G2 arrest, replicate 2, minus-strand read coverage per million mapped reads; exonuclease stop points mark one edge of the footprint",
-                                    "type": "bigWig",
-                                    "file": "chipexo.orc2_g2_rep2.neg.bw",
-                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/reuter2024/chipexo.orc2_g2_rep2.neg.bw",
-                                    "bytes": 1879396,
-                                    "negated": false,
-                                    "viewLimits": "-150:150",
-                                    "graphType": "bar",
-                                    "panel_default": false
+                                    "viewLimits": "",
+                                    "graphType": "",
+                                    "panel_default": false,
+                                    "priority": 7,
+                                    "bed": "syncseq.trep.peaks.bed",
+                                    "bed_url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/muller2014/syncseq.trep.peaks.bed",
+                                    "rows": 212
                                 }
                             ]
                         }
@@ -1047,7 +1099,7 @@
                             "tracks": [
                                 {
                                     "track": "sgd_protein_coding",
-                                    "shortLabel": "SGD genes",
+                                    "shortLabel": "Genes (SGD)",
                                     "longLabel": "Protein-coding genes from SGD (R64-4-1): 5,783 Verified in green, 147 Uncharacterized in blue, 683 Dubious in grey; CDS blocks, so introns are drawn",
                                     "type": "bigBed 12 +",
                                     "file": "sgd.protein_coding.bb",
@@ -1057,25 +1109,27 @@
                                     "viewLimits": "",
                                     "graphType": "",
                                     "panel_default": true,
+                                    "priority": 1,
                                     "bed": "sgd.protein_coding.bed",
                                     "bed_url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/sgd/sgd.protein_coding.bed",
                                     "rows": 6613
                                 },
                                 {
-                                    "track": "sgd_trna",
-                                    "shortLabel": "SGD tRNA genes",
-                                    "longLabel": "tRNA genes from SGD (R64-4-1): 299 genes with their exon structure, so the intron-containing tRNAs are drawn as two blocks",
+                                    "track": "sgd_rna_genes",
+                                    "shortLabel": "RNA genes (SGD)",
+                                    "longLabel": "Non-coding RNA genes from SGD (R64-4-1): 299 tRNA in purple, 77 snoRNA orange, 31 ncRNA green, 24 rRNA pink, 6 snRNA yellow and 1 telomerase RNA grey, with their exon structure",
                                     "type": "bigBed 12 +",
-                                    "file": "sgd.trna.bb",
-                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/sgd/sgd.trna.bb",
-                                    "bytes": 82476,
+                                    "file": "sgd.rna_genes.bb",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/sgd/sgd.rna_genes.bb",
+                                    "bytes": 83878,
                                     "negated": false,
                                     "viewLimits": "",
                                     "graphType": "",
                                     "panel_default": true,
-                                    "bed": "sgd.trna.bed",
-                                    "bed_url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/sgd/sgd.trna.bed",
-                                    "rows": 299
+                                    "priority": 2,
+                                    "bed": "sgd.rna_genes.bed",
+                                    "bed_url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/sgd/sgd.rna_genes.bed",
+                                    "rows": 438
                                 }
                             ]
                         }
@@ -1119,7 +1173,7 @@
                             "tracks": [
                                 {
                                     "track": "ov_origins",
-                                    "shortLabel": "OriDB origins",
+                                    "shortLabel": "Origins (OriDB v3)",
                                     "longLabel": "OriDB v3 origin records, coloured by evidence tier: green confirmed, blue likely, grey unsupported or not assessed",
                                     "type": "bigBed 9 +",
                                     "file": "origins.bb",
@@ -1128,7 +1182,8 @@
                                     "negated": false,
                                     "viewLimits": "",
                                     "graphType": "",
-                                    "panel_default": false
+                                    "panel_default": false,
+                                    "priority": 3
                                 }
                             ]
                         },
@@ -1141,7 +1196,7 @@
                             "tracks": [
                                 {
                                     "track": "oridb_v3_origins",
-                                    "shortLabel": "OriDB origins",
+                                    "shortLabel": "Origins (OriDB v3)",
                                     "longLabel": "OriDB v3 origin records on ASM294v2, drawn on UCSC's GenArk copy of that assembly (GCF_000002945.1); coloured by evidence tier",
                                     "type": "bigBed 9 +",
                                     "file": "origins.bb",
@@ -1150,167 +1205,8 @@
                                     "negated": false,
                                     "viewLimits": "",
                                     "graphType": "",
-                                    "panel_default": false
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "id": "daigaku2015",
-                    "title": "Polymerase usage sequencing (Pu-seq) in S. pombe (Daigaku et al. 2015), the published derived profiles on ASM294v2",
-                    "organism": "Schizosaccharomyces pombe",
-                    "assembly": "ASM294v2",
-                    "bin_size_bp": 1000,
-                    "measurement": "replication timing, fork direction, termination and origin efficiency",
-                    "scale": "see each track; the units differ between them",
-                    "source": {
-                        "doi": "10.1038/nsmb.2962",
-                        "pubmed": "25664722",
-                        "archive_series": [
-                            "GSE62108"
-                        ],
-                        "n_runs": 0,
-                        "n_samples_used": 0,
-                        "n_samples_excluded": 0,
-                        "exclusion_reason": ""
-                    },
-                    "n_samples": 0,
-                    "calls": null,
-                    "groups": [
-                        {
-                            "track": "oridb_overview",
-                            "shortLabel": "OriDB overview",
-                            "longLabel": "OriDB overview: one reference track per measurement type, drawn by default",
-                            "container": "",
-                            "section": "oridb_overview",
-                            "tracks": [
-                                {
-                                    "track": "ov_sp_timing",
-                                    "shortLabel": "Timing (Trep, Pu-seq)",
-                                    "longLabel": "Replication timing: Trep in minutes from polymerase usage (Daigaku et al. 2015); early replication plots high",
-                                    "type": "bigWig",
-                                    "file": "puseq.trep.bw",
-                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/GCF_000002945.1/daigaku2015/puseq.trep.bw",
-                                    "bytes": 159180,
-                                    "negated": true,
-                                    "viewLimits": "-60:-20",
-                                    "graphType": "points",
-                                    "panel_default": false
-                                },
-                                {
-                                    "track": "ov_sp_fd",
-                                    "shortLabel": "Fork direction (Pu-seq)",
-                                    "longLabel": "Fraction of forks moving leftward, from polymerase usage (Daigaku et al. 2015)",
-                                    "type": "bigWig",
-                                    "file": "puseq.leftward_fork.bw",
-                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/GCF_000002945.1/daigaku2015/puseq.leftward_fork.bw",
-                                    "bytes": 151410,
-                                    "negated": false,
-                                    "viewLimits": "0:1",
-                                    "graphType": "bar",
-                                    "panel_default": false
-                                },
-                                {
-                                    "track": "ov_sp_init",
-                                    "shortLabel": "Pu-seq origins",
-                                    "longLabel": "Origin calls with firing efficiency from polymerase usage (Daigaku et al. 2015)",
-                                    "type": "bigBed 6 +",
-                                    "file": "puseq.origins.bb",
-                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/GCF_000002945.1/daigaku2015/puseq.origins.bb",
-                                    "bytes": 71095,
-                                    "negated": false,
-                                    "viewLimits": "",
-                                    "graphType": "",
-                                    "panel_default": false
-                                }
-                            ]
-                        },
-                        {
-                            "track": "daigaku2015_trep",
-                            "shortLabel": "Trep (Pu-seq)",
-                            "longLabel": "Replication timing: Trep in minutes from polymerase usage (Daigaku et al. 2015); early replication plots high",
-                            "container": "multiWig",
-                            "section": "oridb_timing",
-                            "tracks": [
-                                {
-                                    "track": "trep_puseq_trep",
-                                    "shortLabel": "Trep (Pu-seq)",
-                                    "longLabel": "Trep in minutes after release, 1 kb bins (Daigaku et al. 2015)",
-                                    "type": "bigWig",
-                                    "file": "puseq.trep.bw",
-                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/GCF_000002945.1/daigaku2015/puseq.trep.bw",
-                                    "bytes": 159180,
-                                    "negated": true,
-                                    "viewLimits": "-60:-20",
-                                    "graphType": "points",
-                                    "panel_default": false
-                                }
-                            ]
-                        },
-                        {
-                            "track": "daigaku2015_forkdir",
-                            "shortLabel": "Fork direction",
-                            "longLabel": "Fraction of forks moving leftward, from polymerase usage (Daigaku et al. 2015); 0.5 is no net direction",
-                            "container": "multiWig",
-                            "section": "oridb_forkdir",
-                            "tracks": [
-                                {
-                                    "track": "forkdir_puseq_leftward_fork",
-                                    "shortLabel": "Leftward forks",
-                                    "longLabel": "Fraction of replication forks moving leftward, 1 kb bins (Daigaku et al. 2015)",
-                                    "type": "bigWig",
-                                    "file": "puseq.leftward_fork.bw",
-                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/GCF_000002945.1/daigaku2015/puseq.leftward_fork.bw",
-                                    "bytes": 151410,
-                                    "negated": false,
-                                    "viewLimits": "0:1",
-                                    "graphType": "bar",
-                                    "panel_default": false
-                                }
-                            ]
-                        },
-                        {
-                            "track": "daigaku2015_termination",
-                            "shortLabel": "Termination",
-                            "longLabel": "Percentage of termination events, from polymerase usage (Daigaku et al. 2015); published as a 1 kb window every 300 bp and drawn in 300 bp bins at the window centre",
-                            "container": "multiWig",
-                            "section": "oridb_pausing",
-                            "tracks": [
-                                {
-                                    "track": "termination_puseq_termination",
-                                    "shortLabel": "Termination",
-                                    "longLabel": "Termination events as a percentage per window (Daigaku et al. 2015)",
-                                    "type": "bigWig",
-                                    "file": "puseq.termination.bw",
-                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/GCF_000002945.1/daigaku2015/puseq.termination.bw",
-                                    "bytes": 365845,
-                                    "negated": false,
-                                    "viewLimits": "0:14",
-                                    "graphType": "bar",
-                                    "panel_default": false
-                                }
-                            ]
-                        },
-                        {
-                            "track": "oridb_initiation",
-                            "shortLabel": "Initiation mapping",
-                            "longLabel": "Origin position and efficiency: initiation site and zone mapping",
-                            "container": "",
-                            "section": "oridb_initiation",
-                            "tracks": [
-                                {
-                                    "track": "daigaku2015_origins",
-                                    "shortLabel": "Pu-seq origins",
-                                    "longLabel": "Origin calls with firing efficiency from polymerase usage (Daigaku et al. 2015); shaded by efficiency, 0.07 to 83.8 per cent",
-                                    "type": "bigBed 6 +",
-                                    "file": "puseq.origins.bb",
-                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/GCF_000002945.1/daigaku2015/puseq.origins.bb",
-                                    "bytes": 71095,
-                                    "negated": false,
-                                    "viewLimits": "",
-                                    "graphType": "",
-                                    "panel_default": false
+                                    "panel_default": false,
+                                    "priority": 1
                                 }
                             ]
                         }
@@ -1347,7 +1243,7 @@
                             "tracks": [
                                 {
                                     "track": "ov_sp_mcm",
-                                    "shortLabel": "Mcm2 occupancy (ChEC)",
+                                    "shortLabel": "Mcm2 ChEC (Foss 2021)",
                                     "longLabel": "MCM2-7 occupancy by chromatin endogenous cleavage in hydroxyurea (Foss et al. 2021); 1 is average coverage",
                                     "type": "bigWig",
                                     "file": "mcm2chec.hu_rep1.all.bw",
@@ -1356,13 +1252,14 @@
                                     "negated": false,
                                     "viewLimits": "0:10",
                                     "graphType": "bar",
-                                    "panel_default": false
+                                    "panel_default": false,
+                                    "priority": 4
                                 }
                             ]
                         },
                         {
                             "track": "foss2021_mcm_all",
-                            "shortLabel": "Mcm2 HU vs G1",
+                            "shortLabel": "Mcm2 HU vs G1 (Foss 2021)",
                             "longLabel": "Mcm2-ChEC occupancy in hydroxyurea and in G1, all fragment sizes (Foss et al. 2021); 1 is average coverage for that library",
                             "container": "multiWig",
                             "section": "oridb_footprint",
@@ -1378,7 +1275,8 @@
                                     "negated": false,
                                     "viewLimits": "0:10",
                                     "graphType": "bar",
-                                    "panel_default": false
+                                    "panel_default": false,
+                                    "priority": 10
                                 },
                                 {
                                     "track": "mcm_all_mcm2chec_g1_rep1_all",
@@ -1391,13 +1289,14 @@
                                     "negated": false,
                                     "viewLimits": "0:10",
                                     "graphType": "bar",
-                                    "panel_default": false
+                                    "panel_default": false,
+                                    "priority": 10
                                 }
                             ]
                         },
                         {
                             "track": "foss2021_mcm_51_100",
-                            "shortLabel": "Mcm2 51-100 bp",
+                            "shortLabel": "Mcm2 51-100 bp (Foss 2021)",
                             "longLabel": "Mcm2-ChEC occupancy from 51-100 bp fragments, HU against G1 (Foss et al. 2021); the fragment class closest to a single MCM footprint",
                             "container": "multiWig",
                             "section": "oridb_footprint",
@@ -1413,7 +1312,8 @@
                                     "negated": false,
                                     "viewLimits": "0:10",
                                     "graphType": "bar",
-                                    "panel_default": false
+                                    "panel_default": false,
+                                    "priority": 11
                                 },
                                 {
                                     "track": "mcm_51_100_mcm2chec_g1_rep1_51_100bp",
@@ -1426,13 +1326,14 @@
                                     "negated": false,
                                     "viewLimits": "0:10",
                                     "graphType": "bar",
-                                    "panel_default": false
+                                    "panel_default": false,
+                                    "priority": 11
                                 }
                             ]
                         },
                         {
                             "track": "foss2021_mcm_151_200",
-                            "shortLabel": "Mcm2 151-200 bp",
+                            "shortLabel": "Mcm2 151-200 bp (Foss 2021)",
                             "longLabel": "Mcm2-ChEC occupancy from 151-200 bp fragments, HU against G1 (Foss et al. 2021)",
                             "container": "multiWig",
                             "section": "oridb_footprint",
@@ -1448,7 +1349,8 @@
                                     "negated": false,
                                     "viewLimits": "0:10",
                                     "graphType": "bar",
-                                    "panel_default": false
+                                    "panel_default": false,
+                                    "priority": 12
                                 },
                                 {
                                     "track": "mcm_151_200_mcm2chec_g1_rep1_151_200bp",
@@ -1461,13 +1363,14 @@
                                     "negated": false,
                                     "viewLimits": "0:10",
                                     "graphType": "bar",
-                                    "panel_default": false
+                                    "panel_default": false,
+                                    "priority": 12
                                 }
                             ]
                         },
                         {
                             "track": "foss2021_mcm_reps",
-                            "shortLabel": "Mcm2 HU replicates",
+                            "shortLabel": "Mcm2 HU reps (Foss 2021)",
                             "longLabel": "The two hydroxyurea replicates against each other (Foss et al. 2021); rep2 was sequenced about three times as deeply, which the scaling removes",
                             "container": "multiWig",
                             "section": "oridb_footprint",
@@ -1483,7 +1386,8 @@
                                     "negated": false,
                                     "viewLimits": "0:10",
                                     "graphType": "bar",
-                                    "panel_default": false
+                                    "panel_default": false,
+                                    "priority": 13
                                 },
                                 {
                                     "track": "mcm_reps_mcm2chec_hu_rep2_all",
@@ -1496,13 +1400,14 @@
                                     "negated": false,
                                     "viewLimits": "0:10",
                                     "graphType": "bar",
-                                    "panel_default": false
+                                    "panel_default": false,
+                                    "priority": 13
                                 }
                             ]
                         },
                         {
                             "track": "foss2021_mnase_control",
-                            "shortLabel": "Free MNase control",
+                            "shortLabel": "Free MNase (Foss 2021)",
                             "longLabel": "Free MNase without a tethered protein (Foss et al. 2021): the accessibility background that Mcm2-ChEC signal is read against",
                             "container": "multiWig",
                             "section": "oridb_footprint",
@@ -1518,7 +1423,175 @@
                                     "negated": false,
                                     "viewLimits": "0:10",
                                     "graphType": "bar",
-                                    "panel_default": false
+                                    "panel_default": false,
+                                    "priority": 14
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": "daigaku2015",
+                    "title": "Polymerase usage sequencing (Pu-seq) in S. pombe (Daigaku et al. 2015), the published derived profiles on ASM294v2",
+                    "organism": "Schizosaccharomyces pombe",
+                    "assembly": "ASM294v2",
+                    "bin_size_bp": 1000,
+                    "measurement": "replication timing, fork direction, termination and origin efficiency",
+                    "scale": "see each track; the units differ between them",
+                    "source": {
+                        "doi": "10.1038/nsmb.2962",
+                        "pubmed": "25664722",
+                        "archive_series": [
+                            "GSE62108"
+                        ],
+                        "n_runs": 0,
+                        "n_samples_used": 0,
+                        "n_samples_excluded": 0,
+                        "exclusion_reason": ""
+                    },
+                    "n_samples": 0,
+                    "calls": null,
+                    "groups": [
+                        {
+                            "track": "oridb_overview",
+                            "shortLabel": "OriDB overview",
+                            "longLabel": "OriDB overview: one reference track per measurement type, drawn by default",
+                            "container": "",
+                            "section": "oridb_overview",
+                            "tracks": [
+                                {
+                                    "track": "ov_sp_init",
+                                    "shortLabel": "Origins (Daigaku 2015)",
+                                    "longLabel": "Origin calls with firing efficiency from polymerase usage (Daigaku et al. 2015)",
+                                    "type": "bigBed 6 +",
+                                    "file": "puseq.origins.bb",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/GCF_000002945.1/daigaku2015/puseq.origins.bb",
+                                    "bytes": 71095,
+                                    "negated": false,
+                                    "viewLimits": "",
+                                    "graphType": "",
+                                    "panel_default": false,
+                                    "priority": 5
+                                },
+                                {
+                                    "track": "ov_sp_fd",
+                                    "shortLabel": "Fork dir (Daigaku 2015)",
+                                    "longLabel": "Fraction of forks moving leftward, from polymerase usage (Daigaku et al. 2015)",
+                                    "type": "bigWig",
+                                    "file": "puseq.leftward_fork.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/GCF_000002945.1/daigaku2015/puseq.leftward_fork.bw",
+                                    "bytes": 151410,
+                                    "negated": false,
+                                    "viewLimits": "0:1",
+                                    "graphType": "bar",
+                                    "panel_default": false,
+                                    "priority": 6
+                                },
+                                {
+                                    "track": "ov_sp_timing",
+                                    "shortLabel": "Trep (Daigaku 2015)",
+                                    "longLabel": "Replication timing: Trep in minutes from polymerase usage (Daigaku et al. 2015); early replication plots high",
+                                    "type": "bigWig",
+                                    "file": "puseq.trep.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/GCF_000002945.1/daigaku2015/puseq.trep.bw",
+                                    "bytes": 159180,
+                                    "negated": true,
+                                    "viewLimits": "-60:-20",
+                                    "graphType": "points",
+                                    "panel_default": false,
+                                    "priority": 7
+                                }
+                            ]
+                        },
+                        {
+                            "track": "daigaku2015_trep",
+                            "shortLabel": "Trep (Daigaku 2015)",
+                            "longLabel": "Replication timing: Trep in minutes from polymerase usage (Daigaku et al. 2015); early replication plots high",
+                            "container": "multiWig",
+                            "section": "oridb_timing",
+                            "tracks": [
+                                {
+                                    "track": "trep_puseq_trep",
+                                    "shortLabel": "Trep (Pu-seq)",
+                                    "longLabel": "Trep in minutes after release, 1 kb bins (Daigaku et al. 2015)",
+                                    "type": "bigWig",
+                                    "file": "puseq.trep.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/GCF_000002945.1/daigaku2015/puseq.trep.bw",
+                                    "bytes": 159180,
+                                    "negated": true,
+                                    "viewLimits": "-60:-20",
+                                    "graphType": "points",
+                                    "panel_default": false,
+                                    "priority": 10
+                                }
+                            ]
+                        },
+                        {
+                            "track": "daigaku2015_forkdir",
+                            "shortLabel": "Fork dir (Daigaku 2015)",
+                            "longLabel": "Fraction of forks moving leftward, from polymerase usage (Daigaku et al. 2015); 0.5 is no net direction",
+                            "container": "multiWig",
+                            "section": "oridb_forkdir",
+                            "tracks": [
+                                {
+                                    "track": "forkdir_puseq_leftward_fork",
+                                    "shortLabel": "Leftward forks",
+                                    "longLabel": "Fraction of replication forks moving leftward, 1 kb bins (Daigaku et al. 2015)",
+                                    "type": "bigWig",
+                                    "file": "puseq.leftward_fork.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/GCF_000002945.1/daigaku2015/puseq.leftward_fork.bw",
+                                    "bytes": 151410,
+                                    "negated": false,
+                                    "viewLimits": "0:1",
+                                    "graphType": "bar",
+                                    "panel_default": false,
+                                    "priority": 10
+                                }
+                            ]
+                        },
+                        {
+                            "track": "daigaku2015_termination",
+                            "shortLabel": "Termination (Daigaku 2015)",
+                            "longLabel": "Percentage of termination events, from polymerase usage (Daigaku et al. 2015); published as a 1 kb window every 300 bp and drawn in 300 bp bins at the window centre",
+                            "container": "multiWig",
+                            "section": "oridb_pausing",
+                            "tracks": [
+                                {
+                                    "track": "termination_puseq_termination",
+                                    "shortLabel": "Termination",
+                                    "longLabel": "Termination events as a percentage per window (Daigaku et al. 2015)",
+                                    "type": "bigWig",
+                                    "file": "puseq.termination.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/GCF_000002945.1/daigaku2015/puseq.termination.bw",
+                                    "bytes": 365845,
+                                    "negated": false,
+                                    "viewLimits": "0:14",
+                                    "graphType": "bar",
+                                    "panel_default": false,
+                                    "priority": 10
+                                }
+                            ]
+                        },
+                        {
+                            "track": "oridb_initiation",
+                            "shortLabel": "Initiation mapping",
+                            "longLabel": "Origin position and efficiency: initiation site and zone mapping",
+                            "container": "",
+                            "section": "oridb_initiation",
+                            "tracks": [
+                                {
+                                    "track": "daigaku2015_origins",
+                                    "shortLabel": "Origins (Daigaku 2015)",
+                                    "longLabel": "Origin calls with firing efficiency from polymerase usage (Daigaku et al. 2015); shaded by efficiency, 0.07 to 83.8 per cent",
+                                    "type": "bigBed 6 +",
+                                    "file": "puseq.origins.bb",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/GCF_000002945.1/daigaku2015/puseq.origins.bb",
+                                    "bytes": 71095,
+                                    "negated": false,
+                                    "viewLimits": "",
+                                    "graphType": "",
+                                    "panel_default": false,
+                                    "priority": 5
                                 }
                             ]
                         }

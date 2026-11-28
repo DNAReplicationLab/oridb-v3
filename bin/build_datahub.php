@@ -302,6 +302,10 @@ foreach ($genomeStanzas as $g) {
             // serves natively and the panel does not, so the hub can ask for it in
             // one browser without changing the other.
             'panel_default' => str_contains((string) ($s['metadata'] ?? ''), 'panelDefault=on'),
+            // trackDb `priority` is how the hub states display order, and the panel
+            // has to honour the same order or the two browsers disagree about which
+            // track comes first. A subtrack inherits its container's priority.
+            'priority' => (float) ($s['priority'] ?? $container['priority'] ?? 99),
         ];
         if ($size > 0) {
             $nFiles++;
