@@ -125,14 +125,25 @@ foreach ($hub['genomes'] as $g) {
     // overview - and two tracks over one file would just be the same picture twice.
     $byUrl = [];
     $defaults = [];
+    $multi = [];
     foreach ($g['datasets'] as $ds) {
         foreach ($ds['groups'] as $group) {
+            // An overview container of several bigWigs becomes one overlaid track,
+            // so its files are not added to the default list individually below.
+            $overlay = ($group['container'] ?? '') === 'multiWig'
+                && (($group['section'] ?? $group['track']) === 'oridb_overview')
+                && count($group['tracks']) > 1;
             foreach ($group['tracks'] as $t) {
                 $a = adapter_for((string) $t['type'], (string) $t['url']);
                 if ($a === null) {
                     continue;
                 }
-                $isOverview = $group['track'] === 'oridb_overview';
+                // The hub says which tracks it means to be drawn by default by putting
+                // them in the overview supertrack. An overview entry is usually a
+                // stand-alone track, and is then its own group; one that overlays
+                // several files is a multiWig container whose group is the container,
+                // so the test is the section the group sits in, not the group's name.
+                $isOverview = ($group['section'] ?? $group['track']) === 'oridb_overview';
                 if (!isset($byUrl[$t['url']])) {
                     // How a quantitative track is drawn. `autoscale: local` is
                     // JBrowse's default and is stated anyway, because it is the
@@ -207,13 +218,57 @@ foreach ($hub['genomes'] as $g) {
                         ]];
                     }
                 }
-                if ($isOverview) {
+                if (($isOverview && !$overlay) || ($t['panel_default'] ?? false)) {
                     $defaults[] = $byUrl[$t['url']]['trackId'];
+                }
+            }
+            // An overview container holding more than one bigWig is drawn as ONE
+            // overlaid track rather than a row per file, which is what the hub's
+            // `aggregate solidOverlay` means and the only way a strand pair reads as a
+            // single picture: plus above the axis, minus below, on a shared y-axis.
+            // MultiXYPlotRenderer is JBrowse's overlay; MultiRowXYPlotRenderer would
+            // stack them and lose the comparison. The per-file tracks stay in the list
+            // as well - they are the same URLs, already deduplicated above, and a
+            // reader may still want one strand on its own.
+            if ($overlay) {
+                $subadapters = [];
+                foreach ($group['tracks'] as $t) {
+                    if (!str_starts_with((string) $t['type'], 'bigWig')) {
+                        continue;
+                    }
+                    $subadapters[] = [
+                        'type' => 'BigWigAdapter',
+                        'name' => $t['shortLabel'],
+                        'bigWigLocation' => ['uri' => $t['url']],
+                    ];
+                }
+                if (count($subadapters) > 1) {
+                    $id = $assembly . '-' . $group['track'];
+                    $multi[] = [
+                        'type' => 'MultiQuantitativeTrack',
+                        'trackId' => $id,
+                        'name' => $group['shortLabel'],
+                        'description' => $group['longLabel'],
+                        'assemblyNames' => [$assembly],
+                        'category' => [$ds['title']],
+                        'adapter' => ['type' => 'MultiWiggleAdapter',
+                                      'subadapters' => $subadapters],
+                        'displays' => [[
+                            'type' => 'MultiLinearWiggleDisplay',
+                            'displayId' => $id . '-display',
+                            'defaultRendering' => 'xyplot',
+                            'renderers' => ['MultiXYPlotRenderer' => ['filled' => true]],
+                            'autoscale' => 'local',
+                        ]],
+                    ];
+                    $defaults[] = $id;
                 }
             }
         }
     }
-    $out['tracks'][$assembly] = array_values($byUrl);
+    // Overlaid tracks first: they are the ones the panel draws, and a reader opening
+    // the selector should meet them before the eighteen single files behind them.
+    $out['tracks'][$assembly] = array_merge($multi, array_values($byUrl));
     $out['defaults'][$assembly] = array_values(array_unique($defaults));
 }
 

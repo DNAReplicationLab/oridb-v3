@@ -296,6 +296,12 @@ foreach ($genomeStanzas as $g) {
             'negated' => $negated,
             'viewLimits' => $viewLimits,
             'graphType' => $graphType,
+            // The hub marks a track the embedded panel should draw by default with a
+            // free-form `metadata panelDefault=on`, which UCSC shows in the track
+            // description and otherwise ignores. It exists for annotation that UCSC
+            // serves natively and the panel does not, so the hub can ask for it in
+            // one browser without changing the other.
+            'panel_default' => str_contains((string) ($s['metadata'] ?? ''), 'panelDefault=on'),
         ];
         if ($size > 0) {
             $nFiles++;
@@ -326,6 +332,15 @@ foreach ($genomeStanzas as $g) {
         $datasets[$dataset]['groups'][$group]['shortLabel'] = $byName[$group]['shortLabel'] ?? $entry['shortLabel'];
         $datasets[$dataset]['groups'][$group]['longLabel'] = $byName[$group]['longLabel'] ?? $entry['longLabel'];
         $datasets[$dataset]['groups'][$group]['container'] = $byName[$group]['container'] ?? '';
+        // Which supertrack this group sits in. A group is usually a container, whose
+        // own stanza names the section as its parent; a stand-alone track is its own
+        // group and the section is then the group name itself. A consumer cannot work
+        // this out from the group name - an overview entry rendered as a multiWig is
+        // called ov_mcm, not oridb_overview - and the panel needs it to know which
+        // tracks the hub means to be drawn by default.
+        $parent = $byName[$group]['parent'] ?? '';
+        $datasets[$dataset]['groups'][$group]['section'] =
+            $parent !== '' ? explode(' ', $parent)[0] : $group;
     }
 
     $out = [];
@@ -342,6 +357,7 @@ foreach ($genomeStanzas as $g) {
                 'shortLabel' => $grp['shortLabel'],
                 'longLabel' => $grp['longLabel'],
                 'container' => $grp['container'],
+                'section' => $grp['section'],
                 'tracks' => $grp['tracks'],
             ];
         }

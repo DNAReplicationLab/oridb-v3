@@ -1,5 +1,5 @@
 {
-    "generated": "2026-11-28T12:25:16Z",
+    "generated": "2026-11-28T12:57:16Z",
     "hub": {
         "name": "oridb_data_hub",
         "shortLabel": "OriDB data hub",
@@ -42,6 +42,7 @@
                             "shortLabel": "OriDB overview",
                             "longLabel": "OriDB overview: one reference track per measurement type, drawn by default",
                             "container": "",
+                            "section": "oridb_overview",
                             "tracks": [
                                 {
                                     "track": "ov_origins",
@@ -53,7 +54,8 @@
                                     "bytes": 111517,
                                     "negated": false,
                                     "viewLimits": "",
-                                    "graphType": ""
+                                    "graphType": "",
+                                    "panel_default": false
                                 }
                             ]
                         },
@@ -62,6 +64,7 @@
                             "shortLabel": "OriDB v3 records",
                             "longLabel": "OriDB v3: origin intervals, origin elements and fragments that failed an ARS assay",
                             "container": "",
+                            "section": "oridb_v3",
                             "tracks": [
                                 {
                                     "track": "oridb_v3_origins",
@@ -73,7 +76,8 @@
                                     "bytes": 111517,
                                     "negated": false,
                                     "viewLimits": "",
-                                    "graphType": ""
+                                    "graphType": "",
+                                    "panel_default": false
                                 },
                                 {
                                     "track": "oridb_v3_elements",
@@ -85,7 +89,8 @@
                                     "bytes": 173023,
                                     "negated": false,
                                     "viewLimits": "",
-                                    "graphType": ""
+                                    "graphType": "",
+                                    "panel_default": false
                                 },
                                 {
                                     "track": "oridb_v3_refuted",
@@ -97,7 +102,8 @@
                                     "bytes": 81498,
                                     "negated": false,
                                     "viewLimits": "",
-                                    "graphType": ""
+                                    "graphType": "",
+                                    "panel_default": false
                                 }
                             ]
                         }
@@ -131,6 +137,7 @@
                             "shortLabel": "OriDB overview",
                             "longLabel": "OriDB overview: one reference track per measurement type, drawn by default",
                             "container": "",
+                            "section": "oridb_overview",
                             "tracks": [
                                 {
                                     "track": "ov_timing",
@@ -142,7 +149,8 @@
                                     "bytes": 74713,
                                     "negated": true,
                                     "viewLimits": "-85:-25",
-                                    "graphType": "points"
+                                    "graphType": "points",
+                                    "panel_default": false
                                 }
                             ]
                         },
@@ -151,6 +159,7 @@
                             "shortLabel": "Muller timecourse",
                             "longLabel": "Muller et al. (2014): S. cerevisiae genome replication time course from alpha-factor release",
                             "container": "multiWig",
+                            "section": "oridb_timing",
                             "tracks": [
                                 {
                                     "track": "timecourse_syncseq_AUY077_90min_smooth",
@@ -162,7 +171,8 @@
                                     "bytes": 62142,
                                     "negated": false,
                                     "viewLimits": "0.9:2.1",
-                                    "graphType": "bar"
+                                    "graphType": "bar",
+                                    "panel_default": false
                                 },
                                 {
                                     "track": "timecourse_syncseq_AUY077_50min_smooth",
@@ -174,7 +184,8 @@
                                     "bytes": 90277,
                                     "negated": false,
                                     "viewLimits": "0.9:2.1",
-                                    "graphType": "bar"
+                                    "graphType": "bar",
+                                    "panel_default": false
                                 },
                                 {
                                     "track": "timecourse_syncseq_AUY077_45min_smooth",
@@ -186,7 +197,8 @@
                                     "bytes": 92209,
                                     "negated": false,
                                     "viewLimits": "0.9:2.1",
-                                    "graphType": "bar"
+                                    "graphType": "bar",
+                                    "panel_default": false
                                 },
                                 {
                                     "track": "timecourse_syncseq_AUY077_40min_smooth",
@@ -198,7 +210,8 @@
                                     "bytes": 91878,
                                     "negated": false,
                                     "viewLimits": "0.9:2.1",
-                                    "graphType": "bar"
+                                    "graphType": "bar",
+                                    "panel_default": false
                                 },
                                 {
                                     "track": "timecourse_syncseq_AUY077_35min_smooth",
@@ -210,7 +223,8 @@
                                     "bytes": 89337,
                                     "negated": false,
                                     "viewLimits": "0.9:2.1",
-                                    "graphType": "bar"
+                                    "graphType": "bar",
+                                    "panel_default": false
                                 },
                                 {
                                     "track": "timecourse_syncseq_AUY077_30min_smooth",
@@ -222,7 +236,8 @@
                                     "bytes": 84642,
                                     "negated": false,
                                     "viewLimits": "0.9:2.1",
-                                    "graphType": "bar"
+                                    "graphType": "bar",
+                                    "panel_default": false
                                 },
                                 {
                                     "track": "timecourse_syncseq_AUY077_25min_smooth",
@@ -234,7 +249,8 @@
                                     "bytes": 78948,
                                     "negated": false,
                                     "viewLimits": "0.9:2.1",
-                                    "graphType": "bar"
+                                    "graphType": "bar",
+                                    "panel_default": false
                                 }
                             ]
                         },
@@ -243,6 +259,7 @@
                             "shortLabel": "Haploid vs diploid",
                             "longLabel": "Muller et al. (2014): haploid and diploid S. cerevisiae sort-seq replication profiles",
                             "container": "multiWig",
+                            "section": "oridb_timing",
                             "tracks": [
                                 {
                                     "track": "sortseq_ploidy_sortseq_T9475_SOLiD_smooth",
@@ -254,7 +271,8 @@
                                     "bytes": 91847,
                                     "negated": false,
                                     "viewLimits": "0.9:2.1",
-                                    "graphType": "points"
+                                    "graphType": "points",
+                                    "panel_default": false
                                 },
                                 {
                                     "track": "sortseq_ploidy_sortseq_T7107_SOLiD_smooth",
@@ -266,7 +284,8 @@
                                     "bytes": 91830,
                                     "negated": false,
                                     "viewLimits": "0.9:2.1",
-                                    "graphType": "points"
+                                    "graphType": "points",
+                                    "panel_default": false
                                 }
                             ]
                         },
@@ -275,6 +294,7 @@
                             "shortLabel": "SOLiD vs Illumina",
                             "longLabel": "Muller et al. (2014): technology comparison for diploid S. cerevisiae sort-seq replication profiles",
                             "container": "multiWig",
+                            "section": "oridb_timing",
                             "tracks": [
                                 {
                                     "track": "sortseq_platform_sortseq_T9475_SOLiD_smooth",
@@ -286,7 +306,8 @@
                                     "bytes": 91847,
                                     "negated": false,
                                     "viewLimits": "0.9:2.1",
-                                    "graphType": "points"
+                                    "graphType": "points",
+                                    "panel_default": false
                                 },
                                 {
                                     "track": "sortseq_platform_sortseq_T9475_Illumina_smooth",
@@ -298,7 +319,8 @@
                                     "bytes": 90818,
                                     "negated": false,
                                     "viewLimits": "0.9:2.1",
-                                    "graphType": "points"
+                                    "graphType": "points",
+                                    "panel_default": false
                                 }
                             ]
                         },
@@ -307,6 +329,7 @@
                             "shortLabel": "MFA-seq",
                             "longLabel": "Muller et al. (2014): marker frequency analysis, exponential versus stationary phase (T7107)",
                             "container": "multiWig",
+                            "section": "oridb_timing",
                             "tracks": [
                                 {
                                     "track": "mfaseq_mfaseq_T7107_smooth",
@@ -318,7 +341,8 @@
                                     "bytes": 82480,
                                     "negated": false,
                                     "viewLimits": "0.9:1.5",
-                                    "graphType": "points"
+                                    "graphType": "points",
+                                    "panel_default": false
                                 }
                             ]
                         },
@@ -327,6 +351,7 @@
                             "shortLabel": "HU origin mapping",
                             "longLabel": "Muller et al. (2014): origin mapping by replication forks stalled in hydroxyurea (rad53 sml1)",
                             "container": "multiWig",
+                            "section": "oridb_initiation",
                             "tracks": [
                                 {
                                     "track": "hu_hu_CAY106_smooth",
@@ -338,7 +363,8 @@
                                     "bytes": 87925,
                                     "negated": false,
                                     "viewLimits": "0.9:2.1",
-                                    "graphType": "points"
+                                    "graphType": "points",
+                                    "panel_default": false
                                 }
                             ]
                         },
@@ -347,6 +373,7 @@
                             "shortLabel": "Trep",
                             "longLabel": "Muller et al. (2014): median replication time (Trep, minutes from alpha-factor release)",
                             "container": "multiWig",
+                            "section": "oridb_timing",
                             "tracks": [
                                 {
                                     "track": "trep_syncseq_trep",
@@ -358,7 +385,8 @@
                                     "bytes": 74713,
                                     "negated": true,
                                     "viewLimits": "-85:-25",
-                                    "graphType": "points"
+                                    "graphType": "points",
+                                    "panel_default": false
                                 }
                             ]
                         },
@@ -367,6 +395,7 @@
                             "shortLabel": "Initiation mapping",
                             "longLabel": "Origin position and efficiency: initiation site and zone mapping",
                             "container": "",
+                            "section": "oridb_initiation",
                             "tracks": [
                                 {
                                     "track": "muller2014_trep_peaks",
@@ -379,6 +408,7 @@
                                     "negated": false,
                                     "viewLimits": "",
                                     "graphType": "",
+                                    "panel_default": false,
                                     "bed": "syncseq.trep.peaks.bed",
                                     "bed_url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/muller2014/syncseq.trep.peaks.bed",
                                     "rows": 212
@@ -418,6 +448,7 @@
                             "shortLabel": "OriDB overview",
                             "longLabel": "OriDB overview: one reference track per measurement type, drawn by default",
                             "container": "",
+                            "section": "oridb_overview",
                             "tracks": [
                                 {
                                     "track": "ov_fd",
@@ -429,7 +460,8 @@
                                     "bytes": 452286,
                                     "negated": false,
                                     "viewLimits": "-1:1",
-                                    "graphType": "bar"
+                                    "graphType": "bar",
+                                    "panel_default": false
                                 },
                                 {
                                     "track": "ov_init",
@@ -442,6 +474,7 @@
                                     "negated": false,
                                     "viewLimits": "",
                                     "graphType": "",
+                                    "panel_default": false,
                                     "bed": "okseq.initiation_sites.bed",
                                     "bed_url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/mcguffee2013/okseq.initiation_sites.bed",
                                     "rows": 383
@@ -453,6 +486,7 @@
                             "shortLabel": "Fork direction",
                             "longLabel": "McGuffee et al. (2013): replication fork directionality from Okazaki fragment strand ratio, wild type",
                             "container": "multiWig",
+                            "section": "oridb_forkdir",
                             "tracks": [
                                 {
                                     "track": "fd_okseq_directionality",
@@ -464,7 +498,8 @@
                                     "bytes": 452286,
                                     "negated": false,
                                     "viewLimits": "-1:1",
-                                    "graphType": "bar"
+                                    "graphType": "bar",
+                                    "panel_default": false
                                 }
                             ]
                         },
@@ -473,6 +508,7 @@
                             "shortLabel": "Initiation signal",
                             "longLabel": "McGuffee et al. (2013): initiation signal - derivative of fork directionality, and origin efficiency (OEM)",
                             "container": "multiWig",
+                            "section": "oridb_initiation",
                             "tracks": [
                                 {
                                     "track": "initiation_okseq_derivative",
@@ -484,7 +520,8 @@
                                     "bytes": 455882,
                                     "negated": false,
                                     "viewLimits": "-0.5:0.7",
-                                    "graphType": "bar"
+                                    "graphType": "bar",
+                                    "panel_default": false
                                 },
                                 {
                                     "track": "initiation_okseq_oem",
@@ -496,7 +533,8 @@
                                     "bytes": 443653,
                                     "negated": false,
                                     "viewLimits": "-0.5:0.7",
-                                    "graphType": "bar"
+                                    "graphType": "bar",
+                                    "panel_default": false
                                 }
                             ]
                         },
@@ -505,6 +543,7 @@
                             "shortLabel": "Okazaki strands",
                             "longLabel": "McGuffee et al. (2013): Okazaki fragment coverage by strand, fragments per million, 250 bp windows",
                             "container": "multiWig",
+                            "section": "oridb_forkdir",
                             "tracks": [
                                 {
                                     "track": "strands_okseq_watson",
@@ -516,7 +555,8 @@
                                     "bytes": 444749,
                                     "negated": false,
                                     "viewLimits": "0:6000",
-                                    "graphType": "bar"
+                                    "graphType": "bar",
+                                    "panel_default": false
                                 },
                                 {
                                     "track": "strands_okseq_crick",
@@ -528,7 +568,8 @@
                                     "bytes": 444852,
                                     "negated": false,
                                     "viewLimits": "0:6000",
-                                    "graphType": "bar"
+                                    "graphType": "bar",
+                                    "panel_default": false
                                 }
                             ]
                         },
@@ -537,6 +578,7 @@
                             "shortLabel": "Initiation mapping",
                             "longLabel": "Origin position and efficiency: initiation site and zone mapping",
                             "container": "",
+                            "section": "oridb_initiation",
                             "tracks": [
                                 {
                                     "track": "mcguffee2013_init_sites",
@@ -549,6 +591,7 @@
                                     "negated": false,
                                     "viewLimits": "",
                                     "graphType": "",
+                                    "panel_default": false,
                                     "bed": "okseq.initiation_sites.bed",
                                     "bed_url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/mcguffee2013/okseq.initiation_sites.bed",
                                     "rows": 383
@@ -581,22 +624,37 @@
                     "calls": null,
                     "groups": [
                         {
-                            "track": "oridb_overview",
-                            "shortLabel": "OriDB overview",
-                            "longLabel": "OriDB overview: one reference track per measurement type, drawn by default",
-                            "container": "",
+                            "track": "ov_mcm",
+                            "shortLabel": "MCM4 strands",
+                            "longLabel": "MCM2-7 occupancy at licensed origins, from Mcm4-Flag ChIP-exo in G1-arrested cells (Reuter et al. 2024): plus-strand coverage above the axis and minus below, replicate 1; the gap between the two peaks is the protected footprint",
+                            "container": "multiWig",
+                            "section": "oridb_overview",
                             "tracks": [
                                 {
-                                    "track": "ov_mcm",
-                                    "shortLabel": "MCM4 occupancy",
-                                    "longLabel": "MCM2-7 occupancy at licensed origins, from Mcm4-Flag ChIP-exo in G1-arrested cells (Reuter et al. 2024); replicate 1, CPM, auto-scaled to the window",
+                                    "track": "ov_mcm_chipexo_mcm4_g1_rep1_pos",
+                                    "shortLabel": "MCM4 plus strand",
+                                    "longLabel": "Mcm4-Flag ChIP-exo, G1 arrest, replicate 1, plus-strand coverage per million mapped reads",
                                     "type": "bigWig",
-                                    "file": "chipexo.mcm4_g1_rep1.bw",
-                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/reuter2024/chipexo.mcm4_g1_rep1.bw",
-                                    "bytes": 3780324,
+                                    "file": "chipexo.mcm4_g1_rep1.pos.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/reuter2024/chipexo.mcm4_g1_rep1.pos.bw",
+                                    "bytes": 2309351,
                                     "negated": false,
-                                    "viewLimits": "0:600",
-                                    "graphType": "bar"
+                                    "viewLimits": "-150:150",
+                                    "graphType": "bar",
+                                    "panel_default": false
+                                },
+                                {
+                                    "track": "ov_mcm_chipexo_mcm4_g1_rep1_neg",
+                                    "shortLabel": "MCM4 minus strand",
+                                    "longLabel": "Mcm4-Flag ChIP-exo, G1 arrest, replicate 1, minus-strand coverage per million mapped reads",
+                                    "type": "bigWig",
+                                    "file": "chipexo.mcm4_g1_rep1.neg.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/reuter2024/chipexo.mcm4_g1_rep1.neg.bw",
+                                    "bytes": 2317913,
+                                    "negated": false,
+                                    "viewLimits": "-150:150",
+                                    "graphType": "bar",
+                                    "panel_default": false
                                 }
                             ]
                         },
@@ -605,6 +663,7 @@
                             "shortLabel": "ORC2 vs MCM4 in G1",
                             "longLabel": "Orc2-Flag against Mcm4-Flag ChIP-exo in G1-arrested cells (Reuter et al. 2024): where ORC sits and where the MCM2-7 double hexamer it loaded ends up; CPM, replicate 1 of each",
                             "container": "multiWig",
+                            "section": "oridb_footprint",
                             "tracks": [
                                 {
                                     "track": "orc_mcm_g1_chipexo_orc2_g1_rep1",
@@ -616,7 +675,8 @@
                                     "bytes": 4245085,
                                     "negated": false,
                                     "viewLimits": "0:600",
-                                    "graphType": "bar"
+                                    "graphType": "bar",
+                                    "panel_default": false
                                 },
                                 {
                                     "track": "orc_mcm_g1_chipexo_mcm4_g1_rep1",
@@ -628,7 +688,8 @@
                                     "bytes": 3780324,
                                     "negated": false,
                                     "viewLimits": "0:600",
-                                    "graphType": "bar"
+                                    "graphType": "bar",
+                                    "panel_default": false
                                 }
                             ]
                         },
@@ -637,6 +698,7 @@
                             "shortLabel": "ORC2 G1 vs G2",
                             "longLabel": "Orc2-Flag ChIP-exo in G1 against G2 arrest (Reuter et al. 2024): the loss of ORC occupancy at origins once licensing is complete; CPM, replicate 1 of each",
                             "container": "multiWig",
+                            "section": "oridb_footprint",
                             "tracks": [
                                 {
                                     "track": "orc2_g1_vs_g2_chipexo_orc2_g1_rep1",
@@ -648,7 +710,8 @@
                                     "bytes": 4245085,
                                     "negated": false,
                                     "viewLimits": "0:600",
-                                    "graphType": "bar"
+                                    "graphType": "bar",
+                                    "panel_default": false
                                 },
                                 {
                                     "track": "orc2_g1_vs_g2_chipexo_orc2_g2_rep1",
@@ -660,7 +723,8 @@
                                     "bytes": 3580397,
                                     "negated": false,
                                     "viewLimits": "0:600",
-                                    "graphType": "bar"
+                                    "graphType": "bar",
+                                    "panel_default": false
                                 }
                             ]
                         },
@@ -669,6 +733,7 @@
                             "shortLabel": "MCM4 G1 replicates",
                             "longLabel": "Mcm4-Flag ChIP-exo in G1, the two biological replicates against each other (Reuter et al. 2024); Pearson r = 0.997 genome-wide",
                             "container": "multiWig",
+                            "section": "oridb_footprint",
                             "tracks": [
                                 {
                                     "track": "mcm4_g1_reps_chipexo_mcm4_g1_rep1",
@@ -680,7 +745,8 @@
                                     "bytes": 3780324,
                                     "negated": false,
                                     "viewLimits": "0:600",
-                                    "graphType": "points"
+                                    "graphType": "points",
+                                    "panel_default": false
                                 },
                                 {
                                     "track": "mcm4_g1_reps_chipexo_mcm4_g1_rep2",
@@ -692,7 +758,8 @@
                                     "bytes": 3365418,
                                     "negated": false,
                                     "viewLimits": "0:600",
-                                    "graphType": "points"
+                                    "graphType": "points",
+                                    "panel_default": false
                                 }
                             ]
                         },
@@ -701,6 +768,7 @@
                             "shortLabel": "ORC2 G1 replicates",
                             "longLabel": "Orc2-Flag ChIP-exo in G1, the two biological replicates against each other (Reuter et al. 2024); Pearson r = 0.9925 genome-wide",
                             "container": "multiWig",
+                            "section": "oridb_footprint",
                             "tracks": [
                                 {
                                     "track": "orc2_g1_reps_chipexo_orc2_g1_rep1",
@@ -712,7 +780,8 @@
                                     "bytes": 4245085,
                                     "negated": false,
                                     "viewLimits": "0:600",
-                                    "graphType": "points"
+                                    "graphType": "points",
+                                    "panel_default": false
                                 },
                                 {
                                     "track": "orc2_g1_reps_chipexo_orc2_g1_rep2",
@@ -724,7 +793,8 @@
                                     "bytes": 5996061,
                                     "negated": false,
                                     "viewLimits": "0:600",
-                                    "graphType": "points"
+                                    "graphType": "points",
+                                    "panel_default": false
                                 }
                             ]
                         },
@@ -733,6 +803,7 @@
                             "shortLabel": "ORC2 G2 replicates",
                             "longLabel": "Orc2-Flag ChIP-exo in G2, the two biological replicates against each other (Reuter et al. 2024); Pearson r = 0.9945 genome-wide",
                             "container": "multiWig",
+                            "section": "oridb_footprint",
                             "tracks": [
                                 {
                                     "track": "orc2_g2_reps_chipexo_orc2_g2_rep1",
@@ -744,7 +815,8 @@
                                     "bytes": 3580397,
                                     "negated": false,
                                     "viewLimits": "0:600",
-                                    "graphType": "points"
+                                    "graphType": "points",
+                                    "panel_default": false
                                 },
                                 {
                                     "track": "orc2_g2_reps_chipexo_orc2_g2_rep2",
@@ -756,7 +828,8 @@
                                     "bytes": 2988690,
                                     "negated": false,
                                     "viewLimits": "0:600",
-                                    "graphType": "points"
+                                    "graphType": "points",
+                                    "panel_default": false
                                 }
                             ]
                         },
@@ -765,6 +838,7 @@
                             "shortLabel": "MCM4 G1 strand",
                             "longLabel": "Mcm4-Flag, G1 arrest (Reuter et al. 2024): plus-strand coverage above the axis and minus-strand below, both replicates; the gap between the two strand peaks is the protected footprint",
                             "container": "multiWig",
+                            "section": "oridb_footprint",
                             "tracks": [
                                 {
                                     "track": "mcm4_g1_strand_chipexo_mcm4_g1_rep1_pos",
@@ -776,7 +850,8 @@
                                     "bytes": 2309351,
                                     "negated": false,
                                     "viewLimits": "-150:150",
-                                    "graphType": "bar"
+                                    "graphType": "bar",
+                                    "panel_default": false
                                 },
                                 {
                                     "track": "mcm4_g1_strand_chipexo_mcm4_g1_rep1_neg",
@@ -788,7 +863,8 @@
                                     "bytes": 2317913,
                                     "negated": false,
                                     "viewLimits": "-150:150",
-                                    "graphType": "bar"
+                                    "graphType": "bar",
+                                    "panel_default": false
                                 },
                                 {
                                     "track": "mcm4_g1_strand_chipexo_mcm4_g1_rep2_pos",
@@ -800,7 +876,8 @@
                                     "bytes": 2084382,
                                     "negated": false,
                                     "viewLimits": "-150:150",
-                                    "graphType": "bar"
+                                    "graphType": "bar",
+                                    "panel_default": false
                                 },
                                 {
                                     "track": "mcm4_g1_strand_chipexo_mcm4_g1_rep2_neg",
@@ -812,7 +889,8 @@
                                     "bytes": 2092537,
                                     "negated": false,
                                     "viewLimits": "-150:150",
-                                    "graphType": "bar"
+                                    "graphType": "bar",
+                                    "panel_default": false
                                 }
                             ]
                         },
@@ -821,6 +899,7 @@
                             "shortLabel": "ORC2 G1 strand",
                             "longLabel": "Orc2-Flag, G1 arrest (Reuter et al. 2024): plus-strand coverage above the axis and minus-strand below, both replicates; the gap between the two strand peaks is the protected footprint",
                             "container": "multiWig",
+                            "section": "oridb_footprint",
                             "tracks": [
                                 {
                                     "track": "orc2_g1_strand_chipexo_orc2_g1_rep1_pos",
@@ -832,7 +911,8 @@
                                     "bytes": 2421729,
                                     "negated": false,
                                     "viewLimits": "-150:150",
-                                    "graphType": "bar"
+                                    "graphType": "bar",
+                                    "panel_default": false
                                 },
                                 {
                                     "track": "orc2_g1_strand_chipexo_orc2_g1_rep1_neg",
@@ -844,7 +924,8 @@
                                     "bytes": 2434782,
                                     "negated": false,
                                     "viewLimits": "-150:150",
-                                    "graphType": "bar"
+                                    "graphType": "bar",
+                                    "panel_default": false
                                 },
                                 {
                                     "track": "orc2_g1_strand_chipexo_orc2_g1_rep2_pos",
@@ -856,7 +937,8 @@
                                     "bytes": 3303175,
                                     "negated": false,
                                     "viewLimits": "-150:150",
-                                    "graphType": "bar"
+                                    "graphType": "bar",
+                                    "panel_default": false
                                 },
                                 {
                                     "track": "orc2_g1_strand_chipexo_orc2_g1_rep2_neg",
@@ -868,7 +950,8 @@
                                     "bytes": 3315124,
                                     "negated": false,
                                     "viewLimits": "-150:150",
-                                    "graphType": "bar"
+                                    "graphType": "bar",
+                                    "panel_default": false
                                 }
                             ]
                         },
@@ -877,6 +960,7 @@
                             "shortLabel": "ORC2 G2 strand",
                             "longLabel": "Orc2-Flag, G2 arrest (Reuter et al. 2024): plus-strand coverage above the axis and minus-strand below, both replicates; the gap between the two strand peaks is the protected footprint",
                             "container": "multiWig",
+                            "section": "oridb_footprint",
                             "tracks": [
                                 {
                                     "track": "orc2_g2_strand_chipexo_orc2_g2_rep1_pos",
@@ -888,7 +972,8 @@
                                     "bytes": 2154773,
                                     "negated": false,
                                     "viewLimits": "-150:150",
-                                    "graphType": "bar"
+                                    "graphType": "bar",
+                                    "panel_default": false
                                 },
                                 {
                                     "track": "orc2_g2_strand_chipexo_orc2_g2_rep1_neg",
@@ -900,7 +985,8 @@
                                     "bytes": 2157225,
                                     "negated": false,
                                     "viewLimits": "-150:150",
-                                    "graphType": "bar"
+                                    "graphType": "bar",
+                                    "panel_default": false
                                 },
                                 {
                                     "track": "orc2_g2_strand_chipexo_orc2_g2_rep2_pos",
@@ -912,7 +998,8 @@
                                     "bytes": 1876812,
                                     "negated": false,
                                     "viewLimits": "-150:150",
-                                    "graphType": "bar"
+                                    "graphType": "bar",
+                                    "panel_default": false
                                 },
                                 {
                                     "track": "orc2_g2_strand_chipexo_orc2_g2_rep2_neg",
@@ -924,7 +1011,71 @@
                                     "bytes": 1879396,
                                     "negated": false,
                                     "viewLimits": "-150:150",
-                                    "graphType": "bar"
+                                    "graphType": "bar",
+                                    "panel_default": false
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": "sgd",
+                    "title": "Gene annotation from the Saccharomyces Genome Database (R64-4-1)",
+                    "organism": "Saccharomyces cerevisiae",
+                    "assembly": "sacCer3",
+                    "bin_size_bp": null,
+                    "measurement": "reference gene annotation, not a measurement",
+                    "scale": "features, not a signal",
+                    "source": {
+                        "doi": "",
+                        "pubmed": "",
+                        "archive_series": [],
+                        "n_runs": 0,
+                        "n_samples_used": 0,
+                        "n_samples_excluded": 0,
+                        "exclusion_reason": ""
+                    },
+                    "n_samples": 0,
+                    "calls": null,
+                    "groups": [
+                        {
+                            "track": "oridb_annotation",
+                            "shortLabel": "Genes",
+                            "longLabel": "Reference gene annotation: protein-coding and tRNA genes from SGD",
+                            "container": "",
+                            "section": "oridb_annotation",
+                            "tracks": [
+                                {
+                                    "track": "sgd_protein_coding",
+                                    "shortLabel": "SGD genes",
+                                    "longLabel": "Protein-coding genes from SGD (R64-4-1): 5,783 Verified in green, 147 Uncharacterized in blue, 683 Dubious in grey; CDS blocks, so introns are drawn",
+                                    "type": "bigBed 12 +",
+                                    "file": "sgd.protein_coding.bb",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/sgd/sgd.protein_coding.bb",
+                                    "bytes": 482923,
+                                    "negated": false,
+                                    "viewLimits": "",
+                                    "graphType": "",
+                                    "panel_default": true,
+                                    "bed": "sgd.protein_coding.bed",
+                                    "bed_url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/sgd/sgd.protein_coding.bed",
+                                    "rows": 6613
+                                },
+                                {
+                                    "track": "sgd_trna",
+                                    "shortLabel": "SGD tRNA genes",
+                                    "longLabel": "tRNA genes from SGD (R64-4-1): 299 genes with their exon structure, so the intron-containing tRNAs are drawn as two blocks",
+                                    "type": "bigBed 12 +",
+                                    "file": "sgd.trna.bb",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/sgd/sgd.trna.bb",
+                                    "bytes": 82476,
+                                    "negated": false,
+                                    "viewLimits": "",
+                                    "graphType": "",
+                                    "panel_default": true,
+                                    "bed": "sgd.trna.bed",
+                                    "bed_url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/sgd/sgd.trna.bed",
+                                    "rows": 299
                                 }
                             ]
                         }
@@ -964,6 +1115,7 @@
                             "shortLabel": "OriDB overview",
                             "longLabel": "OriDB overview: one reference track per measurement type, drawn by default",
                             "container": "",
+                            "section": "oridb_overview",
                             "tracks": [
                                 {
                                     "track": "ov_origins",
@@ -975,7 +1127,8 @@
                                     "bytes": 86634,
                                     "negated": false,
                                     "viewLimits": "",
-                                    "graphType": ""
+                                    "graphType": "",
+                                    "panel_default": false
                                 }
                             ]
                         },
@@ -984,6 +1137,7 @@
                             "shortLabel": "OriDB v3 records",
                             "longLabel": "OriDB v3: origin intervals, origin elements and fragments that failed an ARS assay",
                             "container": "",
+                            "section": "oridb_v3",
                             "tracks": [
                                 {
                                     "track": "oridb_v3_origins",
@@ -995,7 +1149,8 @@
                                     "bytes": 86634,
                                     "negated": false,
                                     "viewLimits": "",
-                                    "graphType": ""
+                                    "graphType": "",
+                                    "panel_default": false
                                 }
                             ]
                         }
@@ -1028,6 +1183,7 @@
                             "shortLabel": "OriDB overview",
                             "longLabel": "OriDB overview: one reference track per measurement type, drawn by default",
                             "container": "",
+                            "section": "oridb_overview",
                             "tracks": [
                                 {
                                     "track": "ov_sp_timing",
@@ -1039,7 +1195,8 @@
                                     "bytes": 159180,
                                     "negated": true,
                                     "viewLimits": "-60:-20",
-                                    "graphType": "points"
+                                    "graphType": "points",
+                                    "panel_default": false
                                 },
                                 {
                                     "track": "ov_sp_fd",
@@ -1051,7 +1208,8 @@
                                     "bytes": 151410,
                                     "negated": false,
                                     "viewLimits": "0:1",
-                                    "graphType": "bar"
+                                    "graphType": "bar",
+                                    "panel_default": false
                                 },
                                 {
                                     "track": "ov_sp_init",
@@ -1063,7 +1221,8 @@
                                     "bytes": 71095,
                                     "negated": false,
                                     "viewLimits": "",
-                                    "graphType": ""
+                                    "graphType": "",
+                                    "panel_default": false
                                 }
                             ]
                         },
@@ -1072,6 +1231,7 @@
                             "shortLabel": "Trep (Pu-seq)",
                             "longLabel": "Replication timing: Trep in minutes from polymerase usage (Daigaku et al. 2015); early replication plots high",
                             "container": "multiWig",
+                            "section": "oridb_timing",
                             "tracks": [
                                 {
                                     "track": "trep_puseq_trep",
@@ -1083,7 +1243,8 @@
                                     "bytes": 159180,
                                     "negated": true,
                                     "viewLimits": "-60:-20",
-                                    "graphType": "points"
+                                    "graphType": "points",
+                                    "panel_default": false
                                 }
                             ]
                         },
@@ -1092,6 +1253,7 @@
                             "shortLabel": "Fork direction",
                             "longLabel": "Fraction of forks moving leftward, from polymerase usage (Daigaku et al. 2015); 0.5 is no net direction",
                             "container": "multiWig",
+                            "section": "oridb_forkdir",
                             "tracks": [
                                 {
                                     "track": "forkdir_puseq_leftward_fork",
@@ -1103,7 +1265,8 @@
                                     "bytes": 151410,
                                     "negated": false,
                                     "viewLimits": "0:1",
-                                    "graphType": "bar"
+                                    "graphType": "bar",
+                                    "panel_default": false
                                 }
                             ]
                         },
@@ -1112,6 +1275,7 @@
                             "shortLabel": "Termination",
                             "longLabel": "Percentage of termination events, from polymerase usage (Daigaku et al. 2015); published as a 1 kb window every 300 bp and drawn in 300 bp bins at the window centre",
                             "container": "multiWig",
+                            "section": "oridb_pausing",
                             "tracks": [
                                 {
                                     "track": "termination_puseq_termination",
@@ -1123,7 +1287,8 @@
                                     "bytes": 365845,
                                     "negated": false,
                                     "viewLimits": "0:14",
-                                    "graphType": "bar"
+                                    "graphType": "bar",
+                                    "panel_default": false
                                 }
                             ]
                         },
@@ -1132,6 +1297,7 @@
                             "shortLabel": "Initiation mapping",
                             "longLabel": "Origin position and efficiency: initiation site and zone mapping",
                             "container": "",
+                            "section": "oridb_initiation",
                             "tracks": [
                                 {
                                     "track": "daigaku2015_origins",
@@ -1143,7 +1309,8 @@
                                     "bytes": 71095,
                                     "negated": false,
                                     "viewLimits": "",
-                                    "graphType": ""
+                                    "graphType": "",
+                                    "panel_default": false
                                 }
                             ]
                         }
@@ -1176,6 +1343,7 @@
                             "shortLabel": "OriDB overview",
                             "longLabel": "OriDB overview: one reference track per measurement type, drawn by default",
                             "container": "",
+                            "section": "oridb_overview",
                             "tracks": [
                                 {
                                     "track": "ov_sp_mcm",
@@ -1187,7 +1355,8 @@
                                     "bytes": 3977242,
                                     "negated": false,
                                     "viewLimits": "0:10",
-                                    "graphType": "bar"
+                                    "graphType": "bar",
+                                    "panel_default": false
                                 }
                             ]
                         },
@@ -1196,6 +1365,7 @@
                             "shortLabel": "Mcm2 HU vs G1",
                             "longLabel": "Mcm2-ChEC occupancy in hydroxyurea and in G1, all fragment sizes (Foss et al. 2021); 1 is average coverage for that library",
                             "container": "multiWig",
+                            "section": "oridb_footprint",
                             "tracks": [
                                 {
                                     "track": "mcm_all_mcm2chec_hu_rep1_all",
@@ -1207,7 +1377,8 @@
                                     "bytes": 3977242,
                                     "negated": false,
                                     "viewLimits": "0:10",
-                                    "graphType": "bar"
+                                    "graphType": "bar",
+                                    "panel_default": false
                                 },
                                 {
                                     "track": "mcm_all_mcm2chec_g1_rep1_all",
@@ -1219,7 +1390,8 @@
                                     "bytes": 3953348,
                                     "negated": false,
                                     "viewLimits": "0:10",
-                                    "graphType": "bar"
+                                    "graphType": "bar",
+                                    "panel_default": false
                                 }
                             ]
                         },
@@ -1228,6 +1400,7 @@
                             "shortLabel": "Mcm2 51-100 bp",
                             "longLabel": "Mcm2-ChEC occupancy from 51-100 bp fragments, HU against G1 (Foss et al. 2021); the fragment class closest to a single MCM footprint",
                             "container": "multiWig",
+                            "section": "oridb_footprint",
                             "tracks": [
                                 {
                                     "track": "mcm_51_100_mcm2chec_hu_rep1_51_100bp",
@@ -1239,7 +1412,8 @@
                                     "bytes": 3702908,
                                     "negated": false,
                                     "viewLimits": "0:10",
-                                    "graphType": "bar"
+                                    "graphType": "bar",
+                                    "panel_default": false
                                 },
                                 {
                                     "track": "mcm_51_100_mcm2chec_g1_rep1_51_100bp",
@@ -1251,7 +1425,8 @@
                                     "bytes": 3665217,
                                     "negated": false,
                                     "viewLimits": "0:10",
-                                    "graphType": "bar"
+                                    "graphType": "bar",
+                                    "panel_default": false
                                 }
                             ]
                         },
@@ -1260,6 +1435,7 @@
                             "shortLabel": "Mcm2 151-200 bp",
                             "longLabel": "Mcm2-ChEC occupancy from 151-200 bp fragments, HU against G1 (Foss et al. 2021)",
                             "container": "multiWig",
+                            "section": "oridb_footprint",
                             "tracks": [
                                 {
                                     "track": "mcm_151_200_mcm2chec_hu_rep1_151_200bp",
@@ -1271,7 +1447,8 @@
                                     "bytes": 3604210,
                                     "negated": false,
                                     "viewLimits": "0:10",
-                                    "graphType": "bar"
+                                    "graphType": "bar",
+                                    "panel_default": false
                                 },
                                 {
                                     "track": "mcm_151_200_mcm2chec_g1_rep1_151_200bp",
@@ -1283,7 +1460,8 @@
                                     "bytes": 3700841,
                                     "negated": false,
                                     "viewLimits": "0:10",
-                                    "graphType": "bar"
+                                    "graphType": "bar",
+                                    "panel_default": false
                                 }
                             ]
                         },
@@ -1292,6 +1470,7 @@
                             "shortLabel": "Mcm2 HU replicates",
                             "longLabel": "The two hydroxyurea replicates against each other (Foss et al. 2021); rep2 was sequenced about three times as deeply, which the scaling removes",
                             "container": "multiWig",
+                            "section": "oridb_footprint",
                             "tracks": [
                                 {
                                     "track": "mcm_reps_mcm2chec_hu_rep1_all",
@@ -1303,7 +1482,8 @@
                                     "bytes": 3977242,
                                     "negated": false,
                                     "viewLimits": "0:10",
-                                    "graphType": "bar"
+                                    "graphType": "bar",
+                                    "panel_default": false
                                 },
                                 {
                                     "track": "mcm_reps_mcm2chec_hu_rep2_all",
@@ -1315,7 +1495,8 @@
                                     "bytes": 4003936,
                                     "negated": false,
                                     "viewLimits": "0:10",
-                                    "graphType": "bar"
+                                    "graphType": "bar",
+                                    "panel_default": false
                                 }
                             ]
                         },
@@ -1324,6 +1505,7 @@
                             "shortLabel": "Free MNase control",
                             "longLabel": "Free MNase without a tethered protein (Foss et al. 2021): the accessibility background that Mcm2-ChEC signal is read against",
                             "container": "multiWig",
+                            "section": "oridb_footprint",
                             "tracks": [
                                 {
                                     "track": "mnase_control_free_mnase_rep1",
@@ -1335,7 +1517,8 @@
                                     "bytes": 3837435,
                                     "negated": false,
                                     "viewLimits": "0:10",
-                                    "graphType": "bar"
+                                    "graphType": "bar",
+                                    "panel_default": false
                                 }
                             ]
                         }
@@ -1346,8 +1529,8 @@
     ],
     "counts": {
         "genomes": 2,
-        "datasets": 7,
-        "tracks": 70,
-        "files": 70
+        "datasets": 8,
+        "tracks": 73,
+        "files": 73
     }
 }
