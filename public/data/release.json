@@ -1,6 +1,6 @@
 {
     "release": "3.0.0-trial.1",
-    "generated": "2026-11-23",
+    "generated": "2026-11-28",
     "description": "OriDB v3.0: every origin OriDB v2 held, carried forward with its evidence records, with ARS assays published since added, and with the tier recomputed from modern data.",
     "inclusion_rule": "An origin is Confirmed if its interval overlaps at least one plasmid (ARS) assay positive or one 2D gel electrophoresis record, whether that record comes from OriDB v2 or from the assays curated since. The remaining tiers are set by bin/build_tiers.py from the evidence matrix; see docs/tier-rebuild.md.",
     "curated_assays": {
@@ -107,7 +107,7 @@
         }
     },
     "provenance": {
-        "source": "nieduszy_oridb MySQL dump (OriDB v2.1.0 cerevisiae / v1.0.0 pombe)",
+        "source": "reference/v2/, a frozen extract of the OriDB v2 tables this pipeline reads (OriDB v2.1.0 cerevisiae / v1.0.0 pombe)",
         "source_tables": [
             "local_pubmed",
             "sc_2D_gel",
@@ -117,6 +117,14 @@
             "sp_2D_gel",
             "sp_ori"
         ],
+        "archival_source": {
+            "description": "The MySQL dump the extract was taken from. Held offline, not in this repository: it carries live v2 credentials. Needed only to recreate the extract, with bin/extract_v2.py.",
+            "filename": "nieduszy_oridb.sql",
+            "bytes": 48043352,
+            "sha256": "17aa427ea00d057fc932f64d0bd9caf1737e2f34cfc9614ddb052095d20c85f1",
+            "note": "OriDB v2.1.0 cerevisiae / v1.0.0 pombe. Held offline: it contains live credentials and is not in this repository.",
+            "extracted": "2026-11-28"
+        },
         "curated_files": [
             "reference/curated_ars_assays.tsv",
             "reference/ars_assay_strength.tsv"

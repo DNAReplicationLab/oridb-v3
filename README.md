@@ -123,18 +123,35 @@ preview cannot drift from the live site.
 
 ## Rebuilding the data
 
-Five steps, in order. The dump is not in this repository. Each step silently produces a
-complete-looking set of files from the wrong input, so run the script rather than the
-individual commands:
+Five steps, in order. They take no arguments: every input is in this repository, so a
+clean clone rebuilds the release. Each step silently produces a complete-looking set of
+files from the wrong input, so run the script rather than the individual commands:
 
 ```bash
-bin/build_all.sh /path/to/nieduszy_oridb.sql SACCER1_FASTA_DIR SACCER3_FASTA_DIR
+bin/build_all.sh
 ```
 
-1. `build_from_v2.py` extracts the v2 records, which are sacCer1.
+The two inputs that used to be paths on the maintainer's laptop are now part of the
+repository:
+
+- the OriDB v2 records are [`reference/v2/`](reference/v2/), a frozen 4,049-row extract
+  of the eleven v2 tables this pipeline reads, verified against its manifest on every
+  run. The 48 MB MySQL dump it came from is held offline — it carries live v2
+  credentials — and is needed only to recreate the extract, with `bin/extract_v2.py`.
+- the sacCer1 and sacCer3 chromosome FASTA are fetched from UCSC into
+  `reference/genomes/` on first use by `bin/fetch_genomes.py` and checked against
+  `reference/genomes.tsv`, which holds the length and sequence md5 of every chromosome.
+  They are git-ignored: 24 MB of third-party sequence UCSC already archives.
+
+A rebuild that changes nothing produces files byte-identical to the committed ones, so
+`git diff --exit-code public/data` is a real check that the pipeline still reproduces
+what is published. That is also why `release.json` carries the committed `RELEASE_DATE`
+rather than today's date.
+
+1. `build_from_v2.py` reads the v2 records from the extract, which are sacCer1.
 2. `lift_to_saccer3.py` rewrites the cerevisiae coordinates onto sacCer3 using the committed
-   UCSC chain and — when both assembly FASTA directories are supplied — checks every lifted
-   interval base for base, recording the outcome per record in `lift_status`. *S. pombe* is
+   UCSC chain and checks every lifted interval base for base against both assemblies,
+   recording the outcome per record in `lift_status`. *S. pombe* is
    ASM294v2 already and is passed through untouched.
 3. `build_elements.py` locates every element by its stored sequence, derives the motifs,
    scores each record, and assigns the per-origin activity and replication time. It then
@@ -150,7 +167,9 @@ bin/build_all.sh /path/to/nieduszy_oridb.sql SACCER1_FASTA_DIR SACCER3_FASTA_DIR
    comparison is over the Confirmed tier, which step 4 decides.
 
 Checksums of the generated files are recorded in `public/data/release.json`, so a deposited
-copy can be proved identical to the served one.
+copy can be proved identical to the served one. `bin/refresh_release_checksums.php` runs at
+the end of the pipeline to close one of them: `refuted_fragments.tsv` has its md5 recorded
+by step 1 and is then rewritten by the lift in step 2.
 
 The **Data hub** page is built separately, because the hub is a different repository with
 its own release cycle:

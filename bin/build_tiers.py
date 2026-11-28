@@ -37,6 +37,7 @@ import bisect
 import collections
 import hashlib
 import json
+import importlib.util
 import sys
 from pathlib import Path
 
@@ -52,6 +53,14 @@ CLUSTER_BP = 1160
 # A novel site is published with an interval of at least this width, centred on its
 # licensing calls, so that a single-base MCM call becomes a searchable interval.
 MIN_NOVEL_WIDTH = 501
+
+
+def load_sibling(name: str):
+    """Reuse a sibling script's code rather than duplicating it."""
+    spec = importlib.util.spec_from_file_location(name, ROOT / 'bin' / (name + '.py'))
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    return mod
 
 
 def read_tsv(path: Path) -> tuple[list[str], list[dict[str, str]]]:
@@ -320,7 +329,8 @@ def main() -> None:
     # assessed in: a novel site is appended on the run that mints it and assessed
     # in place on every run after.
     matrix.sort(key=lambda m: (m['accession'], m['dataset_id']))
-    write_tsv(DATA / 'origins.tsv', header, origins)
+    write_tsv(DATA / 'origins.tsv',
+              load_sibling('build_from_v2').order_origin_columns(header), origins)
     write_tsv(DATA / 'evidence_matrix.tsv',
               ['accession', 'dataset_id', 'measures', 'counts_towards_tier', 'supported',
                'call', 'distance_bp', 'study_pmid'], matrix)

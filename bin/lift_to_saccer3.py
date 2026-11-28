@@ -29,7 +29,6 @@ in `source_chromosome`; OriDB v2 itself stored a bare integer.
 from __future__ import annotations
 
 import argparse
-import datetime
 import glob
 import hashlib
 import json
@@ -166,7 +165,9 @@ def main() -> None:
 
     # Release metadata
     rel = json.loads((DATA / 'release.json').read_text())
-    rel['generated'] = datetime.date.today().isoformat()
+    # The release date is set once, by build_from_v2.py, from the committed
+    # RELEASE_DATE. Re-stamping it here with today's date would make every
+    # rebuild differ from the committed release for no reason.
     rel['assemblies']['sacCer3'] = {
         'species': 'Saccharomyces cerevisiae',
         'ucsc_db': 'sacCer3',

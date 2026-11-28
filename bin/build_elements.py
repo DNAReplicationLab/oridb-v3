@@ -3,7 +3,7 @@
 
 Step 3 of the data pipeline, after build_from_v2.py and lift_to_saccer3.py.
 
-    python3 bin/build_elements.py /path/to/nieduszy_oridb.sql --sacCer3 DIR
+    python3 bin/build_elements.py --sacCer3 DIR
 
 OriDB v2 holds four A-element tables, all registered in sc_elements_studies:
 
@@ -31,7 +31,7 @@ anchor_status per record:
 This step has two further jobs, both of which touch files other than elements.tsv.
 
   studies.tsv   Every study the element layer cites must have a citation record.
-                Those the dump's cached PubMed table predates - Reuter et al.
+                Those v2's cached PubMed table predates - Reuter et al.
                 2024, for one - are looked up in reference/pubmed_cache.tsv and,
                 failing that, fetched from NCBI and written into that cache.
 
@@ -131,7 +131,7 @@ FRAME_ORIGIN = 9
 ISSUE_ID = 'elements-unplaced'
 
 # --- citations ------------------------------------------------------------
-# studies.tsv is filled from the v2 dump's cached PubMed table, which stops at
+# studies.tsv is filled from v2's cached PubMed table, which stops at
 # the papers v2 knew about: a study the element layer cites but v2 never saw -
 # Reuter et al. 2024, for one - would otherwise be rendered as a bare table
 # name. Any such PMID is looked up: first in a committed cache, then at NCBI.
@@ -197,7 +197,7 @@ def load_sibling(name: str):
 
 
 def load_builder():
-    """Reuse the dump parser from build_from_v2.py rather than duplicating it."""
+    """Reuse the v2 extract reader from build_from_v2.py rather than duplicating it."""
     return load_sibling('build_from_v2')
 
 
@@ -433,19 +433,17 @@ def write_logo(path: Path, freqs: list[dict[str, float]], info: list[float],
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument('dump', help='path to nieduszy_oridb.sql')
     ap.add_argument('--sacCer3', required=True, help='directory of sacCer3 chr*.fa')
     args = ap.parse_args()
 
     v2 = load_builder()
-    sql = v2.read_dump(Path(args.dump))
     sc3 = load_fasta_dir(args.sacCer3)
     nuclear = {k: v for k, v in sc3.items() if k != 'chrM'}
 
     # ---- collect the four element tables -------------------------------------
     records = []
     for table, (kind, pmid, src_asm) in TABLES.items():
-        for row in v2.load(sql, table):
+        for row in v2.load_table(table):
             seq_field = 'sequence' if 'sequence' in row else 'seq'
             seq = v2.unescape(str(row.get(seq_field, ''))).lstrip('.').upper()
             if not re.fullmatch(r'[ACGT]+', seq or ''):
@@ -776,7 +774,7 @@ def main() -> None:
     # ---- make sure every element study is cited in studies.tsv ---------------
     studies = read_tsv(DATA / 'studies.tsv')
     known = {s['pmid'] for s in studies}
-    pm = {str(r['pubmed_id']): r for r in v2.load(sql, 'local_pubmed')}
+    pm = {str(r['pubmed_id']): r for r in v2.load_table('local_pubmed')}
     added = []
     # The two per-origin value datasets are cited on every origin page that
     # carries an activity or a replication time, so they need citation records
@@ -794,24 +792,34 @@ def main() -> None:
                 registry_pmids.add(row['study_pmid'].strip())
     cited = ({r['study_pmid'] for r in records if r['study_pmid']}
              | {OKSEQ_PMID, TREP_PMID} | registry_pmids)
+    cache_path = ROOT / 'reference' / PUBMED_CACHE
+    cached = read_pubmed_cache(cache_path)
     for pmid in sorted(cited):
         if pmid and pmid not in known and pmid in pm:
             r = pm[pmid]
             known.add(pmid)
             authors = [a.strip() for a in v2.unescape(str(r['author_list'])).split(';') if a.strip()]
-            studies.append({'pmid': pmid, 'doi': v2.unescape(str(r['doi'])),
-                            'year': v2.unescape(str(r['date']))[:4],
-                            'journal': v2.unescape(str(r['journal'])),
-                            'first_author': authors[0] if authors else '',
-                            'n_authors': str(len(authors)),
-                            'title': v2.unescape(str(r['article_title']))})
+            study = {'pmid': pmid, 'doi': v2.unescape(str(r['doi'])),
+                     'year': v2.unescape(str(r['date']))[:4],
+                     'journal': v2.unescape(str(r['journal'])),
+                     'first_author': authors[0] if authors else '',
+                     'n_authors': str(len(authors)),
+                     'title': v2.unescape(str(r['article_title']))}
+            # The committed cache SUPPLEMENTS a v2 record here exactly as it does in
+            # build_from_v2.py: v2 carries no DOI for most of the pre-2002 literature,
+            # where the journals have since registered one retrospectively. Only an
+            # empty field is ever filled - the cache never overwrites v2. Without this
+            # the DOI of a paper cited solely by the element layer was dropped, which
+            # is why a clean rebuild used to differ from the published studies.tsv.
+            for field in STUDY_COLUMNS:
+                if study[field] == '' and cached.get(pmid, {}).get(field, '') != '':
+                    study[field] = cached[pmid][field]
+            studies.append(study)
             added.append(pmid)
     # Anything the element layer cites that v2's cached PubMed table never held
     # is resolved from the committed cache, and failing that from NCBI. Without
     # this a study renders as a raw table name, which is what PMID 39181881
-    # (Reuter et al. 2024) did: it postdates the dump.
-    cache_path = ROOT / 'reference' / PUBMED_CACHE
-    cached = read_pubmed_cache(cache_path)
+    # (Reuter et al. 2024) did: it postdates v2.
     outstanding = sorted(p for p in cited if p and p not in known)
     fetched: dict[str, dict[str, str]] = {}
     if outstanding:
@@ -886,7 +894,7 @@ def main() -> None:
     for prefix, per_species in sorted(rank_counts.items()):
         for species, n in per_species.items():
             print(f'  ranked {n:5d} {species} origin(s) by {prefix}')
-    write_tsv(DATA / 'origins.tsv', origin_header, origin_rows)
+    write_tsv(DATA / 'origins.tsv', v2.order_origin_columns(origin_header), origin_rows)
 
     # ---- release metadata ----------------------------------------------------
     rel = json.loads((DATA / 'release.json').read_text())

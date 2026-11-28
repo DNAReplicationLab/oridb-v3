@@ -1,0 +1,187 @@
+{
+  "description": "Frozen extract of the OriDB v2 tables the v3 build reads. Written once by bin/extract_v2.py; immutable thereafter. A correction to a v2 record belongs in an overlay table under reference/, not in these files - see reference/v2/README.md.",
+  "source_dump": {
+    "filename": "nieduszy_oridb.sql",
+    "bytes": 48043352,
+    "sha256": "17aa427ea00d057fc932f64d0bd9caf1737e2f34cfc9614ddb052095d20c85f1",
+    "note": "OriDB v2.1.0 cerevisiae / v1.0.0 pombe. Held offline: it contains live credentials and is not in this repository."
+  },
+  "extracted": "2026-11-28",
+  "extracted_by": "bin/extract_v2.py",
+  "tables": {
+    "sc_ori": {
+      "file": "sc_ori.tsv",
+      "rows": 829,
+      "columns": [
+        "ori_id",
+        "chr",
+        "start",
+        "end",
+        "name",
+        "othernames",
+        "status"
+      ],
+      "columns_dropped": [],
+      "md5": "d6c3d343f940a966d645a2e9cdd192d0"
+    },
+    "sp_ori": {
+      "file": "sp_ori.tsv",
+      "rows": 741,
+      "columns": [
+        "ori_id",
+        "chr",
+        "start",
+        "end",
+        "name",
+        "othernames",
+        "status"
+      ],
+      "columns_dropped": [],
+      "md5": "3fc930343252aa25f2ff8a397af3f594"
+    },
+    "sc_cloned_ori": {
+      "file": "sc_cloned_ori.tsv",
+      "rows": 421,
+      "columns": [
+        "id",
+        "chr",
+        "start",
+        "end",
+        "name",
+        "othernames",
+        "result",
+        "pubmed_id"
+      ],
+      "columns_dropped": [],
+      "md5": "f73894dff8135586830469520ca19ec5"
+    },
+    "sc_cloned_no_ori": {
+      "file": "sc_cloned_no_ori.tsv",
+      "rows": 225,
+      "columns": [
+        "id",
+        "chr",
+        "start",
+        "end",
+        "name",
+        "othernames",
+        "result",
+        "pubmed_id"
+      ],
+      "columns_dropped": [],
+      "md5": "71231fc17c52c4fae3ac338a97a53f89"
+    },
+    "sc_2D_gel": {
+      "file": "sc_2D_gel.tsv",
+      "rows": 49,
+      "columns": [
+        "id",
+        "chr",
+        "start",
+        "end",
+        "name",
+        "pubmed_id",
+        "enzyme"
+      ],
+      "columns_dropped": [],
+      "md5": "070f454f323668ceb4ff4e68c99a216d"
+    },
+    "sp_2D_gel": {
+      "file": "sp_2D_gel.tsv",
+      "rows": 48,
+      "columns": [
+        "id",
+        "chr",
+        "start",
+        "end",
+        "study_name",
+        "pubmed_id",
+        "enzyme",
+        "name"
+      ],
+      "columns_dropped": [],
+      "md5": "08699276cca3ca13cbd7ef398ccda33d"
+    },
+    "local_pubmed": {
+      "file": "local_pubmed.tsv",
+      "rows": 714,
+      "columns": [
+        "pubmed_id",
+        "doi",
+        "date",
+        "journal",
+        "author_list",
+        "article_title"
+      ],
+      "columns_dropped": [
+        "pmc_id",
+        "volume",
+        "issue",
+        "abstract_text",
+        "medline_page"
+      ],
+      "md5": "6dfb8af1055ffa08fe2180d1cdaa51a9"
+    },
+    "sc_confirmed_ACS": {
+      "file": "sc_confirmed_ACS.tsv",
+      "rows": 68,
+      "columns": [
+        "ID",
+        "chr",
+        "start",
+        "end",
+        "sequence",
+        "strand",
+        "pubmed_id",
+        "offset"
+      ],
+      "columns_dropped": [],
+      "md5": "469b26cf391f4dfa0b1d0f06272ba5bd"
+    },
+    "Nieduszynski2006_ACS": {
+      "file": "Nieduszynski2006_ACS.tsv",
+      "rows": 196,
+      "columns": [
+        "ID",
+        "chr",
+        "start",
+        "end",
+        "sequence",
+        "strand"
+      ],
+      "columns_dropped": [],
+      "md5": "cef8acb6ab915ecbf61a78fa78722cfe"
+    },
+    "Eaton2010_ACS": {
+      "file": "Eaton2010_ACS.tsv",
+      "rows": 253,
+      "columns": [
+        "id",
+        "chr",
+        "start",
+        "end",
+        "name",
+        "score",
+        "strand",
+        "seq"
+      ],
+      "columns_dropped": [],
+      "md5": "cafcc91cdfa8eea8ade6cc16f1ce8d61"
+    },
+    "Xu2006_ACS": {
+      "file": "Xu2006_ACS.tsv",
+      "rows": 505,
+      "columns": [
+        "id",
+        "chr",
+        "start",
+        "end",
+        "sequence",
+        "strand",
+        "name"
+      ],
+      "columns_dropped": [],
+      "md5": "f11019e40a698fd106273383eedfe3ec"
+    }
+  }
+}

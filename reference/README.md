@@ -9,11 +9,25 @@ The chain declares sacCer1 chromosomes as `chr1`..`chr16` and sacCer3 as `chrI`.
 Both naming schemes are UCSC's own for those assemblies; the change of convention between
 the two builds is why the released data records `source_chromosome` separately.
 
-Assembly FASTA files are not committed. To re-run the sequence verification, fetch
-`https://hgdownload.soe.ucsc.edu/goldenPath/sacCer3/bigZips/chromFa.tar.gz` and pass the
-unpacked directory to `--sacCer3`; the sacCer1 sequences ship with the OriDB v2 archive
-(`cerevisiae/fasta/chr*.fa`) and match the chain's declared source lengths on all 16
-nuclear chromosomes.
+`v2/`
+: A frozen extract of the eleven OriDB v2 tables the pipeline reads — 4,049 rows, about
+  300 KB — with a manifest the build verifies on every run. This is what makes the
+  repository self-contained: the 48 MB MySQL dump is held offline because it carries live
+  v2 credentials, and is needed only to recreate the extract, with `bin/extract_v2.py`.
+  Immutable; a correction to a v2 record belongs in an overlay table such as
+  `curated_ars_assays.tsv`, not in these files. See `v2/README.md`.
+
+`genomes.tsv`
+: The length and the md5 of the UPPERCASED, newline-stripped sequence of every chromosome
+  of sacCer1 and sacCer3 — that is, of exactly the string the build reads. The assemblies
+  themselves are not committed: `bin/fetch_genomes.py` downloads them from UCSC bigZips
+  into `genomes/` (git-ignored) on first use and checks them against this file, and
+  `--check` verifies what is already on disk without downloading. Verifying the sequence
+  rather than the archive is deliberate — it is indifferent to how UCSC packs the files
+  and to soft-masking, and it still catches a truncated download, a wrong assembly or a
+  chromosome silently swapped. The sacCer1 md5s were taken from the copy shipped in the
+  OriDB v2 archive (`cerevisiae/fasta/chr*.fa`), which matches the chain's declared source
+  lengths on all 16 nuclear chromosomes.
 
 `curated_ars_assays.tsv`
 : Individual ARS assays published after the OriDB v2 dump closed, one row per fragment

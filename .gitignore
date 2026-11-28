@@ -12,6 +12,10 @@ public/app/config.local.php
 /tmp/
 build/
 
+# Assembly sequence, downloaded by bin/fetch_genomes.py and verified against
+# reference/genomes.tsv. 24 MB of third-party data that UCSC already archives.
+reference/genomes/
+
 # Never commit the v2 dump or the v2 web tree: they contain live credentials.
 *.sql
 *.tar

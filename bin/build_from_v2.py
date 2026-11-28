@@ -1,9 +1,13 @@
 #!/usr/bin/env python3
-"""Regenerate public/data/*.tsv and public/data/release.json from the OriDB v2 dump.
+"""Regenerate public/data/*.tsv and public/data/release.json from the OriDB v2 records.
 
-The dump is not in this repository. Point this script at a copy:
+    python3 bin/build_from_v2.py
 
-    python3 bin/build_from_v2.py /path/to/nieduszy_oridb.sql
+The records come from reference/v2/, a frozen extract of the eleven v2 tables this
+pipeline reads, committed to this repository and verified against its manifest on
+every run. The 48 MB MySQL dump it was taken from is held offline - it carries live
+v2 credentials - and is needed only to recreate the extract (bin/extract_v2.py).
+That is what makes a clean clone buildable by anyone.
 
 Inclusion rule
 --------------
@@ -42,7 +46,7 @@ import datetime
 import decimal
 import hashlib
 import json
-import re
+import os
 import sys
 from pathlib import Path
 
@@ -51,12 +55,46 @@ ROMAN = ['', 'I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X',
 ASSEMBLY = {'sc': ('Saccharomyces cerevisiae', 'sacCer1'),
             'sp': ('Schizosaccharomyces pombe', 'ASM294v2')}
 
-REFERENCE = Path(__file__).resolve().parent.parent / 'reference'
+ROOT = Path(__file__).resolve().parent.parent
+REFERENCE = ROOT / 'reference'
+V2 = REFERENCE / 'v2'
+V2_MANIFEST = V2 / 'manifest.json'
 CURATED_ASSAYS = REFERENCE / 'curated_ars_assays.tsv'
 ASSAY_STRENGTH = REFERENCE / 'ars_assay_strength.tsv'
 PUBMED_CACHE = REFERENCE / 'pubmed_cache.tsv'
 STRENGTHS = ('strong', 'weak', 'very weak')
+# The release identity. RELEASE_DATE is the date the RELEASE was cut, not the date
+# this script happens to run: a rebuild from unchanged inputs has to produce files
+# byte-identical to the committed ones, or `git diff --exit-code public/data` - the
+# only check that the pipeline still reproduces what is published - means nothing.
+# Bump it when cutting a release. ORIDB_RELEASE_DATE overrides it for a one-off.
+RELEASE = '3.0.0-trial.1'
+RELEASE_DATE = '2026-11-28'
 POSITIVE, NEGATIVE = 'plasmid (ARS assay)', 'plasmid (ARS assay, negative)'
+
+# The published column order of public/data/origins.tsv. Three steps append columns
+# to that file - build_elements.py, build_origin_ranks.py and build_tiers.py - and
+# each appends a column the first time it sees it, so without a fixed order the
+# file's schema depends on which step last ran. That is how the published file came
+# to differ from a clean rebuild by column order alone, every value identical.
+# A column not listed here keeps its place after the listed ones, in order of
+# appearance, so adding one needs no change until it is given a home.
+ORIGIN_COLUMNS = (
+    'accession', 'species', 'assembly', 'chromosome', 'start', 'end', 'name',
+    'systematic', 'other_names', 'status', 'v2_status', 'ars_negative',
+    'ars_negative_fragments', 'evidence', 'legacy_id', 'source_assembly',
+    'source_chromosome', 'source_start', 'source_end', 'lift_status',
+    'okseq_activity_oem', 'okseq_call', 'okseq_distance_bp',
+    'median_replication_time_composite_min', 'replication_time_call',
+    'replication_time_distance_bp', 'n_support', 'support_kinds',
+    'okseq_activity_rank', 'okseq_activity_rank_of', 'okseq_activity_percentile',
+    'replication_time_rank', 'replication_time_rank_of', 'replication_time_percentile')
+
+
+def order_origin_columns(header: list[str]) -> list[str]:
+    """The published order, whichever step is writing origins.tsv."""
+    return ([c for c in ORIGIN_COLUMNS if c in header]
+            + [c for c in header if c not in ORIGIN_COLUMNS])
 
 
 def read_reference(path: Path) -> list[dict[str, str]]:
@@ -68,61 +106,54 @@ def read_reference(path: Path) -> list[dict[str, str]]:
     return [dict(zip(header, ln.split('\t'))) for ln in lines[1:] if ln.strip()]
 
 
-def read_dump(path: Path) -> str:
-    return path.read_text(encoding='latin1')
+def release_date() -> str:
+    """The committed release date, or an ORIDB_RELEASE_DATE override."""
+    stamp = os.environ.get('ORIDB_RELEASE_DATE', RELEASE_DATE)
+    try:
+        datetime.date.fromisoformat(stamp)
+    except ValueError:
+        sys.exit(f'ORIDB_RELEASE_DATE: not a YYYY-MM-DD date: {stamp}')
+    return stamp
 
 
-def columns(sql: str, table: str) -> list[str]:
-    m = re.search(r'CREATE TABLE `%s` \((.*?)\n\) ENGINE' % re.escape(table), sql, re.S)
-    if m is None:
-        raise KeyError(table)
-    return re.findall(r'^\s*`([^`]+)`', m.group(1), re.M)
+def v2_manifest() -> dict:
+    """The frozen extract's manifest, or a pointer at how to recreate it."""
+    if not V2_MANIFEST.exists():
+        sys.exit(f'missing {V2_MANIFEST.relative_to(ROOT)}. The v2 extract is part of this '
+                 f'repository; if it has been deleted, recreate it with '
+                 f'bin/extract_v2.py DUMP.sql.')
+    return json.loads(V2_MANIFEST.read_text(encoding='utf-8'))
 
 
-def split_values(payload: str) -> list[list[str]]:
-    """Split a VALUES payload into row tuples, respecting quoted strings."""
-    rows, cur, buf = [], [], ''
-    in_str = esc = False
-    depth = 0
-    for ch in payload:
-        if in_str:
-            if esc:
-                buf += ch
-                esc = False
-            elif ch == '\\':
-                buf += ch
-                esc = True
-            elif ch == "'":
-                in_str = False
-            else:
-                buf += ch
-            continue
-        if ch == "'":
-            in_str = True
-        elif ch == '(':
-            depth, buf, cur = 1, '', []
-        elif ch == ',' and depth == 1:
-            cur.append(buf)
-            buf = ''
-        elif ch == ')' and depth == 1:
-            cur.append(buf)
-            rows.append(cur)
-            depth, buf = 0, ''
-        elif depth == 1:
-            buf += ch
+def load_table(table: str, manifest: dict | None = None) -> list[dict[str, str]]:
+    """One table of the frozen v2 extract, verified against the manifest.
+
+    The extract is an immutable snapshot of what OriDB v2 held: the md5 check is
+    what makes "v2_status" and the provenance in release.json mean something. A
+    v2 record that needs correcting is corrected in an overlay table under
+    reference/ - the way curated_ars_assays.tsv and ars_assay_strength.tsv
+    already work - and never by editing these files. See reference/v2/README.md.
+    """
+    manifest = manifest if manifest is not None else v2_manifest()
+    entry = manifest['tables'].get(table)
+    if entry is None:
+        sys.exit(f'{table}: not in the v2 extract manifest')
+    path = V2 / entry['file']
+    if not path.exists():
+        sys.exit(f'missing {path.relative_to(ROOT)}: recreate it with bin/extract_v2.py')
+    digest = hashlib.md5(path.read_bytes()).hexdigest()
+    if digest != entry['md5']:
+        sys.exit(f'{path.relative_to(ROOT)} has been modified (md5 {digest}, manifest says '
+                 f"{entry['md5']}). The v2 extract is a frozen snapshot; corrections belong "
+                 f'in an overlay table under reference/. See reference/v2/README.md.')
+    lines = path.read_text(encoding='utf-8').rstrip('\n').split('\n')
+    header = lines[0].split('\t')
+    if header != entry['columns']:
+        sys.exit(f"{path.relative_to(ROOT)}: columns differ from the manifest")
+    rows = [dict(zip(header, ln.split('\t'))) for ln in lines[1:]]
+    if len(rows) != entry['rows']:
+        sys.exit(f"{path.relative_to(ROOT)}: {len(rows)} rows, manifest says {entry['rows']}")
     return rows
-
-
-def load(sql: str, table: str) -> list[dict[str, str]]:
-    out = []
-    pattern = r'INSERT INTO `%s` \(([^)]*)\) VALUES\s*(.*?);\n' % re.escape(table)
-    for m in re.finditer(pattern, sql, re.S):
-        cols = [c.strip('` ') for c in m.group(1).split(',')]
-        for row in split_values(m.group(2)):
-            out.append(dict(zip(cols, [v.strip() for v in row])))
-    if not out:
-        columns(sql, table)  # raises if the table is absent entirely
-    return out
 
 
 def unescape(s: str) -> str:
@@ -155,9 +186,9 @@ def overlaps(rows, chrom: int, start: int, end: int):
             if int(r['chr']) == chrom and int(r['start']) <= end and int(r['end']) >= start]
 
 
-def main(dump_path: str) -> None:
-    sql = read_dump(Path(dump_path))
-    data_dir = Path(__file__).resolve().parent.parent / 'public' / 'data'
+def main() -> None:
+    manifest = v2_manifest()
+    data_dir = ROOT / 'public' / 'data'
     data_dir.mkdir(exist_ok=True)
 
     # One sc_cloned_no_ori record (chrXII 778-1,006,599) is 1,005,821 bp wide and
@@ -166,7 +197,7 @@ def main(dump_path: str) -> None:
     # here and reported as a known issue rather than silently corrected.
     MAX_FRAGMENT_BP = 50_000
 
-    tables = {name: load(sql, name) for name in
+    tables = {name: load_table(name, manifest) for name in
               ('sc_ori', 'sp_ori', 'sc_cloned_ori', 'sc_cloned_no_ori', 'sc_2D_gel',
                'sp_2D_gel', 'local_pubmed')}
 
@@ -402,8 +433,8 @@ def main(dump_path: str) -> None:
         return hashlib.md5((data_dir / name).read_bytes()).hexdigest()
 
     release = {
-        'release': '3.0.0-trial.1',
-        'generated': datetime.date.today().isoformat(),
+        'release': RELEASE,
+        'generated': release_date(),
         'description': 'OriDB v3.0: every origin OriDB v2 held, carried forward with its '
                        'evidence records, with ARS assays published since added, and '
                        'with the tier recomputed from modern data.',
@@ -444,9 +475,17 @@ def main(dump_path: str) -> None:
                   'studies.tsv': {'md5': md5('studies.tsv'), 'rows': len(studies)},
                   'refuted_fragments.tsv': {'md5': md5('refuted_fragments.tsv'),
                                             'rows': len(refuted)}},
-        'provenance': {'source': 'nieduszy_oridb MySQL dump '
-                                 '(OriDB v2.1.0 cerevisiae / v1.0.0 pombe)',
+        'provenance': {'source': 'reference/v2/, a frozen extract of the OriDB v2 tables '
+                                 'this pipeline reads (OriDB v2.1.0 cerevisiae / '
+                                 'v1.0.0 pombe)',
                        'source_tables': sorted(tables),
+                       'archival_source': {
+                           'description': 'The MySQL dump the extract was taken from. Held '
+                                          'offline, not in this repository: it carries live '
+                                          'v2 credentials. Needed only to recreate the '
+                                          'extract, with bin/extract_v2.py.',
+                           **manifest['source_dump'],
+                           'extracted': manifest['extracted']},
                        'curated_files': ['reference/' + CURATED_ASSAYS.name,
                                          'reference/' + ASSAY_STRENGTH.name]},
         'known_issues': [
@@ -494,6 +533,6 @@ def main(dump_path: str) -> None:
 
 
 if __name__ == '__main__':
-    if len(sys.argv) != 2:
+    if len(sys.argv) != 1:
         sys.exit(__doc__)
-    main(sys.argv[1])
+    main()
