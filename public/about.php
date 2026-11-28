@@ -300,12 +300,12 @@ if ($b2 !== null):
   the two are separate objects: a B2 score and an A score are not on the same scale and should
   not be compared. It was trained on the
   <?= h((string) $b2['training_elements']) ?> B2 elements of Reuter et&nbsp;al. 2024
-  (PMID&nbsp;39181881) that can be placed in sacCer3. Those records are genome-wide motif calls
-  of one fixed width, so they already share a frame; the window here is the published interval
-  plus two bases of genomic context upstream, which puts the published interval in columns
-  3&ndash;<?= h((string) $b2['width']) ?> of a <?= h((string) $b2['width']) ?> column matrix, read
-  on the element's own strand. Every column is a base frequency with a quarter-count added,
-  scored as log-odds against the sacCer3 base composition, and the logo is drawn on that same
+  (PMID&nbsp;39181881) that can be placed in the current assembly. Those records are genome-wide
+  motif calls of one fixed published width, 32&nbsp;bp read as a 1-based inclusive interval, so
+  they already share a frame; the window here is that element plus one base of genomic context
+  upstream, which puts the element in columns 2&ndash;<?= h((string) $b2['width']) ?> of a
+  <?= h((string) $b2['width']) ?> column matrix, read on the element's own strand. Every column is a base frequency with a quarter-count added,
+  scored as log-odds against the genome's own base composition, and the logo is drawn on that
   scale.
 </p>
 <ul>
@@ -318,18 +318,12 @@ if ($b2 !== null):
         <span class="mono">n</span>. The block is derived from the matrix, so a rebuild moves
         it.</li>
   <?php endif; ?>
-  <li><strong>Known defect, to be rebuilt.</strong> The published B2 intervals are 1-based
-      inclusive and 32&nbsp;bp wide; the ingest read them as half-open and stored a 31&nbsp;bp
-      element. Dropping the first base of an interval removes the 5' flank of a plus-strand
-      element but the 3' base of a minus-strand one, so the two strands sit one base apart in
-      this window and the conserved T of the motif is split between two columns instead of
-      standing as the tall T the published logo shows. Read as 32&nbsp;bp, both strands put
-      that T at position 27 and the matrix comes to 10.9 bits. The element coordinates are
-      affected too: each is one base short at the start of the published interval.</li>
   <li>The published B2 logo of Reuter et&nbsp;al. 2024 is a WebLogo of the 58 calls at their
-      class&nbsp;C1 origins. Once the defect above is corrected, what remains between the two
-      logos is sample size: 10.1 bits here against 10.7 for the 58 over the same columns, and
-      a random 58 of these records averages 9.8 bits. It is the same motif.</li>
+      class&nbsp;C1 origins. With the interval read as above, 55 of those 58 sequences are
+      byte-identical to a stored element, both place the conserved T at position 27 of the
+      element (0.74 of these records against 0.81 of the 58), and the two column profiles
+      correlate at r&nbsp;=&nbsp;0.94. What remains between them is sample size: a set of 58
+      is expected to look sharper than the full set. It is the same motif.</li>
   <li>A <strong>confirmed</strong> B2 element is <em>not</em> part of this training set and is
       not aligned under the logo. These are functionally defined footprints read from the
       literature, between 7 and 23&nbsp;bp as published, and a footprint carries no fixed

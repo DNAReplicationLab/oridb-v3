@@ -109,7 +109,19 @@ LIT_B = 'literature_B_elements.tsv'
 LIT_B_TABLE = 'LiteratureB'
 # Accessions are frozen: adding a source must never renumber an existing element.
 ACCESSION_MAP = 'element_accessions.tsv'
-B2_CORE_INDEX = 1
+# The published B2 intervals are 1-based inclusive and 32 bp wide, the width of
+# the motif they were called with. An earlier ingest read them as half-open and
+# added one to the start, storing a 31 bp element; dropping the first base of an
+# interval removes the 5' flank of a plus-strand element but the 3' base of a
+# minus-strand one, which left the two strands one base apart and split the
+# conserved T of the motif across two columns. The interval is anchored on
+# published_end, which is consistent across the table: eleven records carry a
+# published_start that is one base high (ten) or low (one), and all eleven put
+# the conserved T at element position 27 once anchored this way.
+B2_WIDTH = 32
+# One base of genomic context upstream, so the 32 bp element occupies columns
+# 2-33 of the 33 bp window and the conserved T falls in column 28.
+B2_CORE_INDEX = 2
 # Roman chromosome NAME -> number. Deliberately not called ROMAN: that name is
 # already the number -> numeral list above, and shadowing it breaks anchoring.
 CHR_NUM = {'chr' + n: i for i, n in enumerate(ROMAN) if n}
@@ -466,6 +478,20 @@ def main() -> None:
         with path.open(newline='') as fh:
             for i, row in enumerate(csv.DictReader(fh, delimiter='\t'), start=1):
                 seq = (row.get('sequence') or '').upper()
+                start, end = row['start'], row['end']
+                if cls == 'B2':
+                    # Take the published interval, not the stored element: read
+                    # it as 1-based inclusive and B2_WIDTH wide, anchored on
+                    # published_end, and read the sequence off the assembly.
+                    pe = int(row['published_end'])
+                    ps = pe - B2_WIDTH + 1
+                    chrseq = nuclear.get(row['chromosome'])
+                    if chrseq is None or ps < 1 or pe > len(chrseq):
+                        continue
+                    seq = chrseq[ps - 1:pe].upper()
+                    if (row.get('strand') or '').strip() == '-':
+                        seq = rc(seq)
+                    start, end = str(ps), str(pe)
                 if not re.fullmatch(r'[ACGT]+', seq or ''):
                     continue
                 records.append({
@@ -481,15 +507,17 @@ def main() -> None:
                     'source_id': str(i),
                     'source_assembly': 'sacCer3',
                     'source_chromosome': row['chromosome'],
-                    'source_start': row['start'], 'source_end': row['end'],
+                    'source_start': start, 'source_end': end,
                     'source_strand': (row.get('strand') or '').strip(),
                     'source_name': (row.get('source_name') or '').strip(),
                     'score': '',
                     'source_offset': '',
                     'chrom_num': CHR_NUM[row['chromosome']],
-                    # B2 carries the 33 bp window the published interval sits in;
-                    # it is checked against the genome below rather than trusted.
-                    'given_window': (row.get('motif_window') or '').strip().upper(),
+                    # The window column of the B2 table belongs to the superseded
+                    # 31 bp reading and is not comparable with the window built
+                    # here, so it is not carried as a check.
+                    'given_window': ('' if cls == 'B2'
+                                     else (row.get('motif_window') or '').strip().upper()),
                 })
 
     # ---- curated elements from the primary literature ------------------------
@@ -888,13 +916,17 @@ def main() -> None:
     if b2:
         rel['b2_motif'] = {
             'width': MOTIF_WIDTH,
+            'window': 'element at columns 2-%d' % (B2_WIDTH + 1),
             'applies_to_element_class': 'B2',
             'consensus': b2_consensus,
             'derivation': 'Position weight matrix built from the placed B2 elements of '
-                          'Reuter et al. 2024 (PMID 39181881), extended into sacCer3 '
-                          'around the published interval and measured against the sacCer3 '
+                          'Reuter et al. 2024 (PMID 39181881). The published interval is '
+                          'read as 1-based inclusive and %d bp wide, anchored on its end, '
+                          'and the element occupies columns 2-%d of the window, with one '
+                          'base of genomic context upstream. Measured against the sacCer3 '
                           'base composition, by the same recipe as the ACS matrix. B2 is '
                           'a distinct element from the A element and is scored against '
+                          % (B2_WIDTH, B2_WIDTH + 1) + 
                           'this matrix, not against the ACS matrix.',
             'training_elements': len(b2),
             'information_content_bits': round(sum(b2_info), 2),

@@ -24,21 +24,20 @@ matrix would be meaningless; it gets its own.
 The matrix is trained on the **303 B2 elements of Reuter et al. 2024
 (PMID 39181881)** that can be placed in sacCer3 by their own sequence
 (`reference/reuter2024_B2_elements.tsv`). These are genome-wide motif calls of one fixed
-published width, so unlike a set of functionally defined footprints they already share a
+published width (32 bp), so unlike a set of functionally defined footprints they already share a
 frame, which is what makes a column-by-column matrix possible at all.
 
 Confirmed B2 elements (`reference/literature_B_elements.tsv`) are **not** in the training
 set. See *Why confirmed B2 elements are not aligned* below.
 
-## The frame and the window
+## The window
 
-Every element is located in sacCer3 by its own sequence, then extended into the genome.
-For B2 the extension is fixed rather than chosen: the window is the published interval plus
-**two bases of genomic context upstream**, read on the element's own strand, giving a
-**33 column** window in which the published interval occupies columns
-3&ndash;33. The window is taken from the assembly and verified against the
-sequence the study supplied rather than trusting the supplied string; a disagreement is
-recorded on the record.
+Every element is located in sacCer3 by its own sequence, then extended into the genome. For
+B2 the extension is fixed rather than chosen: the window is the 32 bp element plus **one
+base of genomic context upstream**, read on the element's own strand, giving a **33 column**
+window in which the element occupies columns 2&ndash;33 and the conserved T falls in column
+28. The sequence is read off the assembly rather than taken from the stored string. How the
+element interval itself is read is the subject of the next section.
 
 ## The matrix
 
@@ -49,9 +48,9 @@ genome is 62% AT, so an all-A column carries about 1.70 bits here, not 2. The sa
 drives the reported total, the per-column table below and the letter heights in
 `public/assets/b2_logo.svg`, so the logo and the numbers cannot drift apart.
 
-- Consensus: `nnnnnnnnnnnnnnnnnnnnnnAAAWnWnnnnn`
-- Total information: **9.24 bits** over 33 columns
-- Conserved block: columns 23&ndash;28, an A-rich run reminiscent of a degenerate, inverted
+- Consensus: `nWnnnnnnnnnnnnnnnnnnnnAAAnAWnnWnW`
+- Total information: **10.77 bits** over 33 columns
+- Conserved block: columns 22&ndash;28, an A-rich run reminiscent of a degenerate, inverted
   A element. The block is derived from the matrix at render time, not hard-coded, so a
   rebuild moves it.
 
@@ -85,113 +84,102 @@ maximises its own score, and was rejected for that reason.
 A B3 element has no matrix at all: it is an Abf1p-binding site, a protein recognition
 sequence rather than a degenerate consensus.
 
-## Known defect: a one-base off-by-one in the B2 intervals
+## The frame, and the off-by-one that was corrected
 
-**The matrix described above is built on a misregistered training set and will be
-rebuilt.** The B2 intervals of Reuter et al. 2024 are 1-based inclusive and **32 bp**
-wide; the ingest that produced `reference/reuter2024_B2_elements.tsv` read them as
-half-open and added one to the start, storing a **31 bp** element. Dropping the first
-base of a genomic interval removes the 5' flank of a plus-strand element but the 3' base
-of a minus-strand one, so the two strands end up one base apart in any window anchored on
-the element.
+The published B2 intervals are **1-based inclusive and 32 bp wide**, the width of the motif
+they were called with. An earlier ingest read them as half-open and added one to the start,
+storing a 31 bp element. Dropping the first base of a genomic interval removes the 5' flank
+of a plus-strand element but the 3' base of a minus-strand one, so the two strands ended up
+one base apart in any window anchored on the element, and the conserved T of the motif was
+split across two columns.
 
-The evidence, measured on the conserved T of the B2 motif:
+The evidence, measured on that T:
 
 | frame | n | T at element position 26 | at 27 |
 |---|---:|---:|---:|
-| as stored, 31 bp, plus-strand calls | 161 | 0.78 | 0.11 |
-| as stored, 31 bp, minus-strand calls | 142 | 0.04 | 0.70 |
-| published interval read as 1-based 32 bp, plus | 154 | 0.01 | 0.77 |
-| published interval read as 1-based 32 bp, minus | 138 | 0.03 | 0.69 |
+| 31 bp as previously stored, plus-strand calls | 161 | 0.78 | 0.11 |
+| 31 bp as previously stored, minus-strand calls | 142 | 0.04 | 0.70 |
+| 32 bp as published, plus-strand calls | 161 | 0.01 | 0.78 |
+| 32 bp as published, minus-strand calls | 142 | 0.03 | 0.70 |
 
-Read as a 1-based inclusive 32-mer and reverse-complemented on the minus strand, the two
-strands agree: the conserved T is at position 27 on both. The sequences the author
-exported for the published figure are these 32-mers, and their coordinates resolve to
-them directly in the UCSC browser.
+The interval is anchored on `published_end`, which is consistent across the table: eleven
+records carry a `published_start` that is one base high (ten of them) or an interval a base
+too wide (one), and all eleven put the conserved T at position 27 once anchored this way,
+which is an independent check on the anchor. `bin/build_elements.py` therefore takes the
+element as `[published_end - 31, published_end]` and reads its sequence off the assembly
+rather than trusting the stored 31 bp string.
 
-Consequences, all of them fixable by correcting the interval at ingest:
+What the correction changed, measured against the previous release:
 
-- every B2 element in `elements.tsv` is stored one base short, missing the first base of
-  the published interval (the 5' base on a plus-strand call, the 3' base on a minus-strand
-  one);
-- the matrix above is trained on two frames one base apart, which splits the conserved T
-  between columns 28 and 29 (A 0.47 / T 0.43 where the true column is ~0.75 T) and costs
-  about 1.3 bits;
-- recomputed from sacCer3 on the corrected 32 bp intervals, the matrix comes to **10.88
-  bits** over 32 columns from the 292 records whose published interval is 32 bp wide, with
-  the T restored at column 27 (0.75 bits).
-
-Eleven records need individual attention: ten carry a published interval of 31 bp and one
-of 33 bp, and in the four of those that appear in the author's exported set the published
-start is one base high, i.e. the same off-by-one applied a stage earlier.
+- all 303 Reuter B2 records gained their missing base; 302 now start one base lower and one
+  (ODB-EL-1240, ARS603.5) ends one base higher. Every element is 32 bp. Accessions are
+  unchanged, and no A, B3 or literature record moved;
+- the T is carried by 0.74 of records at a single position, against 0.43 split across two;
+- the matrix went from 9.24 to **10.77 bits**, and the median B2 score from 9.51 to 11.06 bits.
 
 ## Comparison with the published figure
 
 The B2 logo in Reuter et al. 2024 was made in WebLogo from the FIMO-identified sequences at
-the class C1 origins of their Figure 2 &mdash; **58 sequences**, supplied by the author as
-32-mers &mdash; with a yeast base composition as background. The two were checked against
-each other directly:
+the class C1 origins of their Figure 2 &mdash; **58 sequences**, supplied by the author &mdash;
+with a yeast base composition as background. With the interval read correctly those 58 are
+the B2 elements themselves, and the two can be compared position for position:
 
-- **Same records.** All 58 published sequences are 32 bp and their headers are 1-based
-  inclusive 32 bp intervals. 51 of the 58 coincide exactly with the published interval of a
-  record in `reuter2024_B2_elements.tsv`, and 56 of the 58 reproduce a record's stored
-  element sequence base for base and in the same orientation; the rest sit within a few bp
-  of a record in the larger set.
-- **The visible difference is the off-by-one above.** The published logo has a prominent T
-  at its column 27 which the OriDB logo does not show. That is not a sampling effect: it is
-  the conserved T split across two columns by the strand misregistration. Realigning the
-  minus-strand calls by one base restores it (0.43 to 0.74 of records carrying T) and lifts
-  the matrix from 8.76 to 10.11 bits over the 31 shared columns.
-- **The residual difference is sample size.** Once realigned, the full set gives 10.11 bits
-  against 10.70 for the 58 over the same columns. Drawing 58 of the 303 at random 200 times
-  gives 9.83 bits on average (sd 0.48, range 8.42&ndash;11.08), so a set of 58 is expected
-  to look sharper; the C1 subset sits at the sharp end of that distribution, consistent with
-  C1 being the better-defined origin class.
-- **The A elements are unaffected.** The Reuter A elements show no strand asymmetry: both
-  strands peak at the same columns (5, 12, 13). The defect is specific to the B2 table.
-- **Different palette.** OriDB draws A green, C blue, G orange, T red; the WebLogo default
-  in the published figure draws A red and T green. The same column can therefore look quite
+- **Same records.** All 58 are 32 bp, and 55 of them are now byte-identical to a stored
+  element sequence, in the same orientation. The other 3 sit within a few bp of a record in
+  the larger set.
+- **Same motif.** Across the 32 positions the information profiles correlate at r = 0.94
+  (0.85 before the correction), and both place the conserved T at position 27: 0.74 of the
+  303 records against 0.81 of the 58.
+- **The residual difference is sample size.** The rebuilt matrix gives 10.77 bits against 11.18
+  for the 58. Drawing 58 of the 303 at random 200 times gives 9.83 bits on average (sd 0.48,
+  range 8.42&ndash;11.08) in the pre-correction frame, so a set of 58 is expected to look
+  sharper; the C1 subset sits at the sharp end of that distribution, consistent with C1 being
+  the better-defined origin class.
+- **The A elements were never affected.** The Reuter A elements show no strand asymmetry:
+  both strands peak at the same columns (5, 12, 13).
+- **Different palette.** OriDB draws A green, C blue, G orange, T red; the WebLogo default in
+  the published figure draws A red and T green. The same column can therefore look quite
   different in the two pictures.
 
 ### Information by column
 
 Both columns use the same measure, relative entropy against the sacCer3 base composition.
-The OriDB column is the matrix **as currently built**, i.e. before the off-by-one above is
-corrected; the published column is blank where the 32-mer does not reach.
+OriDB column *k* is element position *k*&minus;1, so the published column is blank at
+column 1, which is the base of genomic context upstream.
 
 | Column | Consensus | OriDB (n=303) | Published 58 |
 |---:|:--:|---:|---:|
 | 1 | n | 0.05 | &mdash; |
-| 2 | n | 0.17 | 0.14 |
-| 3 | n | 0.33 | 0.36 |
+| 2 | W | 0.27 | 0.14 |
+| 3 | n | 0.36 | 0.36 |
 | 4 | n | 0.35 | 0.32 |
-| 5 | n | 0.30 | 0.30 |
-| 6 | n | 0.27 | 0.11 |
-| 7 | n | 0.09 | 0.06 |
-| 8 | n | 0.13 | 0.25 |
+| 5 | n | 0.35 | 0.30 |
+| 6 | n | 0.14 | 0.11 |
+| 7 | n | 0.07 | 0.06 |
+| 8 | n | 0.17 | 0.25 |
 | 9 | n | 0.07 | 0.21 |
 | 10 | n | 0.09 | 0.08 |
-| 11 | n | 0.07 | 0.02 |
-| 12 | n | 0.17 | 0.02 |
-| 13 | n | 0.12 | 0.04 |
+| 11 | n | 0.13 | 0.02 |
+| 12 | n | 0.15 | 0.02 |
+| 13 | n | 0.14 | 0.04 |
 | 14 | n | 0.09 | 0.06 |
-| 15 | n | 0.11 | 0.02 |
-| 16 | n | 0.10 | 0.16 |
-| 17 | n | 0.14 | 0.05 |
-| 18 | n | 0.16 | 0.31 |
-| 19 | n | 0.27 | 0.40 |
-| 20 | n | 0.22 | 0.15 |
-| 21 | n | 0.18 | 0.29 |
-| 22 | n | 0.20 | 0.39 |
-| 23 | A | 0.80 | 1.09 |
-| 24 | A | 1.04 | 1.14 |
-| 25 | A | 0.94 | 0.82 |
-| 26 | W | 0.54 | 0.53 |
-| 27 | n | 0.53 | 0.67 |
-| 28 | W | 0.30 | 0.92 |
-| 29 | n | 0.17 | 0.53 |
-| 30 | n | 0.26 | 0.37 |
-| 31 | n | 0.30 | 0.46 |
-| 32 | n | 0.25 | 0.45 |
-| 33 | n | 0.43 | 0.47 |
-| **total** | | **9.24** | **11.18** |
+| 15 | n | 0.13 | 0.02 |
+| 16 | n | 0.13 | 0.16 |
+| 17 | n | 0.09 | 0.05 |
+| 18 | n | 0.25 | 0.31 |
+| 19 | n | 0.31 | 0.40 |
+| 20 | n | 0.20 | 0.15 |
+| 21 | n | 0.14 | 0.29 |
+| 22 | n | 0.42 | 0.39 |
+| 23 | A | 0.96 | 1.09 |
+| 24 | A | 1.20 | 1.14 |
+| 25 | A | 0.78 | 0.82 |
+| 26 | n | 0.42 | 0.53 |
+| 27 | A | 0.74 | 0.67 |
+| 28 | W | 0.77 | 0.92 |
+| 29 | n | 0.27 | 0.53 |
+| 30 | n | 0.32 | 0.37 |
+| 31 | W | 0.38 | 0.46 |
+| 32 | n | 0.27 | 0.45 |
+| 33 | W | 0.59 | 0.47 |
+| **total** | | **10.77** | **11.18** |
