@@ -34,6 +34,8 @@ import hashlib
 import io
 import re
 import shutil
+import ssl
+import subprocess
 import sys
 import tarfile
 import urllib.error
@@ -47,9 +49,51 @@ DEFAULT_DIR = ROOT / 'reference' / 'genomes'
 
 # UCSC publishes chromFa as .tar.gz for recent assemblies and .zip for older ones,
 # and has moved which is which before now. Both are tried; the format is decided by
-# the bytes that arrive, not by the file extension.
+# the bytes that arrive, not by the file extension. Confirmed 2026-11-28: sacCer1 is
+# served as chromFa.zip and sacCer3 as chromFa.tar.gz, about 3.7 MB each.
 BIGZIPS = 'https://hgdownload.soe.ucsc.edu/goldenPath/{asm}/bigZips/'
 ARCHIVES = ('chromFa.tar.gz', 'chromFa.zip')
+
+CERT_HINT = """
+This is a certificate-store problem on this machine, not a problem with UCSC.
+A python.org build of Python on macOS ships with no CA store until you run
+    /Applications/Python\\ 3.x/Install\\ Certificates.command
+Installing certifi (`python3 -m pip install certifi`) also fixes it: this script
+uses certifi's bundle when it can import it.
+"""
+
+
+def download(url: str) -> bytes:
+    """Fetch a URL, verifying the certificate against the best store available.
+
+    urllib verifies against OpenSSL's default store, which on a python.org build
+    of Python for macOS is empty until Install Certificates.command has been run -
+    so a perfectly good URL fails with CERTIFICATE_VERIFY_FAILED. certifi's bundle
+    is used when it is importable, and curl, which has its own store, is tried
+    after that. Verification is never disabled: what arrives is checked against
+    reference/genomes.tsv either way, but a silent downgrade to an unverified
+    transport is not something a build script should decide on its own.
+    """
+    context = None
+    try:
+        import certifi
+        context = ssl.create_default_context(cafile=certifi.where())
+    except ImportError:
+        pass
+    try:
+        with urllib.request.urlopen(url, timeout=300, context=context) as fh:
+            return fh.read()
+    except (urllib.error.URLError, OSError) as exc:
+        first = exc
+    curl = shutil.which('curl')
+    if curl is None:
+        raise first
+    done = subprocess.run([curl, '-fsSL', '--max-time', '300', url],
+                          capture_output=True)
+    if done.returncode != 0:
+        raise OSError(f'{first}; curl also failed '
+                      f'({done.returncode}: {done.stderr.decode("utf-8", "replace").strip()})')
+    return done.stdout
 
 
 def read_manifest() -> dict[str, dict[str, tuple[int, str]]]:
@@ -127,8 +171,7 @@ def fetch(asm: str, dest: Path) -> None:
     for archive in ARCHIVES:
         url = BIGZIPS.format(asm=asm) + archive
         try:
-            with urllib.request.urlopen(url, timeout=300) as fh:
-                blob = fh.read()
+            blob = download(url)
         except (urllib.error.URLError, OSError) as exc:
             errors.append(f'  {url}\n    {exc}')
             continue
@@ -137,6 +180,7 @@ def fetch(asm: str, dest: Path) -> None:
         print(f'{asm}: {n} sequences written to {dest}', file=sys.stderr)
         return
     sys.exit(f'could not download {asm} chromFa from UCSC:\n' + '\n'.join(errors)
+             + (CERT_HINT if any('CERTIFICATE_VERIFY_FAILED' in e for e in errors) else '')
              + f'\nIf this machine has no route to hgdownload.soe.ucsc.edu, unpack the '
                f'chromosomes into {dest} by hand (one chr*.fa per sequence) and re-run '
                f'with --check.')
