@@ -132,10 +132,11 @@ the class C1 origins of their Figure 2 &mdash; **58 sequences**, supplied by the
 32-mers &mdash; with a yeast base composition as background. The two were checked against
 each other directly:
 
-- **Same records.** 55 of the 58 published sequences match a record in
-  `reuter2024_B2_elements.tsv` at exactly the same coordinates and in the same orientation,
-  base for base; all 58 are 32 bp and their headers are 1-based inclusive 32 bp intervals.
-  The other 3 sit within a few bp of a record in the larger set.
+- **Same records.** All 58 published sequences are 32 bp and their headers are 1-based
+  inclusive 32 bp intervals. 51 of the 58 coincide exactly with the published interval of a
+  record in `reuter2024_B2_elements.tsv`, and 56 of the 58 reproduce a record's stored
+  element sequence base for base and in the same orientation; the rest sit within a few bp
+  of a record in the larger set.
 - **The visible difference is the off-by-one above.** The published logo has a prominent T
   at its column 27 which the OriDB logo does not show. That is not a sampling effect: it is
   the conserved T split across two columns by the strand misregistration. Realigning the
