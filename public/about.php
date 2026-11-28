@@ -239,8 +239,8 @@ require ORIDB_APP_DIR . '/header.php';
   by the studies they come from. This is evidence, not class: an element is A, B2 or B3
   <em>and</em> confirmed or predicted. Confirmed elements are set in bold in the alignment, labelled there,
   and drawn in a solid colour in the overview figure. The confirmed <em>A</em> elements are also the
-  records the ACS matrix itself was built from; a confirmed B2 or B3 comes from the literature
-  and trains nothing.
+  records the ACS matrix itself was built from; a confirmed B2 or B3 comes from the literature,
+  trains nothing, and is not aligned under a logo either, for the reason given below.
 </p>
 
 <h3>What the motif panels show</h3>
@@ -286,6 +286,56 @@ if ($acs !== null):
   matrix, so a B2 score and an A score are not comparable with each other.
   <a href="https://github.com/DNAReplicationLab/oridb-v3/blob/main/docs/acs-motif.md">How the ACS
   matrix was derived</a>.
+</p>
+<?php endif; ?>
+
+<?php
+$b2 = $release['b2_motif'] ?? null;
+if ($b2 !== null):
+    $b2Block = motif_region(motif_regions($b2), 'core');
+    ?>
+<h3>How the B2 motif was derived</h3>
+<p>
+  The B2 matrix is built by the same recipe as the ACS matrix but from different records, and
+  the two are separate objects: a B2 score and an A score are not on the same scale and should
+  not be compared. It was trained on the
+  <?= h((string) $b2['training_elements']) ?> B2 elements of Reuter et&nbsp;al. 2024
+  (PMID&nbsp;39181881) that can be placed in sacCer3. Those records are genome-wide motif calls
+  of one fixed width, so they already share a frame; the window here is the published interval
+  plus two bases of genomic context upstream, which puts the published interval in columns
+  3&ndash;<?= h((string) $b2['width']) ?> of a <?= h((string) $b2['width']) ?> column matrix, read
+  on the element's own strand. Every column is a base frequency with a quarter-count added,
+  scored as log-odds against the sacCer3 base composition, and the logo is drawn on that same
+  scale.
+</p>
+<ul>
+  <?php if ($b2Block !== null): ?>
+    <li>The matrix carries <?= h((string) $b2['information_content_bits']) ?> bits in total, most
+        of it in the <strong>conserved block</strong> at columns
+        <?= h((string) $b2Block['start']) ?>&ndash;<?= h((string) $b2Block['end']) ?>: an A-rich
+        run that reads as a degenerate, inverted A element. Everything 5' of it is close to the
+        genome's own base composition, which is why the consensus is almost all
+        <span class="mono">n</span>. The block is derived from the matrix, so a rebuild moves
+        it.</li>
+  <?php endif; ?>
+  <li>The published B2 logo of Reuter et&nbsp;al. 2024 is a WebLogo of the subset of calls at
+      their class&nbsp;C1 origins, 58 sequences one base narrower than this window. That logo is
+      the sharper of the two, as a logo over 58 sequences generally is: recomputed on this
+      window it comes to 11.2 bits against 9.2 bits here, and its column profile agrees with
+      this one once the extra upstream base is accounted for. The difference is the size of the
+      training set, not a different motif.</li>
+  <li>A <strong>confirmed</strong> B2 element is <em>not</em> part of this training set and is
+      not aligned under the logo. These are functionally defined footprints read from the
+      literature, between 7 and 23&nbsp;bp as published, and a footprint carries no fixed
+      position relative to the window above: anchoring a 7&nbsp;bp element at its own start would
+      put it in the flanking columns, nowhere near the conserved block. Such an element is
+      placed, drawn in the overview figure and listed in the records table, and the origin page
+      names it and says why it is not in the panel. The same holds for a B3, which has no matrix
+      at all.</li>
+</ul>
+<p class="small">
+  <a href="https://github.com/DNAReplicationLab/oridb-v3/blob/main/docs/b2-motif.md">How the B2
+  matrix was derived</a>, in full, with the comparison against the published figure.
 </p>
 <?php endif; ?>
 

@@ -374,6 +374,14 @@ foreach ($elements as $e) {
 }
 ksort($classCounts);
 $unplaced = array_filter($elements, static fn (array $e): bool => $e['start'] === '');
+// Placed, drawn and listed, but not alignable: a functionally defined element
+// (a confirmed B2, or a B3) is a footprint read from the literature and carries
+// no frame relative to a matrix window, so it appears in no panel. Saying
+// nothing about it here reads as a record that has gone missing.
+$notAligned = array_values(array_filter(
+    $elements,
+    static fn (array $e): bool => $e['start'] !== '' && $e['motif_window'] === ''
+));
 $motifs = [
     'A' => Data::release()['acs_motif'] ?? null,
     'B2' => Data::release()['b2_motif'] ?? null,
@@ -455,6 +463,19 @@ $motifs = [
         (int) $motifB['logo_left_pad'],
         'Sequence logo of the OriDB B2-element motif'
     ); ?>
+  <?php endif; ?>
+
+  <?php if ($notAligned !== []): ?>
+    <p class="small">
+      <?= h(implode(', ', array_column($notAligned, 'accession'))) ?>
+      <?= count($notAligned) === 1 ? 'is placed and drawn above, and listed below, but is'
+                                   : 'are placed and drawn above, and listed below, but are' ?>
+      not aligned under a logo. A confirmed B2 element is a functionally defined footprint
+      read from the literature &mdash; 7 to 23 bp as published &mdash; and it carries no
+      fixed position in the 33 bp window the scored B2 records share, so there is no frame
+      to align it in and it trains nothing. A B3 element has no matrix at all.
+      <a href="about.php#elements">Why a functionally defined element has no frame</a>.
+    </p>
   <?php endif; ?>
 
   <details class="longtail">
