@@ -1,5 +1,5 @@
 {
-    "generated": "2026-11-24T11:29:15+00:00",
+    "generated": "2026-11-28T12:25:16+00:00",
     "hub": {
         "base_url": "https://dnareplicationlab.github.io/oridb-data-hub/",
         "url": "https://dnareplicationlab.github.io/oridb-data-hub/hub.txt"
@@ -654,6 +654,489 @@
                         "minScore": 0
                     }
                 ]
+            },
+            {
+                "type": "QuantitativeTrack",
+                "trackId": "sacCer3-ov_mcm",
+                "name": "MCM4 occupancy",
+                "description": "MCM2-7 occupancy at licensed origins, from Mcm4-Flag ChIP-exo in G1-arrested cells (Reuter et al. 2024); replicate 1, CPM, auto-scaled to the window",
+                "assemblyNames": [
+                    "sacCer3"
+                ],
+                "category": [
+                    "ORC and MCM2-7 ChIP-exo in G1 and G2 arrest (Reuter et al. 2024), as deposited on sacCer3"
+                ],
+                "adapter": {
+                    "type": "BigWigAdapter",
+                    "bigWigLocation": {
+                        "uri": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/reuter2024/chipexo.mcm4_g1_rep1.bw"
+                    }
+                },
+                "displays": [
+                    {
+                        "type": "LinearWiggleDisplay",
+                        "displayId": "sacCer3-ov_mcm-display",
+                        "autoscale": "local",
+                        "minScore": 0
+                    }
+                ]
+            },
+            {
+                "type": "QuantitativeTrack",
+                "trackId": "sacCer3-orc_mcm_g1_chipexo_orc2_g1_rep1",
+                "name": "ORC2 G1",
+                "description": "Orc2-Flag ChIP-exo, G1 arrest, replicate 1",
+                "assemblyNames": [
+                    "sacCer3"
+                ],
+                "category": [
+                    "ORC and MCM2-7 ChIP-exo in G1 and G2 arrest (Reuter et al. 2024), as deposited on sacCer3"
+                ],
+                "adapter": {
+                    "type": "BigWigAdapter",
+                    "bigWigLocation": {
+                        "uri": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/reuter2024/chipexo.orc2_g1_rep1.bw"
+                    }
+                },
+                "displays": [
+                    {
+                        "type": "LinearWiggleDisplay",
+                        "displayId": "sacCer3-orc_mcm_g1_chipexo_orc2_g1_rep1-display",
+                        "autoscale": "local",
+                        "minScore": 0
+                    }
+                ]
+            },
+            {
+                "type": "QuantitativeTrack",
+                "trackId": "sacCer3-orc2_g1_vs_g2_chipexo_orc2_g2_rep1",
+                "name": "ORC2 G2",
+                "description": "Orc2-Flag ChIP-exo, G2 arrest, replicate 1",
+                "assemblyNames": [
+                    "sacCer3"
+                ],
+                "category": [
+                    "ORC and MCM2-7 ChIP-exo in G1 and G2 arrest (Reuter et al. 2024), as deposited on sacCer3"
+                ],
+                "adapter": {
+                    "type": "BigWigAdapter",
+                    "bigWigLocation": {
+                        "uri": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/reuter2024/chipexo.orc2_g2_rep1.bw"
+                    }
+                },
+                "displays": [
+                    {
+                        "type": "LinearWiggleDisplay",
+                        "displayId": "sacCer3-orc2_g1_vs_g2_chipexo_orc2_g2_rep1-display",
+                        "autoscale": "local",
+                        "minScore": 0
+                    }
+                ]
+            },
+            {
+                "type": "QuantitativeTrack",
+                "trackId": "sacCer3-mcm4_g1_reps_chipexo_mcm4_g1_rep2",
+                "name": "MCM4 G1 rep2",
+                "description": "Mcm4-Flag ChIP-exo, G1 arrest, replicate 2",
+                "assemblyNames": [
+                    "sacCer3"
+                ],
+                "category": [
+                    "ORC and MCM2-7 ChIP-exo in G1 and G2 arrest (Reuter et al. 2024), as deposited on sacCer3"
+                ],
+                "adapter": {
+                    "type": "BigWigAdapter",
+                    "bigWigLocation": {
+                        "uri": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/reuter2024/chipexo.mcm4_g1_rep2.bw"
+                    }
+                },
+                "displays": [
+                    {
+                        "type": "LinearWiggleDisplay",
+                        "displayId": "sacCer3-mcm4_g1_reps_chipexo_mcm4_g1_rep2-display",
+                        "autoscale": "local",
+                        "minScore": 0,
+                        "renderers": {
+                            "XYPlotRenderer": {
+                                "filled": false
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "type": "QuantitativeTrack",
+                "trackId": "sacCer3-orc2_g1_reps_chipexo_orc2_g1_rep2",
+                "name": "ORC2 G1 rep2",
+                "description": "Orc2-Flag ChIP-exo, G1 arrest, replicate 2",
+                "assemblyNames": [
+                    "sacCer3"
+                ],
+                "category": [
+                    "ORC and MCM2-7 ChIP-exo in G1 and G2 arrest (Reuter et al. 2024), as deposited on sacCer3"
+                ],
+                "adapter": {
+                    "type": "BigWigAdapter",
+                    "bigWigLocation": {
+                        "uri": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/reuter2024/chipexo.orc2_g1_rep2.bw"
+                    }
+                },
+                "displays": [
+                    {
+                        "type": "LinearWiggleDisplay",
+                        "displayId": "sacCer3-orc2_g1_reps_chipexo_orc2_g1_rep2-display",
+                        "autoscale": "local",
+                        "minScore": 0,
+                        "renderers": {
+                            "XYPlotRenderer": {
+                                "filled": false
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "type": "QuantitativeTrack",
+                "trackId": "sacCer3-orc2_g2_reps_chipexo_orc2_g2_rep2",
+                "name": "ORC2 G2 rep2",
+                "description": "Orc2-Flag ChIP-exo, G2 arrest, replicate 2",
+                "assemblyNames": [
+                    "sacCer3"
+                ],
+                "category": [
+                    "ORC and MCM2-7 ChIP-exo in G1 and G2 arrest (Reuter et al. 2024), as deposited on sacCer3"
+                ],
+                "adapter": {
+                    "type": "BigWigAdapter",
+                    "bigWigLocation": {
+                        "uri": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/reuter2024/chipexo.orc2_g2_rep2.bw"
+                    }
+                },
+                "displays": [
+                    {
+                        "type": "LinearWiggleDisplay",
+                        "displayId": "sacCer3-orc2_g2_reps_chipexo_orc2_g2_rep2-display",
+                        "autoscale": "local",
+                        "minScore": 0,
+                        "renderers": {
+                            "XYPlotRenderer": {
+                                "filled": false
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "type": "QuantitativeTrack",
+                "trackId": "sacCer3-mcm4_g1_strand_chipexo_mcm4_g1_rep1_pos",
+                "name": "rep1 plus",
+                "description": "Mcm4-Flag, G1 arrest, replicate 1, plus-strand read coverage per million mapped reads; exonuclease stop points mark one edge of the footprint",
+                "assemblyNames": [
+                    "sacCer3"
+                ],
+                "category": [
+                    "ORC and MCM2-7 ChIP-exo in G1 and G2 arrest (Reuter et al. 2024), as deposited on sacCer3"
+                ],
+                "adapter": {
+                    "type": "BigWigAdapter",
+                    "bigWigLocation": {
+                        "uri": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/reuter2024/chipexo.mcm4_g1_rep1.pos.bw"
+                    }
+                },
+                "displays": [
+                    {
+                        "type": "LinearWiggleDisplay",
+                        "displayId": "sacCer3-mcm4_g1_strand_chipexo_mcm4_g1_rep1_pos-display",
+                        "autoscale": "local",
+                        "minScore": -150
+                    }
+                ]
+            },
+            {
+                "type": "QuantitativeTrack",
+                "trackId": "sacCer3-mcm4_g1_strand_chipexo_mcm4_g1_rep1_neg",
+                "name": "rep1 minus",
+                "description": "Mcm4-Flag, G1 arrest, replicate 1, minus-strand read coverage per million mapped reads; exonuclease stop points mark one edge of the footprint",
+                "assemblyNames": [
+                    "sacCer3"
+                ],
+                "category": [
+                    "ORC and MCM2-7 ChIP-exo in G1 and G2 arrest (Reuter et al. 2024), as deposited on sacCer3"
+                ],
+                "adapter": {
+                    "type": "BigWigAdapter",
+                    "bigWigLocation": {
+                        "uri": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/reuter2024/chipexo.mcm4_g1_rep1.neg.bw"
+                    }
+                },
+                "displays": [
+                    {
+                        "type": "LinearWiggleDisplay",
+                        "displayId": "sacCer3-mcm4_g1_strand_chipexo_mcm4_g1_rep1_neg-display",
+                        "autoscale": "local",
+                        "minScore": -150
+                    }
+                ]
+            },
+            {
+                "type": "QuantitativeTrack",
+                "trackId": "sacCer3-mcm4_g1_strand_chipexo_mcm4_g1_rep2_pos",
+                "name": "rep2 plus",
+                "description": "Mcm4-Flag, G1 arrest, replicate 2, plus-strand read coverage per million mapped reads; exonuclease stop points mark one edge of the footprint",
+                "assemblyNames": [
+                    "sacCer3"
+                ],
+                "category": [
+                    "ORC and MCM2-7 ChIP-exo in G1 and G2 arrest (Reuter et al. 2024), as deposited on sacCer3"
+                ],
+                "adapter": {
+                    "type": "BigWigAdapter",
+                    "bigWigLocation": {
+                        "uri": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/reuter2024/chipexo.mcm4_g1_rep2.pos.bw"
+                    }
+                },
+                "displays": [
+                    {
+                        "type": "LinearWiggleDisplay",
+                        "displayId": "sacCer3-mcm4_g1_strand_chipexo_mcm4_g1_rep2_pos-display",
+                        "autoscale": "local",
+                        "minScore": -150
+                    }
+                ]
+            },
+            {
+                "type": "QuantitativeTrack",
+                "trackId": "sacCer3-mcm4_g1_strand_chipexo_mcm4_g1_rep2_neg",
+                "name": "rep2 minus",
+                "description": "Mcm4-Flag, G1 arrest, replicate 2, minus-strand read coverage per million mapped reads; exonuclease stop points mark one edge of the footprint",
+                "assemblyNames": [
+                    "sacCer3"
+                ],
+                "category": [
+                    "ORC and MCM2-7 ChIP-exo in G1 and G2 arrest (Reuter et al. 2024), as deposited on sacCer3"
+                ],
+                "adapter": {
+                    "type": "BigWigAdapter",
+                    "bigWigLocation": {
+                        "uri": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/reuter2024/chipexo.mcm4_g1_rep2.neg.bw"
+                    }
+                },
+                "displays": [
+                    {
+                        "type": "LinearWiggleDisplay",
+                        "displayId": "sacCer3-mcm4_g1_strand_chipexo_mcm4_g1_rep2_neg-display",
+                        "autoscale": "local",
+                        "minScore": -150
+                    }
+                ]
+            },
+            {
+                "type": "QuantitativeTrack",
+                "trackId": "sacCer3-orc2_g1_strand_chipexo_orc2_g1_rep1_pos",
+                "name": "rep1 plus",
+                "description": "Orc2-Flag, G1 arrest, replicate 1, plus-strand read coverage per million mapped reads; exonuclease stop points mark one edge of the footprint",
+                "assemblyNames": [
+                    "sacCer3"
+                ],
+                "category": [
+                    "ORC and MCM2-7 ChIP-exo in G1 and G2 arrest (Reuter et al. 2024), as deposited on sacCer3"
+                ],
+                "adapter": {
+                    "type": "BigWigAdapter",
+                    "bigWigLocation": {
+                        "uri": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/reuter2024/chipexo.orc2_g1_rep1.pos.bw"
+                    }
+                },
+                "displays": [
+                    {
+                        "type": "LinearWiggleDisplay",
+                        "displayId": "sacCer3-orc2_g1_strand_chipexo_orc2_g1_rep1_pos-display",
+                        "autoscale": "local",
+                        "minScore": -150
+                    }
+                ]
+            },
+            {
+                "type": "QuantitativeTrack",
+                "trackId": "sacCer3-orc2_g1_strand_chipexo_orc2_g1_rep1_neg",
+                "name": "rep1 minus",
+                "description": "Orc2-Flag, G1 arrest, replicate 1, minus-strand read coverage per million mapped reads; exonuclease stop points mark one edge of the footprint",
+                "assemblyNames": [
+                    "sacCer3"
+                ],
+                "category": [
+                    "ORC and MCM2-7 ChIP-exo in G1 and G2 arrest (Reuter et al. 2024), as deposited on sacCer3"
+                ],
+                "adapter": {
+                    "type": "BigWigAdapter",
+                    "bigWigLocation": {
+                        "uri": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/reuter2024/chipexo.orc2_g1_rep1.neg.bw"
+                    }
+                },
+                "displays": [
+                    {
+                        "type": "LinearWiggleDisplay",
+                        "displayId": "sacCer3-orc2_g1_strand_chipexo_orc2_g1_rep1_neg-display",
+                        "autoscale": "local",
+                        "minScore": -150
+                    }
+                ]
+            },
+            {
+                "type": "QuantitativeTrack",
+                "trackId": "sacCer3-orc2_g1_strand_chipexo_orc2_g1_rep2_pos",
+                "name": "rep2 plus",
+                "description": "Orc2-Flag, G1 arrest, replicate 2, plus-strand read coverage per million mapped reads; exonuclease stop points mark one edge of the footprint",
+                "assemblyNames": [
+                    "sacCer3"
+                ],
+                "category": [
+                    "ORC and MCM2-7 ChIP-exo in G1 and G2 arrest (Reuter et al. 2024), as deposited on sacCer3"
+                ],
+                "adapter": {
+                    "type": "BigWigAdapter",
+                    "bigWigLocation": {
+                        "uri": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/reuter2024/chipexo.orc2_g1_rep2.pos.bw"
+                    }
+                },
+                "displays": [
+                    {
+                        "type": "LinearWiggleDisplay",
+                        "displayId": "sacCer3-orc2_g1_strand_chipexo_orc2_g1_rep2_pos-display",
+                        "autoscale": "local",
+                        "minScore": -150
+                    }
+                ]
+            },
+            {
+                "type": "QuantitativeTrack",
+                "trackId": "sacCer3-orc2_g1_strand_chipexo_orc2_g1_rep2_neg",
+                "name": "rep2 minus",
+                "description": "Orc2-Flag, G1 arrest, replicate 2, minus-strand read coverage per million mapped reads; exonuclease stop points mark one edge of the footprint",
+                "assemblyNames": [
+                    "sacCer3"
+                ],
+                "category": [
+                    "ORC and MCM2-7 ChIP-exo in G1 and G2 arrest (Reuter et al. 2024), as deposited on sacCer3"
+                ],
+                "adapter": {
+                    "type": "BigWigAdapter",
+                    "bigWigLocation": {
+                        "uri": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/reuter2024/chipexo.orc2_g1_rep2.neg.bw"
+                    }
+                },
+                "displays": [
+                    {
+                        "type": "LinearWiggleDisplay",
+                        "displayId": "sacCer3-orc2_g1_strand_chipexo_orc2_g1_rep2_neg-display",
+                        "autoscale": "local",
+                        "minScore": -150
+                    }
+                ]
+            },
+            {
+                "type": "QuantitativeTrack",
+                "trackId": "sacCer3-orc2_g2_strand_chipexo_orc2_g2_rep1_pos",
+                "name": "rep1 plus",
+                "description": "Orc2-Flag, G2 arrest, replicate 1, plus-strand read coverage per million mapped reads; exonuclease stop points mark one edge of the footprint",
+                "assemblyNames": [
+                    "sacCer3"
+                ],
+                "category": [
+                    "ORC and MCM2-7 ChIP-exo in G1 and G2 arrest (Reuter et al. 2024), as deposited on sacCer3"
+                ],
+                "adapter": {
+                    "type": "BigWigAdapter",
+                    "bigWigLocation": {
+                        "uri": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/reuter2024/chipexo.orc2_g2_rep1.pos.bw"
+                    }
+                },
+                "displays": [
+                    {
+                        "type": "LinearWiggleDisplay",
+                        "displayId": "sacCer3-orc2_g2_strand_chipexo_orc2_g2_rep1_pos-display",
+                        "autoscale": "local",
+                        "minScore": -150
+                    }
+                ]
+            },
+            {
+                "type": "QuantitativeTrack",
+                "trackId": "sacCer3-orc2_g2_strand_chipexo_orc2_g2_rep1_neg",
+                "name": "rep1 minus",
+                "description": "Orc2-Flag, G2 arrest, replicate 1, minus-strand read coverage per million mapped reads; exonuclease stop points mark one edge of the footprint",
+                "assemblyNames": [
+                    "sacCer3"
+                ],
+                "category": [
+                    "ORC and MCM2-7 ChIP-exo in G1 and G2 arrest (Reuter et al. 2024), as deposited on sacCer3"
+                ],
+                "adapter": {
+                    "type": "BigWigAdapter",
+                    "bigWigLocation": {
+                        "uri": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/reuter2024/chipexo.orc2_g2_rep1.neg.bw"
+                    }
+                },
+                "displays": [
+                    {
+                        "type": "LinearWiggleDisplay",
+                        "displayId": "sacCer3-orc2_g2_strand_chipexo_orc2_g2_rep1_neg-display",
+                        "autoscale": "local",
+                        "minScore": -150
+                    }
+                ]
+            },
+            {
+                "type": "QuantitativeTrack",
+                "trackId": "sacCer3-orc2_g2_strand_chipexo_orc2_g2_rep2_pos",
+                "name": "rep2 plus",
+                "description": "Orc2-Flag, G2 arrest, replicate 2, plus-strand read coverage per million mapped reads; exonuclease stop points mark one edge of the footprint",
+                "assemblyNames": [
+                    "sacCer3"
+                ],
+                "category": [
+                    "ORC and MCM2-7 ChIP-exo in G1 and G2 arrest (Reuter et al. 2024), as deposited on sacCer3"
+                ],
+                "adapter": {
+                    "type": "BigWigAdapter",
+                    "bigWigLocation": {
+                        "uri": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/reuter2024/chipexo.orc2_g2_rep2.pos.bw"
+                    }
+                },
+                "displays": [
+                    {
+                        "type": "LinearWiggleDisplay",
+                        "displayId": "sacCer3-orc2_g2_strand_chipexo_orc2_g2_rep2_pos-display",
+                        "autoscale": "local",
+                        "minScore": -150
+                    }
+                ]
+            },
+            {
+                "type": "QuantitativeTrack",
+                "trackId": "sacCer3-orc2_g2_strand_chipexo_orc2_g2_rep2_neg",
+                "name": "rep2 minus",
+                "description": "Orc2-Flag, G2 arrest, replicate 2, minus-strand read coverage per million mapped reads; exonuclease stop points mark one edge of the footprint",
+                "assemblyNames": [
+                    "sacCer3"
+                ],
+                "category": [
+                    "ORC and MCM2-7 ChIP-exo in G1 and G2 arrest (Reuter et al. 2024), as deposited on sacCer3"
+                ],
+                "adapter": {
+                    "type": "BigWigAdapter",
+                    "bigWigLocation": {
+                        "uri": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/reuter2024/chipexo.orc2_g2_rep2.neg.bw"
+                    }
+                },
+                "displays": [
+                    {
+                        "type": "LinearWiggleDisplay",
+                        "displayId": "sacCer3-orc2_g2_strand_chipexo_orc2_g2_rep2_neg-display",
+                        "autoscale": "local",
+                        "minScore": -150
+                    }
+                ]
             }
         ],
         "ASM294v2": [
@@ -1012,7 +1495,8 @@
             "sacCer3-ov_origins",
             "sacCer3-ov_timing",
             "sacCer3-ov_fd",
-            "sacCer3-ov_init"
+            "sacCer3-ov_init",
+            "sacCer3-ov_mcm"
         ],
         "ASM294v2": [
             "ASM294v2-ov_origins",

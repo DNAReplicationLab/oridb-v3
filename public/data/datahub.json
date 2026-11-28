@@ -1,5 +1,5 @@
 {
-    "generated": "2026-11-24T11:11:29Z",
+    "generated": "2026-11-28T12:25:16Z",
     "hub": {
         "name": "oridb_data_hub",
         "shortLabel": "OriDB data hub",
@@ -556,6 +556,379 @@
                             ]
                         }
                     ]
+                },
+                {
+                    "id": "reuter2024",
+                    "title": "ORC and MCM2-7 ChIP-exo in G1 and G2 arrest (Reuter et al. 2024), as deposited on sacCer3",
+                    "organism": "Saccharomyces cerevisiae",
+                    "assembly": "sacCer3",
+                    "bin_size_bp": 1,
+                    "measurement": "Orc2 and Mcm4 occupancy by ChIP-exo",
+                    "scale": "combined tracks: CPM with reads extended to ~209 bp, genome-wide mean 17.1 in every sample; strand tracks: coverage per million mapped reads at the 50 bp read length, about 4.2x lower in height for that reason",
+                    "source": {
+                        "doi": "10.1038/s41467-024-51538-9",
+                        "pubmed": "39181881",
+                        "archive_series": [
+                            "GSE240779",
+                            "GSE173527"
+                        ],
+                        "n_runs": 0,
+                        "n_samples_used": 6,
+                        "n_samples_excluded": 2,
+                        "exclusion_reason": "the hub carries the G1 and G2 arrest conditions; the release time course and the per-replicate peak calls were not requested and the peak calls are unfiltered"
+                    },
+                    "n_samples": 6,
+                    "calls": null,
+                    "groups": [
+                        {
+                            "track": "oridb_overview",
+                            "shortLabel": "OriDB overview",
+                            "longLabel": "OriDB overview: one reference track per measurement type, drawn by default",
+                            "container": "",
+                            "tracks": [
+                                {
+                                    "track": "ov_mcm",
+                                    "shortLabel": "MCM4 occupancy",
+                                    "longLabel": "MCM2-7 occupancy at licensed origins, from Mcm4-Flag ChIP-exo in G1-arrested cells (Reuter et al. 2024); replicate 1, CPM, auto-scaled to the window",
+                                    "type": "bigWig",
+                                    "file": "chipexo.mcm4_g1_rep1.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/reuter2024/chipexo.mcm4_g1_rep1.bw",
+                                    "bytes": 3780324,
+                                    "negated": false,
+                                    "viewLimits": "0:600",
+                                    "graphType": "bar"
+                                }
+                            ]
+                        },
+                        {
+                            "track": "reuter2024_orc_mcm_g1",
+                            "shortLabel": "ORC2 vs MCM4 in G1",
+                            "longLabel": "Orc2-Flag against Mcm4-Flag ChIP-exo in G1-arrested cells (Reuter et al. 2024): where ORC sits and where the MCM2-7 double hexamer it loaded ends up; CPM, replicate 1 of each",
+                            "container": "multiWig",
+                            "tracks": [
+                                {
+                                    "track": "orc_mcm_g1_chipexo_orc2_g1_rep1",
+                                    "shortLabel": "ORC2 G1",
+                                    "longLabel": "Orc2-Flag ChIP-exo, G1 arrest, replicate 1",
+                                    "type": "bigWig",
+                                    "file": "chipexo.orc2_g1_rep1.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/reuter2024/chipexo.orc2_g1_rep1.bw",
+                                    "bytes": 4245085,
+                                    "negated": false,
+                                    "viewLimits": "0:600",
+                                    "graphType": "bar"
+                                },
+                                {
+                                    "track": "orc_mcm_g1_chipexo_mcm4_g1_rep1",
+                                    "shortLabel": "MCM4 G1",
+                                    "longLabel": "Mcm4-Flag ChIP-exo, G1 arrest, replicate 1",
+                                    "type": "bigWig",
+                                    "file": "chipexo.mcm4_g1_rep1.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/reuter2024/chipexo.mcm4_g1_rep1.bw",
+                                    "bytes": 3780324,
+                                    "negated": false,
+                                    "viewLimits": "0:600",
+                                    "graphType": "bar"
+                                }
+                            ]
+                        },
+                        {
+                            "track": "reuter2024_orc2_g1_vs_g2",
+                            "shortLabel": "ORC2 G1 vs G2",
+                            "longLabel": "Orc2-Flag ChIP-exo in G1 against G2 arrest (Reuter et al. 2024): the loss of ORC occupancy at origins once licensing is complete; CPM, replicate 1 of each",
+                            "container": "multiWig",
+                            "tracks": [
+                                {
+                                    "track": "orc2_g1_vs_g2_chipexo_orc2_g1_rep1",
+                                    "shortLabel": "ORC2 G1",
+                                    "longLabel": "Orc2-Flag ChIP-exo, G1 arrest, replicate 1",
+                                    "type": "bigWig",
+                                    "file": "chipexo.orc2_g1_rep1.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/reuter2024/chipexo.orc2_g1_rep1.bw",
+                                    "bytes": 4245085,
+                                    "negated": false,
+                                    "viewLimits": "0:600",
+                                    "graphType": "bar"
+                                },
+                                {
+                                    "track": "orc2_g1_vs_g2_chipexo_orc2_g2_rep1",
+                                    "shortLabel": "ORC2 G2",
+                                    "longLabel": "Orc2-Flag ChIP-exo, G2 arrest, replicate 1",
+                                    "type": "bigWig",
+                                    "file": "chipexo.orc2_g2_rep1.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/reuter2024/chipexo.orc2_g2_rep1.bw",
+                                    "bytes": 3580397,
+                                    "negated": false,
+                                    "viewLimits": "0:600",
+                                    "graphType": "bar"
+                                }
+                            ]
+                        },
+                        {
+                            "track": "reuter2024_mcm4_g1_reps",
+                            "shortLabel": "MCM4 G1 replicates",
+                            "longLabel": "Mcm4-Flag ChIP-exo in G1, the two biological replicates against each other (Reuter et al. 2024); Pearson r = 0.997 genome-wide",
+                            "container": "multiWig",
+                            "tracks": [
+                                {
+                                    "track": "mcm4_g1_reps_chipexo_mcm4_g1_rep1",
+                                    "shortLabel": "MCM4 G1 rep1",
+                                    "longLabel": "Mcm4-Flag ChIP-exo, G1 arrest, replicate 1",
+                                    "type": "bigWig",
+                                    "file": "chipexo.mcm4_g1_rep1.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/reuter2024/chipexo.mcm4_g1_rep1.bw",
+                                    "bytes": 3780324,
+                                    "negated": false,
+                                    "viewLimits": "0:600",
+                                    "graphType": "points"
+                                },
+                                {
+                                    "track": "mcm4_g1_reps_chipexo_mcm4_g1_rep2",
+                                    "shortLabel": "MCM4 G1 rep2",
+                                    "longLabel": "Mcm4-Flag ChIP-exo, G1 arrest, replicate 2",
+                                    "type": "bigWig",
+                                    "file": "chipexo.mcm4_g1_rep2.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/reuter2024/chipexo.mcm4_g1_rep2.bw",
+                                    "bytes": 3365418,
+                                    "negated": false,
+                                    "viewLimits": "0:600",
+                                    "graphType": "points"
+                                }
+                            ]
+                        },
+                        {
+                            "track": "reuter2024_orc2_g1_reps",
+                            "shortLabel": "ORC2 G1 replicates",
+                            "longLabel": "Orc2-Flag ChIP-exo in G1, the two biological replicates against each other (Reuter et al. 2024); Pearson r = 0.9925 genome-wide",
+                            "container": "multiWig",
+                            "tracks": [
+                                {
+                                    "track": "orc2_g1_reps_chipexo_orc2_g1_rep1",
+                                    "shortLabel": "ORC2 G1 rep1",
+                                    "longLabel": "Orc2-Flag ChIP-exo, G1 arrest, replicate 1",
+                                    "type": "bigWig",
+                                    "file": "chipexo.orc2_g1_rep1.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/reuter2024/chipexo.orc2_g1_rep1.bw",
+                                    "bytes": 4245085,
+                                    "negated": false,
+                                    "viewLimits": "0:600",
+                                    "graphType": "points"
+                                },
+                                {
+                                    "track": "orc2_g1_reps_chipexo_orc2_g1_rep2",
+                                    "shortLabel": "ORC2 G1 rep2",
+                                    "longLabel": "Orc2-Flag ChIP-exo, G1 arrest, replicate 2",
+                                    "type": "bigWig",
+                                    "file": "chipexo.orc2_g1_rep2.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/reuter2024/chipexo.orc2_g1_rep2.bw",
+                                    "bytes": 5996061,
+                                    "negated": false,
+                                    "viewLimits": "0:600",
+                                    "graphType": "points"
+                                }
+                            ]
+                        },
+                        {
+                            "track": "reuter2024_orc2_g2_reps",
+                            "shortLabel": "ORC2 G2 replicates",
+                            "longLabel": "Orc2-Flag ChIP-exo in G2, the two biological replicates against each other (Reuter et al. 2024); Pearson r = 0.9945 genome-wide",
+                            "container": "multiWig",
+                            "tracks": [
+                                {
+                                    "track": "orc2_g2_reps_chipexo_orc2_g2_rep1",
+                                    "shortLabel": "ORC2 G2 rep1",
+                                    "longLabel": "Orc2-Flag ChIP-exo, G2 arrest, replicate 1",
+                                    "type": "bigWig",
+                                    "file": "chipexo.orc2_g2_rep1.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/reuter2024/chipexo.orc2_g2_rep1.bw",
+                                    "bytes": 3580397,
+                                    "negated": false,
+                                    "viewLimits": "0:600",
+                                    "graphType": "points"
+                                },
+                                {
+                                    "track": "orc2_g2_reps_chipexo_orc2_g2_rep2",
+                                    "shortLabel": "ORC2 G2 rep2",
+                                    "longLabel": "Orc2-Flag ChIP-exo, G2 arrest, replicate 2",
+                                    "type": "bigWig",
+                                    "file": "chipexo.orc2_g2_rep2.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/reuter2024/chipexo.orc2_g2_rep2.bw",
+                                    "bytes": 2988690,
+                                    "negated": false,
+                                    "viewLimits": "0:600",
+                                    "graphType": "points"
+                                }
+                            ]
+                        },
+                        {
+                            "track": "reuter2024_mcm4_g1_strand",
+                            "shortLabel": "MCM4 G1 strand",
+                            "longLabel": "Mcm4-Flag, G1 arrest (Reuter et al. 2024): plus-strand coverage above the axis and minus-strand below, both replicates; the gap between the two strand peaks is the protected footprint",
+                            "container": "multiWig",
+                            "tracks": [
+                                {
+                                    "track": "mcm4_g1_strand_chipexo_mcm4_g1_rep1_pos",
+                                    "shortLabel": "rep1 plus",
+                                    "longLabel": "Mcm4-Flag, G1 arrest, replicate 1, plus-strand read coverage per million mapped reads; exonuclease stop points mark one edge of the footprint",
+                                    "type": "bigWig",
+                                    "file": "chipexo.mcm4_g1_rep1.pos.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/reuter2024/chipexo.mcm4_g1_rep1.pos.bw",
+                                    "bytes": 2309351,
+                                    "negated": false,
+                                    "viewLimits": "-150:150",
+                                    "graphType": "bar"
+                                },
+                                {
+                                    "track": "mcm4_g1_strand_chipexo_mcm4_g1_rep1_neg",
+                                    "shortLabel": "rep1 minus",
+                                    "longLabel": "Mcm4-Flag, G1 arrest, replicate 1, minus-strand read coverage per million mapped reads; exonuclease stop points mark one edge of the footprint",
+                                    "type": "bigWig",
+                                    "file": "chipexo.mcm4_g1_rep1.neg.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/reuter2024/chipexo.mcm4_g1_rep1.neg.bw",
+                                    "bytes": 2317913,
+                                    "negated": false,
+                                    "viewLimits": "-150:150",
+                                    "graphType": "bar"
+                                },
+                                {
+                                    "track": "mcm4_g1_strand_chipexo_mcm4_g1_rep2_pos",
+                                    "shortLabel": "rep2 plus",
+                                    "longLabel": "Mcm4-Flag, G1 arrest, replicate 2, plus-strand read coverage per million mapped reads; exonuclease stop points mark one edge of the footprint",
+                                    "type": "bigWig",
+                                    "file": "chipexo.mcm4_g1_rep2.pos.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/reuter2024/chipexo.mcm4_g1_rep2.pos.bw",
+                                    "bytes": 2084382,
+                                    "negated": false,
+                                    "viewLimits": "-150:150",
+                                    "graphType": "bar"
+                                },
+                                {
+                                    "track": "mcm4_g1_strand_chipexo_mcm4_g1_rep2_neg",
+                                    "shortLabel": "rep2 minus",
+                                    "longLabel": "Mcm4-Flag, G1 arrest, replicate 2, minus-strand read coverage per million mapped reads; exonuclease stop points mark one edge of the footprint",
+                                    "type": "bigWig",
+                                    "file": "chipexo.mcm4_g1_rep2.neg.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/reuter2024/chipexo.mcm4_g1_rep2.neg.bw",
+                                    "bytes": 2092537,
+                                    "negated": false,
+                                    "viewLimits": "-150:150",
+                                    "graphType": "bar"
+                                }
+                            ]
+                        },
+                        {
+                            "track": "reuter2024_orc2_g1_strand",
+                            "shortLabel": "ORC2 G1 strand",
+                            "longLabel": "Orc2-Flag, G1 arrest (Reuter et al. 2024): plus-strand coverage above the axis and minus-strand below, both replicates; the gap between the two strand peaks is the protected footprint",
+                            "container": "multiWig",
+                            "tracks": [
+                                {
+                                    "track": "orc2_g1_strand_chipexo_orc2_g1_rep1_pos",
+                                    "shortLabel": "rep1 plus",
+                                    "longLabel": "Orc2-Flag, G1 arrest, replicate 1, plus-strand read coverage per million mapped reads; exonuclease stop points mark one edge of the footprint",
+                                    "type": "bigWig",
+                                    "file": "chipexo.orc2_g1_rep1.pos.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/reuter2024/chipexo.orc2_g1_rep1.pos.bw",
+                                    "bytes": 2421729,
+                                    "negated": false,
+                                    "viewLimits": "-150:150",
+                                    "graphType": "bar"
+                                },
+                                {
+                                    "track": "orc2_g1_strand_chipexo_orc2_g1_rep1_neg",
+                                    "shortLabel": "rep1 minus",
+                                    "longLabel": "Orc2-Flag, G1 arrest, replicate 1, minus-strand read coverage per million mapped reads; exonuclease stop points mark one edge of the footprint",
+                                    "type": "bigWig",
+                                    "file": "chipexo.orc2_g1_rep1.neg.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/reuter2024/chipexo.orc2_g1_rep1.neg.bw",
+                                    "bytes": 2434782,
+                                    "negated": false,
+                                    "viewLimits": "-150:150",
+                                    "graphType": "bar"
+                                },
+                                {
+                                    "track": "orc2_g1_strand_chipexo_orc2_g1_rep2_pos",
+                                    "shortLabel": "rep2 plus",
+                                    "longLabel": "Orc2-Flag, G1 arrest, replicate 2, plus-strand read coverage per million mapped reads; exonuclease stop points mark one edge of the footprint",
+                                    "type": "bigWig",
+                                    "file": "chipexo.orc2_g1_rep2.pos.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/reuter2024/chipexo.orc2_g1_rep2.pos.bw",
+                                    "bytes": 3303175,
+                                    "negated": false,
+                                    "viewLimits": "-150:150",
+                                    "graphType": "bar"
+                                },
+                                {
+                                    "track": "orc2_g1_strand_chipexo_orc2_g1_rep2_neg",
+                                    "shortLabel": "rep2 minus",
+                                    "longLabel": "Orc2-Flag, G1 arrest, replicate 2, minus-strand read coverage per million mapped reads; exonuclease stop points mark one edge of the footprint",
+                                    "type": "bigWig",
+                                    "file": "chipexo.orc2_g1_rep2.neg.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/reuter2024/chipexo.orc2_g1_rep2.neg.bw",
+                                    "bytes": 3315124,
+                                    "negated": false,
+                                    "viewLimits": "-150:150",
+                                    "graphType": "bar"
+                                }
+                            ]
+                        },
+                        {
+                            "track": "reuter2024_orc2_g2_strand",
+                            "shortLabel": "ORC2 G2 strand",
+                            "longLabel": "Orc2-Flag, G2 arrest (Reuter et al. 2024): plus-strand coverage above the axis and minus-strand below, both replicates; the gap between the two strand peaks is the protected footprint",
+                            "container": "multiWig",
+                            "tracks": [
+                                {
+                                    "track": "orc2_g2_strand_chipexo_orc2_g2_rep1_pos",
+                                    "shortLabel": "rep1 plus",
+                                    "longLabel": "Orc2-Flag, G2 arrest, replicate 1, plus-strand read coverage per million mapped reads; exonuclease stop points mark one edge of the footprint",
+                                    "type": "bigWig",
+                                    "file": "chipexo.orc2_g2_rep1.pos.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/reuter2024/chipexo.orc2_g2_rep1.pos.bw",
+                                    "bytes": 2154773,
+                                    "negated": false,
+                                    "viewLimits": "-150:150",
+                                    "graphType": "bar"
+                                },
+                                {
+                                    "track": "orc2_g2_strand_chipexo_orc2_g2_rep1_neg",
+                                    "shortLabel": "rep1 minus",
+                                    "longLabel": "Orc2-Flag, G2 arrest, replicate 1, minus-strand read coverage per million mapped reads; exonuclease stop points mark one edge of the footprint",
+                                    "type": "bigWig",
+                                    "file": "chipexo.orc2_g2_rep1.neg.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/reuter2024/chipexo.orc2_g2_rep1.neg.bw",
+                                    "bytes": 2157225,
+                                    "negated": false,
+                                    "viewLimits": "-150:150",
+                                    "graphType": "bar"
+                                },
+                                {
+                                    "track": "orc2_g2_strand_chipexo_orc2_g2_rep2_pos",
+                                    "shortLabel": "rep2 plus",
+                                    "longLabel": "Orc2-Flag, G2 arrest, replicate 2, plus-strand read coverage per million mapped reads; exonuclease stop points mark one edge of the footprint",
+                                    "type": "bigWig",
+                                    "file": "chipexo.orc2_g2_rep2.pos.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/reuter2024/chipexo.orc2_g2_rep2.pos.bw",
+                                    "bytes": 1876812,
+                                    "negated": false,
+                                    "viewLimits": "-150:150",
+                                    "graphType": "bar"
+                                },
+                                {
+                                    "track": "orc2_g2_strand_chipexo_orc2_g2_rep2_neg",
+                                    "shortLabel": "rep2 minus",
+                                    "longLabel": "Orc2-Flag, G2 arrest, replicate 2, minus-strand read coverage per million mapped reads; exonuclease stop points mark one edge of the footprint",
+                                    "type": "bigWig",
+                                    "file": "chipexo.orc2_g2_rep2.neg.bw",
+                                    "url": "https://dnareplicationlab.github.io/oridb-data-hub/sacCer3/reuter2024/chipexo.orc2_g2_rep2.neg.bw",
+                                    "bytes": 1879396,
+                                    "negated": false,
+                                    "viewLimits": "-150:150",
+                                    "graphType": "bar"
+                                }
+                            ]
+                        }
+                    ]
                 }
             ]
         },
@@ -973,8 +1346,8 @@
     ],
     "counts": {
         "genomes": 2,
-        "datasets": 6,
-        "tracks": 47,
-        "files": 47
+        "datasets": 7,
+        "tracks": 70,
+        "files": 70
     }
 }
